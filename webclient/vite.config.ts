@@ -21,6 +21,11 @@ export default defineConfig({
   },
   build: {
     outDir: "assets/dist"
+  },
+  server: {
+    proxy: {
+      '/test': 'http://localhost:8448'
+    }
   }
   /* remove the need to specify .vue files https://vitejs.dev/config/#resolve-extensions
   resolve: {

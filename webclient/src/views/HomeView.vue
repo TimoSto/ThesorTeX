@@ -14,5 +14,8 @@ export default defineComponent({
   components: {
     HelloWorld,
   },
+  mounted() {
+    fetch('/test')
+  }
 });
 </script>
