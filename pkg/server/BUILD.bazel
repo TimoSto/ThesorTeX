@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "server",
     srcs = ["server.go"],
-    importpath = "github.com/tendermint/tendermint/pkg/server",
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/server",
     visibility = ["//visibility:public"],
 )
