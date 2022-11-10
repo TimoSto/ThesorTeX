@@ -13,5 +13,9 @@ export default Vue.extend({
   data: () => ({
     //
   }),
+
+  mounted() {
+    document.title = 'ThesorTeX';
+  }
 });
 </script>

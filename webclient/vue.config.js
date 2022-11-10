@@ -4,6 +4,8 @@ module.exports = defineConfig({
     'vuetify'
   ],
   pages: {
-    auth: './src/auth/main.ts'
+    index: './src/pages/index/main.ts',
+    auth: './src/pages/auth/main.ts',
+    app: './src/pages/app/main.ts'
   }
 })
