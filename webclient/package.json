@@ -3,28 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vite preview",
-    "build": "vite build",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "dev": "vite"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@mdi/font": "5.9.55",
     "core-js": "^3.8.3",
-    "roboto-fontface": "*",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "vuetify": "npm:@vuetify/nightly@next",
-    "vuex": "^4.0.0",
-    "webfontloader": "^1.0.0"
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.6.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
-    "@types/webfontloader": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "@vitejs/plugin-vue": "^3.0.3",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
@@ -33,8 +27,8 @@
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
-    "@vue/test-utils": "^2.0.0-0",
-    "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "@vue/test-utils": "^1.1.3",
+    "@vue/vue2-jest": "^27.0.0-alpha.2",
     "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
@@ -43,8 +37,8 @@
     "sass-loader": "^12.0.0",
     "ts-jest": "^27.0.4",
     "typescript": "~4.5.5",
-    "vite": "^3.0.8",
-    "vite-plugin-vuetify": "^1.0.0-alpha.12",
-    "vue-cli-plugin-vuetify": "~2.5.8"
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.0"
   }
 }
