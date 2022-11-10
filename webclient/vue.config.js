@@ -9,3 +9,4 @@ module.exports = defineConfig({
     app: './src/pages/app/main.ts'
   }
 })
+//TODO: Logo: Graduation Head mit TeX drunter geschrieben
