@@ -40,33 +40,15 @@
         </template>
         <template v-slot:right>
           <!--TODO: besseres Bild oder nur eine Grafik-->
-          <TempalteIcon style="max-height: 300px; display: block; margin: 0 auto;"/>
+          <TempalteIcon style="max-height: 250px; display: block; margin: 0 auto;"/>
         </template>
       </TextAndImage>
 
       <TextAndImage>
         <template v-slot:left>
-          <v-img
-              src="/static/images/index/cv.png"
-              contain
-              height="300"
-              width="200"
-              style="margin: 0 auto;"
-          ></v-img>
+
         </template>
         <template v-slot:right>
-          <div class="tile">
-            <p class="tile_heading">{{$t(i18nDictionary.CV.Title)}}</p>
-            <p  class="tile_text" v-html="$t(i18nDictionary.CV.Text)"></p>
-            <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip">
-              <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
-            </a>
-          </div>
-        </template>
-      </TextAndImage>
-
-      <TextAndImage>
-        <template v-slot:left>
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.Bib.Title)}}</p>
             <p  class="tile_text" v-html="$t(i18nDictionary.Bib.Text)"></p>
@@ -75,6 +57,29 @@
           </div>
         </template>
       </TextAndImage>
+
+      <TextAndImage>
+        <template v-slot:left>
+          <div class="tile">
+            <p class="tile_heading">{{$t(i18nDictionary.CV.Title)}}</p>
+            <p  class="tile_text" v-html="$t(i18nDictionary.CV.Text)"></p>
+            <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip">
+              <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
+            </a>
+          </div>
+        </template>
+        <template v-slot:right>
+          <v-img
+              src="/static/images/index/cv.png"
+              contain
+              height="300"
+              width="200"
+              style="margin: 0 auto;"
+          ></v-img>
+        </template>
+      </TextAndImage>
+
+
 
       <v-footer padless color="background">
         <v-col cols="12" class="text-center">
