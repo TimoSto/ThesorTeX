@@ -45,7 +45,7 @@ interface CharChanged {
 }
 
 export function GetStringDifference(oldStr: string, newStr: string): StringDifference {
-    let diff = {
+    const diff = {
         Removed: 0,
         Changed: [],
         Added: []

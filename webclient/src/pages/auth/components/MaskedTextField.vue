@@ -1,14 +1,16 @@
 <template>
   <v-text-field
     :label="label"
-    v-model="valueMasked"
     v-on:input="maskInput"
     ref="tf"
   />
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue";
+import MaskValue from "./MaskValue";
+
+export default Vue.extend({
   name: "MaskedTextField",
   props: [
       'label'
@@ -31,11 +33,18 @@ export default {
     maskInput() {
       const input = this.$refs.tf;
       if( input ) {
-        const valueWithAdded = input.$el.querySelector('input').value;
+        const valueWithAdded = (input).$el.querySelector('input').value;
+        const currentState = {
+          CurrentValue: this.value,
+          CurrentMask: this.valueMasked,
+          InputState: valueWithAdded
+        }
+        const newState = MaskValue(currentState);
+        console.log(newState, currentState)
       }
     }
   }
-}
+})
 </script>
 
 <style scoped>
