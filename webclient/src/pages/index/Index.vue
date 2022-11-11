@@ -101,6 +101,7 @@ export default Vue.extend({
 <style lang="scss">
 .tile {
   //text-align: center;
+  padding: 8px;
   & .tile_heading {
     font-size: 30px;
   }
