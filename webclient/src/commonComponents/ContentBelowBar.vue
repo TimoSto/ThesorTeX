@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-      style="overflow-y: auto;"
+      style="overflow-y: auto"
       :style="`
         height: calc(100% - ${barHeight}px);
         margin-top: ${barHeight}px;
