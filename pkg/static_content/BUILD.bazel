@@ -3,7 +3,10 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "static_content",
     srcs = ["static_content.go"],
-    embedsrcs = ["static/images/index/toc.png"],
+    embedsrcs = [
+        "static/images/index/toc.png",
+        "static/images/index/cv.png",
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/static_content",
     visibility = ["//visibility:public"],
     deps = ["//pkg/server"],

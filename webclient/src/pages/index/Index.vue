@@ -49,7 +49,13 @@
 
       <TextAndImage>
         <template v-slot:left>
-
+          <v-img
+              src="/static/images/index/cv.png"
+              contain
+              height="300"
+              width="200"
+              style="margin: 0 auto;"
+          ></v-img>
         </template>
         <template v-slot:right>
           <div class="tile">
