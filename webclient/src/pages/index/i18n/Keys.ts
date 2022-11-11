@@ -2,9 +2,10 @@
 export type TranslationKeys = typeof i18nDictionary
 
 export const i18nDictionary = {
-    Login: 'Login',
     Common: {
-        Download: 'Common.Download'
+        Download: 'Common.Download',
+        Login: 'Common.Login',
+        ContinueWithoutLogin: 'Common.ContinueWithoutLogin'
     },
     Template: {
         Title: 'Template.Title',
@@ -13,5 +14,9 @@ export const i18nDictionary = {
     CV: {
         Title: 'CV.Title',
         Text: 'CV.Text'
+    },
+    Bib: {
+        Title: 'Bib.Title',
+        Text: 'Bib.Text'
     }
 }
