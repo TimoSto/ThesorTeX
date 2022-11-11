@@ -2,6 +2,7 @@
   <v-text-field
     :label="label"
     v-on:input="maskInput"
+    v-model="inputValue"
     ref="tf"
   />
 </template>
@@ -26,21 +27,24 @@ export default Vue.extend({
   data() {
     return {
       value: '',
-      valueMasked: ''
+      valueMasked: '',
+      inputValue: ''
     }
   },
   methods: {
     maskInput() {
       const input = this.$refs.tf;
       if( input ) {
-        const valueWithAdded = (input).$el.querySelector('input').value;
         const currentState = {
           CurrentValue: this.value,
           CurrentMask: this.valueMasked,
-          InputState: valueWithAdded
+          InputState: this.inputValue
         }
         const newState = MaskValue(currentState);
         console.log(newState, currentState)
+        this.value = newState.CurrentValue;
+        this.valueMasked = newState.CurrentMask;
+        this.inputValue = newState.CurrentMask;
       }
     }
   }
