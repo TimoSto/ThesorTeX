@@ -52,7 +52,7 @@ describe("Handling masked input", () => {
                     InputState: 'a'
                 });
 
-                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                expect(res).toEqual({
                     CurrentValue: 'a',
                     CurrentMask: '•',
                     InputState: ''
