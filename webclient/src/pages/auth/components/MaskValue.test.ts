@@ -70,5 +70,18 @@ describe("Handling masked input", () => {
                 InputState: ''
             })
         })
+        it('third input', () => {
+            const res = MaskValue({
+                CurrentValue: 'ab',
+                CurrentMask: '##',
+                InputState: '##c'
+            });
+
+            expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                CurrentValue: 'abc',
+                CurrentMask: '###',
+                InputState: ''
+            })
+        })
     })
 })
