@@ -24,6 +24,7 @@
       padding-x="16"
       padding-y="0"
     >
+
       <TextAndImage
         style="height: 400px"
       >
@@ -45,6 +46,20 @@
           ></v-img>
         </template>
       </TextAndImage>
+
+      <TextAndImage>
+        <template v-slot:left>
+
+        </template>
+        <template v-slot:right>
+          <div class="tile">
+            <p class="tile_heading">{{$t(i18nDictionary.CV.Title)}}</p>
+            <p  class="tile_text" v-html="$t(i18nDictionary.CV.Text)"></p>
+            <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
+          </div>
+        </template>
+      </TextAndImage>
+
     </ContentBelowBar>
   </v-app>
 </template>

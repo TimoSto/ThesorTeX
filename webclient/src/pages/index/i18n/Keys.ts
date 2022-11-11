@@ -9,5 +9,9 @@ export const i18nDictionary = {
     Template: {
         Title: 'Template.Title',
         Text: 'Template.Text'
+    },
+    CV: {
+        Title: 'CV.Title',
+        Text: 'CV.Text'
     }
 }
