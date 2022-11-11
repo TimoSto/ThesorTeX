@@ -24,7 +24,9 @@
       padding-x="16"
       padding-y="0"
     >
-      hallo
+      <TextAndImage
+        style="height: 400px"
+      />
     </ContentBelowBar>
   </v-app>
 </template>
@@ -33,10 +35,11 @@
 import Vue from 'vue';
 import LogoSVG from "../../commonComponents/LogoSVG.vue";
 import ContentBelowBar from "../../commonComponents/ContentBelowBar.vue";
+import TextAndImage from "./components/TextAndImage.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {ContentBelowBar, LogoSVG},
+  components: {TextAndImage, ContentBelowBar, LogoSVG},
   data: () => ({
     //
   }),
