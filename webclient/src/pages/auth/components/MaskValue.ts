@@ -20,12 +20,31 @@ interface CharChanged {
     New: string
 }
 
-function GetStringDifference(oldStr: string, newStr: string): StringDifference {
+export function GetStringDifference(oldStr: string, newStr: string): StringDifference {
     let diff = {
         Removed: 0,
         Changed: [],
         Added: []
     } as StringDifference
+
+    const lengthDiff = oldStr.length - newStr.length;
+    if( lengthDiff > 0 ) {
+        diff.Removed = lengthDiff;
+    }
+
+    for( let i = 0 ; i < newStr.length ; i++ ) {
+        if( i < oldStr.length ) {
+            if( oldStr.charAt(i) !== newStr.charAt(i) ) {
+                diff.Changed.push({
+                    Index: i,
+                    Old: oldStr.charAt(i),
+                    New: newStr.charAt(i)
+                })
+            }
+        } else {
+            diff.Added.push(newStr.charAt(i))
+        }
+    }
 
     return diff
 }
