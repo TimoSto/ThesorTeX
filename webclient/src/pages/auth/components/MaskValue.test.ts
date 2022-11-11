@@ -16,5 +16,30 @@ describe("Handling masked input", () => {
                 Added: ['b']
             });
         })
+        it('should work on removing last', () => {
+            expect(GetStringDifference('ab', 'a')).toEqual({
+                Removed: 1,
+                Changed: [],
+                Added: []
+            });
+        })
+        it('should work on removing first', () => {
+            expect(GetStringDifference('acb', 'cb')).toEqual({
+                Removed: 1,
+                Changed: [
+                    {
+                        Index: 0,
+                        Old: 'a',
+                        New: 'c'
+                    },
+                    {
+                        Index: 1,
+                        Old: 'c',
+                        New: 'b'
+                    }
+                ],
+                Added: []
+            });
+        })
     })
 })
