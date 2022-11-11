@@ -69,13 +69,7 @@
           </div>
         </template>
         <template v-slot:right>
-          <v-img
-              src="/static/images/index/cv.png"
-              contain
-              height="300"
-              width="200"
-              style="margin: 0 auto;"
-          ></v-img>
+          <TempalteIcon style="max-height: 250px; display: block; margin: 0 auto;"/>
         </template>
       </TextAndImage>
 
