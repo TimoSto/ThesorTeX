@@ -29,9 +29,8 @@
       >
         <template v-slot:left>
           <div class="tile">
-            <span class="tile_heading">Dokumente mit wissenschaftlichem Anspruch</span>
-            <br>
-            <span>Die TeX-Vorlage erfüllt übliche Anforderungen an wissenschaftliche Arbeiten, wie z.B. eine Bachelorarbeit.</span>
+            <p class="tile_heading">Vorlage für Dokumente mit wissenschaftlichem Anspruch</p>
+            <p  class="tile_text">Die TeX-Vorlage erfüllt übliche Anforderungen an wissenschaftliche Arbeiten, wie z.B. eine Bachelorarbeit.</p>
             <v-btn block color="primary">Herunterladen</v-btn>
           </div>
         </template>
@@ -46,6 +45,7 @@ import LogoSVG from "../../commonComponents/LogoSVG.vue";
 import ContentBelowBar from "../../commonComponents/ContentBelowBar.vue";
 import TextAndImage from "./components/TextAndImage.vue";
 
+//TODO: Präsentationen bereich
 export default Vue.extend({
   name: 'App',
   components: {TextAndImage, ContentBelowBar, LogoSVG},
@@ -64,6 +64,10 @@ export default Vue.extend({
   //text-align: center;
   & .tile_heading {
     font-size: 30px;
+  }
+  & .tile_text {
+    font-size: 20px;
+    color: var(--v-accent-lighten4);
   }
 }
 </style>
