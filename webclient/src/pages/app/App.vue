@@ -19,3 +19,8 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped>
+@import '../../../node_modules/typeface-roboto/index.css';
+
+</style>

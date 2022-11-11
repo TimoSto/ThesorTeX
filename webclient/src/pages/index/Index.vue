@@ -109,6 +109,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import '../../../node_modules/typeface-roboto/index.css';
+
 .tile {
   //text-align: center;
   padding: 8px;

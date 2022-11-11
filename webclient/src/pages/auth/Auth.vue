@@ -29,15 +29,15 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+@import '../../../node_modules/typeface-roboto/index.css';
+
 .centered {
   margin: 0;
   position: absolute;
   top: 30%;
   left: 50%;
-  -ms-transform: translateY(-30%);
-  transform: translateY(-30%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -ms-transform: translateY(-30%) translateX(-50%);
+  transform: translateY(-30%) translateX(-50%);
   width: 300px;
   background-color: var(--v-background-base);
 }
