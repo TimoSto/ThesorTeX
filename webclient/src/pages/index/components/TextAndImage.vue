@@ -18,7 +18,7 @@ export default {
 <style scoped lang="scss">
 .container{
   width: calc(100% - 32px);
-  margin: 0 auto;
+  margin: 16px auto;
   display: flex;
   & div {
     height: 100%;

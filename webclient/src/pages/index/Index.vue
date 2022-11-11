@@ -27,9 +27,7 @@
       scroll-id="index-content"
     >
 
-      <TextAndImage
-        style="height: 400px"
-      >
+      <TextAndImage>
         <template v-slot:left>
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.Template.Title)}}</p>
