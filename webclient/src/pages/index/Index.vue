@@ -31,8 +31,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LogoSVG from "../../components/LogoSVG.vue";
-import ContentBelowBar from "../../components/ContentBelowBar.vue";
+import LogoSVG from "../../commonComponents/LogoSVG.vue";
+import ContentBelowBar from "../../commonComponents/ContentBelowBar.vue";
 
 export default Vue.extend({
   name: 'App',
