@@ -1,11 +1,32 @@
 /**
  * Function to update the value of a masked input field
- * @param value value before input and unmasked
- * @param mask value before input but masked
- * @param inputValue value after input, initial value is masked, now entered is unmasked
+ * @param CurrentValue value before input and unmasked
+ * @param CurrentMask value before input but masked
+ * @param InputState value inside input, initial value is masked, now entered is unmasked
  */
-export default function MaskValue(value: string, mask: string, inputValue: string) {
 
+export interface MaskState {
+    CurrentValue: string
+    CurrentMask: string
+    InputState: string
+}
+
+const maskChar = '#';
+
+export default function MaskValue(state: MaskState): MaskState {
+    const newMask: MaskState = {
+        CurrentValue: '',
+        CurrentMask: '',
+        InputState: '',
+    }
+    const diff_value = GetStringDifference(state.CurrentValue, state.InputState);
+
+    for( let i = 0; i < diff_value.Added.length ; i++ ) {
+        newMask.CurrentValue += diff_value.Added[i];
+        newMask.CurrentMask += maskChar;
+    }
+
+    return newMask;
 }
 
 interface StringDifference {

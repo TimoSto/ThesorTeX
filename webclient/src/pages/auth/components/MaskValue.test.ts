@@ -1,4 +1,4 @@
-import {GetStringDifference} from "@/pages/auth/components/MaskValue";
+import MaskValue, {GetStringDifference} from "@/pages/auth/components/MaskValue";
 
 describe("Handling masked input", () => {
     describe("GetDiff", () => {
@@ -40,6 +40,22 @@ describe("Handling masked input", () => {
                 ],
                 Added: []
             });
+        })
+    })
+
+    describe('getNewMaskState', () => {
+        it('first input', () => {
+            const res = MaskValue({
+                CurrentValue: '',
+                CurrentMask: '',
+                InputState: 'a'
+            });
+
+            expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                CurrentValue: 'a',
+                CurrentMask: '#',
+                InputState: ''
+            })
         })
     })
 })
