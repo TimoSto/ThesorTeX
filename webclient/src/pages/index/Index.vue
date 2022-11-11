@@ -29,10 +29,20 @@
       >
         <template v-slot:left>
           <div class="tile">
-            <p class="tile_heading">Vorlage für Dokumente mit wissenschaftlichem Anspruch</p>
-            <p  class="tile_text">Die TeX-Vorlage erfüllt übliche Anforderungen an wissenschaftliche Arbeiten, wie z.B. eine Bachelorarbeit.</p>
-            <v-btn block color="primary">Herunterladen</v-btn>
+            <p class="tile_heading">{{$t(i18nDictionary.Template.Title)}}</p>
+            <p  class="tile_text" v-html="$t(i18nDictionary.Template.Text)"></p>
+            <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
           </div>
+        </template>
+        <template v-slot:right>
+          <!--TODO: besseres Bild oder nur eine Grafik-->
+          <v-img
+            src="/static/images/index/toc.png"
+            contain
+            height="300"
+            width="200"
+            style="margin: 0 auto;"
+          ></v-img>
         </template>
       </TextAndImage>
     </ContentBelowBar>
