@@ -60,6 +60,13 @@
         </template>
       </TextAndImage>
 
+      <v-footer padless color="background">
+        <v-col cols="12" class="text-center">
+          <v-icon>mdi-copyright</v-icon>
+          ThesorTeX
+        </v-col>
+      </v-footer>
+
     </ContentBelowBar>
   </v-app>
 </template>
