@@ -44,56 +44,99 @@ describe("Handling masked input", () => {
     })
 
     describe('getNewMaskState', () => {
-        it('first input', () => {
-            const res = MaskValue({
-                CurrentValue: '',
-                CurrentMask: '',
-                InputState: 'a'
-            });
+        describe('input at end', () => {
+            it('first input', () => {
+                const res = MaskValue({
+                    CurrentValue: '',
+                    CurrentMask: '',
+                    InputState: 'a'
+                });
 
-            expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
-                CurrentValue: 'a',
-                CurrentMask: '#',
-                InputState: ''
+                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                    CurrentValue: 'a',
+                    CurrentMask: '#',
+                    InputState: ''
+                })
+            })
+            it('second input', () => {
+                const res = MaskValue({
+                    CurrentValue: 'a',
+                    CurrentMask: '#',
+                    InputState: '#b'
+                });
+
+                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                    CurrentValue: 'ab',
+                    CurrentMask: '##',
+                    InputState: ''
+                })
+            })
+            it('third input', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '##',
+                    InputState: '##c'
+                });
+
+                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                    CurrentValue: 'abc',
+                    CurrentMask: '###',
+                    InputState: ''
+                })
+            })
+            it('multiple char input', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '##',
+                    InputState: '##cdefg'
+                });
+
+                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                    CurrentValue: 'abcdefg',
+                    CurrentMask: '#######',
+                    InputState: ''
+                })
             })
         })
-        it('second input', () => {
-            const res = MaskValue({
-                CurrentValue: 'a',
-                CurrentMask: '#',
-                InputState: '#b'
-            });
+        describe('remove from end', () => {
+            it('rm second char', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '##',
+                    InputState: '#'
+                });
 
-            expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
-                CurrentValue: 'ab',
-                CurrentMask: '##',
-                InputState: ''
+                expect(res).toEqual({
+                    CurrentValue: 'a',
+                    CurrentMask: '#',
+                    InputState: ''
+                })
             })
-        })
-        it('third input', () => {
-            const res = MaskValue({
-                CurrentValue: 'ab',
-                CurrentMask: '##',
-                InputState: '##c'
-            });
+            it('rm first char', () => {
+                const res = MaskValue({
+                    CurrentValue: 'a',
+                    CurrentMask: '#',
+                    InputState: ''
+                });
 
-            expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
-                CurrentValue: 'abc',
-                CurrentMask: '###',
-                InputState: ''
+                expect(res).toEqual({
+                    CurrentValue: '',
+                    CurrentMask: '',
+                    InputState: ''
+                })
             })
-        })
-        it('multiple char input', () => {
-            const res = MaskValue({
-                CurrentValue: 'ab',
-                CurrentMask: '##',
-                InputState: '##cdefg'
-            });
+            it('rm multiple chars', () => {
+                const res = MaskValue({
+                    CurrentValue: 'abcd',
+                    CurrentMask: '####',
+                    InputState: '#'
+                });
 
-            expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
-                CurrentValue: 'abcdefg',
-                CurrentMask: '#######',
-                InputState: ''
+                expect(res).toEqual({
+                    CurrentValue: 'a',
+                    CurrentMask: '#',
+                    InputState: ''
+                })
             })
         })
     })

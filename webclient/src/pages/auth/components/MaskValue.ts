@@ -27,6 +27,9 @@ export default function MaskValue(state: MaskState): MaskState {
         newMask.CurrentMask += maskChar;
     }
 
+    newMask.CurrentValue = newMask.CurrentValue.substring(0, newMask.CurrentValue.length - diff_value.Removed);
+    newMask.CurrentMask = newMask.CurrentMask.substring(0, newMask.CurrentMask.length - diff_value.Removed);
+
     return newMask;
 }
 
