@@ -2,7 +2,8 @@
   <v-app>
     <v-app-bar
       fixed
-      elevation="0"
+      elevate-on-scroll
+      scroll-target="#index-content"
       color="background"
     >
       <LogoSVG
@@ -23,6 +24,7 @@
       bar-height="64"
       padding-x="16"
       padding-y="0"
+      scroll-id="index-content"
     >
 
       <TextAndImage
@@ -61,13 +63,6 @@
       </TextAndImage>
 
     </ContentBelowBar>
-
-    <v-footer padless color="background">
-      <v-col class="text-center" cols="12">
-        <v-icon>mdi-copyright</v-icon>
-        ThesorTeX 2022
-      </v-col>
-    </v-footer>
   </v-app>
 </template>
 

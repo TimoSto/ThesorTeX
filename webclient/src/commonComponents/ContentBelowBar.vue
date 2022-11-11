@@ -1,13 +1,15 @@
 <template>
   <v-sheet
-      style="overflow-y: auto"
+      style="overflow-y: auto" :id="scrollId"
       :style="`
-        height: calc(100% - ${barHeight}px);
+        max-height: calc(100vh - ${barHeight}px);
         margin-top: ${barHeight}px;
         padding: ${paddingY}px ${paddingX}px;
         `"
   >
-    <slot></slot>
+    <div>
+      <slot></slot>
+    </div>
   </v-sheet>
 </template>
 
@@ -17,7 +19,7 @@ export default {
   props: [
       'barHeight',
       'paddingX',
-      'paddingY'
+      'paddingY','scrollId'
   ]
 }
 </script>
