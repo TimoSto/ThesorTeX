@@ -5,5 +5,8 @@ go_library(
     srcs = ["backend.go"],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend",
     visibility = ["//visibility:public"],
-    deps = ["//pkg/server"],
+    deps = [
+        "//pkg/server",
+        "//pkg/static_content",
+    ],
 )

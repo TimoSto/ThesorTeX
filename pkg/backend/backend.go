@@ -1,18 +1,14 @@
 package backend
 
 import (
-	"fmt"
-	"net/http"
-
 	"github.com/TimoSto/ThesorTeX/pkg/server"
+	"github.com/TimoSto/ThesorTeX/pkg/static_content"
 )
 
 func Start() {
 	srv := server.New("8448") //TODO: port from config
 
-	srv.Register("/test", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("hi")
-	})
+	static_content.Register(srv)
 
 	finished := make(chan bool)
 	srv.Start(finished)
