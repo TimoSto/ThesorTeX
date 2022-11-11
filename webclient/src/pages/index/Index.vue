@@ -46,7 +46,7 @@
 
       <TextAndImage>
         <template v-slot:left>
-
+          <TempalteIcon style="max-height: 250px; display: block; margin: 0 auto;" :show-icon="true"/>
         </template>
         <template v-slot:right>
           <div class="tile">
