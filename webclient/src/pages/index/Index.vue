@@ -15,7 +15,7 @@
 
       <v-spacer />
 
-      <v-btn text color="primary">
+      <v-btn text color="primary" @click="toLogin">
         {{$t(i18nDictionary.Common.Login)}}
       </v-btn>
 
@@ -52,7 +52,7 @@
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.Bib.Title)}}</p>
             <p  class="tile_text" v-html="$t(i18nDictionary.Bib.Text)"></p>
-            <v-btn block color="primary" style="margin-bottom: 8px">{{$t(i18nDictionary.Common.Login)}}</v-btn>
+            <v-btn block color="primary" style="margin-bottom: 8px" @click="toLogin">{{$t(i18nDictionary.Common.Login)}}</v-btn>
             <v-btn block text color="primary">{{$t(i18nDictionary.Common.ContinueWithoutLogin)}}</v-btn>
           </div>
         </template>
@@ -104,6 +104,12 @@ export default Vue.extend({
 
   mounted() {
     document.title = 'ThesorTeX - Info';
+  },
+
+  methods: {
+    toLogin() {
+      window.location.href = '/auth.html/#/';
+    }
   }
 });
 </script>
