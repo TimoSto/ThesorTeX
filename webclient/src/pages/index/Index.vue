@@ -15,7 +15,7 @@
       <v-spacer />
 
       <v-btn text color="primary">
-        Anmelden
+        {{$t(i18nDictionary.Login)}}
       </v-btn>
 
     </v-app-bar>
@@ -44,13 +44,14 @@ import Vue from 'vue';
 import LogoSVG from "../../commonComponents/LogoSVG.vue";
 import ContentBelowBar from "../../commonComponents/ContentBelowBar.vue";
 import TextAndImage from "./components/TextAndImage.vue";
+import {i18nDictionary} from "./i18n/Keys";
 
 //TODO: Präsentationen bereich
 export default Vue.extend({
   name: 'App',
   components: {TextAndImage, ContentBelowBar, LogoSVG},
   data: () => ({
-    //
+    i18nDictionary: i18nDictionary
   }),
 
   mounted() {
