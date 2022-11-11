@@ -32,7 +32,10 @@
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.Template.Title)}}</p>
             <p  class="tile_text" v-html="$t(i18nDictionary.Template.Text)"></p>
-            <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
+            <a href="/static/downloads/projectTemplate.zip" download="projectTemplate.zip">
+              <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
+            </a>
+
           </div>
         </template>
         <template v-slot:right>
@@ -61,7 +64,9 @@
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.CV.Title)}}</p>
             <p  class="tile_text" v-html="$t(i18nDictionary.CV.Text)"></p>
-            <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
+            <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip">
+              <v-btn block color="primary">{{$t(i18nDictionary.Common.Download)}}</v-btn>
+            </a>
           </div>
         </template>
       </TextAndImage>
