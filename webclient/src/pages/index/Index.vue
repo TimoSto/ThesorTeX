@@ -26,7 +26,16 @@
     >
       <TextAndImage
         style="height: 400px"
-      />
+      >
+        <template v-slot:left>
+          <div class="tile">
+            <span class="tile_heading">Dokumente mit wissenschaftlichem Anspruch</span>
+            <br>
+            <span>Die TeX-Vorlage erfüllt übliche Anforderungen an wissenschaftliche Arbeiten, wie z.B. eine Bachelorarbeit.</span>
+            <v-btn block color="primary">Herunterladen</v-btn>
+          </div>
+        </template>
+      </TextAndImage>
     </ContentBelowBar>
   </v-app>
 </template>
@@ -49,3 +58,12 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss">
+.tile {
+  //text-align: center;
+  & .tile_heading {
+    font-size: 30px;
+  }
+}
+</style>
