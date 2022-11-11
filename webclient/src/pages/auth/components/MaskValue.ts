@@ -20,7 +20,6 @@ export default function MaskValue(state: MaskState): MaskState {
         InputState: '',
     }
     const diff_value = GetStringDifference(state.CurrentValue, state.InputState);
-    const diff_mask = GetStringDifference(state.CurrentMask, state.InputState);
 
     for( let i = 0; i < diff_value.Added.length ; i++ ) {
         newMask.CurrentValue += diff_value.Added[i];
