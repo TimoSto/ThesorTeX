@@ -12,5 +12,9 @@ export const EnglishTranslations: TranslationKeys = {
         Forgot: 'Forgot password',
         NotRegistered: 'Not registered yet?',
         ContinueWithoutLogin: 'Continue without login'
+    },
+    Register: {
+        Title: 'Registration',
+        RepeatPassword: 'Repeat password'
     }
 }

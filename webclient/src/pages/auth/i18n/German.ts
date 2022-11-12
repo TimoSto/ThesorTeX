@@ -12,5 +12,9 @@ export const GermanTranslations: TranslationKeys = {
         Forgot: 'Passwort vergessen',
         NotRegistered: 'Noch nicht registriert?',
         ContinueWithoutLogin: 'Ohne Anmeldung fortfahren'
+    },
+    Register: {
+        Title: 'ThesorTeX - Registrierung',
+        RepeatPassword: 'Passwort wiederholden'
     }
 }

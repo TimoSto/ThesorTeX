@@ -13,5 +13,9 @@ export const i18nDictionary = {
         Forgot: 'Login.Forgot',
         NotRegistered: 'Login.NotRegistered',
         ContinueWithoutLogin: 'Login.ContinueWithoutLogin'
+    },
+    Register: {
+        Title: 'Register.Title',
+        RepeatPassword: 'Register.RepeatPassword'
     }
 }

@@ -3,7 +3,7 @@
     <v-card-title
         style="display: block; text-align: center"
     >
-      {{$t(i18nDictionary.Login.Title)}}
+      {{$t(i18nDictionary.Register.Title)}}
     </v-card-title>
     <v-card-text>
       <v-text-field
@@ -14,18 +14,15 @@
           :label="$t(i18nDictionary.Common.Password)"
       />
 
+      <MaskedTextField
+          :label="$t(i18nDictionary.Register.RepeatPassword)"
+      />
+
       <v-btn block color="primary" style="margin-bottom: 8px">
-        {{$t(i18nDictionary.Login.Login)}}
-      </v-btn>
-      <v-btn block text color="primary" style="margin-bottom: 16px">
-        {{$t(i18nDictionary.Login.Forgot)}}
-      </v-btn>
-      <h3 style="margin-bottom: 8px">{{$t(i18nDictionary.Login.NotRegistered)}}</h3>
-      <v-btn text color="primary" to="/register">
         {{$t(i18nDictionary.Common.Register)}}
       </v-btn>
-      <v-btn text color="primary">
-        {{$t(i18nDictionary.Login.ContinueWithoutLogin)}}
+      <v-btn block text color="primary">
+        {{$t(i18nDictionary.Login.Login)}}
       </v-btn>
 
     </v-card-text>
@@ -34,11 +31,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import MaskedTextField from "../components/MaskedTextField.vue";
 import {i18nDictionary} from "../i18n/Keys";
+import MaskedTextField from "../components/MaskedTextField.vue";
 
 export default Vue.extend({
-  name: "LoginView",
+  name: "RegisterView",
   components: {MaskedTextField},
   data() {
     return {
