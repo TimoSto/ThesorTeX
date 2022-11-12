@@ -18,7 +18,8 @@ export const i18nDictionary = {
         Title: 'Register.Title',
         RepeatPassword: 'Register.RepeatPassword',
         PasswordRules: {
-            Length: 'Register.PasswordRules.Length'
+            Length: 'Register.PasswordRules.Length',
+            Contains: 'Register.PasswordRules.Contains',
         }
     }
 }
