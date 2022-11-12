@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './Auth.vue'
-import router from '../../router'
+import router from './router'
 import store from '../../store'
 import vuetify from '../../plugins/vuetify'
 

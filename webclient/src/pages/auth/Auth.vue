@@ -6,21 +6,9 @@
           style="height: 45px; margin: 0 auto; display: block"
           font-color="rgba(0,0,0,0.7)"
       />
-      <v-card-title
-        style="display: block; text-align: center"
-      >
-        ThesorTeX - Anmeldung
-      </v-card-title>
-      <v-card-text>
-        <v-text-field
-          label="Benutzername"
-        />
 
-        <MaskedTextField
-          label="Passwort"
-        />
+      <router-view />
 
-      </v-card-text>
     </v-card>
   </v-app>
 </template>
@@ -28,11 +16,10 @@
 <script lang="ts">
 import Vue from 'vue';
 import LogoSVG from "../../commonComponents/LogoSVG.vue";
-import MaskedTextField from "./components/MaskedTextField.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {MaskedTextField, LogoSVG},
+  components: {LogoSVG},
   data: () => ({
     //
   }),
