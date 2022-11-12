@@ -7,6 +7,7 @@
     @click:append="isMasked = !isMasked"
     :rules="appliedRules"
     style="margin-bottom: 8px"
+    @blur="hasBeenBlurred = true"
   />
 </template>
 
@@ -29,7 +30,8 @@ export default Vue.extend({
       value: '',
       valueMasked: '',
       inputValue: '',
-      isMasked: true
+      isMasked: true,
+      hasBeenBlurred: false
     }
   },
   watch: {
@@ -62,7 +64,8 @@ export default Vue.extend({
   computed: {
     appliedRules(): ((v: string) => boolean|string)[] {
 
-      if( !this.rules ) return [];
+      //if no rules are set or textfield has not been blurred yet, dont check rules
+      if( !this.rules || !this.hasBeenBlurred ) return [];
 
       return [
         (v: string) => {
