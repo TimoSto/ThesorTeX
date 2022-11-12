@@ -65,7 +65,7 @@ describe("Handling masked input", () => {
                     InputState: '•b'
                 });
 
-                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                expect(res).toEqual({
                     CurrentValue: 'ab',
                     CurrentMask: '••',
                     InputState: ''
@@ -78,7 +78,7 @@ describe("Handling masked input", () => {
                     InputState: '••c'
                 });
 
-                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                expect(res).toEqual({
                     CurrentValue: 'abc',
                     CurrentMask: '•••',
                     InputState: ''
@@ -91,7 +91,7 @@ describe("Handling masked input", () => {
                     InputState: '••cdefg'
                 });
 
-                expect(res).toEqual({//TODO: unicode &bull; für mask verwenden
+                expect(res).toEqual({
                     CurrentValue: 'abcdefg',
                     CurrentMask: '•••••••',
                     InputState: ''
