@@ -24,7 +24,7 @@
       <v-btn block color="primary" style="margin: 8px 0">
         {{$t(i18nDictionary.Common.Register)}}
       </v-btn>
-      <v-btn block text color="primary">
+      <v-btn block text color="primary" to="/">
         {{$t(i18nDictionary.Login.Login)}}
       </v-btn>
 

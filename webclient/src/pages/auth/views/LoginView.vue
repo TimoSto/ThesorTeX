@@ -21,10 +21,10 @@
         {{$t(i18nDictionary.Login.Forgot)}}
       </v-btn>
       <h3 style="margin-bottom: 8px">{{$t(i18nDictionary.Login.NotRegistered)}}</h3>
-      <v-btn text color="primary" to="/register">
+      <v-btn block text color="primary" to="/register">
         {{$t(i18nDictionary.Common.Register)}}
       </v-btn>
-      <v-btn text color="primary">
+      <v-btn block text color="primary">
         {{$t(i18nDictionary.Login.ContinueWithoutLogin)}}
       </v-btn>
 
