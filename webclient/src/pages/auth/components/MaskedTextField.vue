@@ -3,7 +3,6 @@
     :label="label"
     v-on:input="maskInput"
     v-model="inputValue"
-    ref="tf"
   />
 </template>
 
@@ -16,14 +15,6 @@ export default Vue.extend({
   props: [
       'label'
   ],
-  watch: {
-    // valueMasked() {
-    //   this.value += this.valueMasked.charAt(this.valueMasked.length - 1)
-    //   console.log(this.value)
-    //   this.valueMasked = this.valueMasked.substring(this.valueMasked.length - 2)
-    //   this.valueMasked += '#';
-    // }
-  },
   data() {
     return {
       value: '',
@@ -33,19 +24,15 @@ export default Vue.extend({
   },
   methods: {
     maskInput() {
-      const input = this.$refs.tf;
-      if( input ) {
-        const currentState = {
-          CurrentValue: this.value,
-          CurrentMask: this.valueMasked,
-          InputState: this.inputValue
-        }
-        const newState = MaskValue(currentState);
-        console.log(newState, currentState)
-        this.value = newState.CurrentValue;
-        this.valueMasked = newState.CurrentMask;
-        this.inputValue = newState.CurrentMask;
+      const currentState = {
+        CurrentValue: this.value,
+        CurrentMask: this.valueMasked,
+        InputState: this.inputValue
       }
+      const newState = MaskValue(currentState);
+      this.value = newState.CurrentValue;
+      this.valueMasked = newState.CurrentMask;
+      this.inputValue = newState.CurrentMask;
     }
   }
 })
