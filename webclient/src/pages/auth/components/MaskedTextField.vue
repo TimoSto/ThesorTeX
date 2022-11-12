@@ -3,12 +3,14 @@
     :label="label"
     v-on:input="maskInput"
     v-model="inputValue"
+    :append-icon="isMasked ? 'mdi-eye' : 'mdi-eye-off'"
+    @click:append="isMasked = !isMasked"
   />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import MaskValue from "./MaskValue";
+import MaskValue, {maskChar} from "./MaskValue";
 
 export default Vue.extend({
   name: "MaskedTextField",
@@ -19,11 +21,26 @@ export default Vue.extend({
     return {
       value: '',
       valueMasked: '',
-      inputValue: ''
+      inputValue: '',
+      isMasked: true
+    }
+  },
+  watch: {
+    isMasked() {
+      if( !this.isMasked ) {
+        this.inputValue = this.value;
+      } else {
+        this.valueMasked = maskChar.repeat(this.inputValue.length);
+        this.maskInput()
+      }
     }
   },
   methods: {
     maskInput() {
+      if( !this.isMasked ) {
+        this.value = this.inputValue;
+        return;
+      }
       const currentState = {
         CurrentValue: this.value,
         CurrentMask: this.valueMasked,

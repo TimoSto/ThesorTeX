@@ -11,7 +11,7 @@ export interface MaskState {
     InputState: string
 }
 
-const maskChar = '•';
+export const maskChar = '•';
 
 export default function MaskValue(state: MaskState): MaskState {
     const newMask: MaskState = {
