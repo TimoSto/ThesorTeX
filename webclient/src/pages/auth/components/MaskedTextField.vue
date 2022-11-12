@@ -5,7 +5,7 @@
     v-model="inputValue"
     :append-icon="isMasked ? 'mdi-eye' : 'mdi-eye-off'"
     @click:append="isMasked = !isMasked"
-    :rules="rules"
+    :rules="appliedRules"
   />
 </template>
 
@@ -52,6 +52,33 @@ export default Vue.extend({
       this.value = newState.CurrentValue;
       this.valueMasked = newState.CurrentMask;
       this.inputValue = newState.CurrentMask;
+    }
+  },
+  computed: {
+    appliedRules(): ((v: string) => boolean|string)[] {
+
+      if( !this.rules ) return [];
+
+      return [
+        (v: string) => {
+
+          let result: boolean|string = true;
+
+          this.rules.forEach((r: (v: string) => boolean|string) => {
+            const res = r(this.value)
+
+            if ( res !== true ) {
+              return result = res;
+            }
+          })
+
+          if( result === true ) {
+            return true
+          }
+
+          return this.$t(result) as string;
+        }
+      ]
     }
   }
 })

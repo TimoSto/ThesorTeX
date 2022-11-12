@@ -12,6 +12,7 @@
 
       <MaskedTextField
           :label="$t(i18nDictionary.Common.Password)"
+          :rules="passwordRules"
       />
 
       <MaskedTextField
@@ -33,13 +34,23 @@
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
 import MaskedTextField from "../components/MaskedTextField.vue";
+import checkPasswordRules from "../domain/passwordRules/checkPasswordRules";
 
 export default Vue.extend({
   name: "RegisterView",
   components: {MaskedTextField},
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+    }
+  },
+  computed: {
+    passwordRules(): ((v: string) => boolean|string)[] {
+      return [
+        (v: string) => {
+          return checkPasswordRules(v);
+        }
+      ]
     }
   }
 })

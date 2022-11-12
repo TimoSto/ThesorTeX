@@ -12,6 +12,7 @@ export default function checkPasswordRules(password: string): boolean|string {
     }
 
     //chck if has symbol
+    //eslint-disable-next-line
     if( !/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password) ) {
         return i18nDictionary.Register.PasswordRules.Contains;
     }
