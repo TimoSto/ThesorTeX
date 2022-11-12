@@ -3,9 +3,14 @@ import {TranslationKeys} from "./Keys";
 export const EnglishTranslations: TranslationKeys = {
     Common: {
         EMail: 'Email',
-        Password: 'Password'
+        Password: 'Password',
+        Register: 'Register'
     },
     Login: {
-        Title: 'ThesorTeX - Login'
+        Title: 'ThesorTeX - Login',
+        Login: 'Login',
+        Forgot: 'Forgot password',
+        NotRegistered: 'Not registered yet?',
+        ContinueWithoutLogin: 'Continue without login'
     }
 }

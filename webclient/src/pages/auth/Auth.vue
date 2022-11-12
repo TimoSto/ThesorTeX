@@ -1,6 +1,6 @@
 <template>
   <v-app style="background-color: var(--v-background-darken2)">
-    <v-card class="centered">
+    <v-card class="centered" width="400">
       <LogoSVG
           fill="rgba(0, 136, 52, 0.8)"
           style="height: 45px; margin: 0 auto; display: block"
@@ -40,7 +40,6 @@ export default Vue.extend({
   left: 50%;
   -ms-transform: translateY(-30%) translateX(-50%);
   transform: translateY(-30%) translateX(-50%);
-  width: 300px;
   background-color: var(--v-background-base);
 }
 </style>

@@ -14,6 +14,20 @@
           :label="$t(i18nDictionary.Common.Password)"
       />
 
+      <v-btn block color="primary" style="margin-bottom: 8px">
+        {{$t(i18nDictionary.Login.Login)}}
+      </v-btn>
+      <v-btn block text color="primary" style="margin-bottom: 16px">
+        {{$t(i18nDictionary.Login.Forgot)}}
+      </v-btn>
+      <h3>{{$t(i18nDictionary.Login.NotRegistered)}}</h3>
+      <v-btn text color="primary">
+        {{$t(i18nDictionary.Common.Register)}}
+      </v-btn>
+      <v-btn text color="primary">
+        {{$t(i18nDictionary.Login.ContinueWithoutLogin)}}
+      </v-btn>
+
     </v-card-text>
   </div>
 </template>
