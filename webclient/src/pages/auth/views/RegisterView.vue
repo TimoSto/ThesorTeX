@@ -21,7 +21,7 @@
           :rules="repeatedPasswordRules"
       />
 
-      <v-btn block color="primary" style="margin-bottom: 8px">
+      <v-btn block color="primary" style="margin: 8px 0">
         {{$t(i18nDictionary.Common.Register)}}
       </v-btn>
       <v-btn block text color="primary">

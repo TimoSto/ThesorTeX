@@ -6,6 +6,7 @@
     :append-icon="isMasked ? 'mdi-eye' : 'mdi-eye-off'"
     @click:append="isMasked = !isMasked"
     :rules="appliedRules"
+    style="margin-bottom: 8px"
   />
 </template>
 
