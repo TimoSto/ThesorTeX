@@ -5,6 +5,7 @@
     v-model="inputValue"
     :append-icon="isMasked ? 'mdi-eye' : 'mdi-eye-off'"
     @click:append="isMasked = !isMasked"
+    :rules="rules"
   />
 </template>
 
@@ -15,7 +16,8 @@ import MaskValue, {maskChar} from "./MaskValue";
 export default Vue.extend({
   name: "MaskedTextField",
   props: [
-      'label'
+      'label',
+      'rules'
   ],
   data() {
     return {
