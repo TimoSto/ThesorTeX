@@ -13,10 +13,12 @@
       <MaskedTextField
           :label="$t(i18nDictionary.Common.Password)"
           :rules="passwordRules"
+          ref="password"
       />
 
       <MaskedTextField
           :label="$t(i18nDictionary.Register.RepeatPassword)"
+          :rules="repeatedPasswordRules"
       />
 
       <v-btn block color="primary" style="margin-bottom: 8px">
@@ -33,7 +35,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
-import MaskedTextField from "../components/MaskedTextField.vue";
+import MaskedTextField, {MaskedTextFieldInterface} from "../components/MaskedTextField.vue";
 import checkPasswordRules from "../domain/passwordRules/checkPasswordRules";
 
 export default Vue.extend({
@@ -51,7 +53,14 @@ export default Vue.extend({
           return checkPasswordRules(v);
         }
       ]
-    }
+    },
+    repeatedPasswordRules(): ((v: string) => boolean|string)[] {
+      return [
+        (v: string) => {
+          return v === (this.$refs.password as MaskedTextFieldInterface|undefined)?.value ? true : i18nDictionary.Register.PasswordRules.Equal;
+        }
+      ]
+    },
   }
 })
 </script>

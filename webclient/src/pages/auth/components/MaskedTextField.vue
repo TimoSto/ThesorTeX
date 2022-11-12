@@ -13,6 +13,10 @@
 import Vue from "vue";
 import MaskValue, {maskChar} from "./MaskValue";
 
+export interface MaskedTextFieldInterface {
+  value: string
+}
+
 export default Vue.extend({
   name: "MaskedTextField",
   props: [

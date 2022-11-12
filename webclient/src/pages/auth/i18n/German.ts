@@ -19,6 +19,7 @@ export const GermanTranslations: TranslationKeys = {
         PasswordRules: {
             Length: 'Passwort muss mindestens 8 Zeichen beinhalten',
             Contains: 'Passwort muss mindestens 1 Buchstaben, 1 Zahl und 1 Sonderzeichen beinhalten',
+            Equal: 'Passwörter stimmen nicht überein'
         }
     }
 }

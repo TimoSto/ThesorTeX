@@ -20,6 +20,7 @@ export const i18nDictionary = {
         PasswordRules: {
             Length: 'Register.PasswordRules.Length',
             Contains: 'Register.PasswordRules.Contains',
+            Equal: 'Register.PasswordRules.Equal'
         }
     }
 }
