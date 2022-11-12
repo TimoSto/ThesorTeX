@@ -3,15 +3,15 @@
     <v-card-title
         style="display: block; text-align: center"
     >
-      ThesorTeX - Anmeldung
+      {{$t(i18nDictionary.Login.Title)}}
     </v-card-title>
     <v-card-text>
       <v-text-field
-          label="Benutzername"
+          :label="$t(i18nDictionary.Common.EMail)"
       />
 
       <MaskedTextField
-          label="Passwort"
+          :label="$t(i18nDictionary.Common.Password)"
       />
 
     </v-card-text>
@@ -21,10 +21,16 @@
 <script lang="ts">
 import Vue from "vue";
 import MaskedTextField from "../components/MaskedTextField.vue";
+import {i18nDictionary} from "../i18n/Keys";
 
 export default Vue.extend({
   name: "LoginView",
-  components: {MaskedTextField}
+  components: {MaskedTextField},
+  data() {
+    return {
+      i18nDictionary: i18nDictionary
+    }
+  }
 })
 </script>
 
