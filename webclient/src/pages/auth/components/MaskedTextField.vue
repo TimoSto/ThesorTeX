@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts">
-import Cursor from "@/common/tools/Cursor";
 import Vue from "vue";
 import MaskValue, {maskChar} from "./MaskValue";
 
@@ -52,7 +51,8 @@ export default Vue.extend({
         this.value = this.inputValue;
         return;
       }
-      const cursor = (this.$refs.element as Vue)?.$el.querySelector('input')?.selectionStart;
+      const element = (this.$refs.element as Vue)?.$el.querySelector('input');
+      const cursor = element?.selectionStart;
       const currentState = {
         CurrentValue: this.value,
         CurrentMask: this.valueMasked,
@@ -63,6 +63,10 @@ export default Vue.extend({
       this.value = newState.CurrentValue;
       this.valueMasked = newState.CurrentMask;
       this.inputValue = newState.CurrentMask;
+      this.$nextTick(() => {
+        element?.focus();
+        element?.setSelectionRange(newState.CaretPosition, newState.CaretPosition)
+      })
     }
   },
   computed: {
