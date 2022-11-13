@@ -9,6 +9,7 @@ export interface MaskState {
     CurrentValue: string
     CurrentMask: string
     InputState: string
+    CaretPosition: number
 }
 
 export const maskChar = '•';
@@ -18,6 +19,7 @@ export default function MaskValue(state: MaskState): MaskState {
         CurrentValue: state.CurrentValue,
         CurrentMask: state.CurrentMask,
         InputState: '',
+        CaretPosition: state.CaretPosition
     }
     const diff_value = GetStringDifference(state.CurrentValue, state.InputState);
 

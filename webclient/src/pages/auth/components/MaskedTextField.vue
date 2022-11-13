@@ -8,10 +8,12 @@
     :rules="appliedRules"
     style="margin-bottom: 8px"
     @blur="hasBeenBlurred = true"
+    ref="element"
   />
 </template>
 
 <script lang="ts">
+import Cursor from "@/common/tools/Cursor";
 import Vue from "vue";
 import MaskValue, {maskChar} from "./MaskValue";
 
@@ -53,7 +55,8 @@ export default Vue.extend({
       const currentState = {
         CurrentValue: this.value,
         CurrentMask: this.valueMasked,
-        InputState: this.inputValue
+        InputState: this.inputValue,
+        CaretPosition: Cursor.getCurrentCursorPosition((this.$refs.element as Vue)?.$el.querySelector('input') as HTMLElement)
       }
       const newState = MaskValue(currentState);
       this.value = newState.CurrentValue;

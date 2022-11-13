@@ -49,52 +49,60 @@ describe("Handling masked input", () => {
                 const res = MaskValue({
                     CurrentValue: '',
                     CurrentMask: '',
-                    InputState: 'a'
+                    InputState: 'a',
+                    CaretPosition: 1
                 });
 
                 expect(res).toEqual({
                     CurrentValue: 'a',
                     CurrentMask: '•',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 1
                 })
             })
             it('second input', () => {
                 const res = MaskValue({
                     CurrentValue: 'a',
                     CurrentMask: '•',
-                    InputState: '•b'
+                    InputState: '•b',
+                    CaretPosition: 2
                 });
 
                 expect(res).toEqual({
                     CurrentValue: 'ab',
                     CurrentMask: '••',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 2
                 })
             })
             it('third input', () => {
                 const res = MaskValue({
                     CurrentValue: 'ab',
                     CurrentMask: '••',
-                    InputState: '••c'
+                    InputState: '••c',
+                    CaretPosition: 3
                 });
 
                 expect(res).toEqual({
                     CurrentValue: 'abc',
                     CurrentMask: '•••',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 3
                 })
             })
             it('multiple char input', () => {
                 const res = MaskValue({
                     CurrentValue: 'ab',
                     CurrentMask: '••',
-                    InputState: '••cdefg'
+                    InputState: '••cdefg',
+                    CaretPosition: 7
                 });
 
                 expect(res).toEqual({
                     CurrentValue: 'abcdefg',
                     CurrentMask: '•••••••',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 7
                 })
             })
         })
@@ -103,39 +111,45 @@ describe("Handling masked input", () => {
                 const res = MaskValue({
                     CurrentValue: 'ab',
                     CurrentMask: '••',
-                    InputState: '•'
+                    InputState: '•',
+                    CaretPosition: 1
                 });
 
                 expect(res).toEqual({
                     CurrentValue: 'a',
                     CurrentMask: '•',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 1
                 })
             })
             it('rm first char', () => {
                 const res = MaskValue({
                     CurrentValue: 'a',
                     CurrentMask: '•',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 0
                 });
 
                 expect(res).toEqual({
                     CurrentValue: '',
                     CurrentMask: '',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 0
                 })
             })
             it('rm multiple chars', () => {
                 const res = MaskValue({
                     CurrentValue: 'abcd',
                     CurrentMask: '••••',
-                    InputState: '•'
+                    InputState: '•',
+                    CaretPosition: 1
                 });
 
                 expect(res).toEqual({
                     CurrentValue: 'a',
                     CurrentMask: '•',
-                    InputState: ''
+                    InputState: '',
+                    CaretPosition: 1
                 })
             })
         })
