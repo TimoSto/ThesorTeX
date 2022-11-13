@@ -138,5 +138,52 @@ describe("Handling masked input", () => {
                 })
             })
         })
+        describe('adding in between', () => {
+            it('adding at start', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '••',
+                    InputState: 'c••',
+                    CaretPosition: 1
+                });
+
+                expect(res).toEqual({
+                    CurrentValue: 'cab',
+                    CurrentMask: '•••',
+                    InputState: '',
+                    CaretPosition: 1,
+                });
+            })
+            it('adding in between', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '••',
+                    InputState: '•c•',
+                    CaretPosition: 2
+                });
+
+                expect(res).toEqual({
+                    CurrentValue: 'acb',
+                    CurrentMask: '•••',
+                    InputState: '',
+                    CaretPosition: 2,
+                });
+            })
+            it('adding multiple in between', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '••',
+                    InputState: '•cde•',
+                    CaretPosition: 4
+                });
+
+                expect(res).toEqual({
+                    CurrentValue: 'acdeb',
+                    CurrentMask: '•••••',
+                    InputState: '',
+                    CaretPosition: 4,
+                });
+            })
+        })
     })
 })
