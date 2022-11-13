@@ -52,11 +52,12 @@ export default Vue.extend({
         this.value = this.inputValue;
         return;
       }
+      const cursor = (this.$refs.element as Vue)?.$el.querySelector('input')?.selectionStart;
       const currentState = {
         CurrentValue: this.value,
         CurrentMask: this.valueMasked,
         InputState: this.inputValue,
-        CaretPosition: Cursor.getCurrentCursorPosition((this.$refs.element as Vue)?.$el.querySelector('input') as HTMLElement)
+        CaretPosition: cursor ? cursor : -1
       }
       const newState = MaskValue(currentState);
       this.value = newState.CurrentValue;
