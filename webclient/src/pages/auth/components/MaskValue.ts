@@ -4,8 +4,8 @@
  * @param CurrentMask value before input but masked
  * @param InputState value inside input, initial value is masked, now entered is unmasked
  */
-import ReplaceAt from "@/common/tools/ReplaceAt";
 import InsertAt from "@/common/tools/InsertAt";
+import CutString from "@/common/tools/CutString";
 
 export interface MaskState {
     CurrentValue: string
@@ -28,7 +28,7 @@ export default function MaskValue(state: MaskState): MaskState {
     newMask.CurrentValue = InsertAt(state.CurrentValue, diff_value.Added, state.CaretPosition - diff_value.Added.length);
     newMask.CurrentMask += maskChar.repeat(diff_value.Added.length);
 
-    newMask.CurrentValue = newMask.CurrentValue.substring(0, newMask.CurrentValue.length - diff_value.Removed);
+    newMask.CurrentValue = CutString(newMask.CurrentValue, state.CaretPosition, diff_value.Removed);
     newMask.CurrentMask = newMask.CurrentMask.substring(0, newMask.CurrentMask.length - diff_value.Removed);
 
     return newMask;

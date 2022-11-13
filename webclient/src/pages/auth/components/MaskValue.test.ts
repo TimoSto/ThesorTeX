@@ -185,5 +185,52 @@ describe("Handling masked input", () => {
                 });
             })
         })
+        describe('removing in between', () => {
+            it('remove at start', () => {
+                const res = MaskValue({
+                    CurrentValue: 'ab',
+                    CurrentMask: '••',
+                    InputState: '•',
+                    CaretPosition: 0
+                });
+
+                expect(res).toEqual({
+                    CurrentValue: 'b',
+                    CurrentMask: '•',
+                    InputState: '',
+                    CaretPosition: 0,
+                });
+            })
+            it('remove in between', () => {
+                const res = MaskValue({
+                    CurrentValue: 'abc',
+                    CurrentMask: '•••',
+                    InputState: '••',
+                    CaretPosition: 1
+                });
+
+                expect(res).toEqual({
+                    CurrentValue: 'ac',
+                    CurrentMask: '••',
+                    InputState: '',
+                    CaretPosition: 1,
+                });
+            })
+            it('removing multiple in between', () => {
+                const res = MaskValue({
+                    CurrentValue: 'abcd',
+                    CurrentMask: '••••',
+                    InputState: '••',
+                    CaretPosition: 1
+                });
+
+                expect(res).toEqual({
+                    CurrentValue: 'ad',
+                    CurrentMask: '••',
+                    InputState: '',
+                    CaretPosition: 1,
+                });
+            })
+        })
     })
 })
