@@ -3,42 +3,27 @@ import MaskValue, {GetStringDifference} from "@/pages/auth/components/MaskValue"
 describe("Handling masked input", () => {
     describe("GetDiff", () => {
         it('should work on adding to empty', () => {
-            expect(GetStringDifference('', 'a')).toEqual({
+            expect(GetStringDifference('', '','a', 1)).toEqual({
                 Removed: 0,
-                Changed: [],
-                Added: ['a']
+                Added: 'a'
             });
         })
         it('should work on adding to existing', () => {
-            expect(GetStringDifference('a', 'ab')).toEqual({
+            expect(GetStringDifference('a', '•', '•b', 2)).toEqual({
                 Removed: 0,
-                Changed: [],
-                Added: ['b']
+                Added: 'b'
             });
         })
         it('should work on removing last', () => {
-            expect(GetStringDifference('ab', 'a')).toEqual({
+            expect(GetStringDifference('ab', '••', '•', 1)).toEqual({
                 Removed: 1,
-                Changed: [],
-                Added: []
+                Added: ''
             });
         })
         it('should work on removing first', () => {
-            expect(GetStringDifference('acb', 'cb')).toEqual({
+            expect(GetStringDifference('abc', '•••', '••', 0)).toEqual({
                 Removed: 1,
-                Changed: [
-                    {
-                        Index: 0,
-                        Old: 'a',
-                        New: 'c'
-                    },
-                    {
-                        Index: 1,
-                        Old: 'c',
-                        New: 'b'
-                    }
-                ],
-                Added: []
+                Added: ''
             });
         })
     })

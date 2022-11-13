@@ -21,7 +21,7 @@ export default function MaskValue(state: MaskState): MaskState {
         InputState: '',
         CaretPosition: state.CaretPosition
     }
-    const diff_value = GetStringDifference(state.CurrentValue, state.InputState);
+    const diff_value = GetStringDifference(state.CurrentValue, state.CurrentMask, state.InputState, state.CaretPosition);
 
     for( let i = 0; i < diff_value.Added.length ; i++ ) {
         newMask.CurrentValue += diff_value.Added[i];
@@ -36,40 +36,20 @@ export default function MaskValue(state: MaskState): MaskState {
 
 interface StringDifference {
     Removed: number
-    Changed: CharChanged[]
-    Added: string[]
+    Added: string
 }
 
-interface CharChanged {
-    Index: number
-    Old: string
-    New: string
-}
-
-export function GetStringDifference(oldStr: string, newStr: string): StringDifference {
+export function GetStringDifference(currentValue: string, currentMask: string, currentInput: string, caret: number): StringDifference {
     const diff = {
         Removed: 0,
-        Changed: [],
-        Added: []
+        Added: ''
     } as StringDifference
 
-    const lengthDiff = oldStr.length - newStr.length;
+    const lengthDiff = currentValue.length - currentInput.length;
     if( lengthDiff > 0 ) {
         diff.Removed = lengthDiff;
-    }
-
-    for( let i = 0 ; i < newStr.length ; i++ ) {
-        if( i < oldStr.length ) {
-            if( oldStr.charAt(i) !== newStr.charAt(i) ) {
-                diff.Changed.push({
-                    Index: i,
-                    Old: oldStr.charAt(i),
-                    New: newStr.charAt(i)
-                })
-            }
-        } else {
-            diff.Added.push(newStr.charAt(i))
-        }
+    } else {
+        diff.Added = currentInput.substring(caret, caret + lengthDiff)
     }
 
     return diff
