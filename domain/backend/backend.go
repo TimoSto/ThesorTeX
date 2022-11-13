@@ -1,7 +1,7 @@
 package backend
 
 import (
-	"github.com/TimoSto/ThesorTeX/internal/static_content"
+	"github.com/TimoSto/ThesorTeX/domain/static_content"
 	"github.com/TimoSto/ThesorTeX/pkg/server"
 )
 

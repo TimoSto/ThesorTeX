@@ -5,7 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/cmd/app",
     visibility = ["//visibility:private"],
-    deps = ["//internal/backend"],
+    deps = ["//domain/backend"],
 )
 
 go_binary(

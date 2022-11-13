@@ -24,7 +24,7 @@ go_library(
         "static/downloads/project/styPackages/ueberschriften.sty",
         "static/downloads/projectTemplate.zip",
     ],
-    importpath = "github.com/TimoSto/ThesorTeX/internal/static_content",
+    importpath = "github.com/TimoSto/ThesorTeX/domain/static_content",
     visibility = ["//visibility:public"],
     deps = ["//pkg/server"],
 )
