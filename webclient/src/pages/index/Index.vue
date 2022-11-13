@@ -88,8 +88,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LogoSVG from "../../commonComponents/LogoSVG.vue";
-import ContentBelowBar from "../../commonComponents/ContentBelowBar.vue";
+import LogoSVG from "../../common/components/LogoSVG.vue";
+import ContentBelowBar from "../../common/components/ContentBelowBar.vue";
 import TextAndImage from "./components/TextAndImage.vue";
 import {i18nDictionary} from "./i18n/Keys";
 import TempalteIcon from "./components/TempalteIcon.vue";

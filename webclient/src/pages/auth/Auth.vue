@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LogoSVG from "../../commonComponents/LogoSVG.vue";
+import LogoSVG from "../../common/components/LogoSVG.vue";
 
 export default Vue.extend({
   name: 'App',
