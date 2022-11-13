@@ -1,8 +1,8 @@
 package backend
 
 import (
+	"github.com/TimoSto/ThesorTeX/internal/static_content"
 	"github.com/TimoSto/ThesorTeX/pkg/server"
-	"github.com/TimoSto/ThesorTeX/pkg/static_content"
 )
 
 func Start() {

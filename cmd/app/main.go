@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/TimoSto/ThesorTeX/pkg/backend"
+	"github.com/TimoSto/ThesorTeX/internal/backend"
 )
 
 func main() {
