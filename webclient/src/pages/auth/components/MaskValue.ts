@@ -4,6 +4,8 @@
  * @param CurrentMask value before input but masked
  * @param InputState value inside input, initial value is masked, now entered is unmasked
  */
+import ReplaceAt from "@/common/tools/ReplaceAt";
+import InsertAt from "@/common/tools/InsertAt";
 
 export interface MaskState {
     CurrentValue: string
@@ -23,10 +25,8 @@ export default function MaskValue(state: MaskState): MaskState {
     }
     const diff_value = GetStringDifference(state.CurrentValue, state.CurrentMask, state.InputState, state.CaretPosition);
 
-    for( let i = 0; i < diff_value.Added.length ; i++ ) {
-        newMask.CurrentValue += diff_value.Added[i];
-        newMask.CurrentMask += maskChar;
-    }
+    newMask.CurrentValue = InsertAt(state.CurrentValue, diff_value.Added, state.CaretPosition - diff_value.Added.length);
+    newMask.CurrentMask += maskChar.repeat(diff_value.Added.length);
 
     newMask.CurrentValue = newMask.CurrentValue.substring(0, newMask.CurrentValue.length - diff_value.Removed);
     newMask.CurrentMask = newMask.CurrentMask.substring(0, newMask.CurrentMask.length - diff_value.Removed);
@@ -39,6 +39,7 @@ interface StringDifference {
     Added: string
 }
 
+//TODO: mask-param deletable?
 export function GetStringDifference(currentValue: string, currentMask: string, currentInput: string, caret: number): StringDifference {
     const diff = {
         Removed: 0,
