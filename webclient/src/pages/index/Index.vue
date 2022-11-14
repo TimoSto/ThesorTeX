@@ -53,7 +53,7 @@
             <p class="tile_heading">{{$t(i18nDictionary.Bib.Title)}}</p>
             <p  class="tile_text" v-html="$t(i18nDictionary.Bib.Text)"></p>
             <v-btn block color="primary" style="margin-bottom: 8px" @click="toLogin">{{$t(i18nDictionary.Common.Login)}}</v-btn>
-            <v-btn block text color="primary">{{$t(i18nDictionary.Common.ContinueWithoutLogin)}}</v-btn>
+            <v-btn block text color="primary" @click="toApp">{{$t(i18nDictionary.Common.ContinueWithoutLogin)}}</v-btn>
           </div>
         </template>
       </TextAndImage>
@@ -109,6 +109,9 @@ export default Vue.extend({
   methods: {
     toLogin() {
       window.location.href = '/auth.html/#/';
+    },
+    toApp() {
+      window.location.href = '/app.html/#/';
     }
   }
 });
