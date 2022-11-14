@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './Auth.vue'
 import router from './router'
-import vuetify from '../../plugins/vuetify'
-import CreateI18n from "@/plugins/i18n";
+import vuetify from '../../common/plugins/vuetify'
+import CreateI18n from "@/common/plugins/i18n";
 import {GermanTranslations} from "@/pages/auth/i18n/German";
 import {EnglishTranslations} from "@/pages/auth/i18n/English";
 
