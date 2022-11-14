@@ -28,6 +28,17 @@
       style="z-index: 100"
       >
 
+      <div class="vert-flex">
+        <div class="grow">
+
+        </div>
+        <div class="fix">
+          <LogoSVG
+              style="height: 35px"
+          />
+        </div>
+      </div>
+
     </v-navigation-drawer>
 
   </v-app>
@@ -35,10 +46,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import LogoSVG from "../../common/components/LogoSVG.vue";
 
 export default Vue.extend({
   name: 'App',
-
+  components: {LogoSVG},
   data: () => ({
     navDrawer: false
   }),
@@ -52,5 +64,8 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '../../../node_modules/typeface-roboto/index.css';
 @import '@/common/styles/theme_fixes.scss';
+@import "@/common/styles/vert-flex.scss";
+
+@include vertical-flex(64px, 56px, 960px, 50px)
 
 </style>
