@@ -8,6 +8,7 @@ import (
 	"syscall"
 
 	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
+	"github.com/TimoSto/ThesorTeX/services/project_management"
 	"github.com/TimoSto/ThesorTeX/services/project_management/conf"
 	"github.com/TimoSto/ThesorTeX/webclient/assets"
 )
@@ -23,6 +24,8 @@ func main() {
 
 	//assets-handler bei beiden gleich, nur andere ignore-parameter
 	assets.Register(mux)
+
+	project_management.Register(mux)
 
 	go http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
 
