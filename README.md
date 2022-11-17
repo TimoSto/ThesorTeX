@@ -4,26 +4,26 @@ Tool for handling bibliography in a LaTeX project
 ## Project structure
 
 ### cmd
-Entrypoints of the application. app is for a local executable. In a future release a lambda will be added for deployment to aws.
+Entrypoints of the application.
 
-### bib_management
-Everything regarding the management of the bibliography in the backend.
+#### app
+local executable, which handles the file management. This way unnecessary traffic is avoided.
 
-#### backend
-Package that is available to cmd
+#### lambda
+The lambda handles authentication and the website.
 
-#### internal
-Package that is only available to backend on same level
+### services
+Intependently runnable services. Note that they might be combined into a single executable.
+But they all have their own backend package and can be invoced by creating a mux server and give it as parameter to the start server func
 
-### cv
-Everything regarding the cv-management
+#### project_management
+Managing of bibliograhy and tex-files
 
-#### backend
-Package that is available to cmd
+#### auth
+Authentication
 
-#### internal
-Package that is only available to backend on same level
-
+#### website
+The website accessible to global web
 
 ### pkg
 Packages used by multiple other packages
@@ -33,9 +33,3 @@ Gui with Vue3 and vuetify.
 
 ### e2e
 end-2-end-tests
-
-#### cypress
-e2e with cypress
-
-#### playwright
-e2e with playwright
