@@ -27,7 +27,13 @@ func main() {
 
 	project_management.Register(mux)
 
-	go http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
+	go func() {
+		err := http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+	}()
 
 	fmt.Println("App running under http://localhost:8448")
 
