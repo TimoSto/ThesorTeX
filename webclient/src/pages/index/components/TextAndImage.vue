@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="left">
+    <div class="left" :class="imageSide === 'left' ? 'image-container' : ''">
       <slot name="left"></slot>
     </div>
-    <div class="right">
+    <div class="right" :class="imageSide === 'right' ? 'image-container' : ''">
       <slot name="right"></slot>
     </div>
   </div>
@@ -11,7 +11,10 @@
 
 <script>
 export default {
-  name: "TextAndImage"
+  name: "TextAndImage",
+  props: [
+      "imageSide"
+  ]
 }
 </script>
 
@@ -23,6 +26,11 @@ export default {
   & div {
     height: 100%;
     flex: 1;
+    &.image-container {
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
   }
 }
 </style>

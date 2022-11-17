@@ -27,7 +27,7 @@
       scroll-id="index-content"
     >
 
-      <TextAndImage>
+      <TextAndImage image-side="right">
         <template v-slot:left>
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.Template.Title)}}</p>
@@ -44,7 +44,7 @@
         </template>
       </TextAndImage>
 
-      <TextAndImage>
+      <TextAndImage image-side="left">
         <template v-slot:left>
           <TempalteIcon style="max-height: 250px; display: block; margin: 0 auto;" :show-icon="true"/>
         </template>
@@ -58,7 +58,7 @@
         </template>
       </TextAndImage>
 
-      <TextAndImage>
+      <TextAndImage image-side="right">
         <template v-slot:left>
           <div class="tile">
             <p class="tile_heading">{{$t(i18nDictionary.CV.Title)}}</p>
