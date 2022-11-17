@@ -9,7 +9,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
 	"github.com/TimoSto/ThesorTeX/services/project_management/conf"
-	"github.com/TimoSto/ThesorTeX/services/project_management/register"
+	"github.com/TimoSto/ThesorTeX/webclient/assets"
 )
 
 func main() {
@@ -21,7 +21,8 @@ func main() {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	register.Register(mux)
+	//assets-handler bei beiden gleich, nur andere ignore-parameter
+	assets.Register(mux)
 
 	go http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
 

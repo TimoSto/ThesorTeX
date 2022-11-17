@@ -16,5 +16,6 @@ module.exports = defineConfig({
       }
     }
   },
+  outputDir: './assets/dist',
 })
 //TODO: Logo: Graduation Head mit TeX drunter geschrieben
