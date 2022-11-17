@@ -24,7 +24,13 @@ func main() {
 	chain := handler_chain.CreateHandlerChain()
 
 	//assets-handler bei beiden gleich, nur andere ignore-parameter
-	assets.Register(mux)
+	assetConf := assets.AssetConf{
+		Ignore: []string{
+			"/auth.html",
+		},
+		MapRootTo: "/app.html",
+	}
+	assets.Register(mux, assetConf)
 
 	project_management.Register(mux)
 
