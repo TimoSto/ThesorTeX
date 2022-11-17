@@ -1,10 +1,10 @@
-package project_management
+package app
 
 import (
 	"fmt"
 	"net/http"
 
-	"github.com/TimoSto/ThesorTeX/services/project_management/internal/handlers"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )
 
 const prefix = "/app"
