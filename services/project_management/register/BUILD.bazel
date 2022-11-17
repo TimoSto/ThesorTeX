@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "register",
+    srcs = ["register.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/project_management/register",
+    visibility = ["//visibility:public"],
+    deps = ["//services/project_management/internal/handlers"],
+)
