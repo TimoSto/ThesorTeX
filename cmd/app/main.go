@@ -5,14 +5,10 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-
-	"github.com/TimoSto/ThesorTeX/domain/backend"
 )
 
 func main() {
 	fmt.Println("Start")
-
-	backend.Start()
 
 	sigs := make(chan os.Signal, 1)
 
