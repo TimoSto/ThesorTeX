@@ -8,11 +8,14 @@ import (
 	"syscall"
 
 	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
+	"github.com/TimoSto/ThesorTeX/services/project_management/conf"
 	"github.com/TimoSto/ThesorTeX/services/project_management/register"
 )
 
 func main() {
 	fmt.Println("Starting local app...")
+
+	configObj := conf.GetConfig()
 
 	mux := http.NewServeMux()
 
@@ -20,7 +23,9 @@ func main() {
 
 	register.Register(mux)
 
-	http.ListenAndServe(":8448", chain.Then(mux))
+	go http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
+
+	fmt.Println("App running under http://localhost:8448")
 
 	sigs := make(chan os.Signal, 1)
 
