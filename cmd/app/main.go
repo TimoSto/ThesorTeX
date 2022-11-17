@@ -8,13 +8,14 @@ import (
 	"syscall"
 
 	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
+	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/services/project_management"
 	"github.com/TimoSto/ThesorTeX/services/project_management/conf"
 	"github.com/TimoSto/ThesorTeX/webclient/assets"
 )
 
 func main() {
-	fmt.Println("Starting local app...")
+	log.Info("Starting local app...")
 
 	configObj := conf.GetConfig()
 
@@ -30,20 +31,20 @@ func main() {
 	go func() {
 		err := http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
 		if err != nil {
-			fmt.Println(err)
+			log.Error(err)
 			os.Exit(1)
 		}
 	}()
 
-	fmt.Println("App running under http://localhost:8448")
+	log.Info("App running under http://localhost:8448")
 
 	sigs := make(chan os.Signal, 1)
 
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	fmt.Println("waiting for exit...")
+	log.Info("waiting for exit...")
 
 	sig := <-sigs
 
-	fmt.Println("received", sig)
+	log.Info("received ", sig)
 }
