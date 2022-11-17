@@ -22,12 +22,12 @@ func Register(mux *http.ServeMux, c AssetConf) {
 
 		for _, p := range c.Ignore {
 			if r.URL.Path == p {
-				w.WriteHeader(http.StatusNotFound)
+				http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 				return
 			}
 		}
 
-		if r.URL.Path == "/" {
+		if r.URL.Path == "/" || r.URL.Path == "/index.html" {
 			r.URL.Path = c.MapRootTo
 		}
 
