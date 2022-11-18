@@ -9,6 +9,13 @@
       absolute
       >
       <v-toolbar-title>Willkommen bei ThesorTeX!</v-toolbar-title>
+
+      <v-spacer />
+
+      <v-btn icon>
+        <v-icon>mdi-help-circle-outline</v-icon>
+      </v-btn>
+
     </v-app-bar>
 
     <ContentBelowBar
@@ -18,7 +25,24 @@
         padding-y="0"
         scroll-id="index-content"
     >
-      <div style="width: 100px; height:2000px; background-color: red; margin: 8px"></div>
+
+      <v-simple-table>
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th >Projekt</th>
+              <th >Erstellt</th>
+              <th >Zuletzt bearbeitet</th>
+              <th >Anzahl Einträge</th>
+              <th style="min-width: 48px; max-width: 48px;">
+                <v-btn icon>
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </th>
+            </tr>
+          </thead>
+        </template>
+      </v-simple-table>
     </ContentBelowBar>
 
   </div>
