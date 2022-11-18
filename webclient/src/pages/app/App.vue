@@ -14,7 +14,7 @@
       />
 
       <AppBarBreadcrumb
-        :items="['ThesorTeX', 'Test', 'T2']"
+        :items="pages"
         v-on:clicked="goBackTo"
         />
 
@@ -44,9 +44,11 @@
 
     <v-main>
       <NavArea
-
+        ref="navArea"
         >
-
+        <template v-for="p in pages" v-slot:[p] >
+          Hallo
+        </template>
       </NavArea>
     </v-main>
 
@@ -57,17 +59,25 @@
 import Vue from 'vue';
 import LogoSVG from "../../common/components/LogoSVG.vue";
 import AppBarBreadcrumb from "./components/AppBarBreadcrumb.vue";
-import NavArea from "./components/NavArea.vue";
+import NavArea, {NavAreaMethods} from "./components/NavArea.vue";
 
 export default Vue.extend({
   name: 'App',
   components: {NavArea, AppBarBreadcrumb, LogoSVG},
   data: () => ({
-    navDrawer: false
+    navDrawer: false,
+    pages: [] as string[]
   }),
 
   mounted() {
     document.title = 'ThesorTeX';
+    this.$nextTick(() => {
+      if( this.$refs.navArea ) {//the ref should act as a proxy, like the dapi
+        const area = this.$refs.navArea as NavAreaMethods;
+        area.addPage('ThesorTeX');
+        this.pages.push('ThesorTeX');
+      }
+    })
   },
 
   methods: {

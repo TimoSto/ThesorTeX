@@ -29,8 +29,24 @@ export default Vue.extend({
   props: [
       'items'
   ],
-  computed: {
-    displayItems(): Item[] {
+  data() {
+    return {
+      displayItems: [] as Item[]
+    }
+  },
+
+  mounted() {
+    this.updateItems();
+  },
+
+  watch: {
+    items() {
+      this.updateItems();
+    }
+  },
+
+  methods: {
+    updateItems() {
       let items: Item[] = [];
 
       this.items.forEach((i: string) => {
@@ -40,9 +56,11 @@ export default Vue.extend({
         })
       });
 
-      items[items.length - 1].disabled = true;
+      if( items.length > 0 ) {
+        items[items.length - 1].disabled = true;
+      }
 
-      return items
+      this.displayItems = items;
     }
   }
 })
