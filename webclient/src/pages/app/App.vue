@@ -66,7 +66,7 @@
 import Vue from 'vue';
 import LogoSVG from "../../common/components/LogoSVG.vue";
 import AppBarBreadcrumb, { Item } from "./components/AppBarBreadcrumb.vue";
-import NavArea, {NavAreaMethods} from "./components/NavArea.vue";
+import NavArea from "./components/NavArea.vue";
 
 export default Vue.extend({
   name: 'App',

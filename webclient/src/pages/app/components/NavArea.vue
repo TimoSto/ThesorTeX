@@ -21,11 +21,6 @@
 <script lang="ts">
 import Vue from "vue";
 
-export interface NavAreaMethods extends Vue {
-  addPage(name: string): void
-  goBackTo(name: string): void
-}
-
 export default Vue.extend({
   name: "NavArea",
   props: [
