@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+
+	"github.com/TimoSto/ThesorTeX/pkg/log"
 )
 
 type Server struct {
@@ -37,8 +39,7 @@ func (s *Server) Start(fin chan bool) {
 		err := s.srv.Serve(socket)
 		if err != nil {
 			if err != http.ErrServerClosed {
-				//todo: global log package
-				fmt.Println("Error starting server", err)
+				log.Error("Error starting server", err)
 			}
 			fin <- true
 		}
@@ -46,5 +47,5 @@ func (s *Server) Start(fin chan bool) {
 
 	_, port, _ := net.SplitHostPort(socket.Addr().String())
 
-	fmt.Println(fmt.Sprintf("http://localhost:%v", port))
+	log.Info(fmt.Sprintf("Server running at http://localhost:%v", port))
 }
