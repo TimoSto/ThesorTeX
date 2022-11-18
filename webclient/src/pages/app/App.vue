@@ -47,7 +47,7 @@
         ref="navArea"
         >
         <template v-for="p in pages" v-slot:[p] >
-          Hallo
+          Hallo {{p}}
         </template>
       </NavArea>
     </v-main>
@@ -76,6 +76,8 @@ export default Vue.extend({
         const area = this.$refs.navArea as NavAreaMethods;
         area.addPage('ThesorTeX');
         this.pages.push('ThesorTeX');
+        area.addPage('ThesorTeX2');
+        this.pages.push('ThesorTeX2');
       }
     })
   },
