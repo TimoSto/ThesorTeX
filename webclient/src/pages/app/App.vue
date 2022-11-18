@@ -45,6 +45,7 @@
     <v-main>
       <NavArea
         ref="navArea"
+        v-on:clicked="goBackTo"
         >
         <template v-for="p in pages" v-slot:[p] >
           Hallo {{p}}
@@ -58,7 +59,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import LogoSVG from "../../common/components/LogoSVG.vue";
-import AppBarBreadcrumb from "./components/AppBarBreadcrumb.vue";
+import AppBarBreadcrumb, { Item } from "./components/AppBarBreadcrumb.vue";
 import NavArea, {NavAreaMethods} from "./components/NavArea.vue";
 
 export default Vue.extend({
@@ -83,8 +84,12 @@ export default Vue.extend({
   },
 
   methods: {
-    goBackTo(item: string) {
-      console.log(item)
+    goBackTo(item: Item) {
+      console.log(item);
+      if( this.$refs.navArea ) {//the ref should act as a proxy, like the dapi
+        const area = this.$refs.navArea as NavAreaMethods;
+        area.goBackTo(item.text);
+      }
     }
   }
 });

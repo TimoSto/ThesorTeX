@@ -19,6 +19,7 @@ import Vue from "vue";
 
 export interface NavAreaMethods extends Vue {
   addPage(name: string): void
+  goBackTo(name: string): void
 }
 
 export default Vue.extend({
@@ -31,6 +32,14 @@ export default Vue.extend({
   methods: {
     addPage(name: string) {
       this.pages.push(name)
+    },
+    goBackTo(name: string) {
+      const i = this.pages.indexOf(name);
+      console.log(i)
+      if( i > -1 ) {
+        this.pages = this.pages.slice(0, i+1);
+      }
+      console.log(this.pages)
     }
   }
 })

@@ -19,7 +19,7 @@
 <script lang="ts">
 import Vue from "vue";
 
-interface Item {
+export interface Item {
   text: string
   disabled: boolean
 }
