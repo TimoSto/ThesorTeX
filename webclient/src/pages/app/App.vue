@@ -49,7 +49,12 @@
         :pages="pages"
         >
         <template v-for="p in pages" v-slot:[p] >
-          Hallo {{p}}
+          <div
+              :key="`slop_${p}`"
+              style="min-width: 150px"
+          >
+            Hallo {{p}}
+          </div>
         </template>
       </NavArea>
     </v-main>

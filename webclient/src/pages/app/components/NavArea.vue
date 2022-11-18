@@ -50,7 +50,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-//todo: overflow during animation
 .container {
   display: flex;
   height: 100%;
