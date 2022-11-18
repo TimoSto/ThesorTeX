@@ -22,6 +22,7 @@
     </v-app-bar>
     <ContentBelowBar
       bar-height="64"
+      margin-top="64"
       padding-x="16"
       padding-y="0"
       scroll-id="index-content"

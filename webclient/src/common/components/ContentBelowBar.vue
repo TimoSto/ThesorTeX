@@ -3,7 +3,7 @@
       style="overflow-y: auto" :id="scrollId"
       :style="`
         max-height: calc(100vh - ${barHeight}px);
-        margin-top: ${barHeight}px;
+        margin-top: ${marginTop}px;
         padding: ${paddingY}px ${paddingX}px;
         `"
   >
@@ -18,8 +18,10 @@ export default {
   name: "ContentBelowBar",
   props: [
       'barHeight',
+      'marginTop',
       'paddingX',
-      'paddingY','scrollId'
+      'paddingY',
+      'scrollId'
   ]
 }
 </script>
