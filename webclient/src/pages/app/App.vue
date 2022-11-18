@@ -42,6 +42,14 @@
 
     </v-navigation-drawer>
 
+    <v-main>
+      <NavArea
+
+        >
+
+      </NavArea>
+    </v-main>
+
   </v-app>
 </template>
 
@@ -49,10 +57,11 @@
 import Vue from 'vue';
 import LogoSVG from "../../common/components/LogoSVG.vue";
 import AppBarBreadcrumb from "./components/AppBarBreadcrumb.vue";
+import NavArea from "./components/NavArea.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {AppBarBreadcrumb, LogoSVG},
+  components: {NavArea, AppBarBreadcrumb, LogoSVG},
   data: () => ({
     navDrawer: false
   }),
