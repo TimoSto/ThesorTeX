@@ -40,6 +40,9 @@ export default Vue.extend({
     pages(n: string[], o: string[]) {
       if( n.length < o.length ) {
         this.animationClass = 'nav-back';
+        setTimeout(() => {
+          this.animationClass = '';
+        }, 750);
       }
     }
   }
@@ -64,7 +67,7 @@ export default Vue.extend({
       height: 100%;
       width: 0;
       overflow-x: hidden;
-      transition: width .5s ease-in-out;
+      transition: width .75s ease-in-out;
       &.opened {
         width: 100%;
       }
