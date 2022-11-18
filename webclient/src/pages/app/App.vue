@@ -13,9 +13,10 @@
         @click="navDrawer = !navDrawer"
       />
 
-      <v-toolbar-title>
-        ThesorTeX
-      </v-toolbar-title>
+      <AppBarBreadcrumb
+        :items="['ThesorTeX', 'Test', 'T2']"
+        v-on:clicked="goBackTo"
+        />
 
     </v-app-bar>
 
@@ -47,16 +48,23 @@
 <script lang="ts">
 import Vue from 'vue';
 import LogoSVG from "../../common/components/LogoSVG.vue";
+import AppBarBreadcrumb from "./components/AppBarBreadcrumb.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {LogoSVG},
+  components: {AppBarBreadcrumb, LogoSVG},
   data: () => ({
     navDrawer: false
   }),
 
   mounted() {
     document.title = 'ThesorTeX';
+  },
+
+  methods: {
+    goBackTo(item: string) {
+      console.log(item)
+    }
   }
 });
 </script>
@@ -66,6 +74,7 @@ export default Vue.extend({
 @import '@/common/styles/theme_fixes.scss';
 @import "@/common/styles/vert-flex.scss";
 
-@include vertical-flex(64px, 56px, 960px, 50px)
+@include vertical-flex(64px, 56px, 960px, 50px);
+
 
 </style>
