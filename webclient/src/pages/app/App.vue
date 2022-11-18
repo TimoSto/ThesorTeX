@@ -46,6 +46,7 @@
       <NavArea
         ref="navArea"
         v-on:clicked="goBackTo"
+        :pages="pages"
         >
         <template v-for="p in pages" v-slot:[p] >
           Hallo {{p}}
@@ -67,28 +68,18 @@ export default Vue.extend({
   components: {NavArea, AppBarBreadcrumb, LogoSVG},
   data: () => ({
     navDrawer: false,
-    pages: [] as string[]
+    pages: ["ThesorTeX", "TT2"] as string[]
   }),
 
   mounted() {
     document.title = 'ThesorTeX';
-    this.$nextTick(() => {
-      if( this.$refs.navArea ) {//the ref should act as a proxy, like the dapi
-        const area = this.$refs.navArea as NavAreaMethods;
-        area.addPage('ThesorTeX');
-        this.pages.push('ThesorTeX');
-        area.addPage('ThesorTeX2');
-        this.pages.push('ThesorTeX2');
-      }
-    })
   },
 
   methods: {
     goBackTo(item: Item) {
-      console.log(item);
-      if( this.$refs.navArea ) {//the ref should act as a proxy, like the dapi
-        const area = this.$refs.navArea as NavAreaMethods;
-        area.goBackTo(item.text);
+      const i = this.pages.indexOf(item.text);
+      if( i > -1 ) {
+        this.pages = this.pages.slice(0, i+1);
       }
     }
   }

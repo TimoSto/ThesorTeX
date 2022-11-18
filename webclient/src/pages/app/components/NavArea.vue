@@ -24,24 +24,9 @@ export interface NavAreaMethods extends Vue {
 
 export default Vue.extend({
   name: "NavArea",
-  data() {
-    return {
-      pages: [] as string[]
-    }
-  },
-  methods: {
-    addPage(name: string) {
-      this.pages.push(name)
-    },
-    goBackTo(name: string) {
-      const i = this.pages.indexOf(name);
-      console.log(i)
-      if( i > -1 ) {
-        this.pages = this.pages.slice(0, i+1);
-      }
-      console.log(this.pages)
-    }
-  }
+  props: [
+      "pages"
+  ],
 })
 </script>
 
