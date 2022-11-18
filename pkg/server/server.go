@@ -1,5 +1,7 @@
 package server
 
+//TODO use this package or delete it
+
 import (
 	"fmt"
 	"net"
