@@ -1,14 +1,18 @@
 <template>
-  <div class="container">
+  <div class="container" :class="animationClass">
     <div class="pages">
       <div
           v-for="(n, i) in pages"
           :key="`page-${i}`"
           class="page"
-          :class="i === pages.length - 1 ? 'opened' : ''"
+          :class="`${i === pages.length - 1 ? 'opened' : ''}`"
       >
         <slot :name="n"></slot>
       </div>
+      <div
+          class="page opened nav-back-area"
+          v-if="animationClass === 'nav-back'"
+      ></div>
     </div>
 
   </div>
@@ -27,6 +31,18 @@ export default Vue.extend({
   props: [
       "pages"
   ],
+  data() {
+    return {
+      animationClass: ''
+    }
+  },
+  watch: {
+    pages(n: string[], o: string[]) {
+      if( n.length < o.length ) {
+        this.animationClass = 'nav-back';
+      }
+    }
+  }
 })
 </script>
 
@@ -52,6 +68,15 @@ export default Vue.extend({
       &.opened {
         width: 100%;
       }
+    }
+    & .nav-back-area {
+      background-color: red;
+    }
+  }
+
+  &.nav-back {
+    & .nav-back-area {
+      width: 0;
     }
   }
 
