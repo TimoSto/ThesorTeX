@@ -3,3 +3,5 @@
 /bazel-*/
 /bazel-*
 /webclient/assets/dist/
+/Config.ini
+/go_build_github_com_TimoSto_ThesorTeX_cmd_local

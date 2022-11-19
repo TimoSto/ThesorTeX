@@ -69,6 +69,7 @@ export default Vue.extend({
       ProjectsDir: this.initialConfig.ProjectsDir,
       Error: ''
     };
+    console.log(JSON.stringify(this.config) , JSON.stringify(this.initialConfig))
   },
   computed: {
     opened: {

@@ -16,7 +16,11 @@ export async function GetConfig(): Promise<AppConfiguration> {
         }
     }
 
-    return await resp.json()
+    const obj = await resp.json()
+
+    obj.Error = '';
+
+    return obj;
 }
 
 export async function SaveConfig(config: AppConfiguration): Promise<boolean> {
