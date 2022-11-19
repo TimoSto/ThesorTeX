@@ -12,6 +12,7 @@
         <v-text-field
           label="Port"
           v-model="config.Port"
+          :rules="[checkPort]"
           ></v-text-field>
 
         <v-text-field
@@ -31,7 +32,7 @@
           </v-btn>
           <v-btn
               color="primary"
-              :disabled="JSON.stringify(config) === JSON.stringify(initialConfig)"
+              :disabled="JSON.stringify(config) === JSON.stringify(initialConfig) || !rulesAreMet"
               @click="save"
           >
             Speichern
@@ -47,7 +48,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {AppConfiguration, GetConfig, SaveConfig} from "../api/config";
+import {AppConfiguration, GetConfig, SaveConfig} from "./api/config";
+import CheckPortValid from "./rules/portRules";
 
 export default Vue.extend({
   name: "ConfigDialog",
@@ -72,6 +74,9 @@ export default Vue.extend({
     opened: {
       get(): boolean { return this.open},
       set(v:boolean) { this.$emit("stateChange", v)}
+    },
+    rulesAreMet(): boolean {
+      return this.checkPort(this.config.Port) === true
     }
   },
   methods: {
@@ -84,6 +89,9 @@ export default Vue.extend({
           Error: ''
         }
       }
+    },
+    checkPort(v: string): boolean|string {
+      return CheckPortValid(v)
     }
   }
 });
