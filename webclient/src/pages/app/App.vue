@@ -18,6 +18,14 @@
         v-on:clicked="goBackTo"
         />
 
+      <v-spacer />
+
+      <v-btn icon
+        @click="configOpened = true"
+      >
+        <v-icon>mdi-cog</v-icon>
+      </v-btn>
+
     </v-app-bar>
 
     <v-navigation-drawer
@@ -62,6 +70,11 @@
       </NavArea>
     </v-main>
 
+    <ConfigDialog
+      :open="configOpened"
+      v-on:stateChange="configOpened = $event"
+    />
+
   </v-app>
 </template>
 
@@ -71,13 +84,15 @@ import LogoSVG from "../../common/components/LogoSVG.vue";
 import AppBarBreadcrumb, { Item } from "./components/AppBarBreadcrumb.vue";
 import NavArea from "./components/NavArea.vue";
 import StartPage from "./views/StartPage.vue";
+import ConfigDialog from "./views/ConfigDialog.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {StartPage, NavArea, AppBarBreadcrumb, LogoSVG},
+  components: {ConfigDialog, StartPage, NavArea, AppBarBreadcrumb, LogoSVG},
   data: () => ({
     navDrawer: false,
-    pages: ["ThesorTeX"] as string[]
+    pages: ["ThesorTeX"] as string[],
+    configOpened: false
   }),
 
   mounted() {
