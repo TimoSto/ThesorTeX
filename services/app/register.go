@@ -13,4 +13,6 @@ func Register(mux *http.ServeMux) {
 
 	mux.Handle(fmt.Sprintf("%s/", prefix), handlers.HandleRoot())
 
+	mux.Handle(fmt.Sprintf("%s/config", prefix), handlers.HandleConfig())
+
 }

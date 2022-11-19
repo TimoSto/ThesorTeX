@@ -9,12 +9,15 @@ type Config struct {
 
 var config Config
 
-func GetConfig() Config {
+func ReadConfig() {
 	pathbuilder.Init()
 
 	config = Config{
 		Port:        "8448",
 		ProjectsDir: pathbuilder.GetPathFromExecRoot("projects"),
 	}
+}
+
+func GetConfig() Config {
 	return config
 }

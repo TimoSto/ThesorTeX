@@ -17,7 +17,7 @@ import (
 func main() {
 	log.Info("Starting local app...")
 
-	configObj := conf.GetConfig()
+	conf.ReadConfig()
 
 	mux := http.NewServeMux()
 
@@ -35,7 +35,7 @@ func main() {
 	app.Register(mux)
 
 	go func() {
-		err := http.ListenAndServe(fmt.Sprintf(":%s", configObj.Port), chain.Then(mux))
+		err := http.ListenAndServe(fmt.Sprintf(":%s", conf.GetConfig().Port), chain.Then(mux))
 		if err != nil {
 			log.Error(err)
 			os.Exit(1)
