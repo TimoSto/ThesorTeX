@@ -1,6 +1,10 @@
 
 export type AppState = {
-    projects: string[]
+    projects: ProjectData[]
+}
+
+export type ProjectData = {
+    Name: string
 }
 
 export const appState: AppState = {

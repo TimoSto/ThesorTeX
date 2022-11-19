@@ -15,4 +15,6 @@ func Register(mux *http.ServeMux) {
 
 	mux.Handle(fmt.Sprintf("%s/config", prefix), handlers.HandleConfig())
 
+	mux.Handle(fmt.Sprintf("%s/projects", prefix), handlers.HandleProjects())
+
 }
