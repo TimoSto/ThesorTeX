@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import GetConfig, { AppConfiguration } from "../api/readConfig";
+import GetConfig, { AppConfiguration } from "./api/readConfig";
 
 export default Vue.extend({
   name: "ConfigDialog",
