@@ -22,7 +22,7 @@
         bar-height="112"
         margin-top="48"
         padding-x="16"
-        padding-y="0"
+        padding-y="8"
         scroll-id="index-content"
     >
 
