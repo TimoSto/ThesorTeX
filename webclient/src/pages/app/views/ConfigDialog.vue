@@ -32,6 +32,7 @@
           <v-btn
               color="primary"
               :disabled="JSON.stringify(config) === JSON.stringify(initialConfig)"
+              @click="save"
           >
             Speichern
           </v-btn>
@@ -46,7 +47,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import GetConfig, { AppConfiguration } from "../api/readConfig";
+import {AppConfiguration, GetConfig, SaveConfig} from "../api/config";
 
 export default Vue.extend({
   name: "ConfigDialog",
@@ -64,13 +65,25 @@ export default Vue.extend({
     this.config = {
       Port: this.initialConfig.Port,
       ProjectsDir: this.initialConfig.ProjectsDir,
-      Error: this.initialConfig.Error
+      Error: ''
     };
   },
   computed: {
     opened: {
       get(): boolean { return this.open},
       set(v:boolean) { this.$emit("stateChange", v)}
+    }
+  },
+  methods: {
+    async save() {
+      const ok = await SaveConfig(this.config);
+      if( ok ) {
+        this.initialConfig = {
+          Port: this.config.Port,
+          ProjectsDir: this.config.ProjectsDir,
+          Error: ''
+        }
+      }
     }
   }
 });

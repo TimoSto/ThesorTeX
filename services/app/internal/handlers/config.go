@@ -22,6 +22,15 @@ func HandleConfig() http.Handler {
 
 			w.Write(data)
 
+		case http.MethodPost:
+			var data conf.Config
+			decoder := json.NewDecoder(r.Body)
+			err := decoder.Decode(&data)
+			if err != nil {
+				log.Error(fmt.Sprintf("Saving config: %v", err))
+				return
+			}
+			conf.WriteConfig(data)
 		}
 	}
 

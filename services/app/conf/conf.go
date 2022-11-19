@@ -21,3 +21,7 @@ func ReadConfig() {
 func GetConfig() Config {
 	return config
 }
+
+func WriteConfig(c Config) {
+	config = c
+}
