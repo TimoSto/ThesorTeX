@@ -8,9 +8,9 @@ import (
 )
 
 type Project struct {
-	Name string
-	Created string
-	LastModified string
+	Name            string
+	Created         string
+	LastModified    string
 	NumberOfEntries int
 }
 
