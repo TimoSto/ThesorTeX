@@ -30,10 +30,10 @@
         <template v-slot:default>
           <thead>
             <tr>
-              <th >Projekt</th>
-              <th >Erstellt</th>
-              <th >Zuletzt bearbeitet</th>
-              <th >Anzahl Einträge</th>
+              <th>Projekt</th>
+              <th>Erstellt</th>
+              <th>Zuletzt bearbeitet</th>
+              <th>Anzahl Einträge</th>
               <th style="min-width: 48px; max-width: 48px;">
                 <v-btn icon>
                   <v-icon>mdi-plus</v-icon>

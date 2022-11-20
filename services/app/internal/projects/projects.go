@@ -9,6 +9,9 @@ import (
 
 type Project struct {
 	Name string
+	Created string
+	LastModified string
+	NumberOfEntries int
 }
 
 func GetAllProjects() ([]Project, error) {
@@ -29,11 +32,13 @@ func GetAllProjects() ([]Project, error) {
 
 	for _, f := range dirContent {
 		if f.IsDir() {
+			newProj := Project{
+				Name: f.Name(),
+			}
 			projects = append(
 				projects,
-				Project{
-					Name: f.Name(),
-				})
+				newProj,
+			)
 		}
 	}
 
