@@ -33,3 +33,6 @@ Gui with Vue3 and vuetify.
 
 ### e2e
 end-2-end-tests
+
+### mocks
+mock-implementations for unit-tests

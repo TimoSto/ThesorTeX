@@ -32,7 +32,7 @@ func main() {
 	}
 	assets.Register(mux, assetConf)
 
-	app.Register(mux)
+	app.Register(mux, conf.GetConfig())
 
 	go func() {
 		err := http.ListenAndServe(fmt.Sprintf(":%s", conf.GetConfig().Port), chain.Then(mux))

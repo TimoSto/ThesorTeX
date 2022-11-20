@@ -1,7 +1,7 @@
 package projects
 
 import (
-	"io/ioutil"
+	"io/fs"
 	"os"
 
 	"github.com/TimoSto/ThesorTeX/services/app/conf"
@@ -14,15 +14,20 @@ type Project struct {
 	NumberOfEntries int
 }
 
-func GetAllProjects() ([]Project, error) {
-	projectsPath := conf.GetConfig().ProjectsDir
-	dirContent, err := ioutil.ReadDir(projectsPath)
+func GetAllProjects(
+	config conf.Config,
+	readDir func(string) ([]fs.FileInfo, error),
+	mkdir func(string, os.FileMode) error,
+) ([]Project, error) {
+
+	projectsPath := config.ProjectsDir
+	dirContent, err := readDir(projectsPath)
 	if err != nil {
-		err = os.Mkdir(projectsPath, 0644)
+		err = mkdir(projectsPath, 0644)
 		if err != nil {
 			return nil, err
 		}
-		dirContent, err = ioutil.ReadDir(projectsPath)
+		dirContent, err = readDir(projectsPath)
 		if err != nil {
 			return nil, err
 		}
