@@ -54,3 +54,10 @@ func ReadFile(filename string) ([]byte, error) {
 		return []byte{}, nil
 	}
 }
+
+var WrittenFiles = []string{}
+
+func WriteFile(path string, data []byte, p fs.FileMode) error {
+	WrittenFiles = append(WrittenFiles, path)
+	return nil
+}

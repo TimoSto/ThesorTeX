@@ -53,3 +53,50 @@ func TestGetAllProjects_TwoProjects(t *testing.T) {
 		t.Errorf("Expected %v, got %v", p2, projects[1])
 	}
 }
+
+func TestCreateProject(t *testing.T) {
+	c := conf.Config{
+		Port:        "",
+		ProjectsDir: "/test2/",
+	}
+	err := CreateProject("testproject3", c, mock_fs.Mkdir, mock_fs.WriteFile)
+	if err != nil {
+		t.Errorf("unexpected error %v", err)
+	}
+	expectedFiles := []string{
+		"/test2/testproject3/testproject3.tex",
+		"/test2/testproject3/literatur.csv",
+		"/test2/testproject3/literature_types.json",
+		"/test2/testproject3/styPackages/abk_verzeichnis.sty",
+		"/test2/testproject3/styPackages/anhang.sty",
+		"/test2/testproject3/styPackages/codes.sty",
+		"/test2/testproject3/styPackages/fusszeilen.sty",
+		"/test2/testproject3/styPackages/header_footer.sty",
+		"/test2/testproject3/styPackages/html.sty",
+		"/test2/testproject3/styPackages/inhaltsverzeichnis.sty",
+		"/test2/testproject3/styPackages/literatur.sty",
+		"/test2/testproject3/styPackages/ueberschriften.sty",
+	}
+	for _, f := range expectedFiles {
+		found := false
+		for _, wf := range mock_fs.WrittenFiles {
+			if wf == f {
+				found = true
+			}
+		}
+		if !found {
+			t.Errorf("expected %s to have been written, but it wasnt", f)
+		}
+	}
+	for _, f := range mock_fs.WrittenFiles {
+		found := false
+		for _, ef := range expectedFiles {
+			if ef == f {
+				found = true
+			}
+		}
+		if !found {
+			t.Errorf("unexpected file %s written", f)
+		}
+	}
+}

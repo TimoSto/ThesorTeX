@@ -1,10 +1,12 @@
 package projects
 
 import (
+	"embed"
 	"encoding/json"
 	"fmt"
 	"io/fs"
 	"os"
+	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
@@ -17,6 +19,9 @@ type Project struct {
 	LastModified    string
 	NumberOfEntries int
 }
+
+//go:embed project_template
+var projectTemplate embed.FS
 
 func GetAllProjects(
 	config conf.Config,
@@ -68,4 +73,37 @@ func GetAllProjects(
 	}
 
 	return projects, nil
+}
+
+func CreateProject(
+	name string,
+	config conf.Config,
+	mkdir func(string, os.FileMode) error,
+	writeFile func(string, []byte, fs.FileMode) error,
+) error {
+
+	//todo:special error if project already exists
+	err := mkdir(pathbuilder.GetProjectPath(config.ProjectsDir, name), 0644)
+	if err != nil {
+		return err
+	}
+
+	err = fs.WalkDir(projectTemplate, ".", func(path string, d fs.DirEntry, err error) error {
+		// cannot happen
+		if err != nil {
+			panic(err)
+		}
+		if d.IsDir() {
+			return nil
+		}
+		b, err := fs.ReadFile(projectTemplate, path)
+		if err != nil {
+			return err // or panic or ignore
+		}
+		path = strings.TrimPrefix(path, "project_template/")
+		path = strings.Replace(path, "example.tex", fmt.Sprintf("%s.tex", name), 1)
+		return writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, path), b, 0644)
+	})
+
+	return nil
 }
