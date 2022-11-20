@@ -64,6 +64,7 @@ func TestCreateProject(t *testing.T) {
 		t.Errorf("unexpected error %v", err)
 	}
 	expectedFiles := []string{
+		"/test2/testproject3/config.json",
 		"/test2/testproject3/testproject3.tex",
 		"/test2/testproject3/literatur.csv",
 		"/test2/testproject3/literature_types.json",

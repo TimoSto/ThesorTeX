@@ -7,6 +7,7 @@ import (
 	"io/fs"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
@@ -105,5 +106,17 @@ func CreateProject(
 		return writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, path), b, 0644)
 	})
 
-	return nil
+	pObj := Project{
+		Name:            "",
+		Created:         time.Now().Format("2006-01-02 15:04"),
+		LastModified:    time.Now().Format("2006-01-02 15:04"),
+		NumberOfEntries: 0,
+	}
+
+	data, err := json.Marshal(pObj)
+	if err != nil {
+		return err
+	}
+
+	return writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, "config.json"), data, 0644)
 }
