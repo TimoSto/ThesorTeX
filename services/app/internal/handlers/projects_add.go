@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -19,8 +18,6 @@ func HandleAddProject(config conf.Config) http.Handler {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-
-		fmt.Println(string(data))
 
 		err = projects.CreateProject(string(data), config, os.MkdirAll, ioutil.WriteFile)
 		if err != nil {
