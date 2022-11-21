@@ -25,6 +25,7 @@
           </v-btn>
           <v-btn
             color="primary"
+            :disabled="name === '' || typeof checkName === 'string'"
             >Erstellen</v-btn>
         </v-row>
       </v-card-text>
