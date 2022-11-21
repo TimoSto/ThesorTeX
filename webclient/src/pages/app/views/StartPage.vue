@@ -54,7 +54,7 @@
 <script lang="ts">
 import Vue from "vue";
 import ContentBelowBar from "../../../common/components/ContentBelowBar.vue";
-import CreateProjectDialog from "../components/createProjectDialog/CreateProjectDialog.vue";
+import CreateProjectDialog from "../components/CreateProjectDialog.vue";
 
 export default Vue.extend({
   name: "StartPage",

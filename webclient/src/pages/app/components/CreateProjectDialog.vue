@@ -34,9 +34,9 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { CheckProjectName } from "./nameRules";
-import {ActionTypes} from "../../store/action-types";
-import {ProjectData} from "../../store/state";
+import { CheckProjectName } from "../rules/projectNameRules";
+import {ActionTypes} from "../store/action-types";
+import {ProjectData} from "../store/state";
 
 export default Vue.extend({
   name: "CreateProjectDialog",

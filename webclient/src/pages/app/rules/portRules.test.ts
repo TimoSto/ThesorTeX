@@ -1,4 +1,4 @@
-import CheckPortValid from "@/pages/app/views/conf/rules/portRules";
+import CheckPortValid from "@/pages/app/rules/portRules";
 
 describe('PortRules', () => {
     it('should fail on chars', () => {

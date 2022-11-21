@@ -48,8 +48,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {AppConfiguration, GetConfig, SaveConfig} from "./api/config";
-import CheckPortValid from "./rules/portRules";
+import {AppConfiguration, GetConfig, SaveConfig} from "../../api_calls/config";
+import CheckPortValid from "../../rules/portRules";
 
 export default Vue.extend({
   name: "ConfigDialog",
