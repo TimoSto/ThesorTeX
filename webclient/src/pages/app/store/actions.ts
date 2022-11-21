@@ -4,6 +4,7 @@ import { Mutations } from './mutations';
 import {ActionTypes} from "@/pages/app/store/action-types";
 import {MutationTypes} from "@/pages/app/store/mutation-types";
 import GetProjects from "@/pages/app/api_calls/projects_get";
+import AddProject from "@/pages/app/api_calls/projects_add";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -25,6 +26,13 @@ export const actions: ActionTree<AppState, AppState> & Actions = {
 
         if( resp.Success ) {
             commit(MutationTypes.SET_PROJECTS, resp.Projects)
+        }
+    },
+    async [ActionTypes.ADD_PROJECT]({ commit }, name: string) {
+        const resp = await AddProject(name);
+
+        if( resp.Success ) {
+
         }
     },
 };

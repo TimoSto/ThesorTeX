@@ -84,7 +84,7 @@ func CreateProject(
 ) error {
 
 	//todo:special error if project already exists
-	err := mkdir(pathbuilder.GetProjectPath(config.ProjectsDir, name), 0644)
+	err := mkdir(pathbuilder.GetProjectPath(config.ProjectsDir, name), os.ModePerm)
 	if err != nil {
 		return err
 	}
@@ -103,8 +103,13 @@ func CreateProject(
 		}
 		path = strings.TrimPrefix(path, "project_template/")
 		path = strings.Replace(path, "example.tex", fmt.Sprintf("%s.tex", name), 1)
+
 		return writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, path), b, 0644)
 	})
+
+	if err != nil {
+		return err
+	}
 
 	pObj := Project{
 		Name:            "",

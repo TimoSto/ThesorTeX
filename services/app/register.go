@@ -18,4 +18,6 @@ func Register(mux *http.ServeMux, config conf.Config) {
 
 	mux.Handle(fmt.Sprintf("%s/projects", prefix), handlers.HandleProjects(config))
 
+	mux.Handle(fmt.Sprintf("%s/createProject", prefix), handlers.HandleAddProject(config))
+
 }

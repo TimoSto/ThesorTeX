@@ -26,6 +26,7 @@
           <v-btn
             color="primary"
             :disabled="name === '' || typeof checkName === 'string'"
+            @click="createProject"
             >Erstellen</v-btn>
         </v-row>
       </v-card-text>
@@ -61,6 +62,11 @@ export default Vue.extend({
     //TODO: global rule-type for these computed funcs
     checkName(): boolean|string {
       return CheckProjectName(this.name, this.$store.state.projects.map((p: ProjectData) => p.Name))
+    }
+  },
+  methods: {
+    createProject() {
+      this.$store.dispatch(ActionTypes.ADD_PROJECT, this.name);
     }
   }
 })
