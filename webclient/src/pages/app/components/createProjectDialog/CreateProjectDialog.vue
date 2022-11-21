@@ -12,6 +12,7 @@
           color="primary"
           label="Name des Projektes"
           v-model="name"
+          :rules="[checkName]"
         />
         <v-row style="padding: 16px 8px 4px 0">
           <v-spacer />
@@ -33,6 +34,9 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { CheckProjectName } from "./nameRules";
+import {ActionTypes} from "../../store/action-types";
+import {ProjectData} from "../../store/state";
 
 export default Vue.extend({
   name: "CreateProjectDialog",
@@ -45,11 +49,18 @@ export default Vue.extend({
       name: ''
     }
   },
+  mounted() {
+    this.$store.dispatch(ActionTypes.GET_PROJECTS);
+  },
   computed: {
     opened: {
       get(): boolean { return this.open},
       set(v:boolean) { this.$emit("stateChange", v)}
     },
+    //TODO: global rule-type for these computed funcs
+    checkName(): boolean|string {
+      return CheckProjectName(this.name, this.$store.state.projects.map((p: ProjectData) => p.Name))
+    }
   }
 })
 </script>

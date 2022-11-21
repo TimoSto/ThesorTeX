@@ -2,6 +2,7 @@ import { ActionTree, ActionContext } from 'vuex';
 import {AppState} from './state';
 import { Mutations } from './mutations';
 import {ActionTypes} from "@/pages/app/store/action-types";
+import {MutationTypes} from "@/pages/app/store/mutation-types";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -19,6 +20,11 @@ export interface Actions {
 
 export const actions: ActionTree<AppState, AppState> & Actions = {
     async [ActionTypes.GET_PROJECTS]({ commit }) {
-        //Reading projects from local server
+        const resp = await fetch("/app/projects");
+
+        if( resp.ok ) {
+            const data = await resp.json();
+            commit(MutationTypes.SET_PROJECTS, data)
+        }
     },
 };

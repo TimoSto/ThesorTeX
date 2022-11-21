@@ -8,6 +8,7 @@ export type Mutations<S = AppState> = {
 
 export const mutations: MutationTree<AppState> & Mutations = {
     [MutationTypes.SET_PROJECTS](state, payload: ProjectData[]) {
+        console.log(payload);
         state.projects = payload
     },
 };
