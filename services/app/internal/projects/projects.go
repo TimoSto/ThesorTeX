@@ -88,6 +88,10 @@ func CreateProject(
 	if err != nil {
 		return err
 	}
+	err = mkdir(pathbuilder.GetPathInProject(config.ProjectsDir, name, "styPackages"), os.ModePerm)
+	if err != nil {
+		return err
+	}
 
 	err = fs.WalkDir(projectTemplate, ".", func(path string, d fs.DirEntry, err error) error {
 		// cannot happen
