@@ -35,7 +35,7 @@
               <th>Zuletzt bearbeitet</th>
               <th>Anzahl Einträge</th>
               <th style="min-width: 48px; max-width: 48px;">
-                <v-btn icon>
+                <v-btn icon @click="createNew=true">
                   <v-icon>mdi-plus</v-icon>
                 </v-btn>
               </th>
@@ -45,16 +45,25 @@
       </v-simple-table>
     </ContentBelowBar>
 
+    <CreateProjectDialog
+      :open="createNew"
+      v-on:stateChange="createNew = $event" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import ContentBelowBar from "../../../common/components/ContentBelowBar.vue";
+import CreateProjectDialog from "../components/createProjectDialog/CreateProjectDialog.vue";
 
 export default Vue.extend({
   name: "StartPage",
-  components: {ContentBelowBar}
+  components: {CreateProjectDialog, ContentBelowBar},
+  data () {
+    return {
+      createNew: false
+    }
+  }
 })
 </script>
 

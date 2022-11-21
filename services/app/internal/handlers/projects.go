@@ -14,7 +14,7 @@ import (
 
 func HandleProjects(config conf.Config) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		projectsData, err := projects.GetAllProjects(config, ioutil.ReadDir, os.Mkdir)
+		projectsData, err := projects.GetAllProjects(config, ioutil.ReadDir, os.Mkdir, ioutil.ReadFile)
 		if err != nil {
 			log.Error(fmt.Sprintf("Reading projects: %v", err))
 		}
