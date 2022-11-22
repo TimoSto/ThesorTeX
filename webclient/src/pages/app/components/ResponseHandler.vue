@@ -41,9 +41,6 @@ import {MutationTypes} from "../store/mutation-types";
 
 export default Vue.extend({
   name: "ResponseHandler",
-mounted() {
-  this.$store.commit(MutationTypes.SET_SUCCESS, "CREATED");
-    },
   computed: {
     errorMessage(): string {
       return this.$store.state.actionResult.error;
@@ -62,29 +59,37 @@ mounted() {
   data() {
     return {
       currentTime: 0,
+      counter: 0,
     };
   },
 
   watch: {
     successMessage(v: string) {
+      console.log(v);
       if( v !== "" ) {
-        this.syncSnackbarTime();
+        this.currentTime = 0;
+        this.counter++;
+        this.syncSnackbarTime(this.counter);
       }
     }
   },
 
   methods: {
-    syncSnackbarTime() {
+    syncSnackbarTime(count: number) {
       this.currentTime += 100;
-      if( this.currentTime < 5000 ) {
-        setTimeout(() => {
-          this.syncSnackbarTime();
-        }, 100)
-      } else {
-        this.$nextTick(() => {
-          this.currentTime = 0;
-          this.$store.commit(MutationTypes.SET_SUCCESS, "");
-        })
+      console.log(count)
+      if( count === this.counter ) {
+        if( this.currentTime < 5000 ) {
+          setTimeout(() => {
+            this.syncSnackbarTime(count);
+          }, 100)
+        } else {
+          this.$nextTick(() => {
+            this.currentTime = 0;
+            console.log('kill', count)
+            this.$store.commit(MutationTypes.SET_SUCCESS, "");
+          })
+        }
       }
     }
   },

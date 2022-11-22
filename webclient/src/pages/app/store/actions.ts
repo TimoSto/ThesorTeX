@@ -33,7 +33,9 @@ export const actions: ActionTree<AppState, AppState> & Actions = {
 
         if( resp.Success ) {
             commit(MutationTypes.SET_SUCCESS, "");
-            commit(MutationTypes.SET_SUCCESS, "CREATED");
+            setTimeout(() => {
+                commit(MutationTypes.SET_SUCCESS, "CREATED");
+            });
             commit(MutationTypes.ADD_PROJECT, resp.Project);
         } else {
             commit(MutationTypes.SET_ERROR, "CREATING")
