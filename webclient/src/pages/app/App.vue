@@ -75,6 +75,8 @@
       v-on:stateChange="configOpened = $event"
     />
 
+    <ResponseHandler />
+
   </v-app>
 </template>
 
@@ -85,10 +87,11 @@ import AppBarBreadcrumb, { Item } from "./components/AppBarBreadcrumb.vue";
 import NavArea from "./components/NavArea.vue";
 import StartPage from "./views/StartPage.vue";
 import ConfigDialog from "./views/ConfigDialog.vue";
+import ResponseHandler from "./components/ResponseHandler.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {ConfigDialog, StartPage, NavArea, AppBarBreadcrumb, LogoSVG},
+  components: {ResponseHandler, ConfigDialog, StartPage, NavArea, AppBarBreadcrumb, LogoSVG},
   data: () => ({
     navDrawer: false,
     pages: ["ThesorTeX"] as string[],
