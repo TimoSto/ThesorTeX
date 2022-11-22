@@ -32,7 +32,10 @@ export const actions: ActionTree<AppState, AppState> & Actions = {
         const resp = await AddProject(name);
 
         if( resp.Success ) {
+            commit(MutationTypes.SET_SUCCESS, "CREATED");
             commit(MutationTypes.ADD_PROJECT, resp.Project);
+        } else {
+            commit(MutationTypes.SET_ERROR, "CREATING")
         }
     },
 };

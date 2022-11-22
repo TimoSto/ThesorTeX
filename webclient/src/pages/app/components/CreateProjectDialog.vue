@@ -62,6 +62,17 @@ export default Vue.extend({
     //TODO: global rule-type for these computed funcs
     checkName(): boolean|string {
       return CheckProjectName(this.name, this.$store.state.projects.map((p: ProjectData) => p.Name))
+    },
+    success(): string {
+      return this.$store.state.actionResult.success;
+    }
+  },
+  watch: {
+    success() {
+      if( this.success.length > 0 ) {
+        this.name = '';
+        this.$emit('stateChange', false);
+      }
     }
   },
   methods: {
