@@ -11,8 +11,6 @@ export default async function AddProject(name: string): Promise<AddProjectsRespo
         body: name
     });
 
-    console.log(resp.ok)
-
     if( resp.ok ) {
         return {
             Success: resp.ok,

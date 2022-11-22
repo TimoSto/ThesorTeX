@@ -37,10 +37,13 @@
 <script lang="ts">
 //TODO: use this at others and therefore make state implement a global interface?
 import Vue from "vue";
+import {MutationTypes} from "../store/mutation-types";
 
 export default Vue.extend({
   name: "ResponseHandler",
-
+mounted() {
+  this.$store.commit(MutationTypes.SET_SUCCESS, "CREATED");
+    },
   computed: {
     errorMessage(): string {
       return this.$store.state.actionResult.error;
@@ -61,33 +64,30 @@ export default Vue.extend({
       currentTime: 0,
     };
   },
-  methods: {
-    syncPbar() {
-      //Create a timeout every 100 miliseconds
-      setTimeout(() => {
-        //Increment the time counter by 100
-        this.currentTime += 100;
 
-        //If our current time is larger than the timeout
-        if (5000 <= this.currentTime) {
-
-          //Wait 500 miliseconds for the dom to catch up, then reset the snackbar
-          setTimeout(() => {
-            this.currentTime = 0; // reset the current time
-            this.$emit('timeoutReached')
-          }, 500);
-        } else {
-          //Recursivly update the progress bar
-          this.syncPbar();
-        }
-      }, 100);
+  watch: {
+    successMessage(v: string) {
+      if( v !== "" ) {
+        this.syncSnackbarTime();
+      }
     }
   },
-  watch: {
-    value(v) {
-      if (v) this.syncPbar();
+
+  methods: {
+    syncSnackbarTime() {
+      this.currentTime += 100;
+      if( this.currentTime < 5000 ) {
+        setTimeout(() => {
+          this.syncSnackbarTime();
+        }, 100)
+      } else {
+        this.$nextTick(() => {
+          this.currentTime = 0;
+          this.$store.commit(MutationTypes.SET_SUCCESS, "");
+        })
+      }
     }
-  }
+  },
 });
 </script>
 
