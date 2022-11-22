@@ -84,7 +84,7 @@ import LogoSVG from "../../common/components/LogoSVG.vue";
 import AppBarBreadcrumb, { Item } from "./components/AppBarBreadcrumb.vue";
 import NavArea from "./components/NavArea.vue";
 import StartPage from "./views/StartPage.vue";
-import ConfigDialog from "./views/conf/ConfigDialog.vue";
+import ConfigDialog from "./views/ConfigDialog.vue";
 
 export default Vue.extend({
   name: 'App',

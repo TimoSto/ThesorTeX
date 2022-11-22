@@ -81,16 +81,16 @@ func CreateProject(
 	config conf.Config,
 	mkdir func(string, os.FileMode) error,
 	writeFile func(string, []byte, fs.FileMode) error,
-) error {
+) (Project, error) {
 
 	//todo:special error if project already exists
 	err := mkdir(pathbuilder.GetProjectPath(config.ProjectsDir, name), os.ModePerm)
 	if err != nil {
-		return err
+		return Project{}, err
 	}
 	err = mkdir(pathbuilder.GetPathInProject(config.ProjectsDir, name, "styPackages"), os.ModePerm)
 	if err != nil {
-		return err
+		return Project{}, err
 	}
 
 	err = fs.WalkDir(projectTemplate, ".", func(path string, d fs.DirEntry, err error) error {
@@ -112,11 +112,11 @@ func CreateProject(
 	})
 
 	if err != nil {
-		return err
+		return Project{}, err
 	}
 
 	pObj := Project{
-		Name:            "",
+		Name:            name,
 		Created:         time.Now().Format("2006-01-02 15:04"),
 		LastModified:    time.Now().Format("2006-01-02 15:04"),
 		NumberOfEntries: 0,
@@ -124,8 +124,8 @@ func CreateProject(
 
 	data, err := json.Marshal(pObj)
 	if err != nil {
-		return err
+		return Project{}, err
 	}
 
-	return writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, "config.json"), data, 0644)
+	return pObj, writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, "config.json"), data, 0644)
 }

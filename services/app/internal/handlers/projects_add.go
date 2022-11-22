@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -19,12 +20,21 @@ func HandleAddProject(config conf.Config) http.Handler {
 			return
 		}
 
-		err = projects.CreateProject(string(data), config, os.MkdirAll, ioutil.WriteFile)
+		project, err := projects.CreateProject(string(data), config, os.MkdirAll, ioutil.WriteFile)
 		if err != nil {
 			log.Error("Error creating project: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
+
+		pData, err := json.Marshal(project)
+		if err != nil {
+			log.Error("Error marshaling data: %v", err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+
+		w.Write(pData)
 	}
 
 	return http.HandlerFunc(fn)
