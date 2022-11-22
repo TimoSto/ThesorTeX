@@ -3,7 +3,7 @@
 
     <v-dialog
       width="450"
-      v-model="errorMessage"
+      v-model="errorOpen"
       >
       <v-card>
         <v-card-title>An Error Occurred</v-card-title>
@@ -20,7 +20,7 @@
       </v-card>
     </v-dialog>
 
-    <v-snackbar :value="successMessage !== ''">
+    <v-snackbar :value="successOpen">
     <span v-html="successMessage">
     </span>
 
@@ -42,23 +42,18 @@ export default Vue.extend({
   name: "ResponseHandler",
 
   computed: {
-    errorMessage: {
-      get(): string {
-        const v = this.$store.state.actionResult.error;
-        if(v !== '') {
-          this.syncPbar();
-        }
-        return v;
-      },
-      set(v: string) {
-        if(v !== '') {
-          this.syncPbar();
-        }
-      }
+    errorMessage(): string {
+      return this.$store.state.actionResult.error;
+    },
+    errorOpen(): boolean {
+      return this.errorMessage !== '';
     },
     successMessage(): string {
       return this.$store.state.actionResult.success;
-    }
+    },
+    successOpen(): boolean {
+      return this.successMessage !== '';
+    },
   },
 
   data() {
@@ -88,6 +83,11 @@ export default Vue.extend({
       }, 100);
     }
   },
+  watch: {
+    value(v) {
+      if (v) this.syncPbar();
+    }
+  }
 });
 </script>
 

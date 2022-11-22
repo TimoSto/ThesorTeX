@@ -31,6 +31,8 @@ export const actions: ActionTree<AppState, AppState> & Actions = {
     async [ActionTypes.ADD_PROJECT]({ commit }, name: string) {
         const resp = await AddProject(name);
 
+        console.log(resp.Success)
+
         if( resp.Success ) {
             commit(MutationTypes.SET_SUCCESS, "CREATED");
             commit(MutationTypes.ADD_PROJECT, resp.Project);

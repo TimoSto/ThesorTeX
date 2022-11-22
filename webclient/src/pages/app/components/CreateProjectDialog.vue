@@ -5,7 +5,7 @@
     >
     <v-card>
       <v-card-title>
-        Projekt erstellen
+        Projekt erstellen{{error}}
       </v-card-title>
       <v-card-text>
         <v-text-field
@@ -65,11 +65,20 @@ export default Vue.extend({
     },
     success(): string {
       return this.$store.state.actionResult.success;
+    },
+    error(): string {
+      return this.$store.state.actionResult.error;
     }
   },
   watch: {
     success() {
       if( this.success.length > 0 ) {
+        this.name = '';
+        this.$emit('stateChange', false);
+      }
+    },
+    error() {
+      if( this.error.length > 0 ) {
         this.name = '';
         this.$emit('stateChange', false);
       }

@@ -9,10 +9,19 @@ export default async function AddProject(name: string): Promise<AddProjectsRespo
     const resp = await fetch("/app/createProject", {
         method: "PUT",
         body: name
-    })
+    });
 
-    return {
-        Success: resp.ok,
-        Project: await resp.json()
+    console.log(resp.ok)
+
+    if( resp.ok ) {
+        return {
+            Success: resp.ok,
+            Project: await resp.json()
+        }
+    } else {
+        return {
+            Success: false,
+            Project: {} as ProjectData
+        }
     }
 }
