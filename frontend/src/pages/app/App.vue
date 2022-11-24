@@ -6,13 +6,10 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '../../components/HelloWorld.vue'
+<script setup lang="ts">
+  import HelloWorld from '../../components/HelloWorld.vue'
+  import {useTheme} from "vuetify";
 
-  export default defineComponent({
-    components: {
-      HelloWorld
-    },
-  })
+  const theme = useTheme();
+  theme.global.name.value = 'dark';
 </script>
