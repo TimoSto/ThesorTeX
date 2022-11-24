@@ -36,6 +36,8 @@ export default defineConfig({
       input: {
         info: resolve(__dirname, 'index.html'),
         website: resolve(__dirname, 'website/index.html'),
+        auth: resolve(__dirname, 'auth/index.html'),
+        app: resolve(__dirname, 'app/index.html'),
       }
     }
   },
