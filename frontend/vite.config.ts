@@ -5,6 +5,7 @@ import vuetify from 'vite-plugin-vuetify'
 // Utilities
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -29,6 +30,14 @@ export default defineConfig({
       '.tsx',
       '.vue',
     ],
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        info: resolve(__dirname, 'index.html'),
+        website: resolve(__dirname, 'website/index.html'),
+      }
+    }
   },
   server: {
     port: 3000,
