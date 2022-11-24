@@ -5,7 +5,7 @@
  */
 
 // Components
-import App from '@/pages/auth/App.vue'
+import App from '@/pages/app/App.vue'
 
 // Composables
 import { createApp } from 'vue'
