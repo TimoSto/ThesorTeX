@@ -7,7 +7,7 @@
         src="/src/assets/logo.svg"
       />
 
-      <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
+      <div class="text-body-2 font-weight-light mb-n1">{{ t("Welcome") }}</div>
 
       <h1 class="text-h2 font-weight-bold">Vuetify</h1>
 
@@ -75,5 +75,7 @@
 </template>
 
 <script setup lang="ts">
-  //
+  import {useI18n} from "vue-i18n";
+
+  const { t } = useI18n()
 </script>
