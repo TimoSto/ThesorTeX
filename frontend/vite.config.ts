@@ -34,8 +34,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        info: resolve(__dirname, 'index.html'),
-        website: resolve(__dirname, 'website/index.html'),
+        website: resolve(__dirname, 'index.html'),
+        info: resolve(__dirname, 'info/index.html'),
         auth: resolve(__dirname, 'auth/index.html'),
         app: resolve(__dirname, 'app/index.html'),
       }
