@@ -12,8 +12,11 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+import {german} from "@/pages/auth/i18n/german";
+import {english} from "@/pages/auth/i18n/english";
+import CreateI18n from "@/plugins/i18n";
 
-const app = createApp(App)
+const app = createApp(App).use(CreateI18n(german, english))
 
 registerPlugins(app)
 

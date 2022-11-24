@@ -7,9 +7,8 @@
 </template>
 
 <script setup lang="ts">
-  import HelloWorld from '../../components/HelloWorld.vue'
-  import {useTheme} from "vuetify";
+import {useI18n} from "vue-i18n";
+import HelloWorld from "../../components/HelloWorld.vue";
 
-  const theme = useTheme();
-  theme.global.name.value = 'dark';
+const { t } = useI18n()
 </script>
