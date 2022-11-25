@@ -59,3 +59,7 @@ const { t } = useI18n()
 @use "@/styles/tiles.scss";
 @import '../../../node_modules/typeface-roboto/index.css';
 </style>
+
+<style lang="scss">
+@use "@/styles/common.scss";
+</style>
