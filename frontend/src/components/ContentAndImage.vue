@@ -16,6 +16,8 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@use "@/styles/tiles.scss";
+
 .container{
   width: calc(100% - 32px);
   margin: 16px auto;
