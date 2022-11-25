@@ -48,8 +48,21 @@ import AppbarContent from "@/components/AppbarContent";
 import ContentAndImage from "@/components/ContentAndImage.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
+import {ThemeInstance, useTheme} from "vuetify";
+import {ref, watch, watchEffect} from "vue";
 
 const { t } = useI18n()
+
+const themeName = ref("light");
+
+watch(themeName, () => {
+  console.log(themeName)
+})
+
+setTimeout(() => {
+  themeName.value = "hallo";
+}, 2500)
+
 </script>
 
 <style lang="scss" scoped>
