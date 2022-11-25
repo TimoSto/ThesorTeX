@@ -42,14 +42,15 @@
               </div>
             </template>
             <template v-slot:right>
-              <p>TODO: Image</p>
+              <ThesisSVG style="max-height: 250px; max-width: 250px; margin: 0 auto; display: block"/>
             </template>
           </ContentAndImage>
 
           <ContentAndImage
             image-side="left">
             <template v-slot:left>
-              image
+              <!-- todo: other image, maybe turning wheels -->
+              <ThesisMonitorSVG style="max-height: 250px; max-width: 250px; margin: 0 auto; display: block"/>
             </template>
             <template v-slot:right>
               <p class="tile_heading">{{t(i18nKeys.App.Title)}}</p>
@@ -78,7 +79,7 @@
               </div>
             </template>
             <template v-slot:right>
-              <p>TODO: Image</p>
+              <CvSVG style="max-height: 250px; max-width: 250px; margin: 0 auto; display: block"/>
             </template>
           </ContentAndImage>
 
@@ -94,6 +95,9 @@ import AppbarContent from "@/components/AppbarContent";
 import ContentAndImage from "@/components/ContentAndImage.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
+import ThesisSVG from "../../components/ThesisSVG.vue";
+import ThesisMonitorSVG from "../../components/ThesisMonitorSVG.vue";
+import CvSVG from "../../components/CvSVG.vue";
 
 const { t } = useI18n();
 
