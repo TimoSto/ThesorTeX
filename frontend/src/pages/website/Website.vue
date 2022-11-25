@@ -23,44 +23,13 @@
         >Download</v-btn>
       </template>
       <template v-slot:content>
-        <div style="width: 20px; height: 200px; background-color: red; margin-bottom: 300px"></div>
+        <div style="width: 20px; height: 2000px; background-color: red; margin-bottom: 300px"></div>
       </template>
     </AppbarContent>
   </v-layout>
 </template>
 
-<script>
+<script setup lang="ts">
 import LogoSVG from "@/components/LogoSVG";
 import AppbarContent from "@/components/AppbarContent";
-export default {
-  components: {AppbarContent, LogoSVG},
-  data: () => ({
-    drawer: false,
-    group: null,
-    items: [
-      {
-        title: 'Foo',
-        value: 'foo',
-      },
-      {
-        title: 'Bar',
-        value: 'bar',
-      },
-      {
-        title: 'Fizz',
-        value: 'fizz',
-      },
-      {
-        title: 'Buzz',
-        value: 'buzz',
-      },
-    ],
-  }),
-
-  watch: {
-    group () {
-      this.drawer = false
-    },
-  },
-}
 </script>
