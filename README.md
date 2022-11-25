@@ -28,7 +28,7 @@ The website accessible to global web
 ### pkg
 Packages used by multiple other packages
 
-### webclient
+### frontend
 Gui with Vue3 and vuetify.
 
 ### e2e
