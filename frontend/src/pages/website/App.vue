@@ -4,10 +4,17 @@
 
     <v-app-bar
       color="background"
-      elevation="0"
+      elevation="1"
+      fixed
     >
 
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-app-bar-nav-icon />
+      <LogoSVG
+        fill="rgba(0, 136, 52, 0.8)"
+        style="height: 35px; margin-left: 20px;"
+        :show-title="true"
+        font-color="rgba(0,0,0,0.7)"
+      />
 
       <v-spacer></v-spacer>
 
@@ -24,7 +31,9 @@
 </template>
 
 <script>
+import LogoSVG from "@/components/LogoSVG";
 export default {
+  components: {LogoSVG},
   data: () => ({
     drawer: false,
     group: null,
