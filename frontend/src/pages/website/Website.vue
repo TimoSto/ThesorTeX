@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import LogoSVG from "@/components/LogoSVG";
 import AppbarContent from "@/components/AppbarContent";
-import ContentAndImage from "../../components/ContentAndImage.vue";
+import ContentAndImage from "@/components/ContentAndImage.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
 
@@ -54,4 +54,5 @@ const { t } = useI18n()
 
 <style lang="scss" scoped>
 @use "@/styles/tiles.scss";
+@import '../../../node_modules/typeface-roboto/index.css';
 </style>
