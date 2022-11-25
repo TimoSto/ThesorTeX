@@ -23,7 +23,21 @@
         >Download</v-btn>
       </template>
       <template v-slot:content>
-        <div style="width: 20px; height: 2000px; background-color: red; margin-bottom: 300px"></div>
+
+        <ContentAndImage
+          image-side="right">
+          <template v-slot:left>
+            <p class="tile_heading">{{t(i18nKeys.Welcome)}}</p>
+            <p  class="tile_text" v-html="'hallo'"></p>
+            <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip">
+              <v-btn block color="primary">hallo</v-btn>
+            </a>
+          </template>
+          <template v-slot:right>
+            hallos
+          </template>
+        </ContentAndImage>
+
       </template>
     </AppbarContent>
   </v-layout>
@@ -32,4 +46,13 @@
 <script setup lang="ts">
 import LogoSVG from "@/components/LogoSVG";
 import AppbarContent from "@/components/AppbarContent";
+import ContentAndImage from "../../components/ContentAndImage.vue";
+import {useI18n} from "vue-i18n";
+import {i18nKeys} from "./i18n/keys";
+
+const { t } = useI18n()
 </script>
+
+<style lang="scss" scoped>
+@import "@/styles/tiles.scss";
+</style>

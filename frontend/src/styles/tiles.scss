@@ -1,0 +1,11 @@
+.tile {
+  //text-align: center;
+  padding: 8px;
+  & .tile_heading {
+    font-size: 30px;
+  }
+  & .tile_text {
+    font-size: 20px;
+    color: var(--v-accent-lighten4);
+  }
+}

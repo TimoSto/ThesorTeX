@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps({
   barColor: String,
   level: Number,
