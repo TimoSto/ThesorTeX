@@ -1,12 +1,14 @@
 <template>
   <v-app-bar
     :color="barColor"
-    :density="dense ? 'compact' : 'default'"
-    :style="fixed ? 'position: fixed' : ''"
+    :density="level === 1 ? 'default' : 'compact'"
   >
     <slot name="bar"></slot>
   </v-app-bar>
-  <v-main :class="level === 1 ? 'top-level' : 'inner-level'">
+  <v-main
+    class="content"
+    :class="level === 1 ? 'top-level ' : 'inner-level '"
+  >
     <slot name="content"></slot>
   </v-main>
 </template>
@@ -15,12 +17,24 @@
 
 const props = defineProps({
   barColor: String,
-  dense: Boolean,
-  fixed: Boolean,
   level: Number,
 })
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.content {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  &.top-level {
+    height: calc(100vh - 64px);
+    margin-top: 64px;
+    //@media only screen and (max-width: 960px) {
+    //  height: calc(100vh - 56px);
+    //  margin-top: 56px;
+    //}
+  }
+}
 </style>
