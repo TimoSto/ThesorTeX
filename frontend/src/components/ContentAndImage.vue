@@ -25,7 +25,7 @@ const props = defineProps({
   & div {
     height: 100%;
     flex: 1;
-    padding: 0 8px;
+    padding: 8px;
     &.image-container {
       @media screen and (max-width: 900px) {
         display: none;
