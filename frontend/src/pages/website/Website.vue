@@ -28,7 +28,7 @@
           <template v-slot:left>
             <p class="tile_heading">{{t(i18nKeys.Template.Title)}}</p>
             <p class="tile_text" v-html="t(i18nKeys.Template.Text)"></p>
-            <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip">
+            <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip" style="text-decoration: none">
               <v-btn block color="primary">{{t(i18nKeys.Common.Download)}}</v-btn>
             </a>
           </template>
