@@ -25,9 +25,10 @@ const props = defineProps({
 .content {
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   width: 100%;
+  overflow-y: auto;
   &.top-level {
     height: calc(100vh - 64px);
     margin-top: 64px;

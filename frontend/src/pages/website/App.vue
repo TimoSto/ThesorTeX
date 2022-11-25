@@ -22,6 +22,9 @@
           color="primary"
         >Download</v-btn>
       </template>
+      <template v-slot:content>
+        <div style="width: 20px; height: 200px; background-color: red; margin-bottom: 300px"></div>
+      </template>
     </AppbarContent>
   </v-layout>
 </template>
