@@ -6,7 +6,7 @@
   }
   & .tile_text {
     font-size: 20px;
-    color: rgba(#000, 0.5);
+    color: rgba(var(--v-theme-primary), 0.5);
     padding: 8px 0;
   }
 }
