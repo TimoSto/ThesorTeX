@@ -6,7 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/webclient/assets"
+	"github.com/TimoSto/ThesorTeX/services/website/static_content"
 )
 
 func main() {
@@ -15,14 +15,7 @@ func main() {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	assetConf := assets.AssetConf{
-		Ignore: []string{
-			"/app.html",
-		},
-		MapRootTo: "",
-	}
-
-	assets.Register(mux, assetConf)
+	static_content.Register(mux)
 
 	if os.Getenv("RUN_LOCAL") == "true" {
 		log.Info("Running locally on http://localhost:8558 ")
