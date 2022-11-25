@@ -4,7 +4,8 @@ export const english: I18nKeys = {
   Common: {
     Download: 'Download',
     Login: 'Login',
-    ContinueWithoutLogin: 'Continue without login'
+    ContinueWithoutLogin: 'Continue without login',
+    Documentation: "documentation"
   },
   Template: {
     Title: 'TeX-template for documents with an academic claim',
@@ -14,8 +15,8 @@ export const english: I18nKeys = {
     Title: 'TeX-template for a cv',
     Text: 'When you wrote a perfect thesis using this tool, you can use this tempalte for a cv to apply for your next job!'
   },
-  Bib: {
-    Title: 'Bibliography management',
+  App: {
+    Title: 'Appliography management',
     Text: 'The bibliography system of the tempalte can be controlled using a web application. You can define bibliograhy categories and add entries manually or from citavi. To learn more, refer to the <a>documentation</a>.'
   }
 }

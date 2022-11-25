@@ -3,7 +3,8 @@ export const i18nKeys = {
   Common: {
     Download: 'Common.Download',
     Login: 'Common.Login',
-    ContinueWithoutLogin: 'Common.ContinueWithoutLogin'
+    ContinueWithoutLogin: 'Common.ContinueWithoutLogin',
+    Documentation: "Common.Documentation"
   },
   Template: {
     Title: 'Template.Title',
@@ -13,9 +14,9 @@ export const i18nKeys = {
     Title: 'CV.Title',
     Text: 'CV.Text'
   },
-  Bib: {
-    Title: 'Bib.Title',
-    Text: 'Bib.Text'
+  App: {
+    Title: 'App.Title',
+    Text: 'App.Text'
   }
 }
 
