@@ -55,12 +55,14 @@ const { t } = useI18n()
 
 const themeName = ref("light");
 
+const theme = useTheme();
+
 watch(themeName, () => {
-  console.log(themeName)
+  theme.global.name.value = themeName.value;
 })
 
 setTimeout(() => {
-  themeName.value = "hallo";
+  themeName.value = "dark";
 }, 2500)
 
 </script>
