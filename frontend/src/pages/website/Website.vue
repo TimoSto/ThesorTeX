@@ -20,7 +20,10 @@
           <v-btn
             variant="text"
             color="primary"
-          >Download</v-btn>
+            @click="getStarted"
+          >
+            {{ t(i18nKeys.Common.GetStarted) }}
+          </v-btn>
         </template>
         <template v-slot:content>
 
@@ -36,7 +39,7 @@
                 </template>
               </i18n-t>
               <div style="padding:8px 0">
-                <a href="/static/downloads/cvTemplate.zip" download="cvTemplate.zip" style="text-decoration: none">
+                <a href="/static/downloads/projectTemplate.zip" download="projectTemplate.zip" style="text-decoration: none">
                   <v-btn block color="primary">{{t(i18nKeys.Common.Download)}}</v-btn>
                 </a>
               </div>
@@ -62,7 +65,7 @@
                 </template>
               </i18n-t>
               <div style="padding:8px 0">
-
+                <v-btn block color="primary" @click="getStarted">{{t(i18nKeys.Common.GetStarted)}}</v-btn>
               </div>
             </template>
           </ContentAndImage>
@@ -100,6 +103,10 @@ import ThesisMonitorSVG from "../../components/ThesisMonitorSVG.vue";
 import CvSVG from "../../components/CvSVG.vue";
 
 const { t } = useI18n();
+
+function getStarted() {
+  window.location.href = "/getStarted/"
+}
 
 </script>
 

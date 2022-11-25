@@ -4,7 +4,8 @@ export const i18nKeys = {
     Download: 'Common.Download',
     Login: 'Common.Login',
     ContinueWithoutLogin: 'Common.ContinueWithoutLogin',
-    Documentation: "Common.Documentation"
+    Documentation: "Common.Documentation",
+    GetStarted: "Common.GetStarted"
   },
   Template: {
     Title: 'Template.Title',

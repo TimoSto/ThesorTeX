@@ -5,7 +5,8 @@ export const english: I18nKeys = {
     Download: 'Download',
     Login: 'Login',
     ContinueWithoutLogin: 'Continue without login',
-    Documentation: "documentation"
+    Documentation: "documentation",
+    GetStarted: "Get started!"
   },
   Template: {
     Title: 'TeX-template for documents with an academic claim',

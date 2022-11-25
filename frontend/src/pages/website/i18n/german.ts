@@ -5,7 +5,8 @@ export const german: I18nKeys = {
     Download: 'Herunterladen',
     Login: 'Anmelden',
     ContinueWithoutLogin: 'Ohne Anmeldung fortfahren',
-    Documentation: "Dokumentation"
+    Documentation: "Dokumentation",
+    GetStarted: "Leg los!"
   },
   Template: {
     Title: 'TeX-Vorlage für Dokumente mit wissenschaftlichem Anspruch',
