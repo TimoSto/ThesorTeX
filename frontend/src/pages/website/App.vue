@@ -2,37 +2,35 @@
   <v-layout>
     <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
 
-    <v-app-bar
-      color="background"
-      elevation="1"
-      fixed
+    <AppbarContent
+      bar-color="background"
+      :fixed="true"
+      :level="1"
     >
+      <template v-slot:bar>
+        <LogoSVG
+          fill="rgba(0, 136, 52, 0.8)"
+          style="height: 35px; margin-left: 20px;"
+          :show-title="true"
+          font-color="rgba(0,0,0,0.7)"
+        />
 
-      <LogoSVG
-        fill="rgba(0, 136, 52, 0.8)"
-        style="height: 35px; margin-left: 20px;"
-        :show-title="true"
-        font-color="rgba(0,0,0,0.7)"
-      />
+        <v-spacer></v-spacer>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        variant="text"
-        color="primary"
-      >Download</v-btn>
-    </v-app-bar>
-
-    <v-main>
-
-    </v-main>
+        <v-btn
+          variant="text"
+          color="primary"
+        >Download</v-btn>
+      </template>
+    </AppbarContent>
   </v-layout>
 </template>
 
 <script>
 import LogoSVG from "@/components/LogoSVG";
+import AppbarContent from "@/components/AppbarContent";
 export default {
-  components: {LogoSVG},
+  components: {AppbarContent, LogoSVG},
   data: () => ({
     drawer: false,
     group: null,
