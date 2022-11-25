@@ -8,7 +8,6 @@
       fixed
     >
 
-      <v-app-bar-nav-icon />
       <LogoSVG
         fill="rgba(0, 136, 52, 0.8)"
         style="height: 35px; margin-left: 20px;"
