@@ -8,7 +8,9 @@
         :class="`${i === pages - 1 ? 'opened' : ''}`"
         :id="`page-${i}`"
       >
-        <slot :name="i"></slot>
+        <div class="page--container">
+          <slot :name="i"></slot>
+        </div>
       </div>
       <div
         class="page opened nav-back-area"
@@ -66,6 +68,11 @@ watch(() => props.pages, (newValue: number, oldValue: number) => {
       transition: width .75s ease-in-out;
       &.opened {
         width: 100%;
+      }
+      & .page--container {
+        width: 100%;
+        min-height: 100%;
+        min-width: 150px;
       }
     }
   }

@@ -27,11 +27,9 @@
         :pages="pages"
       >
         <template v-for="i in pages" v-slot:[i]>
-          <div style="min-width: 150px; min-height: 100%; background-color: cornflowerblue">
-            <button @click="pages++">next</button>
-            <button @click="pages--">prev</button>
-            <div style="height: 2000px"></div>
-          </div>
+          <button @click="pages++">next</button>
+          <button @click="pages--">prev</button>
+          <div style="height: 2000px"></div>
         </template>
       </NavigationArea>
     </v-main>
