@@ -30,10 +30,9 @@
         :pages="pagesCount"
       >
         <template v-for="i in pagesCount" v-slot:[i]>
-          {{pagesCount}} {{i}}
-          <button @click="pages.push({title: 'hi' + i, disabled: false})">next</button>
-          <button @click="pages.pop()">prev</button>
-          <div style="height: 2000px; width: 100%; border: 1px solid firebrick"></div>
+
+          <Overview v-if="i === 1" />
+
         </template>
       </NavigationArea>
     </v-main>
@@ -44,6 +43,7 @@
 import NavigationArea from "@/components/NavigationArea";
 import {computed, ref} from "vue";
 import NavigationBreadcrumb from "../../components/NavigationBreadcrumb.vue";
+import Overview from "./views/Overview.vue";
 
 const drawer = ref(false);
 

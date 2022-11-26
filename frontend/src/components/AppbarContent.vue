@@ -18,6 +18,7 @@ const props = defineProps({
   barColor: String,
   level: Number,
 })
+//TODO: elevate on scroll
 </script>
 
 <style scoped lang="scss">
