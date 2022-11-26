@@ -23,18 +23,22 @@
     </v-navigation-drawer>
 
     <v-main>
-
+      <NavigationArea
+        :pages="1"
+      >
+        <template v-slot:page-1>
+          <div style="width: 100%; height: 100%; background-color: lightblue">
+            f1
+          </div>
+        </template>
+      </NavigationArea>
     </v-main>
   </v-app>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    drawer: false,
-  }),
+<script setup lang="ts">
+import NavigationArea from "@/components/NavigationArea";
+import {ref} from "vue";
 
-  watch: {
-  },
-}
+const drawer = ref(false);
 </script>
