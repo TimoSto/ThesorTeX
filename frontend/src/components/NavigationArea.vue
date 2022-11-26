@@ -39,11 +39,6 @@ watch(() => props.pages, (newValue: number, oldValue: number) => {
     setTimeout(() => {
       animationClass = '';
     }, 750);
-  } else if( newValue > oldValue ) {
-    animationClass = 'nav-forward';
-    setTimeout(() => {
-      animationClass = '';
-    }, 750);
   }
 })
 </script>

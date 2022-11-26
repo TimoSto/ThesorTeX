@@ -24,11 +24,29 @@
 
     <v-main>
       <NavigationArea
-        :pages="1"
+        :pages="pages"
       >
         <template v-slot:page-1>
           <div style="width: 100%; height: 100%; background-color: lightblue">
-            f1
+            <button @click="pages++">next</button>
+          </div>
+        </template>
+        <template v-slot:page-2 v-if="pages > 1">
+          <div style="width: 100%; height: 100%; background-color: cornflowerblue">
+            <button @click="pages++">next</button>
+            <button @click="pages--">prev</button>
+          </div>
+        </template>
+        <template v-slot:page-3 v-if="pages > 2">
+          <div style="width: 100%; height: 100%; background-color: yellowgreen">
+            <button @click="pages++">next</button>
+            <button @click="pages--">prev</button>
+          </div>
+        </template>
+        <template v-slot:page-4 v-if="pages > 3">
+          <div style="width: 100%; height: 100%; background-color: #ba68c8">
+            <button @click="pages++">next</button>
+            <button @click="pages--">prev</button>
           </div>
         </template>
       </NavigationArea>
@@ -41,4 +59,6 @@ import NavigationArea from "@/components/NavigationArea";
 import {ref} from "vue";
 
 const drawer = ref(false);
+
+const pages = ref(2);
 </script>
