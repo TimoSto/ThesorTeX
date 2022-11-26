@@ -56,6 +56,7 @@ watch(() => props.pages, (newValue: number, oldValue: number) => {
     flex: 1 1 auto;
     box-sizing: border-box;
     transition: width .5s ease-in-out;
+    overflow-x: hidden;
     & .page {
       flex: 1 0 auto;
       height: 100%;
