@@ -59,7 +59,7 @@ func TestCreateProject(t *testing.T) {
 		Port:        "",
 		ProjectsDir: "/test2/",
 	}
-	err := CreateProject("testproject3", c, mock_fs.Mkdir, mock_fs.WriteFile)
+	p, err := CreateProject("testproject3", c, mock_fs.Mkdir, mock_fs.WriteFile)
 	if err != nil {
 		t.Errorf("unexpected error %v", err)
 	}
@@ -99,5 +99,8 @@ func TestCreateProject(t *testing.T) {
 		if !found {
 			t.Errorf("unexpected file %s written", f)
 		}
+	}
+	if p.Name != "testproject3" {
+		t.Errorf("expected name, got %s", p.Name)
 	}
 }

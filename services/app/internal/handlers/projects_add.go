@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -13,6 +14,12 @@ import (
 
 func HandleAddProject(config conf.Config) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("createReqe")
+		if r.Method != http.MethodPut {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+
 		data, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			log.Error("Error decoding data for adding project: %v", err) //todo: error-message-templates

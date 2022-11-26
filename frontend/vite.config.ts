@@ -43,5 +43,8 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    proxy: {
+      "/app/createProject": "http://localhost:8448/"
+    }
   },
 })
