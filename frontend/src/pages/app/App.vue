@@ -8,7 +8,10 @@
     >
       <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>My files</v-toolbar-title>
+      <NavigationBreadcrumb
+        :pages="pages"
+        v-on:goBackTo="goBackTo($event)"
+      />
 
       <v-spacer></v-spacer>
 
@@ -24,12 +27,13 @@
 
     <v-main>
       <NavigationArea
-        :pages="pages"
+        :pages="pagesCount"
       >
-        <template v-for="i in pages" v-slot:[i]>
-          <button @click="pages++">next</button>
-          <button @click="pages--">prev</button>
-          <div style="height: 2000px"></div>
+        <template v-for="i in pagesCount" v-slot:[i]>
+          {{pagesCount}} {{i}}
+          <button @click="pages.push({title: 'hi' + i, disabled: false})">next</button>
+          <button @click="pages.pop()">prev</button>
+          <div style="height: 2000px; width: 100%; border: 1px solid firebrick"></div>
         </template>
       </NavigationArea>
     </v-main>
@@ -38,9 +42,26 @@
 
 <script setup lang="ts">
 import NavigationArea from "@/components/NavigationArea";
-import {ref} from "vue";
+import {computed, ref} from "vue";
+import NavigationBreadcrumb from "../../components/NavigationBreadcrumb.vue";
 
 const drawer = ref(false);
 
-const pages = ref(2);
+const pages = ref([{
+  title: "ThesorTeX",
+  disabled: false
+}]);
+
+const pagesCount = computed({
+  get() {
+    return pages.value.length;
+  },
+  set(v: number) {
+
+  }
+})
+
+function goBackTo(index: number) {
+  pages.value = pages.value.slice(0, index + 1);
+}
 </script>

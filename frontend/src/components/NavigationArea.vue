@@ -5,7 +5,7 @@
         v-for="i in pages"
         :key="`page-${i}`"
         class="page"
-        :class="`${i === pages - 1 ? 'opened' : ''}`"
+        :class="`${i === pages ? 'opened' : ''}`"
         :id="`page-${i}`"
       >
         <div class="page--container">
