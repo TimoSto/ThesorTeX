@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
+    <!-- todo: use AppbarContent.vue, but how with nav? -->
 
     <v-app-bar
       color="primary"
