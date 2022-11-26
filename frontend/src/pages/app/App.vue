@@ -27,8 +27,9 @@
         :pages="pages"
       >
         <template v-slot:page-1>
-          <div style="min-width: 150px; width: 100%; height: 100%; background-color: lightblue">
+          <div style="min-width: 150px; background-color: lightblue">
             <button @click="pages++">next</button>
+            <div style="width: 10px; height: 2000px; border: 1px solid black"></div>
           </div>
         </template>
         <template v-slot:page-2 v-if="pages > 1">

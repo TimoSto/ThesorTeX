@@ -60,6 +60,7 @@ watch(() => props.pages, (newValue: number, oldValue: number) => {
     & .page {
       flex: 1 0 auto;
       height: 100%;
+      max-height: calc(100vh - 64px);
       width: 0;
       overflow-x: hidden;
       transition: width .75s ease-in-out;
