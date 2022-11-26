@@ -8,7 +8,7 @@
         :class="`${i === pages - 1 ? 'opened' : ''}`"
         :id="`page-${i}`"
       >
-        <slot :name="`page-${i}`"></slot>
+        <slot :name="i"></slot>
       </div>
       <div
         class="page opened nav-back-area"

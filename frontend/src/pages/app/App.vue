@@ -26,28 +26,11 @@
       <NavigationArea
         :pages="pages"
       >
-        <template v-slot:page-1>
-          <div style="min-width: 150px; background-color: lightblue">
-            <button @click="pages++">next</button>
-            <div style="width: 10px; height: 2000px; border: 1px solid black"></div>
-          </div>
-        </template>
-        <template v-slot:page-2 v-if="pages > 1">
-          <div style="min-width: 150px; width: 100%; height: 100%; background-color: cornflowerblue">
+        <template v-for="i in pages" v-slot:[i]>
+          <div style="min-width: 150px; min-height: 100%; background-color: cornflowerblue">
             <button @click="pages++">next</button>
             <button @click="pages--">prev</button>
-          </div>
-        </template>
-        <template v-slot:page-3 v-if="pages > 2">
-          <div style="min-width: 150px; width: 100%; height: 100%; background-color: yellowgreen">
-            <button @click="pages++">next</button>
-            <button @click="pages--">prev</button>
-          </div>
-        </template>
-        <template v-slot:page-4 v-if="pages > 3">
-          <div style="min-width: 150px; width: 100%; height: 100%; background-color: #ba68c8">
-            <button @click="pages++">next</button>
-            <button @click="pages--">prev</button>
+            <div style="height: 2000px"></div>
           </div>
         </template>
       </NavigationArea>
