@@ -129,3 +129,10 @@ func CreateProject(
 
 	return pObj, writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, name, "config.json"), data, 0644)
 }
+
+func DeleteProject(name string, config conf.Config) error {
+	path := pathbuilder.GetProjectPath(config.ProjectsDir, name)
+
+	return os.RemoveAll(path)
+
+}

@@ -8,11 +8,14 @@ export const english: I18nKeys = {
     LastEdited: 'Last edited',
     NumberOfEntries: 'Number of entries',
     CreateProject: 'Create new project',
-    ProjectName: 'Projectname'
+    ProjectName: 'Projectname',
+    DeleteProject: 'Delete project',
+    SureDeleteProject: 'Do you really want to delete the project {project} permanently',
   },
   Common: {
     Abort: 'Abort',
-    Create: 'Create'
+    Create: 'Create',
+    Delete: 'Delete'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',

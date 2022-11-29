@@ -7,11 +7,14 @@ export const i18nKeys = {
     LastEdited: 'Overview.LastEdited',
     NumberOfEntries: 'Overview.NumberOfEntries',
     CreateProject: 'Overview.CreateProject',
-    ProjectName: 'Overview.ProjectName'
+    ProjectName: 'Overview.ProjectName',
+    DeleteProject: 'Overview.DeleteProject',
+    SureDeleteProject: 'Overview.SureDeleteProject',
   },
   Common: {
     Abort: 'Common.Abort',
-    Create: 'Common.Create'
+    Create: 'Common.Create',
+    Delete: 'Common.Delete'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',

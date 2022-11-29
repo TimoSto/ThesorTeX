@@ -30,6 +30,19 @@
             </th>
           </tr>
           </thead>
+          <tbody>
+          <tr v-for="p in projects">
+            <td>{{p.Name}}</td>
+            <td>{{p.Created}}</td>
+            <td>{{p.Created}}</td>
+            <td>{{p.Created}}</td>
+            <td>
+              <v-btn text flat @click="projectToDelete = p.Name" :title="t(i18nKeys.Common.Delete)">
+                <v-icon>mdi-delete</v-icon>
+              </v-btn>
+            </td>
+          </tr>
+          </tbody>
         </v-table>
       </div>
 
@@ -41,6 +54,13 @@
     :open="open"
     v-on:close="open = false"
   />
+
+  <DeleteProjectDialog
+    :open="projectToDelete !== ''"
+    :project="projectToDelete"
+    v-on:close="projectToDelete = ''"
+    v-on:success="RemoveProjectFromList"
+  />
 </template>
 
 <script setup lang="ts">
@@ -49,10 +69,30 @@ import CreateProjectDialog from "./CreateProjectDialog.vue";
 import {ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
+import {GetProjects} from "../api/projects/GetProjects";
+import ProjectData from "../api/projects/ProjectData";
+import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 
 const open = ref(false);
 
 const { t } = useI18n();
+
+const projects = ref([] as ProjectData[])
+
+GetProjects().then((p: ProjectData[]) => {
+  projects.value = p;
+})
+
+const projectToDelete = ref('');
+
+function RemoveProjectFromList() {
+  const index = projects.value.map(p => p.Name).indexOf(projectToDelete.value);
+  console.log(index)
+  if( index > -1 ) {
+    projects.value.splice(index, 1);
+    projectToDelete.value = '';
+  }
+}
 
 </script>
 

@@ -5,29 +5,32 @@
       <v-card-text>
 
         <v-text-field
-          :label="t(i18nKeys.Overview.ProjectName)+'d'"
+          :label="t(i18nKeys.Overview.ProjectName)"
           color="primary"
           v-model="projectName"
           :rules="nameRules"
         />
 
-        <v-row style="padding: 8px;">
-          <v-spacer />
-          <v-btn variant="text" color="primary" style="margin-right: 8px;">{{ t(i18nKeys.Common.Abort) }}</v-btn>
-          <v-btn color="primary"
-                 :disabled="!rulesAreMet || projectName.length === 0"
-                 @click="Create"
-          >{{ t(i18nKeys.Common.Create) }}</v-btn>
-        </v-row>
-
       </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn
+          color="primary"
+          @click="emit('close')"
+        >{{ t(i18nKeys.Common.Abort) }}</v-btn>
+        <v-btn
+          color="primary"
+          :disabled="!rulesAreMet || projectName.length === 0"
+          @click="Create"
+        >{{ t(i18nKeys.Common.Create) }}</v-btn>
+      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
 <script setup lang="ts">
 
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import CreateProject from "../api/projects/CreateProject";
@@ -36,6 +39,12 @@ import getProjectNameRules from "../../../rules/projectNameRules";
 const props = defineProps({
   open: Boolean
 });
+
+watch( () => props.open, () => {
+  if( !props.open ) {
+    projectName.value = '';
+  }
+})
 
 const emit = defineEmits(['close'])
 
