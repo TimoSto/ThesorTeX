@@ -9,6 +9,6 @@ export default async function CreateProject(name: string): Promise<ProjectData> 
   if( resp.ok ) {
     return await resp.json() as ProjectData
   } else {
-    return {Name: '', Created: '', LastEdited: '', NumberOfEntries: -1}
+    return {Name: '', Created: '', LastModified: '', NumberOfEntries: -1}
   }
 }

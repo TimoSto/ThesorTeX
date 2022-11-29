@@ -5,7 +5,7 @@ export const english: I18nKeys = {
     Welcome: "Welcome to ThesorTeX!",
     Project: "Project",
     Created: 'Created',
-    LastEdited: 'Last edited',
+    LastModified: 'Last edited',
     NumberOfEntries: 'Number of entries',
     CreateProject: 'Create new project',
     ProjectName: 'Projectname',

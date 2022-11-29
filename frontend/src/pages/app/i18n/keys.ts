@@ -4,7 +4,7 @@ export const i18nKeys = {
     Welcome: 'Overview.Welcome',
     Project: "Overview.Project",
     Created: 'Overview.Created',
-    LastEdited: 'Overview.LastEdited',
+    LastModified: 'Overview.LastModified',
     NumberOfEntries: 'Overview.NumberOfEntries',
     CreateProject: 'Overview.CreateProject',
     ProjectName: 'Overview.ProjectName',

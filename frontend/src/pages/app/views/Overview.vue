@@ -21,7 +21,7 @@
           <tr>
             <th>{{ t(i18nKeys.Overview.Project) }}</th>
             <th>{{ t(i18nKeys.Overview.Created) }}</th>
-            <th>{{ t(i18nKeys.Overview.LastEdited) }}</th>
+            <th>{{ t(i18nKeys.Overview.LastModified) }}</th>
             <th>{{ t(i18nKeys.Overview.NumberOfEntries) }}</th>
             <th style="min-width: 48px; max-width: 48px;">
               <v-btn text flat @click="open=true" :title="t(i18nKeys.Overview.CreateProject)">
@@ -34,8 +34,8 @@
           <tr v-for="p in projects">
             <td>{{p.Name}}</td>
             <td>{{p.Created}}</td>
-            <td>{{p.Created}}</td>
-            <td>{{p.Created}}</td>
+            <td>{{ p.LastModified }}</td>
+            <td>{{p.NumberOfEntries}}</td>
             <td>
               <v-btn text flat @click="projectToDelete = p.Name" :title="t(i18nKeys.Common.Delete)">
                 <v-icon>mdi-delete</v-icon>
