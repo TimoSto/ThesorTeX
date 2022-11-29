@@ -53,6 +53,7 @@
   <CreateProjectDialog
     :open="open"
     v-on:close="open = false"
+    v-on:success="AddProjectToList"
   />
 
   <DeleteProjectDialog
@@ -92,6 +93,14 @@ function RemoveProjectFromList() {
     projects.value.splice(index, 1);
     projectToDelete.value = '';
   }
+}
+
+function AddProjectToList(project: ProjectData) {
+  projects.value.push(project);
+
+  projects.value.sort((p1, p2) => {
+    return p1.Name.toUpperCase() > p2.Name.toUpperCase() ? 1 : -1;
+  })
 }
 
 </script>

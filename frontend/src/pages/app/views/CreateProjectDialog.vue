@@ -46,7 +46,7 @@ watch( () => props.open, () => {
   }
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'success'])
 
 const { t } = useI18n();
 
@@ -74,8 +74,9 @@ const projectName = ref('');
 async function Create() {
   const newProject = await CreateProject(projectName.value);
   if( newProject.Name !== '' ) {
-    emit('close');
+    emit('success', newProject);
   }
+  emit('close');
 }
 
 </script>
