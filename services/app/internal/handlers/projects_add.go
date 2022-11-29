@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -14,7 +13,6 @@ import (
 
 func HandleAddProject(config conf.Config) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("createReqe")
 		if r.Method != http.MethodPut {
 			w.WriteHeader(http.StatusBadRequest)
 			return
