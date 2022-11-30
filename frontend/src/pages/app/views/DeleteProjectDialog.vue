@@ -31,6 +31,7 @@ import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import DeleteProject from "../api/projects/DeleteProject";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
 const props = defineProps({
   open: Boolean,
@@ -55,9 +56,11 @@ const opened = computed({
   }
 });
 
+const errorStore = useErrorSuccessStore();
+
 function CallProjectDelete() {
   DeleteProject(props.project).then(ok => {
-    //TODO: Fehlermeldungen hierrüber, anstatt über store?
+    errorStore.handleResponse(ok, t(i18nKeys.Success.DeleteProject), t(i18nKeys.Errors.ErrorDeleting))
     if( ok ) {
       emit('success')
     }

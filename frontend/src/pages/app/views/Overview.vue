@@ -38,7 +38,7 @@
             <td>{{p.NumberOfEntries}}</td>
             <td>
               <v-btn text flat @click="projectToDelete = p.Name" :title="t(i18nKeys.Common.Delete)">
-                <v-icon>mdi-delete</v-icon>
+                <v-icon style="color: rgba(var(--v-theme-on-background), 0.45)">mdi-delete</v-icon>
               </v-btn>
             </td>
           </tr>
@@ -52,6 +52,7 @@
 
   <CreateProjectDialog
     :open="open"
+    :projects="projects.map(p => p.Name)"
     v-on:close="open = false"
     v-on:success="AddProjectToList"
   />
@@ -61,6 +62,15 @@
     :project="projectToDelete"
     v-on:close="projectToDelete = ''"
     v-on:success="RemoveProjectFromList"
+  />
+
+  <SuccessErrorDisplay
+    :error="errorStore.errorMessage"
+    :success="errorStore.successMessage"
+    :hint="t(i18nKeys.Errors.ErrorHint)"
+    :title="t(i18nKeys.Errors.Title)"
+    v-on:errorClosed="errorStore.clean"
+    v-on:successClosed="errorStore.clean"
   />
 </template>
 
@@ -73,6 +83,10 @@ import {i18nKeys} from "../i18n/keys";
 import {GetProjects} from "../api/projects/GetProjects";
 import ProjectData from "../api/projects/ProjectData";
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
+import SuccessErrorDisplay from "../../../components/SuccessErrorDisplay.vue";
+
+const errorStore = useErrorSuccessStore();
 
 const open = ref(false);
 

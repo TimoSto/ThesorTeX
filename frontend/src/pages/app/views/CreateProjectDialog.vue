@@ -35,9 +35,16 @@ import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import CreateProject from "../api/projects/CreateProject";
 import getProjectNameRules from "../../../rules/projectNameRules";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
+
+const errorStore = useErrorSuccessStore();
 
 const props = defineProps({
-  open: Boolean
+  open: Boolean,
+  projects: {
+    required: true,
+    type: Array<string>
+  }
 });
 
 watch( () => props.open, () => {
@@ -62,7 +69,7 @@ const opened = computed({
 });
 
 const nameRules = computed(() => {
-  return getProjectNameRules([])
+  return getProjectNameRules(props.projects)
 })
 
 const rulesAreMet = computed(() => {
@@ -72,9 +79,11 @@ const rulesAreMet = computed(() => {
 const projectName = ref('');
 
 async function Create() {
-  const newProject = await CreateProject(projectName.value);
-  if( newProject.Name !== '' ) {
-    emit('success', newProject);
+  const resp = await CreateProject(projectName.value);
+  //todo: mapping of status code to error message
+  errorStore.handleResponse(resp.Status === 200, t(i18nKeys.Success.CreateProject), t(i18nKeys.Errors.ErrorCreating))
+  if( resp.Status === 200 ) {
+    emit('success', resp.Project);
   }
   emit('close');
 }

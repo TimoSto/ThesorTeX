@@ -1,14 +1,23 @@
 import ProjectData from "@/pages/app/api/projects/ProjectData";
 
-export default async function CreateProject(name: string): Promise<ProjectData> {
+export interface CreateProjectResponse {
+  Project: ProjectData,
+  Status: number
+}
+
+export default async function CreateProject(name: string): Promise<CreateProjectResponse> {
   const resp = await fetch('/app/createProject', {
     method: 'PUT',
     body: name
   });
 
   if( resp.ok ) {
-    return await resp.json() as ProjectData
+    const obj = await resp.json() as ProjectData;
+    return {
+      Project: obj,
+      Status: 200
+    }
   } else {
-    return {Name: '', Created: '', LastModified: '', NumberOfEntries: -1}
+    return {Project: {} as ProjectData, Status: resp.status}
   }
 }

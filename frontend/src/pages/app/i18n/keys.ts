@@ -14,11 +14,23 @@ export const i18nKeys = {
   Common: {
     Abort: 'Common.Abort',
     Create: 'Common.Create',
-    Delete: 'Common.Delete'
+    Delete: 'Common.Delete',
+    Close : 'Common.Close'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',
     NoSpaces: 'Rules.NoSpaces'
+  },
+  Errors: {
+    Title: 'Errors.Title',
+    ErrorHint: 'Errors.ErrorHint',
+    CreateIssue: 'Errors.CreateIssue',
+    ErrorCreating: 'Errors.ErrorCreating',
+    ErrorDeleting: 'Errors.ErrorDeleting'
+  },
+  Success: {
+    CreateProject: 'Success.CreateProject',
+    DeleteProject: 'Success.DeleteProject'
   }
 }
 

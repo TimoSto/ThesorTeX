@@ -15,10 +15,22 @@ export const english: I18nKeys = {
   Common: {
     Abort: 'Abort',
     Create: 'Create',
-    Delete: 'Delete'
+    Delete: 'Delete',
+    Close: 'Close'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',
     NoSpaces: 'No spaces allowed'
+  },
+  Errors: {
+    Title: 'An error occurred',
+    ErrorHint: 'If you think this error is a bug, fell free to create an issue in {github}.',
+    CreateIssue: 'Create issue',
+    ErrorCreating: 'The project could not be created',
+    ErrorDeleting: 'The project could not be deleted'
+  },
+  Success: {
+    CreateProject: 'Project successfully created',
+    DeleteProject: 'Project successfully deleted'
   }
 }
