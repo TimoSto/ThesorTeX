@@ -15,8 +15,11 @@ import { registerPlugins } from '@/plugins'
 import CreateI18n from "@/plugins/i18n";
 import {german} from "@/pages/app/i18n/german";
 import {english} from "@/pages/app/i18n/english";
+import { createPinia } from 'pinia'
 
-const app = createApp(App).use(CreateI18n(german, english))
+const app = createApp(App)
+  .use(CreateI18n(german, english))
+  .use(createPinia())
 
 registerPlugins(app)
 
