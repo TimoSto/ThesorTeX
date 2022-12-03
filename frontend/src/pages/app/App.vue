@@ -6,7 +6,10 @@
       color="primary"
       elevation="0"
     >
-      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        @click.stop="drawer = !drawer"
+        :disabled="pagesCount === 1"
+      />
 
       <NavigationBreadcrumb
         :pages="pages"
@@ -20,7 +23,7 @@
 
     <v-navigation-drawer
       permanent
-      :rail="!drawer"
+      :rail="!drawer && pagesCount > 0"
     >
 
     </v-navigation-drawer>
