@@ -22,7 +22,7 @@
               <th>{{ t(i18nKeys.Overview.Created) }}</th>
               <th>{{ t(i18nKeys.Overview.LastModified) }}</th>
               <th>{{ t(i18nKeys.Overview.NumberOfEntries) }}</th>
-              <th style="min-width: 48px; max-width: 48px;">
+              <th style="width: 48px;">
                 <v-btn
                   text
                   flat
@@ -38,6 +38,9 @@
             <tr
               v-for="(p,i) in projects"
               :key="`line-${i}`"
+              v-ripple
+              style="cursor: pointer"
+              @click="emit('openProject', p.Name)"
             >
               <td>{{ p.Name }}</td>
               <td>{{ p.Created }}</td>
@@ -103,6 +106,8 @@ const errorStore = useErrorSuccessStore();
 const open = ref(false);
 
 const { t } = useI18n();
+
+const emit = defineEmits(['openProject'])
 
 const projects = ref([] as ProjectData[])
 

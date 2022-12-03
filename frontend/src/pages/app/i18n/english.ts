@@ -12,6 +12,18 @@ export const english: I18nKeys = {
     DeleteProject: 'Delete project',
     SureDeleteProject: 'Do you really want to delete the project {project} permanently',
   },
+  Project: {
+    Entry: {
+      Heading: 'Bibliography entries',
+      Key: 'Key',
+      Entry: 'Entry'
+    },
+    Category: {
+      Heading: 'Bibliography categories',
+      Category: 'Category',
+      Example: 'Example'
+    }
+  },
   Common: {
     Abort: 'Abort',
     Create: 'Create',

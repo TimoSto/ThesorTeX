@@ -1,16 +1,24 @@
 <template>
   <v-app-bar
+    v-if="props.level === 1"
     :color="props.barColor"
-    :density="props.level === 1 ? 'default' : 'compact'"
+    density="default"
   >
     <slot name="bar" />
   </v-app-bar>
-  <v-main
+  <v-toolbar
+    v-if="props.level > 1"
+    :color="props.barColor"
+    density="compact"
+  >
+    <slot name="bar" />
+  </v-toolbar>
+  <v-sheet
     class="content"
     :class="props.level === 1 ? 'top-level ' : 'inner-level '"
   >
     <slot name="content" />
-  </v-main>
+  </v-sheet>
 </template>
 
 <script setup lang="ts">

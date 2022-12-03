@@ -11,6 +11,18 @@ export const i18nKeys = {
     DeleteProject: 'Overview.DeleteProject',
     SureDeleteProject: 'Overview.SureDeleteProject',
   },
+  Project: {
+    Entry: {
+      Heading: 'Project.Entry.Heading',
+      Key: 'Project.Entry.Key',
+      Entry: 'Project.Entry.Entry'
+    },
+    Category: {
+      Heading: 'Project.Category.Heading',
+      Category: 'Project.Category.Category',
+      Example: 'Project.Category.Example'
+    }
+  },
   Common: {
     Abort: 'Common.Abort',
     Create: 'Common.Create',

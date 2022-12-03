@@ -12,6 +12,18 @@ export const german: I18nKeys = {
     DeleteProject: 'Projekt löschen',
     SureDeleteProject: 'Willst du das Projekt {project} wirklich unwiderruflich löschen?',
   },
+  Project: {
+    Entry: {
+      Heading: 'Literatur-Einträge',
+      Key: 'Schlüssel',
+      Entry: 'Eintrag'
+    },
+    Category: {
+      Heading: 'Literatur-Kategorien',
+      Category: 'Kategorie',
+      Example: 'Beispiel'
+    }
+  },
   Common: {
     Abort: 'Abbrechen',
     Create: 'Erstellen',

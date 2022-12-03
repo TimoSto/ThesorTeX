@@ -39,6 +39,12 @@
           <Overview
             v-if="i === 1"
             :key="`page-${i}`"
+            @open-project="openProject($event)"
+          />
+          <ProjectView
+            v-if="i === 2"
+            :key="`page-${i}`"
+            :project-name="pages[i-1].title"
           />
         </template>
       </NavigationArea>
@@ -51,6 +57,7 @@ import NavigationArea from "@/components/NavigationArea";
 import {computed, ref} from "vue";
 import NavigationBreadcrumb from "../../components/NavigationBreadcrumb.vue";
 import Overview from "./views/OverView.vue";
+import ProjectView from "./views/ProjectView.vue";
 
 const drawer = ref(false);
 
@@ -65,5 +72,12 @@ const pagesCount = computed(() => {
 
 function goBackTo(index: number) {
   pages.value = pages.value.slice(0, index + 1);
+}
+
+function openProject(name: string) {
+  pages.value.push({
+    title: name,
+    disabled: false
+  });
 }
 </script>
