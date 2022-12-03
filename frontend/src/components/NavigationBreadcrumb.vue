@@ -1,23 +1,23 @@
 <template>
-  <v-breadcrumbs :items="pages">
-    <template v-slot:title="{ item, index }">
-          <span
-            v-on:click="$emit('goBackTo', index)"
-            style="cursor: pointer; font-size: 20px;"
-            v-if="index < pages.length - 1"
-            v-ripple
-          >
-            {{ item.title }}
-          </span>
-          <span
-            style="cursor: pointer; font-size: 20px;"
-            v-if="index === pages.length - 1"
-          >
-            {{ item.title }}
-          </span>
+  <v-breadcrumbs :items="props.pages">
+    <template #title="{ item, index }">
+      <span
+        v-if="index < props.pages.length - 1"
+        v-ripple
+        style="cursor: pointer; font-size: 20px;"
+        @click="$emit('goBackTo', index)"
+      >
+        {{ item.title }}
+      </span>
+      <span
+        v-if="index === pages.length - 1"
+        style="cursor: pointer; font-size: 20px;"
+      >
+        {{ item.title }}
+      </span>
     </template>
-    <template v-slot:divider>
-      <v-icon icon="mdi-chevron-right"></v-icon>
+    <template #divider>
+      <v-icon icon="mdi-chevron-right" />
     </template>
   </v-breadcrumbs>
 </template>
@@ -32,6 +32,8 @@ const props = defineProps({
     required: true
   }
 })
+
+defineEmits(['goBackTo'])
 
 </script>
 

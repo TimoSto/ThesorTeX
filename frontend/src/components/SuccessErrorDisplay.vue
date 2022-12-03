@@ -1,44 +1,51 @@
 <template>
-
   <v-dialog
     v-model="errorOpened"
     width="450"
-    >
+  >
     <v-card>
-      <v-card-title>{{title}}</v-card-title>
+      <v-card-title>
+        {{ title }}
+      </v-card-title>
       <v-card-text>
-        <p>{{ error }}</p><br>
+        <p>
+          {{ error }}
+        </p>
+        <br>
         <i18n-t
           v-if="hint"
           style="color: rgba(var(--v-theme-on-background), 0.5); font-size: 14px"
           tag="p"
           :keypath="i18nKeys.Errors.ErrorHint"
-        >{{hint}}</i18n-t>
+        >
+          {{ hint }}
+        </i18n-t>
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <a href="https://github.com/TimoSto/ThesorTeX/issues" target="_blank" style="text-decoration: none">
-          <v-btn color="primary">{{t(i18nKeys.Errors.CreateIssue)}}</v-btn>
+        <a
+          href="https://github.com/TimoSto/ThesorTeX/issues"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <v-btn color="primary">
+            {{ t(i18nKeys.Errors.CreateIssue) }}
+          </v-btn>
         </a>
-        <v-btn color="primary" @click="errorOpened = false">{{t(i18nKeys.Common.Close)}}</v-btn>
+        <v-btn
+          color="primary"
+          @click="errorOpened = false"
+        >
+          {{ t(i18nKeys.Common.Close) }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 
   <v-snackbar v-model="successOpened">
     <span>
-      {{success}}
+      {{ success }}
     </span>
-
-<!--    <template v-slot:actions>-->
-<!--      <v-btn-->
-<!--        style="color: rgb(var(&#45;&#45;v-theme-primaryDark))"-->
-<!--        variant="text"-->
-<!--        @click="successOpened = false"-->
-<!--      >-->
-<!--        {{ t(i18nKeys.Common.Close) }}-->
-<!--      </v-btn>-->
-<!--    </template>-->
 
     <v-progress-linear
       absolute
@@ -47,10 +54,7 @@
       :model-value="100 - Math.floor(100 * (currentTime / 5000))"
       style="margin-top: 4px"
     />
-
-
   </v-snackbar>
-
 </template>
 
 <script setup lang="ts">
@@ -61,10 +65,22 @@ import {computed, ref, watch} from "vue";
 import {useI18n} from "vue-i18n";
 
 const props = defineProps({
-  error: String,
-  success: String,
-  title: String,
-  hint: String
+  error: {
+    type: String,
+    default: ''
+  },
+  success: {
+    type: String,
+    default: ''
+  },
+  title: {
+    type: String,
+    default: ''
+  },
+  hint: {
+    type: String,
+    default: ''
+  }
 })
 
 const { t } = useI18n();

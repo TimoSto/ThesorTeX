@@ -1,17 +1,26 @@
 <template>
   <div class="container">
-    <div class="left" :class="imageSide === 'left' ? 'image-container' : 'tile'">
-      <slot name="left"></slot>
+    <div
+      class="left"
+      :class="props.imageSide === 'left' ? 'image-container' : 'tile'"
+    >
+      <slot name="left" />
     </div>
-    <div class="right" :class="imageSide === 'right' ? 'image-container' : 'tile'">
-      <slot name="right"></slot>
+    <div
+      class="right"
+      :class="props.imageSide === 'right' ? 'image-container' : 'tile'"
+    >
+      <slot name="right" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  imageSide: String,
+  imageSide: {
+    type: String,
+    default: ''
+  },
 })
 </script>
 

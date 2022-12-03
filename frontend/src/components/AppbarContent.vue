@@ -1,22 +1,28 @@
 <template>
   <v-app-bar
-    :color="barColor"
-    :density="level === 1 ? 'default' : 'compact'"
+    :color="props.barColor"
+    :density="props.level === 1 ? 'default' : 'compact'"
   >
-    <slot name="bar"></slot>
+    <slot name="bar" />
   </v-app-bar>
   <v-main
     class="content"
-    :class="level === 1 ? 'top-level ' : 'inner-level '"
+    :class="props.level === 1 ? 'top-level ' : 'inner-level '"
   >
-    <slot name="content"></slot>
+    <slot name="content" />
   </v-main>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  barColor: String,
-  level: Number,
+  barColor: {
+    type: String,
+    default: ''
+  },
+  level: {
+    type: Number,
+    default: -1,
+  },
 })
 //TODO: elevate on scroll
 </script>

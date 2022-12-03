@@ -1,23 +1,25 @@
 <template>
-  <div class="container" :class="animationClass">
+  <div
+    class="container"
+    :class="animationClass"
+  >
     <div class="pages">
       <div
         v-for="i in pages"
+        :id="`page-${i}`"
         :key="`page-${i}`"
         class="page"
         :class="`${i === pages ? 'opened' : ''}`"
-        :id="`page-${i}`"
       >
         <div class="page--container">
-          <slot :name="i"></slot>
+          <slot :name="i" />
         </div>
       </div>
       <div
-        class="page opened nav-back-area"
         v-if="animationClass === 'nav-back'"
-      ></div>
+        class="page opened nav-back-area"
+      />
     </div>
-
   </div>
 </template>
 

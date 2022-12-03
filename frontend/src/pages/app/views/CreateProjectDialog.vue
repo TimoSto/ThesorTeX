@@ -1,28 +1,33 @@
 <template>
-  <v-dialog width="400" v-model="opened">
+  <v-dialog
+    v-model="opened"
+    width="400"
+  >
     <v-card>
       <v-card-title>{{ t(i18nKeys.Overview.CreateProject) }}</v-card-title>
       <v-card-text>
-
         <v-text-field
+          v-model="projectName"
           :label="t(i18nKeys.Overview.ProjectName)"
           color="primary"
-          v-model="projectName"
           :rules="nameRules"
         />
-
       </v-card-text>
       <v-card-actions>
         <v-spacer />
         <v-btn
           color="primary"
           @click="emit('close')"
-        >{{ t(i18nKeys.Common.Abort) }}</v-btn>
+        >
+          {{ t(i18nKeys.Common.Abort) }}
+        </v-btn>
         <v-btn
           color="primary"
           :disabled="!rulesAreMet || projectName.length === 0"
           @click="Create"
-        >{{ t(i18nKeys.Common.Create) }}</v-btn>
+        >
+          {{ t(i18nKeys.Common.Create) }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

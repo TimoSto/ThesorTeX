@@ -7,35 +7,39 @@
       elevation="0"
     >
       <v-app-bar-nav-icon
-        @click.stop="drawer = !drawer"
         :disabled="pagesCount === 1"
+        @click.stop="drawer = !drawer"
       />
 
       <NavigationBreadcrumb
         :pages="pages"
-        v-on:goBackTo="goBackTo($event)"
+        @go-back-to="goBackTo($event)"
       />
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
-      <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+      <v-btn
+        icon="mdi-dots-vertical"
+      />
     </v-app-bar>
 
     <v-navigation-drawer
       permanent
       :rail="!drawer && pagesCount > 0"
-    >
-
-    </v-navigation-drawer>
+    />
 
     <v-main>
       <NavigationArea
         :pages="pagesCount"
       >
-        <template v-for="i in pagesCount" v-slot:[i]>
-
-          <Overview v-if="i === 1" />
-
+        <template
+          v-for="i in pagesCount"
+          #[i]
+        >
+          <Overview
+            v-if="i === 1"
+            :key="`page-${i}`"
+          />
         </template>
       </NavigationArea>
     </v-main>
@@ -46,7 +50,7 @@
 import NavigationArea from "@/components/NavigationArea";
 import {computed, ref} from "vue";
 import NavigationBreadcrumb from "../../components/NavigationBreadcrumb.vue";
-import Overview from "./views/Overview.vue";
+import Overview from "./views/OverView.vue";
 
 const drawer = ref(false);
 
@@ -55,13 +59,8 @@ const pages = ref([{
   disabled: false
 }]);
 
-const pagesCount = computed({
-  get() {
-    return pages.value.length;
-  },
-  set(v: number) {
-
-  }
+const pagesCount = computed(() => {
+  return pages.value.length;
 })
 
 function goBackTo(index: number) {

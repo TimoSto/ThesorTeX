@@ -1,5 +1,6 @@
 import {i18nKeys} from "@/pages/app/i18n/keys";
 
+// eslint-disable-next-line no-unused-vars
 export default function getProjectNameRules(projectNames: string []): ((name: string) => boolean|string)[] {
   const fn = (name: string) => {
     if( projectNames.indexOf(name) >= 0 ) {
