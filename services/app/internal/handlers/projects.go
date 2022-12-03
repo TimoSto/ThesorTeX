@@ -29,7 +29,11 @@ func HandleProjects(config conf.Config) http.Handler {
 			log.Error(fmt.Sprintf("Marshaling projects: %v", err))
 		}
 
-		w.Write(data)
+		_, err = w.Write(data)
+		if err != nil {
+			log.Error(fmt.Printf("Sending projects data to client: %v", err))
+			return
+		}
 	}
 
 	return http.HandlerFunc(fn)

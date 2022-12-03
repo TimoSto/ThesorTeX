@@ -16,11 +16,15 @@ func HandleConfig() http.Handler {
 		case http.MethodGet:
 			data, err := json.Marshal(conf.GetConfig())
 			if err != nil {
-				log.Error(fmt.Printf("MArshaling config data: %v", err))
+				log.Error(fmt.Printf("Mershaling config data: %v", err))
 				return
 			}
 
-			w.Write(data)
+			_, err = w.Write(data)
+			if err != nil {
+				log.Error(fmt.Printf("Sending config data to client: %v", err))
+				return
+			}
 
 		case http.MethodPost:
 			var data conf.Config
@@ -30,7 +34,11 @@ func HandleConfig() http.Handler {
 				log.Error(fmt.Sprintf("Saving config: %v", err))
 				return
 			}
-			conf.WriteConfig(data)
+			err = conf.WriteConfig(data)
+			if err != nil {
+				log.Error(fmt.Printf("Saving config: %v", err))
+				return
+			}
 
 		default:
 			w.WriteHeader(http.StatusBadRequest)
