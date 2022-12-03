@@ -14,6 +14,11 @@ import (
 
 func HandleProjects(config conf.Config) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+
 		projectsData, err := projects.GetAllProjects(config, ioutil.ReadDir, os.Mkdir, ioutil.ReadFile)
 		if err != nil {
 			log.Error(fmt.Sprintf("Reading projects: %v", err))

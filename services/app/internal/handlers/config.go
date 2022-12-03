@@ -31,6 +31,9 @@ func HandleConfig() http.Handler {
 				return
 			}
 			conf.WriteConfig(data)
+
+		default:
+			w.WriteHeader(http.StatusBadRequest)
 		}
 	}
 
