@@ -47,6 +47,15 @@
                   </th>
                 </tr>
               </thead>
+              <tbody>
+                <tr
+                  v-for="e in projectDataStore.entries"
+                  :key="e.Key"
+                >
+                  <td>{{ e.Key }}</td>
+                  <td>{{ e.Category }}</td>
+                </tr>
+              </tbody>
             </v-table>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -75,6 +84,16 @@
                   </th>
                 </tr>
               </thead>
+              <tbody>
+                <tr
+                  v-for="c in projectDataStore.categories"
+                  :key="c.Name"
+                >
+                  <td>{{ c.Name }}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
             </v-table>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -87,6 +106,9 @@
 import AppbarContent from "@/components/AppbarContent";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
+import {useProjectDataStore} from "../stores/projectDataStore";
+import GetProjectData from "../api/projectData/GetProjectData";
+import {ProjectData} from "../api/projectData/ProjectData";
 
 const props = defineProps({
   projectName: {
@@ -95,7 +117,13 @@ const props = defineProps({
   }
 });
 
-const { t } = useI18n()
+const { t } = useI18n();
+
+const projectDataStore = useProjectDataStore();
+
+GetProjectData(props.projectName).then((data: ProjectData) => {
+  projectDataStore.setData(data);
+})
 </script>
 
 <style scoped>

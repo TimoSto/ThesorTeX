@@ -1,10 +1,10 @@
-import ProjectData from "@/pages/app/api/projects/ProjectData";
+import ProjectOverviewData from "@/pages/app/api/projects/ProjectOverviewData";
 
-export async function GetProjects(): Promise<ProjectData[]> {
+export async function GetProjects(): Promise<ProjectOverviewData[]> {
   const resp = await fetch('/app/projects');
 
   if( resp.ok ) {
-    return await resp.json() as ProjectData[]
+    return await resp.json() as ProjectOverviewData[]
   }
   return []
 }

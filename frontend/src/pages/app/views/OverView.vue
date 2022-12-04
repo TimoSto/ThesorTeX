@@ -79,6 +79,7 @@
     @success="RemoveProjectFromList"
   />
 
+  <!--todo: move up -->
   <SuccessErrorDisplay
     :error="errorStore.errorMessage"
     :success="errorStore.successMessage"
@@ -96,7 +97,7 @@ import {ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {GetProjects} from "../api/projects/GetProjects";
-import ProjectData from "../api/projects/ProjectData";
+import ProjectOverviewData from "../api/projects/ProjectOverviewData";
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import SuccessErrorDisplay from "../../../components/SuccessErrorDisplay.vue";
@@ -109,9 +110,9 @@ const { t } = useI18n();
 
 const emit = defineEmits(['openProject'])
 
-const projects = ref([] as ProjectData[])
+const projects = ref([] as ProjectOverviewData[])
 
-GetProjects().then((p: ProjectData[]) => {
+GetProjects().then((p: ProjectOverviewData[]) => {
   projects.value = p;
 })
 
@@ -126,7 +127,7 @@ function RemoveProjectFromList() {
   }
 }
 
-function AddProjectToList(project: ProjectData) {
+function AddProjectToList(project: ProjectOverviewData) {
   projects.value.push(project);
 
   projects.value.sort((p1, p2) => {
