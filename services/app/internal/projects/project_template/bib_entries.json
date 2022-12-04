@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "Key": "test_entry",
+    "Category": "aufsatz",
+    "Fields": [
+      "test1",
+      "test2",
+      "test3"
+    ]
+  }
+]
