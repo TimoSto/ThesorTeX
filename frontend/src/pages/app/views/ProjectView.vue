@@ -90,7 +90,7 @@
                   :key="c.Name"
                 >
                   <td>{{ c.Name }}</td>
-                  <td></td>
+                  <td v-html="c.Example" />
                   <td></td>
                 </tr>
               </tbody>

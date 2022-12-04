@@ -5,6 +5,7 @@ export interface BibCategory {
   CitaviNecessaryFields: string[] //z.B. nur dieser Typ wenn doi existiert
   Fields:                Field[]
   CiteFields:            Field[]
+  Example: string
 }
 
 export interface Field {
