@@ -51,7 +51,7 @@
                   text
                   flat
                   :title="t(i18nKeys.Common.Delete)"
-                  @click="projectToDelete = p.Name"
+                  @click.stop="projectToDelete = p.Name"
                 >
                   <v-icon style="color: rgba(var(--v-theme-on-background), 0.45)">
                     mdi-delete
