@@ -27,11 +27,20 @@ func Mkdir(name string, p fs.FileMode) error {
 	return nil
 }
 
+//To prevent circle-dependencies, here types are repeated
 type project struct {
 	Name            string
 	Created         string
 	LastModified    string
 	NumberOfEntries int
+}
+
+type bibEntry struct {
+	Key        string
+	Category   string
+	Fields     []string
+	Comment    string
+	CiteNumber int
 }
 
 func ReadFile(filename string) ([]byte, error) {
@@ -48,6 +57,31 @@ func ReadFile(filename string) ([]byte, error) {
 			Name:         "",
 			Created:      "2022-11-14",
 			LastModified: "2022-11-20",
+		}
+		return json.Marshal(data)
+	case "/test/test_threeEntries/bib_entries.json":
+		data := []bibEntry{
+			{
+				Key:        "test1",
+				Category:   "testc",
+				Fields:     []string{"a", "bb", "ccc"},
+				Comment:    "hallo",
+				CiteNumber: 0,
+			},
+			{
+				Key:        "test2",
+				Category:   "testc",
+				Fields:     []string{"a", "bb", "ccc", "ddd"},
+				Comment:    "hallo",
+				CiteNumber: 0,
+			},
+			{
+				Key:        "test3",
+				Category:   "testc2",
+				Fields:     []string{"a", "bb", "ccc"},
+				Comment:    "",
+				CiteNumber: 0,
+			},
 		}
 		return json.Marshal(data)
 	default:
