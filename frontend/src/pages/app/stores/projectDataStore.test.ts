@@ -1,7 +1,7 @@
 import { setActivePinia, createPinia } from 'pinia'
 import {useProjectDataStore} from "@/pages/app/stores/projectDataStore";
 import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
-import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
+import {BibCategory, Field} from "@/pages/app/api/projectData/categories/BibCategory";
 
 describe('projectData store', () => {
   beforeEach(() => {
@@ -14,23 +14,29 @@ describe('projectData store', () => {
         Entries: [
           {
             Key: 'test',
-            Fields: ['t', 't2']
+            Fields: ['t', 't2'],
+            Category: 'tc'
           } as BibEntry
         ],
         Categories: [
           {
             Name: 'tc',
+            Fields: [] as Field[],
           } as BibCategory
         ]
       });
       expect(store.entries).toHaveLength(1)
       expect(store.entries[0]).toEqual({
         Key: 'test',
-        Fields: ['t', 't2']
+        Fields: ['t', 't2'],
+        Category: 'tc',
+        Example: ''
       })
       expect(store.categories).toHaveLength(1)
       expect(store.categories[0]).toEqual({
-        Name: 'tc'
+        Name: 'tc',
+        Fields: [],
+        Example: ''
       })
     })
   })
