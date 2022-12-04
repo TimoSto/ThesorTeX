@@ -43,6 +43,23 @@ type bibEntry struct {
 	CiteNumber int
 }
 
+type bibCategory struct {
+	Name                  string
+	CitaviType            string
+	CitaviNecessaryFields []string //z.B. nur dieser Typ wenn doi existiert
+	Fields                []field
+	CiteFields            []field
+}
+
+type field struct {
+	Field            string
+	Style            string
+	Prefix           string
+	Suffix           string
+	TexValue         bool
+	CitaviAttributes []string
+}
+
 func ReadFile(filename string) ([]byte, error) {
 	switch filename {
 	case "/test2/testproject1/config.json":
@@ -81,6 +98,109 @@ func ReadFile(filename string) ([]byte, error) {
 				Fields:     []string{"a", "bb", "ccc"},
 				Comment:    "",
 				CiteNumber: 0,
+			},
+		}
+		return json.Marshal(data)
+	case "/test/test_threeCategories/bib_categories.json":
+		data := []bibCategory{
+			{
+				Name:                  "test1",
+				CitaviType:            "",
+				CitaviNecessaryFields: nil,
+				Fields: []field{
+					{
+						Field:            "t11",
+						Style:            "normal",
+						Prefix:           "",
+						Suffix:           ", ",
+						TexValue:         false,
+						CitaviAttributes: nil,
+					},
+					{
+						Field:            "t12",
+						Style:            "italic",
+						Prefix:           " ",
+						Suffix:           ".",
+						TexValue:         false,
+						CitaviAttributes: nil,
+					},
+				},
+				CiteFields: []field{
+					{
+						Field:            "t11",
+						Style:            "normal",
+						Prefix:           "",
+						Suffix:           ", ",
+						TexValue:         false,
+						CitaviAttributes: nil,
+					},
+				},
+			},
+			{
+				Name:                  "test2",
+				CitaviType:            "citaviTestDoi",
+				CitaviNecessaryFields: []string{"doi"},
+				Fields: []field{
+					{
+						Field:            "t21",
+						Style:            "normal",
+						Prefix:           "",
+						Suffix:           ", ",
+						TexValue:         false,
+						CitaviAttributes: []string{"author"},
+					},
+					{
+						Field:            "t22",
+						Style:            "italic",
+						Prefix:           " ",
+						Suffix:           ".",
+						TexValue:         false,
+						CitaviAttributes: []string{"doi"},
+					},
+				},
+				CiteFields: []field{
+					{
+						Field:            "t23",
+						Style:            "normal",
+						Prefix:           "",
+						Suffix:           ", ",
+						TexValue:         false,
+						CitaviAttributes: nil,
+					},
+				},
+			},
+			{
+				Name:                  "test3",
+				CitaviType:            "citaviTest",
+				CitaviNecessaryFields: nil,
+				Fields: []field{
+					{
+						Field:            "t31",
+						Style:            "normal",
+						Prefix:           "",
+						Suffix:           ", ",
+						TexValue:         false,
+						CitaviAttributes: []string{"author"},
+					},
+					{
+						Field:            "t32",
+						Style:            "italic",
+						Prefix:           " ",
+						Suffix:           ".",
+						TexValue:         false,
+						CitaviAttributes: nil,
+					},
+				},
+				CiteFields: []field{
+					{
+						Field:            "t33",
+						Style:            "normal",
+						Prefix:           "",
+						Suffix:           ", ",
+						TexValue:         false,
+						CitaviAttributes: nil,
+					},
+				},
 			},
 		}
 		return json.Marshal(data)

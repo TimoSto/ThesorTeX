@@ -8,11 +8,13 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/services/app/conf"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_categories"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_entries"
 )
 
 type ProjectData struct {
-	Entries []bib_entries.BibEntry
+	Entries    []bib_entries.BibEntry
+	Categories []bib_categories.BibCategory
 }
 
 func HandleProjectData(config conf.Config) http.Handler {
@@ -35,8 +37,16 @@ func HandleProjectData(config conf.Config) http.Handler {
 			return
 		}
 
+		categories, err := bib_categories.ReadCategoriesOfProject(project, ioutil.ReadFile, config)
+		if err != nil {
+			log.Error(fmt.Sprintf("failed to read categories for project %s: %v", project, err))
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+
 		data, err := json.Marshal(ProjectData{
-			Entries: entries,
+			Entries:    entries,
+			Categories: categories,
 		})
 		if err != nil {
 			log.Error(fmt.Sprintf("failed to marshal data for project %s: %v", project, err))
