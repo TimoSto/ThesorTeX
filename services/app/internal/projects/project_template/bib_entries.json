@@ -3,9 +3,12 @@
     "Key": "test_entry",
     "Category": "aufsatz",
     "Fields": [
-      "test1",
-      "test2",
-      "test3"
+      "Autor xy",
+      "1999",
+      "ThesorTeX - Ein tolles Tool",
+      "Random Zeitschrift",
+      "99/03",
+      "20-22"
     ]
   }
 ]

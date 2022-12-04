@@ -113,7 +113,7 @@ const emit = defineEmits(['openProject'])
 const projects = ref([] as ProjectOverviewData[])
 
 GetProjects().then((p: ProjectOverviewData[]) => {
-  projects.value = p;
+  projects.value = !p ? [] : p;
 })
 
 const projectToDelete = ref('');

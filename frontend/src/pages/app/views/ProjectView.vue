@@ -54,6 +54,7 @@
                 >
                   <td>{{ e.Key }}</td>
                   <td>{{ e.Category }}</td>
+                  <td v-html="e.Example" />
                 </tr>
               </tbody>
             </v-table>

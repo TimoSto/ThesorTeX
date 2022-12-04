@@ -5,4 +5,5 @@ export interface BibEntry {
   Fields:     string[]
   Comment:    string
   CiteNumber: number
+  Example: string
 }
