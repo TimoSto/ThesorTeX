@@ -14,7 +14,7 @@
     </template>
 
     <template #content>
-      <div style="padding: 8px">
+      <div style="padding: 8px 16px">
         <ResponsiveTable
           :headers="projectHeaders"
           :rows="projectRows"
