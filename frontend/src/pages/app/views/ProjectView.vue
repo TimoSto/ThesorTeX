@@ -49,7 +49,7 @@
               </thead>
               <tbody>
                 <tr
-                  v-for="e in projectDataStore.entries"
+                  v-for="e in entries"
                   :key="e.Key"
                 >
                   <td>{{ e.Key }}</td>
@@ -87,7 +87,7 @@
               </thead>
               <tbody>
                 <tr
-                  v-for="c in projectDataStore.categories"
+                  v-for="c in categories"
                   :key="c.Name"
                 >
                   <td>{{ c.Name }}</td>
@@ -110,6 +110,7 @@ import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {ProjectData} from "../api/projectData/ProjectData";
+import {computed} from "vue";
 
 const props = defineProps({
   projectName: {
@@ -124,7 +125,15 @@ const projectDataStore = useProjectDataStore();
 
 GetProjectData(props.projectName).then((data: ProjectData) => {
   projectDataStore.setData(data);
-})
+});
+
+const entries = computed(() =>{
+  return projectDataStore.entries;
+});
+
+const categories = computed(() =>{
+  return projectDataStore.categories;
+});
 </script>
 
 <style scoped>
