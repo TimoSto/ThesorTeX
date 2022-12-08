@@ -25,7 +25,13 @@ export const i18nKeys = {
     }
   },
   EntryEditor: {
-    Title: 'EntryEditor.Title'
+    Title: 'EntryEditor.Title',
+    General: {
+      Title: 'EntryEditor.General.Title',
+    },
+    Fields: {
+      Title: 'EntryEditor.Fields.Title'
+    }
   },
   Common: {
     Abort: 'Common.Abort',

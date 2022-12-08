@@ -27,6 +27,12 @@ export const german: I18nKeys = {
   },
   EntryEditor: {
     Title: 'Eintrag bearbeiten',
+    General: {
+      Title: 'Allgemein',
+    },
+    Fields: {
+      Title: 'Felder'
+    }
   },
   Common: {
     Abort: 'Abbrechen',
