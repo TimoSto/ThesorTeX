@@ -45,6 +45,12 @@
             v-if="i === 2"
             :key="`page-${i}`"
             :project-name="pages[i-1].title"
+            @open-entry="openEntry($event)"
+          />
+          <EntryEditor
+            v-if="i === 3"
+            :key="`page-${i}`"
+            :entry-key="pages[i-1].title"
           />
         </template>
       </NavigationArea>
@@ -58,6 +64,7 @@ import {computed, ref} from "vue";
 import NavigationBreadcrumb from "../../components/NavigationBreadcrumb.vue";
 import Overview from "./views/OverView.vue";
 import ProjectView from "./views/ProjectView.vue";
+import EntryEditor from "./views/EntryEditor.vue";
 
 const drawer = ref(false);
 
@@ -77,6 +84,13 @@ function goBackTo(index: number) {
 function openProject(name: string) {
   pages.value.push({
     title: name,
+    disabled: false
+  });
+}
+
+function openEntry(key: string) {
+  pages.value.push({
+    title: key,
     disabled: false
   });
 }

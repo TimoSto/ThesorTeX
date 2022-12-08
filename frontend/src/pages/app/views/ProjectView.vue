@@ -51,6 +51,9 @@
                 <tr
                   v-for="e in entries"
                   :key="e.Key"
+                  @click="emit('openEntry', e.Key)"
+                  v-ripple
+                  style="cursor: pointer"
                 >
                   <td>{{ e.Key }}</td>
                   <td>{{ e.Category }}</td>
@@ -134,6 +137,8 @@ const entries = computed(() =>{
 const categories = computed(() =>{
   return projectDataStore.categories;
 });
+
+const emit = defineEmits(['openEntry'])
 </script>
 
 <style scoped>
