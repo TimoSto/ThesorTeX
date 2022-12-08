@@ -49,7 +49,7 @@
             @open-entry="openEntry($event)"
           />
           <EntryEditor
-            v-if="i === 3"
+            v-if="i === 3 && editorType === EDITOR_TYPE_ENTRY"
             :key="`page-${i}`"
             :entry-key="pages[i-1].title"
             @nav-back="navBack"
@@ -79,6 +79,9 @@ const pages = ref([{
 }]);
 
 const drawer = ref(false);
+
+let editorType = '';
+const EDITOR_TYPE_ENTRY = 'entry';
 
 // computed
 const pagesCount = computed(() => {
@@ -111,6 +114,7 @@ function openProject(name: string) {
 
 function navBack() {
   pages.value.pop();
+  editorType = '';
 }
 
 function openEntry(key: string) {
@@ -118,5 +122,6 @@ function openEntry(key: string) {
     title: key,
     disabled: false
   });
+  editorType = EDITOR_TYPE_ENTRY;
 }
 </script>
