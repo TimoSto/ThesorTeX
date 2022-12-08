@@ -4,7 +4,6 @@
     bar-color="background"
   >
     <template #bar>
-
       <v-app-bar-nav-icon
         @click="emit('navBack')"
       >
@@ -58,9 +57,9 @@
                 <tr
                   v-for="e in entries"
                   :key="e.Key"
-                  @click="emit('openEntry', e.Key)"
                   v-ripple
                   style="cursor: pointer"
+                  @click="emit('openEntry', e.Key)"
                 >
                   <td>{{ e.Key }}</td>
                   <td>{{ e.Category }}</td>

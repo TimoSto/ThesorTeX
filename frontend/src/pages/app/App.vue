@@ -82,10 +82,19 @@ const pagesCount = computed(() => {
 })
 
 const titleAppendix = computed(() => {
-  if( pagesCount.value === 2 ) {
-    return ` - ${ t(i18nKeys.Project.Title) }`
+  switch (pagesCount.value) {
+    case 2: {
+      return ` - ${ t(i18nKeys.Project.Title) }`
+    }
+
+    case 3: {
+      return `- ${ t(i18nKeys.EntryEditor.Title) }`
+    }
+
+    default: {
+      return ''
+    }
   }
-  return '';
 })
 
 function openProject(name: string) {

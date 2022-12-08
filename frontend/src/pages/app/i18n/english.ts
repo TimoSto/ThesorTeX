@@ -25,6 +25,9 @@ export const english: I18nKeys = {
       Example: 'Example'
     }
   },
+  EntryEditor: {
+    Title: 'Edit entry',
+  },
   Common: {
     Abort: 'Abort',
     Create: 'Create',

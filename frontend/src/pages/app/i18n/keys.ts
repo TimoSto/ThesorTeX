@@ -24,6 +24,9 @@ export const i18nKeys = {
       Example: 'Project.Category.Example'
     }
   },
+  EntryEditor: {
+    Title: 'EntryEditor.Title'
+  },
   Common: {
     Abort: 'Common.Abort',
     Create: 'Common.Create',
