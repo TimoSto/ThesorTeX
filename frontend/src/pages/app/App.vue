@@ -52,6 +52,7 @@
             v-if="i === 3"
             :key="`page-${i}`"
             :entry-key="pages[i-1].title"
+            @nav-back="navBack"
           />
         </template>
       </NavigationArea>

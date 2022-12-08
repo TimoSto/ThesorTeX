@@ -4,6 +4,12 @@
     bar-color="background"
   >
     <template #bar>
+      <v-app-bar-nav-icon
+        @click="emit('navBack')"
+      >
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-app-bar-nav-icon>
+
       <v-toolbar-title>
         {{ props.entryKey }}
       </v-toolbar-title>
@@ -24,6 +30,9 @@
 <script setup lang="ts">
 
 import AppbarContent from "../../../components/AppbarContent.vue";
+
+// globals
+const emit = defineEmits(['navBack']);
 
 // props
 const props = defineProps({
