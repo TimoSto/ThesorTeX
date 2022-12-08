@@ -11,10 +11,10 @@
         @click.stop="drawer = !drawer"
       />
 
-      <NavigationBreadcrumb
-        :pages="pages"
-        @go-back-to="goBackTo($event)"
-      />
+      <v-app-bar-title>
+        ThesorTeX
+        {{ titleAppendix }}
+      </v-app-bar-title>
 
       <v-spacer />
 
@@ -45,6 +45,7 @@
             v-if="i === 2"
             :key="`page-${i}`"
             :project-name="pages[i-1].title"
+            @nav-back="navBack"
             @open-entry="openEntry($event)"
           />
           <EntryEditor
@@ -61,12 +62,15 @@
 <script setup lang="ts">
 import NavigationArea from "@/components/NavigationArea";
 import {computed, ref} from "vue";
-import NavigationBreadcrumb from "../../components/NavigationBreadcrumb.vue";
 import Overview from "./views/OverView.vue";
 import ProjectView from "./views/ProjectView.vue";
 import EntryEditor from "./views/EntryEditor.vue";
+import {useI18n} from "vue-i18n";
+import {i18nKeys} from "./i18n/keys";
 
 const drawer = ref(false);
+
+const { t } = useI18n();
 
 const pages = ref([{
   title: "ThesorTeX",
@@ -77,15 +81,22 @@ const pagesCount = computed(() => {
   return pages.value.length;
 })
 
-function goBackTo(index: number) {
-  pages.value = pages.value.slice(0, index + 1);
-}
+const titleAppendix = computed(() => {
+  if( pagesCount.value === 2 ) {
+    return ` - ${ t(i18nKeys.Project.Title) }`
+  }
+  return '';
+})
 
 function openProject(name: string) {
   pages.value.push({
     title: name,
     disabled: false
   });
+}
+
+function navBack() {
+  pages.value.pop();
 }
 
 function openEntry(key: string) {

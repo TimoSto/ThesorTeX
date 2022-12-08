@@ -13,6 +13,7 @@ export const english: I18nKeys = {
     SureDeleteProject: 'Do you really want to delete the project {project} permanently',
   },
   Project: {
+    Title: 'Projektansicht',
     Entry: {
       Heading: 'Bibliography entries',
       Key: 'Key',

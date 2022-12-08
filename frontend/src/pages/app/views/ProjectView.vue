@@ -4,6 +4,13 @@
     bar-color="background"
   >
     <template #bar>
+
+      <v-app-bar-nav-icon
+        @click="emit('navBack')"
+      >
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-app-bar-nav-icon>
+
       <v-toolbar-title>
         {{ props.projectName }}
       </v-toolbar-title>
@@ -138,7 +145,7 @@ const categories = computed(() =>{
   return projectDataStore.categories;
 });
 
-const emit = defineEmits(['openEntry'])
+const emit = defineEmits(['navBack', 'openEntry'])
 </script>
 
 <style scoped>

@@ -12,6 +12,7 @@ export const i18nKeys = {
     SureDeleteProject: 'Overview.SureDeleteProject',
   },
   Project: {
+    Title: 'Project.Title',
     Entry: {
       Heading: 'Project.Entry.Heading',
       Key: 'Project.Entry.Key',
