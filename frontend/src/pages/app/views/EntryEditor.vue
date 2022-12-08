@@ -32,14 +32,10 @@
             {{ t(i18nKeys.EntryEditor.General.Title) }}
           </v-expansion-panel-title>
           <v-expansion-panel-text>
-            <v-table>
-              <thead>
-                <tr>
-                  <th>Attribut</th>
-                  <th>Wert</th>
-                </tr>
-              </thead>
-            </v-table>
+            <ResponsiveTable
+              :headers="tableHeaders"
+              :rows="[]"
+            />
           </v-expansion-panel-text>
         </v-expansion-panel>
         <v-expansion-panel>
@@ -47,14 +43,10 @@
             {{ t(i18nKeys.EntryEditor.Fields.Title) }}
           </v-expansion-panel-title>
           <v-expansion-panel-text>
-            <v-table>
-              <thead>
-                <tr>
-                  <th>Attribut</th>
-                  <th>Wert</th>
-                </tr>
-              </thead>
-            </v-table>
+            <ResponsiveTable
+              :headers="tableHeaders"
+              :rows="[]"
+            />
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -66,6 +58,7 @@
 import AppbarContent from "../../../components/AppbarContent.vue";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
+import ResponsiveTable, { ResponsiveTableHeaderCell } from "../../../components/ResponsiveTable.vue";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -78,7 +71,27 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
+
+// data
+const tableHeaders: ResponsiveTableHeaderCell[] = [
+  {
+    width: '40%',
+    minWidth: '',
+    content: 'Attribut',
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  },
+  {
+    width: '60%',
+    minWidth: '',
+    content: 'Wert',
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  }
+]
 </script>
 
 <style scoped>

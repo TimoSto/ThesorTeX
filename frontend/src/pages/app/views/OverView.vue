@@ -15,52 +15,12 @@
 
     <template #content>
       <div style="padding: 8px">
-        <v-table>
-          <thead>
-            <tr>
-              <th>{{ t(i18nKeys.Overview.Project) }}</th>
-              <th>{{ t(i18nKeys.Overview.Created) }}</th>
-              <th>{{ t(i18nKeys.Overview.LastModified) }}</th>
-              <th>{{ t(i18nKeys.Overview.NumberOfEntries) }}</th>
-              <th style="width: 48px;">
-                <v-btn
-                  text
-                  flat
-                  :title="t(i18nKeys.Overview.CreateProject)"
-                  @click="open=true"
-                >
-                  <v-icon>mdi-plus</v-icon>
-                </v-btn>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(p,i) in projects"
-              :key="`line-${i}`"
-              v-ripple
-              style="cursor: pointer"
-              @click="emit('openProject', p.Name)"
-            >
-              <td>{{ p.Name }}</td>
-              <td>{{ p.Created }}</td>
-              <td>{{ p.LastModified }}</td>
-              <td>{{ p.NumberOfEntries }}</td>
-              <td>
-                <v-btn
-                  text
-                  flat
-                  :title="t(i18nKeys.Common.Delete)"
-                  @click.stop="projectToDelete = p.Name"
-                >
-                  <v-icon style="color: rgba(var(--v-theme-on-background), 0.45)">
-                    mdi-delete
-                  </v-icon>
-                </v-btn>
-              </td>
-            </tr>
-          </tbody>
-        </v-table>
+        <ResponsiveTable
+          :headers="projectHeaders"
+          :rows="projectRows"
+          @row-clicked="emit('openProject', projects[parseInt($event)].Name)"
+          @btn-clicked="handleEvent"
+        />
       </div>
     </template>
   </AppbarContent>
@@ -93,7 +53,7 @@
 <script setup lang="ts">
 import AppbarContent from "@/components/AppbarContent";
 import CreateProjectDialog from "./CreateProjectDialog.vue";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {GetProjects} from "../api/projects/GetProjects";
@@ -101,6 +61,7 @@ import ProjectOverviewData from "../api/projects/ProjectOverviewData";
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import SuccessErrorDisplay from "../../../components/SuccessErrorDisplay.vue";
+import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
 
 // globals
 const { t } = useI18n();
@@ -109,10 +70,93 @@ const emit = defineEmits(['openProject'])
 
 const errorStore = useErrorSuccessStore();
 
-// props
+// data
 const open = ref(false);
 
 const projects = ref([] as ProjectOverviewData[])
+
+const projectHeaders: ResponsiveTableHeaderCell[] = [
+  {
+    width: 'auto',
+    minWidth: '',
+    content: t(i18nKeys.Overview.Project),
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  },
+  {
+    width: 'auto',
+    minWidth: '',
+    content: t(i18nKeys.Overview.Created),
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  },
+  {
+    width: 'auto',
+    minWidth: '',
+    content: t(i18nKeys.Overview.LastModified),
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  },
+  {
+    width: 'auto',
+    minWidth: '',
+    content: t(i18nKeys.Overview.NumberOfEntries),
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  },
+  {
+    width: '48px',
+    minWidth: '',
+    content: '',
+    icon: 'mdi-plus',
+    hideUnder: -1,
+    event: 'addProject'
+  },
+];
+
+// computed
+const projectRows = computed(() => {
+  const r: ResponsiveTableCell[][] = [];
+  projects.value.forEach(p => {
+    r.push([
+      {
+        content: p.Name,
+        icon: '',
+        event: '',
+        hideUnder: -1
+      },
+      {
+        content: p.Created,
+        icon: '',
+        event: '',
+        hideUnder: -1
+      },
+      {
+        content: p.LastModified,
+        icon: '',
+        event: '',
+        hideUnder: -1
+      },
+      {
+        content: '' + p.NumberOfEntries,
+        icon: '',
+        event: '',
+        hideUnder: -1
+      },
+      {
+        content: '',
+        icon: 'mdi-delete',
+        event: 'deleteProject',
+        hideUnder: -1
+      },
+    ])
+  })
+  return r;
+})
 
 // onload
 GetProjects().then((p: ProjectOverviewData[]) => {
@@ -136,6 +180,12 @@ function AddProjectToList(project: ProjectOverviewData) {
   projects.value.sort((p1, p2) => {
     return p1.Name.toUpperCase() > p2.Name.toUpperCase() ? 1 : -1;
   })
+}
+
+function handleEvent(evt: string) {
+  if( evt === 'addProject' ) {
+    open.value = true;
+  }
 }
 
 </script>
