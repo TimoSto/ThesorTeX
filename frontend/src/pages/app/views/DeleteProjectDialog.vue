@@ -42,6 +42,14 @@ import {i18nKeys} from "../i18n/keys";
 import DeleteProject from "../api/projects/DeleteProject";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
+// globals
+const emit = defineEmits(['close', 'success'])
+
+const { t } = useI18n();
+
+const errorStore = useErrorSuccessStore();
+
+// props
 const props = defineProps({
   open: Boolean,
   project: {
@@ -50,10 +58,7 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(['close', 'success'])
-
-const { t } = useI18n();
-
+// computed
 const opened = computed({
   get() {
     return props.open;
@@ -65,8 +70,7 @@ const opened = computed({
   }
 });
 
-const errorStore = useErrorSuccessStore();
-
+// methods
 function CallProjectDelete() {
   DeleteProject(props.project).then(ok => {
     errorStore.handleResponse(ok, t(i18nKeys.Success.DeleteProject), t(i18nKeys.Errors.ErrorDeleting))

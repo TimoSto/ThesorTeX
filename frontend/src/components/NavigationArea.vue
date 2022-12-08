@@ -27,6 +27,7 @@
 
 import {watch} from "vue";
 
+// props
 const props = defineProps({
   pages: {
     type: Number,
@@ -35,8 +36,10 @@ const props = defineProps({
   }
 })
 
+// data
 let animationClass = "";
 
+// watchers
 watch(() => props.pages, (newValue: number, oldValue: number) => {
   if( newValue < oldValue ) {
     animationClass = 'nav-back';

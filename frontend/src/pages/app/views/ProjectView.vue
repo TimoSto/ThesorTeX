@@ -121,6 +121,14 @@ import GetProjectData from "../api/projectData/GetProjectData";
 import {ProjectData} from "../api/projectData/ProjectData";
 import {computed} from "vue";
 
+//global stuff
+const { t } = useI18n();
+
+const projectDataStore = useProjectDataStore();
+
+const emit = defineEmits(['navBack', 'openEntry'])
+
+//props
 const props = defineProps({
   projectName: {
     type: String,
@@ -128,14 +136,7 @@ const props = defineProps({
   }
 });
 
-const { t } = useI18n();
-
-const projectDataStore = useProjectDataStore();
-
-GetProjectData(props.projectName).then((data: ProjectData) => {
-  projectDataStore.setData(data);
-});
-
+// computed
 const entries = computed(() =>{
   return projectDataStore.entries;
 });
@@ -144,7 +145,10 @@ const categories = computed(() =>{
   return projectDataStore.categories;
 });
 
-const emit = defineEmits(['navBack', 'openEntry'])
+// onload
+GetProjectData(props.projectName).then((data: ProjectData) => {
+  projectDataStore.setData(data);
+});
 </script>
 
 <style scoped>

@@ -102,16 +102,19 @@ import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import SuccessErrorDisplay from "../../../components/SuccessErrorDisplay.vue";
 
-const errorStore = useErrorSuccessStore();
-
-const open = ref(false);
-
+// globals
 const { t } = useI18n();
 
 const emit = defineEmits(['openProject'])
 
+const errorStore = useErrorSuccessStore();
+
+// props
+const open = ref(false);
+
 const projects = ref([] as ProjectOverviewData[])
 
+// onload
 GetProjects().then((p: ProjectOverviewData[]) => {
   projects.value = !p ? [] : p;
 })

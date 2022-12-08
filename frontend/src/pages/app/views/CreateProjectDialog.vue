@@ -42,8 +42,14 @@ import CreateProject from "../api/projects/CreateProject";
 import getProjectNameRules from "../../../rules/projectNameRules";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
+// globals
 const errorStore = useErrorSuccessStore();
 
+const emit = defineEmits(['close', 'success'])
+
+const { t } = useI18n();
+
+// props
 const props = defineProps({
   open: Boolean,
   projects: {
@@ -52,16 +58,10 @@ const props = defineProps({
   }
 });
 
-watch( () => props.open, () => {
-  if( !props.open ) {
-    projectName.value = '';
-  }
-})
+// data
+const projectName = ref('');
 
-const emit = defineEmits(['close', 'success'])
-
-const { t } = useI18n();
-
+// computed
 const opened = computed({
   get() {
     return props.open;
@@ -81,8 +81,14 @@ const rulesAreMet = computed(() => {
   return nameRules.value[0](projectName.value) === true
 })
 
-const projectName = ref('');
+// watchers
+watch( () => props.open, () => {
+  if( !props.open ) {
+    projectName.value = '';
+  }
+})
 
+// methods
 async function Create() {
   const resp = await CreateProject(projectName.value);
   //todo: mapping of status code to error message

@@ -25,6 +25,7 @@
 
 import AppbarContent from "../../../components/AppbarContent.vue";
 
+// props
 const props = defineProps({
   entryKey: {
     type: String,

@@ -68,15 +68,18 @@ import EntryEditor from "./views/EntryEditor.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
 
-const drawer = ref(false);
-
+// globals
 const { t } = useI18n();
 
+// data
 const pages = ref([{
   title: "ThesorTeX",
   disabled: false
 }]);
 
+const drawer = ref(false);
+
+// computed
 const pagesCount = computed(() => {
   return pages.value.length;
 })
@@ -97,6 +100,7 @@ const titleAppendix = computed(() => {
   }
 })
 
+// methods
 function openProject(name: string) {
   pages.value.push({
     title: name,
