@@ -1,5 +1,5 @@
 <template>
-  <v-table>
+  <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.2)">
     <thead>
       <tr>
         <th
