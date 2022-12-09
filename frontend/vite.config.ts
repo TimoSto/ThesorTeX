@@ -48,6 +48,7 @@ export default defineConfig({
       "/app/projects": "http://localhost:8448/",
       "/app/deleteProject": "http://localhost:8448/",
       "/app/projectData": "http://localhost:8448/",
+      "/app/saveEntry": "http://localhost:8448/",
     }
   },
 })

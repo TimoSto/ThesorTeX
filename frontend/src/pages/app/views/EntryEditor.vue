@@ -19,6 +19,7 @@
       <v-btn
         icon
         :disabled="!entryChanged"
+        @click="CallSaveEntry"
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
@@ -97,6 +98,8 @@ import {useI18n} from "vue-i18n";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
 import {computed, ref, watch} from "vue";
 import {useProjectDataStore} from "../stores/projectDataStore";
+import SaveEntry from "../api/projectData/entries/SaveEntry";
+import {BibEntry} from "../api/projectData/entries/BibEntry";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -108,6 +111,10 @@ const projectDataStore = useProjectDataStore();
 // props
 const props = defineProps({
   entryKey: {
+    type: String,
+    required: true
+  },
+  projectName: {
     type: String,
     required: true
   }
@@ -244,6 +251,19 @@ watch(initialEntry, () => {
     entryFields.value = initialEntry.value.Fields;
   }
 });
+
+// methods
+function CallSaveEntry() {
+  const entry: BibEntry = {
+    Key: entryKey.value,
+    Category: entryCategory.value,
+    Fields: entryFields.value,
+    Comment: '',
+    CiteNumber: 0,
+    Example: ''
+  }
+  SaveEntry(entry, initialEntry.value ? initialEntry.value.Key : '', props.projectName)
+}
 
 // onload
 if( initialEntry.value ) {

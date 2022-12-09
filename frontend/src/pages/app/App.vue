@@ -52,6 +52,7 @@
             v-if="i === 3 && editorType === EDITOR_TYPE_ENTRY"
             :key="`page-${i}`"
             :entry-key="pages[i-1].title"
+            :project-name="pages[i-2].title"
             @nav-back="navBack"
           />
         </template>
