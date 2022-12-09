@@ -49,9 +49,16 @@
             </v-btn>
           </span>
           <span
-            v-if="c.icon === ''"
+            v-if="c.icon === '' && !c.slot"
             v-html="c.content"
           />
+          <span
+            v-if="c.slot"
+          >
+            <slot
+              :name="`input-${n}`"
+            />
+          </span>
         </td>
       </tr>
     </tbody>
@@ -67,6 +74,7 @@ export interface ResponsiveTableCell {
   icon: string,
   event: string,
   hideUnder: number
+  slot?: boolean
 }
 
 export interface ResponsiveTableHeaderCell extends ResponsiveTableCell{

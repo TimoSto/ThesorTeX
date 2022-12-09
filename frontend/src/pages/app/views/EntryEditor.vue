@@ -34,8 +34,15 @@
           <v-expansion-panel-text>
             <ResponsiveTable
               :headers="tableHeaders"
-              :rows="[]"
-            />
+              :rows="generalRows"
+            >
+              <template #input-1>
+                <v-text-field
+                  color="primary"
+                  variant="underlined"
+                />
+              </template>
+            </ResponsiveTable>
           </v-expansion-panel-text>
         </v-expansion-panel>
         <v-expansion-panel>
@@ -58,7 +65,8 @@
 import AppbarContent from "../../../components/AppbarContent.vue";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
-import ResponsiveTable, { ResponsiveTableHeaderCell } from "../../../components/ResponsiveTable.vue";
+import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
+import {computed} from "vue";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -92,6 +100,30 @@ const tableHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   }
 ]
+
+// computed
+const generalRows = computed(() => {
+  const r: ResponsiveTableCell[][] = [
+    [
+      {
+        content: 'Eigenschaft',
+        icon: '',
+        event: '',
+        hideUnder: -1
+      },
+      {
+        content: '',
+        icon: '',
+        event: '',
+        hideUnder: -1,
+        slot: true
+      },
+    ]
+  ]
+
+
+  return r;
+})
 </script>
 
 <style scoped>
