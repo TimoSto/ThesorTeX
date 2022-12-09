@@ -16,6 +16,12 @@
 
       <v-spacer />
 
+      <v-btn
+        icon
+        :disabled="!entryChanged"
+      >
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
       <v-btn icon>
         <v-icon>mdi-delete</v-icon>
       </v-btn>
@@ -39,17 +45,17 @@
             >
               <template #0>
                 <v-text-field
+                  v-model="entryKey"
                   color="primary"
                   variant="underlined"
-                  :model-value="entryKey"
                 />
               </template>
               <template #1>
                 <v-select
+                  v-model="entryCategory"
                   color="primary"
                   variant="underlined"
                   :items="availableCategories"
-                  :model-value="entryCategory"
                 />
               </template>
             </ResponsiveTable>
@@ -71,9 +77,9 @@
                 #[i]
               >
                 <v-text-field
+                  v-model="entryFields[i]"
                   color="primary"
                   variant="underlined"
-                  :model-value="entryFields[i]"
                 />
               </template>
             </ResponsiveTable>
@@ -220,6 +226,16 @@ const fieldRows = computed(() => {
   return rows;
 })
 
+const entryChanged = computed(() => {
+  if( initialEntry.value ) {
+    return initialEntry.value.Key !== entryKey.value ||
+      initialEntry.value.Category !== entryCategory.value ||
+      initialEntry.value.Fields.length !== entryFields.value.length ||
+      !initialEntry.value.Fields.every((v, i) => v === entryFields.value[i]);
+  }
+  return false
+})
+
 // watchers
 watch(initialEntry, () => {
   if( initialEntry.value ) {
@@ -233,7 +249,7 @@ watch(initialEntry, () => {
 if( initialEntry.value ) {
   entryKey.value = initialEntry.value.Key;
   entryCategory.value = initialEntry.value.Category;
-  entryFields.value = initialEntry.value.Fields;
+  entryFields.value = JSON.parse(JSON.stringify(initialEntry.value.Fields));
 }
 </script>
 
