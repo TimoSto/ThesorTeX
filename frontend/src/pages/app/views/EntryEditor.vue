@@ -33,14 +33,23 @@
           </v-expansion-panel-title>
           <v-expansion-panel-text>
             <ResponsiveTable
-              :headers="tableHeaders"
+              :headers="generalHeaders"
               :rows="generalRows"
               :disable-ripple="true"
             >
-              <template #input-1>
+              <template #0>
                 <v-text-field
                   color="primary"
                   variant="underlined"
+                  :model-value="entryKey"
+                />
+              </template>
+              <template #1>
+                <v-select
+                  color="primary"
+                  variant="underlined"
+                  :items="availableCategories"
+                  :model-value="entryCategory"
                 />
               </template>
             </ResponsiveTable>
@@ -52,9 +61,22 @@
           </v-expansion-panel-title>
           <v-expansion-panel-text>
             <ResponsiveTable
-              :headers="tableHeaders"
-              :rows="[]"
-            />
+              :headers="fieldsHeaders"
+              :rows="fieldRows"
+              :disable-ripple="true"
+            >
+              <template
+                v-for="(_,i) in fieldRows"
+                :key="`field-${i}`"
+                #[i]
+              >
+                <v-text-field
+                  color="primary"
+                  variant="underlined"
+                  :model-value="entryFields[i]"
+                />
+              </template>
+            </ResponsiveTable>
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -67,12 +89,15 @@ import AppbarContent from "../../../components/AppbarContent.vue";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
-import {computed} from "vue";
+import {computed, ref, watch} from "vue";
+import {useProjectDataStore} from "../stores/projectDataStore";
 
 // globals
 const emit = defineEmits(['navBack']);
 
 const { t } = useI18n();
+
+const projectDataStore = useProjectDataStore();
 
 // props
 const props = defineProps({
@@ -83,7 +108,7 @@ const props = defineProps({
 });
 
 // data
-const tableHeaders: ResponsiveTableHeaderCell[] = [
+const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '40%',
     minWidth: '',
@@ -102,12 +127,83 @@ const tableHeaders: ResponsiveTableHeaderCell[] = [
   }
 ]
 
+const generalRows: ResponsiveTableCell[][] = [
+  [
+    {
+      content: 'Schlüssel',
+      icon: '',
+      event: '',
+      hideUnder: -1
+    },
+    {
+      content: '',
+      icon: '',
+      event: '',
+      hideUnder: -1,
+      slot: true
+    },
+  ],
+  [
+    {
+      content: 'Kategorie',
+      icon: '',
+      event: '',
+      hideUnder: -1
+    },
+    {
+      content: '',
+      icon: '',
+      event: '',
+      hideUnder: -1,
+      slot: true
+    },
+  ],
+];
+
+const fieldsHeaders: ResponsiveTableHeaderCell[] = [
+  {
+    width: '40%',
+    minWidth: '',
+    content: 'Feld',
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  },
+  {
+    width: '60%',
+    minWidth: '',
+    content: 'Wert',
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  }
+]
+
+const entryKey = ref('');
+
+const entryCategory = ref('');
+
+const entryFields = ref([] as string[])
+
 // computed
-const generalRows = computed(() => {
-  const r: ResponsiveTableCell[][] = [
-    [
+const availableCategories = computed((): string[] => {
+  return projectDataStore.categories.map(c => c.Name);
+});
+
+const initialEntry = computed(() => {
+  return projectDataStore.entries.find(e => e.Key === props.entryKey)
+});
+
+const fieldRows = computed(() => {
+  const rows: ResponsiveTableCell[][] = [];
+  const category = projectDataStore.categories.find(c => c.Name === entryCategory.value);
+  if( !category ) {
+    return [];
+  }
+  category.Fields.forEach(f => {
+    rows.push([
       {
-        content: 'Eigenschaft',
+        content: f.Field,
         icon: '',
         event: '',
         hideUnder: -1
@@ -119,12 +215,26 @@ const generalRows = computed(() => {
         hideUnder: -1,
         slot: true
       },
-    ]
-  ]
-
-
-  return r;
+    ])
+  })
+  return rows;
 })
+
+// watchers
+watch(initialEntry, () => {
+  if( initialEntry.value ) {
+    entryKey.value = initialEntry.value.Key;
+    entryCategory.value = initialEntry.value.Category;
+    entryFields.value = initialEntry.value.Fields;
+  }
+});
+
+// onload
+if( initialEntry.value ) {
+  entryKey.value = initialEntry.value.Key;
+  entryCategory.value = initialEntry.value.Category;
+  entryFields.value = initialEntry.value.Fields;
+}
 </script>
 
 <style scoped>
