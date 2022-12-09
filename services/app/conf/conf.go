@@ -1,7 +1,6 @@
 package conf
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
@@ -33,7 +32,7 @@ func ReadConfig() {
 	cfg, err := ini.Load("Config.ini")
 
 	if err != nil {
-		log.Error(fmt.Sprintf("Reading config: %v", err))
+		log.Error("Reading config: %v", err)
 		return
 	}
 

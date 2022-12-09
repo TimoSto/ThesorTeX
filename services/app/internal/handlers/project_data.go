@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -32,14 +31,14 @@ func HandleProjectData(config conf.Config) http.Handler {
 
 		entries, err := bib_entries.ReadEntriesOfProject(project, ioutil.ReadFile, config)
 		if err != nil {
-			log.Error(fmt.Sprintf("failed to read entries for project %s: %v", project, err))
+			log.Error("failed to read entries for project %s: %v", project, err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
 		categories, err := bib_categories.ReadCategoriesOfProject(project, ioutil.ReadFile, config)
 		if err != nil {
-			log.Error(fmt.Sprintf("failed to read categories for project %s: %v", project, err))
+			log.Error("failed to read categories for project %s: %v", project, err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
@@ -49,13 +48,13 @@ func HandleProjectData(config conf.Config) http.Handler {
 			Categories: categories,
 		})
 		if err != nil {
-			log.Error(fmt.Sprintf("failed to marshal data for project %s: %v", project, err))
+			log.Error("failed to marshal data for project %s: %v", project, err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 		_, err = w.Write(data)
 		if err != nil {
-			log.Error(fmt.Sprintf("failed to send data for project %s: %v", project, err))
+			log.Error("failed to send data for project %s: %v", project, err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}

@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -30,7 +29,7 @@ func HandleSaveEntry(config conf.Config) http.Handler {
 		decoder := json.NewDecoder(r.Body)
 		err := decoder.Decode(&data)
 		if err != nil {
-			log.Error(fmt.Sprintf("got error reading data of entry save: %v", err))
+			log.Error("got error reading data of entry save: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
@@ -47,7 +46,7 @@ func HandleSaveEntry(config conf.Config) http.Handler {
 		err = bib_entries.SaveEntriesToProject(data.Project, ioutil.ReadFile, ioutil.WriteFile, config, entries, []string{data.InitialKey})
 
 		if err != nil {
-			log.Error(fmt.Sprintf("Error saving entry: %v", err))
+			log.Error("Error saving entry: %v", err)
 		}
 	}
 

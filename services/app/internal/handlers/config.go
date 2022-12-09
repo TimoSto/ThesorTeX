@@ -31,12 +31,12 @@ func HandleConfig() http.Handler {
 			decoder := json.NewDecoder(r.Body)
 			err := decoder.Decode(&data)
 			if err != nil {
-				log.Error(fmt.Sprintf("Saving config: %v", err))
+				log.Error("Saving config: %v", err)
 				return
 			}
 			err = conf.WriteConfig(data)
 			if err != nil {
-				log.Error(fmt.Printf("Saving config: %v", err))
+				log.Error("Saving config: %v", err)
 				return
 			}
 

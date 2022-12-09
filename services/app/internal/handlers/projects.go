@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -21,17 +20,17 @@ func HandleProjects(config conf.Config) http.Handler {
 
 		projectsData, err := projects.GetAllProjects(config, ioutil.ReadDir, os.Mkdir, ioutil.ReadFile)
 		if err != nil {
-			log.Error(fmt.Sprintf("Reading projects: %v", err))
+			log.Error("Reading projects: %v", err)
 		}
 
 		data, err := json.Marshal(projectsData)
 		if err != nil {
-			log.Error(fmt.Sprintf("Marshaling projects: %v", err))
+			log.Error("Marshaling projects: %v", err)
 		}
 
 		_, err = w.Write(data)
 		if err != nil {
-			log.Error(fmt.Printf("Sending projects data to client: %v", err))
+			log.Error("Sending projects data to client: %v", err)
 			return
 		}
 	}
