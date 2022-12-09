@@ -3,14 +3,14 @@ package bib_entries
 import (
 	"testing"
 
-	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 type scenario struct {
 	title    string
-	initial  []BibEntry
-	saveObj  handlers.SaveEntryData
-	expected []BibEntry
+	initial  []database.BibEntry
+	saveObj  SaveEntryData
+	expected []database.BibEntry
 }
 
 func TestSaveEntriesToProject(t *testing.T) {
@@ -18,31 +18,31 @@ func TestSaveEntriesToProject(t *testing.T) {
 		{
 			title:    "on empty project",
 			initial:  nil,
-			saveObj:  handlers.SaveEntryData{},
+			saveObj:  SaveEntryData{},
 			expected: nil,
 		},
 		{
 			title:    "with one entry",
 			initial:  nil,
-			saveObj:  handlers.SaveEntryData{},
+			saveObj:  SaveEntryData{},
 			expected: nil,
 		},
 		{
 			title:    "with one entry to override",
 			initial:  nil,
-			saveObj:  handlers.SaveEntryData{},
+			saveObj:  SaveEntryData{},
 			expected: nil,
 		},
 		{
 			title:    "with one entry and two entries to add",
 			initial:  nil,
-			saveObj:  handlers.SaveEntryData{},
+			saveObj:  SaveEntryData{},
 			expected: nil,
 		},
 		{
 			title:    "with one entry to override and one entry to save",
 			initial:  nil,
-			saveObj:  handlers.SaveEntryData{},
+			saveObj:  SaveEntryData{},
 			expected: nil,
 		},
 	}

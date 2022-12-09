@@ -17,7 +17,7 @@ func CreateHandlerChain() alice.Chain {
 func LogRequest() func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
-			log.Info("Handling request: ", req.URL.Path)
+			log.Info("Handling request: %s", req.URL.Path)
 
 			next.ServeHTTP(rw, req)
 		})

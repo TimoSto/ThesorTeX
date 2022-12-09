@@ -2,23 +2,20 @@ package handlers
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
-	"os"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/projects"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
-func HandleProjects(config conf.Config) http.Handler {
+func HandleProjects(store database.ThesorTeXStore) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		projectsData, err := projects.GetAllProjects(config, ioutil.ReadDir, os.Mkdir, ioutil.ReadFile)
+		projectsData, err := store.GetAllProjects()
 		if err != nil {
 			log.Error("Reading projects: %v", err)
 		}

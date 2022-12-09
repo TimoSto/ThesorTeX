@@ -41,7 +41,7 @@ func (s *Server) Start(fin chan bool) {
 		err := s.srv.Serve(socket)
 		if err != nil {
 			if err != http.ErrServerClosed {
-				log.Error("Error starting server", err)
+				log.Error("Error starting server: %v", err)
 			}
 			fin <- true
 		}

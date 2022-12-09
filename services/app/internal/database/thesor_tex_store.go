@@ -1,12 +1,11 @@
 package database
 
-import (
-	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_categories"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_entries"
-)
+import "io/fs"
 
 type ThesorTeXStore interface {
-	GetProjectNames() ([]string, error)
-	GetProjectData(project string) ([]bib_entries.BibEntry, []bib_categories.BibCategory)
-	SaveEntries(project string, entries []bib_entries.BibEntry) error
+	GetAllProjects() ([]ProjectMetaData, error)
+	GetProjectData(project string) (ProjectData, error)
+	SaveProjectData(project string, data ProjectData) error
+	CreateProject(metaData ProjectMetaData, template fs.FS) error
+	DeleteProject(project string) error
 }

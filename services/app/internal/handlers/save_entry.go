@@ -2,30 +2,22 @@ package handlers
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/services/app/conf"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_entries"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
-type SaveEntryData struct {
-	Project    string
-	InitialKey string
-	Key        string
-	Category   string
-	Fields     []string
-}
-
-func HandleSaveEntry(config conf.Config) http.Handler {
+func HandleSaveEntry(config conf.Config, store database.ThesorTeXStore) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPut {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		var data SaveEntryData
+		var data bib_entries.SaveEntryData
 		decoder := json.NewDecoder(r.Body)
 		err := decoder.Decode(&data)
 		if err != nil {
@@ -33,7 +25,7 @@ func HandleSaveEntry(config conf.Config) http.Handler {
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		entries := []bib_entries.BibEntry{
+		entries := []database.BibEntry{
 			{
 				Key:        data.Key,
 				Category:   data.Category,
@@ -43,7 +35,7 @@ func HandleSaveEntry(config conf.Config) http.Handler {
 			},
 		}
 
-		err = bib_entries.SaveEntriesToProject(data.Project, ioutil.ReadFile, ioutil.WriteFile, config, entries, []string{data.InitialKey})
+		err = bib_entries.SaveEntriesToProject(data.Project, store, entries, []string{data.InitialKey})
 
 		if err != nil {
 			log.Error("Error saving entry: %v", err)

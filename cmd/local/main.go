@@ -11,7 +11,6 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/services/app"
 	"github.com/TimoSto/ThesorTeX/services/app/conf"
-	"github.com/TimoSto/ThesorTeX/webclient/assets"
 )
 
 func main() {
@@ -24,20 +23,20 @@ func main() {
 	chain := handler_chain.CreateHandlerChain()
 
 	//assets-handler bei beiden gleich, nur andere ignore-parameter
-	assetConf := assets.AssetConf{
-		Ignore: []string{
-			"/auth.html",
-		},
-		MapRootTo: "/app.html",
-	}
-	assets.Register(mux, assetConf)
+	//assetConf := assets.AssetConf{
+	//	Ignore: []string{
+	//		"/auth.html",
+	//	},
+	//	MapRootTo: "/app.html",
+	//}
+	//assets.Register(mux, assetConf)
 
 	app.Register(mux, conf.GetConfig())
 
 	go func() {
 		err := http.ListenAndServe(fmt.Sprintf(":%s", conf.GetConfig().Port), chain.Then(mux))
 		if err != nil {
-			log.Error(err)
+			log.Error("unexpected error starting server: %v", err)
 			os.Exit(1)
 		}
 	}()
@@ -52,5 +51,5 @@ func main() {
 
 	sig := <-sigs
 
-	log.Info("received ", sig)
+	log.Info("received %v", sig)
 }

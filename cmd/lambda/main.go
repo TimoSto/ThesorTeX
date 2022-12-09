@@ -19,7 +19,10 @@ func main() {
 
 	if os.Getenv("RUN_LOCAL") == "true" {
 		log.Info("Running locally on http://localhost:8558 ")
-		log.Error(http.ListenAndServe(":8558", chain.Then(mux)))
+		err := http.ListenAndServe(":8558", chain.Then(mux))
+		if err != nil {
+			log.Error("unexpected error starting the server: %v", err)
+		}
 	}
 
 }

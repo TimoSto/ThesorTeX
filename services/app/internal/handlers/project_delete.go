@@ -5,11 +5,10 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/projects"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
-func HandleProjectDelete(config conf.Config) http.Handler {
+func HandleProjectDelete(store database.ThesorTeXStore) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodDelete {
 			w.WriteHeader(http.StatusBadRequest)
@@ -23,7 +22,7 @@ func HandleProjectDelete(config conf.Config) http.Handler {
 			return
 		}
 
-		err = projects.DeleteProject(string(data), config)
+		err = store.DeleteProject(string(data))
 
 		if err != nil {
 			log.Error("Error deleting project: %v", err)

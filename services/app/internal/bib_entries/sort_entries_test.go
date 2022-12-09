@@ -3,10 +3,12 @@ package bib_entries
 import (
 	"reflect"
 	"testing"
+
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 func TestSortEntries(t *testing.T) {
-	e := []BibEntry{
+	e := []database.BibEntry{
 		{
 			Key: "test",
 		},
@@ -21,7 +23,7 @@ func TestSortEntries(t *testing.T) {
 		},
 	}
 
-	es := []BibEntry{
+	es := []database.BibEntry{
 		{
 			Key: "aatest",
 		},

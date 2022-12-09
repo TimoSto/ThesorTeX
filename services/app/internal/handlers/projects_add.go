@@ -4,14 +4,13 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"os"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/projects"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/project"
 )
 
-func HandleAddProject(config conf.Config) http.Handler {
+func HandleAddProject(store database.ThesorTeXStore) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPut {
 			w.WriteHeader(http.StatusBadRequest)
@@ -25,7 +24,7 @@ func HandleAddProject(config conf.Config) http.Handler {
 			return
 		}
 
-		project, err := projects.CreateProject(string(data), config, os.MkdirAll, ioutil.WriteFile)
+		project, err := project.CreateProject(string(data), store)
 		if err != nil {
 			log.Error("Error creating project: %v", err)
 			w.WriteHeader(http.StatusBadRequest)

@@ -1,45 +1,50 @@
 package bib_entries
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/fs"
 
-	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 var (
 	KeyAlreadyExistsError = fmt.Errorf("key already exists")
 )
 
-func SaveEntriesToProject(project string, readFile func(string) ([]byte, error), writeFile func(string, []byte, fs.FileMode) error, config conf.Config, entries []BibEntry, initialKeys []string) error {
+type SaveEntryData struct {
+	Project    string
+	InitialKey string
+	Key        string
+	Category   string
+	Fields     []string
+}
 
-	existing, err := ReadEntriesOfProject(project, readFile, config)
+func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries []database.BibEntry, initialKeys []string) error {
+
+	projectData, err := store.GetProjectData(project)
 	if err != nil {
 		return err
 	}
 
 	for i, e := range entries {
 		found := false
-		for j, ex := range existing {
+		for j, ex := range projectData.Entries {
 			if initialKeys[i] == ex.Key {
-				existing[j] = ex
+				projectData.Entries[j] = e
 				found = true
 			} else if ex.Key == e.Key {
 				return KeyAlreadyExistsError
 			}
 		}
 		if !found {
-			existing = append(existing, e)
+			projectData.Entries = append(projectData.Entries, e)
 		}
 	}
 
-	data, err := json.Marshal(existing)
-	if err != nil {
-		return err
-	}
-	err = writeFile(pathbuilder.GetPathInProject(config.ProjectsDir, project, "bib_entries.json"), data, 0777)
+	fmt.Println(projectData.Entries[0].Fields[0])
+
+	projectData.Entries = SortEntries(projectData.Entries)
+
+	err = store.SaveProjectData(project, projectData)
 
 	return err
 }

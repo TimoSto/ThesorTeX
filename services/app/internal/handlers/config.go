@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
@@ -16,13 +15,13 @@ func HandleConfig() http.Handler {
 		case http.MethodGet:
 			data, err := json.Marshal(conf.GetConfig())
 			if err != nil {
-				log.Error(fmt.Printf("Mershaling config data: %v", err))
+				log.Error("Mershaling config data: %v", err)
 				return
 			}
 
 			_, err = w.Write(data)
 			if err != nil {
-				log.Error(fmt.Printf("Sending config data to client: %v", err))
+				log.Error("Sending config data to client: %v", err)
 				return
 			}
 
