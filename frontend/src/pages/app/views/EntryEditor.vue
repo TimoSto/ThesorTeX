@@ -35,6 +35,7 @@
             <ResponsiveTable
               :headers="tableHeaders"
               :rows="generalRows"
+              :disable-ripple="true"
             >
               <template #input-1>
                 <v-text-field

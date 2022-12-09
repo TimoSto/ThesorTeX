@@ -30,8 +30,10 @@
       <tr
         v-for="(r,i) in rows"
         :key="`row-${i}`"
-        v-ripple
-        style="cursor: pointer"
+        v-ripple="{
+          class: disableRipple ? 'text-background' : ''
+        }"
+        :style="disableRipple ? '' : 'cursor: pointer'"
         @click="$emit('rowClicked', i)"
       >
         <td
@@ -91,6 +93,9 @@ export default {
     rows: {
       type: Object as PropType<ResponsiveTableCell[][]>,
       required: true
+    },
+    disableRipple: {
+      type: Boolean
     }
   },
   emits: ['rowClicked', 'btnClicked'],
@@ -98,5 +103,7 @@ export default {
 </script>
 
 <style scoped>
-
+.hide-ripple {
+  opacity: 1!important;
+}
 </style>
