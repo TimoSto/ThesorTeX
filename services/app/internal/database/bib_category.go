@@ -1,4 +1,4 @@
-package bib_categories
+package database
 
 type BibCategory struct {
 	Name                  string

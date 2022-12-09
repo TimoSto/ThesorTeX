@@ -20,31 +20,29 @@ type SaveEntryData struct {
 
 func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries []database.BibEntry, initialKeys []string) error {
 
-	projectData, err := store.GetProjectData(project)
+	existing, err := store.GetProjectEntries(project)
 	if err != nil {
 		return err
 	}
 
 	for i, e := range entries {
 		found := false
-		for j, ex := range projectData.Entries {
+		for j, ex := range existing {
 			if initialKeys[i] == ex.Key {
-				projectData.Entries[j] = e
+				existing[j] = e
 				found = true
 			} else if ex.Key == e.Key {
 				return KeyAlreadyExistsError
 			}
 		}
 		if !found {
-			projectData.Entries = append(projectData.Entries, e)
+			existing = append(existing, e)
 		}
 	}
 
-	fmt.Println(projectData.Entries[0].Fields[0])
+	existing = SortEntries(existing)
 
-	projectData.Entries = SortEntries(projectData.Entries)
-
-	err = store.SaveProjectData(project, projectData)
+	err = store.SaveProjectEntries(project, existing)
 
 	return err
 }

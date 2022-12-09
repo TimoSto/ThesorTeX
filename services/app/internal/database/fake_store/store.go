@@ -1,31 +1,75 @@
 package fake_store
 
 import (
-	"fmt"
+	"io/fs"
 
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 type Store struct {
-	Projects    []database.ProjectData
+	Entries     [][]database.BibEntry
+	Categories  [][]database.BibCategory
 	ProjectMeta []database.ProjectMetaData
 }
 
-func (s *Store) GetProjectData(project string) (database.ProjectData, error) {
+func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
+	return s.ProjectMeta, nil
+}
+
+func (s *Store) CreateProject(metaData database.ProjectMetaData, template fs.FS) error {
+	s.ProjectMeta = append(s.ProjectMeta, metaData)
+
+	return nil
+}
+
+func (s *Store) DeleteProject(name string) error {
 	for i, p := range s.ProjectMeta {
-		if p.Name == project {
-			return s.Projects[i], nil
+		if p.Name == name {
+			s.ProjectMeta = append(s.ProjectMeta[:i], s.ProjectMeta[i+1:]...)
+			s.Entries = append(s.Entries[:i], s.Entries[i+1:]...)
+			s.Categories = append(s.Categories[:i], s.Categories[i+1:]...)
+			return nil
 		}
 	}
 
-	return database.ProjectData{}, fmt.Errorf("could not find project %v", project)
+	return nil
 }
 
-func (s *Store) SaveProjectData(project string, data database.ProjectData) error {
+func (s *Store) GetProjectEntries(project string) ([]database.BibEntry, error) {
 	for i, p := range s.ProjectMeta {
 		if p.Name == project {
-			s.Projects[i].Entries = data.Entries
-			s.Projects[i].Categories = data.Categories
+			return s.Entries[i], nil
+		}
+	}
+
+	return nil, nil
+}
+
+func (s *Store) SaveProjectEntries(project string, data []database.BibEntry) error {
+	for i, p := range s.ProjectMeta {
+		if p.Name == project {
+			s.Entries[i] = data
+			return nil
+		}
+	}
+
+	return nil
+}
+
+func (s *Store) GetProjectCategories(project string) ([]database.BibCategory, error) {
+	for i, p := range s.ProjectMeta {
+		if p.Name == project {
+			return s.Categories[i], nil
+		}
+	}
+
+	return nil, nil
+}
+
+func (s *Store) SaveProjectCategories(project string, data []database.BibCategory) error {
+	for i, p := range s.ProjectMeta {
+		if p.Name == project {
+			s.Categories[i] = data
 			return nil
 		}
 	}

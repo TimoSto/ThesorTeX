@@ -3,10 +3,12 @@ package bib_categories
 import (
 	"reflect"
 	"testing"
+
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 func TestSortCategories(t *testing.T) {
-	e := []BibCategory{
+	e := []database.BibCategory{
 		{
 			Name: "test",
 		},
@@ -21,7 +23,7 @@ func TestSortCategories(t *testing.T) {
 		},
 	}
 
-	es := []BibCategory{
+	es := []database.BibCategory{
 		{
 			Name: "aatest",
 		},

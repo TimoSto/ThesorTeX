@@ -19,8 +19,12 @@ type Store struct {
 }
 
 const (
-	projectDataFile = "project_data.json"
+	projectEntriesFile = "data/bib_entries.json"
+
+	projectCategoriesFile = "data/bib_categories.json"
 )
+
+//todo: unit tests expand
 
 func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 	projectsPath := s.Config.ProjectsDir
@@ -68,29 +72,6 @@ func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 	return p, nil
 }
 
-func (s *Store) GetProjectData(project string) (database.ProjectData, error) {
-	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectDataFile))
-	if err != nil {
-		return database.ProjectData{}, err
-	}
-
-	var data database.ProjectData
-	err = json.Unmarshal(file, &data)
-	if err != nil {
-		return database.ProjectData{}, err
-	}
-
-	return data, nil
-}
-
-func (s *Store) SaveProjectData(project string, data database.ProjectData) error {
-	file, err := json.MarshalIndent(data, "", "\t")
-	if err != nil {
-		return err
-	}
-	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectDataFile), file, 0777)
-}
-
 func (s *Store) CreateProject(metaData database.ProjectMetaData, template fs.FS) error {
 
 	//todo:special error if project already exists
@@ -100,6 +81,11 @@ func (s *Store) CreateProject(metaData database.ProjectMetaData, template fs.FS)
 	}
 
 	err = os.Mkdir(pathbuilder.GetPathInProject(s.Config.ProjectsDir, metaData.Name, "styPackages"), os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	err = os.Mkdir(pathbuilder.GetPathInProject(s.Config.ProjectsDir, metaData.Name, "data"), os.ModePerm)
 	if err != nil {
 		return err
 	}
@@ -138,4 +124,50 @@ func (s *Store) DeleteProject(name string) error {
 	path := pathbuilder.GetProjectPath(s.Config.ProjectsDir, name)
 
 	return os.RemoveAll(path)
+}
+
+func (s *Store) GetProjectEntries(project string) ([]database.BibEntry, error) {
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectEntriesFile))
+	if err != nil {
+		return nil, err
+	}
+
+	var data []database.BibEntry
+	err = json.Unmarshal(file, &data)
+	if err != nil {
+		return nil, err
+	}
+
+	return data, nil
+}
+
+func (s *Store) SaveProjectEntries(project string, data []database.BibEntry) error {
+	file, err := json.MarshalIndent(data, "", "\t")
+	if err != nil {
+		return err
+	}
+	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectEntriesFile), file, 0777)
+}
+
+func (s *Store) GetProjectCategories(project string) ([]database.BibCategory, error) {
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectCategoriesFile))
+	if err != nil {
+		return nil, err
+	}
+
+	var data []database.BibCategory
+	err = json.Unmarshal(file, &data)
+	if err != nil {
+		return nil, err
+	}
+
+	return data, nil
+}
+
+func (s *Store) SaveProjectCategories(project string, data []database.BibCategory) error {
+	file, err := json.MarshalIndent(data, "", "\t")
+	if err != nil {
+		return err
+	}
+	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectCategoriesFile), file, 0777)
 }

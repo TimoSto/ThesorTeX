@@ -6,6 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/mocks/mock_fs"
 	"github.com/TimoSto/ThesorTeX/services/app/conf"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 func TestReadCategoriesOfProject(t *testing.T) {
@@ -17,12 +18,12 @@ func TestReadCategoriesOfProject(t *testing.T) {
 		t.Errorf("expected 3 categories, but got %v", len(categories))
 	}
 
-	expected := []BibCategory{
+	expected := []database.BibCategory{
 		{
 			Name:                  "test1",
 			CitaviType:            "",
 			CitaviNecessaryFields: nil,
-			Fields: []Field{
+			Fields: []database.Field{
 				{
 					Field:            "t11",
 					Style:            "normal",
@@ -40,7 +41,7 @@ func TestReadCategoriesOfProject(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			CiteFields: []Field{
+			CiteFields: []database.Field{
 				{
 					Field:            "t11",
 					Style:            "normal",
@@ -55,7 +56,7 @@ func TestReadCategoriesOfProject(t *testing.T) {
 			Name:                  "test2",
 			CitaviType:            "citaviTestDoi",
 			CitaviNecessaryFields: []string{"doi"},
-			Fields: []Field{
+			Fields: []database.Field{
 				{
 					Field:            "t21",
 					Style:            "normal",
@@ -73,7 +74,7 @@ func TestReadCategoriesOfProject(t *testing.T) {
 					CitaviAttributes: []string{"doi"},
 				},
 			},
-			CiteFields: []Field{
+			CiteFields: []database.Field{
 				{
 					Field:            "t23",
 					Style:            "normal",
@@ -88,7 +89,7 @@ func TestReadCategoriesOfProject(t *testing.T) {
 			Name:                  "test3",
 			CitaviType:            "citaviTest",
 			CitaviNecessaryFields: nil,
-			Fields: []Field{
+			Fields: []database.Field{
 				{
 					Field:            "t31",
 					Style:            "normal",
@@ -106,7 +107,7 @@ func TestReadCategoriesOfProject(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			CiteFields: []Field{
+			CiteFields: []database.Field{
 				{
 					Field:            "t33",
 					Style:            "normal",
