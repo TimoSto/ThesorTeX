@@ -72,7 +72,7 @@ import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {ProjectData} from "../api/projectData/ProjectData";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import ResponsiveTable, {ResponsiveTableHeaderCell, ResponsiveTableCell} from "../../../components/ResponsiveTable.vue";
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
@@ -225,16 +225,25 @@ const categoriesTableRows = computed(() => {
   return r;
 })
 
+// watcher
+watch(() => props.projectName, () => {
+  syncProjectData();
+})
+
 // methods
 function RemoveProjectFromStore() {
   projectsStore.rmProject(props.projectName);
   emit('navBack');
 }
 
+function syncProjectData() {
+  GetProjectData(props.projectName).then((data: ProjectData) => {
+    projectDataStore.setData(data);
+  });
+}
+
 // onload
-GetProjectData(props.projectName).then((data: ProjectData) => {
-  projectDataStore.setData(data);
-});
+syncProjectData();
 </script>
 
 <style scoped>

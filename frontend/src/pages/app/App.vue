@@ -25,12 +25,19 @@
 
     <v-navigation-drawer
       permanent
-      :rail="!drawer && pagesCount > 0"
-    />
+      :rail="!drawer"
+    >
+      <ProjectsSidebar
+        v-if="pagesCount > 1"
+        :project="pages[1].title"
+        @switch-to="switchToProject"
+      />
+    </v-navigation-drawer>
 
     <v-main>
       <NavigationArea
         :pages="pagesCount"
+        :instant-switch="instantSwitch"
       >
         <template
           v-for="i in pagesCount"
@@ -69,9 +76,13 @@ import ProjectView from "./views/ProjectView.vue";
 import EntryEditor from "./views/EntryEditor.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
+import ProjectsSidebar from "./views/ProjectsSidebar.vue";
+import {useProjectsStore} from "./stores/projectsStore";
 
 // globals
 const { t } = useI18n();
+
+const projectsStore = useProjectsStore();
 
 // data
 const pages = ref([{
@@ -83,6 +94,8 @@ const drawer = ref(false);
 
 let editorType = '';
 const EDITOR_TYPE_ENTRY = 'entry';
+
+const instantSwitch = ref(false);
 
 // computed
 const pagesCount = computed(() => {
@@ -116,6 +129,9 @@ function openProject(name: string) {
 function navBack() {
   pages.value.pop();
   editorType = '';
+  if( pagesCount.value === 1 ) {
+    drawer.value = false;
+  }
 }
 
 function openEntry(key: string) {
@@ -124,5 +140,15 @@ function openEntry(key: string) {
     disabled: false
   });
   editorType = EDITOR_TYPE_ENTRY;
+}
+
+function switchToProject(v: number) {
+  instantSwitch.value = true;
+  pages.value = pages.value.slice(0, 1);
+  editorType = '';
+  openProject(projectsStore.projects[v].Name);
+  setTimeout(() => {
+    instantSwitch.value = false;
+  }, 750);
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div
     class="container"
-    :class="animationClass"
+    :class="animationClass + (props.instantSwitch ? ' disable-animations' : '')"
   >
     <div class="pages">
       <div
@@ -33,6 +33,10 @@ const props = defineProps({
     type: Number,
     required: true,
     default: 0
+  },
+  instantSwitch: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -51,6 +55,12 @@ watch(() => props.pages, (newValue: number, oldValue: number) => {
 </script>
 
 <style scoped lang="scss">
+.disable-animations {
+  & * {
+    transition: none!important;
+  }
+}
+
 .container {
   display: flex;
   height: 100%;

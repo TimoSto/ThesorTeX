@@ -1,5 +1,8 @@
 
 export const i18nKeys = {
+  Sidebar: {
+    Projects: 'Sidebar.Projects'
+  },
   Overview: {
     Welcome: 'Overview.Welcome',
     Project: "Overview.Project",

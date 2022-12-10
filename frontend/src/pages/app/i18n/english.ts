@@ -1,6 +1,9 @@
 import {I18nKeys} from "@/pages/app/i18n/keys";
 
 export const english: I18nKeys = {
+  Sidebar: {
+    Projects: 'Projects'
+  },
   Overview: {
     Welcome: "Welcome to ThesorTeX!",
     Project: "Project",
