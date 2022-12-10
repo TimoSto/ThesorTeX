@@ -7,10 +7,10 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
-func SortCategories(entries []database.BibCategory) []database.BibCategory {
-	sort.Slice(entries, func(i, j int) bool {
-		return strings.ToLower(entries[i].Name) < strings.ToLower(entries[j].Name)
+func SortCategories(categories []database.BibCategory) []database.BibCategory {
+	sort.Slice(categories, func(i, j int) bool {
+		return strings.ToLower(categories[i].Name) < strings.ToLower(categories[j].Name)
 	})
 
-	return entries
+	return categories
 }

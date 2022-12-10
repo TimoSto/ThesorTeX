@@ -5,6 +5,8 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_categories"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_entries"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/project"
 )
@@ -22,14 +24,14 @@ func HandleProjectData(store database.ThesorTeXStore) http.Handler {
 			return
 		}
 
-		entries, err := store.GetProjectEntries(name)
+		entries, err := bib_entries.GetSortedEntries(name, store)
 		if err != nil {
 			log.Error("failed to read entries for project %s: %v", name, err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
-		categories, err := store.GetProjectCategories(name)
+		categories, err := bib_categories.GetSortedCategories(name, store)
 		if err != nil {
 			log.Error("failed to read categories for project %s: %v", name, err)
 			w.WriteHeader(http.StatusInternalServerError)

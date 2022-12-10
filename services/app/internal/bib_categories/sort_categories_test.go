@@ -7,40 +7,80 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
-func TestSortCategories(t *testing.T) {
-	e := []database.BibCategory{
+type scenario struct {
+	title      string
+	categories []database.BibCategory
+	expected   []database.BibCategory
+}
+
+func TestGetSortedCategories(t *testing.T) {
+	scenarios := []scenario{
 		{
-			Name: "test",
+			title: "numbers_and_letters",
+			categories: []database.BibCategory{
+				{
+					Name: "test1",
+				},
+				{
+					Name: "test3",
+				},
+				{
+					Name: "atest1",
+				},
+				{
+					Name: "test2",
+				},
+			},
+			expected: []database.BibCategory{
+				{
+					Name: "atest1",
+				},
+				{
+					Name: "test1",
+				},
+				{
+					Name: "test2",
+				},
+				{
+					Name: "test3",
+				},
+			},
 		},
 		{
-			Name: "atest",
-		},
-		{
-			Name: "btest",
-		},
-		{
-			Name: "aatest",
+			title: "already_correct",
+			categories: []database.BibCategory{
+				{
+					Name: "test1",
+				},
+				{
+					Name: "test2",
+				},
+				{
+					Name: "test3",
+				},
+			},
+			expected: []database.BibCategory{
+				{
+					Name: "test1",
+				},
+				{
+					Name: "test2",
+				},
+				{
+					Name: "test3",
+				},
+			},
 		},
 	}
 
-	es := []database.BibCategory{
-		{
-			Name: "aatest",
-		},
-		{
-			Name: "atest",
-		},
-		{
-			Name: "btest",
-		},
-		{
-			Name: "test",
-		},
-	}
+	for _, s := range scenarios {
+		t.Run(s.title, func(t *testing.T) {
 
-	sorted := SortCategories(e)
+			result := SortCategories(s.categories)
 
-	if !reflect.DeepEqual(sorted, es) {
-		t.Errorf("expected %v to equal %v", sorted, es)
+			if !reflect.DeepEqual(result, s.expected) {
+				t.Errorf("expected %v but got %v", s.expected, result)
+			}
+		})
 	}
 }
