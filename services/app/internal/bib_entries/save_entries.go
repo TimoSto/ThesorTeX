@@ -43,6 +43,16 @@ func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries
 	existing = SortEntries(existing)
 
 	err = store.SaveProjectEntries(project, existing)
+	if err != nil {
+		return err
+	}
 
-	return err
+	csvFile := GenerateCsvForEntries(existing)
+
+	err = store.WriteCSV(project, csvFile)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

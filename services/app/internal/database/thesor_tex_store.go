@@ -8,6 +8,7 @@ type ThesorTeXStore interface {
 	DeleteProject(project string) error
 	GetProjectEntries(project string) ([]BibEntry, error)
 	SaveProjectEntries(project string, data []BibEntry) error
+	WriteCSV(project string, file []byte) error
 	GetProjectCategories(project string) ([]BibCategory, error)
 	SaveProjectCategories(project string, data []BibCategory) error
 }

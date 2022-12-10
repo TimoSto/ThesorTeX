@@ -56,6 +56,10 @@ func (s *Store) SaveProjectEntries(project string, data []database.BibEntry) err
 	return nil
 }
 
+func (s *Store) WriteCSV(project string, file []byte) error {
+	return nil
+}
+
 func (s *Store) GetProjectCategories(project string) ([]database.BibCategory, error) {
 	for i, p := range s.ProjectMeta {
 		if p.Name == project {

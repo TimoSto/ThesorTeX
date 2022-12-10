@@ -22,6 +22,8 @@ const (
 	projectEntriesFile = "data/bib_entries.json"
 
 	projectCategoriesFile = "data/bib_categories.json"
+
+	entriesCsvFile = "bib_entries.csv"
 )
 
 //todo: unit tests expand
@@ -147,6 +149,10 @@ func (s *Store) SaveProjectEntries(project string, data []database.BibEntry) err
 		return err
 	}
 	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectEntriesFile), file, 0777)
+}
+
+func (s *Store) WriteCSV(project string, file []byte) error {
+	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, entriesCsvFile), file, 0777)
 }
 
 func (s *Store) GetProjectCategories(project string) ([]database.BibCategory, error) {
