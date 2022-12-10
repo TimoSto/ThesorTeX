@@ -116,7 +116,11 @@ const pagesCount = computed(() => {
 })
 
 const titleAppendix = computed(() => {
-  switch (pagesCount.value) {
+  let v = pagesCount.value;
+  if( navigatingBack.value ) {
+    v--;
+  }
+  switch (v) {
     case 2: {
       return ` - ${ t(i18nKeys.Project.Title) }`
     }
@@ -127,7 +131,7 @@ const titleAppendix = computed(() => {
       } else if (editorType === EDITOR_TYPE_CATEGORY ) {
         return `- ${ t(i18nKeys.CategoryEditor.Title) }`
       }
-      break;
+      return '';
     }
 
     default: {
