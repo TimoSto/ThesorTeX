@@ -50,6 +50,7 @@
             <ResponsiveTable
               :headers="categoriesTableHeaders"
               :rows="categoriesTableRows"
+              @row-clicked="emit('openCategory', categories[parseInt($event)].Name)"
             />
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -82,7 +83,7 @@ const { t } = useI18n();
 
 const projectDataStore = useProjectDataStore();
 
-const emit = defineEmits(['navBack', 'openEntry']);
+const emit = defineEmits(['navBack', 'openEntry', 'openCategory']);
 
 const projectsStore = useProjectsStore();
 
@@ -197,6 +198,10 @@ const entriesTableRows = computed(() => {
 
   return r
 });
+
+const categories = computed(() => {
+  return projectDataStore.categories;
+})
 
 const categoriesTableRows = computed(() => {
   const r: ResponsiveTableCell[][] = [];

@@ -55,11 +55,19 @@
             :project-name="pages[i-1].title"
             @nav-back="navBack"
             @open-entry="openEntry($event)"
+            @open-category="openCategory"
           />
           <EntryEditor
             v-if="i === 3 && editorType === EDITOR_TYPE_ENTRY"
             :key="`page-${i}`"
             :entry-key="pages[i-1].title"
+            :project-name="pages[i-2].title"
+            @nav-back="navBack"
+          />
+          <CategoryEditor
+            v-if="i === 3 && editorType === EDITOR_TYPE_CATEGORY"
+            :key="`page-${i}`"
+            :category-name="pages[i-1].title"
             :project-name="pages[i-2].title"
             @nav-back="navBack"
           />
@@ -79,6 +87,7 @@ import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
 import ProjectsSidebar from "./views/ProjectsSidebar.vue";
 import {useProjectsStore} from "./stores/projectsStore";
+import CategoryEditor from "./views/CategoryEditor.vue";
 
 // globals
 const { t } = useI18n();
@@ -95,6 +104,7 @@ const drawer = ref(false);
 
 let editorType = '';
 const EDITOR_TYPE_ENTRY = 'entry';
+const EDITOR_TYPE_CATEGORY = 'category';
 
 const instantSwitch = ref(false);
 
@@ -147,6 +157,14 @@ function openEntry(key: string) {
     disabled: false
   });
   editorType = EDITOR_TYPE_ENTRY;
+}
+
+function openCategory(name: string) {
+  pages.value.push({
+    title: name,
+    disabled: false
+  });
+  editorType = EDITOR_TYPE_CATEGORY;
 }
 
 function switchToProject(v: number) {
