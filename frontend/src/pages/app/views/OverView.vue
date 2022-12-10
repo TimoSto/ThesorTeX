@@ -162,11 +162,7 @@ GetProjects().then((p: ProjectOverviewData[]) => {
 })
 
 function AddProjectToList(project: ProjectOverviewData) {
-  projects.value.push(project);
-
-  projects.value.sort((p1, p2) => {
-    return p1.Name.toUpperCase() > p2.Name.toUpperCase() ? 1 : -1;
-  })
+  projectsStore.addProject(project);
 }
 
 function handleEvent(evt: string) {
