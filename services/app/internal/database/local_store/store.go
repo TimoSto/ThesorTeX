@@ -30,7 +30,7 @@ func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 	projectsPath := s.Config.ProjectsDir
 	dirContent, err := os.ReadDir(projectsPath)
 	if err != nil {
-		err = os.Mkdir(projectsPath, 0644)
+		err = os.Mkdir(projectsPath, 0777)
 		if err != nil {
 			return nil, err
 		}
@@ -47,7 +47,7 @@ func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 			newProj := database.ProjectMetaData{
 				Name: f.Name(),
 			}
-			confFile, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, f.Name(), "config.json"))
+			confFile, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, f.Name(), "data/config.json"))
 			if err != nil {
 				log.Error("got error while trying to read project config: %v", err)
 				log.Info("Using empty config for project %s", f.Name())
@@ -75,7 +75,7 @@ func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 func (s *Store) CreateProject(metaData database.ProjectMetaData, template fs.FS) error {
 
 	//todo:special error if project already exists
-	err := os.Mkdir(pathbuilder.GetProjectPath(s.Config.ProjectsDir, metaData.Name), os.ModePerm)
+	err := os.MkdirAll(pathbuilder.GetProjectPath(s.Config.ProjectsDir, metaData.Name), os.ModePerm)
 	if err != nil {
 		return err
 	}
@@ -117,7 +117,7 @@ func (s *Store) CreateProject(metaData database.ProjectMetaData, template fs.FS)
 		return err
 	}
 
-	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, metaData.Name, "config.json"), data, 0644)
+	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, metaData.Name, "data/config.json"), data, 0644)
 }
 
 func (s *Store) DeleteProject(name string) error {
