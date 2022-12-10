@@ -38,6 +38,7 @@
       <NavigationArea
         :pages="pagesCount"
         :instant-switch="instantSwitch"
+        :navigating-back="navigatingBack"
       >
         <template
           v-for="i in pagesCount"
@@ -97,6 +98,8 @@ const EDITOR_TYPE_ENTRY = 'entry';
 
 const instantSwitch = ref(false);
 
+const navigatingBack = ref(false);
+
 // computed
 const pagesCount = computed(() => {
   return pages.value.length;
@@ -127,11 +130,15 @@ function openProject(name: string) {
 }
 
 function navBack() {
-  pages.value.pop();
-  editorType = '';
-  if( pagesCount.value === 1 ) {
-    drawer.value = false;
-  }
+  navigatingBack.value = true;
+  setTimeout(() => {
+    pages.value.pop();
+    editorType = '';
+    if( pagesCount.value === 1 ) {
+      drawer.value = false;
+    }
+    navigatingBack.value = false;
+  }, 750);
 }
 
 function openEntry(key: string) {

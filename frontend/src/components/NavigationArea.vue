@@ -9,7 +9,7 @@
         :id="`page-${i}`"
         :key="`page-${i}`"
         class="page"
-        :class="`${i === pages ? 'opened' : ''}`"
+        :class="`${i === pages && !navigatingBack || i === pages -1 && navigatingBack ? 'opened' : ''}`"
       >
         <div class="page--container">
           <slot :name="i" />
@@ -35,6 +35,10 @@ const props = defineProps({
     default: 0
   },
   instantSwitch: {
+    type: Boolean,
+    default: false
+  },
+  navigatingBack: {
     type: Boolean,
     default: false
   }
