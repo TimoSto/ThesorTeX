@@ -10,5 +10,7 @@ func GetSortedEntries(project string, store database.ThesorTeXStore) ([]database
 		return nil, err
 	}
 
+	entries = SortEntries(entries)
+
 	return entries, nil
 }
