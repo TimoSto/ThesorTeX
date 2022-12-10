@@ -59,7 +59,9 @@ const currentProject = computed({
     return projects.value.map(p => p.Name).indexOf(props.project)
   },
   set(v: number) {
-    emit('switchTo', v);
+    if( v !== undefined ) {
+      emit('switchTo', v);
+    }
   }
 })
 
