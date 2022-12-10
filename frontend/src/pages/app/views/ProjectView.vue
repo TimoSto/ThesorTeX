@@ -16,7 +16,10 @@
 
       <v-spacer />
 
-      <v-btn icon>
+      <v-btn
+        icon
+        @click="deleteTriggered = true"
+      >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </template>
@@ -53,6 +56,13 @@
       </v-expansion-panels>
     </template>
   </AppbarContent>
+
+  <DeleteProjectDialog
+    :open="deleteTriggered"
+    :project="props.projectName"
+    @close="deleteTriggered = false"
+    @success="RemoveProjectFromStore"
+  />
 </template>
 
 <script setup lang="ts">
@@ -62,15 +72,19 @@ import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {ProjectData} from "../api/projectData/ProjectData";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import ResponsiveTable, {ResponsiveTableHeaderCell, ResponsiveTableCell} from "../../../components/ResponsiveTable.vue";
+import DeleteProjectDialog from "./DeleteProjectDialog.vue";
+import {useProjectsStore} from "../stores/projectsStore";
 
 //global stuff
 const { t } = useI18n();
 
 const projectDataStore = useProjectDataStore();
 
-const emit = defineEmits(['navBack', 'openEntry'])
+const emit = defineEmits(['navBack', 'openEntry']);
+
+const projectsStore = useProjectsStore();
 
 //props
 const props = defineProps({
@@ -143,6 +157,8 @@ const categoriesTableHeaders: ResponsiveTableHeaderCell[] = [
   }
 ];
 
+const deleteTriggered = ref(false);
+
 // computed
 const entries = computed(() => {
   return projectDataStore.entries;
@@ -208,6 +224,12 @@ const categoriesTableRows = computed(() => {
   });
   return r;
 })
+
+// methods
+function RemoveProjectFromStore() {
+  projectsStore.rmProject(props.projectName);
+  emit('navBack');
+}
 
 // onload
 GetProjectData(props.projectName).then((data: ProjectData) => {

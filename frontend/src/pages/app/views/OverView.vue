@@ -32,13 +32,6 @@
     @success="AddProjectToList"
   />
 
-  <DeleteProjectDialog
-    :open="projectToDelete !== ''"
-    :project="projectToDelete"
-    @close="projectToDelete = ''"
-    @success="RemoveProjectFromList"
-  />
-
   <!--todo: move up -->
   <SuccessErrorDisplay
     :error="errorStore.errorMessage"
@@ -58,10 +51,10 @@ import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {GetProjects} from "../api/projects/GetProjects";
 import ProjectOverviewData from "../api/projects/ProjectOverviewData";
-import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import SuccessErrorDisplay from "../../../components/SuccessErrorDisplay.vue";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
+import {useProjectsStore} from "../stores/projectsStore";
 
 // globals
 const { t } = useI18n();
@@ -70,10 +63,10 @@ const emit = defineEmits(['openProject'])
 
 const errorStore = useErrorSuccessStore();
 
+const projectsStore = useProjectsStore();
+
 // data
 const open = ref(false);
-
-const projects = ref([] as ProjectOverviewData[])
 
 const projectHeaders: ResponsiveTableHeaderCell[] = [
   {
@@ -119,6 +112,10 @@ const projectHeaders: ResponsiveTableHeaderCell[] = [
 ];
 
 // computed
+const projects = computed(() => {
+  return projectsStore.projects;
+});
+
 const projectRows = computed(() => {
   const r: ResponsiveTableCell[][] = [];
   projects.value.forEach(p => {
@@ -149,8 +146,8 @@ const projectRows = computed(() => {
       },
       {
         content: '',
-        icon: 'mdi-delete',
-        event: 'deleteProject',
+        icon: '',
+        event: '',
         hideUnder: -1
       },
     ])
@@ -160,19 +157,9 @@ const projectRows = computed(() => {
 
 // onload
 GetProjects().then((p: ProjectOverviewData[]) => {
-  projects.value = !p ? [] : p;
+  const v = !p ? [] : p;
+  projectsStore.setProjects(v);
 })
-
-const projectToDelete = ref('');
-
-function RemoveProjectFromList() {
-  const index = projects.value.map(p => p.Name).indexOf(projectToDelete.value);
-  console.log(index)
-  if( index > -1 ) {
-    projects.value.splice(index, 1);
-    projectToDelete.value = '';
-  }
-}
 
 function AddProjectToList(project: ProjectOverviewData) {
   projects.value.push(project);
