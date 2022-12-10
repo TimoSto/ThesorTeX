@@ -122,7 +122,12 @@ const titleAppendix = computed(() => {
     }
 
     case 3: {
-      return `- ${ t(i18nKeys.EntryEditor.Title) }`
+      if( editorType === EDITOR_TYPE_ENTRY ) {
+        return `- ${ t(i18nKeys.EntryEditor.Title) }`
+      } else if (editorType === EDITOR_TYPE_CATEGORY ) {
+        return `- ${ t(i18nKeys.CategoryEditor.Title) }`
+      }
+      break;
     }
 
     default: {

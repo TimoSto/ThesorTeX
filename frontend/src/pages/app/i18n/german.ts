@@ -37,6 +37,9 @@ export const german: I18nKeys = {
       Title: 'Felder'
     }
   },
+  CategoryEditor: {
+    Title: 'Kategorie bearbeiten'
+  },
   Common: {
     Abort: 'Abbrechen',
     Create: 'Erstellen',

@@ -36,6 +36,9 @@ export const i18nKeys = {
       Title: 'EntryEditor.Fields.Title'
     }
   },
+  CategoryEditor: {
+    Title: 'CategoryEditor.Title'
+  },
   Common: {
     Abort: 'Common.Abort',
     Create: 'Common.Create',
