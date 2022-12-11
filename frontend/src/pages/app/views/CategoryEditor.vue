@@ -42,6 +42,7 @@
             <ResponsiveTable
               :headers="bibHeaders"
               :rows="bibFields"
+              @btn-clicked="AddBibRow"
             ></ResponsiveTable>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -53,6 +54,7 @@
             <ResponsiveTable
               :headers="bibHeaders"
               :rows="citeFields"
+              @btn-clicked="AddCiteRow"
             ></ResponsiveTable>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -150,7 +152,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     width: '48px',
     minWidth: '',
     content: '',
-    icon: '',
+    icon: 'mdi-plus',
     hideUnder: -1,
     event: ''
   },
@@ -222,6 +224,25 @@ const generalRows: ResponsiveTableCell[][] = [
 const bibFields = ref([] as ResponsiveTableCell[][]);
 
 const citeFields = ref([] as ResponsiveTableCell[][]);
+
+// methods
+function AddBibRow() {
+  bibFields.value.push(Array(6).fill({
+    content: '',
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  }));
+}
+
+function AddCiteRow() {
+  citeFields.value.push(Array(6).fill({
+    content: '',
+    icon: '',
+    hideUnder: -1,
+    event: ''
+  }));
+}
 </script>
 
 <style scoped>
