@@ -266,6 +266,7 @@ import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
+import CheckCategoryChanged from "../api/projectData/categories/CheckCategoryChanged";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -466,12 +467,12 @@ const initialCategory = computed(() => {
 })
 
 const categoryChanged = computed(() => {
-  if( !initialCategory.value ) {
-    return true
+  if( initialCategory.value ) {
+    return CheckCategoryChanged(initialCategory.value, categoryName.value, citaviCategory.value, citaviFilter.value)
   }
-  return categoryName.value !== initialCategory.value.Name ||
-    citaviCategory.value !== initialCategory.value.CitaviType ||
-    citaviFilter.value !== initialCategory.value.CitaviNecessaryFields;
+
+  return false
+
 })
 
 // methods
