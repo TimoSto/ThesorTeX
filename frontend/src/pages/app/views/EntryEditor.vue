@@ -102,6 +102,7 @@ import {computed, ref, watch} from "vue";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import SaveEntry from "../api/projectData/entries/SaveEntry";
 import {BibEntry} from "../api/projectData/entries/BibEntry";
+import CheckEntryChanged from "../api/projectData/entries/CheckEntryChanged";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -237,10 +238,7 @@ const fieldRows = computed(() => {
 
 const entryChanged = computed(() => {
   if( initialEntry.value ) {
-    return initialEntry.value.Key !== entryKey.value ||
-      initialEntry.value.Category !== entryCategory.value ||
-      initialEntry.value.Fields.length !== entryFields.value.length ||
-      !initialEntry.value.Fields.every((v, i) => v === entryFields.value[i]);
+    return CheckEntryChanged(initialEntry.value, entryKey.value, entryCategory.value, entryFields.value);
   }
   return false
 })
