@@ -14,7 +14,7 @@
     </template>
 
     <template #content>
-      <div style="padding: 8px 16px">
+      <div style="padding: 8px 16px; max-height: calc(100vh - 112px);">
         <ResponsiveTable
           :headers="projectHeaders"
           :rows="projectRows"

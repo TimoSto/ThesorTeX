@@ -29,64 +29,66 @@
     </template>
 
     <template #content>
-      <v-expansion-panels
-        multiple
-        variant="accordion"
-        :model-value="[0,1]"
-      >
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            {{ t(i18nKeys.EntryEditor.General.Title) }}
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="generalHeaders"
-              :rows="generalRows"
-              :disable-ripple="true"
-            >
-              <template #0-1>
-                <v-text-field
-                  v-model="entryKey"
-                  color="primary"
-                  variant="underlined"
-                />
-              </template>
-              <template #1-1>
-                <v-select
-                  v-model="entryCategory"
-                  color="primary"
-                  variant="underlined"
-                  :items="availableCategories"
-                />
-              </template>
-            </ResponsiveTable>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            {{ t(i18nKeys.EntryEditor.Fields.Title) }}
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="fieldsHeaders"
-              :rows="fieldRows"
-              :disable-ripple="true"
-            >
-              <template
-                v-for="(_,i) in fieldRows"
-                :key="`field-${i}`"
-                #[getSlotName(i)]
+      <div style="max-height: calc(100vh - 112px);">
+        <v-expansion-panels
+          multiple
+          variant="accordion"
+          :model-value="[0,1]"
+        >
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ t(i18nKeys.EntryEditor.General.Title) }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="generalHeaders"
+                :rows="generalRows"
+                :disable-ripple="true"
               >
-                <v-text-field
-                  v-model="entryFields[i]"
-                  color="primary"
-                  variant="underlined"
-                />
-              </template>
-            </ResponsiveTable>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
+                <template #0-1>
+                  <v-text-field
+                    v-model="entryKey"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template #1-1>
+                  <v-select
+                    v-model="entryCategory"
+                    color="primary"
+                    variant="underlined"
+                    :items="availableCategories"
+                  />
+                </template>
+              </ResponsiveTable>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ t(i18nKeys.EntryEditor.Fields.Title) }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="fieldsHeaders"
+                :rows="fieldRows"
+                :disable-ripple="true"
+              >
+                <template
+                  v-for="(_,i) in fieldRows"
+                  :key="`field-${i}`"
+                  #[getSlotName(i)]
+                >
+                  <v-text-field
+                    v-model="entryFields[i]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+              </ResponsiveTable>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
     </template>
   </AppbarContent>
 </template>

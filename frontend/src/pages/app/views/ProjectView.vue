@@ -24,37 +24,39 @@
       </v-btn>
     </template>
     <template #content>
-      <v-expansion-panels
-        multiple
-        variant="accordion"
-        :model-value="[0]"
-      >
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            {{ t(i18nKeys.Project.Entry.Heading) }}
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="entriesTableHeaders"
-              :rows="entriesTableRows"
-              @row-clicked="emit('openEntry', entries[parseInt($event)].Key)"
-            />
-          </v-expansion-panel-text>
-        </v-expansion-panel>
+      <div style="max-height: calc(100vh - 112px);">
+        <v-expansion-panels
+          multiple
+          variant="accordion"
+          :model-value="[0]"
+        >
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ t(i18nKeys.Project.Entry.Heading) }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="entriesTableHeaders"
+                :rows="entriesTableRows"
+                @row-clicked="emit('openEntry', entries[parseInt($event)].Key)"
+              />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
 
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            {{ t(i18nKeys.Project.Category.Heading) }}
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="categoriesTableHeaders"
-              :rows="categoriesTableRows"
-              @row-clicked="emit('openCategory', categories[parseInt($event)].Name)"
-            />
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ t(i18nKeys.Project.Category.Heading) }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="categoriesTableHeaders"
+                :rows="categoriesTableRows"
+                @row-clicked="emit('openCategory', categories[parseInt($event)].Name)"
+              />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
     </template>
   </AppbarContent>
 

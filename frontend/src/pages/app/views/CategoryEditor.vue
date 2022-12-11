@@ -16,76 +16,78 @@
     </template>
 
     <template #content>
-      <v-expansion-panels
-        multiple
-        variant="accordion"
-        :model-value="[0, 1, 2]"
-      >
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            Allgemein
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="generalHeaders"
-              :rows="generalRows"
-            >
-              <template #0-1>
-                <v-text-field
-                  v-model="categoryName"
-                  color="primary"
-                  variant="underlined"
-                />
-              </template>
-              <template #1-1>
-                <v-combobox
-                  :items="citaviCategories"
-                  v-model="citaviCategory"
-                  color="primary"
-                  variant="underlined"
-                />
-              </template>
-              <template #2-1>
-                <v-combobox
-                  v-model="citaviFilter"
-                  :items="citaviAttributes"
-                  color="primary"
-                  variant="underlined"
-                  multiple
-                  hide-selected
-                >
-                </v-combobox>
-              </template>
-            </ResponsiveTable>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            Literaturverzeichnis
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="bibHeaders"
-              :rows="bibFields"
-              @btn-clicked="AddBibRow"
-            >
+      <div style="max-height: calc(100vh - 112px);">
+        <v-expansion-panels
+          multiple
+          variant="accordion"
+          :model-value="[0, 1, 2]"
+        >
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Allgemein
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="generalHeaders"
+                :rows="generalRows"
+              >
+                <template #0-1>
+                  <v-text-field
+                    v-model="categoryName"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template #1-1>
+                  <v-combobox
+                    :items="citaviCategories"
+                    v-model="citaviCategory"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template #2-1>
+                  <v-combobox
+                    v-model="citaviFilter"
+                    :items="citaviAttributes"
+                    color="primary"
+                    variant="underlined"
+                    multiple
+                    hide-selected
+                  >
+                  </v-combobox>
+                </template>
+              </ResponsiveTable>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Literaturverzeichnis
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="bibHeaders"
+                :rows="bibFields"
+                @btn-clicked="AddBibRow"
+              >
 
-            </ResponsiveTable>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>
-            Zitate
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <ResponsiveTable
-              :headers="bibHeaders"
-              :rows="citeFields"
-              @btn-clicked="AddCiteRow"
-            ></ResponsiveTable>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
+              </ResponsiveTable>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Zitate
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <ResponsiveTable
+                :headers="bibHeaders"
+                :rows="citeFields"
+                @btn-clicked="AddCiteRow"
+              ></ResponsiveTable>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
     </template>
   </AppbarContent>
 </template>
