@@ -30,7 +30,32 @@
               :headers="generalHeaders"
               :rows="generalRows"
             >
-
+              <template #0>
+                <v-text-field
+                  v-model="categoryName"
+                  color="primary"
+                  variant="underlined"
+                />
+              </template>
+              <template #1>
+                <v-combobox
+                  :items="citaviCategories"
+                  v-model="citaviCategory"
+                  color="primary"
+                  variant="underlined"
+                />
+              </template>
+              <template #2>
+                <v-combobox
+                  v-model="citaviFilter"
+                  :items="citaviAttributes"
+                  color="primary"
+                  variant="underlined"
+                  multiple
+                  hide-selected
+                >
+                </v-combobox>
+              </template>
             </ResponsiveTable>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -80,6 +105,16 @@ const props = defineProps({
 });
 
 // data
+const citaviCategories = [
+  'article',
+  'thesis'
+];
+
+const citaviAttributes = [
+  'author',
+  'doi',
+];
+
 const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '40%',
@@ -176,21 +211,6 @@ const generalRows: ResponsiveTableCell[][] = [
   ],
   [
     {
-      content: 'Kategorie',
-      icon: '',
-      event: '',
-      hideUnder: -1
-    },
-    {
-      content: '',
-      icon: '',
-      event: '',
-      hideUnder: -1,
-      slot: true
-    },
-  ],
-  [
-    {
       content: 'Citavi Kategorie',
       icon: '',
       event: '',
@@ -220,6 +240,12 @@ const generalRows: ResponsiveTableCell[][] = [
     },
   ],
 ];
+
+const categoryName = ref('');
+
+const citaviCategory = ref('');
+
+const citaviFilter = ref([] as string[]);
 
 const bibFields = ref([] as ResponsiveTableCell[][]);
 
