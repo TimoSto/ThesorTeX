@@ -24,7 +24,7 @@
         >
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Allgemein
+              {{ t(i18nKeys.CategoryEditor.General.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <ResponsiveTable
@@ -62,7 +62,7 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Literaturverzeichnis
+              {{ t(i18nKeys.CategoryEditor.Bib.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <ResponsiveTable
@@ -154,7 +154,7 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Zitate
+              {{ t(i18nKeys.CategoryEditor.Cite.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <ResponsiveTable
@@ -254,9 +254,13 @@
 import AppbarContent from "../../../components/AppbarContent.vue";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
 import {ref} from "vue";
+import {useI18n} from "vue-i18n";
+import {i18nKeys} from "../i18n/keys";
 
 //globals
 const emit = defineEmits(['navBack']);
+
+const { t } = useI18n();
 
 //props
 const props = defineProps({
@@ -281,7 +285,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '40%',
     minWidth: '',
-    content: 'Attribut',
+    content: t(i18nKeys.Common.Attribute),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -289,7 +293,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '60%',
     minWidth: '',
-    content: 'Wert',
+    content: t(i18nKeys.Common.Value),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -300,7 +304,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: 'Feld',
+    content: t(i18nKeys.CategoryEditor.Bib.Field),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -308,7 +312,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: 'Stil',
+    content: t(i18nKeys.CategoryEditor.Bib.Style),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -316,7 +320,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: 'Prefix',
+    content: t(i18nKeys.CategoryEditor.Bib.Prefix),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -324,7 +328,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: 'Suffix',
+    content: t(i18nKeys.CategoryEditor.Bib.Suffix),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -332,7 +336,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: 'Formatiert',
+    content: t(i18nKeys.CategoryEditor.Bib.Formatted),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -340,7 +344,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: 'Citavi Attribute',
+    content: t(i18nKeys.CategoryEditor.Bib.CitaviAttributes),
     icon: '',
     hideUnder: -1,
     event: ''

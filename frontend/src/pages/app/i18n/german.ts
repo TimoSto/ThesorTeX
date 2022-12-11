@@ -32,19 +32,42 @@ export const german: I18nKeys = {
     Title: 'Eintrag bearbeiten',
     General: {
       Title: 'Allgemein',
+      Key: 'Schlüssel',
+      Category: 'Kategorie'
     },
     Fields: {
       Title: 'Felder'
     }
   },
   CategoryEditor: {
-    Title: 'Kategorie bearbeiten'
+    Title: 'Kategorie bearbeiten',
+    General: {
+      Title: 'Allgemein',
+      Name: 'Name',
+      CitaviCategory: 'Citavi-Kategorie',
+      CitaviFilter: 'Citavi-Filter'
+    },
+    Bib: {
+      Title: 'Literaturverzeichnis',
+      Field: 'Feld',
+      Style: 'Stil',
+      Prefix: 'Prefix',
+      Suffix: 'Suffix',
+      Formatted: 'Formatiert',
+      CitaviAttributes: 'Citavi-Attribute'
+    },
+    Cite: {
+      Title: 'Zitate'
+    }
   },
   Common: {
     Abort: 'Abbrechen',
     Create: 'Erstellen',
     Delete: 'Löschen',
-    Close: 'Schließen'
+    Close: 'Schließen',
+    Attribute: 'Attribut',
+    Value: 'Wert',
+    Field: 'Feld'
   },
   Rules: {
     ProjectAlreadyExists: 'Ein Projekt mit diesem Namen existiert bereits',

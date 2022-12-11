@@ -31,19 +31,42 @@ export const i18nKeys = {
     Title: 'EntryEditor.Title',
     General: {
       Title: 'EntryEditor.General.Title',
+      Key: 'EntryEditor.Genral.Key',
+      Category: 'EntryEditor.Genral.Category',
     },
     Fields: {
       Title: 'EntryEditor.Fields.Title'
     }
   },
   CategoryEditor: {
-    Title: 'CategoryEditor.Title'
+    Title: 'CategoryEditor.Title',
+    General: {
+      Title: 'CategoryEditor.General.Title',
+      Name: 'CategoryEditor.General.Name',
+      CitaviCategory: 'CategoryEditor.General.CitaviCategory',
+      CitaviFilter: 'CategoryEditor.General.CitaviFilter',
+    },
+    Bib: {
+      Title: 'CategoryEditor.Bib.Title',
+      Field: 'CategoryEditor.Bib.Field',
+      Style: 'CategoryEditor.Bib.Style',
+      Prefix: 'CategoryEditor.Bib.Prefix',
+      Suffix: 'CategoryEditor.Bib.Suffix',
+      Formatted: 'CategoryEditor.Bib.Formatted',
+      CitaviAttributes: 'CategoryEditor.Bib.CitaviAttributes',
+    },
+    Cite: {
+      Title: 'CategoryEditor.Cite.Title'
+    }
   },
   Common: {
     Abort: 'Common.Abort',
     Create: 'Common.Create',
     Delete: 'Common.Delete',
-    Close : 'Common.Close'
+    Close : 'Common.Close',
+    Attribute: 'Common.Attribute',
+    Value: 'Common.Value',
+    Field: 'Common.Field'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',

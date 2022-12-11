@@ -127,7 +127,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '40%',
     minWidth: '',
-    content: 'Attribut',
+    content: t(i18nKeys.Common.Attribute),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -135,7 +135,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '60%',
     minWidth: '',
-    content: 'Wert',
+    content: t(i18nKeys.Common.Value),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -145,7 +145,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
 const generalRows: ResponsiveTableCell[][] = [
   [
     {
-      content: 'Schlüssel',
+      content: t(i18nKeys.EntryEditor.General.Key),
       icon: '',
       event: '',
       hideUnder: -1
@@ -160,7 +160,7 @@ const generalRows: ResponsiveTableCell[][] = [
   ],
   [
     {
-      content: 'Kategorie',
+      content: t(i18nKeys.EntryEditor.General.Category),
       icon: '',
       event: '',
       hideUnder: -1
@@ -179,7 +179,7 @@ const fieldsHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '40%',
     minWidth: '',
-    content: 'Feld',
+    content: t( i18nKeys.Common.Attribute ),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -187,7 +187,7 @@ const fieldsHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '60%',
     minWidth: '',
-    content: 'Wert',
+    content: t( i18nKeys.Common.Value ),
     icon: '',
     hideUnder: -1,
     event: ''

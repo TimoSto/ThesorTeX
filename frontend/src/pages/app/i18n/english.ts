@@ -32,19 +32,42 @@ export const english: I18nKeys = {
     Title: 'Edit entry',
     General: {
       Title: 'General',
+      Key: 'Key',
+      Category: 'Category',
     },
     Fields: {
       Title: 'Fields'
     }
   },
   CategoryEditor: {
-    Title: 'Edit category'
+    Title: 'Edit category',
+    General: {
+      Title: 'General',
+      Name: 'Name',
+      CitaviCategory: 'Citavi category',
+      CitaviFilter: 'Citavi filter'
+    },
+    Bib: {
+      Title: 'Bibliography',
+      Field: 'Field',
+      Style: 'Style',
+      Prefix: 'Prefix',
+      Suffix: 'Suffix',
+      Formatted: 'Formatted',
+      CitaviAttributes: 'Citavi attributes'
+    },
+    Cite: {
+      Title: 'Cites'
+    }
   },
   Common: {
     Abort: 'Abort',
     Create: 'Create',
     Delete: 'Delete',
-    Close: 'Close'
+    Close: 'Close',
+    Attribute: 'Attribute',
+    Value: 'Value',
+    Field: 'Field'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',
