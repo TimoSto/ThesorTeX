@@ -1,6 +1,12 @@
 import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
 
 export default function CheckCategoryChanged(initial: BibCategory, name: string, citaviCategory: string, citaviFilter: string[]) {
+  if( !citaviFilter ) {
+    citaviFilter = [];
+  }
+  if( !initial.CitaviNecessaryFields ) {
+    initial.CitaviNecessaryFields = [];
+  }
   return name !== initial.Name ||
     citaviCategory !== initial.CitaviType ||
     citaviFilter.length !== initial.CitaviNecessaryFields.length ||

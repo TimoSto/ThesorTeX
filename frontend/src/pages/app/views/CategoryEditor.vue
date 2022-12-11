@@ -85,7 +85,7 @@
                   #[getSlotName(i,0)]
                 >
                   <v-text-field
-                    v-model="bibValues[i][0]"
+                    v-model="bibValues[i].Field"
                     color="primary"
                     variant="underlined"
                   />
@@ -96,7 +96,7 @@
                   #[getSlotName(i,1)]
                 >
                   <v-text-field
-                    v-model="bibValues[i][1]"
+                    v-model="bibValues[i].Style"
                     color="primary"
                     variant="underlined"
                   />
@@ -107,7 +107,7 @@
                   #[getSlotName(i,2)]
                 >
                   <v-text-field
-                    v-model="bibValues[i][2]"
+                    v-model="bibValues[i].Prefix"
                     color="primary"
                     variant="underlined"
                   />
@@ -118,7 +118,7 @@
                   #[getSlotName(i,3)]
                 >
                   <v-text-field
-                    v-model="bibValues[i][3]"
+                    v-model="bibValues[i].Suffix"
                     color="primary"
                     variant="underlined"
                   />
@@ -129,7 +129,7 @@
                   #[getSlotName(i,4)]
                 >
                   <v-checkbox-btn
-                    v-model="bibValues[i][4]"
+                    v-model="bibValues[i].TexValue"
                     color="primary"
                     density="compact"
                   />
@@ -140,7 +140,7 @@
                   #[getSlotName(i,5)]
                 >
                   <v-combobox
-                    v-model="bibValues[i][5]"
+                    v-model="bibValues[i].CitaviAttributes"
                     :items="citaviAttributes"
                     color="primary"
                     variant="underlined"
@@ -177,7 +177,7 @@
                   #[getSlotName(i,0)]
                 >
                   <v-text-field
-                    v-model="citeValues[i][0]"
+                    v-model="citeValues[i].Field"
                     color="primary"
                     variant="underlined"
                   />
@@ -188,7 +188,7 @@
                   #[getSlotName(i,1)]
                 >
                   <v-text-field
-                    v-model="citeValues[i][1]"
+                    v-model="citeValues[i].Style"
                     color="primary"
                     variant="underlined"
                   />
@@ -199,7 +199,7 @@
                   #[getSlotName(i,2)]
                 >
                   <v-text-field
-                    v-model="citeValues[i][2]"
+                    v-model="citeValues[i].Prefix"
                     color="primary"
                     variant="underlined"
                   />
@@ -210,7 +210,7 @@
                   #[getSlotName(i,3)]
                 >
                   <v-text-field
-                    v-model="citeValues[i][3]"
+                    v-model="citeValues[i].Suffix"
                     color="primary"
                     variant="underlined"
                   />
@@ -221,7 +221,7 @@
                   #[getSlotName(i,4)]
                 >
                   <v-checkbox-btn
-                    v-model="citeValues[i][4]"
+                    v-model="citeValues[i].TexValue"
                     color="primary"
                     density="compact"
                   />
@@ -232,7 +232,7 @@
                   #[getSlotName(i,5)]
                 >
                   <v-combobox
-                    v-model="citeValues[i][5]"
+                    v-model="citeValues[i].CitaviAttributes"
                     :items="citaviAttributes"
                     color="primary"
                     variant="underlined"
@@ -267,6 +267,7 @@ import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import CheckCategoryChanged from "../api/projectData/categories/CheckCategoryChanged";
+import type {Field} from "../api/projectData/categories/BibCategory";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -426,9 +427,9 @@ const citaviCategory = ref('');
 
 const citaviFilter = ref([] as string[]);
 
-const bibValues = ref([] as any[][])
+const bibValues = ref([] as Field[])
 
-const citeValues = ref([] as any[][])
+const citeValues = ref([] as Field[])
 
 // computed
 
@@ -477,25 +478,25 @@ const categoryChanged = computed(() => {
 
 // methods
 function AddBibRow() {
-  bibValues.value.push([
-    '',
-    '',
-    '',
-    '',
-    false,
-    []
-  ]);
+  bibValues.value.push({
+    Field: '',
+    Style: '',
+    Prefix: '',
+    Suffix: '',
+    TexValue: false,
+    CitaviAttributes: []
+  });
 }
 
 function AddCiteRow() {
-  citeValues.value.push([
-    '',
-    '',
-    '',
-    '',
-    false,
-    []
-  ]);
+  citeValues.value.push({
+    Field: '',
+    Style: '',
+    Prefix: '',
+    Suffix: '',
+    TexValue: false,
+    CitaviAttributes: []
+  });
 }
 
 function getSlotName(i: number, n: number) {
@@ -507,8 +508,26 @@ if( initialCategory.value ) {
   categoryName.value = initialCategory.value.Name;
   citaviCategory.value = initialCategory.value.CitaviType;//todo: rename to CitaviCategory
   citaviFilter.value = initialCategory.value.CitaviNecessaryFields;
-  bibValues.value = initialCategory.value.Fields.map(f => [f.Field, f.Style, f.Prefix, f.Suffix, f.TexValue, f.CitaviAttributes])
-  citeValues.value = initialCategory.value.CiteFields.map(f => [f.Field, f.Style, f.Prefix, f.Suffix, f.TexValue, f.CitaviAttributes])
+  bibValues.value = initialCategory.value.Fields.map(f => {
+    return {
+      Field: f.Field,
+      Style: f.Style,
+      Prefix: f.Prefix,
+      Suffix: f.Suffix,
+      TexValue: f.TexValue,
+      CitaviAttributes: f.CitaviAttributes
+    }
+  })
+  citeValues.value = initialCategory.value.CiteFields.map(f => {
+    return {
+      Field: f.Field,
+      Style: f.Style,
+      Prefix: f.Prefix,
+      Suffix: f.Suffix,
+      TexValue: f.TexValue,
+      CitaviAttributes: f.CitaviAttributes
+    }
+  })
 }
 
 </script>
