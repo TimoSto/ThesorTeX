@@ -70,7 +70,85 @@
                 :rows="bibFields"
                 @btn-clicked="AddBibRow"
               >
-
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-0`"
+                  #[getSlotName(i,0)]
+                >
+                  <v-text-field
+                    v-model="bibValues[i][0]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-1`"
+                  #[getSlotName(i,1)]
+                >
+                  <v-text-field
+                    v-model="bibValues[i][1]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-2`"
+                  #[getSlotName(i,2)]
+                >
+                  <v-text-field
+                    v-model="bibValues[i][2]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-3`"
+                  #[getSlotName(i,3)]
+                >
+                  <v-text-field
+                    v-model="bibValues[i][3]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-4`"
+                  #[getSlotName(i,4)]
+                >
+                  <v-checkbox-btn
+                    v-model="bibValues[i][4]"
+                    color="primary"
+                    density="compact"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-5`"
+                  #[getSlotName(i,5)]
+                >
+                  <v-combobox
+                    v-model="bibValues[i][5]"
+                    :items="citaviAttributes"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in bibFields"
+                  :key="`bib-cell-${i}-6`"
+                  #[getSlotName(i,6)]
+                >
+                  <v-btn
+                    flat
+                    text
+                  >
+                    <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                </template>
               </ResponsiveTable>
             </v-expansion-panel-text>
           </v-expansion-panel>
@@ -83,7 +161,87 @@
                 :headers="bibHeaders"
                 :rows="citeFields"
                 @btn-clicked="AddCiteRow"
-              ></ResponsiveTable>
+              >
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-0`"
+                  #[getSlotName(i,0)]
+                >
+                  <v-text-field
+                    v-model="citeValues[i][0]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-1`"
+                  #[getSlotName(i,1)]
+                >
+                  <v-text-field
+                    v-model="citeValues[i][1]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-2`"
+                  #[getSlotName(i,2)]
+                >
+                  <v-text-field
+                    v-model="citeValues[i][2]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-3`"
+                  #[getSlotName(i,3)]
+                >
+                  <v-text-field
+                    v-model="citeValues[i][3]"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-4`"
+                  #[getSlotName(i,4)]
+                >
+                  <v-checkbox-btn
+                    v-model="citeValues[i][4]"
+                    color="primary"
+                    density="compact"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-5`"
+                  #[getSlotName(i,5)]
+                >
+                  <v-combobox
+                    v-model="citeValues[i][5]"
+                    :items="citaviAttributes"
+                    color="primary"
+                    variant="underlined"
+                  />
+                </template>
+                <template
+                  v-for="(r, i) in citeFields"
+                  :key="`cite-cell-${i}-6`"
+                  #[getSlotName(i,6)]
+                >
+                  <v-btn
+                    flat
+                    text
+                  >
+                    <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                </template>
+              </ResponsiveTable>
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -257,27 +415,47 @@ const bibValues = ref([] as any[][])
 
 const citeFields = ref([] as ResponsiveTableCell[][]);
 
+const citeValues = ref([] as any[][])
+
 // methods
 function AddBibRow() {
-  bibFields.value.push(Array(6).fill({
+  bibValues.value.push([
+    '',
+    '',
+    '',
+    '',
+    false,
+    []
+  ])
+  bibFields.value.push(Array(7).fill({
     content: '',
     icon: '',
     hideUnder: -1,
-    event: ''
+    event: '',
+    slot: true
   }));
 }
 
 function AddCiteRow() {
-  citeFields.value.push(Array(6).fill({
+  citeValues.value.push([
+    '',
+    '',
+    '',
+    '',
+    false,
+    []
+  ])
+  citeFields.value.push(Array(7).fill({
     content: '',
     icon: '',
     hideUnder: -1,
-    event: ''
+    event: '',
+    slot: true
   }));
 }
 
-function getSlotName(i: number) {
-  return `${i}-1`
+function getSlotName(i: number, n: number) {
+  return `${i}-${n}`
 }
 
 </script>
