@@ -13,6 +13,15 @@
       <v-toolbar-title>
         {{ props.categoryName }}
       </v-toolbar-title>
+
+      <v-spacer />
+
+      <v-btn
+        icon
+        :disabled="!categoryChanged"
+      >
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
     </template>
 
     <template #content>
@@ -454,6 +463,15 @@ const citeFields = computed(() => {
 
 const initialCategory = computed(() => {
   return projectDataStore.categories.find(c => c.Name === props.categoryName)
+})
+
+const categoryChanged = computed(() => {
+  if( !initialCategory.value ) {
+    return true
+  }
+  return categoryName.value !== initialCategory.value.Name ||
+    citaviCategory.value !== initialCategory.value.CitaviType ||
+    citaviFilter.value !== initialCategory.value.CitaviNecessaryFields;
 })
 
 // methods
