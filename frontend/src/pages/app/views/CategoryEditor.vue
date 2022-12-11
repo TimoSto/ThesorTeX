@@ -49,8 +49,8 @@
                 </template>
                 <template #1-1>
                   <v-combobox
-                    :items="citaviCategories"
                     v-model="citaviCategory"
+                    :items="citaviCategories"
                     color="primary"
                     variant="underlined"
                   />
@@ -63,6 +63,7 @@
                     variant="underlined"
                     multiple
                     hide-selected
+                    :disabled="citaviCategory === ''"
                   >
                   </v-combobox>
                 </template>
