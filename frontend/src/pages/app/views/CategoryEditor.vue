@@ -249,6 +249,8 @@ const citaviFilter = ref([] as string[]);
 
 const bibFields = ref([] as ResponsiveTableCell[][]);
 
+const bibValues = ref([] as any[][])
+
 const citeFields = ref([] as ResponsiveTableCell[][]);
 
 // methods
