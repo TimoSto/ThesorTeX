@@ -470,7 +470,7 @@ const initialCategory = computed(() => {
 
 const categoryChanged = computed(() => {
   if( initialCategory.value ) {
-    return CheckCategoryChanged(initialCategory.value, categoryName.value, citaviCategory.value, citaviFilter.value)
+    return CheckCategoryChanged(initialCategory.value, categoryName.value, citaviCategory.value, citaviFilter.value, bibValues.value, citeValues.value)
   }
 
   return false
