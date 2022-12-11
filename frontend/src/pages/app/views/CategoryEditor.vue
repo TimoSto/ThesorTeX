@@ -253,14 +253,17 @@
 <script setup lang="ts">
 import AppbarContent from "../../../components/AppbarContent.vue";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
+import {useProjectDataStore} from "../stores/projectDataStore";
 
 //globals
 const emit = defineEmits(['navBack']);
 
 const { t } = useI18n();
+
+const projectDataStore = useProjectDataStore();
 
 //props
 const props = defineProps({
@@ -413,13 +416,45 @@ const citaviCategory = ref('');
 
 const citaviFilter = ref([] as string[]);
 
-const bibFields = ref([] as ResponsiveTableCell[][]);
-
 const bibValues = ref([] as any[][])
 
-const citeFields = ref([] as ResponsiveTableCell[][]);
-
 const citeValues = ref([] as any[][])
+
+// computed
+
+const bibFields = computed(() => {
+  const rows: ResponsiveTableCell[][] = [];
+  bibValues.value.forEach(() => {
+    rows.push(Array(7).fill({
+      content: '',
+      icon: '',
+      hideUnder: -1,
+      event: '',
+      slot: true
+    }))
+  });
+
+  return rows;
+})
+
+const citeFields = computed(() => {
+  const rows: ResponsiveTableCell[][] = [];
+  citeValues.value.forEach(() => {
+    rows.push(Array(7).fill({
+      content: '',
+      icon: '',
+      hideUnder: -1,
+      event: '',
+      slot: true
+    }))
+  });
+
+  return rows;
+})
+
+const initialCategory = computed(() => {
+  return projectDataStore.categories.find(c => c.Name === props.categoryName)
+})
 
 // methods
 function AddBibRow() {
@@ -430,14 +465,7 @@ function AddBibRow() {
     '',
     false,
     []
-  ])
-  bibFields.value.push(Array(7).fill({
-    content: '',
-    icon: '',
-    hideUnder: -1,
-    event: '',
-    slot: true
-  }));
+  ]);
 }
 
 function AddCiteRow() {
@@ -448,18 +476,20 @@ function AddCiteRow() {
     '',
     false,
     []
-  ])
-  citeFields.value.push(Array(7).fill({
-    content: '',
-    icon: '',
-    hideUnder: -1,
-    event: '',
-    slot: true
-  }));
+  ]);
 }
 
 function getSlotName(i: number, n: number) {
   return `${i}-${n}`
+}
+
+// onload
+if( initialCategory.value ) {
+  categoryName.value = initialCategory.value.Name;
+  citaviCategory.value = initialCategory.value.CitaviType;//todo: rename to CitaviCategory
+  citaviFilter.value = initialCategory.value.CitaviNecessaryFields;
+  bibValues.value = initialCategory.value.Fields.map(f => [f.Field, f.Style, f.Prefix, f.Suffix, f.TexValue, f.CitaviAttributes])
+  citeValues.value = initialCategory.value.CiteFields.map(f => [f.Field, f.Style, f.Prefix, f.Suffix, f.TexValue, f.CitaviAttributes])
 }
 
 </script>
