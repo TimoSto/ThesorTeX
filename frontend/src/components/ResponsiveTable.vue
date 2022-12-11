@@ -58,7 +58,7 @@
             v-if="c.slot"
           >
             <slot
-              :name="`${i}`"
+              :name="`${i}-${n}`"
             />
           </span>
         </td>

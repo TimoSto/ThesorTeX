@@ -30,14 +30,14 @@
               :headers="generalHeaders"
               :rows="generalRows"
             >
-              <template #0>
+              <template #0-1>
                 <v-text-field
                   v-model="categoryName"
                   color="primary"
                   variant="underlined"
                 />
               </template>
-              <template #1>
+              <template #1-1>
                 <v-combobox
                   :items="citaviCategories"
                   v-model="citaviCategory"
@@ -45,7 +45,7 @@
                   variant="underlined"
                 />
               </template>
-              <template #2>
+              <template #2-1>
                 <v-combobox
                   v-model="citaviFilter"
                   :items="citaviAttributes"
@@ -68,7 +68,9 @@
               :headers="bibHeaders"
               :rows="bibFields"
               @btn-clicked="AddBibRow"
-            ></ResponsiveTable>
+            >
+
+            </ResponsiveTable>
           </v-expansion-panel-text>
         </v-expansion-panel>
         <v-expansion-panel>
@@ -271,6 +273,11 @@ function AddCiteRow() {
     event: ''
   }));
 }
+
+function getSlotName(i: number) {
+  return `${i}-1`
+}
+
 </script>
 
 <style scoped>

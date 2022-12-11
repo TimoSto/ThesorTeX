@@ -44,14 +44,14 @@
               :rows="generalRows"
               :disable-ripple="true"
             >
-              <template #0>
+              <template #0-1>
                 <v-text-field
                   v-model="entryKey"
                   color="primary"
                   variant="underlined"
                 />
               </template>
-              <template #1>
+              <template #1-1>
                 <v-select
                   v-model="entryCategory"
                   color="primary"
@@ -75,7 +75,7 @@
               <template
                 v-for="(_,i) in fieldRows"
                 :key="`field-${i}`"
-                #[i]
+                #[getSlotName(i)]
               >
                 <v-text-field
                   v-model="entryFields[i]"
@@ -263,6 +263,10 @@ function CallSaveEntry() {
     Example: ''
   }
   SaveEntry(entry, initialEntry.value ? initialEntry.value.Key : '', props.projectName)
+}
+
+function getSlotName(i: number) {
+  return `${i}-1`
 }
 
 // onload
