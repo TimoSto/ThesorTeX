@@ -5,7 +5,7 @@
         <th
           v-for="(h,i) in headers"
           :key="`header-${i}`"
-          :style="`width: ${h.width}; ${h.minWidth !== '' ? `min-width: ${h.minWidth};` : ''} ${h.maxWidth ? `max-width: ${h.width}; text-align: center;` : ''}`"
+          :style="`width: ${h.width}; ${h.minWidth !== '' ? `min-width: ${h.minWidth};` : ''} ${h.maxWidth ? `max-width: ${h.width}; text-align: center; min-width: ${h.width};` : ''}`"
         >
           <span
             v-if="h.icon !== ''"

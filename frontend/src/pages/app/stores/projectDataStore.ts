@@ -3,7 +3,7 @@ import {ref} from "vue";
 import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
 import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
 import {ProjectData} from "@/pages/app/api/projectData/ProjectData";
-import GenerateModelForCategory from "@/pages/app/api/projectData/categories/GenerateModel";
+import GenerateModelForFields from "@/pages/app/api/projectData/categories/GenerateModel";
 import GenerateEntry from "@/pages/app/api/projectData/entries/GenerateEntryExample";
 
 export const useProjectDataStore = defineStore('project-data', () => {
@@ -17,7 +17,7 @@ export const useProjectDataStore = defineStore('project-data', () => {
     });
     entries.value = data.Entries;
     data.Categories.forEach((c: BibCategory) => {
-      c.Example = GenerateModelForCategory(c.Fields);
+      c.Example = GenerateModelForFields(c.Fields);
     })
     categories.value = data.Categories;
   }

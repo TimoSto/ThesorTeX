@@ -1,5 +1,5 @@
 import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
-import GenerateModelForCategory from "@/pages/app/api/projectData/categories/GenerateModel";
+import GenerateModelForFields from "@/pages/app/api/projectData/categories/GenerateModel";
 
 describe('GenerateModel', () => {
   it('should work with no styling or prefixes/suffixes', () => {
@@ -15,7 +15,7 @@ describe('GenerateModel', () => {
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c.Fields)
+    const model = GenerateModelForFields(c.Fields)
     expect(model).toEqual('f1f2')
   })
   it('should work with no styling but prefixes/suffixes', () => {
@@ -34,7 +34,7 @@ describe('GenerateModel', () => {
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c.Fields)
+    const model = GenerateModelForFields(c.Fields)
     expect(model).toEqual('f1 (f2).')
   })
   it('should work with no prefixes/suffixes and styling', () => {
@@ -55,7 +55,7 @@ describe('GenerateModel', () => {
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c.Fields)
+    const model = GenerateModelForFields(c.Fields)
     expect(model).toEqual('<i>f1</i> (f2).')
   })
   it('should work with styling but no prefixes/suffixes', () => {
@@ -72,7 +72,7 @@ describe('GenerateModel', () => {
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c.Fields)
+    const model = GenerateModelForFields(c.Fields)
     expect(model).toEqual('f1<i>f2</i>')
   })
 })

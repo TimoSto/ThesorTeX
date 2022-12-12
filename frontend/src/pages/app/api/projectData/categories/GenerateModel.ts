@@ -1,6 +1,6 @@
 import {Field} from "@/pages/app/api/projectData/categories/BibCategory";
 
-export default function GenerateModelForCategory(fields: Field[]): string {
+export default function GenerateModelForFields(fields: Field[]): string {
   let model = '';
 
   fields.forEach((f: Field) => {

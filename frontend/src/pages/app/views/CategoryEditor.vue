@@ -75,6 +75,7 @@
               {{ t(i18nKeys.CategoryEditor.Bib.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
+              <p v-html="bibModel" />
               <ResponsiveTable
                 :headers="bibHeaders"
                 :rows="bibFields"
@@ -171,6 +172,7 @@
               {{ t(i18nKeys.CategoryEditor.Cite.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
+              <p v-html="citeModel" />
               <ResponsiveTable
                 :headers="bibHeaders"
                 :rows="citeFields"
@@ -277,6 +279,7 @@ import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import CheckCategoryChanged from "../api/projectData/categories/CheckCategoryChanged";
 import type {Field} from "../api/projectData/categories/BibCategory";
+import GenerateModelForFields from "../api/projectData/categories/GenerateModel";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -325,7 +328,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
 
 const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
-    width: '16%',
+    width: 'calc(25% - 44px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Field),
     icon: '',
@@ -342,7 +345,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     maxWidth: true
   },
   {
-    width: '16%',
+    width: 'calc(25% - 44px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Prefix),
     icon: '',
@@ -350,7 +353,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   },
   {
-    width: '16%',
+    width: 'calc(25% - 44px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Suffix),
     icon: '',
@@ -367,7 +370,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     maxWidth: true,
   },
   {
-    width: '16%',
+    width: 'calc(25% - 44px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.CitaviAttributes),
     icon: '',
@@ -380,7 +383,8 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     content: '',
     icon: 'mdi-plus',
     hideUnder: -1,
-    event: ''
+    event: '',
+    maxWidth: true
   },
 ];
 
@@ -486,6 +490,14 @@ const categoryChanged = computed(() => {
   return false
 
 })
+
+const bibModel = computed(() => {
+  return GenerateModelForFields(bibValues.value)
+});
+
+const citeModel = computed(() => {
+  return GenerateModelForFields(citeValues.value)
+});
 
 // methods
 function AddBibRow() {
