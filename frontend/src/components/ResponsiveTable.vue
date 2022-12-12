@@ -5,7 +5,7 @@
         <th
           v-for="(h,i) in headers"
           :key="`header-${i}`"
-          :style="`width: ${h.width}; ${h.minWidth !== '' ? `min-width: ${h.minWidth}` : ''}`"
+          :style="`width: ${h.width}; ${h.minWidth !== '' ? `min-width: ${h.minWidth};` : ''} ${h.maxWidth ? `max-width: ${h.width}; text-align: center;` : ''}`"
         >
           <span
             v-if="h.icon !== ''"
@@ -81,7 +81,8 @@ export interface ResponsiveTableCell {
 
 export interface ResponsiveTableHeaderCell extends ResponsiveTableCell{
   width: string,
-  minWidth: string
+  minWidth: string,
+  maxWidth?: boolean
 }
 
 export default {

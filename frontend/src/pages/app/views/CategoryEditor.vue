@@ -96,11 +96,13 @@
                   :key="`bib-cell-${i}-1`"
                   #[getSlotName(i,1)]
                 >
-                  <v-checkbox-btn
-                    v-model="bibValues[i].Italic"
-                    color="primary"
-                    density="compact"
-                  />
+                  <span class="centeredCell">
+                    <v-checkbox-btn
+                      v-model="bibValues[i].Italic"
+                      color="primary"
+                      density="compact"
+                    />
+                  </span>
                 </template>
                 <template
                   v-for="(r, i) in bibFields"
@@ -129,11 +131,13 @@
                   :key="`bib-cell-${i}-4`"
                   #[getSlotName(i,4)]
                 >
-                  <v-checkbox-btn
-                    v-model="bibValues[i].TexValue"
-                    color="primary"
-                    density="compact"
-                  />
+                  <span class="centeredCell">
+                    <v-checkbox-btn
+                      v-model="bibValues[i].TexValue"
+                      color="primary"
+                      density="compact"
+                    />
+                  </span>
                 </template>
                 <template
                   v-for="(r, i) in bibFields"
@@ -188,11 +192,13 @@
                   :key="`cite-cell-${i}-1`"
                   #[getSlotName(i,1)]
                 >
-                  <v-checkbox-btn
-                    v-model="citeValues[i].Italic"
-                    color="primary"
-                    density="compact"
-                  />
+                  <span class="centeredCell">
+                    <v-checkbox-btn
+                      v-model="citeValues[i].Italic"
+                      color="primary"
+                      density="compact"
+                    />
+                  </span>
                 </template>
                 <template
                   v-for="(r, i) in citeFields"
@@ -221,11 +227,13 @@
                   :key="`cite-cell-${i}-4`"
                   #[getSlotName(i,4)]
                 >
-                  <v-checkbox-btn
-                    v-model="citeValues[i].TexValue"
-                    color="primary"
-                    density="compact"
-                  />
+                  <span class="centeredCell">
+                    <v-checkbox-btn
+                      v-model="citeValues[i].TexValue"
+                      color="primary"
+                      density="compact"
+                    />
+                  </span>
                 </template>
                 <template
                   v-for="(r, i) in citeFields"
@@ -325,12 +333,13 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   },
   {
-    width: '16%',
+    width: '50px',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Italic),
     icon: '',
     hideUnder: -1,
-    event: ''
+    event: '',
+    maxWidth: true
   },
   {
     width: '16%',
@@ -349,12 +358,13 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   },
   {
-    width: '16%',
+    width: '75px',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Formatted),
     icon: '',
     hideUnder: -1,
-    event: ''
+    event: '',
+    maxWidth: true,
   },
   {
     width: '16%',
@@ -534,5 +544,9 @@ if( initialCategory.value ) {
 </script>
 
 <style scoped>
-
+.centeredCell {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
 </style>
