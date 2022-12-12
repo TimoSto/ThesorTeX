@@ -5,7 +5,7 @@ export default function GenerateModelForCategory(category: BibCategory): string 
 
   category.Fields.forEach((f: Field) => {
     let addition = f.Field;
-    if( f.Style === 'italic' ) {
+    if( f.Italic ) {
       addition = '<i>' + addition + '</i>';
     }
     if( f.Prefix ) {

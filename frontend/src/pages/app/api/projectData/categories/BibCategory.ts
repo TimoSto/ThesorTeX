@@ -10,7 +10,7 @@ export interface BibCategory {
 
 export interface Field {
   Field:           string
-  Style:            string
+  Italic:            boolean
   Prefix:           string
   Suffix:           string
   TexValue:         boolean

@@ -50,7 +50,7 @@ export const english: I18nKeys = {
     Bib: {
       Title: 'Bibliography',
       Field: 'Field',
-      Style: 'Style',
+      Italic: 'kursiv',
       Prefix: 'Prefix',
       Suffix: 'Suffix',
       Formatted: 'Formatted',

@@ -50,7 +50,7 @@ export const german: I18nKeys = {
     Bib: {
       Title: 'Literaturverzeichnis',
       Field: 'Feld',
-      Style: 'Stil',
+      Italic: 'kursiv',
       Prefix: 'Prefix',
       Suffix: 'Suffix',
       Formatted: 'Formatiert',

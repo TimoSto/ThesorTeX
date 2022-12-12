@@ -44,13 +44,13 @@ describe('GenerateModel', () => {
         {
           Field: 'f1',
           Suffix: ' ',
-          Style: 'italic'
+          Italic: 'italic'
         },
         {
           Field: 'f2',
           Prefix: '(',
           Suffix: ').',
-          Style: 'normal'
+          Italic: 'normal'
         }
       ]
     } as BibCategory;
@@ -67,7 +67,7 @@ describe('GenerateModel', () => {
         },
         {
           Field: 'f2',
-          Style: 'italic'
+          Italic: 'italic'
         }
       ]
     } as BibCategory;

@@ -7,11 +7,11 @@ describe('checkCategoryChanged', () => {
       Name: 'test',
       CitaviType: 'tt',
       CitaviNecessaryFields: [],
-      Fields: [{Field: 'test', Style: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
+      Fields: [{Field: 'test', Italic: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
       CiteFields: [],
       Example: ''
     } as BibCategory;
-    expect(CheckCategoryChanged(initial, 'test', 'tt', [], [{Field: 'test', Style: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}], [])).toBe(false)
+    expect(CheckCategoryChanged(initial, 'test', 'tt', [], [{Field: 'test', Italic: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}], [])).toBe(false)
   });
   it('name changed', () => {
     const initial = {
@@ -51,11 +51,11 @@ describe('checkCategoryChanged', () => {
       Name: 'test',
       CitaviType: 'tt',
       CitaviNecessaryFields: [],
-      Fields: [{Field: 'test', Style: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
+      Fields: [{Field: 'test', Italic: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
       CiteFields: [],
       Example: ''
     } as BibCategory;
-    expect(CheckCategoryChanged(initial, 'testi', 'tt', ['te'], [{Field: 'test1', Style: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}], [])).toBe(true)
+    expect(CheckCategoryChanged(initial, 'testi', 'tt', ['te'], [{Field: 'test1', Italic: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}], [])).toBe(true)
   });
   it('field added', () => {
     const initial = {
@@ -66,14 +66,14 @@ describe('checkCategoryChanged', () => {
       CiteFields: [],
       Example: ''
     } as BibCategory;
-    expect(CheckCategoryChanged(initial, 'testi', 'tt', ['te'], [{Field: 'test1', Style: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}], [])).toBe(true)
+    expect(CheckCategoryChanged(initial, 'testi', 'tt', ['te'], [{Field: 'test1', Italic: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}], [])).toBe(true)
   });
   it('field removed', () => {
     const initial = {
       Name: 'test',
       CitaviType: 'tt',
       CitaviNecessaryFields: [],
-      Fields: [{Field: 'test', Style: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
+      Fields: [{Field: 'test', Italic: 'normal', Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
       CiteFields: [],
       Example: ''
     } as BibCategory;

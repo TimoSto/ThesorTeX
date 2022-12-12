@@ -6,7 +6,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -14,7 +14,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -22,7 +22,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -30,7 +30,7 @@
       },
       {
         "Field": "Zeitschrift",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "In: ",
         "Suffix": " ",
         "TexValue": false,
@@ -38,7 +38,7 @@
       },
       {
         "Field": "Ausgabe",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -46,7 +46,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": ", ",
         "TexValue": false,
@@ -54,7 +54,7 @@
       },
       {
         "Field": "url",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -64,7 +64,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -72,7 +72,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -87,7 +87,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -95,7 +95,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -103,7 +103,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -111,7 +111,7 @@
       },
       {
         "Field": "Ausgabe",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "Ausgabe ",
         "Suffix": " ",
         "TexValue": false,
@@ -119,7 +119,7 @@
       },
       {
         "Field": "Verlag",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ")",
         "TexValue": false,
@@ -129,7 +129,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -137,7 +137,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -152,7 +152,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -162,7 +162,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -172,7 +172,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -182,7 +182,7 @@
       },
       {
         "Field": "Zeitschrift",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "In: ",
         "Suffix": " ",
         "TexValue": false,
@@ -192,7 +192,7 @@
       },
       {
         "Field": "Ausgabe",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -202,7 +202,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": "",
         "TexValue": false,
@@ -214,7 +214,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -222,7 +222,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -239,7 +239,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -249,7 +249,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -259,7 +259,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -269,7 +269,7 @@
       },
       {
         "Field": "Zeitschrift",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "In: ",
         "Suffix": " ",
         "TexValue": false,
@@ -279,7 +279,7 @@
       },
       {
         "Field": "Ausgabe",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -289,7 +289,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": ", ",
         "TexValue": false,
@@ -299,7 +299,7 @@
       },
       {
         "Field": "doi",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "https://doi.org/",
         "Suffix": "",
         "TexValue": false,
@@ -311,7 +311,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -319,7 +319,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -334,7 +334,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -344,7 +344,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -354,7 +354,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -364,7 +364,7 @@
       },
       {
         "Field": "ISBN",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(ISBN: ",
         "Suffix": "). ",
         "TexValue": false,
@@ -374,7 +374,7 @@
       },
       {
         "Field": "Herausgeber",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " (Hrsg.), ",
         "TexValue": false,
@@ -384,7 +384,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -396,7 +396,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -404,7 +404,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ")",
         "TexValue": false,
@@ -421,7 +421,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -431,7 +431,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -441,7 +441,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -451,7 +451,7 @@
       },
       {
         "Field": "ISBN",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(ISBN: ",
         "Suffix": "). ",
         "TexValue": false,
@@ -461,7 +461,7 @@
       },
       {
         "Field": "Herausgeber",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " (Hrsg.), ",
         "TexValue": false,
@@ -471,7 +471,7 @@
       },
       {
         "Field": "Doi",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "https://doi.org/",
         "Suffix": "",
         "TexValue": false,
@@ -483,7 +483,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -491,7 +491,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ")",
         "TexValue": false,
@@ -506,7 +506,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -516,7 +516,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -526,7 +526,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -536,7 +536,7 @@
       },
       {
         "Field": "BuchTitel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "In: ",
         "Suffix": ", ",
         "TexValue": false,
@@ -546,7 +546,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": ". ",
         "TexValue": false,
@@ -556,7 +556,7 @@
       },
       {
         "Field": "Herausgeber",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " (Hrsg.), ",
         "TexValue": false,
@@ -566,7 +566,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ".",
         "TexValue": false,
@@ -578,7 +578,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -586,7 +586,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -603,7 +603,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -613,7 +613,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -623,7 +623,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -633,7 +633,7 @@
       },
       {
         "Field": "BuchTitel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "In: ",
         "Suffix": ", ",
         "TexValue": false,
@@ -643,7 +643,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": ". ",
         "TexValue": false,
@@ -653,7 +653,7 @@
       },
       {
         "Field": "Herausgeber",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " (Hrsg.), ",
         "TexValue": false,
@@ -663,7 +663,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -673,7 +673,7 @@
       },
       {
         "Field": "Doi",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "https://doi.org/",
         "Suffix": "",
         "TexValue": false,
@@ -685,7 +685,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -693,7 +693,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -708,7 +708,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -718,7 +718,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -728,7 +728,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -738,7 +738,7 @@
       },
       {
         "Field": "Sammelwerk",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "In: ",
         "Suffix": " ",
         "TexValue": false,
@@ -748,7 +748,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(S. ",
         "Suffix": "). ",
         "TexValue": false,
@@ -758,7 +758,7 @@
       },
       {
         "Field": "Herausgeber",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " (Hrsg.), ",
         "TexValue": false,
@@ -768,7 +768,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -780,7 +780,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -788,7 +788,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ")",
         "TexValue": false,
@@ -805,7 +805,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -815,7 +815,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -825,7 +825,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -835,7 +835,7 @@
       },
       {
         "Field": "Sammelwerk",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -845,7 +845,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(S. ",
         "Suffix": "). ",
         "TexValue": false,
@@ -855,7 +855,7 @@
       },
       {
         "Field": "Herausgeber",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -865,7 +865,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -875,7 +875,7 @@
       },
       {
         "Field": "Doi",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "https://doi.org/",
         "Suffix": "",
         "TexValue": false,
@@ -887,7 +887,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -895,7 +895,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -910,7 +910,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -920,7 +920,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -930,7 +930,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -940,7 +940,7 @@
       },
       {
         "Field": "Buch",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "In: ",
         "Suffix": ", ",
         "TexValue": false,
@@ -950,7 +950,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": ", ",
         "TexValue": false,
@@ -960,7 +960,7 @@
       },
       {
         "Field": "URL",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "abrufbar unter: ",
         "Suffix": "",
         "TexValue": false,
@@ -972,7 +972,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -980,7 +980,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -997,7 +997,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1007,7 +1007,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -1017,7 +1017,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -1027,7 +1027,7 @@
       },
       {
         "Field": "Buch",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "In: ",
         "Suffix": ", ",
         "TexValue": false,
@@ -1037,7 +1037,7 @@
       },
       {
         "Field": "Seiten",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "S. ",
         "Suffix": ", ",
         "TexValue": false,
@@ -1047,7 +1047,7 @@
       },
       {
         "Field": "Doi",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "https://doi.org/",
         "Suffix": "",
         "TexValue": false,
@@ -1059,7 +1059,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1067,7 +1067,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -1082,7 +1082,7 @@
     "Fields": [
       {
         "Field": "Herausgeber",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1092,7 +1092,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -1102,7 +1102,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1112,7 +1112,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -1124,7 +1124,7 @@
     "CiteFields": [
       {
         "Field": "Hrsg_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1132,7 +1132,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -1149,7 +1149,7 @@
     "Fields": [
       {
         "Field": "Herausgeber",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": "  ",
         "TexValue": false,
@@ -1159,7 +1159,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -1169,7 +1169,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1179,7 +1179,7 @@
       },
       {
         "Field": "Doi",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "https://doi.org/",
         "Suffix": "",
         "TexValue": false,
@@ -1191,7 +1191,7 @@
     "CiteFields": [
       {
         "Field": "Hrsg_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1199,7 +1199,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -1214,7 +1214,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": "  ",
         "TexValue": false,
@@ -1224,7 +1224,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "). ",
         "TexValue": false,
@@ -1234,7 +1234,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1244,7 +1244,7 @@
       },
       {
         "Field": "Schule",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -1254,7 +1254,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1262,7 +1262,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -1277,7 +1277,7 @@
     "Fields": [
       {
         "Field": "Hrsg",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": " (Hrsg.)",
         "TexValue": false,
@@ -1285,7 +1285,7 @@
       },
       {
         "Field": "ISO-Nr",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": " (",
         "Suffix": "):",
         "TexValue": false,
@@ -1293,7 +1293,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1301,7 +1301,7 @@
       },
       {
         "Field": "Verlag",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1309,7 +1309,7 @@
       },
       {
         "Field": "Ort",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1317,7 +1317,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -1327,7 +1327,7 @@
     "CiteFields": [
       {
         "Field": "ISO-Nr",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": "",
         "TexValue": false,
@@ -1342,7 +1342,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1350,7 +1350,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -1358,7 +1358,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -1366,7 +1366,7 @@
       },
       {
         "Field": "URL",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "abrufbar unter: ",
         "Suffix": ", ",
         "TexValue": false,
@@ -1374,7 +1374,7 @@
       },
       {
         "Field": "Stand",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "zuletzt abgerufen am ",
         "Suffix": "",
         "TexValue": false,
@@ -1384,7 +1384,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1392,7 +1392,7 @@
       },
       {
         "Field": "Jahr",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": "), ",
         "TexValue": false,
@@ -1407,7 +1407,7 @@
     "Fields": [
       {
         "Field": "Autor",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1415,7 +1415,7 @@
       },
       {
         "Field": "Datum",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ") ",
         "TexValue": false,
@@ -1423,7 +1423,7 @@
       },
       {
         "Field": "Titel",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ". ",
         "TexValue": false,
@@ -1431,7 +1431,7 @@
       },
       {
         "Field": "URL",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "",
         "Suffix": ", ",
         "TexValue": false,
@@ -1439,7 +1439,7 @@
       },
       {
         "Field": "Stand",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "zuletzt abgerufen am ",
         "Suffix": "",
         "TexValue": false,
@@ -1449,7 +1449,7 @@
     "CiteFields": [
       {
         "Field": "Autor_kurz",
-        "Style": "italic",
+        "Italic": true,
         "Prefix": "",
         "Suffix": " ",
         "TexValue": false,
@@ -1457,7 +1457,7 @@
       },
       {
         "Field": "Datum_kurz",
-        "Style": "normal",
+        "Italic": false,
         "Prefix": "(",
         "Suffix": ")",
         "TexValue": false,

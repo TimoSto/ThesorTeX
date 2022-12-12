@@ -10,7 +10,7 @@ type BibCategory struct {
 
 type Field struct {
 	Field            string
-	Style            string
+	Italic           bool
 	Prefix           string
 	Suffix           string
 	TexValue         bool

@@ -49,7 +49,7 @@ export const i18nKeys = {
     Bib: {
       Title: 'CategoryEditor.Bib.Title',
       Field: 'CategoryEditor.Bib.Field',
-      Style: 'CategoryEditor.Bib.Style',
+      Italic: 'CategoryEditor.Bib.Italic',
       Prefix: 'CategoryEditor.Bib.Prefix',
       Suffix: 'CategoryEditor.Bib.Suffix',
       Formatted: 'CategoryEditor.Bib.Formatted',

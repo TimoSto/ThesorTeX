@@ -9,11 +9,11 @@ export default function GenerateEntryExample(entryObj: BibEntry, categories: Bib
   if( i >= 0 ) {
     categories[i].Fields.forEach((f: Field, n: number) => {
       entry += f.Prefix ? f.Prefix : '';
-      if(f.Style === 'italic') {
+      if(f.Italic) {
         entry += '<i>';
       }
       entry += (n < entryObj.Fields.length ? entryObj.Fields[n] : '')
-      if(f.Style === 'italic') {
+      if(f.Italic ) {
         entry += '</i>';
       }
       entry += f.Suffix ? f.Suffix : '';

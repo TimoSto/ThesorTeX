@@ -96,10 +96,10 @@
                   :key="`bib-cell-${i}-1`"
                   #[getSlotName(i,1)]
                 >
-                  <v-text-field
-                    v-model="bibValues[i].Style"
+                  <v-checkbox-btn
+                    v-model="bibValues[i].Italic"
                     color="primary"
-                    variant="underlined"
+                    density="compact"
                   />
                 </template>
                 <template
@@ -188,10 +188,10 @@
                   :key="`cite-cell-${i}-1`"
                   #[getSlotName(i,1)]
                 >
-                  <v-text-field
-                    v-model="citeValues[i].Style"
+                  <v-checkbox-btn
+                    v-model="citeValues[i].Italic"
                     color="primary"
-                    variant="underlined"
+                    density="compact"
                   />
                 </template>
                 <template
@@ -327,7 +327,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '16%',
     minWidth: '',
-    content: t(i18nKeys.CategoryEditor.Bib.Style),
+    content: t(i18nKeys.CategoryEditor.Bib.Italic),
     icon: '',
     hideUnder: -1,
     event: ''
@@ -481,7 +481,7 @@ const categoryChanged = computed(() => {
 function AddBibRow() {
   bibValues.value.push({
     Field: '',
-    Style: '',
+    Italic: false,
     Prefix: '',
     Suffix: '',
     TexValue: false,
@@ -492,7 +492,7 @@ function AddBibRow() {
 function AddCiteRow() {
   citeValues.value.push({
     Field: '',
-    Style: '',
+    Italic: false,
     Prefix: '',
     Suffix: '',
     TexValue: false,
@@ -512,7 +512,7 @@ if( initialCategory.value ) {
   bibValues.value = initialCategory.value.Fields.map(f => {
     return {
       Field: f.Field,
-      Style: f.Style,
+      Italic: f.Italic,
       Prefix: f.Prefix,
       Suffix: f.Suffix,
       TexValue: f.TexValue,
@@ -522,7 +522,7 @@ if( initialCategory.value ) {
   citeValues.value = initialCategory.value.CiteFields.map(f => {
     return {
       Field: f.Field,
-      Style: f.Style,
+      Italic: f.Italic,
       Prefix: f.Prefix,
       Suffix: f.Suffix,
       TexValue: f.TexValue,
