@@ -1,9 +1,9 @@
-import {BibCategory, Field} from "@/pages/app/api/projectData/categories/BibCategory";
+import {Field} from "@/pages/app/api/projectData/categories/BibCategory";
 
-export default function GenerateModelForCategory(category: BibCategory): string {
+export default function GenerateModelForCategory(fields: Field[]): string {
   let model = '';
 
-  category.Fields.forEach((f: Field) => {
+  fields.forEach((f: Field) => {
     let addition = f.Field;
     if( f.Italic ) {
       addition = '<i>' + addition + '</i>';

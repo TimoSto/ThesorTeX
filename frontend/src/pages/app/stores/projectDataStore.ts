@@ -17,7 +17,7 @@ export const useProjectDataStore = defineStore('project-data', () => {
     });
     entries.value = data.Entries;
     data.Categories.forEach((c: BibCategory) => {
-      c.Example = GenerateModelForCategory(c);
+      c.Example = GenerateModelForCategory(c.Fields);
     })
     categories.value = data.Categories;
   }

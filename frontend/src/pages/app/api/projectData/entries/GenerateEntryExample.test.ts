@@ -11,13 +11,13 @@ describe('GenerateEntryExample', () => {
           {
             Field: 'f1',
             Suffix: ' ',
-            Italic: 'italic'
+            Italic: true
           },
           {
             Field: 'f2',
             Prefix: '(',
             Suffix: ').',
-            Italic: 'normal'
+            Italic: false
           }
         ]
       },
@@ -27,13 +27,13 @@ describe('GenerateEntryExample', () => {
           {
             Field: 'f1',
             Suffix: ' - ',
-            Italic: 'normal'
+            Italic: false
           },
           {
             Field: 'f2',
             Prefix: '(',
             Suffix: ').',
-            Italic: 'italic'
+            Italic: true
           }
         ]
       },

@@ -15,7 +15,7 @@ describe('GenerateModel', () => {
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c)
+    const model = GenerateModelForCategory(c.Fields)
     expect(model).toEqual('f1f2')
   })
   it('should work with no styling but prefixes/suffixes', () => {
@@ -34,7 +34,7 @@ describe('GenerateModel', () => {
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c)
+    const model = GenerateModelForCategory(c.Fields)
     expect(model).toEqual('f1 (f2).')
   })
   it('should work with no prefixes/suffixes and styling', () => {
@@ -44,18 +44,18 @@ describe('GenerateModel', () => {
         {
           Field: 'f1',
           Suffix: ' ',
-          Italic: 'italic'
+          Italic: true
         },
         {
           Field: 'f2',
           Prefix: '(',
           Suffix: ').',
-          Italic: 'normal'
+          Italic: false
         }
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c)
+    const model = GenerateModelForCategory(c.Fields)
     expect(model).toEqual('<i>f1</i> (f2).')
   })
   it('should work with styling but no prefixes/suffixes', () => {
@@ -67,12 +67,12 @@ describe('GenerateModel', () => {
         },
         {
           Field: 'f2',
-          Italic: 'italic'
+          Italic: true
         }
       ]
     } as BibCategory;
 
-    const model = GenerateModelForCategory(c)
+    const model = GenerateModelForCategory(c.Fields)
     expect(model).toEqual('f1<i>f2</i>')
   })
 })
