@@ -76,7 +76,10 @@
               {{ t(i18nKeys.CategoryEditor.Bib.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
-              <p v-html="bibModel" />
+              <p
+                class="example"
+                v-html="bibModel"
+              />
               <ResponsiveTable
                 :headers="bibHeaders"
                 :rows="bibFields"
@@ -174,7 +177,10 @@
               {{ t(i18nKeys.CategoryEditor.Cite.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
-              <p v-html="citeModel" />
+              <p
+                class="example"
+                v-html="citeModel"
+              />
               <ResponsiveTable
                 :headers="bibHeaders"
                 :rows="citeFields"
@@ -331,7 +337,7 @@ const generalHeaders: ResponsiveTableHeaderCell[] = [
 
 const bibHeaders: ResponsiveTableHeaderCell[] = [
   {
-    width: 'calc(25% - 44px)',
+    width: 'calc(25% - 56px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Field),
     icon: '',
@@ -339,7 +345,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   },
   {
-    width: '50px',
+    width: '70px',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Italic),
     icon: '',
@@ -348,7 +354,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     maxWidth: true
   },
   {
-    width: 'calc(25% - 44px)',
+    width: 'calc(25% - 56px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Prefix),
     icon: '',
@@ -356,7 +362,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   },
   {
-    width: 'calc(25% - 44px)',
+    width: 'calc(25% - 56px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Suffix),
     icon: '',
@@ -364,7 +370,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     event: ''
   },
   {
-    width: '75px',
+    width: '100px',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.Formatted),
     icon: '',
@@ -373,7 +379,7 @@ const bibHeaders: ResponsiveTableHeaderCell[] = [
     maxWidth: true,
   },
   {
-    width: 'calc(25% - 44px)',
+    width: 'calc(25% - 56px)',
     minWidth: '',
     content: t(i18nKeys.CategoryEditor.Bib.CitaviAttributes),
     icon: '',
@@ -563,5 +569,9 @@ if( initialCategory.value ) {
   display: inline-block;
   text-align: center;
   width: 100%;
+}
+
+.example {
+  padding: 8px;
 }
 </style>
