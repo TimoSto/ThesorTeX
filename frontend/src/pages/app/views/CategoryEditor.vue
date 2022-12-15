@@ -39,6 +39,7 @@
               <ResponsiveTable
                 :headers="generalHeaders"
                 :rows="generalRows"
+                :disable-ripple="true"
               >
                 <template #0-1>
                   <v-text-field
@@ -79,6 +80,7 @@
               <ResponsiveTable
                 :headers="bibHeaders"
                 :rows="bibFields"
+                :disable-ripple="true"
                 @btn-clicked="AddBibRow"
               >
                 <template
@@ -176,6 +178,7 @@
               <ResponsiveTable
                 :headers="bibHeaders"
                 :rows="citeFields"
+                :disable-ripple="true"
                 @btn-clicked="AddCiteRow"
               >
                 <template
