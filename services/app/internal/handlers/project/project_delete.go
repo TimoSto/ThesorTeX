@@ -1,4 +1,4 @@
-package handlers
+package project
 
 import (
 	"io/ioutil"
