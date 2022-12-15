@@ -2,6 +2,7 @@ package category
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
@@ -31,6 +32,8 @@ func HandleSaveCategory(store database.ThesorTeXStore) http.Handler {
 			log.Error("got error reading data of entry save: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
 		}
+
+		fmt.Println(data.BibFields)
 	}
 
 	return http.HandlerFunc(fn)

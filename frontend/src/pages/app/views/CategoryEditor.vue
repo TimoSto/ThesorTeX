@@ -19,6 +19,7 @@
       <v-btn
         icon
         :disabled="!categoryChanged"
+        @click="CallSaveCategory"
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
@@ -289,6 +290,7 @@ import {useProjectDataStore} from "../stores/projectDataStore";
 import CheckCategoryChanged from "../api/projectData/categories/CheckCategoryChanged";
 import type {Field} from "../api/projectData/categories/BibCategory";
 import GenerateModelForFields from "../api/projectData/categories/GenerateModel";
+import SaveCategory from "../api/projectData/categories/SaveCategory";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -529,6 +531,10 @@ function AddCiteRow() {
     TexValue: false,
     CitaviAttributes: []
   });
+}
+
+function CallSaveCategory() {
+  SaveCategory(categoryName.value, initialCategory.value ? initialCategory.value.Name : '', citaviCategory.value, citaviFilter.value, bibValues.value, citeValues.value)
 }
 
 function getSlotName(i: number, n: number) {
