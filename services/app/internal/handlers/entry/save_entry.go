@@ -5,19 +5,26 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_entries"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
-func HandleSaveEntry(config conf.Config, store database.ThesorTeXStore) http.Handler {
+type SaveEntryData struct {
+	Project    string
+	InitialKey string
+	Key        string
+	Category   string
+	Fields     []string
+}
+
+func HandleSaveEntry(store database.ThesorTeXStore) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPut {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		var data bib_entries.SaveEntryData
+		var data SaveEntryData
 		decoder := json.NewDecoder(r.Body)
 		err := decoder.Decode(&data)
 		if err != nil {

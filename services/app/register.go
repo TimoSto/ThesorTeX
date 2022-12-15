@@ -6,6 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/services/app/conf"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database/local_store"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/root"
@@ -31,6 +32,8 @@ func Register(mux *http.ServeMux, config conf.Config) {
 
 	mux.Handle(fmt.Sprintf("%s/projectData", prefix), project.HandleProjectData(&store))
 
-	mux.Handle(fmt.Sprintf("%s/saveEntry", prefix), entry.HandleSaveEntry(config, &store))
+	mux.Handle(fmt.Sprintf("%s/saveEntry", prefix), entry.HandleSaveEntry(&store))
+
+	mux.Handle(fmt.Sprintf("%s/saveCategory", prefix), category.HandleSaveCategory(&store))
 
 }

@@ -10,14 +10,6 @@ var (
 	KeyAlreadyExistsError = fmt.Errorf("key already exists")
 )
 
-type SaveEntryData struct {
-	Project    string
-	InitialKey string
-	Key        string
-	Category   string
-	Fields     []string
-}
-
 func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries []database.BibEntry, initialKeys []string) error {
 
 	existing, err := store.GetProjectEntries(project)
