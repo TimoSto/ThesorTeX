@@ -20,7 +20,8 @@ const (
 `
 	citeTemplate = `\newcommand{\cite%s}[0]{%%
 	%s%%
-}`
+}
+`
 )
 
 // GeneratePrintCommands This func gives the print commands for the bibliography and the cites
@@ -70,12 +71,14 @@ func GenerateCommand(fields []database.Field, searchfields []database.Field) str
 	return command
 }
 
-func GenerateAssignment(categories []database.BibCategory, prefix string) string {
-	assignments := ""
+func GenerateAssignment(categories []database.BibCategory) (string, string) {
+	bibAssignments := ""
+	citeAssignments := ""
 
 	for _, c := range categories {
-		assignments += fmt.Sprintf("\t\t{%s}{%s%s}\n", c.Name, prefix, c.Name)
+		bibAssignments += fmt.Sprintf("\t\t{%s}{%s%s}%%\n", c.Name, `\print`, c.Name)
+		citeAssignments += fmt.Sprintf("\t\t{%s}{%s%s}%%\n", c.Name, `\cite`, c.Name)
 	}
 
-	return assignments
+	return bibAssignments, citeAssignments
 }

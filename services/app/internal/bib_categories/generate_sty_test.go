@@ -36,7 +36,8 @@ func TestGeneratePrintCommands(t *testing.T) {
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
 	%
-}`,
+}
+`,
 		},
 		{
 			title: "one category with one bib and citefield",
@@ -79,7 +80,8 @@ func TestGeneratePrintCommands(t *testing.T) {
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
 	\textit{\argII}, %
-}`,
+}
+`,
 		},
 		{
 			title: "one category with the same bib and citefield",
@@ -122,7 +124,8 @@ func TestGeneratePrintCommands(t *testing.T) {
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
 	\textit{\argI}, %
-}`,
+}
+`,
 		},
 		{
 			title: "one category with overlapping bib and citefields but different styles",
@@ -181,7 +184,8 @@ func TestGeneratePrintCommands(t *testing.T) {
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
 	\textit{\argIII}, Jahr: \textit{\argII}%
-}`,
+}
+`,
 		},
 	}
 
@@ -192,7 +196,7 @@ func TestGeneratePrintCommands(t *testing.T) {
 				t.Errorf("got bib prints %s, want: %v", bib, c.expectedBib)
 			}
 			if cites != c.expectedCites {
-				t.Errorf("got cite prints %s, want: %v", cites, c.expectedCites)
+				t.Errorf("got cite prints \n%s\n, want: \n%v\n", cites, c.expectedCites)
 			}
 		})
 	}
@@ -429,17 +433,15 @@ func TestGenerateAssignment(t *testing.T) {
 			Name: "TestCamelCase",
 		},
 	}
-	expectedBib := "\t\t{test1}{\\printtest1}\n\t\t{TestCamelCase}{\\printTestCamelCase}\n"
 
-	gotBib := GenerateAssignment(categories, "\\print")
+	expectedBib := "\t\t{test1}{\\printtest1}%\n\t\t{TestCamelCase}{\\printTestCamelCase}%\n"
+	expectedCite := "\t\t{test1}{\\citetest1}%\n\t\t{TestCamelCase}{\\citeTestCamelCase}%\n"
+
+	gotBib, gotCite := GenerateAssignment(categories)
 
 	if gotBib != expectedBib {
 		t.Errorf("got %s, want %s", gotBib, expectedBib)
 	}
-
-	expectedCite := "\t\t{test1}{\\citetest1}\n\t\t{TestCamelCase}{\\citeTestCamelCase}\n"
-
-	gotCite := GenerateAssignment(categories, "\\cite")
 
 	if gotCite != expectedCite {
 		t.Errorf("got %s, want %s", gotCite, expectedCite)

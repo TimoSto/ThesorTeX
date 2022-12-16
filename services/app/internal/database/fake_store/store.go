@@ -13,7 +13,7 @@ type Store struct {
 	ProjectMeta []database.ProjectMetaData
 }
 
-var bibStyFile, _ = project_template.ProjectTemplate.ReadFile("/styPackages/bibliography.sty")
+var bibStyFile, _ = project_template.ProjectTemplate.ReadFile("template/styPackages/bibliography.sty")
 
 func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 	return s.ProjectMeta, nil

@@ -33,5 +33,10 @@ func SaveCategory(store database.ThesorTeXStore, project string, name string, in
 		})
 	}
 
-	return store.SaveProjectCategories(project, existing)
+	err = store.SaveProjectCategories(project, existing)
+	if err != nil {
+		return err
+	}
+
+	return SaveCategoriesToSty(store, project, existing)
 }
