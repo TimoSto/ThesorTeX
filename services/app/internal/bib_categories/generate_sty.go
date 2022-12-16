@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	commandTemplate = `\newcommand{\print%s}[%d]{%%
+	commandTemplate = `\newcommand{\print%s}[0]{%%
 	\hangindent=\bibparindent%%
 	\parindent 0pt%%
 	\hangafter=1%%
@@ -18,7 +18,7 @@ const (
 
 }
 `
-	citeTemplate = `\newcommand{\cite%s}[%d]{%%
+	citeTemplate = `\newcommand{\cite%s}[0]{%%
 	%s%%
 }`
 )
@@ -29,19 +29,36 @@ func GeneratePrintCommands(categories []database.BibCategory) (string, string) {
 	citeCommands := ""
 
 	for _, c := range categories {
-		bibCommands += fmt.Sprintf(commandTemplate, c.Name, len(c.Fields), "")
-		citeCommands += fmt.Sprintf(citeTemplate, c.Name, len(c.Fields), "")
+		bibCommands += fmt.Sprintf(commandTemplate, c.Name, GenerateCommand(c.Fields, nil))
+		citeCommands += fmt.Sprintf(citeTemplate, c.Name, GenerateCommand(c.CiteFields, c.Fields))
 	}
 
 	return bibCommands, citeCommands
 }
 
-func GenerateCommand(fields []database.Field) string {
+func GenerateCommand(fields []database.Field, searchfields []database.Field) string {
 	command := ""
+
+	// count the fields, found in search to determine correct index of field not found in searchfields
+	foundCount := 0
 
 	for i, f := range fields {
 		command += f.Prefix
-		arg := fmt.Sprintf(`\arg%s`, romannumerals.IntegerToRoman(i+1))
+		index := i
+		if searchfields != nil {
+			found := false
+			for n, sf := range searchfields {
+				if sf.Field == f.Field {
+					found = true
+					foundCount++
+					index = n
+				}
+			}
+			if !found {
+				index += len(searchfields) - foundCount
+			}
+		}
+		arg := fmt.Sprintf(`\arg%s`, romannumerals.IntegerToRoman(index+1))
 		if f.Italic {
 			arg = fmt.Sprintf(`\textit{%s}`, arg)
 		}
