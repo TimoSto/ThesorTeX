@@ -21,6 +21,7 @@
 
 \newcommand{\printBibEntry}[1]{
 	\IfStrEqCase{#1}{%
+	% begin bib assignment
 		{aufsatz}{\printaufsatz }%
 		{Buch}{\printBuch}%
 		{citaviAufsatz}{\printcitaviAufsatz}%
@@ -39,6 +40,7 @@
 		{Norm}{\printNorm}%
 		{onlineAufsatz}{\printonlineAufsatz}%
 		{website}{\printwebsite}%
+	% end bib assignment
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type '.}\color{black}]%
 }
@@ -71,9 +73,12 @@
 	}
 }
 
-%!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
-\def\bibparindent{1.5em}
-%Area to add new bibprints via gui
+% indentation of the entries in the bibliography
+\newcommand\bibparindent{1.5em}
+
+%!!!DO NOT REMOVE SPACES IN THE COMMANDS!!! (Otherwise the indendation after the second line won't work)
+
+% begin bib commands
 \newcommand{\printaufsatz}[0]{
 	\hangindent=\bibparindent
 	\parindent 0pt
@@ -236,8 +241,9 @@
 	\vspace{-12pt}
 
 }
+% end bib commands
 
-%Cites
+% Cites
 
 \newcommand{\citeInFootnote}{true}
 \newcommand{\useInlineCites}{
@@ -277,7 +283,7 @@
 
 \newcommand{\getCite}[1] {%
 	\IfStrEqCase{\type}{%
-	%Area to add citeifs_inline via gui
+	% begin cite assignment
 			{aufsatz}{\citeaufsatz}%
 			{Buch}{\citeBuch}%
 			{citaviAufsatz}{\citecitaviAufsatz}%
@@ -296,11 +302,11 @@
 			{Norm}{\citeNorm}%
 			{onlineAufsatz}{\citeonlineAufsatz}%
 			{website}{\citewebsite}%
-	%end area
+	% end cite assignment
 	}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 }
 
-
+% begin cite commands
 \newcommand{\citeaufsatz}[0]{%
 	\textit{\argI} (\argII), \argIII%
 }
@@ -355,5 +361,6 @@
 \newcommand{\citewebsite}[0]{%
 	\textit{\argI} (\argII)\argIII%
 }
+% end cite commands
 
 \endinput
