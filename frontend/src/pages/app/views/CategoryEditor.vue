@@ -304,6 +304,10 @@ const props = defineProps({
   categoryName: {
     type: String,
     required: true
+  },
+  projectName: {
+    type: String,
+    required: true
   }
 });
 
@@ -534,7 +538,7 @@ function AddCiteRow() {
 }
 
 function CallSaveCategory() {
-  SaveCategory(categoryName.value, initialCategory.value ? initialCategory.value.Name : '', citaviCategory.value, citaviFilter.value, bibValues.value, citeValues.value)
+  SaveCategory(props.projectName, categoryName.value, initialCategory.value ? initialCategory.value.Name : '', citaviCategory.value, citaviFilter.value, bibValues.value, citeValues.value)
 }
 
 function getSlotName(i: number, n: number) {

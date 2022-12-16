@@ -2,15 +2,16 @@ package category
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/bib_categories"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
 type SaveData struct {
 	Project        string
+	Name           string
 	InitialName    string
 	CitaviCategory string
 	CitaviFilter   []string
@@ -29,11 +30,15 @@ func HandleSaveCategory(store database.ThesorTeXStore) http.Handler {
 		decoder := json.NewDecoder(r.Body)
 		err := decoder.Decode(&data)
 		if err != nil {
-			log.Error("got error reading data of entry save: %v", err)
+			log.Error("got error reading data of category save: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		fmt.Println(data.BibFields)
+		err = bib_categories.SaveCategory(store, data.Project, data.Name, data.InitialName, data.CitaviCategory, data.CitaviFilter, data.BibFields, data.CiteFields)
+		if err != nil {
+			log.Error("got error saving the category: %v", err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
 	}
 
 	return http.HandlerFunc(fn)

@@ -1,6 +1,7 @@
 import {Field} from "@/pages/app/api/projectData/categories/BibCategory";
 
 interface CategorySaveData {
+  Project: string
   Name: string
   InitialName: string,
   CitaviCategory: string,
@@ -9,8 +10,9 @@ interface CategorySaveData {
   CiteFields: Field[]
 
 }
-export default async function SaveCategory(name: string, initialName: string, citaviCategory: string, citaviFilter: string[], bibFields: Field[], citeFields: Field[]): Promise<boolean> {
+export default async function SaveCategory(project: string, name: string, initialName: string, citaviCategory: string, citaviFilter: string[], bibFields: Field[], citeFields: Field[]): Promise<boolean> {
   const obj: CategorySaveData = {
+    Project: project,
     InitialName: initialName,
     Name: name,
     CitaviCategory: citaviCategory,
