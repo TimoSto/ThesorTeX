@@ -36,6 +36,7 @@ func GeneratePrintCommands(categories []database.BibCategory) (string, string) {
 	return bibCommands, citeCommands
 }
 
+// GenerateCommand this function generates the command, that prints the fields with style, prefix and suffix
 func GenerateCommand(fields []database.Field, searchfields []database.Field) string {
 	command := ""
 
@@ -67,4 +68,14 @@ func GenerateCommand(fields []database.Field, searchfields []database.Field) str
 	}
 
 	return command
+}
+
+func GenerateAssignment(categories []database.BibCategory, prefix string) string {
+	assignments := ""
+
+	for _, c := range categories {
+		assignments += fmt.Sprintf("\t\t{%s}{%s%s}\n", c.Name, prefix, c.Name)
+	}
+
+	return assignments
 }

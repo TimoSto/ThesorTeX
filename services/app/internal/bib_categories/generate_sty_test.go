@@ -419,3 +419,29 @@ func TestGenerateCommand(t *testing.T) {
 		})
 	}
 }
+
+func TestGenerateAssignment(t *testing.T) {
+	categories := []database.BibCategory{
+		{
+			Name: "test1",
+		},
+		{
+			Name: "TestCamelCase",
+		},
+	}
+	expectedBib := "\t\t{test1}{\\printtest1}\n\t\t{TestCamelCase}{\\printTestCamelCase}\n"
+
+	gotBib := GenerateAssignment(categories, "\\print")
+
+	if gotBib != expectedBib {
+		t.Errorf("got %s, want %s", gotBib, expectedBib)
+	}
+
+	expectedCite := "\t\t{test1}{\\citetest1}\n\t\t{TestCamelCase}{\\citeTestCamelCase}\n"
+
+	gotCite := GenerateAssignment(categories, "\\cite")
+
+	if gotCite != expectedCite {
+		t.Errorf("got %s, want %s", gotCite, expectedCite)
+	}
+}

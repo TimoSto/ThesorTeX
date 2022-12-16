@@ -22,7 +22,7 @@
 \newcommand{\printBibEntry}[1]{
 	\IfStrEqCase{#1}{%
 	% begin bib assignment
-		{aufsatz}{\printaufsatz }%
+		{aufsatz}{\printaufsatz}%
 		{Buch}{\printBuch}%
 		{citaviAufsatz}{\printcitaviAufsatz}%
 		{citaviAufsatzDoi}{\printcitaviAufsatzDoi}%
@@ -284,24 +284,24 @@
 \newcommand{\getCite}[1] {%
 	\IfStrEqCase{\type}{%
 	% begin cite assignment
-			{aufsatz}{\citeaufsatz}%
-			{Buch}{\citeBuch}%
-			{citaviAufsatz}{\citecitaviAufsatz}%
-			{citaviAufsatzDoi}{\citecitaviAufsatzDoi}%
-			{citaviBook}{\citecitaviBook}%
-			{citaviBookDoi}{\citecitaviBookDoi}%
-			{citaviInbook}{\citecitaviInbook}%
-			{citaviInbookDoi}{\citecitaviInbookDoi}%
-			{citaviInCollection}{\citecitaviInCollection}%
-			{citaviInCollectionDoi}{\citecitaviInCollectionDoi}%
-			{citaviInProceedings}{\citecitaviInProceedings}%
-			{citaviInProceedingsDoi}{\citecitaviInProceedingsDoi}%
-			{citaviProceedings}{\citecitaviProceedings}%
-			{citaviProceedingsDoi}{\citecitaviProceedingsDoi}%
-			{citaviThesis}{\citecitaviThesis}%
-			{Norm}{\citeNorm}%
-			{onlineAufsatz}{\citeonlineAufsatz}%
-			{website}{\citewebsite}%
+		{aufsatz}{\citeaufsatz}%
+		{Buch}{\citeBuch}%
+		{citaviAufsatz}{\citecitaviAufsatz}%
+		{citaviAufsatzDoi}{\citecitaviAufsatzDoi}%
+		{citaviBook}{\citecitaviBook}%
+		{citaviBookDoi}{\citecitaviBookDoi}%
+		{citaviInbook}{\citecitaviInbook}%
+		{citaviInbookDoi}{\citecitaviInbookDoi}%
+		{citaviInCollection}{\citecitaviInCollection}%
+		{citaviInCollectionDoi}{\citecitaviInCollectionDoi}%
+		{citaviInProceedings}{\citecitaviInProceedings}%
+		{citaviInProceedingsDoi}{\citecitaviInProceedingsDoi}%
+		{citaviProceedings}{\citecitaviProceedings}%
+		{citaviProceedingsDoi}{\citecitaviProceedingsDoi}%
+		{citaviThesis}{\citecitaviThesis}%
+		{Norm}{\citeNorm}%
+		{onlineAufsatz}{\citeonlineAufsatz}%
+		{website}{\citewebsite}%
 	% end cite assignment
 	}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 }
