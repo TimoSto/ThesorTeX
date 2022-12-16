@@ -52,3 +52,50 @@ func TestGeneratePrintCommands(t *testing.T) {
 		})
 	}
 }
+
+func TestGenerateCommand(t *testing.T) {
+	cases := []struct {
+		title    string
+		fields   []database.Field
+		expected string
+	}{
+		{
+			title: "one plain, one with pre- and suffix, one italic with pre- and suffix",
+			fields: []database.Field{
+				{
+					Field:            "f1",
+					Italic:           false,
+					Prefix:           "",
+					Suffix:           "",
+					TexValue:         false,
+					CitaviAttributes: nil,
+				},
+				{
+					Field:            "f2",
+					Italic:           false,
+					Prefix:           "(",
+					Suffix:           "). ",
+					TexValue:         false,
+					CitaviAttributes: nil,
+				},
+				{
+					Field:            "f3",
+					Italic:           true,
+					Prefix:           "in: ",
+					Suffix:           ", ",
+					TexValue:         false,
+					CitaviAttributes: nil,
+				},
+			},
+			expected: `\argI(\argII). in: \textit{\argIII}, `,
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.title, func(t *testing.T) {
+			if got, want := GenerateCommand(c.fields), c.expected; got != want {
+				t.Errorf("got command %s, want: %s", got, want)
+			}
+		})
+	}
+}

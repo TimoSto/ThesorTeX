@@ -3,6 +3,7 @@ package bib_categories
 import (
 	"fmt"
 
+	"github.com/TimoSto/ThesorTeX/pkg/romannumerals"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
@@ -33,4 +34,20 @@ func GeneratePrintCommands(categories []database.BibCategory) (string, string) {
 	}
 
 	return bibCommands, citeCommands
+}
+
+func GenerateCommand(fields []database.Field) string {
+	command := ""
+
+	for i, f := range fields {
+		command += f.Prefix
+		arg := fmt.Sprintf(`\arg%s`, romannumerals.IntegerToRoman(i+1))
+		if f.Italic {
+			arg = fmt.Sprintf(`\textit{%s}`, arg)
+		}
+		command += arg
+		command += f.Suffix
+	}
+
+	return command
 }
