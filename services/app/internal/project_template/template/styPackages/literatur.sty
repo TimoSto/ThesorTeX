@@ -4,11 +4,41 @@
 
 %Literatur-DB aus CSV laden
 \usepackage{xstring}
+\usepackage{xcolor}
+
 \DTLloaddb{literatur}{bib_entries.csv}
+
+\newcommand\argI{\a}
+\newcommand\argII{\b}
+\newcommand\argIII{\c}
+\newcommand\argIV{\d}
+\newcommand\argV{\e}
+\newcommand\argVI{\f}
+\newcommand\argVII{\g}
+\newcommand\argVIII{\h}
+\newcommand\argIX{\i}
+\newcommand\argX{\j}
 
 \newcommand{\printBibEntry}[1]{
 	\IfStrEqCase{#1}{%
 		{aufsatz}{\printaufsatz }%
+		{Buch}{\printBuch}%
+		{citaviAufsatz}{\printcitaviAufsatz}%
+		{citaviAufsatzDoi}{\printcitaviAufsatzDoi}%
+		{citaviBook}{\printcitaviBook}%
+		{citaviBookDoi}{\printcitaviBookDoi}%
+		{citaviInbook}{\printcitaviInbook}%
+		{citaviInbookDoi}{\printcitaviInbookDoi}%
+		{citaviInCollection}{\printcitaviInCollection}%
+		{citaviInCollectionDoi}{\printcitaviInCollectionDoi}%
+		{citaviInProceedings}{\printcitaviInProceedings}%
+		{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi}%
+		{citaviProceedings}{\printcitaviProceedings}%
+		{citaviProceedingsDoi}{\printcitaviProceedingsDoi}%
+		{citaviThesis}{\printcitaviThesis}%
+		{Norm}{\printNorm}%
+		{onlineAufsatz}{\printonlineAufsatz}%
+		{website}{\printwebsite}%
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type '.}\color{black}]%
 }
@@ -25,16 +55,16 @@
 	\DTLforeach*{literatur}
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}
 	{
-		\def\argI{\a}
-		\def\argII{\b}
-		\def\argIII{\c}
-		\def\argIV{\d}
-		\def\argV{\e}
-		\def\argVI{\f}
-		\def\argVII{\g}
-		\def\argVIII{\h}
-		\def\argIX{\i}
-		\def\argX{\j}
+		\renewcommand\argI{\a}
+		\renewcommand\argII{\b}
+		\renewcommand\argIII{\c}
+		\renewcommand\argIV{\d}
+		\renewcommand\argV{\e}
+		\renewcommand\argVI{\f}
+		\renewcommand\argVII{\g}
+		\renewcommand\argVIII{\h}
+		\renewcommand\argIX{\i}
+		\renewcommand\argX{\j}
 
 		\printBibEntry{\type}
 
@@ -207,9 +237,123 @@
 
 }
 
-\usepackage{xcolor}
+%Cites
+
+\newcommand{\citeInFootnote}{true}
+\newcommand{\useInlineCites}{
+	\renewcommand{\citeInFootnote}{false}
+}
+
+% #1: key to cite
+% #2: prefix (e.g. vgl. )
+% #3: suffix (e.g. S.201)
+\newcommand{\citebib}[3] {%
+	\DTLforeach*{literatur}%
+	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}%
+	{%
+		\IfStrEqCase{#1}{%
+			{\key}{%
+				\renewcommand\argI{\a}%
+				\renewcommand\argII{\b}%
+				\renewcommand\argIII{\c}%
+				\renewcommand\argIV{\d}%
+				\renewcommand\argV{\e}%
+				\renewcommand\argVI{\f}%
+				\renewcommand\argVII{\g}%
+				\renewcommand\argVIII{\h}%
+				\renewcommand\argIX{\i}%
+				\renewcommand\argX{\j}%
+				%
+				\newcommand{\citeContent}{\getCite{\type}}%
+				%
+				\IfStrEqCase{\citeInFootnote}{%
+					{true}{\footnote{#2\citeContent #3.}}%
+					{false}{ (#2\citeContent #3)}%
+				}%
+			}%
+		}[]% CHANGE IS HERE
+	}%
+}
+
+\newcommand{\getCite}[1] {%
+	\IfStrEqCase{\type}{%
+	%Area to add citeifs_inline via gui
+			{aufsatz}{\citeaufsatz}%
+			{Buch}{\citeBuch}%
+			{citaviAufsatz}{\citecitaviAufsatz}%
+			{citaviAufsatzDoi}{\citecitaviAufsatzDoi}%
+			{citaviBook}{\citecitaviBook}%
+			{citaviBookDoi}{\citecitaviBookDoi}%
+			{citaviInbook}{\citecitaviInbook}%
+			{citaviInbookDoi}{\citecitaviInbookDoi}%
+			{citaviInCollection}{\citecitaviInCollection}%
+			{citaviInCollectionDoi}{\citecitaviInCollectionDoi}%
+			{citaviInProceedings}{\citecitaviInProceedings}%
+			{citaviInProceedingsDoi}{\citecitaviInProceedingsDoi}%
+			{citaviProceedings}{\citecitaviProceedings}%
+			{citaviProceedingsDoi}{\citecitaviProceedingsDoi}%
+			{citaviThesis}{\citecitaviThesis}%
+			{Norm}{\citeNorm}%
+			{onlineAufsatz}{\citeonlineAufsatz}%
+			{website}{\citewebsite}%
+	%end area
+	}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
+}
 
 
-%end area
+\newcommand{\citeaufsatz}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citeBuch}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviAufsatz}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviAufsatzDoi}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviBook}[0]{%
+	\textit{\argI} (\argII)\argIII%
+}
+\newcommand{\citecitaviBookDoi}[0]{%
+	\argI (\argII)\argIII%
+}
+\newcommand{\citecitaviInbook}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviInbookDoi}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviInCollection}[0]{%
+	\textit{\argI} (\argII)\argIII%
+}
+\newcommand{\citecitaviInCollectionDoi}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviInProceedings}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviInProceedingsDoi}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviProceedings}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviProceedingsDoi}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citecitaviThesis}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citeNorm}[0]{%
+	\textit{\argI}\argII%
+}
+\newcommand{\citeonlineAufsatz}[0]{%
+	\textit{\argI} (\argII), \argIII%
+}
+\newcommand{\citewebsite}[0]{%
+	\textit{\argI} (\argII)\argIII%
+}
 
 \endinput

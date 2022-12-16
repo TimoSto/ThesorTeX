@@ -1,11 +1,24 @@
 [
   {
-    "Key": "test_entry",
+    "Key": "testEntry",
     "Category": "aufsatz",
     "Fields": [
-      "Autor xy",
+      "Autor xyz",
       "1999",
       "ThesorTeX - Ein tolles Tool",
+      "Random Zeitschrift",
+      "99/03",
+      "20-22",
+      "https://wikipedia.org/"
+    ]
+  },
+  {
+    "Key": "testEntry2",
+    "Category": "aufsatz",
+    "Fields": [
+      "Autor xyz",
+      "2022",
+      "ThesorTeX - Ein tolles Tool zum Arbeiten",
       "Random Zeitschrift",
       "99/03",
       "20-22",
