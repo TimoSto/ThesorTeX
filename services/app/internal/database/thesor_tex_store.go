@@ -11,4 +11,6 @@ type ThesorTeXStore interface {
 	WriteCSV(project string, file []byte) error
 	GetProjectCategories(project string) ([]BibCategory, error)
 	SaveProjectCategories(project string, data []BibCategory) error
+	GetBibliographySty(project string) (string, error)
+	WriteBibliographySty(project string, file []byte) error
 }

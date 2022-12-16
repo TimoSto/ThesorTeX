@@ -24,6 +24,8 @@ const (
 	projectCategoriesFile = "data/bib_categories.json"
 
 	entriesCsvFile = "bib_entries.csv"
+
+	bibliographyStyFile = "styPackages/bibliography.sty"
 )
 
 //todo: unit tests expand
@@ -177,3 +179,16 @@ func (s *Store) SaveProjectCategories(project string, data []database.BibCategor
 	}
 	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, projectCategoriesFile), file, 0777)
 }
+
+func (s *Store) GetBibliographySty(project string) (string, error) {
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, bibliographyStyFile))
+	if err != nil {
+		return "", err
+	}
+	return string(file), nil
+}
+func (s *Store) WriteBibliographySty(project string, file []byte) error {
+	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, bibliographyStyFile), file, 0777)
+}
+
+//TODO: do i really need 0777 everywhere

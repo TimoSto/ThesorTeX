@@ -4,6 +4,7 @@ import (
 	"io/fs"
 
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
 )
 
 type Store struct {
@@ -11,6 +12,8 @@ type Store struct {
 	Categories  [][]database.BibCategory
 	ProjectMeta []database.ProjectMetaData
 }
+
+var bibStyFile, _ = project_template.ProjectTemplate.ReadFile("/styPackages/bibliography.sty")
 
 func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 	return s.ProjectMeta, nil
@@ -78,5 +81,14 @@ func (s *Store) SaveProjectCategories(project string, data []database.BibCategor
 		}
 	}
 
+	return nil
+}
+
+func (s *Store) GetBibliographySty(project string) (string, error) {
+
+	return string(bibStyFile), nil
+}
+func (s *Store) WriteBibliographySty(project string, file []byte) error {
+	bibStyFile = file
 	return nil
 }
