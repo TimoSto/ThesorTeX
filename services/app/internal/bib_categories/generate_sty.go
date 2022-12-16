@@ -1,0 +1,3 @@
+package bib_categories
+
+//to have it consistent, define global vars \argI, \argII, ...

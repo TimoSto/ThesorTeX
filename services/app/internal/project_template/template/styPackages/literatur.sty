@@ -6,33 +6,11 @@
 \usepackage{xstring}
 \DTLloaddb{literatur}{bib_entries.csv}
 
-%tatsächlich zitierte sachen laden
-\DTLloaddb{citedKeys}{citedKeys.csv}
-
-\newcommand{\printBibEntry}[9]{
+\newcommand{\printBibEntry}[1]{
 	\IfStrEqCase{#1}{%
-	%Area to add new bibifs via gui
-			{aufsatz}{\printaufsatz{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
-			{citaviAufsatz}{\printcitaviAufsatz{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{citaviBook}{\printcitaviBook{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviBookDoi}{\printcitaviBookDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviInbook}{\printcitaviInbook{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
-			{citaviInCollection}{\printcitaviInCollection{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
-			{citaviInProceedings}{\printcitaviInProceedings{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviProceedings}{\printcitaviProceedings{#2}{#3}{#4}{#5}}%
-			{citaviProceedingsDoi}{\printcitaviProceedingsDoi{#2}{#3}{#4}{#5}}%
-			{citaviThesis}{\printcitaviThesis{#2}{#3}{#4}{#5}}%
-			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
-			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
-		%end area
+		{aufsatz}{\printaufsatz }%
 		{empty}{}%
-	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
+	}[{\color{red}Oppsss, unknown case '\type '.}\color{black}]%
 }
 
 %Literaturverzeichnis printen
@@ -47,21 +25,18 @@
 	\DTLforeach*{literatur}
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}
 	{
-		\def\tempi{\i}
-		\def\tempj{\j}
+		\def\argI{\a}
+		\def\argII{\b}
+		\def\argIII{\c}
+		\def\argIV{\d}
+		\def\argV{\e}
+		\def\argVI{\f}
+		\def\argVII{\g}
+		\def\argVIII{\h}
+		\def\argIX{\i}
+		\def\argX{\j}
 
-		\DTLforeach*{citedKeys}
-		{\ckey=ckey}
-		{
-			\IfStrEqCase{\ckey}{
-				{\key}{
-					\printBibEntry{\type}{\a}{\b}{\c}{\d}{\e}{\f}{\g}{\h}
-				}
-				{*}{
-					\printBibEntry{\type}{\a}{\b}{\c}{\d}{\e}{\f}{\g}{\h}
-				}
-			}
-		}
+		\printBibEntry{\type}
 
 	}
 }
@@ -69,11 +44,11 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printaufsatz}[7]{
+\newcommand{\printaufsatz}[0]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6, #7
+	\textit{\argI} (\argII). \argIII. In: \textit{\argIV} \argV, S. \argVI, \argVII
 	\\
 	\vspace{-12pt}
 
@@ -82,7 +57,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. Ausgabe #4 (#5)
+	\textit{\argI} (\argII) \argIII. Ausgabe \argIV (\argV)
 	\\
 	\vspace{-12pt}
 
@@ -91,7 +66,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6
+	\textit{\argI} (\argII). \argIII. In: \textit{\argIV} \argV, S. \argVI
 	\\
 	\vspace{-12pt}
 
@@ -100,7 +75,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6, https://doi.org/#7
+	\textit{\argI} (\argII). \argIII. In: \textit{\argIV} \argV, S. \argVI, https://doi.org/\argVII
 	\\
 	\vspace{-12pt}
 
@@ -109,7 +84,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3 (ISBN: #4). #5 (Hrsg.), #6
+	\textit{\argI} (\argII). \argIII (ISBN: \argIV). \argV (Hrsg.), \argVI
 	\\
 	\vspace{-12pt}
 
@@ -118,7 +93,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	#1 (#2). #3 (ISBN: #4). #5 (Hrsg.), https://doi.org/#6
+	\argI (\argII). \argIII (ISBN: \argIV). \argV (Hrsg.), https://doi.org/\argVI
 	\\
 	\vspace{-12pt}
 
@@ -127,7 +102,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. In: #4, S. #5. #6 (Hrsg.), #7.
+	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV. \argVI (Hrsg.), \argVII.
 	\\
 	\vspace{-12pt}
 
@@ -136,7 +111,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. In: #4, S. #5. #6 (Hrsg.), #7. https://doi.org/#8
+	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV. \argVI (Hrsg.), \argVII. https://doi.org/\argVIII
 	\\
 	\vspace{-12pt}
 
@@ -145,7 +120,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3. In: #4 (S. #5). #6 (Hrsg.), #7
+	\textit{\argI} (\argII). \argIII. In: \argIV (S. \argV). \argVI (Hrsg.), \argVII
 	\\
 	\vspace{-12pt}
 
@@ -154,7 +129,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. #4 (S. #5). #6, #7. https://doi.org/#8
+	\textit{\argI} (\argII) \argIII. \argIV (S. \argV). \argVI, \argVII. https://doi.org/\argVIII
 	\\
 	\vspace{-12pt}
 
@@ -163,7 +138,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. In: #4, S. #5, abrufbar unter: #6
+	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV, abrufbar unter: \argVI
 	\\
 	\vspace{-12pt}
 
@@ -172,7 +147,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. In: #4, S. #5, https://doi.org/#6
+	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV, https://doi.org/\argVI
 	\\
 	\vspace{-12pt}
 
@@ -181,7 +156,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3, #4
+	\textit{\argI} (\argII). \argIII, \argIV
 	\\
 	\vspace{-12pt}
 
@@ -190,7 +165,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}  (#2). #3, https://doi.org/#4
+	\textit{\argI}  (\argII). \argIII, https://doi.org/\argIV
 	\\
 	\vspace{-12pt}
 
@@ -199,7 +174,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}  (#2). #3, #4
+	\textit{\argI}  (\argII). \argIII, \argIV
 	\\
 	\vspace{-12pt}
 
@@ -208,7 +183,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	#1 (Hrsg.) (\textit{#2}):#3, #4, #5, #6
+	\argI (Hrsg.) (\textit{\argII}):\argIII, \argIV, \argV, \argVI
 	\\
 	\vspace{-12pt}
 
@@ -217,7 +192,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. abrufbar unter: #4, zuletzt abgerufen am #5
+	\textit{\argI} (\argII) \argIII. abrufbar unter: \argIV, zuletzt abgerufen am \argV
 	\\
 	\vspace{-12pt}
 
@@ -226,173 +201,15 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
+	\textit{\argI} (\argII) \argIII. \argIV, zuletzt abgerufen am \argV
 	\\
 	\vspace{-12pt}
 
 }
 
-		%end area
-
-%Zitation => Suche nach Key in literatur-DB => Passenden Command aufrufen
-%\newcommand{\citebib}[3]{%
-%	\DTLforeach*{literatur}%
-%	{\key=key,\type=type,\autor=autor,\titel=titel,\auflage=auflage,\ort=ort,\datum=datum,\hrsg=hrsg,\band=band,\zeitschrift=zeitschrift,\seiten=seiten,\festschrift=festschrift,\autorsammel=autorsammelwerk,\titelsammel=titelsammelwerk}%
-%	{%
-%	  \IfEqCase{\key}{{#1}{%
-%		\IfEqCase{\type}{%
-%	  	{buch}{\printbookfootnote{#2}{\autor}{\titel}{\datum}{#3}}%
-%	  	%{hrsgbook}{\printhrsgbookfootnote{#2}{\autor}{\b}{\e}{#3}}%
-%	  	{kommentar}{\printcommentfootnote{#2}{\autor}{\titel}{\datum}{#3}}%
-%	  	{essay}{\printarticlefootnote{#2}{\autor}{\zeitschrift}{\datum}{#3}}%
-%		{festschrift}{\printfestschriftfootnote{#2}{\autor}{\festschrift}{\datum}{#3}}%
-%	  	{sammelwerk}{\printcollectionfootnote{#2}{\autor}{\autorsammel}{\titelsammel}{#3}}%
-%	  	{online}{\printonlinefootnote{#2}{\autor}{\titel}{\titelsammel}{\datum}}%
-%	  }%
-%	  }}[]%
-%	}%
-%}
 \usepackage{xcolor}
 
-\newcommand{\citebib}[3]{%
-	\citebibFootnote{#1}{#2}{#3}%
-}
 
-\newcommand{\useInlineCites}[0]{%
-	\renewcommand{\citebib}[3]{%
-		\citebibInline{##1}{##2}{##3}%
-	}%
-}%
-
-\newcommand{\entryfound}{false}%
-\newcommand{\citebibFootnote}[3]{{%
-	\renewcommand{\entryfound}{false}%
-	\DTLforeach*{literatur}%
-	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i}%
-	{%
-		\IfStrEqCase{\key}{{#1}{%
-			\renewcommand{\entryfound}{true}%
-			\IfStrEqCase{\type}{%
-				%Area to add citeifs via gui
-			{aufsatz}{\footnote{#3\citeaufsatz{\h}{\b}{#2}.}}%
-			{Buch}{\footnote{#3\citeBuch{\f}{\b}{#2}.}}%
-			{citaviAufsatz}{\footnote{#3\citecitaviAufsatz{\g}{\b}{#2}.}}%
-			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\h}{\b}{#2}.}}%
-			{citaviBook}{\footnote{#3\citecitaviBook{\g}{\b}{#2}.}}%
-			{citaviBookDoi}{\footnote{#3\citecitaviBookDoi{\g}{\b}{#2}.}}%
-			{citaviInbook}{\footnote{#3\citecitaviInbook{\h}{\b}{#2}.}}%
-			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\i}{\b}{#2}.}}%
-			{citaviInCollection}{\footnote{#3\citecitaviInCollection{\h}{\b}{#2}.}}%
-			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\i}{\b}{#2}.}}%
-			{citaviInProceedings}{\footnote{#3\citecitaviInProceedings{\g}{\b}{#2}.}}%
-			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
-			{citaviProceedings}{\footnote{#3\citecitaviProceedings{\e}{\b}{#2}.}}%
-			{citaviProceedingsDoi}{\footnote{#3\citecitaviProceedingsDoi{\e}{\b}{#2}.}}%
-			{citaviThesis}{\footnote{#3\citecitaviThesis{\e}{\b}{#2}.}}%
-			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
-			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\f}{\b}{#2}.}}%
-			{website}{\footnote{#3\citewebsite{\f}{\g}{#2}.}}%
-		%end area
-			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
-		}}%
-	}%
-	\IfStrEqCase{\entryfound}{%
-		{false}{\footnote{{\color{red}Literatureintrag mit Key "#1 " nicht gefunden}}}%
-	}%
-}}
-
-\newcommand{\citebibInline}[3]{{%
-	\renewcommand{\entryfound}{false}%
-	\DTLforeach*{literatur}%
-	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i}%
-	{%
-		\IfStrEqCase{\key}{{#1}{%
-			\renewcommand{\entryfound}{true}%
-			\IfStrEqCase{\type}{%
-			%Area to add citeifs_inline via gui
-			{aufsatz}{ ({#3\citeaufsatz{\h}{\b}{#2})}}%
-			{Buch}{ ({#3\citeBuch{\f}{\b}{#2})}}%
-			{citaviAufsatz}{ ({#3\citecitaviAufsatz{\g}{\b}{#2})}}%
-			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\h}{\b}{#2})}}%
-			{citaviBook}{ ({#3\citecitaviBook{\g}{\b}{#2})}}%
-			{citaviBookDoi}{ ({#3\citecitaviBookDoi{\g}{\b}{#2})}}%
-			{citaviInbook}{ ({#3\citecitaviInbook{\h}{\b}{#2})}}%
-			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\i}{\b}{#2})}}%
-			{citaviInCollection}{ ({#3\citecitaviInCollection{\h}{\b}{#2})}}%
-			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\i}{\b}{#2})}}%
-			{citaviInProceedings}{ ({#3\citecitaviInProceedings{\g}{\b}{#2})}}%
-			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
-			{citaviProceedings}{ ({#3\citecitaviProceedings{\e}{\b}{#2})}}%
-			{citaviProceedingsDoi}{ ({#3\citecitaviProceedingsDoi{\e}{\b}{#2})}}%
-			{citaviThesis}{ ({#3\citecitaviThesis{\e}{\b}{#2})}}%
-			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
-			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\f}{\b}{#2})}}%
-			{website}{ ({#3\citewebsite{\f}{\g}{#2})}}%
-		%end area
-			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
-		}}%
-	}%
-	\IfStrEqCase{\entryfound}{%
-			{false}{ ({\color{red}Literatureintrag mit Key "#1 " nicht gefunden})}%
-	}%
-}}
-
-%Prints für verschiedene Fußnotenarten
-%Area to add citecommands via gui
-\newcommand{\citeaufsatz}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citeBuch}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviAufsatz}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviAufsatzDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviBook}[3]{%
-	\textit{#1} (#2)#3%
-}
-\newcommand{\citecitaviBookDoi}[3]{%
-	#1 (#2)#3%
-}
-\newcommand{\citecitaviInbook}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviInbookDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviInCollection}[3]{%
-	\textit{#1} (#2)#3%
-}
-\newcommand{\citecitaviInCollectionDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviInProceedings}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviInProceedingsDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviProceedings}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviProceedingsDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviThesis}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citeNorm}[2]{%
-	\textit{#1}#2%
-}
-\newcommand{\citeonlineAufsatz}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citewebsite}[3]{%
-	\textit{#1} (#2)#3%
-}
 %end area
 
 \endinput

@@ -6,3 +6,11 @@
 /Config.ini
 /go_build_github_com_TimoSto_ThesorTeX_cmd_local
 /projects/
+/services/app/internal/project_template/template/example.aux
+/services/app/internal/project_template/template/example.lof
+/services/app/internal/project_template/template/example.log
+/services/app/internal/project_template/template/example.lot
+/services/app/internal/project_template/template/example.mcf
+/services/app/internal/project_template/template/example.pdf
+/services/app/internal/project_template/template/example.synctex.gz
+/services/app/internal/project_template/template/example.toc
