@@ -5,8 +5,8 @@ describe('checkCategoryChanged', () => {
   it('no changes', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [{Field: 'test', Italic: false, Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
       CiteFields: [],
       Example: ''
@@ -16,8 +16,8 @@ describe('checkCategoryChanged', () => {
   it('name changed', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [],
       CiteFields: [],
       Example: ''
@@ -27,8 +27,8 @@ describe('checkCategoryChanged', () => {
   it('citavi category changed', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [],
       CiteFields: [],
       Example: ''
@@ -38,8 +38,8 @@ describe('checkCategoryChanged', () => {
   it('citavi filter changed', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [],
       CiteFields: [],
       Example: ''
@@ -49,8 +49,8 @@ describe('checkCategoryChanged', () => {
   it('field changed', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [{Field: 'test', Italic: false, Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
       CiteFields: [],
       Example: ''
@@ -60,8 +60,8 @@ describe('checkCategoryChanged', () => {
   it('field added', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [],
       CiteFields: [],
       Example: ''
@@ -71,8 +71,8 @@ describe('checkCategoryChanged', () => {
   it('field removed', () => {
     const initial = {
       Name: 'test',
-      CitaviType: 'tt',
-      CitaviNecessaryFields: [],
+      CitaviCategory: 'tt',
+      CitaviFilters: [],
       Fields: [{Field: 'test', Italic: false, Prefix: '', Suffix: '', TexValue: false, CitaviAttributes: []}],
       CiteFields: [],
       Example: ''

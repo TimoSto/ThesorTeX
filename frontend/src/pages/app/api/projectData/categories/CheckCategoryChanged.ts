@@ -4,13 +4,13 @@ export default function CheckCategoryChanged(initial: BibCategory, name: string,
   if( !citaviFilter ) {
     citaviFilter = [];
   }
-  if( !initial.CitaviNecessaryFields ) {
-    initial.CitaviNecessaryFields = [];
+  if( !initial.CitaviFilters ) {
+    initial.CitaviFilters = [];
   }
   return name !== initial.Name ||
-    citaviCategory !== initial.CitaviType ||
-    citaviFilter.length !== initial.CitaviNecessaryFields.length ||
-    !citaviFilter.every((v, i) => v === initial.CitaviNecessaryFields[i]) ||
+    citaviCategory !== initial.CitaviCategory ||
+    citaviFilter.length !== initial.CitaviFilters.length ||
+    !citaviFilter.every((v, i) => v === initial.CitaviFilters[i]) ||
     fields.length !== initial.Fields.length ||
     !fields.every((f, i) => JSON.stringify(f) === JSON.stringify(initial.Fields[i])) ||
     citeFields.length !== initial.CiteFields.length ||

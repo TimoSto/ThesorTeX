@@ -1,8 +1,8 @@
 [
   {
     "Name": "aufsatz",
-    "CitaviType": "",
-    "CitaviNecessaryFields": null,
+    "CitaviCategory": "",
+    "CitaviFilters": null,
     "Fields": [
       {
         "Field": "Autor",
@@ -82,8 +82,8 @@
   },
   {
     "Name": "Buch",
-    "CitaviType": "",
-    "CitaviNecessaryFields": null,
+    "CitaviCategory": "",
+    "CitaviFilters": null,
     "Fields": [
       {
         "Field": "Autor",
@@ -147,8 +147,8 @@
   },
   {
     "Name": "citaviAufsatz",
-    "CitaviType": "article",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "article",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Autor",
@@ -232,8 +232,8 @@
   },
   {
     "Name": "citaviAufsatzDoi",
-    "CitaviType": "article",
-    "CitaviNecessaryFields": [
+    "CitaviCategory": "article",
+    "CitaviFilters": [
       "doi"
     ],
     "Fields": [
@@ -329,8 +329,8 @@
   },
   {
     "Name": "citaviBook",
-    "CitaviType": "book",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "book",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Autor",
@@ -414,8 +414,8 @@
   },
   {
     "Name": "citaviBookDoi",
-    "CitaviType": "book",
-    "CitaviNecessaryFields": [
+    "CitaviCategory": "book",
+    "CitaviFilters": [
       "doi"
     ],
     "Fields": [
@@ -501,8 +501,8 @@
   },
   {
     "Name": "citaviInbook",
-    "CitaviType": "inbook",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "inbook",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Autor",
@@ -596,8 +596,8 @@
   },
   {
     "Name": "citaviInbookDoi",
-    "CitaviType": "inbook",
-    "CitaviNecessaryFields": [
+    "CitaviCategory": "inbook",
+    "CitaviFilters": [
       "doi"
     ],
     "Fields": [
@@ -703,8 +703,8 @@
   },
   {
     "Name": "citaviInCollection",
-    "CitaviType": "incollection",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "incollection",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Autor",
@@ -798,8 +798,8 @@
   },
   {
     "Name": "citaviInCollectionDoi",
-    "CitaviType": "incollection",
-    "CitaviNecessaryFields": [
+    "CitaviCategory": "incollection",
+    "CitaviFilters": [
       "doi"
     ],
     "Fields": [
@@ -905,8 +905,8 @@
   },
   {
     "Name": "citaviInProceedings",
-    "CitaviType": "inproceedings",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "inproceedings",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Autor",
@@ -990,8 +990,8 @@
   },
   {
     "Name": "citaviInProceedingsDoi",
-    "CitaviType": "inproceedings",
-    "CitaviNecessaryFields": [
+    "CitaviCategory": "inproceedings",
+    "CitaviFilters": [
       "doi"
     ],
     "Fields": [
@@ -1077,8 +1077,8 @@
   },
   {
     "Name": "citaviProceedings",
-    "CitaviType": "proceedings",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "proceedings",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Herausgeber",
@@ -1142,8 +1142,8 @@
   },
   {
     "Name": "citaviProceedingsDoi",
-    "CitaviType": "proceedings",
-    "CitaviNecessaryFields": [
+    "CitaviCategory": "proceedings",
+    "CitaviFilters": [
       "doi"
     ],
     "Fields": [
@@ -1209,8 +1209,8 @@
   },
   {
     "Name": "citaviThesis",
-    "CitaviType": "thesis",
-    "CitaviNecessaryFields": [],
+    "CitaviCategory": "thesis",
+    "CitaviFilters": [],
     "Fields": [
       {
         "Field": "Autor",
@@ -1272,8 +1272,8 @@
   },
   {
     "Name": "Norm",
-    "CitaviType": "",
-    "CitaviNecessaryFields": null,
+    "CitaviCategory": "",
+    "CitaviFilters": null,
     "Fields": [
       {
         "Field": "Hrsg",
@@ -1337,8 +1337,8 @@
   },
   {
     "Name": "onlineAufsatz",
-    "CitaviType": "",
-    "CitaviNecessaryFields": null,
+    "CitaviCategory": "",
+    "CitaviFilters": null,
     "Fields": [
       {
         "Field": "Autor",
@@ -1402,8 +1402,8 @@
   },
   {
     "Name": "website",
-    "CitaviType": "",
-    "CitaviNecessaryFields": null,
+    "CitaviCategory": "",
+    "CitaviFilters": null,
     "Fields": [
       {
         "Field": "Autor",

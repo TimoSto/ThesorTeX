@@ -548,8 +548,8 @@ function getSlotName(i: number, n: number) {
 // onload
 if( initialCategory.value ) {
   categoryName.value = initialCategory.value.Name;
-  citaviCategory.value = initialCategory.value.CitaviType;//todo: rename to CitaviCategory
-  citaviFilter.value = initialCategory.value.CitaviNecessaryFields;
+  citaviCategory.value = initialCategory.value.CitaviCategory;//todo: rename to CitaviCategory
+  citaviFilter.value = initialCategory.value.CitaviFilters;
   bibValues.value = initialCategory.value.Fields.map(f => {
     return {
       Field: f.Field,

@@ -13,8 +13,8 @@ func SaveCategory(store database.ThesorTeXStore, project string, name string, in
 	for i, e := range existing {
 		if e.Name == initialName {
 			existing[i].Name = name
-			existing[i].CitaviType = citaviCategory
-			existing[i].CitaviNecessaryFields = citaviFilter
+			existing[i].CitaviCategory = citaviCategory
+			existing[i].CitaviFilters = citaviFilter
 			existing[i].Fields = bibFields
 			existing[i].CiteFields = citeFields
 
@@ -25,11 +25,11 @@ func SaveCategory(store database.ThesorTeXStore, project string, name string, in
 
 	if !found {
 		existing = append(existing, database.BibCategory{
-			Name:                  name,
-			CitaviType:            citaviCategory,
-			CitaviNecessaryFields: citaviFilter,
-			Fields:                bibFields,
-			CiteFields:            citeFields,
+			Name:           name,
+			CitaviCategory: citaviCategory,
+			CitaviFilters:  citaviFilter,
+			Fields:         bibFields,
+			CiteFields:     citeFields,
 		})
 	}
 

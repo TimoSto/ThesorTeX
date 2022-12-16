@@ -1,8 +1,8 @@
 
 export interface BibCategory {
   Name:                  string
-  CitaviType:            string
-  CitaviNecessaryFields: string[] //z.B. nur dieser Typ wenn doi existiert
+  CitaviCategory:            string
+  CitaviFilters: string[] //z.B. nur dieser Typ wenn doi existiert
   Fields:                Field[]
   CiteFields:            Field[]
   Example: string
