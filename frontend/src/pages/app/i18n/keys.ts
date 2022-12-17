@@ -92,7 +92,8 @@ export const i18nKeys = {
     CreateProject: 'Success.CreateProject',
     DeleteProject: 'Success.DeleteProject',
     SaveCategory: 'Success.SaveCategory',
-    SaveEntry: 'Success.SaveEntry'
+    SaveEntry: 'Success.SaveEntry',
+    SaveConfig: 'Success.SaveConfig'
   }
 }
 

@@ -94,5 +94,6 @@ export const german: I18nKeys = {
     DeleteProject: 'Projekt erfolgreich gelöscht',
     SaveCategory: 'Kategorie erfolgreich gespeichert',
     SaveEntry: 'Eintrag erfolgreich gespeichert',
+    SaveConfig: 'Einstellungen erfolgreich gespeichert',
   }
 }

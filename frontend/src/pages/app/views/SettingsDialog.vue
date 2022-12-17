@@ -120,7 +120,7 @@ const configChanged = computed(() => {
 // functions
 function Save() {
   SaveConfigData(configData.value).then(ok => {
-    errorStore.handleResponse(ok, "et", "ef");
+    errorStore.handleResponse(ok, t(i18nKeys.Success.SaveConfig), t(i18nKeys.Errors.ErrorSaving));
     initialConfigData.value.Port = configData.value.Port;
     initialConfigData.value.ProjectsDir = configData.value.ProjectsDir;
   })
