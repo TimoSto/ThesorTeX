@@ -6,7 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/services/website/static_content"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/static_content"
 )
 
 func main() {
