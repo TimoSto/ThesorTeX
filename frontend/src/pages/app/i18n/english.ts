@@ -78,10 +78,13 @@ export const english: I18nKeys = {
     ErrorHint: 'If you think this error is a bug, fell free to create an issue in {github}.',
     CreateIssue: 'Create issue',
     ErrorCreating: 'The project could not be created',
-    ErrorDeleting: 'The project could not be deleted'
+    ErrorDeleting: 'The project could not be deleted',
+    ErrorSaving: 'An error occurred during saving',
   },
   Success: {
     CreateProject: 'Project successfully created',
-    DeleteProject: 'Project successfully deleted'
+    DeleteProject: 'Project successfully deleted',
+    SaveCategory: 'Category successfully saved',
+    SaveEntry: 'Entry successfully saved',
   }
 }

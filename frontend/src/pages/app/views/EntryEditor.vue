@@ -103,6 +103,8 @@ import {useProjectDataStore} from "../stores/projectDataStore";
 import SaveEntry from "../api/projectData/entries/SaveEntry";
 import {BibEntry} from "../api/projectData/entries/BibEntry";
 import CheckEntryChanged from "../api/projectData/entries/CheckEntryChanged";
+import GetProjectData from "../api/projectData/GetProjectData";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -110,6 +112,8 @@ const emit = defineEmits(['navBack']);
 const { t } = useI18n();
 
 const projectDataStore = useProjectDataStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 // props
 const props = defineProps({
@@ -262,7 +266,15 @@ function CallSaveEntry() {
     CiteNumber: 0,
     Example: ''
   }
-  SaveEntry(entry, initialEntry.value ? initialEntry.value.Key : '', props.projectName)
+  SaveEntry(entry, initialEntry.value ? initialEntry.value.Key : '', props.projectName).then(ok => {
+    errorSuccessStore.handleResponse(ok, t(i18nKeys.Success.SaveEntry), t(i18nKeys.Errors.ErrorSaving))
+
+    if( ok ) {
+      GetProjectData(props.projectName).then(data => {
+        projectDataStore.setData(data)
+      });
+    }
+  })
 }
 
 function getSlotName(i: number) {

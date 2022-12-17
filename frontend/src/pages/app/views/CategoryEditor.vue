@@ -291,6 +291,8 @@ import CheckCategoryChanged from "../api/projectData/categories/CheckCategoryCha
 import type {Field} from "../api/projectData/categories/BibCategory";
 import GenerateModelForFields from "../api/projectData/categories/GenerateModel";
 import SaveCategory from "../api/projectData/categories/SaveCategory";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
+import GetProjectData from "../api/projectData/GetProjectData";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -298,6 +300,8 @@ const emit = defineEmits(['navBack']);
 const { t } = useI18n();
 
 const projectDataStore = useProjectDataStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 //props
 const props = defineProps({
@@ -539,6 +543,14 @@ function AddCiteRow() {
 
 function CallSaveCategory() {
   SaveCategory(props.projectName, categoryName.value, initialCategory.value ? initialCategory.value.Name : '', citaviCategory.value, citaviFilter.value, bibValues.value, citeValues.value)
+    .then(ok => {
+      errorSuccessStore.handleResponse(ok, t(i18nKeys.Success.SaveCategory), t(i18nKeys.Errors.ErrorSaving));
+      if( ok ) {
+        GetProjectData(props.projectName).then(data => {
+          projectDataStore.setData(data)
+        });
+      }
+    })
 }
 
 function getSlotName(i: number, n: number) {

@@ -77,11 +77,14 @@ export const i18nKeys = {
     ErrorHint: 'Errors.ErrorHint',
     CreateIssue: 'Errors.CreateIssue',
     ErrorCreating: 'Errors.ErrorCreating',
-    ErrorDeleting: 'Errors.ErrorDeleting'
+    ErrorDeleting: 'Errors.ErrorDeleting',
+    ErrorSaving: 'Errors.ErrorSaving'
   },
   Success: {
     CreateProject: 'Success.CreateProject',
-    DeleteProject: 'Success.DeleteProject'
+    DeleteProject: 'Success.DeleteProject',
+    SaveCategory: 'Success.SaveCategory',
+    SaveEntry: 'Success.SaveEntry'
   }
 }
 

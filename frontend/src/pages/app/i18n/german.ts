@@ -78,10 +78,13 @@ export const german: I18nKeys = {
     ErrorHint: 'Falls du glaubst, dass dieser Fehler ein Bug ist, leg dazu gern ein Issue in {github} an.',
     CreateIssue: 'Issue anlegen',
     ErrorCreating: 'Das Projekt konnte nicht erstellt werden',
-    ErrorDeleting: 'Das Projekt konnte nicht gelöscht werden'
+    ErrorDeleting: 'Das Projekt konnte nicht gelöscht werden',
+    ErrorSaving: 'Beim Speichern ist ein Fehler aufgetreten.'
   },
   Success: {
     CreateProject: 'Projekt erfolgreich erstellt',
-    DeleteProject: 'Projekt erfolgreich gelöscht'
+    DeleteProject: 'Projekt erfolgreich gelöscht',
+    SaveCategory: 'Kategorie erfolgreich gespeichert',
+    SaveEntry: 'Eintrag erfolgreich gespeichert',
   }
 }
