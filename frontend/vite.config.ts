@@ -50,6 +50,7 @@ export default defineConfig({
       "/app/projectData": "http://localhost:8448/",
       "/app/saveEntry": "http://localhost:8448/",
       "/app/saveCategory": "http://localhost:8448/",
+      "/app/config": "http://localhost:8448/",
     }
   },
 })

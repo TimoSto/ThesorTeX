@@ -12,6 +12,7 @@
           variant="underlined"
           :label="t(i18nKeys.Settings.Port)"
           prefix="http://localhost:"
+          :model-value="configData.Port"
         >
           <template #append-inner>
             <v-tooltip
@@ -31,6 +32,7 @@
         <v-text-field
           variant="underlined"
           :label="t(i18nKeys.Settings.ProjectFolder)"
+          :model-value="configData.ProjectsDir"
         >
           <template #append-inner>
             <v-tooltip
@@ -63,11 +65,13 @@
 
 <script setup lang="ts">
 import {i18nKeys} from '../i18n/keys'
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
 // globals
 import {useI18n} from "vue-i18n";
+import {ConfigData} from "../api/config/ConfigData";
+import ReadConfigData from "../api/config/ReadConfigData";
 
 const emit = defineEmits(['close', 'success'])
 
@@ -82,6 +86,10 @@ const props = defineProps({
   open: Boolean,
 });
 
+// data
+
+const configData = ref({} as ConfigData);
+
 // computed
 const opened = computed({
   get() {
@@ -93,6 +101,11 @@ const opened = computed({
     }
   }
 });
+
+// onload
+ReadConfigData().then(data => {
+  configData.value = data;
+})
 
 </script>
 

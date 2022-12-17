@@ -7,6 +7,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/conf"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database/local_store"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/handlers/category"
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/handlers/config"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/handlers/entry"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/handlers/project"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/handlers/root"
@@ -14,15 +15,15 @@ import (
 
 const prefix = "/app"
 
-func Register(mux *http.ServeMux, config conf.Config) {
+func Register(mux *http.ServeMux, cfg conf.Config) {
 
 	store := local_store.Store{
-		Config: config,
+		Config: cfg,
 	}
 
 	mux.Handle(fmt.Sprintf("%s/", prefix), root.HandleRoot())
 
-	//mux.Handle(fmt.Sprintf("%s/config", prefix), handlers.HandleConfig())
+	mux.Handle(fmt.Sprintf("%s/config", prefix), config.HandleConfig())
 
 	mux.Handle(fmt.Sprintf("%s/projects", prefix), project.HandleProjects(&store))
 
