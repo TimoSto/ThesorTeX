@@ -67,7 +67,8 @@ export const english: I18nKeys = {
     Close: 'Close',
     Attribute: 'Attribute',
     Value: 'Value',
-    Field: 'Field'
+    Field: 'Field',
+    Settings: 'Settings'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',

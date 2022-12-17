@@ -18,9 +18,28 @@
 
       <v-spacer />
 
-      <v-btn
-        icon="mdi-dots-vertical"
-      />
+      <v-menu
+        persistent
+        :min-width="250"
+      >
+        <template v-slot:activator="{ props }">
+          <v-btn
+            icon="mdi-dots-vertical"
+            v-bind="props"
+          />
+        </template>
+        <v-list>
+          <v-list-item @click="openSettings">
+            <template v-slot:prepend>
+              <v-icon>mdi-cog</v-icon>
+            </template>
+            <v-list-item-title>
+              {{ t(i18nKeys.Common.Settings) }}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
     </v-app-bar>
 
     <v-navigation-drawer
@@ -80,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import NavigationArea from "@/components/NavigationArea";
+import NavigationArea from "../../components/NavigationArea";
 import {computed, ref} from "vue";
 import Overview from "./views/OverView.vue";
 import ProjectView from "./views/ProjectView.vue";
@@ -195,6 +214,10 @@ function switchToProject(v: number) {
   setTimeout(() => {
     instantSwitch.value = false;
   }, 750);
+}
+
+function openSettings() {
+
 }
 </script>
 

@@ -66,7 +66,8 @@ export const i18nKeys = {
     Close : 'Common.Close',
     Attribute: 'Common.Attribute',
     Value: 'Common.Value',
-    Field: 'Common.Field'
+    Field: 'Common.Field',
+    Settings: 'Common.Settings'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',
