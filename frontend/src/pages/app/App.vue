@@ -187,3 +187,7 @@ function switchToProject(v: number) {
   }, 750);
 }
 </script>
+
+<style lang="scss">
+@use "../../styles/common";
+</style>

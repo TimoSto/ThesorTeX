@@ -36,7 +36,7 @@
           :model-value="[0,1]"
         >
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.EntryEditor.General.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -64,7 +64,7 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.EntryEditor.Fields.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -288,7 +288,3 @@ if( initialEntry.value ) {
   entryFields.value = JSON.parse(JSON.stringify(initialEntry.value.Fields));
 }
 </script>
-
-<style scoped>
-
-</style>

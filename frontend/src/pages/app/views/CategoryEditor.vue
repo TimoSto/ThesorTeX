@@ -33,7 +33,7 @@
           :model-value="[0, 1, 2]"
         >
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.CategoryEditor.General.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -73,7 +73,7 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.CategoryEditor.Bib.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -174,7 +174,7 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.CategoryEditor.Cite.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -586,7 +586,8 @@ if( initialCategory.value ) {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
 .centeredCell {
   display: inline-block;
   text-align: center;

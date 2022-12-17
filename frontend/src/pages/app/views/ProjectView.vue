@@ -31,7 +31,7 @@
           :model-value="[0]"
         >
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.Project.Entry.Heading) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -44,7 +44,7 @@
           </v-expansion-panel>
 
           <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title v-ripple>
               {{ t(i18nKeys.Project.Category.Heading) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>

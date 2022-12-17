@@ -1,3 +1,7 @@
 a {
   color: rgb(var(--v-theme-primary));
 }
+
+.v-expansion-panel-title--active > .v-expansion-panel-title__overlay {
+  opacity: 0;
+}
