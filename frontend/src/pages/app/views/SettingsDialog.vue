@@ -61,6 +61,7 @@
         <v-btn
           color="primary"
           :disabled="!configChanged"
+          @click="Save"
         >
           {{ t(i18nKeys.Common.Save) }}
         </v-btn>
@@ -78,6 +79,7 @@ import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import {useI18n} from "vue-i18n";
 import {ConfigData} from "../api/config/ConfigData";
 import ReadConfigData from "../api/config/ReadConfigData";
+import SaveConfigData from "../api/config/SaveConfigData";
 
 const emit = defineEmits(['close'])
 
@@ -96,7 +98,7 @@ const props = defineProps({
 
 const configData = ref({} as ConfigData);
 
-let initialConfigData = {} as ConfigData;
+let initialConfigData = ref({} as ConfigData);
 
 // computed
 const opened = computed({
@@ -111,14 +113,23 @@ const opened = computed({
 });
 
 const configChanged = computed(() => {
-  return initialConfigData.Port != configData.value.Port ||
-    initialConfigData.ProjectsDir != configData.value.ProjectsDir;
+  return initialConfigData.value.Port != configData.value.Port ||
+    initialConfigData.value.ProjectsDir != configData.value.ProjectsDir;
 })
+
+// functions
+function Save() {
+  SaveConfigData(configData.value).then(ok => {
+    errorStore.handleResponse(ok, "et", "ef");
+    initialConfigData.value.Port = configData.value.Port;
+    initialConfigData.value.ProjectsDir = configData.value.ProjectsDir;
+  })
+}
 
 // onload
 ReadConfigData().then(data => {
-  initialConfigData.Port = data.Port;
-  initialConfigData.ProjectsDir = data.ProjectsDir;
+  initialConfigData.value.Port = data.Port;
+  initialConfigData.value.ProjectsDir = data.ProjectsDir;
   configData.value = data;
 })
 
