@@ -117,7 +117,7 @@ import {BibEntry} from "../api/projectData/entries/BibEntry";
 import CheckEntryChanged from "../api/projectData/entries/CheckEntryChanged";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
-import GenerateEntryExample from "../api/projectData/entries/GenerateEntryExample";
+import GenerateEntry from "../api/projectData/entries/GenerateEntry";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -270,7 +270,7 @@ const bibEntries = computed(() => {
     Example: ""
   }
   return [
-    GenerateEntryExample(e, projectDataStore.categories),
+    GenerateEntry(e, projectDataStore.categories),
     ""
   ]
 })

@@ -1,5 +1,5 @@
 import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
-import GenerateEntry from "@/pages/app/api/projectData/entries/GenerateEntryExample";
+import GenerateEntry from "@/pages/app/api/projectData/entries/GenerateEntry";
 import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
 
 describe('GenerateEntryExample', () => {
