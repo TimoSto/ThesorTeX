@@ -97,6 +97,7 @@
     </v-main>
     <SettingsDialog
       :open="settingsOpened"
+      @close="settingsOpened = false"
     />
   </v-app>
 </template>

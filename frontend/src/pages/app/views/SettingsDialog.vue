@@ -5,7 +5,7 @@
   >
     <v-card>
       <v-card-title>
-        {{ t(i18nKeys.Common.Settings) }}{{configData}}
+        {{ t(i18nKeys.Common.Settings) }}
       </v-card-title>
       <v-card-text>
         <v-text-field
@@ -52,7 +52,10 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="primary">
+        <v-btn
+          color="primary"
+          @click="emit('close')"
+        >
           {{ t(i18nKeys.Common.Close) }}
         </v-btn>
         <v-btn
@@ -76,7 +79,7 @@ import {useI18n} from "vue-i18n";
 import {ConfigData} from "../api/config/ConfigData";
 import ReadConfigData from "../api/config/ReadConfigData";
 
-const emit = defineEmits(['close', 'success'])
+const emit = defineEmits(['close'])
 
 const { t } = useI18n();
 
