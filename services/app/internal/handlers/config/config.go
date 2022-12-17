@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/conf"
 )
 
 func HandleConfig() http.Handler {

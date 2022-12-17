@@ -1,10 +1,10 @@
-package app
+package handlers
 
 import (
 	"fmt"
 	"net/http"
 
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/conf"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database/local_store"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry"

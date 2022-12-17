@@ -10,7 +10,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
-	"github.com/TimoSto/ThesorTeX/services/app/conf"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/conf"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 )
 
