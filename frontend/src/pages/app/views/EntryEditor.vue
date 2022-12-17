@@ -68,6 +68,18 @@
               {{ t(i18nKeys.EntryEditor.Fields.Title) }}
             </v-expansion-panel-title>
             <v-expansion-panel-text>
+              <p
+                class="example"
+              >
+                <span class="prefix">Literaturverzeichnis: </span>
+                <span v-html="bibEntries[0]" />
+              </p>
+              <p
+                class="example"
+              >
+                <span class="prefix">Zitat: </span>
+                <span v-html="bibEntries[1]" />
+              </p>
               <ResponsiveTable
                 :headers="fieldsHeaders"
                 :rows="fieldRows"
@@ -105,6 +117,7 @@ import {BibEntry} from "../api/projectData/entries/BibEntry";
 import CheckEntryChanged from "../api/projectData/entries/CheckEntryChanged";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
+import GenerateEntryExample from "../api/projectData/entries/GenerateEntryExample";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -247,6 +260,21 @@ const entryChanged = computed(() => {
   return false
 })
 
+const bibEntries = computed(() => {
+  const e: BibEntry = {
+    Category: entryCategory.value,
+    Fields: entryFields.value,
+    Key: "",
+    Comment: "",
+    CiteNumber: 0,
+    Example: ""
+  }
+  return [
+    GenerateEntryExample(e, projectDataStore.categories),
+    ""
+  ]
+})
+
 // watchers
 watch(initialEntry, () => {
   if( initialEntry.value ) {
@@ -288,3 +316,12 @@ if( initialEntry.value ) {
   entryFields.value = JSON.parse(JSON.stringify(initialEntry.value.Fields));
 }
 </script>
+
+<style scoped lang="scss">
+.example {
+  padding: 4px 8px;
+  & .prefix {
+    font-weight: bold;
+  }
+}
+</style>
