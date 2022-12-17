@@ -26,6 +26,7 @@
     <v-navigation-drawer
       permanent
       :rail="!drawer"
+      :rail-width="68"
     >
       <ProjectsSidebar
         v-if="pagesCount > 1"

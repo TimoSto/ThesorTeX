@@ -4,6 +4,9 @@
     bar-color="background"
   >
     <template #bar>
+      <v-app-bar-nav-icon>
+        <v-icon>mdi-folder</v-icon>
+      </v-app-bar-nav-icon>
       <v-toolbar-title>
         {{ t(i18nKeys.Sidebar.Projects) }}
       </v-toolbar-title>
