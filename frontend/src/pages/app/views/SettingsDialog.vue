@@ -5,14 +5,14 @@
   >
     <v-card>
       <v-card-title>
-        {{ t(i18nKeys.Common.Settings) }}
+        {{ t(i18nKeys.Common.Settings) }}{{configData}}
       </v-card-title>
       <v-card-text>
         <v-text-field
+          v-model="configData.Port"
           variant="underlined"
           :label="t(i18nKeys.Settings.Port)"
           prefix="http://localhost:"
-          :model-value="configData.Port"
         >
           <template #append-inner>
             <v-tooltip
@@ -30,9 +30,9 @@
           </template>
         </v-text-field>
         <v-text-field
+          v-model="configData.ProjectsDir"
           variant="underlined"
           :label="t(i18nKeys.Settings.ProjectFolder)"
-          :model-value="configData.ProjectsDir"
         >
           <template #append-inner>
             <v-tooltip
@@ -55,7 +55,10 @@
         <v-btn color="primary">
           {{ t(i18nKeys.Common.Close) }}
         </v-btn>
-        <v-btn color="primary">
+        <v-btn
+          color="primary"
+          :disabled="!configChanged"
+        >
           {{ t(i18nKeys.Common.Save) }}
         </v-btn>
       </v-card-actions>
@@ -90,6 +93,8 @@ const props = defineProps({
 
 const configData = ref({} as ConfigData);
 
+let initialConfigData = {} as ConfigData;
+
 // computed
 const opened = computed({
   get() {
@@ -102,8 +107,15 @@ const opened = computed({
   }
 });
 
+const configChanged = computed(() => {
+  return initialConfigData.Port != configData.value.Port ||
+    initialConfigData.ProjectsDir != configData.value.ProjectsDir;
+})
+
 // onload
 ReadConfigData().then(data => {
+  initialConfigData.Port = data.Port;
+  initialConfigData.ProjectsDir = data.ProjectsDir;
   configData.value = data;
 })
 
