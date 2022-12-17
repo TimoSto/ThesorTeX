@@ -3,27 +3,17 @@ Tool for handling bibliography in a LaTeX project
 
 ## Project structure
 
-### cmd
-Entrypoints of the application.
+### backend
+The backend services
 
 #### app
 local executable, which handles the file management. This way unnecessary traffic is avoided.
 
-#### lambda
-The lambda handles authentication and the website.
-
-### services
-Intependently runnable services. Note that they might be combined into a single executable.
-But they all have their own backend package and can be invoked by creating a mux server and give it as parameter to the start server func
-
-#### app
-Managing of bibliograhy and tex-files
+#### website
+The lambda handles the website.
 
 #### auth
-Authentication
-
-#### website
-The website accessible to global web
+Handling of authentication
 
 ### pkg
 Packages used by multiple other packages
