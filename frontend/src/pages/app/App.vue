@@ -99,6 +99,14 @@
       :open="settingsOpened"
       @close="settingsOpened = false"
     />
+    <SuccessErrorDisplay
+      :error="errorStore.errorMessage"
+      :success="errorStore.successMessage"
+      :hint="t(i18nKeys.Errors.ErrorHint)"
+      :title="t(i18nKeys.Errors.Title)"
+      @error-closed="errorStore.clean"
+      @success-closed="errorStore.clean"
+    />
   </v-app>
 </template>
 
@@ -114,11 +122,15 @@ import ProjectsSidebar from "./views/ProjectsSidebar.vue";
 import {useProjectsStore} from "./stores/projectsStore";
 import CategoryEditor from "./views/CategoryEditor.vue";
 import SettingsDialog from "./views/SettingsDialog.vue";
+import {useErrorSuccessStore} from "./stores/errorSuccessStore";
+import SuccessErrorDisplay from "../../components/SuccessErrorDisplay.vue";
 
 // globals
 const { t } = useI18n();
 
 const projectsStore = useProjectsStore();
+
+const errorStore = useErrorSuccessStore();
 
 // data
 const pages = ref([{

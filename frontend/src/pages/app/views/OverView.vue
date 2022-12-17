@@ -31,16 +31,6 @@
     @close="open = false"
     @success="AddProjectToList"
   />
-
-  <!--todo: move up -->
-  <SuccessErrorDisplay
-    :error="errorStore.errorMessage"
-    :success="errorStore.successMessage"
-    :hint="t(i18nKeys.Errors.ErrorHint)"
-    :title="t(i18nKeys.Errors.Title)"
-    @error-closed="errorStore.clean"
-    @success-closed="errorStore.clean"
-  />
 </template>
 
 <script setup lang="ts">

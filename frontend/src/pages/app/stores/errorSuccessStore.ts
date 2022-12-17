@@ -10,7 +10,10 @@ export const useErrorSuccessStore = defineStore('error-success', () => {
     if( !success ) {
       errorMessage.value = errorMsg;
     } else {
-      successMessage.value = successMsg;
+      successMessage.value = '';
+      setTimeout(() => {
+        successMessage.value = successMsg;
+      })
     }
   }
 
