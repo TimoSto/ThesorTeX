@@ -13,14 +13,16 @@
           label="Port"
           prefix="http://localhost:"
         >
-          <template v-slot:append-inner>
+          <template #append-inner>
             <v-tooltip
               text="Die Anwendung wird auf diesem Port deines Computers erreichbar sein. Der Standard ist http://localhost:8081"
               location="top"
               :max-width="200"
             >
-              <template v-slot:activator="{ props }">
-                <v-icon v-bind="props">mdi-information</v-icon>
+              <template #activator="{ props }">
+                <v-icon v-bind="props">
+                  mdi-information
+                </v-icon>
               </template>
             </v-tooltip>
 
