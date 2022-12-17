@@ -29,7 +29,7 @@
           />
         </template>
         <v-list>
-          <v-list-item @click="openSettings">
+          <v-list-item @click="settingsOpened = true">
             <template v-slot:prepend>
               <v-icon>mdi-cog</v-icon>
             </template>
@@ -95,6 +95,9 @@
         </template>
       </NavigationArea>
     </v-main>
+    <SettingsDialog
+      :open="settingsOpened"
+    />
   </v-app>
 </template>
 
@@ -109,6 +112,7 @@ import {i18nKeys} from "./i18n/keys";
 import ProjectsSidebar from "./views/ProjectsSidebar.vue";
 import {useProjectsStore} from "./stores/projectsStore";
 import CategoryEditor from "./views/CategoryEditor.vue";
+import SettingsDialog from "./views/SettingsDialog.vue";
 
 // globals
 const { t } = useI18n();
@@ -130,6 +134,8 @@ const EDITOR_TYPE_CATEGORY = 'category';
 const instantSwitch = ref(false);
 
 const navigatingBack = ref(false);
+
+const settingsOpened = ref(false);
 
 // computed
 const pagesCount = computed(() => {
@@ -216,9 +222,6 @@ function switchToProject(v: number) {
   }, 750);
 }
 
-function openSettings() {
-
-}
 </script>
 
 <style lang="scss">
