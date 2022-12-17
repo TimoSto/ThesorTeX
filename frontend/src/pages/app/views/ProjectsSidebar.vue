@@ -11,7 +11,6 @@
     </template>
     <template #content>
       <v-list
-        density="compact"
         :selected="[currentProject]"
         @update:selected="currentProject = $event[0]"
       >

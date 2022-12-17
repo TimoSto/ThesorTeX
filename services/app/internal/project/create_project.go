@@ -28,7 +28,7 @@ func CreateProject(name string, store database.ThesorTeXStore) (database.Project
 		Name:            name,
 		Created:         time.Now().Format("2006-01-02 15:04"),
 		LastModified:    time.Now().Format("2006-01-02 15:04"),
-		NumberOfEntries: 0,
+		NumberOfEntries: 1,
 	}
 
 	return meta, store.CreateProject(meta, project_template.ProjectTemplate)
