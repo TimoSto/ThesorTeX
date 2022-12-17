@@ -72,13 +72,13 @@
                 class="example"
               >
                 <span class="prefix">Literaturverzeichnis: </span>
-                <span v-html="bibEntries[0]" />
+                <span v-html="bibEntryPreview" />
               </p>
               <p
                 class="example"
               >
                 <span class="prefix">Zitat: </span>
-                <span v-html="bibEntries[1]" />
+                <span v-html="bibCitePreview" />
               </p>
               <ResponsiveTable
                 :headers="fieldsHeaders"
@@ -118,6 +118,7 @@ import CheckEntryChanged from "../api/projectData/entries/CheckEntryChanged";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GenerateEntry from "../api/projectData/entries/GenerateEntry";
+import GenerateCite from "../api/projectData/entries/GenerateCite";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -249,6 +250,26 @@ const fieldRows = computed(() => {
         slot: true
       },
     ])
+  });
+  const bibFieldNames = category.Fields.map(f => f.Field);
+  category.CiteFields.forEach(f => {
+    if( bibFieldNames.indexOf(f.Field) === -1 ) {
+      rows.push([
+        {
+          content: f.Field,
+          icon: '',
+          event: '',
+          hideUnder: -1
+        },
+        {
+          content: '',
+          icon: '',
+          event: '',
+          hideUnder: -1,
+          slot: true
+        },
+      ])
+    }
   })
   return rows;
 })
@@ -260,19 +281,28 @@ const entryChanged = computed(() => {
   return false
 })
 
-const bibEntries = computed(() => {
-  const e: BibEntry = {
+const bibEntryPreview = computed(() => {
+  const entry: BibEntry = {
+    Key: entryKey.value,
     Category: entryCategory.value,
     Fields: entryFields.value,
-    Key: "",
-    Comment: "",
+    Comment: '',
     CiteNumber: 0,
-    Example: ""
+    Example: ''
   }
-  return [
-    GenerateEntry(e, projectDataStore.categories),
-    ""
-  ]
+  return GenerateEntry(entry, projectDataStore.categories)
+})
+
+const bibCitePreview = computed(() => {
+  const entry: BibEntry = {
+    Key: entryKey.value,
+    Category: entryCategory.value,
+    Fields: entryFields.value,
+    Comment: '',
+    CiteNumber: 0,
+    Example: ''
+  }
+  return GenerateCite(entry, projectDataStore.categories)
 })
 
 // watchers
