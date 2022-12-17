@@ -28,7 +28,7 @@
         <v-expansion-panels
           multiple
           variant="accordion"
-          :model-value="[0]"
+          :model-value="[0,1]"
         >
           <v-expansion-panel>
             <v-expansion-panel-title v-ripple>

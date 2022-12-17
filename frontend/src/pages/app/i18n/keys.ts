@@ -37,8 +37,8 @@ export const i18nKeys = {
     Title: 'EntryEditor.Title',
     General: {
       Title: 'EntryEditor.General.Title',
-      Key: 'EntryEditor.Genral.Key',
-      Category: 'EntryEditor.Genral.Category',
+      Key: 'EntryEditor.General.Key',
+      Category: 'EntryEditor.General.Category',
     },
     Fields: {
       Title: 'EntryEditor.Fields.Title'
