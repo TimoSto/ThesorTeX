@@ -31,6 +31,7 @@
       <ProjectsSidebar
         v-if="pagesCount > 1"
         :project="pages[1].title"
+        :open="drawer"
         @switch-to="switchToProject"
       />
     </v-navigation-drawer>

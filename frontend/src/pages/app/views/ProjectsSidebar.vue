@@ -2,11 +2,9 @@
   <AppbarContent
     :level="2"
     bar-color="background"
+    :hide-bar="!open"
   >
     <template #bar>
-      <v-app-bar-nav-icon>
-        <v-icon>mdi-folder</v-icon>
-      </v-app-bar-nav-icon>
       <v-toolbar-title>
         {{ t(i18nKeys.Sidebar.Projects) }}
       </v-toolbar-title>
@@ -48,6 +46,10 @@ const { t } = useI18n();
 const props = defineProps({
   project: {
     type: String,
+    required: true
+  },
+  open: {
+    type: Boolean,
     required: true
   }
 })

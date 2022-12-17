@@ -4,10 +4,12 @@
     :color="props.barColor"
     density="default"
   >
-    <slot name="bar" />
+    <slot
+      name="bar"
+    />
   </v-app-bar>
   <v-toolbar
-    v-if="props.level > 1"
+    v-if="props.level > 1 && !props.hideBar"
     :color="props.barColor"
     density="compact"
   >
@@ -31,6 +33,10 @@ const props = defineProps({
     type: Number,
     default: -1,
   },
+  hideBar: {
+    type: Boolean,
+    default: false
+  }
 })
 //TODO: elevate on scroll
 </script>
