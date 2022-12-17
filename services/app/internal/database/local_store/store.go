@@ -65,6 +65,12 @@ func (s *Store) GetAllProjects() ([]database.ProjectMetaData, error) {
 					newProj.Created = pConf.Created
 					newProj.LastModified = pConf.LastModified
 				}
+				entries, err := s.GetProjectEntries(f.Name())
+				if err != nil {
+					log.Error("got error while trying to read project entries: %v", err)
+				} else {
+					newProj.NumberOfEntries = len(entries)
+				}
 			}
 			p = append(
 				p,
