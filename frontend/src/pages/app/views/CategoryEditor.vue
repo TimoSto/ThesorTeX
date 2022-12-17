@@ -88,7 +88,7 @@
                 @btn-clicked="AddBibRow"
               >
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-0`"
                   #[getSlotName(i,0)]
                 >
@@ -99,7 +99,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-1`"
                   #[getSlotName(i,1)]
                 >
@@ -112,7 +112,7 @@
                   </span>
                 </template>
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-2`"
                   #[getSlotName(i,2)]
                 >
@@ -123,7 +123,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-3`"
                   #[getSlotName(i,3)]
                 >
@@ -134,7 +134,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-4`"
                   #[getSlotName(i,4)]
                 >
@@ -147,7 +147,7 @@
                   </span>
                 </template>
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-5`"
                   #[getSlotName(i,5)]
                 >
@@ -159,7 +159,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in bibFields"
+                  v-for="(_, i) in bibFields"
                   :key="`bib-cell-${i}-6`"
                   #[getSlotName(i,6)]
                 >
@@ -189,7 +189,7 @@
                 @btn-clicked="AddCiteRow"
               >
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-0`"
                   #[getSlotName(i,0)]
                 >
@@ -200,7 +200,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-1`"
                   #[getSlotName(i,1)]
                 >
@@ -213,7 +213,7 @@
                   </span>
                 </template>
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-2`"
                   #[getSlotName(i,2)]
                 >
@@ -224,7 +224,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-3`"
                   #[getSlotName(i,3)]
                 >
@@ -235,7 +235,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-4`"
                   #[getSlotName(i,4)]
                 >
@@ -248,7 +248,7 @@
                   </span>
                 </template>
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-5`"
                   #[getSlotName(i,5)]
                 >
@@ -260,7 +260,7 @@
                   />
                 </template>
                 <template
-                  v-for="(r, i) in citeFields"
+                  v-for="(_, i) in citeFields"
                   :key="`cite-cell-${i}-6`"
                   #[getSlotName(i,6)]
                 >
