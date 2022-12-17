@@ -1,5 +1,11 @@
 
 export const i18nKeys = {
+  Settings: {
+    Port: 'Settings.Port',
+    PortHint: 'Settings.PortHint',
+    ProjectFolder: 'Settings.ProjectFolder',
+    ProjectFolderHint: 'Settings.ProjectFolderHint',
+  },
   Sidebar: {
     Projects: 'Sidebar.Projects'
   },
@@ -67,7 +73,8 @@ export const i18nKeys = {
     Attribute: 'Common.Attribute',
     Value: 'Common.Value',
     Field: 'Common.Field',
-    Settings: 'Common.Settings'
+    Settings: 'Common.Settings',
+    Save: 'Common.Save'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',

@@ -1,6 +1,12 @@
 import {I18nKeys} from "@/pages/app/i18n/keys";
 
 export const german: I18nKeys = {
+  Settings: {
+    Port: 'Port',
+    PortHint: 'Die Anwendung wird auf diesem Port deines Computers erreichbar sein. Der Standard ist http://localhost:8081.',
+    ProjectFolder: 'Speicherort für Projekte',
+    ProjectFolderHint: 'In diesem Ordner werden deine Projekte gespeichert.',
+  },
   Sidebar: {
     Projects: 'Projekte'
   },
@@ -69,6 +75,7 @@ export const german: I18nKeys = {
     Value: 'Wert',
     Field: 'Feld',
     Settings: 'Einstellungen',
+    Save: 'Speichern'
   },
   Rules: {
     ProjectAlreadyExists: 'Ein Projekt mit diesem Namen existiert bereits',
