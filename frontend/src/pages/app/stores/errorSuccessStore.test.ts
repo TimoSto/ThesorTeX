@@ -21,7 +21,9 @@ describe('ErrorSuccessStore', () => {
       expect(store.successMessage).toEqual('');
       store.handleResponse(true, 'test 1', 'error1')
       expect(store.errorMessage).toEqual('');
-      expect(store.successMessage).toEqual('test 1');
+      setTimeout(() => {
+        expect(store.successMessage).toEqual('test 1');
+      })
     })
     it('clean', () => {
       const store = useErrorSuccessStore();
