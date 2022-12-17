@@ -143,7 +143,10 @@ const titleAppendix = computed(() => {
 })
 
 // methods
-function openProject(name: string) {
+function openProject(name: string, always?: boolean) {
+  if( !always && pagesCount.value > 1 ) {
+    return
+  }
   pages.value.push({
     title: name,
     disabled: false
@@ -163,6 +166,9 @@ function navBack() {
 }
 
 function openEntry(key: string) {
+  if( pagesCount.value > 2 ) {
+    return
+  }
   pages.value.push({
     title: key,
     disabled: false
@@ -171,6 +177,9 @@ function openEntry(key: string) {
 }
 
 function openCategory(name: string) {
+  if( pagesCount.value > 2 ) {
+    return
+  }
   pages.value.push({
     title: name,
     disabled: false
@@ -182,7 +191,7 @@ function switchToProject(v: number) {
   instantSwitch.value = true;
   pages.value = pages.value.slice(0, 1);
   editorType = '';
-  openProject(projectsStore.projects[v].Name);
+  openProject(projectsStore.projects[v].Name, true);
   setTimeout(() => {
     instantSwitch.value = false;
   }, 750);
