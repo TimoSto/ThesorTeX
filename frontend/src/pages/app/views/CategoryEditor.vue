@@ -199,6 +199,7 @@
                     v-model="citeValues[i].Field"
                     color="primary"
                     variant="underlined"
+                    :rules="fieldNameRules(bibValues.concat(citeValues.filter(f => bibValues.map(bf => bf.Field).indexOf(f) === -1)).map(f => f.Field), bibValues[i].Field)"
                   />
                 </template>
                 <template
