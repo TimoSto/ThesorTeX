@@ -50,6 +50,7 @@
                     v-model="entryKey"
                     color="primary"
                     variant="underlined"
+                    :rules="keyRules"
                   />
                 </template>
                 <template #1-1>
@@ -119,6 +120,7 @@ import GetProjectData from "../api/projectData/GetProjectData";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GenerateEntry from "../api/projectData/entries/GenerateEntry";
 import GenerateCite from "../api/projectData/entries/GenerateCite";
+import GetEntryKeyRules from "../../../rules/entryKeyRules";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -303,6 +305,10 @@ const bibCitePreview = computed(() => {
     Example: ''
   }
   return GenerateCite(entry, projectDataStore.categories)
+})
+
+const keyRules = computed(() => {
+  return GetEntryKeyRules(projectDataStore.entries.map(e => e.Key), initialEntry.value.Key);
 })
 
 // watchers
