@@ -6,6 +6,9 @@ export default function GetEntryKeyRules(existing: string[], initialKey: string,
     if( key === '' ) {
       return t(i18nKeys.Rules.NotEmpty);
     }
+    if( key.indexOf(' ') >= 0 ) {
+      return t(i18nKeys.Rules.NoSpaces);
+    }
     if( StringContainsSpecialChars(key) ) {
       return t(i18nKeys.Rules.NoSpecialChars)
     }
