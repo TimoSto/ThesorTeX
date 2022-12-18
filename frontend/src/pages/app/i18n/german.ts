@@ -83,6 +83,7 @@ export const german: I18nKeys = {
     NotEmpty: 'Kein leerer Wert erlaubt',
     KeyAlreadyExists: 'Dieser Schlüssel ist bereits vergeben',
     CategoryNameAlreadyExists: 'Dieser Name ist bereits vergeben',
+    FieldAlreadyExists: 'Ein Feld mit diesem Namen existiert bereits',
     NoSpecialChars: 'Keine Sonderzeichen erlaubt',
   },
   Errors: {

@@ -97,6 +97,7 @@
                     v-model="bibValues[i].Field"
                     color="primary"
                     variant="underlined"
+                    :rules="fieldNameRules(bibValues.map(v => v.Field), bibValues[i].Field)"
                   />
                 </template>
                 <template
@@ -295,6 +296,7 @@ import SaveCategory from "../api/projectData/categories/SaveCategory";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GetProjectData from "../api/projectData/GetProjectData";
 import GetCategoryNameRules from "../rules/categoryNameRules";
+import GetFieldNameRules from "../rules/fieldNameRules";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -561,6 +563,10 @@ function CallSaveCategory() {
 
 function getSlotName(i: number, n: number) {
   return `${i}-${n}`
+}
+
+function fieldNameRules (existing: string[], initial: string) {
+  return GetFieldNameRules(existing, initial, t);
 }
 
 // onload

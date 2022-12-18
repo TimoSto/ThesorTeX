@@ -82,6 +82,7 @@ export const i18nKeys = {
     NotEmpty: 'Rules.NotEmpty',
     KeyAlreadyExists: 'Rules.KeyAlreadyExists',
     CategoryNameAlreadyExists: 'Rules.CategoryNameAlreadyExists',
+    FieldAlreadyExists: 'Rules.FieldAlreadyExists',
     NoSpecialChars: 'Rules.NoSpecialChars'
   },
   Errors: {

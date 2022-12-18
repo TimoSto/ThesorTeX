@@ -83,6 +83,7 @@ export const english: I18nKeys = {
     NotEmpty: 'An empty value is not valid',
     KeyAlreadyExists: 'This key is already in usage',
     CategoryNameAlreadyExists: 'This name is already in usage',
+    FieldAlreadyExists: 'A field with this name already exists',
     NoSpecialChars: 'No special chars permitted',
   },
   Errors: {
