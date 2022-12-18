@@ -12,6 +12,8 @@
     v-if="props.level > 1 && !props.hideBar"
     :color="props.barColor"
     density="compact"
+    elevation="1"
+    style="z-index: 1000"
   >
     <slot name="bar" />
   </v-toolbar>
