@@ -300,7 +300,7 @@ import GetCategoryNameRules from "../rules/categoryNameRules";
 import GetFieldNameRules from "../rules/fieldNameRules";
 
 //globals
-const emit = defineEmits(['navBack']);
+const emit = defineEmits(['navBack', 'titleChange']);
 
 const { t } = useI18n();
 
@@ -556,7 +556,8 @@ function CallSaveCategory() {
       errorSuccessStore.handleResponse(ok, t(i18nKeys.Success.SaveCategory), t(i18nKeys.Errors.ErrorSaving));
       if( ok ) {
         GetProjectData(props.projectName).then(data => {
-          projectDataStore.setData(data)
+          projectDataStore.setData(data);
+          emit('titleChange', categoryName.value)
         });
       }
     })

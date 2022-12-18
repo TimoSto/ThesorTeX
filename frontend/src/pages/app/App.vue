@@ -92,6 +92,7 @@
             :category-name="pages[i-1].title"
             :project-name="pages[i-2].title"
             @nav-back="navBack"
+            @title-change="pages[i-1].title = $event"
           />
         </template>
       </NavigationArea>
