@@ -1,4 +1,4 @@
-import getProjectNameRules from "@/rules/projectNameRules";
+import getProjectNameRules from "@/pages/app/rules/projectNameRules";
 import {i18nKeys} from "@/pages/app/i18n/keys";
 
 describe('ProjectNameRules', () => {

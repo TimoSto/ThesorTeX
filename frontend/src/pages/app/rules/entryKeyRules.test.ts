@@ -1,4 +1,4 @@
-import GetEntryKeyRules from "@/rules/entryKeyRules";
+import GetEntryKeyRules from "@/pages/app/rules/entryKeyRules";
 import {i18nKeys} from "@/pages/app/i18n/keys";
 
 describe('EntryKeyRules', () => {

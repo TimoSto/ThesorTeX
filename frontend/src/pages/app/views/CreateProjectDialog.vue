@@ -39,7 +39,7 @@ import {computed, ref, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import CreateProject from "../api/projects/CreateProject";
-import getProjectNameRules from "../../../rules/projectNameRules";
+import getProjectNameRules from "../rules/projectNameRules";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
 // globals
@@ -74,7 +74,7 @@ const opened = computed({
 });
 
 const nameRules = computed(() => {
-  return getProjectNameRules(props.projects)
+  return getProjectNameRules(props.projects, t)
 })
 
 const rulesAreMet = computed(() => {

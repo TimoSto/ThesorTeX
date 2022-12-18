@@ -120,7 +120,7 @@ import GetProjectData from "../api/projectData/GetProjectData";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GenerateEntry from "../api/projectData/entries/GenerateEntry";
 import GenerateCite from "../api/projectData/entries/GenerateCite";
-import GetEntryKeyRules from "../../../rules/entryKeyRules";
+import GetEntryKeyRules from "../rules/entryKeyRules";
 
 // globals
 const emit = defineEmits(['navBack']);
