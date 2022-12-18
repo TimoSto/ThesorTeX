@@ -84,6 +84,7 @@
             :entry-key="pages[i-1].title"
             :project-name="pages[i-2].title"
             @nav-back="navBack"
+            @title-change="pages[i-1].title = $event"
           />
           <CategoryEditor
             v-if="i === 3 && editorType === EDITOR_TYPE_CATEGORY"

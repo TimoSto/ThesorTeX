@@ -134,7 +134,7 @@ import GetEntryKeyRules from "../rules/entryKeyRules";
 import DeleteEntryDialog from "./DeleteEntryDialog.vue";
 
 // globals
-const emit = defineEmits(['navBack']);
+const emit = defineEmits(['navBack', 'titleChange']);
 
 const { t } = useI18n();
 
@@ -240,6 +240,7 @@ const availableCategories = computed((): string[] => {
 });
 
 const initialEntry = computed(() => {
+  console.log('r')
   return projectDataStore.entries.find(e => e.Key === props.entryKey)
 });
 
@@ -333,7 +334,7 @@ watch(initialEntry, () => {
   if( initialEntry.value ) {
     entryKey.value = initialEntry.value.Key;
     entryCategory.value = initialEntry.value.Category;
-    entryFields.value = initialEntry.value.Fields;
+    entryFields.value = initialEntry.value.Fields.map(f => f);
   }
 });
 
@@ -353,6 +354,7 @@ function CallSaveEntry() {
     if( ok ) {
       GetProjectData(props.projectName).then(data => {
         projectDataStore.setData(data)
+        emit('titleChange', entry.Key)
       });
     }
   })
