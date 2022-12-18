@@ -46,6 +46,7 @@
                 :headers="entriesTableHeaders"
                 :rows="entriesTableRows"
                 @row-clicked="emit('openEntry', entries[parseInt($event)].Key)"
+                @btn-clicked="HandleEntryBtnClicked"
               />
             </v-expansion-panel-text>
           </v-expansion-panel>
@@ -144,7 +145,7 @@ const entriesTableHeaders: ResponsiveTableHeaderCell[] = [
     content: '',
     icon: 'mdi-plus',
     hideUnder: -1,
-    event: ''
+    event: 'add-entry'
   }
 ];
 
@@ -268,6 +269,12 @@ function syncProjectData() {
   GetProjectData(props.projectName).then((data: ProjectData) => {
     projectDataStore.setData(data);
   });
+}
+
+function HandleEntryBtnClicked(evt: string) {
+  if( evt === 'add-entry' ) {
+    emit('openEntry', '')
+  }
 }
 
 // onload

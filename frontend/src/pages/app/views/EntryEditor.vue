@@ -18,7 +18,7 @@
 
       <v-btn
         icon
-        :disabled="!entryChanged"
+        :disabled="!savePossible"
         @click="CallSaveEntry"
       >
         <v-icon>mdi-content-save</v-icon>
@@ -289,11 +289,15 @@ const fieldRows = computed(() => {
   return rows;
 })
 
-const entryChanged = computed(() => {
+const rulesAreMet = computed(() => {
+  return keyRules.value[0](entryKey.value) === true;
+})
+
+const savePossible = computed(() => {
   if( initialEntry.value ) {
-    return CheckEntryChanged(initialEntry.value, entryKey.value, entryCategory.value, entryFields.value);
+    return CheckEntryChanged(initialEntry.value, entryKey.value, entryCategory.value, entryFields.value) && rulesAreMet.value;
   }
-  return false
+  return rulesAreMet.value;
 })
 
 const bibEntryPreview = computed(() => {

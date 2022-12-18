@@ -9,7 +9,6 @@ export default function GenerateCite(entryObj: BibEntry, categories: BibCategory
   if( i >= 0 ) {
     let found = 0;
     categories[i].CiteFields.forEach((f: Field, n: number) => {
-      console.log(f.Field, f.Prefix, f.Suffix)
       cite += f.Prefix ? f.Prefix : '';
       if(f.Italic) {
         cite += '<i>';
