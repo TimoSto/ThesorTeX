@@ -92,3 +92,7 @@ func (s *Store) WriteBibliographySty(project string, file []byte) error {
 	bibStyFile = file
 	return nil
 }
+
+func (s *Store) SaveProjectMetaData(project string, data database.ProjectMetaData) error {
+	return nil
+}

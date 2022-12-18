@@ -197,4 +197,24 @@ func (s *Store) WriteBibliographySty(project string, file []byte) error {
 	return ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, bibliographyStyFile), file, 0777)
 }
 
+func (s *Store) SaveProjectMetaData(project string, obj database.ProjectMetaData) error {
+	data, err := json.MarshalIndent(obj, "", "\t")
+	if err != nil {
+		return err
+	}
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, "data/config.json"), data, 0777)
+	if err != nil {
+		return err
+	}
+
+	if obj.Name != project {
+		err = os.Rename(pathbuilder.GetProjectPath(s.Config.ProjectsDir, project), pathbuilder.GetProjectPath(s.Config.ProjectsDir, obj.Name))
+		if err != nil {
+			return err
+		}
+		fmt.Println("renameDone")
+	}
+	return nil
+}
+
 //TODO: do i really need 0777 everywhere

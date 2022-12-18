@@ -33,6 +33,8 @@ func Register(mux *http.ServeMux, cfg conf.Config) {
 
 	mux.Handle(fmt.Sprintf("%s/projectData", prefix), project.HandleProjectData(&store))
 
+	mux.Handle(fmt.Sprintf("%s/renameProject", prefix), project.HandleSaveProjectMetaData(&store))
+
 	mux.Handle(fmt.Sprintf("%s/saveEntry", prefix), entry.HandleSaveEntry(&store))
 
 	mux.Handle(fmt.Sprintf("%s/saveCategory", prefix), category.HandleSaveCategory(&store))

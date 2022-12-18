@@ -23,6 +23,7 @@ export const german: I18nKeys = {
   },
   Project: {
     Title: 'Projektansicht',
+    Rename: 'Projekt umbenennen',
     Entry: {
       Heading: 'Literatur-Einträge',
       Key: 'Schlüssel',
@@ -75,7 +76,8 @@ export const german: I18nKeys = {
     Value: 'Wert',
     Field: 'Feld',
     Settings: 'Einstellungen',
-    Save: 'Speichern'
+    Save: 'Speichern',
+    Rename: 'Umbenennen'
   },
   Rules: {
     ProjectAlreadyExists: 'Ein Projekt mit diesem Namen existiert bereits',

@@ -22,7 +22,8 @@ export const english: I18nKeys = {
     SureDeleteProject: 'Do you really want to delete the project {project} permanently',
   },
   Project: {
-    Title: 'Projektansicht',
+    Title: 'Project view',
+    Rename: 'Rename project',
     Entry: {
       Heading: 'Bibliography entries',
       Key: 'Key',
@@ -75,7 +76,8 @@ export const english: I18nKeys = {
     Value: 'Value',
     Field: 'Field',
     Settings: 'Settings',
-    Save: 'Save'
+    Save: 'Save',
+    Rename: 'Rename'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',

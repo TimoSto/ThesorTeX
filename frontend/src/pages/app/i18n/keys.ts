@@ -22,6 +22,7 @@ export const i18nKeys = {
   },
   Project: {
     Title: 'Project.Title',
+    Rename: 'Project.Rename',
     Entry: {
       Heading: 'Project.Entry.Heading',
       Key: 'Project.Entry.Key',
@@ -74,7 +75,8 @@ export const i18nKeys = {
     Value: 'Common.Value',
     Field: 'Common.Field',
     Settings: 'Common.Settings',
-    Save: 'Common.Save'
+    Save: 'Common.Save',
+    Rename: 'Common.Rename',
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',

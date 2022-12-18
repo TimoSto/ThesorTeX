@@ -13,4 +13,5 @@ type ThesorTeXStore interface {
 	SaveProjectCategories(project string, data []BibCategory) error
 	GetBibliographySty(project string) (string, error)
 	WriteBibliographySty(project string, file []byte) error
+	SaveProjectMetaData(project string, data ProjectMetaData) error
 }

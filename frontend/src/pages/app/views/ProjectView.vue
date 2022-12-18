@@ -22,6 +22,13 @@
       >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
+
+      <v-btn
+        icon
+        @click="renameOpened = true"
+      >
+        <v-icon>mdi-pencil</v-icon>
+      </v-btn>
     </template>
     <template #content>
       <div style="max-height: calc(100vh - 112px);">
@@ -66,6 +73,13 @@
     @close="deleteTriggered = false"
     @success="RemoveProjectFromStore"
   />
+
+  <CreateProjectDialog
+    :open="renameOpened"
+    :projects="projects.map(p => p.Name)"
+    :initial="projectName"
+    @close="renameOpened = false"
+  />
 </template>
 
 <script setup lang="ts">
@@ -79,6 +93,7 @@ import {computed, ref, watch} from "vue";
 import ResponsiveTable, {ResponsiveTableHeaderCell, ResponsiveTableCell} from "../../../components/ResponsiveTable.vue";
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
+import CreateProjectDialog from "./CreateProjectDialog.vue";
 
 //global stuff
 const { t } = useI18n();
@@ -231,6 +246,12 @@ const categoriesTableRows = computed(() => {
   });
   return r;
 })
+
+const projects = computed(() => {
+  return projectsStore.projects;
+});
+
+const renameOpened = ref(false);
 
 // watcher
 watch(() => props.projectName, () => {

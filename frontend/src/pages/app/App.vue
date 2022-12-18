@@ -112,7 +112,7 @@
 
 <script setup lang="ts">
 import NavigationArea from "../../components/NavigationArea";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import Overview from "./views/OverView.vue";
 import ProjectView from "./views/ProjectView.vue";
 import EntryEditor from "./views/EntryEditor.vue";
@@ -176,6 +176,20 @@ const titleAppendix = computed(() => {
 
     default: {
       return ''
+    }
+  }
+})
+
+const projectNames = computed(() => {
+  return projectsStore.projects.map(p => p.Name);
+})
+
+// watchers
+watch(projectNames, (nV, oV) => {
+  if( pagesCount.value > 1 ) {
+    const i = oV.indexOf(pages.value[1].title);
+    if( i >= 0 ) {
+      pages.value[1].title = nV[i];
     }
   }
 })

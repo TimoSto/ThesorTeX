@@ -7,10 +7,6 @@
       <v-toolbar-title>{{ t(i18nKeys.Overview.Welcome) }}</v-toolbar-title>
 
       <v-spacer />
-
-      <v-btn icon>
-        <v-icon>mdi-help-circle-outline</v-icon>
-      </v-btn>
     </template>
 
     <template #content>
