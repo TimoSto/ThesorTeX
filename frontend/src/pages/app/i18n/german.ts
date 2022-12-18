@@ -82,6 +82,7 @@ export const german: I18nKeys = {
     NoSpaces: 'Leerzeichen nicht erlaubt',
     NotEmpty: 'Kein leerer Wert erlaubt',
     KeyAlreadyExists: 'Dieser Schlüssel ist bereits vergeben',
+    NoSpecialChars: 'Keine Sonderzeichen erlaubt',
   },
   Errors: {
     Title: 'Es ist ein Fehler aufgetreten',

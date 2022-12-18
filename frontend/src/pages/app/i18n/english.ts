@@ -81,7 +81,8 @@ export const english: I18nKeys = {
     ProjectAlreadyExists: 'A project with this name already exists',
     NoSpaces: 'No spaces allowed',
     NotEmpty: 'An empty value is not valid',
-    KeyAlreadyExists: 'This key is alread in usage'
+    KeyAlreadyExists: 'This key is alread in usage',
+    NoSpecialChars: 'No special chars permitted',
   },
   Errors: {
     Title: 'An error occurred',

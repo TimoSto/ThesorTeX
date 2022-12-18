@@ -14,6 +14,9 @@ describe('EntryKeyRules', () => {
     const existing = ['t1','t2'];
     expect(GetEntryKeyRules(existing, 't1', (k: string) => k)[0]('')).toEqual(i18nKeys.Rules.NotEmpty)
   })
+  it('should fail on special char _', () => {
+    expect(GetEntryKeyRules([], 't1', (k: string) => k)[0]('t_e')).toEqual(i18nKeys.Rules.NoSpecialChars)
+  })
 
   it('should not fail on existing with same initial key', () => {
     const existing = ['t1','t2'];
