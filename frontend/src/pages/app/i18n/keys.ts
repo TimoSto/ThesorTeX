@@ -43,6 +43,10 @@ export const i18nKeys = {
     },
     Fields: {
       Title: 'EntryEditor.Fields.Title'
+    },
+    Delete: {
+      Title: 'EntryEditor.Delete.Title',
+      Message: 'EntryEditor.Delete.Message'
     }
   },
   CategoryEditor: {

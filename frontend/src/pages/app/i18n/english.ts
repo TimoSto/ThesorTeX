@@ -44,6 +44,10 @@ export const english: I18nKeys = {
     },
     Fields: {
       Title: 'Fields'
+    },
+    Delete: {
+      Title: 'Delete entry',
+      Message: 'Do you really want to delete the entry with the key {key}?'
     }
   },
   CategoryEditor: {

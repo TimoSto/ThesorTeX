@@ -23,7 +23,10 @@
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn
+        icon
+        @click="deleteOpened = true"
+      >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </template>
@@ -104,6 +107,13 @@
       </div>
     </template>
   </AppbarContent>
+  <DeleteEntryDialog
+    :entry-key="props.entryKey"
+    :open="deleteOpened"
+    :project="projectName"
+    @close="deleteOpened=false"
+    @success="NavBackAndRefresh"
+  />
 </template>
 
 <script setup lang="ts">
@@ -121,6 +131,7 @@ import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GenerateEntry from "../api/projectData/entries/GenerateEntry";
 import GenerateCite from "../api/projectData/entries/GenerateCite";
 import GetEntryKeyRules from "../rules/entryKeyRules";
+import DeleteEntryDialog from "./DeleteEntryDialog.vue";
 
 // globals
 const emit = defineEmits(['navBack']);
@@ -144,6 +155,8 @@ const props = defineProps({
 });
 
 // data
+const deleteOpened = ref(false);
+
 const generalHeaders: ResponsiveTableHeaderCell[] = [
   {
     width: '40%',
@@ -343,6 +356,14 @@ function CallSaveEntry() {
 
 function getSlotName(i: number) {
   return `${i}-1`
+}
+
+function NavBackAndRefresh() {
+  deleteOpened.value = false;
+  GetProjectData(props.projectName).then(data => {
+    projectDataStore.setData(data);
+    emit('navBack');
+  })
 }
 
 // onload

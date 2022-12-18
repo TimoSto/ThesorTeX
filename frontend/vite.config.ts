@@ -52,6 +52,7 @@ export default defineConfig({
       "/app/saveCategory": "http://localhost:8448/",
       "/app/config": "http://localhost:8448/",
       "/app/renameProject": "http://localhost:8448/",
+      "/app/deleteEntry": "http://localhost:8448/",
     }
   },
 })
