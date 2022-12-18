@@ -23,6 +23,12 @@
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn
+        icon
+        @click="deleteOpened = true"
+      >
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
     </template>
 
     <template #content>
@@ -281,6 +287,13 @@
       </div>
     </template>
   </AppbarContent>
+  <DeleteCategoryDialog
+    :project="props.projectName"
+    :category="props.categoryName"
+    :open="deleteOpened"
+    @close="deleteOpened = false"
+    @success="NavBackAndRefresh"
+  />
 </template>
 
 <script setup lang="ts">
@@ -298,6 +311,7 @@ import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GetProjectData from "../api/projectData/GetProjectData";
 import GetCategoryNameRules from "../rules/categoryNameRules";
 import GetFieldNameRules from "../rules/fieldNameRules";
+import DeleteCategoryDialog from "./DeleteCategoryDialog.vue";
 
 //globals
 const emit = defineEmits(['navBack', 'titleChange']);
@@ -321,6 +335,8 @@ const props = defineProps({
 });
 
 // data
+const deleteOpened = ref(false);
+
 const citaviCategories = [
   'article',
   'thesis'
@@ -569,6 +585,14 @@ function getSlotName(i: number, n: number) {
 
 function fieldNameRules (existing: string[], initial: string) {
   return GetFieldNameRules(existing, initial, t);
+}
+
+function NavBackAndRefresh() {
+  deleteOpened.value = false;
+  GetProjectData(props.projectName).then(data => {
+    projectDataStore.setData(data);
+    emit('navBack');
+  })
 }
 
 // onload

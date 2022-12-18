@@ -69,6 +69,10 @@ export const english: I18nKeys = {
     },
     Cite: {
       Title: 'Cites'
+    },
+    Delete: {
+      Title: 'Delete category',
+      Message: 'Do you really want to delete the category {name}'
     }
   },
   Common: {

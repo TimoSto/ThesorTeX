@@ -68,6 +68,10 @@ export const i18nKeys = {
     },
     Cite: {
       Title: 'CategoryEditor.Cite.Title'
+    },
+    Delete: {
+      Title: 'CategoryEditor.Delete.Title',
+      Message: 'CategoryEditor.Delete.Message'
     }
   },
   Common: {

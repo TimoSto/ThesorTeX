@@ -4,14 +4,14 @@
     width="400"
   >
     <v-card>
-      <v-card-title>{{ t(i18nKeys.EntryEditor.Delete.Title) }}</v-card-title>
+      <v-card-title>{{ t(i18nKeys.CategoryEditor.Delete.Title) }}</v-card-title>
       <v-card-text>
         <i18n-t
-          :keypath="i18nKeys.EntryEditor.Delete.Message"
+          :keypath="i18nKeys.CategoryEditor.Delete.Message"
           tag="span"
         >
-          <template #key>
-            <i>{{ entryKey }}</i>
+          <template #name>
+            <i>{{ category }}</i>
           </template>
         </i18n-t>
       </v-card-text>
@@ -25,7 +25,7 @@
         </v-btn>
         <v-btn
           color="primary"
-          @click="CallEntryDelete"
+          @click="CallCategoryDelete"
         >
           {{ t(i18nKeys.Common.Delete) }}
         </v-btn>
@@ -39,20 +39,17 @@
 import {computed} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
-import {useErrorSuccessStore} from "../stores/errorSuccessStore";
-import DeleteEntry from "../api/projectData/entries/DeleteEntry";
+import DeleteCategory from "../api/projectData/categories/DeleteCategory";
 
 // globals
 const emit = defineEmits(['close', 'success', 'error'])
 
 const { t } = useI18n();
 
-const errorStore = useErrorSuccessStore();
-
 // props
 const props = defineProps({
   open: Boolean,
-  entryKey: {
+  category: {
     type: String,
     required: true
   },
@@ -75,8 +72,8 @@ const opened = computed({
 });
 
 // methods
-function CallEntryDelete() {
-  DeleteEntry(props.project, props.entryKey).then(ok => {
+function CallCategoryDelete() {
+  DeleteCategory(props.project, props.category).then(ok => {
     if( ok ) {
       emit('success');
     } else {

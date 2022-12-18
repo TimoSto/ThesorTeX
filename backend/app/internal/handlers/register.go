@@ -41,4 +41,6 @@ func Register(mux *http.ServeMux, cfg conf.Config) {
 
 	mux.Handle(fmt.Sprintf("%s/saveCategory", prefix), category.HandleSaveCategory(&store))
 
+	mux.Handle(fmt.Sprintf("%s/deleteCategory", prefix), category.HandleDeleteCategory(&store))
+
 }
