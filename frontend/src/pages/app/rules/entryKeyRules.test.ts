@@ -10,6 +10,11 @@ describe('EntryKeyRules', () => {
     const existing = ['t1','t2'];
     expect(GetEntryKeyRules(existing, 't2', (k: string) => k)[0]('t1')).toEqual(i18nKeys.Rules.KeyAlreadyExists)
   })
+  it('should fail on empty', () => {
+    const existing = ['t1','t2'];
+    expect(GetEntryKeyRules(existing, 't1', (k: string) => k)[0]('')).toEqual(i18nKeys.Rules.NotEmpty)
+  })
+
   it('should not fail on existing with same initial key', () => {
     const existing = ['t1','t2'];
     expect(GetEntryKeyRules(existing, 't1', (k: string) => k)[0]('t1')).toEqual(true)

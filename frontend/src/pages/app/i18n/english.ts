@@ -80,6 +80,7 @@ export const english: I18nKeys = {
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',
     NoSpaces: 'No spaces allowed',
+    NotEmpty: 'An empty value is not valid',
     KeyAlreadyExists: 'This key is alread in usage'
   },
   Errors: {
