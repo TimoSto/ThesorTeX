@@ -79,7 +79,8 @@ export const german: I18nKeys = {
   },
   Rules: {
     ProjectAlreadyExists: 'Ein Projekt mit diesem Namen existiert bereits',
-    NoSpaces: 'Leerzeichen nicht erlaubt'
+    NoSpaces: 'Leerzeichen nicht erlaubt',
+    KeyAlreadyExists: 'Dieser Schlüssel ist bereits vergeben',
   },
   Errors: {
     Title: 'Es ist ein Fehler aufgetreten',

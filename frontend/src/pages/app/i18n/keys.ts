@@ -78,7 +78,8 @@ export const i18nKeys = {
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',
-    NoSpaces: 'Rules.NoSpaces'
+    NoSpaces: 'Rules.NoSpaces',
+    KeyAlreadyExists: 'Rules.KeyAlreadyExists'
   },
   Errors: {
     Title: 'Errors.Title',

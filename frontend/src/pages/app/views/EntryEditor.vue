@@ -308,7 +308,7 @@ const bibCitePreview = computed(() => {
 })
 
 const keyRules = computed(() => {
-  return GetEntryKeyRules(projectDataStore.entries.map(e => e.Key), initialEntry.value.Key);
+  return GetEntryKeyRules(projectDataStore.entries.map(e => e.Key), initialEntry.value ? initialEntry.value.Key : '', t);
 })
 
 // watchers
