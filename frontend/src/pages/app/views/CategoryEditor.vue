@@ -47,6 +47,7 @@
                     v-model="categoryName"
                     color="primary"
                     variant="underlined"
+                    :rules="categoryNameRules"
                   />
                 </template>
                 <template #1-1>
@@ -293,6 +294,7 @@ import GenerateModelForFields from "../api/projectData/categories/GenerateModel"
 import SaveCategory from "../api/projectData/categories/SaveCategory";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import GetProjectData from "../api/projectData/GetProjectData";
+import GetCategoryNameRules from "../rules/categoryNameRules";
 
 //globals
 const emit = defineEmits(['navBack']);
@@ -517,6 +519,10 @@ const bibModel = computed(() => {
 const citeModel = computed(() => {
   return GenerateModelForFields(citeValues.value)
 });
+
+const categoryNameRules = computed(() => {
+  return GetCategoryNameRules(projectDataStore.categories.map(c => c.Name), initialCategory.value ? initialCategory.value.Name : '', t)
+})
 
 // methods
 function AddBibRow() {
