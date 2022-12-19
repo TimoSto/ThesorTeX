@@ -96,3 +96,8 @@ func (s *Store) WriteBibliographySty(project string, file []byte) error {
 func (s *Store) SaveProjectMetaData(project string, data database.ProjectMetaData) error {
 	return nil
 }
+
+func (s *Store) GetProjectMetaData(project string) (database.ProjectMetaData, error) {
+
+	return database.ProjectMetaData{}, nil
+}

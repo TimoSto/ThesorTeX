@@ -1,6 +1,6 @@
-import ProjectOverviewData from "@/pages/app/api/projects/ProjectOverviewData";
+import ProjectMetaData from "@/pages/app/api/projects/ProjectMetaData";
 
-export default async function RenameProject(initial: string, data: ProjectOverviewData): Promise<boolean> {
+export default async function RenameProject(initial: string, data: ProjectMetaData): Promise<boolean> {
   const resp = await fetch('/app/renameProject', {
     method: 'POST',
     body: JSON.stringify({

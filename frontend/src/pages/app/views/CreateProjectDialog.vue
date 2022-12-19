@@ -44,7 +44,7 @@ import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import RenameProject from "../api/projects/RenameProject";
 import {useProjectsStore} from "../stores/projectsStore";
 import {GetProjects} from "../api/projects/GetProjects";
-import ProjectOverviewData from "../api/projects/ProjectOverviewData";
+import ProjectMetaData from "../api/projects/ProjectMetaData";
 
 // globals
 const errorStore = useErrorSuccessStore();
@@ -118,7 +118,7 @@ async function Submit() {
       proj.Name = projectName.value;
       RenameProject(props.initial, proj).then(ok => {
         if( ok ) {
-          GetProjects().then((p: ProjectOverviewData[]) => {
+          GetProjects().then((p: ProjectMetaData[]) => {
             const v = !p ? [] : p;
             projectsStore.setProjects(v);
           })

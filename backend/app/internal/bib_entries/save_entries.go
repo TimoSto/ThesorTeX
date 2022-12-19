@@ -4,17 +4,18 @@ import (
 	"fmt"
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/project"
 )
 
 var (
 	KeyAlreadyExistsError = fmt.Errorf("key already exists")
 )
 
-func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries []database.BibEntry, initialKeys []string) error {
+func SaveEntriesToProject(projectName string, store database.ThesorTeXStore, entries []database.BibEntry, initialKeys []string) (database.ProjectMetaData, error) {
 
-	existing, err := store.GetProjectEntries(project)
+	existing, err := store.GetProjectEntries(projectName)
 	if err != nil {
-		return err
+		return database.ProjectMetaData{}, err
 	}
 
 	for i, e := range entries {
@@ -24,7 +25,7 @@ func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries
 				existing[j] = e
 				found = true
 			} else if ex.Key == e.Key {
-				return KeyAlreadyExistsError
+				return database.ProjectMetaData{}, KeyAlreadyExistsError
 			}
 		}
 		if !found {
@@ -34,17 +35,22 @@ func SaveEntriesToProject(project string, store database.ThesorTeXStore, entries
 
 	existing = SortEntries(existing)
 
-	err = store.SaveProjectEntries(project, existing)
+	err = store.SaveProjectEntries(projectName, existing)
 	if err != nil {
-		return err
+		return database.ProjectMetaData{}, err
 	}
 
 	csvFile := GenerateCsvForEntries(existing)
 
-	err = store.WriteCSV(project, csvFile)
+	err = store.WriteCSV(projectName, csvFile)
 	if err != nil {
-		return err
+		return database.ProjectMetaData{}, err
 	}
 
-	return nil
+	data, err := project.UpdateProjectLastEdited(projectName, store)
+	if err != nil {
+		return database.ProjectMetaData{}, err
+	}
+
+	return data, nil
 }

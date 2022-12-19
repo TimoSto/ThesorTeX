@@ -36,7 +36,7 @@ import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {GetProjects} from "../api/projects/GetProjects";
-import ProjectOverviewData from "../api/projects/ProjectOverviewData";
+import ProjectMetaData from "../api/projects/ProjectMetaData";
 import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
 import {useProjectsStore} from "../stores/projectsStore";
@@ -141,12 +141,12 @@ const projectRows = computed(() => {
 })
 
 // onload
-GetProjects().then((p: ProjectOverviewData[]) => {
+GetProjects().then((p: ProjectMetaData[]) => {
   const v = !p ? [] : p;
   projectsStore.setProjects(v);
 })
 
-function AddProjectToList(project: ProjectOverviewData) {
+function AddProjectToList(project: ProjectMetaData) {
   projectsStore.addProject(project);
 }
 

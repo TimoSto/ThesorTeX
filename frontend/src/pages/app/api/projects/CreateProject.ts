@@ -1,7 +1,7 @@
-import ProjectOverviewData from "@/pages/app/api/projects/ProjectOverviewData";
+import ProjectMetaData from "@/pages/app/api/projects/ProjectMetaData";
 
 export interface CreateProjectResponse {
-  Project: ProjectOverviewData,
+  Project: ProjectMetaData,
   Status: number
 }
 
@@ -12,12 +12,12 @@ export default async function CreateProject(name: string): Promise<CreateProject
   });
 
   if( resp.ok ) {
-    const obj = await resp.json() as ProjectOverviewData;
+    const obj = await resp.json() as ProjectMetaData;
     return {
       Project: obj,
       Status: 200
     }
   } else {
-    return {Project: {} as ProjectOverviewData, Status: resp.status}
+    return {Project: {} as ProjectMetaData, Status: resp.status}
   }
 }

@@ -49,5 +49,25 @@ describe('projects store', () => {
         NumberOfEntries: 0
       })
     })
+    it('update last edited', () => {
+      const store = useProjectsStore();
+      store.projects = [
+        {
+          Name: "test1",
+          Created: '',
+          LastModified: '',
+          NumberOfEntries: 0
+        },
+        {
+          Name: "test2",
+          Created: '',
+          LastModified: '',
+          NumberOfEntries: 0
+        }
+      ];
+      store.updateLastEditedOnProject('test2', 'now')
+      expect(store.projects).toHaveLength(2)
+      expect(store.projects[1].LastModified).toEqual('now')
+    })
   })
 })

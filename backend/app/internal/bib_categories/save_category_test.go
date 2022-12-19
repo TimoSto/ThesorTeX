@@ -175,7 +175,7 @@ func TestSaveCategory(t *testing.T) {
 				},
 			}
 
-			err := SaveCategory(&store, "testproject", tc.name, tc.initialName, tc.citaviCategory, tc.citaviFilter, tc.bibFields, tc.citeFields)
+			_, err := SaveCategory(&store, "testproject", tc.name, tc.initialName, tc.citaviCategory, tc.citaviFilter, tc.bibFields, tc.citeFields)
 
 			if err != nil {
 				t.Errorf("unexpected error: %v", err)

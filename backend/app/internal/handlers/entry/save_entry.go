@@ -42,11 +42,20 @@ func HandleSaveEntry(store database.ThesorTeXStore) http.Handler {
 			},
 		}
 
-		err = bib_entries.SaveEntriesToProject(data.Project, store, entries, []string{data.InitialKey})
+		metaData, err := bib_entries.SaveEntriesToProject(data.Project, store, entries, []string{data.InitialKey})
 
 		if err != nil {
 			log.Error("Error saving entry: %v", err)
+			w.WriteHeader(http.StatusInternalServerError)
 		}
+
+		respData, err := json.Marshal(metaData)
+		if err != nil {
+			log.Error("Error marshaling project meta data: %v", err)
+			w.WriteHeader(http.StatusInternalServerError)
+		}
+
+		w.Write(respData)
 	}
 
 	return http.HandlerFunc(fn)

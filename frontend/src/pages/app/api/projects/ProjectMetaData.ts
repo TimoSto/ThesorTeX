@@ -1,5 +1,5 @@
 
-export default interface ProjectOverviewData {
+export default interface ProjectMetaData {
   Name: string
   Created: string
   LastModified: string

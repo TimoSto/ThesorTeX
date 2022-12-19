@@ -34,11 +34,19 @@ func HandleSaveCategory(store database.ThesorTeXStore) http.Handler {
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		err = bib_categories.SaveCategory(store, data.Project, data.Name, data.InitialName, data.CitaviCategory, data.CitaviFilter, data.BibFields, data.CiteFields)
+		metaData, err := bib_categories.SaveCategory(store, data.Project, data.Name, data.InitialName, data.CitaviCategory, data.CitaviFilter, data.BibFields, data.CiteFields)
 		if err != nil {
 			log.Error("got error saving the category: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
 		}
+
+		respData, err := json.Marshal(metaData)
+		if err != nil {
+			log.Error("Error marshaling project meta data: %v", err)
+			w.WriteHeader(http.StatusInternalServerError)
+		}
+
+		w.Write(respData)
 	}
 
 	return http.HandlerFunc(fn)

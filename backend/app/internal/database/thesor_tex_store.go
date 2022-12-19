@@ -14,4 +14,5 @@ type ThesorTeXStore interface {
 	GetBibliographySty(project string) (string, error)
 	WriteBibliographySty(project string, file []byte) error
 	SaveProjectMetaData(project string, data ProjectMetaData) error
+	GetProjectMetaData(project string) (ProjectMetaData, error)
 }

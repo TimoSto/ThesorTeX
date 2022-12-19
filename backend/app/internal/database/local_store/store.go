@@ -217,4 +217,19 @@ func (s *Store) SaveProjectMetaData(project string, obj database.ProjectMetaData
 	return nil
 }
 
+func (s *Store) GetProjectMetaData(project string) (database.ProjectMetaData, error) {
+	confFile, err := ioutil.ReadFile(pathbuilder.GetPathInProject(s.Config.ProjectsDir, project, "data/config.json"))
+	if err != nil {
+		return database.ProjectMetaData{}, nil
+	}
+
+	var data database.ProjectMetaData
+	err = json.Unmarshal(confFile, &data)
+	if err != nil {
+		return database.ProjectMetaData{}, nil
+	}
+
+	return data, nil
+}
+
 //TODO: do i really need 0777 everywhere

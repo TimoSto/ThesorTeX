@@ -1,11 +1,12 @@
 import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
+import SaveResponse from "@/pages/app/api/projectData/SaveResponse";
 
 export interface EntrySaveData extends BibEntry {
   InitialKey: string
   Project: string
 }
 
-export default async function SaveEntry(entry: BibEntry, initialKey: string, project: string): Promise<boolean> {
+export default async function SaveEntry(entry: BibEntry, initialKey: string, project: string): Promise<SaveResponse> {
   const obj: EntrySaveData = {
     ...entry,
     InitialKey: initialKey,
@@ -19,5 +20,10 @@ export default async function SaveEntry(entry: BibEntry, initialKey: string, pro
     body: data
   });
 
-  return resp.ok;
+  const respData = await resp.json();
+
+  return {
+    Ok: resp.ok,
+    Data: respData
+  };
 }

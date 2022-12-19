@@ -1,11 +1,14 @@
 package bib_categories
 
-import "github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+import (
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/project"
+)
 
-func SaveCategory(store database.ThesorTeXStore, project string, name string, initialName string, citaviCategory string, citaviFilter []string, bibFields []database.Field, citeFields []database.Field) error {
-	existing, err := store.GetProjectCategories(project)
+func SaveCategory(store database.ThesorTeXStore, projectName string, name string, initialName string, citaviCategory string, citaviFilter []string, bibFields []database.Field, citeFields []database.Field) (database.ProjectMetaData, error) {
+	existing, err := store.GetProjectCategories(projectName)
 	if err != nil {
-		return err
+		return database.ProjectMetaData{}, err
 	}
 
 	found := false
@@ -33,10 +36,20 @@ func SaveCategory(store database.ThesorTeXStore, project string, name string, in
 		})
 	}
 
-	err = store.SaveProjectCategories(project, existing)
+	err = store.SaveProjectCategories(projectName, existing)
 	if err != nil {
-		return err
+		return database.ProjectMetaData{}, err
 	}
 
-	return SaveCategoriesToSty(store, project, existing)
+	err = SaveCategoriesToSty(store, projectName, existing)
+	if err != nil {
+		return database.ProjectMetaData{}, err
+	}
+
+	data, err := project.UpdateProjectLastEdited(projectName, store)
+	if err != nil {
+		return database.ProjectMetaData{}, err
+	}
+
+	return data, nil
 }

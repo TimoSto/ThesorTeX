@@ -132,6 +132,7 @@ import GenerateEntry from "../api/projectData/entries/GenerateEntry";
 import GenerateCite from "../api/projectData/entries/GenerateCite";
 import GetEntryKeyRules from "../rules/entryKeyRules";
 import DeleteEntryDialog from "./DeleteEntryDialog.vue";
+import {useProjectsStore} from "../stores/projectsStore";
 
 // globals
 const emit = defineEmits(['navBack', 'titleChange']);
@@ -142,6 +143,7 @@ const projectDataStore = useProjectDataStore();
 
 const errorSuccessStore = useErrorSuccessStore();
 
+const projectsStore = useProjectsStore();
 // props
 const props = defineProps({
   entryKey: {
@@ -348,14 +350,15 @@ function CallSaveEntry() {
     CiteNumber: 0,
     Example: ''
   }
-  SaveEntry(entry, initialEntry.value ? initialEntry.value.Key : '', props.projectName).then(ok => {
-    errorSuccessStore.handleResponse(ok, t(i18nKeys.Success.SaveEntry), t(i18nKeys.Errors.ErrorSaving))
+  SaveEntry(entry, initialEntry.value ? initialEntry.value.Key : '', props.projectName).then(data => {
+    errorSuccessStore.handleResponse(data.Ok, t(i18nKeys.Success.SaveEntry), t(i18nKeys.Errors.ErrorSaving))
 
-    if( ok ) {
+    if( data.Ok ) {
       GetProjectData(props.projectName).then(data => {
         projectDataStore.setData(data)
         emit('titleChange', entry.Key)
       });
+      projectsStore.updateLastEditedOnProject(props.projectName, data.Data.LastModified);
     }
   })
 }

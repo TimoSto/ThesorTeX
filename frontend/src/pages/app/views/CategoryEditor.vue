@@ -314,6 +314,7 @@ import GetProjectData from "../api/projectData/GetProjectData";
 import GetCategoryNameRules from "../rules/categoryNameRules";
 import GetFieldNameRules from "../rules/fieldNameRules";
 import DeleteCategoryDialog from "./DeleteCategoryDialog.vue";
+import {useProjectsStore} from "../stores/projectsStore";
 
 //globals
 const emit = defineEmits(['navBack', 'titleChange']);
@@ -323,6 +324,8 @@ const { t } = useI18n();
 const projectDataStore = useProjectDataStore();
 
 const errorSuccessStore = useErrorSuccessStore();
+
+const projectsStore = useProjectsStore();
 
 //props
 const props = defineProps({
@@ -590,13 +593,14 @@ function AddCiteRow() {
 
 function CallSaveCategory() {
   SaveCategory(props.projectName, categoryName.value, initialCategory.value ? initialCategory.value.Name : '', citaviCategory.value, citaviFilter.value, bibValues.value, citeValues.value)
-    .then(ok => {
-      errorSuccessStore.handleResponse(ok, t(i18nKeys.Success.SaveCategory), t(i18nKeys.Errors.ErrorSaving));
-      if( ok ) {
+    .then(data => {
+      errorSuccessStore.handleResponse(data.Ok, t(i18nKeys.Success.SaveCategory), t(i18nKeys.Errors.ErrorSaving));
+      if( data.Ok ) {
         GetProjectData(props.projectName).then(data => {
           projectDataStore.setData(data);
           emit('titleChange', categoryName.value)
         });
+        projectsStore.updateLastEditedOnProject(props.projectName, data.Data.LastModified);
       }
     })
 }

@@ -1,16 +1,16 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import ProjectOverviewData from "../api/projects/ProjectOverviewData";
+import ProjectMetaData from "../api/projects/ProjectMetaData";
 
 
 export const useProjectsStore = defineStore('projects-store', () => {
-  const projects = ref([] as ProjectOverviewData[])
+  const projects = ref([] as ProjectMetaData[])
 
-  function setProjects(data: ProjectOverviewData[]) {
+  function setProjects(data: ProjectMetaData[]) {
     projects.value = data;
   }
 
-  function addProject(data: ProjectOverviewData) {
+  function addProject(data: ProjectMetaData) {
     projects.value.push(data);
 
     projects.value.sort((p1, p2) => {
@@ -25,5 +25,14 @@ export const useProjectsStore = defineStore('projects-store', () => {
     }
   }
 
-  return {projects, setProjects, addProject, rmProject}
+  function updateLastEditedOnProject(project: string, date: string) {
+    console.log(date, project, projects.value);
+    projects.value.forEach((p,i) => {
+      if( p.Name === project ) {
+        projects.value[i].LastModified = date;
+      }
+    })
+  }
+
+  return {projects, setProjects, addProject, rmProject, updateLastEditedOnProject}
 })
