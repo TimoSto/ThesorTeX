@@ -22,7 +22,7 @@
         persistent
         :min-width="250"
       >
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn
             icon="mdi-dots-vertical"
             v-bind="props"
@@ -30,7 +30,7 @@
         </template>
         <v-list>
           <v-list-item @click="settingsOpened = true">
-            <template v-slot:prepend>
+            <template #prepend>
               <v-icon>mdi-cog</v-icon>
             </template>
             <v-list-item-title>
@@ -39,7 +39,6 @@
           </v-list-item>
         </v-list>
       </v-menu>
-
     </v-app-bar>
 
     <v-navigation-drawer

@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 
-import {computed, ref, watch} from "vue";
+import {computed, ref, toRefs, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import CreateProject from "../api/projects/CreateProject";
@@ -67,6 +67,8 @@ const props = defineProps({
     default: ''
   }
 });
+
+const initialProps = toRefs(props);
 
 // data
 const projectName = ref('');
@@ -130,7 +132,7 @@ async function Submit() {
 
 // onload
 if( props.initial ) {
-  projectName.value = props.initial;
+  projectName.value = initialProps.initial.value;
 }
 
 </script>

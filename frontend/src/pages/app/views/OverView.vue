@@ -46,8 +46,6 @@ const { t } = useI18n();
 
 const emit = defineEmits(['openProject'])
 
-const errorStore = useErrorSuccessStore();
-
 const projectsStore = useProjectsStore();
 
 // data

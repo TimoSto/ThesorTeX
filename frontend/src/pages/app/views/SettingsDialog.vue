@@ -26,7 +26,6 @@
                 </v-icon>
               </template>
             </v-tooltip>
-
           </template>
         </v-text-field>
         <v-text-field
@@ -46,7 +45,6 @@
                 </v-icon>
               </template>
             </v-tooltip>
-
           </template>
         </v-text-field>
       </v-card-text>

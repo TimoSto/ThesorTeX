@@ -11,7 +11,7 @@ describe("unsafeCloseStore", function () {
 
       store.triggered = true;
 
-      store.triggerDialog().then(accepted => {
+      store.trigger(0).then(accepted => {
         store.triggered = false;
       })
 
