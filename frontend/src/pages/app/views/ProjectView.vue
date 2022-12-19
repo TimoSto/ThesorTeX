@@ -60,6 +60,7 @@
                 :headers="categoriesTableHeaders"
                 :rows="categoriesTableRows"
                 @row-clicked="emit('openCategory', categories[parseInt($event)].Name)"
+                @btn-clicked="HandleCategoryBtnClicked"
               />
             </v-expansion-panel-text>
           </v-expansion-panel>
@@ -172,7 +173,7 @@ const categoriesTableHeaders: ResponsiveTableHeaderCell[] = [
     content: '',
     icon: 'mdi-plus',
     hideUnder: -1,
-    event: ''
+    event: 'add-category'
   }
 ];
 
@@ -274,6 +275,12 @@ function syncProjectData() {
 function HandleEntryBtnClicked(evt: string) {
   if( evt === 'add-entry' ) {
     emit('openEntry', '')
+  }
+}
+
+function HandleCategoryBtnClicked(evt: string) {
+  if( evt === 'add-category' ) {
+    emit('openCategory', '')
   }
 }
 
