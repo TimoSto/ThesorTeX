@@ -116,7 +116,7 @@
 </template>
 
 <script setup lang="ts">
-import NavigationArea from "../../components/NavigationArea";
+import NavigationArea from "../../components/NavigationArea.vue";
 import {computed, ref, watch} from "vue";
 import Overview from "./views/OverView.vue";
 import ProjectView from "./views/ProjectView.vue";

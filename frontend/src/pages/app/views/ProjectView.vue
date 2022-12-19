@@ -85,7 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import AppbarContent from "@/components/AppbarContent";
+import AppbarContent from "@/components/AppbarContent.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";

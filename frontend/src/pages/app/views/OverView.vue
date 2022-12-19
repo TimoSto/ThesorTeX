@@ -30,14 +30,13 @@
 </template>
 
 <script setup lang="ts">
-import AppbarContent from "../../../components/AppbarContent";
+import AppbarContent from "../../../components/AppbarContent.vue";
 import CreateProjectDialog from "./CreateProjectDialog.vue";
 import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {GetProjects} from "../api/projects/GetProjects";
 import ProjectMetaData from "../api/projects/ProjectMetaData";
-import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
 import {useProjectsStore} from "../stores/projectsStore";
 

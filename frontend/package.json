@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test:unit:jest": "jest",
-    "lint": "eslint '**/*.{js,ts,vue}'"
+    "lint": "eslint '**/*.{js,ts,vue}'",
+    "vue-tsc": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",

@@ -103,7 +103,7 @@
                     v-model="bibValues[i].Field"
                     color="primary"
                     variant="underlined"
-                    :rules="fieldNameRules(bibValues.map(v => v.Field), bibValues[i].Field)"
+                    :rules="fieldNameRules(bibValues.map(v => v.Field))"
                   />
                 </template>
                 <template
@@ -206,7 +206,7 @@
                     v-model="citeValues[i].Field"
                     color="primary"
                     variant="underlined"
-                    :rules="fieldNameRules(citeValues.map(f => f.Field), citeValues[i].Field)"
+                    :rules="fieldNameRules(citeValues.map(f => f.Field))"
                   />
                 </template>
                 <template
