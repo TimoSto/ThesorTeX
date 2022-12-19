@@ -100,8 +100,12 @@ const savePossible = computed(() => {
 // watchers
 watch( () => props.open, () => {
   if( !props.open ) {
-    projectName.value = '';
+    projectName.value = props.initial ? props.initial : '';
   }
+})
+
+watch( () => props.initial, (nV) => {
+  projectName.value = nV;
 })
 
 // methods
