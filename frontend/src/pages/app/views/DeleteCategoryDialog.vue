@@ -40,11 +40,14 @@ import {computed} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import DeleteCategory from "../api/projectData/categories/DeleteCategory";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
 // globals
 const emit = defineEmits(['close', 'success', 'error'])
 
 const { t } = useI18n();
+
+const errorStore = useErrorSuccessStore();
 
 // props
 const props = defineProps({
@@ -74,6 +77,7 @@ const opened = computed({
 // methods
 function CallCategoryDelete() {
   DeleteCategory(props.project, props.category).then(ok => {
+    errorStore.handleResponse(ok, t(i18nKeys.Success.DeleteCategory), t(i18nKeys.Errors.ErrorDeleting))
     if( ok ) {
       emit('success');
     } else {

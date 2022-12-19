@@ -108,7 +108,9 @@ export const english: I18nKeys = {
     CreateProject: 'Project successfully created',
     DeleteProject: 'Project successfully deleted',
     SaveCategory: 'Category successfully saved',
+    DeleteCategory: 'Category successfully deleted',
     SaveEntry: 'Entry successfully saved',
+    DeleteEntry: 'Entry successfully deleted',
     SaveConfig: 'Settings successfully saved',
   }
 }

@@ -77,6 +77,7 @@ const opened = computed({
 // methods
 function CallEntryDelete() {
   DeleteEntry(props.project, props.entryKey).then(ok => {
+    errorStore.handleResponse(ok, t(i18nKeys.Success.DeleteEntry), t(i18nKeys.Errors.ErrorDeleting))
     if( ok ) {
       emit('success');
     } else {
