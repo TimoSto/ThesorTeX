@@ -18,7 +18,7 @@
 
       <v-btn
         icon
-        :disabled="!categoryChanged"
+        :disabled="!savePossible"
         @click="CallSaveCategory"
       >
         <v-icon>mdi-content-save</v-icon>
@@ -174,6 +174,7 @@
                   <v-btn
                     flat
                     text
+                    @click="rmBibField(i)"
                   >
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
@@ -205,7 +206,7 @@
                     v-model="citeValues[i].Field"
                     color="primary"
                     variant="underlined"
-                    :rules="fieldNameRules(bibValues.concat(citeValues.filter(f => bibValues.map(bf => bf.Field).indexOf(f) === -1)).map(f => f.Field), bibValues[i].Field)"
+                    :rules="fieldNameRules(citeValues.map(f => f.Field), citeValues[i].Field)"
                   />
                 </template>
                 <template
@@ -276,6 +277,7 @@
                   <v-btn
                     flat
                     text
+                    @click="rmCiteField(i)"
                   >
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
@@ -543,6 +545,26 @@ const categoryNameRules = computed(() => {
   return GetCategoryNameRules(projectDataStore.categories.map(c => c.Name), initialCategory.value ? initialCategory.value.Name : '', t)
 })
 
+const savePossible = computed(() => {
+  if( !categoryChanged.value ) {
+    return false
+  }
+  if( !categoryNameRules.value[0](categoryName.value) ) {
+    return false
+  }
+  for( let i = 0 ; i < bibValues.value.length ; i++ ) {
+    if( typeof fieldNameRules(bibValues.value.map(f => f.Field))[0](bibValues.value[i].Field) === "string" ) {
+      return false
+    }
+  }
+  for( let i = 0 ; i < citeValues.value.length ; i++ ) {
+    if( typeof fieldNameRules(citeValues.value.map(f => f.Field))[0](citeValues.value[i].Field) === "string" ) {
+      return false
+    }
+  }
+  return true
+})
+
 // methods
 function AddBibRow() {
   bibValues.value.push({
@@ -583,8 +605,8 @@ function getSlotName(i: number, n: number) {
   return `${i}-${n}`
 }
 
-function fieldNameRules (existing: string[], initial: string) {
-  return GetFieldNameRules(existing, initial, t);
+function fieldNameRules (existing: string[]) {
+  return GetFieldNameRules(existing, t);
 }
 
 function NavBackAndRefresh() {
@@ -593,6 +615,14 @@ function NavBackAndRefresh() {
     projectDataStore.setData(data);
     emit('navBack');
   })
+}
+
+function rmBibField(n: number) {
+  bibValues.value.splice(n, 1);
+}
+
+function rmCiteField(n: number) {
+  citeValues.value.splice(n, 1);
 }
 
 // onload

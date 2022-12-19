@@ -1,6 +1,6 @@
 import {i18nKeys} from "@/pages/app/i18n/keys";
 
-export default function GetFieldNameRules(existing: string[], initialName: string, t: (ik: string) => string): ((key: string) => boolean|string)[] {
+export default function GetFieldNameRules(existing: string[], t: (ik: string) => string): ((key: string) => boolean|string)[] {
   const fn = (f: string) => {
     if( f === '' ) {
       return t(i18nKeys.Rules.NotEmpty);
@@ -9,8 +9,8 @@ export default function GetFieldNameRules(existing: string[], initialName: strin
       return t(i18nKeys.Rules.NoSpaces);
     }
 
-    const i = existing.indexOf(f)
-    if( i >= 0 && i < existing.length - 1 ) {
+    const i = existing.filter(e => e === f).length
+    if( i > 1 ) {
       return t(i18nKeys.Rules.FieldAlreadyExists);
     }
 
