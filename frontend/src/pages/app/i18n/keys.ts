@@ -85,6 +85,7 @@ export const i18nKeys = {
     Settings: 'Common.Settings',
     Save: 'Common.Save',
     Rename: 'Common.Rename',
+    Continue: 'Common.Continue'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',
@@ -111,6 +112,10 @@ export const i18nKeys = {
     SaveEntry: 'Success.SaveEntry',
     DeleteEntry: 'Success.DeleteEntry',
     SaveConfig: 'Success.SaveConfig',
+  },
+  UnsafeClose: {
+    Title: 'UnsafeClose.Title',
+    Message: 'UnsafeClose.Message'
   }
 }
 

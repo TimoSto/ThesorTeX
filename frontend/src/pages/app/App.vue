@@ -51,7 +51,7 @@
         v-if="pagesCount > 1"
         :project="pages[1].title"
         :open="drawer"
-        @switch-to="switchToProject"
+        @switch-to="triggerSwitchToProject"
       />
     </v-navigation-drawer>
 
@@ -74,7 +74,7 @@
             v-if="i === 2"
             :key="`page-${i}`"
             :project-name="pages[i-1].title"
-            @nav-back="navBack"
+            @nav-back="triggerNavBack"
             @open-entry="openEntry($event)"
             @open-category="openCategory"
           />
@@ -83,7 +83,7 @@
             :key="`page-${i}`"
             :entry-key="pages[i-1].title"
             :project-name="pages[i-2].title"
-            @nav-back="navBack"
+            @nav-back="triggerNavBack"
             @title-change="pages[i-1].title = $event"
           />
           <CategoryEditor
@@ -91,7 +91,7 @@
             :key="`page-${i}`"
             :category-name="pages[i-1].title"
             :project-name="pages[i-2].title"
-            @nav-back="navBack"
+            @nav-back="triggerNavBack"
             @title-change="pages[i-1].title = $event"
           />
         </template>
@@ -108,6 +108,10 @@
       :title="t(i18nKeys.Errors.Title)"
       @error-closed="errorStore.clean"
       @success-closed="errorStore.clean"
+    />
+    <UnsafeCloseDialog
+      :open="unsafeDialogTriggered"
+      @close="unsafeDialogTriggered = false"
     />
   </v-app>
 </template>
@@ -126,6 +130,8 @@ import CategoryEditor from "./views/CategoryEditor.vue";
 import SettingsDialog from "./views/SettingsDialog.vue";
 import {useErrorSuccessStore} from "./stores/errorSuccessStore";
 import SuccessErrorDisplay from "../../components/SuccessErrorDisplay.vue";
+import {useUnsaveCloseStore} from "./stores/unsaveCloseStore";
+import UnsafeCloseDialog from "./views/UnsafeCloseDialog.vue";
 
 // globals
 const { t } = useI18n();
@@ -133,6 +139,8 @@ const { t } = useI18n();
 const projectsStore = useProjectsStore();
 
 const errorStore = useErrorSuccessStore();
+
+const unsafeCloseStore = useUnsaveCloseStore();
 
 // data
 const pages = ref([{
@@ -186,6 +194,16 @@ const projectNames = computed(() => {
   return projectsStore.projects.map(p => p.Name);
 })
 
+const unsafeDialogTriggered = computed({
+  get(): boolean {
+    return unsafeCloseStore.triggered;
+  },
+  set(v: boolean) {
+    console.log('set', v)
+    unsafeCloseStore.triggered = v;
+  }
+});
+
 // watchers
 watch(projectNames, (nV, oV) => {
   if( pagesCount.value > 1 ) {
@@ -205,6 +223,19 @@ function openProject(name: string, always?: boolean) {
     title: name,
     disabled: false
   });
+}
+
+function triggerNavBack() {
+  unsafeCloseStore.trigger(pagesCount.value).then(allowed => {
+    // this promise is resolved either when there are no unsaved changes or when the dialog is approved
+    console.log(allowed);
+    if( allowed ) {
+      navBack();
+    }
+    unsafeCloseStore.tried = false;
+    unsafeCloseStore.triggered = false;
+  })
+
 }
 
 function navBack() {
@@ -239,6 +270,19 @@ function openCategory(name: string) {
     disabled: false
   });
   editorType = EDITOR_TYPE_CATEGORY;
+}
+
+function triggerSwitchToProject(v: number) {
+  unsafeCloseStore.trigger(pagesCount.value).then(allowed => {
+    // this promise is resolved either when there are no unsaved changes or when the dialog is approved
+    console.log(allowed);
+    if( allowed ) {
+      switchToProject(v)
+    }
+    unsafeCloseStore.tried = false;
+    unsafeCloseStore.triggered = false;
+  })
+
 }
 
 function switchToProject(v: number) {

@@ -85,7 +85,8 @@ export const english: I18nKeys = {
     Field: 'Field',
     Settings: 'Settings',
     Save: 'Save',
-    Rename: 'Rename'
+    Rename: 'Rename',
+    Continue: 'Continue'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',
@@ -112,5 +113,9 @@ export const english: I18nKeys = {
     SaveEntry: 'Entry successfully saved',
     DeleteEntry: 'Entry successfully deleted',
     SaveConfig: 'Settings successfully saved',
+  },
+  UnsafeClose: {
+    Title: 'Warning',
+    Message: 'There are unsaved changes. If you continue, they will be lost.'
   }
 }

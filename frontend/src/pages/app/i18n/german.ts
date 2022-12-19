@@ -85,7 +85,8 @@ export const german: I18nKeys = {
     Field: 'Feld',
     Settings: 'Einstellungen',
     Save: 'Speichern',
-    Rename: 'Umbenennen'
+    Rename: 'Umbenennen',
+    Continue: 'Fortfahren'
   },
   Rules: {
     ProjectAlreadyExists: 'Ein Projekt mit diesem Namen existiert bereits',
@@ -112,5 +113,9 @@ export const german: I18nKeys = {
     SaveEntry: 'Eintrag erfolgreich gespeichert',
     DeleteEntry: 'Eintrag erfolgreich gelöscht',
     SaveConfig: 'Einstellungen erfolgreich gespeichert',
+  },
+  UnsafeClose: {
+    Title: 'Warnung',
+    Message: 'Es liegen ungespeicherte Änderungen vor. Wenn du fortfährst, werden diese verloren gehen.'
   }
 }
