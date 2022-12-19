@@ -74,7 +74,7 @@
             v-if="i === 2"
             :key="`page-${i}`"
             :project-name="pages[i-1].title"
-            @nav-back="navBack"
+            @nav-back="triggerNavBack"
             @open-entry="openEntry($event)"
             @open-category="openCategory"
           />
@@ -83,7 +83,7 @@
             :key="`page-${i}`"
             :entry-key="pages[i-1].title"
             :project-name="pages[i-2].title"
-            @nav-back="navBack"
+            @nav-back="triggerNavBack"
             @title-change="pages[i-1].title = $event"
           />
           <CategoryEditor
@@ -91,7 +91,7 @@
             :key="`page-${i}`"
             :category-name="pages[i-1].title"
             :project-name="pages[i-2].title"
-            @nav-back="navBack"
+            @nav-back="triggerNavBack"
             @title-change="pages[i-1].title = $event"
           />
         </template>
@@ -223,6 +223,19 @@ function openProject(name: string, always?: boolean) {
     title: name,
     disabled: false
   });
+}
+
+function triggerNavBack() {
+  unsafeCloseStore.trigger(pagesCount.value).then(allowed => {
+    // this promise is resolved either when there are no unsaved changes or when the dialog is approved
+    console.log(allowed);
+    if( allowed ) {
+      navBack();
+    }
+    unsafeCloseStore.tried = false;
+    unsafeCloseStore.triggered = false;
+  })
+
 }
 
 function navBack() {
