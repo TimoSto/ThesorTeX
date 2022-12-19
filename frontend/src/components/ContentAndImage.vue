@@ -31,6 +31,7 @@ const props = defineProps({
   width: calc(100% - 64px);
   margin: 16px auto;
   display: flex;
+  max-width: 1300px;
   & div {
     height: 100%;
     flex: 1;
