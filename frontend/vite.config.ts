@@ -39,7 +39,8 @@ export default defineConfig({
         auth: resolve(__dirname, 'auth/index.html'),
         app: resolve(__dirname, 'app/index.html'),
       }
-    }
+    },
+    outDir: './assets/dist'
   },
   server: {
     port: 3000,

@@ -16,3 +16,4 @@
 /backend/app/internal/project_template/template/example.toc
 /go_build_github_com_TimoSto_ThesorTeX_services_app_cmd
 /go_build_github_com_TimoSto_ThesorTeX_backend_app_cmd
+/frontend/assets/dist/
