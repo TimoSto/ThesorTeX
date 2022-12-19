@@ -10,8 +10,8 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/conf"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
-	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
+	"github.com/TimoSto/ThesorTeX/backend/pkg/pathbuilder"
 )
 
 type Store struct {

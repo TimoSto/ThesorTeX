@@ -3,9 +3,8 @@ package conf
 import (
 	"os"
 
-	"github.com/TimoSto/ThesorTeX/pkg/log"
-	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
-
+	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
+	"github.com/TimoSto/ThesorTeX/backend/pkg/pathbuilder"
 	"gopkg.in/ini.v1"
 )
 

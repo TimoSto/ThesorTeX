@@ -9,8 +9,8 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/conf"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/handlers"
-	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
-	"github.com/TimoSto/ThesorTeX/pkg/log"
+	"github.com/TimoSto/ThesorTeX/backend/pkg/handler_chain"
+	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
 )
 
 func main() {

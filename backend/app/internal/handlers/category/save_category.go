@@ -6,7 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/bib_categories"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
-	"github.com/TimoSto/ThesorTeX/pkg/log"
+	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
 )
 
 type SaveData struct {
