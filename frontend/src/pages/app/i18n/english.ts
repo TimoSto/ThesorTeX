@@ -85,7 +85,8 @@ export const english: I18nKeys = {
     Field: 'Field',
     Settings: 'Settings',
     Save: 'Save',
-    Rename: 'Rename'
+    Rename: 'Rename',
+    Continue: 'Continue'
   },
   Rules: {
     ProjectAlreadyExists: 'A project with this name already exists',

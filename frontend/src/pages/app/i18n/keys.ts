@@ -85,6 +85,7 @@ export const i18nKeys = {
     Settings: 'Common.Settings',
     Save: 'Common.Save',
     Rename: 'Common.Rename',
+    Continue: 'Common.Continue'
   },
   Rules: {
     ProjectAlreadyExists: 'Rules.ProjectAlreadyExists',

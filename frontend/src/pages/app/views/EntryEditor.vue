@@ -133,6 +133,7 @@ import GenerateCite from "../api/projectData/entries/GenerateCite";
 import GetEntryKeyRules from "../rules/entryKeyRules";
 import DeleteEntryDialog from "./DeleteEntryDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
+import {useUnsaveCloseStore} from "../stores/unsaveCloseStore";
 
 // globals
 const emit = defineEmits(['navBack', 'titleChange']);
@@ -144,6 +145,9 @@ const projectDataStore = useProjectDataStore();
 const errorSuccessStore = useErrorSuccessStore();
 
 const projectsStore = useProjectsStore();
+
+const unsafeCloseStore = useUnsaveCloseStore();
+
 // props
 const props = defineProps({
   entryKey: {
@@ -331,6 +335,10 @@ const keyRules = computed(() => {
   return GetEntryKeyRules(projectDataStore.entries.map(e => e.Key), initialEntry.value ? initialEntry.value.Key : '', t);
 })
 
+const closeTried = computed(() => {
+  return unsafeCloseStore.tried;
+});
+
 // watchers
 watch(initialEntry, () => {
   if( initialEntry.value ) {
@@ -339,6 +347,18 @@ watch(initialEntry, () => {
     entryFields.value = initialEntry.value.Fields.map(f => f);
   }
 });
+
+watch(closeTried, (nV) => {
+  if( nV ) {
+    if( unsafeCloseStore.fromPage === 3 ) {
+      if( !savePossible.value ) {
+        unsafeCloseStore.promiseResolve(true);
+      } else {
+        unsafeCloseStore.triggered = true;
+      }
+    }
+  }
+})
 
 // methods
 function CallSaveEntry() {

@@ -85,7 +85,8 @@ export const german: I18nKeys = {
     Field: 'Feld',
     Settings: 'Einstellungen',
     Save: 'Speichern',
-    Rename: 'Umbenennen'
+    Rename: 'Umbenennen',
+    Continue: 'Fortfahren'
   },
   Rules: {
     ProjectAlreadyExists: 'Ein Projekt mit diesem Namen existiert bereits',

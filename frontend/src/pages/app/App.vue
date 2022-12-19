@@ -51,7 +51,7 @@
         v-if="pagesCount > 1"
         :project="pages[1].title"
         :open="drawer"
-        @switch-to="switchToProject"
+        @switch-to="triggerSwitchToProject"
       />
     </v-navigation-drawer>
 
@@ -109,6 +109,10 @@
       @error-closed="errorStore.clean"
       @success-closed="errorStore.clean"
     />
+    <UnsafeCloseDialog
+      :open="unsafeDialogTriggered"
+      @close="unsafeDialogTriggered = false"
+    />
   </v-app>
 </template>
 
@@ -126,6 +130,8 @@ import CategoryEditor from "./views/CategoryEditor.vue";
 import SettingsDialog from "./views/SettingsDialog.vue";
 import {useErrorSuccessStore} from "./stores/errorSuccessStore";
 import SuccessErrorDisplay from "../../components/SuccessErrorDisplay.vue";
+import {useUnsaveCloseStore} from "./stores/unsaveCloseStore";
+import UnsafeCloseDialog from "./views/UnsafeCloseDialog.vue";
 
 // globals
 const { t } = useI18n();
@@ -133,6 +139,8 @@ const { t } = useI18n();
 const projectsStore = useProjectsStore();
 
 const errorStore = useErrorSuccessStore();
+
+const unsafeCloseStore = useUnsaveCloseStore();
 
 // data
 const pages = ref([{
@@ -185,6 +193,16 @@ const titleAppendix = computed(() => {
 const projectNames = computed(() => {
   return projectsStore.projects.map(p => p.Name);
 })
+
+const unsafeDialogTriggered = computed({
+  get(): boolean {
+    return unsafeCloseStore.triggered;
+  },
+  set(v: boolean) {
+    console.log('set', v)
+    unsafeCloseStore.triggered = v;
+  }
+});
 
 // watchers
 watch(projectNames, (nV, oV) => {
@@ -239,6 +257,19 @@ function openCategory(name: string) {
     disabled: false
   });
   editorType = EDITOR_TYPE_CATEGORY;
+}
+
+function triggerSwitchToProject(v: number) {
+  unsafeCloseStore.trigger(pagesCount.value).then(allowed => {
+    // this promise is resolved either when there are no unsaved changes or when the dialog is approved
+    console.log(allowed);
+    if( allowed ) {
+      switchToProject(v)
+    }
+    unsafeCloseStore.tried = false;
+    unsafeCloseStore.triggered = false;
+  })
+
 }
 
 function switchToProject(v: number) {

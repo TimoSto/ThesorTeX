@@ -26,7 +26,6 @@ export const useProjectsStore = defineStore('projects-store', () => {
   }
 
   function updateLastEditedOnProject(project: string, date: string) {
-    console.log(date, project, projects.value);
     projects.value.forEach((p,i) => {
       if( p.Name === project ) {
         projects.value[i].LastModified = date;

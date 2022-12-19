@@ -96,6 +96,7 @@ import ResponsiveTable, {ResponsiveTableHeaderCell, ResponsiveTableCell} from ".
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
 import CreateProjectDialog from "./CreateProjectDialog.vue";
+import {useUnsaveCloseStore} from "../stores/unsaveCloseStore";
 
 //global stuff
 const { t } = useI18n();
@@ -105,6 +106,8 @@ const projectDataStore = useProjectDataStore();
 const emit = defineEmits(['navBack', 'openEntry', 'openCategory']);
 
 const projectsStore = useProjectsStore();
+
+const unsafeCloseStore = useUnsaveCloseStore();
 
 //props
 const props = defineProps({
@@ -255,9 +258,19 @@ const projects = computed(() => {
 
 const renameOpened = ref(false);
 
+const closeTried = computed(() => {
+  return unsafeCloseStore.tried;
+});
+
 // watcher
 watch(() => props.projectName, () => {
   syncProjectData();
+})
+
+watch(closeTried, () => {
+  if( unsafeCloseStore.fromPage === 2 ) {
+    unsafeCloseStore.promiseResolve(true);
+  }
 })
 
 // methods

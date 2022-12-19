@@ -301,7 +301,7 @@
 <script setup lang="ts">
 import AppbarContent from "../../../components/AppbarContent.vue";
 import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
@@ -315,6 +315,7 @@ import GetCategoryNameRules from "../rules/categoryNameRules";
 import GetFieldNameRules from "../rules/fieldNameRules";
 import DeleteCategoryDialog from "./DeleteCategoryDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
+import {useUnsaveCloseStore} from "../stores/unsaveCloseStore";
 
 //globals
 const emit = defineEmits(['navBack', 'titleChange']);
@@ -326,6 +327,8 @@ const projectDataStore = useProjectDataStore();
 const errorSuccessStore = useErrorSuccessStore();
 
 const projectsStore = useProjectsStore();
+
+const unsafeCloseStore = useUnsaveCloseStore();
 
 //props
 const props = defineProps({
@@ -566,6 +569,23 @@ const savePossible = computed(() => {
     }
   }
   return true
+})
+
+const closeTried = computed(() => {
+  return unsafeCloseStore.tried;
+});
+
+// watchers
+watch(closeTried, (nV) => {
+  if( nV ) {
+    if( unsafeCloseStore.fromPage === 3 ) {
+      if( !savePossible.value ) {
+        unsafeCloseStore.promiseResolve(true);
+      } else {
+        unsafeCloseStore.triggered = true;
+      }
+    }
+  }
 })
 
 // methods
