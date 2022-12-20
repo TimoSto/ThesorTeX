@@ -13,6 +13,8 @@ type Config struct {
 	ProjectsDir string
 }
 
+var Version string
+
 const (
 	PORT_KEY         = "PORT"
 	PROJECTS_DIR_KEY = "PROJECTS_DIR"

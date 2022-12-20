@@ -13,8 +13,13 @@ go_library(
     ],
 )
 
+_APP_VERSION = "1.2.3"
+
 go_binary(
     name = "cmd",
     embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
+    x_defs = {
+        "github.com/TimoSto/ThesorTeX/backend/app/internal/conf.Version": _APP_VERSION,
+    },
 )

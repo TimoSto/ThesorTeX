@@ -15,6 +15,7 @@ import (
 
 func main() {
 	log.Info("Starting local app...")
+	log.Info(conf.Version)
 
 	conf.ReadConfig()
 
