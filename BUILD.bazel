@@ -1,5 +1,5 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
-load("@io_bazel_rules_go//go:def.bzl", "nogo")
+load("@io_bazel_rules_go//go:def.bzl", "TOOLS_NOGO", "nogo")
 load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
 # gazelle:prefix github.com/TimoSto/ThesorTeX
@@ -11,11 +11,9 @@ gazelle(
 # nogo for checking of go standards (kind of like linting)
 nogo(
     name = "my_nogo",
+    config = "nogo_config.json",
     visibility = ["//visibility:public"],  # must have public visibility
-    deps = [
-        # analyzer from a remote repository
-        "@org_golang_x_tools//go/analysis/passes/printf:go_default_library",
-    ],
+    deps = TOOLS_NOGO,
 )
 
 # for formatting

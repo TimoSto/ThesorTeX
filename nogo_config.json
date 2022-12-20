@@ -1,0 +1,8 @@
+{
+  "shadow": {
+    "exclude_files": {
+      "/": "enforce shadowing of variables on no files",
+      "\\\\": "enforce shadowing of variables on no files"
+    }
+  }
+}
