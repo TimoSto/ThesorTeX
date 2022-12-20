@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
 
-echo "running"
-
 source ./scripts/builder.sh
-
-echo "running2"
 
 outDir="out/v$(./scripts/env.sh APP VERSIONS)"
 
-echo "running3"
+echo "cleaning out dir..."
 
-echo $outDir
+rm -rf $outDir
+
+echo "building for windows..."
 
 build_windows_target //backend/app/cmd "$outDir/windows/ThesorTeX.exe"
+
+echo "building for linux..."
+
+build_linux_target //backend/app/cmd "$outDir/linux/ThesorTeX"
+
+echo "building for macOS..."
+
+build_mac_target //backend/app/cmd "$outDir/mac/ThesorTeX"
+
+echo "building for macOS (Apple Silicon M1)..."
+
+build_mac_m1_target //backend/app/cmd "$outDir/mac_silicon/ThesorTeX"
