@@ -2,7 +2,7 @@
 
 source ./scripts/builder.sh
 
-outDir="out/v$(./scripts/env.sh APP VERSIONS)"
+outDir="artifacts/v$(./scripts/env.sh APP VERSIONS)"
 
 echo "cleaning out dir..."
 
