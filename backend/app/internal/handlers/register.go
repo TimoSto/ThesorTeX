@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"fmt"
+	"mime"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/conf"
@@ -21,7 +22,10 @@ func Register(mux *http.ServeMux, cfg conf.Config) {
 		Config: cfg,
 	}
 
-	mux.Handle(fmt.Sprintf("%s/", prefix), root.HandleRoot())
+	mime.AddExtensionType(".js", "text/javascript")
+	mime.AddExtensionType(".css", "text/css")
+
+	mux.Handle("/", root.HandleRoot())
 
 	mux.Handle(fmt.Sprintf("%s/config", prefix), config.HandleConfig())
 

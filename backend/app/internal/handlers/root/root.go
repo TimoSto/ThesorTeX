@@ -1,13 +1,14 @@
 package root
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/TimoSto/ThesorTeX/frontend/assets"
 )
 
 func HandleRoot() http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("root-request", r.URL.Path)
+		http.FileServer(http.FS(assets.SubDir)).ServeHTTP(w, r)
 	}
 
 	return http.HandlerFunc(fn)
