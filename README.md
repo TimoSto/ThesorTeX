@@ -1,6 +1,9 @@
 # ThesorTeX
 Tool for handling bibliography in a LaTeX project
 
+## artifacts
+The build artifacts. You can download these and start them on your computer.
+
 ## Project structure
 
 ### backend
