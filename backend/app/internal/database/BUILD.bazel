@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "database",
+    srcs = [
+        "bib_category.go",
+        "bib_entry.go",
+        "project.go",
+        "thesor_tex_store.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/database",
+    visibility = ["//backend/app:__subpackages__"],
+)

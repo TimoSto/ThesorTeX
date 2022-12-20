@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "conf",
+    srcs = ["conf.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/conf",
+    visibility = ["//backend/app:__subpackages__"],
+    deps = [
+        "//backend/pkg/log",
+        "//backend/pkg/pathbuilder",
+        "//vendor/gopkg.in/ini.v1:ini_v1",
+    ],
+)

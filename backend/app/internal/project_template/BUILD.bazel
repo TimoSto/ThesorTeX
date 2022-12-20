@@ -1,0 +1,33 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "project_template",
+    srcs = ["projects.go"],
+    embedsrcs = [
+        "template/abkuerzungen.csv",
+        "template/bib_entries.csv",
+        "template/citedKeys.csv",
+        "template/data/bib_categories.json",
+        "template/data/bib_entries.json",
+        "template/example.aux",
+        "template/example.lof",
+        "template/example.log",
+        "template/example.lot",
+        "template/example.mcf",
+        "template/example.pdf",
+        "template/example.synctex.gz",
+        "template/example.tex",
+        "template/example.toc",
+        "template/styPackages/abk_verzeichnis.sty",
+        "template/styPackages/anhang.sty",
+        "template/styPackages/bibliography.sty",
+        "template/styPackages/codes.sty",
+        "template/styPackages/fusszeilen.sty",
+        "template/styPackages/header_footer.sty",
+        "template/styPackages/html.sty",
+        "template/styPackages/inhaltsverzeichnis.sty",
+        "template/styPackages/ueberschriften.sty",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/project_template",
+    visibility = ["//backend/app:__subpackages__"],
+)

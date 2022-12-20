@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "romannumerals",
+    srcs = ["int_to_roman.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/backend/pkg/romannumerals",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "romannumerals_test",
+    srcs = ["int_to_roman_test.go"],
+    embed = [":romannumerals"],
+)

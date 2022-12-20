@@ -1,0 +1,32 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "bib_entries",
+    srcs = [
+        "delete_entry.go",
+        "entries_to_csv.go",
+        "get_sorted_entries.go",
+        "save_entries.go",
+        "sort_entries.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/bib_entries",
+    visibility = ["//backend/app:__subpackages__"],
+    deps = [
+        "//backend/app/internal/database",
+        "//backend/app/internal/project",
+    ],
+)
+
+go_test(
+    name = "bib_entries_test",
+    srcs = [
+        "entries_to_csv_test.go",
+        "save_entries_test.go",
+        "sort_entries_test.go",
+    ],
+    embed = [":bib_entries"],
+    deps = [
+        "//backend/app/internal/database",
+        "//backend/app/internal/database/fake_store",
+    ],
+)
