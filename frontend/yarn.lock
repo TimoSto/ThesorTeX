@@ -1321,7 +1321,7 @@
     source-map "0.5.6"
     tsconfig "^7.0.0"
 
-"@vuetify/loader-shared@^1.5.0":
+"@vuetify/loader-shared@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@vuetify/loader-shared/-/loader-shared-1.7.0.tgz#b3bea7f90795dd8efdb536b192335590d85bffdd"
   integrity sha512-Db4K67wMhduDsbvdRBYkrYuomti+j0E/1vlz1lnDng5F9LYYBcXa60qypIazVGI6GX/CuY1vshN6XGtGQI4FKg==
@@ -5020,13 +5020,14 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vite-plugin-vuetify@1.0.0-alpha.12:
-  version "1.0.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/vite-plugin-vuetify/-/vite-plugin-vuetify-1.0.0-alpha.12.tgz#ee8b6816e6fb66c9c9010d574ecd79b18795d064"
-  integrity sha512-DMb7oY6F67P1RTEU28xQePUnyZdm+sbeGgIF3exBrA5yLL8NKKPIahqJN4+MAWMXCJVwNKy7nsS6zVgOLtcoQg==
+vite-plugin-vuetify@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vuetify/-/vite-plugin-vuetify-1.0.1.tgz#dcdf78f804c0cc6c7ff90087fe2e8766598ce112"
+  integrity sha512-/xHsIDuHxq7f6fDqCBYxNascLhDi+X8dV3RzTwmo4mGPrSnGq9pHv8wJsXBIQIT3nY8s16V0lmd6sXMjm0F8wg==
   dependencies:
-    "@vuetify/loader-shared" "^1.5.0"
+    "@vuetify/loader-shared" "^1.7.0"
     debug "^4.3.3"
+    upath "^2.0.1"
 
 vite@3.0.9:
   version "3.0.9"
