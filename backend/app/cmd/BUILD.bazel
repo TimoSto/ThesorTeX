@@ -13,7 +13,7 @@ go_library(
     ],
 )
 
-_APP_VERSION = "1.2.3"
+_APP_VERSION = "{APP_VERSION}"
 
 go_binary(
     name = "cmd",
