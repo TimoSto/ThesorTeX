@@ -18,3 +18,4 @@
 /go_build_github_com_TimoSto_ThesorTeX_backend_app_cmd
 /frontend/assets/dist/
 /.cache/
+/artifacts/
