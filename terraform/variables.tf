@@ -5,3 +5,7 @@ variable "aws_region" {
 variable "artifacts_bucket" {
   default = "thesortex-artifacts"
 }
+
+variable "budget_amount" {
+  default = "5.0"
+}
