@@ -19,3 +19,4 @@
 /frontend/assets/dist/
 /.cache/
 /artifacts/
+/terraform/.terraform/
