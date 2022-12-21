@@ -5,7 +5,7 @@ BeforeAll(async function () {
     // Browsers are expensive in Playwright so only create 1
     (global as any).browser = await chromium.launch({
         // Not headless so we can watch test runs
-        headless: false,
+        headless: false,//TODO: set dynmaically
         // Slow so we can see things happening
         slowMo: 50,
     });
@@ -15,7 +15,7 @@ AfterAll(async function () {
 });
 // Create a new test context and page per scenario
 Before(async function (this: OurWorld) {
-    const pixel2 = devices["Pixel 2"];
+    const pixel2 = devices["Desktop Chrome"];//TODO: set dynamically
     this.context = await (global as any).browser.newContext({
         viewport: pixel2.viewport,
         userAgent: pixel2.userAgent,
