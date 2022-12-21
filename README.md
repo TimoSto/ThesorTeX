@@ -1,8 +1,12 @@
 # ThesorTeX
 Tool for handling bibliography in a LaTeX project
 
-## artifacts
-The build artifacts. You can download these and start them on your computer.
+## Downloads
+The local application can be downloaded on the following links:
+- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/windows.zip)
+- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/linux.zip)
+- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/mac.zip)
+- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/mac_silicon.zip)
 
 ## Project structure
 
