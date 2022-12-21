@@ -69,11 +69,7 @@ func WriteConfig(c Config) error {
 
 	cfg.Section("").Key(PORT_KEY).SetValue(config.Port)
 
-	if config.ProjectsDir != pathbuilder.GetPathFromExecRoot("projects") {
-		cfg.Section("").Key(PROJECTS_DIR_KEY).SetValue(config.ProjectsDir)
-	} else {
-		cfg.Section("").Key(PROJECTS_DIR_KEY).SetValue("")
-	}
+	cfg.Section("").Key(PROJECTS_DIR_KEY).SetValue(config.ProjectsDir)
 
 	return cfg.SaveTo("Config.ini")
 }
