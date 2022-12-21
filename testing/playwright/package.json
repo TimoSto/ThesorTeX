@@ -13,6 +13,7 @@
   },
   "scripts": {
     "test:all:headed": "playwright test --headed",
-    "test:all:headless": "playwright test"
+    "test:all:headless": "playwright test",
+    "test": "cucumber-js src/features/**/*.feature --require-module ts-node/register --require src/support/test.setup.ts --require src/step_definitions/**/*.ts"
   }
 }
