@@ -3,7 +3,7 @@ import {I18nKeys} from "@/pages/app/i18n/keys";
 export const english: I18nKeys = {
   Settings: {
     Port: 'Port',
-    PortHint: 'The application will be available on this port of your computer. The deafult is http://localhost:8081.',
+    PortHint: 'The application will be available on this port of your computer. The deafult is http://localhost:8448.',
     ProjectFolder: 'Storage location for projects',
     ProjectFolderHint: 'Your projects will be saved in this directory.',
   },
