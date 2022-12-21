@@ -15,10 +15,10 @@ AfterAll(async function () {
 });
 // Create a new test context and page per scenario
 Before(async function (this: OurWorld) {
-    const pixel2 = devices["Desktop Chrome"];//TODO: set dynamically
+    const chrome_desktop = devices["Desktop Chrome"];//TODO: set dynamically
     this.context = await (global as any).browser.newContext({
-        viewport: pixel2.viewport,
-        userAgent: pixel2.userAgent,
+        viewport: chrome_desktop.viewport,
+        userAgent: chrome_desktop.userAgent,
     });
     this.page = await this.context.newPage();
 });
