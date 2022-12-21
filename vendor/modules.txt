@@ -1,0 +1,8 @@
+# github.com/justinas/alice v1.2.0
+## explicit; go 1.12
+github.com/justinas/alice
+# github.com/stretchr/testify v1.8.1
+## explicit; go 1.13
+# gopkg.in/ini.v1 v1.67.0
+## explicit
+gopkg.in/ini.v1
