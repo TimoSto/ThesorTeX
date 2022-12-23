@@ -1,0 +1,3 @@
+echo "testing all bazel targets..."
+
+bazel test //...
