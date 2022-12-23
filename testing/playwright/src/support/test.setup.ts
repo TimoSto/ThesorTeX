@@ -17,7 +17,7 @@ AfterAll(async function () {
 Before(async function (this: OurWorld) {
     const chrome_desktop = devices["Desktop Chrome"];//TODO: set dynamically
     this.context = await (global as any).browser.newContext({
-        viewport: chrome_desktop.viewport,
+        viewport: { width: 1300, height: 700 },
         userAgent: chrome_desktop.userAgent,
         locale: "en-EN",
     });

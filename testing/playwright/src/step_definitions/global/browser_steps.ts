@@ -17,10 +17,22 @@ When("I click the tree dot button", async function (this: OurWorld) {
 Then("I expect to see a menu in the top right corner", async function (this: OurWorld) {
     const menuElement = this.page.locator(".v-overlay__content:visible")
     await expect(menuElement).toBeVisible();
+    const box = await menuElement.boundingBox();
+    await expect(box).not.toBeNull()
+    if( box ) {
+        const diffTop = Math.abs(box.x - 1300 + box.width)
+        await expect(diffTop).toBeLessThan(15)
+        await expect(diffTop).toBeGreaterThan(10)
+        await expect(box.y).toBeLessThan(60)
+        await expect(box.y).toBeGreaterThan(50)
+    }
+});
+
+Then("I expect the three dot menu to contain the following entries", async function (this: OurWorld) {
+    const menuElement = this.page.locator(".v-overlay__content:visible")
     const configEntry = menuElement.locator("text=Settings")
     await expect(configEntry).toBeVisible();
-
-});
+})
 // textContent includes whitespace, so use this method to trim
 // See https://stackoverflow.com/a/42921059
 const trimExcessWhiteSpace = (s: string) =>
