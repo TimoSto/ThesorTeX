@@ -5,4 +5,4 @@ Feature: Display the config dialog
     Given the page "http://localhost:8448/app/" was opened
     When I click the tree dot button
     Then I expect to see a menu in the top right corner
-    Then I expect the three dot menu to contain the following entries
+    Then I expect the three dot menu to contain the following entries "Settings"

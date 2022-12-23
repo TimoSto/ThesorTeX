@@ -28,10 +28,13 @@ Then("I expect to see a menu in the top right corner", async function (this: Our
     }
 });
 
-Then("I expect the three dot menu to contain the following entries", async function (this: OurWorld) {
+Then("I expect the three dot menu to contain the following entries {string}", async function (this: OurWorld, list: string) {
     const menuElement = this.page.locator(".v-overlay__content:visible")
-    const configEntry = menuElement.locator("text=Settings")
-    await expect(configEntry).toBeVisible();
+    const entries = list.split(",")
+    for (let e of entries) {
+        const configEntry = menuElement.locator(`text=${e.trim()}`)
+        await expect(configEntry).toBeVisible();
+    }
 })
 // textContent includes whitespace, so use this method to trim
 // See https://stackoverflow.com/a/42921059
