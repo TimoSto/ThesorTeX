@@ -47,7 +47,7 @@ _copy_target_executable() {
           --platforms="$3" \
           "$1" \
           --output=starlark \
-          --starlark:file=show_all_outputs.bzl 2>/dev/null) \
+          --starlark:file=bazel/show_all_outputs.bzl 2>/dev/null) \
         "$2"
 }
 
