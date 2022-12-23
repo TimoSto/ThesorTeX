@@ -19,6 +19,7 @@ Before(async function (this: OurWorld) {
     this.context = await (global as any).browser.newContext({
         viewport: chrome_desktop.viewport,
         userAgent: chrome_desktop.userAgent,
+        locale: "en-EN",
     });
     this.page = await this.context.newPage();
 });

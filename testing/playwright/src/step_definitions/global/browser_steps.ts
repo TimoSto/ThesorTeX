@@ -1,28 +1,25 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import assert from "assert";
 import { OurWorld } from "../../support/OurWorld";
+import {expect} from "@playwright/test";
 // Using a cucumber expression
-Given("I view {string}", async function (this: OurWorld, url: string) {
+Given("the page {string} was opened", async function (this: OurWorld, url: string) {
     // Use the page instance from the World instance to navigate
-    await this.page.goto(`https://${url}`);
+    await this.page.goto(url);
 });
 // Using a regular expression
-When(/^I click '([^']*)'$/, async function (this: OurWorld, text: string) {
+When("I click the tree dot button", async function (this: OurWorld) {
     // Scroll to the link...
-    await this.page.$eval(`"${text}"`, (element) => {
-        element.scrollIntoView();
-    });
-    // ...then click it now it's within the viewport
-    await this.page.click(`"${text}"`);
+    const element = this.page.locator(".mdi-dots-vertical >> xpath=../..");
+    await expect(element).toBeVisible();
+    await element.click();
 });
-Then("I expect to be on the accessibility page", async function (
-    this: OurWorld
-) {
-    const heading1Text = (await this.page.textContent("h1")) as string;
-    assert.strictEqual(
-        trimExcessWhiteSpace(heading1Text),
-        "Accessibility statement"
-    );
+Then("I expect to see a menu in the top right corner", async function (this: OurWorld) {
+    const menuElement = this.page.locator(".v-overlay__content:visible")
+    await expect(menuElement).toBeVisible();
+    const configEntry = menuElement.locator("text=Settings")
+    await expect(configEntry).toBeVisible();
+
 });
 // textContent includes whitespace, so use this method to trim
 // See https://stackoverflow.com/a/42921059
