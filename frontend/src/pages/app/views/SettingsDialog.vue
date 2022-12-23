@@ -13,6 +13,7 @@
           variant="underlined"
           :label="t(i18nKeys.Settings.Port)"
           prefix="http://localhost:"
+          :rules="portRules"
         >
           <template #append-inner>
             <v-tooltip
@@ -52,7 +53,7 @@
         <v-spacer />
         <v-btn
           color="primary"
-          @click="emit('close')"
+          @click="opened = false"
         >
           {{ t(i18nKeys.Common.Close) }}
         </v-btn>
@@ -78,6 +79,7 @@ import {useI18n} from "vue-i18n";
 import {ConfigData} from "../api/config/ConfigData";
 import ReadConfigData from "../api/config/ReadConfigData";
 import SaveConfigData from "../api/config/SaveConfigData";
+import GetPortRules from "../rules/portRules";
 
 const emit = defineEmits(['close'])
 
@@ -98,6 +100,8 @@ const configData = ref({} as ConfigData);
 
 let initialConfigData = ref({} as ConfigData);
 
+const portRules = GetPortRules(t);
+
 // computed
 const opened = computed({
   get() {
@@ -105,6 +109,7 @@ const opened = computed({
   },
   set(v: boolean) {
     if( !v ) {
+      configData.value = initialConfigData.value;
       emit('close');
     }
   }
@@ -129,7 +134,7 @@ ReadConfigData().then(data => {
   initialConfigData.value.Port = data.Port;
   initialConfigData.value.ProjectsDir = data.ProjectsDir;
   configData.value = data;
-})
+});
 
 </script>
 

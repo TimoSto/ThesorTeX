@@ -96,6 +96,7 @@ export const english: I18nKeys = {
     CategoryNameAlreadyExists: 'This name is already in usage',
     FieldAlreadyExists: 'A field with this name already exists',
     NoSpecialChars: 'No special chars permitted',
+    InvalidPortNumber: 'The port is invalid'
   },
   Errors: {
     Title: 'An error occurred',

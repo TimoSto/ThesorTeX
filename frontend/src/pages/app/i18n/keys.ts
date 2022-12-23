@@ -94,7 +94,8 @@ export const i18nKeys = {
     KeyAlreadyExists: 'Rules.KeyAlreadyExists',
     CategoryNameAlreadyExists: 'Rules.CategoryNameAlreadyExists',
     FieldAlreadyExists: 'Rules.FieldAlreadyExists',
-    NoSpecialChars: 'Rules.NoSpecialChars'
+    NoSpecialChars: 'Rules.NoSpecialChars',
+    InvalidPortNumber: 'Rules.InvalidPortNumber'
   },
   Errors: {
     Title: 'Errors.Title',

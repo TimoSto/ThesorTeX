@@ -96,6 +96,7 @@ export const german: I18nKeys = {
     CategoryNameAlreadyExists: 'Dieser Name ist bereits vergeben',
     FieldAlreadyExists: 'Ein Feld mit diesem Namen existiert bereits',
     NoSpecialChars: 'Keine Sonderzeichen erlaubt',
+    InvalidPortNumber: 'Der Port ist ungültig',
   },
   Errors: {
     Title: 'Es ist ein Fehler aufgetreten',
