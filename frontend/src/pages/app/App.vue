@@ -29,7 +29,10 @@
           />
         </template>
         <v-list>
-          <v-list-item @click="settingsOpened = true">
+          <v-list-item
+            tabindex="1"
+            @click="settingsOpened = true"
+          >
             <template #prepend>
               <v-icon>mdi-cog</v-icon>
             </template>

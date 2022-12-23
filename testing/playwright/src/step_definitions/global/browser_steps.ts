@@ -26,7 +26,13 @@ When("I click the tree dot button", async function (this: OurWorld) {
     await element.click();
 });
 
-
+Then("I expect the first menu element to be focussed", async function (this: OurWorld) {
+    const focusedElement = await this.page.evaluate(() => document.activeElement);
+    expect(focusedElement).not.toBeNull();
+    if( focusedElement ) {
+        expect(focusedElement.classList).toContain('v-list-item')
+    }
+});
 
 Then("I expect to see a menu in the top right corner", async function (this: OurWorld) {
     const menuElement = this.page.locator(".v-overlay__content:visible")
