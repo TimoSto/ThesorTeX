@@ -1,5 +1,5 @@
-Feature: Display the config dialog
-  The config dialog is globally accessible and contains the config for the app
+Feature: Display the three dot menu
+  The three dot menu is globally accessible and contains list items for different actions
 
   Scenario: The three dot menu is accessible via mouse navigation
     Given the page "http://localhost:8448/app/" was opened
