@@ -5,6 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "@cucumber/cucumber": "^8.9.1",
+    "@cucumber/pretty-formatter": "^1.0.0",
     "@playwright/test": "^1.29.0",
     "@types/node": "^18.11.17",
     "playwright": "^1.29.0",
@@ -14,6 +15,6 @@
   "scripts": {
     "test:all:headed": "playwright test --headed",
     "test:all:headless": "playwright test",
-    "test": "cucumber-js src/features/**/*.feature --require-module ts-node/register --require src/support/test.setup.ts --require src/step_definitions/**/*.ts"
+    "test": "cucumber-js --config ./cucumber_config.js"
   }
 }
