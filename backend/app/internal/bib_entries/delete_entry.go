@@ -3,7 +3,7 @@ package bib_entries
 import "github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 
 func DeleteEntry(project string, key string, store database.ThesorTeXStore) error {
-	existing, err := store.GetProjectEntries(project)
+	existing, err := ReadEntries(project, store)
 	if err != nil {
 		return err
 	}
@@ -14,14 +14,12 @@ func DeleteEntry(project string, key string, store database.ThesorTeXStore) erro
 		}
 	}
 
-	err = store.SaveProjectEntries(project, existing)
+	err = WriteEntriesToJSON(existing, project, store)
 	if err != nil {
 		return err
 	}
 
-	csvFile := GenerateCsvForEntries(existing)
-
-	err = store.WriteCSV(project, csvFile)
+	err = SaveEntries(existing, project, store)
 	if err != nil {
 		return err
 	}

@@ -1,25 +1,28 @@
 package bib_categories
 
-import "github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+import (
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+)
 
 func DeleteCategory(project string, name string, store database.ThesorTeXStore) error {
-	existing, err := store.GetProjectCategories(project)
+	categories, err := ReadCategories(project, store)
 	if err != nil {
 		return err
 	}
-	for i, e := range existing {
+
+	for i, e := range categories {
 		if e.Name == name {
-			existing = append(existing[:i], existing[i+1:]...)
+			categories = append(categories[:i], categories[i+1:]...)
 			break
 		}
 	}
 
-	err = store.SaveProjectCategories(project, existing)
+	err = SaveCategoriesToJSON(project, categories, store)
 	if err != nil {
 		return err
 	}
 
-	err = SaveCategoriesToSty(store, project, existing)
+	err = SaveCategoriesToSty(store, project, categories)
 	if err != nil {
 		return err
 	}

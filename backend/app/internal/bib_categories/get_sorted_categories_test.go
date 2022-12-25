@@ -1,23 +1,24 @@
 package bib_categories
 
 import (
+	"encoding/json"
 	"reflect"
 	"testing"
 
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/database/fake_store"
 )
 
 type scenario struct {
 	title      string
-	categories []database.BibCategory
-	expected   []database.BibCategory
+	categories []BibCategory
+	expected   []BibCategory
 }
 
 func TestGetSortedCategories(t *testing.T) {
 	scenarios := []scenario{
 		{
 			title: "numbers_and_letters",
-			categories: []database.BibCategory{
+			categories: []BibCategory{
 				{
 					Name: "test1",
 				},
@@ -31,7 +32,7 @@ func TestGetSortedCategories(t *testing.T) {
 					Name: "test2",
 				},
 			},
-			expected: []database.BibCategory{
+			expected: []BibCategory{
 				{
 					Name: "atest1",
 				},
@@ -48,7 +49,7 @@ func TestGetSortedCategories(t *testing.T) {
 		},
 		{
 			title: "already_correct",
-			categories: []database.BibCategory{
+			categories: []BibCategory{
 				{
 					Name: "test1",
 				},
@@ -59,7 +60,7 @@ func TestGetSortedCategories(t *testing.T) {
 					Name: "test3",
 				},
 			},
-			expected: []database.BibCategory{
+			expected: []BibCategory{
 				{
 					Name: "test1",
 				},
@@ -75,8 +76,17 @@ func TestGetSortedCategories(t *testing.T) {
 
 	for _, s := range scenarios {
 		t.Run(s.title, func(t *testing.T) {
+			store := fake_store.Store{}
 
-			result := SortCategories(s.categories)
+			file, _ := json.Marshal(s.categories)
+
+			store.WriteFileInProject("", jsonFilePath, file)
+
+			result, err := GetSortedCategories("", &store)
+
+			if err != nil {
+				t.Errorf("unexpected error: %v", err)
+			}
 
 			if !reflect.DeepEqual(result, s.expected) {
 				t.Errorf("expected %v but got %v", s.expected, result)

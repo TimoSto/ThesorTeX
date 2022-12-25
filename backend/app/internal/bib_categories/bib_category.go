@@ -1,4 +1,9 @@
-package database
+package bib_categories
+
+const (
+	jsonFilePath = "/data/bib_categories.json"
+	styFilePath  = "/styPackages/bibliography.sty"
+)
 
 type BibCategory struct {
 	Name           string

@@ -22,7 +22,7 @@ func HandleProjectDelete(store database.ThesorTeXStore) http.Handler {
 			return
 		}
 
-		err = store.DeleteProject(string(data))
+		err = store.RemoveProject(string(data))
 
 		if err != nil {
 			log.Error("Error deleting project: %v", err)

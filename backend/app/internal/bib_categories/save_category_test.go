@@ -1,32 +1,32 @@
 package bib_categories
 
 import (
+	"encoding/json"
 	"reflect"
 	"testing"
 
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database/fake_store"
 )
 
 func TestSaveCategory(t *testing.T) {
 	tcs := []struct {
 		title          string
-		initial        [][]database.BibCategory
+		initial        []BibCategory
 		name           string
 		initialName    string
 		citaviCategory string
 		citaviFilter   []string
-		bibFields      []database.Field
-		citeFields     []database.Field
-		expected       []database.BibCategory
+		bibFields      []Field
+		citeFields     []Field
+		expected       []BibCategory
 	}{
 		{
 			title: "save on empty",
-			initial: [][]database.BibCategory{
+			initial: []BibCategory{
 				{},
 			},
 			name: "test",
-			bibFields: []database.Field{
+			bibFields: []Field{
 				{
 					Field:            "test1",
 					Italic:           true,
@@ -36,12 +36,12 @@ func TestSaveCategory(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			expected: []database.BibCategory{
+			expected: []BibCategory{
 				{
 					Name:           "test",
 					CitaviCategory: "",
 					CitaviFilters:  nil,
-					Fields: []database.Field{
+					Fields: []Field{
 						{
 							Field:            "test1",
 							Italic:           true,
@@ -57,29 +57,27 @@ func TestSaveCategory(t *testing.T) {
 		},
 		{
 			title: "override existing",
-			initial: [][]database.BibCategory{
+			initial: []BibCategory{
 				{
-					{
-						Name:           "test",
-						CitaviCategory: "",
-						CitaviFilters:  nil,
-						Fields: []database.Field{
-							{
-								Field:            "test1",
-								Italic:           true,
-								Prefix:           "(",
-								Suffix:           ") ",
-								TexValue:         false,
-								CitaviAttributes: nil,
-							},
+					Name:           "test",
+					CitaviCategory: "",
+					CitaviFilters:  nil,
+					Fields: []Field{
+						{
+							Field:            "test1",
+							Italic:           true,
+							Prefix:           "(",
+							Suffix:           ") ",
+							TexValue:         false,
+							CitaviAttributes: nil,
 						},
-						CiteFields: nil,
 					},
+					CiteFields: nil,
 				},
 			},
 			name:        "test",
 			initialName: "test",
-			bibFields: []database.Field{
+			bibFields: []Field{
 				{
 					Field:            "test1",
 					Italic:           false,
@@ -89,12 +87,12 @@ func TestSaveCategory(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			expected: []database.BibCategory{
+			expected: []BibCategory{
 				{
 					Name:           "test",
 					CitaviCategory: "",
 					CitaviFilters:  nil,
-					Fields: []database.Field{
+					Fields: []Field{
 						{
 							Field:            "test1",
 							Italic:           false,
@@ -110,29 +108,27 @@ func TestSaveCategory(t *testing.T) {
 		},
 		{
 			title: "override and rename existing",
-			initial: [][]database.BibCategory{
+			initial: []BibCategory{
 				{
-					{
-						Name:           "test",
-						CitaviCategory: "",
-						CitaviFilters:  nil,
-						Fields: []database.Field{
-							{
-								Field:            "test1",
-								Italic:           true,
-								Prefix:           "(",
-								Suffix:           ") ",
-								TexValue:         false,
-								CitaviAttributes: nil,
-							},
+					Name:           "test",
+					CitaviCategory: "",
+					CitaviFilters:  nil,
+					Fields: []Field{
+						{
+							Field:            "test1",
+							Italic:           true,
+							Prefix:           "(",
+							Suffix:           ") ",
+							TexValue:         false,
+							CitaviAttributes: nil,
 						},
-						CiteFields: nil,
 					},
+					CiteFields: nil,
 				},
 			},
 			name:        "test2",
 			initialName: "test",
-			bibFields: []database.Field{
+			bibFields: []Field{
 				{
 					Field:            "test1",
 					Italic:           false,
@@ -142,12 +138,12 @@ func TestSaveCategory(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			expected: []database.BibCategory{
+			expected: []BibCategory{
 				{
 					Name:           "test2",
 					CitaviCategory: "",
 					CitaviFilters:  nil,
-					Fields: []database.Field{
+					Fields: []Field{
 						{
 							Field:            "test1",
 							Italic:           false,
@@ -165,15 +161,10 @@ func TestSaveCategory(t *testing.T) {
 
 	for _, tc := range tcs {
 		t.Run(tc.title, func(t *testing.T) {
-			store := fake_store.Store{
-				Entries:    nil,
-				Categories: tc.initial,
-				ProjectMeta: []database.ProjectMetaData{
-					{
-						Name: "testproject",
-					},
-				},
-			}
+			store := fake_store.Store{}
+
+			file, _ := json.Marshal(tc.initial)
+			store.WriteFileInProject("testproject", jsonFilePath, file)
 
 			_, err := SaveCategory(&store, "testproject", tc.name, tc.initialName, tc.citaviCategory, tc.citaviFilter, tc.bibFields, tc.citeFields)
 
@@ -181,7 +172,9 @@ func TestSaveCategory(t *testing.T) {
 				t.Errorf("unexpected error: %v", err)
 			}
 
-			got, _ := store.GetProjectCategories("testproject")
+			gotFile, _ := store.ReadFileInProject("testproject", jsonFilePath)
+			var got []BibCategory
+			json.Unmarshal(gotFile, &got)
 			if !reflect.DeepEqual(tc.expected, got) {
 				t.Errorf("got categories: %v, want: %v", got, tc.expected)
 			}

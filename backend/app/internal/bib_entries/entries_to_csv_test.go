@@ -3,13 +3,11 @@ package bib_entries
 import (
 	"strings"
 	"testing"
-
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
 type csvScenario struct {
 	title         string
-	entries       []database.BibEntry
+	entries       []BibEntry
 	expectedLines []string
 }
 
@@ -17,7 +15,7 @@ func TestGenerateCsvForEntries(t *testing.T) {
 	scenarios := []csvScenario{
 		{
 			title: "single entry",
-			entries: []database.BibEntry{
+			entries: []BibEntry{
 				{
 					Key:      "test1",
 					Category: "aufsatz",
@@ -36,7 +34,7 @@ func TestGenerateCsvForEntries(t *testing.T) {
 		},
 		{
 			title: "two entries",
-			entries: []database.BibEntry{
+			entries: []BibEntry{
 				{
 					Key:      "test1",
 					Category: "aufsatz",
@@ -65,7 +63,7 @@ func TestGenerateCsvForEntries(t *testing.T) {
 		},
 		{
 			title:   "zero entries",
-			entries: []database.BibEntry{},
+			entries: []BibEntry{},
 			expectedLines: []string{
 				"key;type;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;",
 				"empty;empty;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;",
@@ -77,7 +75,7 @@ func TestGenerateCsvForEntries(t *testing.T) {
 		t.Run(s.title, func(t *testing.T) {
 			file := GenerateCsvForEntries(s.entries)
 			expected := strings.Join(s.expectedLines, "\n") + "\n"
-			if string(file) != expected {
+			if file != expected {
 				t.Errorf("expected %v but got %v", expected, string(file))
 			}
 		})

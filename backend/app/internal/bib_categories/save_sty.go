@@ -6,8 +6,8 @@ import (
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
-func SaveCategoriesToSty(store database.ThesorTeXStore, project string, categories []database.BibCategory) error {
-	file, err := store.GetBibliographySty(project)
+func SaveCategoriesToSty(store database.ThesorTeXStore, project string, categories []BibCategory) error {
+	file, err := store.ReadFileInProject(project, styFilePath)
 	if err != nil {
 		return err
 	}
@@ -21,7 +21,7 @@ func SaveCategoriesToSty(store database.ThesorTeXStore, project string, categori
 	citeAssignments = "% begin cite assignment\n" + citeAssignments + "\t% end cite assignment\n"
 
 	m1 := regexp.MustCompile(`(?s)% begin bib commands(.*?)% end bib commands`)
-	newFile := m1.ReplaceAllString(file, bibCommands)
+	newFile := m1.ReplaceAllString(string(file), bibCommands)
 	m2 := regexp.MustCompile(`(?s)% begin cite commands(.*?)% end cite commands`)
 	newFile = m2.ReplaceAllString(newFile, citeCommands)
 	m3 := regexp.MustCompile(`(?s)% begin bib assignment(.*?)% end bib assignment`)
@@ -29,5 +29,5 @@ func SaveCategoriesToSty(store database.ThesorTeXStore, project string, categori
 	m4 := regexp.MustCompile(`(?s)% begin cite assignment(.*?)% end cite assignment`)
 	newFile = m4.ReplaceAllString(newFile, citeAssignments)
 
-	return store.WriteBibliographySty(project, []byte(newFile))
+	return store.WriteFileInProject(project, styFilePath, []byte(newFile))
 }

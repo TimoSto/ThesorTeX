@@ -1,8 +1,16 @@
 package project
 
-import "github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+const (
+	metaDataFile = "/data/config.json"
+)
 
-type ProjectData struct {
-	Entries    []database.BibEntry
-	Categories []database.BibCategory
+type ProjectMetaData struct {
+	Created         string
+	LastModified    string
+	NumberOfEntries int
+}
+
+type ProjectMetaDataWithName struct {
+	ProjectMetaData
+	Name string
 }

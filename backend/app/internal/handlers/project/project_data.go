@@ -7,9 +7,13 @@ import (
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/bib_categories"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/bib_entries"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/project"
 	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
 )
+
+type ProjectData struct {
+	Entries    []bib_entries.BibEntry
+	Categories []bib_categories.BibCategory
+}
 
 func HandleProjectData(store database.ThesorTeXStore) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
@@ -38,7 +42,7 @@ func HandleProjectData(store database.ThesorTeXStore) http.Handler {
 			return
 		}
 
-		projectData := project.ProjectData{
+		projectData := ProjectData{
 			Entries:    entries,
 			Categories: categories,
 		}

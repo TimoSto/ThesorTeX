@@ -15,8 +15,8 @@ type SaveData struct {
 	InitialName    string
 	CitaviCategory string
 	CitaviFilter   []string
-	BibFields      []database.Field
-	CiteFields     []database.Field
+	BibFields      []bib_categories.Field
+	CiteFields     []bib_categories.Field
 }
 
 func HandleSaveCategory(store database.ThesorTeXStore) http.Handler {

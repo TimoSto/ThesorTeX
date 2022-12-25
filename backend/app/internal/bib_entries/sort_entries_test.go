@@ -4,14 +4,12 @@ import "testing"
 
 import (
 	"reflect"
-
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
 type sortScenario struct {
 	title    string
-	entries  []database.BibEntry
-	expected []database.BibEntry
+	entries  []BibEntry
+	expected []BibEntry
 }
 
 func TestSortEntries(t *testing.T) {
@@ -19,7 +17,7 @@ func TestSortEntries(t *testing.T) {
 	scenarios := []sortScenario{
 		{
 			title: "numbers and letters",
-			entries: []database.BibEntry{
+			entries: []BibEntry{
 				{
 					Key: "test",
 				},
@@ -33,7 +31,7 @@ func TestSortEntries(t *testing.T) {
 					Key: "aatest",
 				},
 			},
-			expected: []database.BibEntry{
+			expected: []BibEntry{
 				{
 					Key: "aatest",
 				},

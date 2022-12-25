@@ -1,16 +1,21 @@
 package bib_categories
 
 import (
+	"sort"
+	"strings"
+
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
-func GetSortedCategories(project string, store database.ThesorTeXStore) ([]database.BibCategory, error) {
-	categories, err := store.GetProjectCategories(project)
+func GetSortedCategories(project string, store database.ThesorTeXStore) ([]BibCategory, error) {
+	categories, err := ReadCategories(project, store)
 	if err != nil {
-		return []database.BibCategory{}, err
+		return []BibCategory{}, err
 	}
 
-	categories = SortCategories(categories)
+	sort.Slice(categories, func(i, j int) bool {
+		return strings.ToLower(categories[i].Name) < strings.ToLower(categories[j].Name)
+	})
 
 	return categories, nil
 }

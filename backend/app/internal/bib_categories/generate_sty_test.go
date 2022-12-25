@@ -2,20 +2,18 @@ package bib_categories
 
 import (
 	"testing"
-
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
 func TestGeneratePrintCommands(t *testing.T) {
 	cases := []struct {
 		title         string
-		categories    []database.BibCategory
+		categories    []BibCategory
 		expectedBib   string
 		expectedCites string
 	}{
 		{
 			title: "one empty category",
-			categories: []database.BibCategory{
+			categories: []BibCategory{
 				{
 					Name:           "test",
 					CitaviCategory: "",
@@ -41,12 +39,12 @@ func TestGeneratePrintCommands(t *testing.T) {
 		},
 		{
 			title: "one category with one bib and citefield",
-			categories: []database.BibCategory{
+			categories: []BibCategory{
 				{
 					Name:           "test",
 					CitaviCategory: "",
 					CitaviFilters:  nil,
-					Fields: []database.Field{
+					Fields: []Field{
 						{
 							Field:            "f1",
 							Italic:           true,
@@ -56,7 +54,7 @@ func TestGeneratePrintCommands(t *testing.T) {
 							CitaviAttributes: nil,
 						},
 					},
-					CiteFields: []database.Field{
+					CiteFields: []Field{
 						{
 							Field:            "f2",
 							Italic:           true,
@@ -85,12 +83,12 @@ func TestGeneratePrintCommands(t *testing.T) {
 		},
 		{
 			title: "one category with the same bib and citefield",
-			categories: []database.BibCategory{
+			categories: []BibCategory{
 				{
 					Name:           "test",
 					CitaviCategory: "",
 					CitaviFilters:  nil,
-					Fields: []database.Field{
+					Fields: []Field{
 						{
 							Field:            "f1",
 							Italic:           true,
@@ -100,7 +98,7 @@ func TestGeneratePrintCommands(t *testing.T) {
 							CitaviAttributes: nil,
 						},
 					},
-					CiteFields: []database.Field{
+					CiteFields: []Field{
 						{
 							Field:            "f1",
 							Italic:           true,
@@ -129,12 +127,12 @@ func TestGeneratePrintCommands(t *testing.T) {
 		},
 		{
 			title: "one category with overlapping bib and citefields but different styles",
-			categories: []database.BibCategory{
+			categories: []BibCategory{
 				{
 					Name:           "test",
 					CitaviCategory: "",
 					CitaviFilters:  nil,
-					Fields: []database.Field{
+					Fields: []Field{
 						{
 							Field:            "f1",
 							Italic:           true,
@@ -152,7 +150,7 @@ func TestGeneratePrintCommands(t *testing.T) {
 							CitaviAttributes: nil,
 						},
 					},
-					CiteFields: []database.Field{
+					CiteFields: []Field{
 						{
 							Field:            "f3",
 							Italic:           true,
@@ -205,13 +203,13 @@ func TestGeneratePrintCommands(t *testing.T) {
 func TestGenerateCommand(t *testing.T) {
 	cases := []struct {
 		title        string
-		fields       []database.Field
-		searchfields []database.Field
+		fields       []Field
+		searchfields []Field
 		expected     string
 	}{
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix",
-			fields: []database.Field{
+			fields: []Field{
 				{
 					Field:            "f1",
 					Italic:           false,
@@ -241,7 +239,7 @@ func TestGenerateCommand(t *testing.T) {
 		},
 		{
 			title: "one italic with suffix, one with pre- and suffix, one italic",
-			fields: []database.Field{
+			fields: []Field{
 				{
 					Field:            "f1",
 					Italic:           true,
@@ -271,7 +269,7 @@ func TestGenerateCommand(t *testing.T) {
 		},
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix with searchfields (less than fields)",
-			fields: []database.Field{
+			fields: []Field{
 				{
 					Field:            "f1",
 					Italic:           false,
@@ -297,7 +295,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			searchfields: []database.Field{
+			searchfields: []Field{
 				{
 					Field:            "f2",
 					Italic:           true,
@@ -311,7 +309,7 @@ func TestGenerateCommand(t *testing.T) {
 		},
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix with searchfields (equal num than fields)",
-			fields: []database.Field{
+			fields: []Field{
 				{
 					Field:            "f1",
 					Italic:           false,
@@ -337,7 +335,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			searchfields: []database.Field{
+			searchfields: []Field{
 				{
 					Field:            "f1",
 					Italic:           true,
@@ -367,7 +365,7 @@ func TestGenerateCommand(t *testing.T) {
 		},
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix with searchfields (less than fields)",
-			fields: []database.Field{
+			fields: []Field{
 				{
 					Field:            "f1",
 					Italic:           false,
@@ -385,7 +383,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviAttributes: nil,
 				},
 			},
-			searchfields: []database.Field{
+			searchfields: []Field{
 				{
 					Field:            "f1",
 					Italic:           true,
@@ -425,7 +423,7 @@ func TestGenerateCommand(t *testing.T) {
 }
 
 func TestGenerateAssignment(t *testing.T) {
-	categories := []database.BibCategory{
+	categories := []BibCategory{
 		{
 			Name: "test1",
 		},

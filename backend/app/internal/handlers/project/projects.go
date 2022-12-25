@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/project"
 	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
 )
 
@@ -15,7 +16,7 @@ func HandleProjects(store database.ThesorTeXStore) http.Handler {
 			return
 		}
 
-		projectsData, err := store.GetAllProjects()
+		projectsData, err := project.GetAllProjects(store)
 		if err != nil {
 			log.Error("Reading projects: %v", err)
 		}

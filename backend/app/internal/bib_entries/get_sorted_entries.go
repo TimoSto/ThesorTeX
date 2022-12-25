@@ -4,8 +4,8 @@ import (
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
-func GetSortedEntries(project string, store database.ThesorTeXStore) ([]database.BibEntry, error) {
-	entries, err := store.GetProjectEntries(project)
+func GetSortedEntries(project string, store database.ThesorTeXStore) ([]BibEntry, error) {
+	entries, err := ReadEntries(project, store)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 
 type renameData struct {
 	Project string
-	Data    database.ProjectMetaData
+	Data    project.ProjectMetaData
 }
 
 func HandleSaveProjectMetaData(store database.ThesorTeXStore) http.Handler {

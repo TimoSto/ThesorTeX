@@ -6,7 +6,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/database/fake_store",
     visibility = ["//backend/app:__subpackages__"],
     deps = [
-        "//backend/app/internal/database",
         "//backend/app/internal/project_template",
+        "//backend/pkg/pathbuilder",
     ],
 )

@@ -3,12 +3,14 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "bib_categories",
     srcs = [
+        "bib_category.go",
         "delete_category.go",
         "generate_sty.go",
         "get_sorted_categories.go",
+        "read_categories.go",
         "save_category.go",
         "save_sty.go",
-        "sort_categories.go",
+        "save_to_json.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/bib_categories",
     visibility = ["//backend/app:__subpackages__"],
@@ -23,13 +25,13 @@ go_test(
     name = "bib_categories_test",
     srcs = [
         "generate_sty_test.go",
+        "get_sorted_categories_test.go",
         "save_category_test.go",
         "save_sty_test.go",
-        "sort_categories_test.go",
     ],
     embed = [":bib_categories"],
     deps = [
-        "//backend/app/internal/database",
         "//backend/app/internal/database/fake_store",
+        "//backend/app/internal/project_template",
     ],
 )

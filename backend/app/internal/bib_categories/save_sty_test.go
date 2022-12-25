@@ -4,17 +4,17 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database/fake_store"
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/project_template"
 )
 
 func TestSaveCategoriesToSty(t *testing.T) {
 	fake := fake_store.Store{}
 
-	categories := []database.BibCategory{
+	categories := []BibCategory{
 		{
 			Name: "test1",
-			Fields: []database.Field{
+			Fields: []Field{
 				{
 					Field:  "t11",
 					Suffix: " ",
@@ -31,7 +31,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 					Prefix: "",
 				},
 			},
-			CiteFields: []database.Field{
+			CiteFields: []Field{
 				{
 					Field:  "t14",
 					Suffix: ", ",
@@ -46,7 +46,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 		},
 		{
 			Name: "test2",
-			Fields: []database.Field{
+			Fields: []Field{
 				{
 					Field:  "t21",
 					Suffix: ", ",
@@ -57,7 +57,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 					Prefix: "",
 				},
 			},
-			CiteFields: []database.Field{
+			CiteFields: []Field{
 				{
 					Field:  "t23",
 					Suffix: ", ",
@@ -72,13 +72,17 @@ func TestSaveCategoriesToSty(t *testing.T) {
 		},
 	}
 
-	err := SaveCategoriesToSty(&fake, "", categories)
+	tmpl, _ := project_template.ProjectTemplate.ReadFile("template" + styFilePath)
 
-	result, _ := fake.GetBibliographySty("")
+	fake.WriteFileInProject("", styFilePath, tmpl)
+
+	err := SaveCategoriesToSty(&fake, "", categories)
 
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)
 	}
+
+	result, _ := fake.ReadFileInProject("", styFilePath)
 
 	expectedBibCommands := `% begin bib commands
 \newcommand{\printtest1}[0]{%
@@ -101,10 +105,11 @@ func TestSaveCategoriesToSty(t *testing.T) {
 }
 % end bib commands`
 	m1 := regexp.MustCompile(`(?s)% begin bib commands(.*?)% end bib commands`)
-	bibCommandsResult := m1.FindStringSubmatch(result)
+	bibCommandsResult := m1.FindStringSubmatch(string(result))
 
 	if len(bibCommandsResult) == 0 {
 		t.Errorf("did not find bib commands")
+		return
 	}
 
 	if bibCommandsResult[0] != expectedBibCommands {
@@ -121,7 +126,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 % end cite commands`
 
 	m2 := regexp.MustCompile(`(?s)% begin cite commands(.*?)% end cite commands`)
-	citeCommandsResult := m2.FindStringSubmatch(result)
+	citeCommandsResult := m2.FindStringSubmatch(string(result))
 
 	expectedBibAssignments := `% begin bib assignment
 		{test1}{\printtest1}%
@@ -137,7 +142,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 	}
 
 	m3 := regexp.MustCompile(`(?s)% begin bib assignment(.*?)% end bib assignment`)
-	bibAssignResult := m3.FindStringSubmatch(result)
+	bibAssignResult := m3.FindStringSubmatch(string(result))
 
 	if len(bibAssignResult) == 0 {
 		t.Errorf("did not find bib assignment")
@@ -153,7 +158,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 	% end cite assignment`
 
 	m4 := regexp.MustCompile(`(?s)% begin cite assignment(.*?)% end cite assignment`)
-	citeAssignResult := m4.FindStringSubmatch(result)
+	citeAssignResult := m4.FindStringSubmatch(string(result))
 
 	if len(citeAssignResult) == 0 {
 		t.Errorf("did not find cite assignment")

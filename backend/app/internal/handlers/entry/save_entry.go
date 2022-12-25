@@ -32,7 +32,7 @@ func HandleSaveEntry(store database.ThesorTeXStore) http.Handler {
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		entries := []database.BibEntry{
+		entries := []bib_entries.BibEntry{
 			{
 				Key:        data.Key,
 				Category:   data.Category,
@@ -42,7 +42,7 @@ func HandleSaveEntry(store database.ThesorTeXStore) http.Handler {
 			},
 		}
 
-		metaData, err := bib_entries.SaveEntriesToProject(data.Project, store, entries, []string{data.InitialKey})
+		metaData, err := bib_entries.ApplyEntries(data.Project, store, entries, []string{data.InitialKey})
 
 		if err != nil {
 			log.Error("Error saving entry: %v", err)

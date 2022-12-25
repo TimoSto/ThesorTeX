@@ -2,13 +2,15 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
     name = "local_store",
-    srcs = ["store.go"],
+    srcs = [
+        "project_files.go",
+        "projects.go",
+        "store.go",
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/backend/app/internal/database/local_store",
     visibility = ["//backend/app:__subpackages__"],
     deps = [
         "//backend/app/internal/conf",
-        "//backend/app/internal/database",
-        "//backend/pkg/log",
         "//backend/pkg/pathbuilder",
     ],
 )

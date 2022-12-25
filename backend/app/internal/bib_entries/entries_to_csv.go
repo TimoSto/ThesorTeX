@@ -2,11 +2,9 @@ package bib_entries
 
 import (
 	"strings"
-
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
-func GenerateCsvForEntries(entries []database.BibEntry) []byte {
+func GenerateCsvForEntries(entries []BibEntry) string {
 	file := "key;type;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"
 	for _, entry := range entries {
 		file += entry.Key + ";" + entry.Category + ";"
@@ -22,5 +20,5 @@ func GenerateCsvForEntries(entries []database.BibEntry) []byte {
 	}
 	file += "empty;empty;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"
 
-	return []byte(file)
+	return file
 }

@@ -3,7 +3,6 @@ package bib_categories
 import (
 	"fmt"
 
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 	"github.com/TimoSto/ThesorTeX/backend/pkg/romannumerals"
 )
 
@@ -25,7 +24,7 @@ const (
 )
 
 // GeneratePrintCommands This func gives the print commands for the bibliography and the cites
-func GeneratePrintCommands(categories []database.BibCategory) (string, string) {
+func GeneratePrintCommands(categories []BibCategory) (string, string) {
 	bibCommands := ""
 	citeCommands := ""
 
@@ -38,7 +37,7 @@ func GeneratePrintCommands(categories []database.BibCategory) (string, string) {
 }
 
 // GenerateCommand this function generates the command, that prints the fields with style, prefix and suffix
-func GenerateCommand(fields []database.Field, searchfields []database.Field) string {
+func GenerateCommand(fields []Field, searchfields []Field) string {
 	command := ""
 
 	// count the fields, found in search to determine correct index of field not found in searchfields
@@ -71,7 +70,7 @@ func GenerateCommand(fields []database.Field, searchfields []database.Field) str
 	return command
 }
 
-func GenerateAssignment(categories []database.BibCategory) (string, string) {
+func GenerateAssignment(categories []BibCategory) (string, string) {
 	bibAssignments := ""
 	citeAssignments := ""
 

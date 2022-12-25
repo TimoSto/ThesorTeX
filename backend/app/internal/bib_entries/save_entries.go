@@ -1,56 +1,28 @@
 package bib_entries
 
 import (
-	"fmt"
+	"encoding/json"
 
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
-	"github.com/TimoSto/ThesorTeX/backend/app/internal/project"
 )
 
-var (
-	KeyAlreadyExistsError = fmt.Errorf("key already exists")
-)
-
-func SaveEntriesToProject(projectName string, store database.ThesorTeXStore, entries []database.BibEntry, initialKeys []string) (database.ProjectMetaData, error) {
-
-	existing, err := store.GetProjectEntries(projectName)
+func SaveEntries(entries []BibEntry, project string, store database.ThesorTeXStore) error {
+	file, err := json.Marshal(entries)
 	if err != nil {
-		return database.ProjectMetaData{}, err
+		return err
 	}
 
-	for i, e := range entries {
-		found := false
-		for j, ex := range existing {
-			if initialKeys[i] == ex.Key {
-				existing[j] = e
-				found = true
-			} else if ex.Key == e.Key {
-				return database.ProjectMetaData{}, KeyAlreadyExistsError
-			}
-		}
-		if !found {
-			existing = append(existing, e)
-		}
-	}
-
-	existing = SortEntries(existing)
-
-	err = store.SaveProjectEntries(projectName, existing)
+	err = store.WriteFileInProject(project, entriesJsonFile, file)
 	if err != nil {
-		return database.ProjectMetaData{}, err
+		return err
 	}
 
-	csvFile := GenerateCsvForEntries(existing)
+	csvFile := GenerateCsvForEntries(entries)
 
-	err = store.WriteCSV(projectName, csvFile)
+	err = store.WriteFileInProject(project, entriesCsvFile, []byte(csvFile))
 	if err != nil {
-		return database.ProjectMetaData{}, err
+		return err
 	}
 
-	data, err := project.UpdateProjectLastEdited(projectName, store)
-	if err != nil {
-		return database.ProjectMetaData{}, err
-	}
-
-	return data, nil
+	return nil
 }
