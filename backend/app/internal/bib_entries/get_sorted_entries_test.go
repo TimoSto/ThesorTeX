@@ -1,6 +1,11 @@
 package bib_entries
 
-import "testing"
+import (
+	"encoding/json"
+	"testing"
+
+	"github.com/TimoSto/ThesorTeX/backend/app/internal/database/fake_store"
+)
 
 import (
 	"reflect"
@@ -12,7 +17,7 @@ type sortScenario struct {
 	expected []BibEntry
 }
 
-func TestSortEntries(t *testing.T) {
+func TestGetSortedEntries(t *testing.T) {
 
 	scenarios := []sortScenario{
 		{
@@ -50,8 +55,16 @@ func TestSortEntries(t *testing.T) {
 
 	for _, s := range scenarios {
 		t.Run(s.title, func(t *testing.T) {
+			fake := fake_store.Store{}
 
-			result := SortEntries(s.entries)
+			data, _ := json.Marshal(s.entries)
+
+			fake.WriteFileInProject("", entriesJsonFile, data)
+
+			result, err := GetSortedEntries("", &fake)
+			if err != nil {
+				t.Errorf("unexpected error: %v", err)
+			}
 
 			if !reflect.DeepEqual(result, s.expected) {
 				t.Errorf("expected %v but got %v", s.expected, result)

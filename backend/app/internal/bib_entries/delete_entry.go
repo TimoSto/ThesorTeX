@@ -14,11 +14,6 @@ func DeleteEntry(project string, key string, store database.ThesorTeXStore) erro
 		}
 	}
 
-	err = WriteEntriesToJSON(existing, project, store)
-	if err != nil {
-		return err
-	}
-
 	err = SaveEntries(existing, project, store)
 	if err != nil {
 		return err

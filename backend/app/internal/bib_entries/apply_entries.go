@@ -33,7 +33,7 @@ func ApplyEntries(projectName string, store database.ThesorTeXStore, entries []B
 		}
 	}
 
-	existing = SortEntries(existing)
+	//TODO: is it ok to leave out sorting here or only do it here
 
 	err = SaveEntries(existing, projectName, store)
 	if err != nil {

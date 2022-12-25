@@ -1,6 +1,9 @@
 package bib_entries
 
 import (
+	"sort"
+	"strings"
+
 	"github.com/TimoSto/ThesorTeX/backend/app/internal/database"
 )
 
@@ -10,7 +13,9 @@ func GetSortedEntries(project string, store database.ThesorTeXStore) ([]BibEntry
 		return nil, err
 	}
 
-	entries = SortEntries(entries)
+	sort.Slice(entries, func(i, j int) bool {
+		return strings.ToLower(entries[i].Key) < strings.ToLower(entries[j].Key)
+	})
 
 	return entries, nil
 }
