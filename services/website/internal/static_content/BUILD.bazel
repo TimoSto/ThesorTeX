@@ -12,6 +12,6 @@ go_library(
         "static/images/index/cv.png",
         "static/images/index/toc.png",
     ],
-    importpath = "github.com/TimoSto/ThesorTeX/backend/website/internal/static_content",
-    visibility = ["//backend/website:__subpackages__"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/static_content",
+    visibility = ["//services/website:__subpackages__"],
 )
