@@ -34,33 +34,44 @@ cd terraform
 ./scripts/s3_upload_atrifacts.sh
 ```
 
+## Used technologies
+- Go
+- pnpm
+- Playwright
+- terraform
+- bazel
+
 ## Project structure
 
-### backend
-The backend services
-
-#### app
-local executable, which handles the file management. This way unnecessary traffic is avoided.
+### services
+Here the separation of the different services, that are independently runnable.
 
 #### website
-The lambda handles the website.
+The service for hosting the website.
 
-#### auth
-Handling of authentication
+##### cmd
+The lambda executable
 
-#### pkg
-Packages used by multiple other packages
+##### internal
+The backend for the website using the global go.mod
 
-### frontend
-Gui with Vue3 and vuetify.
-- The entry files are in a directory on root
-- components and rules are managed globally for all pages
-- the api-calls and other implementation is located in the pages-directories
+##### frontend
+The frontend for the website using the global pnpm-workspace
 
-### e2e
-end-2-end-tests
+#### app
+The service for managing the bibliography projects.
 
-### testing
+##### cmd
+The local executable
 
-#### mocks
-mock-implementations for unit-tests
+##### internal
+The backend for the app using the global go.mod
+
+##### frontend
+The frontend for the app using the global pnpm-workspace
+
+### pkg
+Go packages used among multiple services
+
+### packages
+Pnpm packages used among multiple services
