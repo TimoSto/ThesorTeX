@@ -16,6 +16,8 @@ rm -rf "assets/dist"
 
 yarn run build
 
+cd ../
+
 echo "building for windows..."
 
 echo $(pwd)
