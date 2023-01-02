@@ -7,12 +7,33 @@ on:
         required: true
         default: 'warning'
 jobs:
-  example:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup bazel
-      uses: jwlawson/actions-setup-bazel@v1
-      with:
-        bazel-version: '2.0.0'
-    - name: Use bazel
-      run: bazel --version
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+          dir: 'frontend'
+
+      - name: Setup bazel
+        uses: jwlawson/actions-setup-bazel@v1
+        with:
+          bazel-version: '2.0.0'
+
+      - name: Build all
+        run: ./build.sh
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: artifacts/**/*
+          retention-days: 5

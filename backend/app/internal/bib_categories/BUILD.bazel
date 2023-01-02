@@ -24,6 +24,7 @@ go_library(
 go_test(
     name = "bib_categories_test",
     srcs = [
+        "delete_category_test.go",
         "generate_sty_test.go",
         "get_sorted_categories_test.go",
         "save_category_test.go",

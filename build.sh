@@ -8,6 +8,14 @@ echo "cleaning out dir..."
 
 rm -rf $outDir
 
+echo "building frontend..."
+
+cd frontend
+
+rm -rf "assets/dist"
+
+yarn run build
+
 echo "building for windows..."
 
 echo $(pwd)

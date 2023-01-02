@@ -21,3 +21,4 @@
 /artifacts/
 /terraform/.terraform/
 /terraform/plan.bin
+/frontend/.cache/
