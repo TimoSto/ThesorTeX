@@ -1,8 +1,0 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-
-go_library(
-    name = "internal",
-    srcs = ["users.go"],
-    importpath = "github.com/TimoSto/ThesorTeX/backend/auth/internal",
-    visibility = ["//backend/auth:__subpackages__"],
-)
