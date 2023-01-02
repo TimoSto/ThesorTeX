@@ -75,3 +75,15 @@ Go packages used among multiple services
 
 ### packages
 Pnpm packages used among multiple services
+
+### testing
+mocks and playwright tests
+
+### terraform
+terraform modules
+
+### scripts
+build scripts
+
+### bazel
+global bazel files
