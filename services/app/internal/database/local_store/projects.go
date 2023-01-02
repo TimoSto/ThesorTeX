@@ -3,7 +3,7 @@ package local_store
 import (
 	"os"
 
-	"github.com/TimoSto/ThesorTeX/backend/pkg/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
 )
 
 func (s *Store) GetAllProjectPaths() ([]string, error) {

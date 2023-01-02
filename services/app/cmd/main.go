@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/TimoSto/ThesorTeX/backend/pkg/handler_chain"
-	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
+	"github.com/TimoSto/ThesorTeX/pkg/handler_chain"
+	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/conf"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )

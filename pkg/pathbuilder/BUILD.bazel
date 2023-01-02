@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "pathbuilder",
     srcs = ["path_builder.go"],
-    importpath = "github.com/TimoSto/ThesorTeX/backend/pkg/pathbuilder",
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/pathbuilder",
     visibility = ["//visibility:public"],
 )
 

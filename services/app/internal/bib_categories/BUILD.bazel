@@ -15,7 +15,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/bib_categories",
     visibility = ["//services/app:__subpackages__"],
     deps = [
-        "//backend/pkg/romannumerals",
+        "//pkg/romannumerals",
         "//services/app/internal/database",
         "//services/app/internal/project",
     ],

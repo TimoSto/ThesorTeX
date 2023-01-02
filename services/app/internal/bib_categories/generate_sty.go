@@ -3,7 +3,7 @@ package bib_categories
 import (
 	"fmt"
 
-	"github.com/TimoSto/ThesorTeX/backend/pkg/romannumerals"
+	"github.com/TimoSto/ThesorTeX/pkg/romannumerals"
 )
 
 const (

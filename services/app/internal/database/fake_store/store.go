@@ -1,7 +1,7 @@
 package fake_store
 
 import (
-	"github.com/TimoSto/ThesorTeX/backend/pkg/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/pkg/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
 )
 

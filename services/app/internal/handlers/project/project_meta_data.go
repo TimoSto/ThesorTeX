@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/TimoSto/ThesorTeX/backend/pkg/log"
+	"github.com/TimoSto/ThesorTeX/pkg/log"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/database"
 	project2 "github.com/TimoSto/ThesorTeX/services/app/internal/project"
 )

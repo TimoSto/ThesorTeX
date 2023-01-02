@@ -12,7 +12,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project",
     visibility = ["//services/app:__subpackages__"],
     deps = [
-        "//backend/pkg/log",
+        "//pkg/log",
         "//services/app/internal/bib_categories",
         "//services/app/internal/bib_entries",
         "//services/app/internal/database",
