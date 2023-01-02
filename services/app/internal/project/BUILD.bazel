@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "project",
+    srcs = [
+        "all_projects.go",
+        "create_project.go",
+        "project.go",
+        "project_meta_data.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/project",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//services/app/internal/database",
+        "//services/app/internal/project_template",
+    ],
+)

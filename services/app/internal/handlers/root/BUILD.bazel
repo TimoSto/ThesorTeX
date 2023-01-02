@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "root",
+    srcs = ["root.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/root",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//frontend/assets",
+        "//services/app/internal/conf",
+    ],
+)

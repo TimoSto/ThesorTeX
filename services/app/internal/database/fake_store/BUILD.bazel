@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "fake_store",
+    srcs = ["store.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/database/fake_store",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//backend/pkg/pathbuilder",
+        "//services/app/internal/project_template",
+    ],
+)

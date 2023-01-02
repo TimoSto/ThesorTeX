@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "entry",
+    srcs = [
+        "delete_entry.go",
+        "save_entry.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//backend/pkg/log",
+        "//services/app/internal/bib_entries",
+        "//services/app/internal/database",
+    ],
+)
