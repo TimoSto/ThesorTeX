@@ -4,6 +4,7 @@
   "author": "Timo Stovermann",
   "pnpm": {
     "overrides": {
+      "@intlify/unplugin-vue-i18n": "0.8.1",
       "@mdi/font": "7.1.96",
       "@types/jest": "29.2.5",
       "@typescript-eslint/parser": "5.48.0",

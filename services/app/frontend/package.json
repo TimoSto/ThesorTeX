@@ -18,6 +18,7 @@
     "vuetify": "*"
   },
   "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "*",
     "@types/jest": "*",
     "@typescript-eslint/parser": "*",
     "@vitejs/plugin-vue": "*",
