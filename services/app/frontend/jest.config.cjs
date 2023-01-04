@@ -1,5 +1,5 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/typescript',
+  preset: 'ts-jest',
   testMatch: ['**/*.test.ts'],
   testEnvironment: 'node'
 }
