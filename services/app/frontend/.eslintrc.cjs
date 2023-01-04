@@ -1,4 +1,4 @@
 
-const defaultConfig = require("../../../eslintrc.template.cjs");
+const defaultConfig = require("../../../templates/eslint/eslintrc.template.cjs");
 
 module.exports = defaultConfig;
