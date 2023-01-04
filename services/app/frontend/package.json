@@ -19,6 +19,7 @@
     "@vitejs/plugin-vue": "*",
     "eslint": "*",
     "eslint-plugin-vue": "*",
+    "sass": "*",
     "typescript": "*",
     "vite": "*",
     "vite-plugin-vuetify": "*",
