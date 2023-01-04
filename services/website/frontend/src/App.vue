@@ -142,14 +142,14 @@
 </template>
 
 <script setup lang="ts">
-import LogoSVG from "@/components/LogoSVG.vue";
-import AppbarContent from "@/components/AppbarContent.vue";
-import ContentAndImage from "@/components/ContentAndImage.vue";
+import LogoSVG from "./components/LogoSVG.vue";
+import AppbarContent from "./components/AppbarContent.vue";
+import ContentAndImage from "./components/ContentAndImage.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "./i18n/keys";
-import ThesisSVG from "../../components/ThesisSVG.vue";
-import ThesisMonitorSVG from "../../components/ThesisMonitorSVG.vue";
-import CvSVG from "../../components/CvSVG.vue";
+import ThesisSVG from "./components/ThesisSVG.vue";
+import ThesisMonitorSVG from "./components/ThesisMonitorSVG.vue";
+import CvSVG from "./components/CvSVG.vue";
 
 const { t } = useI18n();
 
@@ -158,12 +158,3 @@ function getStarted() {
 }
 
 </script>
-
-<style lang="scss" scoped>
-@use "@/styles/tiles.scss";
-@import '../../../node_modules/typeface-roboto/index.css';
-</style>
-
-<style lang="scss">
-@use "@/styles/common.scss";
-</style>
