@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/TimoSto/ThesorTeX/frontend/assets"
+	"github.com/TimoSto/ThesorTeX/services/app/frontend/assets"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/conf"
 )
 
