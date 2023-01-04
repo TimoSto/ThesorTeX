@@ -10,7 +10,9 @@
     "lint": "eslint '**/*.{js,ts,vue}'"
   },
   "dependencies": {
-    "vue": "*"
+    "@mdi/font": "*",
+    "vue": "*",
+    "vuetify": "*"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "*",
@@ -19,6 +21,7 @@
     "eslint-plugin-vue": "*",
     "typescript": "*",
     "vite": "*",
+    "vite-plugin-vuetify": "*",
     "vue-eslint-parser": "*",
     "vue-tsc": "*"
   }
