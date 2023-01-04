@@ -1,0 +1,36 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "jest": "jest",
+    "lint": "eslint '**/*.{js,ts,vue}'",
+    "vue-tsc": "vue-tsc"
+  },
+  "dependencies": {
+    "@mdi/font": "*",
+    "vue": "*",
+    "vue-i18n": "*",
+    "vuetify": "*"
+  },
+  "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "*",
+    "@types/jest": "*",
+    "@typescript-eslint/parser": "*",
+    "@vitejs/plugin-vue": "*",
+    "eslint": "*",
+    "eslint-plugin-vue": "*",
+    "jest": "*",
+    "sass": "*",
+    "ts-jest": "*",
+    "typescript": "*",
+    "vite": "*",
+    "vite-plugin-vuetify": "*",
+    "vue-eslint-parser": "*",
+    "vue-tsc": "*"
+  }
+}
