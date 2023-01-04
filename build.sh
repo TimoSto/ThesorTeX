@@ -8,21 +8,19 @@ echo "cleaning out dir..."
 
 rm -rf $outDir
 
-echo "building frontend..."
+rm -rf "artifacts/website"
 
-cd frontend
+echo "cleaning frontend-dist-dirs..."
 
-rm -rf "assets/dist"
+rm -rf services/app/frontend/assets/dist
 
-yarn run build
+rm -rf services/website/frontend/assets/dist
 
-cd ../
+echo "building frontends..."
+
+pnpm run -r build
 
 echo "building for windows..."
-
-echo $(pwd)
-
-echo "$(pwd)"
 
 build_windows_target //services/app/cmd "$outDir/windows/ThesorTeX.exe" "$(pwd)"
 
