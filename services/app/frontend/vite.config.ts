@@ -19,6 +19,18 @@ export default defineConfig({
       })
   ],
   server: {
-    port: 3000
+    port: 3000,
+    proxy: {
+      "/app/createProject": "http://localhost:8448/",
+      "/app/projects": "http://localhost:8448/",
+      "/app/deleteProject": "http://localhost:8448/",
+      "/app/projectData": "http://localhost:8448/",
+      "/app/saveEntry": "http://localhost:8448/",
+      "/app/saveCategory": "http://localhost:8448/",
+      "/app/config": "http://localhost:8448/",
+      "/app/renameProject": "http://localhost:8448/",
+      "/app/deleteEntry": "http://localhost:8448/",
+      "/app/deleteCategory": "http://localhost:8448/",
+    }
   }
 })
