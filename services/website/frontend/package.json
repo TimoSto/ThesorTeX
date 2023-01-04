@@ -19,11 +19,8 @@
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "*",
-    "@types/jest": "*",
     "@vitejs/plugin-vue": "*",
-    "jest": "*",
     "sass": "*",
-    "ts-jest": "*",
     "typescript": "*",
     "vite": "*",
     "vite-plugin-vuetify": "*",
