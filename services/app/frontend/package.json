@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@mdi/font": "*",
+    "pinia": "*",
     "vue": "*",
     "vue-i18n": "*",
     "vuetify": "*"
