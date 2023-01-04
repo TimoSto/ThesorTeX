@@ -1,5 +1,5 @@
 import { setActivePinia, createPinia } from 'pinia'
-import {useProjectsStore} from "@/pages/app/stores/projectsStore";
+import {useProjectsStore} from "./projectsStore";
 
 describe('projects store', () => {
   beforeEach(() => {

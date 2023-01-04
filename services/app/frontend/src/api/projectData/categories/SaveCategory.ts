@@ -1,5 +1,5 @@
-import {Field} from "@/pages/app/api/projectData/categories/BibCategory";
-import SaveResponse from "@/pages/app/api/projectData/SaveResponse";
+import {Field} from "./BibCategory";
+import SaveResponse from "../SaveResponse";
 
 interface CategorySaveData {
   Project: string

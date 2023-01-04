@@ -1,5 +1,5 @@
-import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
-import CheckEntryChanged from "@/pages/app/api/projectData/entries/CheckEntryChanged";
+import {BibEntry} from "./BibEntry";
+import CheckEntryChanged from "./CheckEntryChanged";
 
 describe("checkEntryChanged", function () {
   it('no changes', () => {

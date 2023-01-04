@@ -1,5 +1,5 @@
 import {createPinia, setActivePinia} from "pinia";
-import {useUnsaveCloseStore} from "@/pages/app/stores/unsaveCloseStore";
+import {useUnsaveCloseStore} from "./unsaveCloseStore";
 
 describe("unsafeCloseStore", function () {
   beforeEach(() => {

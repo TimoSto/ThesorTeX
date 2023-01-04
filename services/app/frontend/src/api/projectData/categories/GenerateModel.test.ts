@@ -1,5 +1,5 @@
-import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
-import GenerateModelForFields from "@/pages/app/api/projectData/categories/GenerateModel";
+import {BibCategory} from "./BibCategory";
+import GenerateModelForFields from "./GenerateModel";
 
 describe('GenerateModel', () => {
   it('should work with no styling or prefixes/suffixes', () => {

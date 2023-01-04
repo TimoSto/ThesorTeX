@@ -1,5 +1,5 @@
-import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
-import CheckCategoryChanged from "@/pages/app/api/projectData/categories/CheckCategoryChanged";
+import {BibCategory} from "./BibCategory";
+import CheckCategoryChanged from "./CheckCategoryChanged";
 
 describe('checkCategoryChanged', () => {
   it('no changes', () => {

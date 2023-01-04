@@ -1,4 +1,4 @@
-import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
+import {BibEntry} from "./BibEntry";
 
 export default function CheckEntryChanged(initial: BibEntry, key: string, category: string, fields: string[]): boolean {
   return initial.Key !== key ||

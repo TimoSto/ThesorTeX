@@ -1,4 +1,5 @@
-import {ProjectData} from "@/pages/app/api/projectData/ProjectData";
+import {ProjectData} from "./ProjectData";
+
 
 export default async function GetProjectData(project: string): Promise<ProjectData> {
   const resp = await fetch(`/app/projectData?project=${project}`);

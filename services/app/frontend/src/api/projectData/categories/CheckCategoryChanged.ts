@@ -1,4 +1,4 @@
-import {BibCategory, Field} from "@/pages/app/api/projectData/categories/BibCategory";
+import {BibCategory, Field} from "./BibCategory";
 
 export default function CheckCategoryChanged(initial: BibCategory, name: string, citaviCategory: string, citaviFilter: string[], fields: Field[], citeFields: Field[]) {
   if( !citaviFilter ) {

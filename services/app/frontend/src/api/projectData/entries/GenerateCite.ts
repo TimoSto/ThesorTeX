@@ -1,5 +1,5 @@
-import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
-import {BibCategory, Field} from "@/pages/app/api/projectData/categories/BibCategory";
+import {BibEntry} from "./BibEntry";
+import {BibCategory, Field} from "../categories/BibCategory";
 
 export default function GenerateCite(entryObj: BibEntry, categories: BibCategory[]): string {
   let cite = '';

@@ -1,5 +1,5 @@
 import { setActivePinia, createPinia } from 'pinia'
-import {useErrorSuccessStore} from "@/pages/app/stores/errorSuccessStore";
+import {useErrorSuccessStore} from "./errorSuccessStore";
 
 describe('ErrorSuccessStore', () => {
   beforeEach(() => {

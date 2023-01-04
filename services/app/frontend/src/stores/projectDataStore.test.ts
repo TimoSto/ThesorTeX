@@ -1,7 +1,7 @@
 import { setActivePinia, createPinia } from 'pinia'
-import {useProjectDataStore} from "@/pages/app/stores/projectDataStore";
-import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
-import {BibCategory, Field} from "@/pages/app/api/projectData/categories/BibCategory";
+import {useProjectDataStore} from "./projectDataStore";
+import {BibEntry} from "../api/projectData/entries/BibEntry";
+import {BibCategory, Field} from "../api/projectData/categories/BibCategory";
 
 describe('projectData store', () => {
   beforeEach(() => {

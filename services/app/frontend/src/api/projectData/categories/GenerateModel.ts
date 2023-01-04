@@ -1,4 +1,4 @@
-import {Field} from "@/pages/app/api/projectData/categories/BibCategory";
+import {Field} from "./BibCategory";
 
 export default function GenerateModelForFields(fields: Field[]): string {
   let model = '';

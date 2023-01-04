@@ -1,4 +1,4 @@
-import {ConfigData} from "@/pages/app/api/config/ConfigData";
+import {ConfigData} from "./ConfigData";
 
 export default async function ReadConfigData(): Promise<ConfigData> {
   const resp = await fetch('/app/config');

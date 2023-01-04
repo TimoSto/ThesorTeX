@@ -1,10 +1,10 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
-import {BibCategory} from "@/pages/app/api/projectData/categories/BibCategory";
-import {ProjectData} from "@/pages/app/api/projectData/ProjectData";
-import GenerateModelForFields from "@/pages/app/api/projectData/categories/GenerateModel";
-import GenerateEntry from "@/pages/app/api/projectData/entries/GenerateEntry";
+import {BibEntry} from "../api/projectData/entries/BibEntry";
+import {BibCategory} from "../api/projectData/categories/BibCategory";
+import {ProjectData} from "../api/projectData/ProjectData";
+import GenerateModelForFields from "../api/projectData/categories/GenerateModel";
+import GenerateEntry from "../api/projectData/entries/GenerateEntry";
 
 export const useProjectDataStore = defineStore('project-data', () => {
   const entries = ref([] as BibEntry[]);
