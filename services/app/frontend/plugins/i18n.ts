@@ -1,6 +1,6 @@
 import {createI18n, I18n} from "vue-i18n";
 
-
+//TODO: in eigenes package generalisieren
 export default function CreateI18n(german: any, english: any): I18n<{ de: any, en: any }> {
   return createI18n({
     legacy: false, // you must set `false`, to use Composition API

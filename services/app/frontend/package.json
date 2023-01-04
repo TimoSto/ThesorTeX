@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/font": "*",
     "vue": "*",
+    "vue-i18n": "*",
     "vuetify": "*"
   },
   "devDependencies": {

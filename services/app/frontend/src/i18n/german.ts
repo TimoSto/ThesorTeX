@@ -1,4 +1,4 @@
-import {I18nKeys} from "@/pages/app/i18n/keys";
+import {I18nKeys} from "./keys";
 
 export const german: I18nKeys = {
   Settings: {
