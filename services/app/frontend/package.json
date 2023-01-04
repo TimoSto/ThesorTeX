@@ -21,7 +21,6 @@
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "*",
     "@vitejs/plugin-vue": "*",
-    "sass": "*",
     "typescript": "*",
     "vite": "*",
     "vite-plugin-vuetify": "*",
