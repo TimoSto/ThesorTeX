@@ -300,5 +300,5 @@ function switchToProject(v: number) {
 </script>
 
 <style lang="scss">
-@use "../../../../frontend/src/styles/common";
+@use "./styles/common";
 </style>

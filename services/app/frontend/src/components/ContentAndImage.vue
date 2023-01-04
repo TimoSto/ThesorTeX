@@ -25,7 +25,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@use "frontend/src/styles/tiles.scss";
+@use "../styles/tiles.scss";
 
 .container{
   width: calc(100% - 64px);
