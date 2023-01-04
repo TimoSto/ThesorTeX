@@ -85,14 +85,14 @@
 </template>
 
 <script setup lang="ts">
-import AppbarContent from "@/components/AppbarContent.vue";
+import AppbarContent from "../components/AppbarContent.vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {ProjectData} from "../api/projectData/ProjectData";
 import {computed, ref, watch} from "vue";
-import ResponsiveTable, {ResponsiveTableHeaderCell, ResponsiveTableCell} from "../../../components/ResponsiveTable.vue";
+import ResponsiveTable, {ResponsiveTableHeaderCell, ResponsiveTableCell} from "../components/ResponsiveTable.vue";
 import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
 import CreateProjectDialog from "./CreateProjectDialog.vue";

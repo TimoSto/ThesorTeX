@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import AppbarContent from "../../../components/AppbarContent.vue";
+import AppbarContent from "../components/AppbarContent.vue";
 import {useProjectsStore} from "../stores/projectsStore";
 import {computed} from "vue";
 import {useI18n} from "vue-i18n";

@@ -59,7 +59,7 @@
 
 <script setup lang="ts">
 
-import {i18nKeys} from "../pages/app/i18n/keys";
+import {i18nKeys} from "../i18n/keys";
 
 import {computed, ref, watch} from "vue";
 import {useI18n} from "vue-i18n";

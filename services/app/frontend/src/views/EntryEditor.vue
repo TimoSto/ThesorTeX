@@ -117,10 +117,10 @@
 </template>
 
 <script setup lang="ts">
-import AppbarContent from "../../../components/AppbarContent.vue";
+import AppbarContent from "../components/AppbarContent.vue";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
-import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
+import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../components/ResponsiveTable.vue";
 import {computed, ref, watch} from "vue";
 import {useProjectDataStore} from "../stores/projectDataStore";
 import SaveEntry from "../api/projectData/entries/SaveEntry";

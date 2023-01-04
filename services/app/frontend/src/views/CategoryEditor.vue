@@ -299,8 +299,8 @@
 </template>
 
 <script setup lang="ts">
-import AppbarContent from "../../../components/AppbarContent.vue";
-import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../../../components/ResponsiveTable.vue";
+import AppbarContent from "../components/AppbarContent.vue";
+import ResponsiveTable, {ResponsiveTableCell, ResponsiveTableHeaderCell} from "../components/ResponsiveTable.vue";
 import {computed, ref, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
