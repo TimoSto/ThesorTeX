@@ -6,15 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint '**/*.{js,ts,vue}'"
   },
   "dependencies": {
     "vue": "*"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "*",
     "@vitejs/plugin-vue": "*",
+    "eslint": "*",
+    "eslint-plugin-vue": "*",
     "typescript": "*",
     "vite": "*",
+    "vue-eslint-parser": "*",
     "vue-tsc": "*"
   }
 }
