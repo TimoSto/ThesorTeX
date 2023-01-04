@@ -1,5 +1,5 @@
-import GetPortRules from "@/pages/app/rules/portRules";
-import {i18nKeys} from "@/pages/app/i18n/keys";
+import GetPortRules from "./portRules";
+import {i18nKeys} from "../i18n/keys";
 
 const t = (key: string) => key
 describe('PortRules', () => {

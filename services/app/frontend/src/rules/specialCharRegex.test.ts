@@ -1,4 +1,4 @@
-import StringContainsSpecialChars from "@/pages/app/rules/specialCharRegex";
+import StringContainsSpecialChars from "./specialCharRegex";
 
 describe('StringContainsSpecialChar', () => {
   it('should be true 1', () => {

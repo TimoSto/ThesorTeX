@@ -1,5 +1,5 @@
-import {i18nKeys} from "@/pages/app/i18n/keys";
-import GetFieldNameRules from "@/pages/app/rules/fieldNameRules";
+import {i18nKeys} from "../i18n/keys";
+import GetFieldNameRules from "./fieldNameRules";
 
 describe('FieldNameRules', () => {
 

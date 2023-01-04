@@ -1,5 +1,5 @@
-import {i18nKeys} from "@/pages/app/i18n/keys";
-import GetCategoryNameRules from "@/pages/app/rules/categoryNameRules";
+import {i18nKeys} from "../i18n/keys";
+import GetCategoryNameRules from "./categoryNameRules";
 
 describe('CategoryKeyRules', () => {
   it('should fail on existing with empty initial key', () => {

@@ -1,5 +1,5 @@
-import GetEntryKeyRules from "@/pages/app/rules/entryKeyRules";
-import {i18nKeys} from "@/pages/app/i18n/keys";
+import GetEntryKeyRules from "./entryKeyRules";
+import {i18nKeys} from "../i18n/keys";
 
 describe('EntryKeyRules', () => {
   it('should fail on existing with empty initial key', () => {

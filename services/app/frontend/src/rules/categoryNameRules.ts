@@ -1,5 +1,5 @@
-import {i18nKeys} from "@/pages/app/i18n/keys";
-import StringContainsSpecialChars from "@/pages/app/rules/specialCharRegex";
+import {i18nKeys} from "../i18n/keys";
+import StringContainsSpecialChars from "./specialCharRegex";
 
 export default function GetCategoryNameRules(existing: string [], initialName: string, t: (key: string) => string): ((name: string) => boolean|string)[] {
   const fn = function(n: string) {

@@ -1,5 +1,5 @@
-import getProjectNameRules from "@/pages/app/rules/projectNameRules";
-import {i18nKeys} from "@/pages/app/i18n/keys";
+import getProjectNameRules from "./projectNameRules";
+import {i18nKeys} from "../i18n/keys";
 
 describe('ProjectNameRules', () => {
   it('should throw error on space', () => {

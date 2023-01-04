@@ -1,4 +1,4 @@
-import {i18nKeys} from "@/pages/app/i18n/keys";
+import {i18nKeys} from "../i18n/keys";
 
 // eslint-disable-next-line no-unused-vars
 export default function getProjectNameRules(projectNames: string [], initial: string, t: (ik: string) => string): ((name: string) => boolean|string)[] {

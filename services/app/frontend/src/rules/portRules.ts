@@ -1,4 +1,4 @@
-import {i18nKeys} from "@/pages/app/i18n/keys";
+import {i18nKeys} from "../i18n/keys";
 
 export default function GetPortRules(t: (key: string) => string): ((key: string) => boolean|string)[] {
   const fn = (f: string) => {

@@ -1,5 +1,5 @@
-import {i18nKeys} from "@/pages/app/i18n/keys";
-import StringContainsSpecialChars from "@/pages/app/rules/specialCharRegex";
+import {i18nKeys} from "../i18n/keys";
+import StringContainsSpecialChars from "./specialCharRegex";
 
 export default function GetEntryKeyRules(existing: string[], initialKey: string, t: (ik: string) => string): ((key: string) => boolean|string)[] {
   const fn = (key: string) => {
