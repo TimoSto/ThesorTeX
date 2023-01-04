@@ -20,17 +20,13 @@
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "*",
     "@types/jest": "*",
-    "@typescript-eslint/parser": "*",
     "@vitejs/plugin-vue": "*",
-    "eslint": "*",
-    "eslint-plugin-vue": "*",
     "jest": "*",
     "sass": "*",
     "ts-jest": "*",
     "typescript": "*",
     "vite": "*",
     "vite-plugin-vuetify": "*",
-    "vue-eslint-parser": "*",
     "vue-tsc": "*"
   }
 }
