@@ -1,4 +1,4 @@
-import ProjectMetaData from "@/pages/app/api/projects/ProjectMetaData";
+import ProjectMetaData from "./ProjectMetaData";
 
 export async function GetProjects(): Promise<ProjectMetaData[]> {
   const resp = await fetch('/app/projects');

@@ -1,5 +1,5 @@
-import {BibEntry} from "@/pages/app/api/projectData/entries/BibEntry";
-import SaveResponse from "@/pages/app/api/projectData/SaveResponse";
+import {BibEntry} from "./BibEntry";
+import SaveResponse from "../SaveResponse";
 
 export interface EntrySaveData extends BibEntry {
   InitialKey: string

@@ -32,5 +32,8 @@ export default defineConfig({
       "/app/deleteEntry": "http://localhost:8448/",
       "/app/deleteCategory": "http://localhost:8448/",
     }
+  },
+  build: {
+    outDir: './assets/dist'
   }
 })

@@ -1,4 +1,4 @@
-import ProjectMetaData from "@/pages/app/api/projects/ProjectMetaData";
+import ProjectMetaData from "./ProjectMetaData";
 
 export interface CreateProjectResponse {
   Project: ProjectMetaData,

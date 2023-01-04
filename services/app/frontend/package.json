@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "jest": "jest",
-    "lint": "eslint '**/*.{js,ts,vue}'"
+    "lint": "eslint '**/*.{js,ts,vue}'",
+    "vue-tsc": "vue-tsc"
   },
   "dependencies": {
     "@mdi/font": "*",
