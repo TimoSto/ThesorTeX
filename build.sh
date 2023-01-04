@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+version="$(./scripts/env.sh APP VERSIONS)"
+
+echo "building version $version"
+
 source ./scripts/builder.sh
 
-outDir="artifacts/v$(./scripts/env.sh APP VERSIONS)"
+outDir="artifacts/v$version"
 
 echo "cleaning out dir..."
 
