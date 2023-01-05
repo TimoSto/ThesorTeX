@@ -20,6 +20,6 @@ go_binary(
     embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
     x_defs = {
-        "github.com/TimoSto/ThesorTeX/backend/app/internal/conf.Version": _APP_VERSION,
+        "github.com/TimoSto/ThesorTeX/services/app/internal/conf.Version": _APP_VERSION,
     },
 )
