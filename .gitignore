@@ -27,3 +27,4 @@
 /.repository_cache/
 /node_modules/
 /services/website/frontend/node_modules/
+/main

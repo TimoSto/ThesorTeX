@@ -10,16 +10,19 @@ The local application can be downloaded on the following links:
 
 ## Build mechanics
 
-### Frontend
-The frontend is built using vite and vue3. go to the frontend directory, install the dependencies and then call yarn build.
-```
-cd ./frontend
-yarn install
-yarn build
-```
+### Production
+The frontend is build using pnpm, the backend is build using Bazel. Run `./build.sh` to trigger the build.
 
-### Backend
-The backend is build using Bazel. Run `./build.sh` to trigger the build.
+### Development
+To run the frontend on a watcher
+```
+cd services/app/frontend
+pnpm run dev
+```
+To run the backend
+```
+./scripts/dev.sh
+```
 
 ## Deployment
 To update aws infrastructure

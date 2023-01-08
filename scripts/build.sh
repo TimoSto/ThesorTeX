@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 version="$(./scripts/env.sh APP VERSIONS)"
 
@@ -21,6 +22,8 @@ rm -rf services/app/frontend/assets/dist
 rm -rf services/website/frontend/assets/dist
 
 echo "building frontends..."
+
+pnpm install
 
 pnpm run -r build
 
