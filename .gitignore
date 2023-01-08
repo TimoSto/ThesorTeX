@@ -1,4 +1,5 @@
 .idea/
+.ijwb/
 
 /bazel-*/
 /bazel-*
