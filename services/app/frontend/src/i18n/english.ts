@@ -24,6 +24,7 @@ export const english: I18nKeys = {
   Project: {
     Title: 'Project view',
     Rename: 'Rename project',
+    Import: 'Drag and drop a .bib-file here or click, to select it',
     Entry: {
       Heading: 'Bibliography entries',
       Key: 'Key',

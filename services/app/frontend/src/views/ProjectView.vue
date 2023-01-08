@@ -32,6 +32,7 @@
     </template>
     <template #content>
       <div style="max-height: calc(100vh - 112px);">
+        <CitaviDragNDrop />
         <v-expansion-panels
           multiple
           variant="accordion"
@@ -97,6 +98,7 @@ import DeleteProjectDialog from "./DeleteProjectDialog.vue";
 import {useProjectsStore} from "../stores/projectsStore";
 import CreateProjectDialog from "./CreateProjectDialog.vue";
 import {useUnsaveCloseStore} from "../stores/unsaveCloseStore";
+import CitaviDragNDrop from "../components/CitaviDragNDrop.vue";
 
 //global stuff
 const { t } = useI18n();

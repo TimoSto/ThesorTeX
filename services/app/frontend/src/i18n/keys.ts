@@ -23,6 +23,7 @@ export const i18nKeys = {
   Project: {
     Title: 'Project.Title',
     Rename: 'Project.Rename',
+    Import: 'Project.Import',
     Entry: {
       Heading: 'Project.Entry.Heading',
       Key: 'Project.Entry.Key',

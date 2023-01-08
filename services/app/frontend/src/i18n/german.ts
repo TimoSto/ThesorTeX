@@ -24,6 +24,7 @@ export const german: I18nKeys = {
   Project: {
     Title: 'Projektansicht',
     Rename: 'Projekt umbenennen',
+    Import: 'Ziehe eine .bib-Datei hier hinein oder klicke hier, um sie auszuwählen',
     Entry: {
       Heading: 'Literatur-Einträge',
       Key: 'Schlüssel',
