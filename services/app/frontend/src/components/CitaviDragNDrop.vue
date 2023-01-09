@@ -39,8 +39,9 @@ function handleDrop(evt: DragEvent) {
 }
 
 function handleSelect(evt: Event) {
-  if( evt.target && evt.target.files ) {
-    const file = evt.target.files[0];
+  const target = evt.target as HTMLInputElement
+  if( evt.target && target.files ) {
+    const file = target.files[0];
 
     if( file ) {
       processFile(file);
