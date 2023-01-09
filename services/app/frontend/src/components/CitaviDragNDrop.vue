@@ -10,6 +10,7 @@
       ref="fileupload"
       type="file"
       style="display:none"
+      @change="handleSelect"
     >
     {{ t(i18nKeys.Project.Import) }}
   </div>
@@ -26,12 +27,44 @@ const fileupload = ref(null);
 
 // methods
 function handleDrop(evt: DragEvent) {
-  console.log('drop', evt)
+  evt.preventDefault();
+  if( evt.dataTransfer ) {
+    if( evt.dataTransfer.items ) {
+      const file = evt.dataTransfer.items[0].getAsFile();
+      if(file) {
+        processFile(file)
+      }
+    }
+  }
+}
+
+function handleSelect(evt: Event) {
+  if( evt.target && evt.target.files ) {
+    const file = evt.target.files[0];
+
+    if( file ) {
+      processFile(file);
+    }
+  }
 }
 
 function handleClick() {
   if( fileupload.value ) {
     (fileupload.value as HTMLElement).click();
+  }
+}
+
+function processFile(file: File) {
+  let reader = new FileReader();
+  reader.readAsText(file,'UTF-8');
+
+  // here we tell the reader what to do when it's done reading...
+  reader.onload = readerEvent => {
+    if( readerEvent.target ) {
+      console.debug(`got file with name ${file.name}`)
+      let content = readerEvent.target.result; // this is the content!
+      console.log( content );
+    }
   }
 }
 </script>
