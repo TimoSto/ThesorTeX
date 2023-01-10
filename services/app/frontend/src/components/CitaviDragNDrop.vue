@@ -14,20 +14,94 @@
     >
     {{ t(i18nKeys.Project.Import) }}
   </div>
+  <v-dialog
+    v-model="dialogOpen"
+    width="450"
+  >
+    <v-card>
+      <v-card-title>Einträge hochladen</v-card-title>
+      <v-card-text>
+        Folgende Einträge werden hochgeladen und werden bestehende Einträge überschreiben:
+        <v-list lines="two">
+          <v-list-item
+            v-for="(e,i) in result.Entries"
+            :key="`e-${e.Key}`"
+            :title="e.Key"
+            :subtitle="e.Category"
+          >
+            <template #append>
+              <v-checkbox-btn
+                v-model="uploaded[i]"
+                color="primary"
+              />
+            </template>
+          </v-list-item>
+        </v-list>
+        <div v-if="result.Unknowns.length > 0">
+          Folgende Einträge konnten keiner Kategorie zugeordnet werden:
+          <v-list lines="two">
+            <v-list-item
+              v-for="(e) in result.Unknowns"
+              :key="`e-${e.Key}`"
+              :title="e.Key"
+              :subtitle="e.Category"
+            />
+          </v-list>
+        </div>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn
+          color="primary"
+          @click="dialogOpen=false"
+        >
+          Abbrechen
+        </v-btn>
+        <v-btn
+          color="primary"
+          :disabled="!uploadPossible"
+        >
+          Hochladen
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup lang="ts">
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
-import {ref} from "vue";
-import AnalyseBibFile from "../bibanalytics/BibAnalytics";
+import {computed, ref} from "vue";
+import AnalyseBibFile, {BibAnalyticsResult} from "../bibanalytics/BibAnalytics";
 import {useProjectDataStore} from "../stores/projectDataStore";
 
+// globals
 const {t} = useI18n();
 
 const projectDataStore = useProjectDataStore();
 
+// data
 const fileupload = ref(null);
+
+const triggered = ref(false);
+
+const result = ref({} as BibAnalyticsResult);
+
+const uploaded = ref([] as boolean[]);
+
+// computed
+const dialogOpen = computed({
+  get(): boolean {
+    return triggered.value
+  },
+  set(v: boolean) {
+    triggered.value = v;
+  }
+})
+
+const uploadPossible = computed(() => {
+  return uploaded.value.filter(e => e === true).length > 0;
+})
 
 // methods
 function handleDrop(evt: DragEvent) {
@@ -78,8 +152,9 @@ function processFile(file: File) {
           const enc = new TextDecoder("utf-8");
           content = enc.decode(content);
         }
-        const result = AnalyseBibFile(content, projectDataStore.categories);
-        console.log(result);
+        result.value = AnalyseBibFile(content, projectDataStore.categories);
+        uploaded.value = Array.from({length: result.value.Entries.length}, () => true);
+        triggered.value = true;
       }
     }
   }

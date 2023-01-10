@@ -7,7 +7,7 @@ export interface AttributeValue {
     Value: string
 }
 
-interface BibAnalyticsResult {
+export interface BibAnalyticsResult {
     Entries: BibEntry[]
     Unknowns: BibEntry[]
 }
