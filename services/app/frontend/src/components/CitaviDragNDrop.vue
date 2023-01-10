@@ -21,8 +21,11 @@ import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {ref} from "vue";
 import AnalyseBibFile from "../bibanalytics/BibAnalytics";
+import {useProjectDataStore} from "../stores/projectDataStore";
 
 const {t} = useI18n();
+
+const projectDataStore = useProjectDataStore();
 
 const fileupload = ref(null);
 
@@ -75,7 +78,8 @@ function processFile(file: File) {
           const enc = new TextDecoder("utf-8");
           content = enc.decode(content);
         }
-        AnalyseBibFile(content);
+        const result = AnalyseBibFile(content, projectDataStore.categories);
+        console.log(result);
       }
     }
   }
