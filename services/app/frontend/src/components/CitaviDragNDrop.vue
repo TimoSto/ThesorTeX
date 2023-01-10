@@ -20,6 +20,7 @@
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {ref} from "vue";
+import AnalyseBibFile from "../bibanalytics/BibAnalytics";
 
 const {t} = useI18n();
 
@@ -56,6 +57,11 @@ function handleClick() {
 }
 
 function processFile(file: File) {
+  const extension = file.name.substring(file.name.lastIndexOf('.'))
+  if( extension !== '.bib' ) {
+    console.error(`wrong file type: ${extension}`);
+    return
+  }
   let reader = new FileReader();
   reader.readAsText(file,'UTF-8');
 
@@ -64,7 +70,13 @@ function processFile(file: File) {
     if( readerEvent.target ) {
       console.debug(`got file with name ${file.name}`)
       let content = readerEvent.target.result; // this is the content!
-      console.log( content );
+      if( content ) {
+        if( content instanceof ArrayBuffer ) {
+          const enc = new TextDecoder("utf-8");
+          content = enc.decode(content);
+        }
+        AnalyseBibFile(content);
+      }
     }
   }
 }
