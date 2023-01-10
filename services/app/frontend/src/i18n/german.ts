@@ -105,7 +105,8 @@ export const german: I18nKeys = {
     CreateIssue: 'Issue anlegen',
     ErrorCreating: 'Das Projekt konnte nicht erstellt werden',
     ErrorDeleting: 'Das Projekt konnte nicht gelöscht werden',
-    ErrorSaving: 'Beim Speichern ist ein Fehler aufgetreten.'
+    ErrorSaving: 'Beim Speichern ist ein Fehler aufgetreten.',
+    ErrorUpload: 'Beim Hinzufügen der Einträge ist ein Fehler aufgetreten'
   },
   Success: {
     CreateProject: 'Projekt erfolgreich erstellt',
@@ -115,6 +116,7 @@ export const german: I18nKeys = {
     SaveEntry: 'Eintrag erfolgreich gespeichert',
     DeleteEntry: 'Eintrag erfolgreich gelöscht',
     SaveConfig: 'Einstellungen erfolgreich gespeichert',
+    UploadEntries: 'Einträge erfolgreich hinzugefügt'
   },
   UnsafeClose: {
     Title: 'Warnung',

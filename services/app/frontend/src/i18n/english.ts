@@ -106,6 +106,7 @@ export const english: I18nKeys = {
     ErrorCreating: 'The project could not be created',
     ErrorDeleting: 'The project could not be deleted',
     ErrorSaving: 'An error occurred during saving',
+    ErrorUpload: 'An error occurred during saving of the entries'
   },
   Success: {
     CreateProject: 'Project successfully created',
@@ -115,6 +116,7 @@ export const english: I18nKeys = {
     SaveEntry: 'Entry successfully saved',
     DeleteEntry: 'Entry successfully deleted',
     SaveConfig: 'Settings successfully saved',
+    UploadEntries: 'Entries successfully added'
   },
   UnsafeClose: {
     Title: 'Warning',

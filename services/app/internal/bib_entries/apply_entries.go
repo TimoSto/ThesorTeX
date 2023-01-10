@@ -18,6 +18,12 @@ func ApplyEntries(projectName string, store database.ThesorTeXStore, entries []B
 		return project2.ProjectMetaData{}, err
 	}
 
+	if initialKeys == nil {
+		for _, e := range entries {
+			initialKeys = append(initialKeys, e.Key)
+		}
+	}
+
 	for i, e := range entries {
 		found := false
 		for j, ex := range existing {

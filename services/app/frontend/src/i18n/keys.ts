@@ -98,13 +98,14 @@ export const i18nKeys = {
     NoSpecialChars: 'Rules.NoSpecialChars',
     InvalidPortNumber: 'Rules.InvalidPortNumber'
   },
-  Errors: {
+  Errors: {//TODO: rm Error prefix
     Title: 'Errors.Title',
     ErrorHint: 'Errors.ErrorHint',
     CreateIssue: 'Errors.CreateIssue',
     ErrorCreating: 'Errors.ErrorCreating',
     ErrorDeleting: 'Errors.ErrorDeleting',
-    ErrorSaving: 'Errors.ErrorSaving'
+    ErrorSaving: 'Errors.ErrorSaving',
+    ErrorUpload: 'Errors.ErrorUpload'
   },
   Success: {
     CreateProject: 'Success.CreateProject',
@@ -114,6 +115,7 @@ export const i18nKeys = {
     SaveEntry: 'Success.SaveEntry',
     DeleteEntry: 'Success.DeleteEntry',
     SaveConfig: 'Success.SaveConfig',
+    UploadEntries: 'Success.UploadEntries'
   },
   UnsafeClose: {
     Title: 'UnsafeClose.Title',

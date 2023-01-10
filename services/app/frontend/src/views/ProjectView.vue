@@ -32,7 +32,9 @@
     </template>
     <template #content>
       <div style="max-height: calc(100vh - 112px);">
-        <CitaviDragNDrop />
+        <CitaviDragNDrop
+          :project-name="projectName"
+        />
         <v-expansion-panels
           multiple
           variant="accordion"

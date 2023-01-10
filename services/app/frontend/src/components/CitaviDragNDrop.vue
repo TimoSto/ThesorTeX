@@ -60,6 +60,7 @@
         <v-btn
           color="primary"
           :disabled="!uploadPossible"
+          @click="uploadEntries"
         >
           Hochladen
         </v-btn>
@@ -74,11 +75,26 @@ import {i18nKeys} from "../i18n/keys";
 import {computed, ref} from "vue";
 import AnalyseBibFile, {BibAnalyticsResult} from "../bibanalytics/BibAnalytics";
 import {useProjectDataStore} from "../stores/projectDataStore";
+import UploadEntries from "../api/projectData/entries/UploadEntries";
+import GetProjectData from "../api/projectData/GetProjectData";
+import {useProjectsStore} from "../stores/projectsStore";
+import {useErrorSuccessStore} from "../stores/errorSuccessStore";
 
 // globals
+const props = defineProps({
+  projectName: {
+    type: String,
+    required: true
+  }
+});
+
 const {t} = useI18n();
 
 const projectDataStore = useProjectDataStore();
+
+const projectsStore = useProjectsStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 // data
 const fileupload = ref(null);
@@ -157,6 +173,23 @@ function processFile(file: File) {
         triggered.value = true;
       }
     }
+  }
+}
+
+async function uploadEntries() {
+  const entries = result.value.Entries.filter((_,i: number) => uploaded.value[i]);
+
+  const resp = await UploadEntries(props.projectName, entries);
+
+  triggered.value = false;
+
+  errorSuccessStore.handleResponse(resp.Ok, t(i18nKeys.Success.UploadEntries), t(i18nKeys.Errors.ErrorUpload))
+
+  if( resp.Ok ) {
+    GetProjectData(props.projectName).then(data => {
+      projectDataStore.setData(data)
+    });
+    projectsStore.updateLastEditedOnProject(props.projectName, resp.Data.LastModified);
   }
 }
 </script>
