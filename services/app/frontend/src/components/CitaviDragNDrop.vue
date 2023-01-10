@@ -169,5 +169,9 @@ function processFile(file: File) {
   border: 3px dashed rgba(var(--v-theme-on-background), .75);
   border-radius: 8px;
   cursor: pointer;
+  min-height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
