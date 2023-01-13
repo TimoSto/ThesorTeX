@@ -79,7 +79,7 @@
     @success="RemoveProjectFromStore"
   />
 
-  <CreateProjectDialog
+  <RenameProjectDialog
     :open="renameOpened"
     :projects="projects.map(p => p.Name)"
     :initial="projectName"
@@ -101,6 +101,7 @@ import {useProjectsStore} from "../stores/projectsStore";
 import CreateProjectDialog from "./CreateProjectDialog.vue";
 import {useUnsaveCloseStore} from "../stores/unsaveCloseStore";
 import CitaviDragNDrop from "../components/CitaviDragNDrop.vue";
+import RenameProjectDialog from "./RenameProjectDialog.vue";
 
 //global stuff
 const { t } = useI18n();
@@ -284,9 +285,11 @@ function RemoveProjectFromStore() {
 }
 
 function syncProjectData() {
-  GetProjectData(props.projectName).then((data: ProjectData) => {
-    projectDataStore.setData(data);
-  });
+  if( !renameOpened.value ) {
+    GetProjectData(props.projectName).then((data: ProjectData) => {
+      projectDataStore.setData(data);
+    });
+  }
 }
 
 function HandleEntryBtnClicked(evt: string) {

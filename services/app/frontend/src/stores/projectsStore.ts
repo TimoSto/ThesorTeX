@@ -33,5 +33,13 @@ export const useProjectsStore = defineStore('projects-store', () => {
     })
   }
 
-  return {projects, setProjects, addProject, rmProject, updateLastEditedOnProject}
+  function renameProject(old: string, n: string) {
+    projects.value.forEach((p,i) => {
+      if( p.Name === old ) {
+        projects.value[i].Name = n;
+      }
+    })
+  }
+
+  return {projects, setProjects, addProject, rmProject, updateLastEditedOnProject, renameProject}
 })
