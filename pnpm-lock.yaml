@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 overrides:
+  '@mdi/font': 7.1.96
   '@types/node': 18.11.18
   '@vitejs/plugin-vue': 4.0.0
   ts-node: 10.9.1
@@ -16,9 +17,23 @@ importers:
   .:
     specifiers: {}
 
+  packages/vuetify-plugin:
+    specifiers:
+      '@mdi/font': 7.1.96
+      typescript: 4.9.4
+      vue: 3.2.36
+      vuetify: 3.1.1
+    dependencies:
+      '@mdi/font': 7.1.96
+      vue: 3.2.36
+      vuetify: 3.1.1_vue@3.2.36
+    devDependencies:
+      typescript: 4.9.4
+
   services/app/frontend:
     specifiers:
-      '@mdi/font': ^7.1.96
+      '@mdi/font': 7.1.96
+      '@thesortex/vuetify-plugin': workspace:*
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0
       ts-node: 10.9.1
@@ -30,6 +45,7 @@ importers:
       vuetify: 3.1.1
     dependencies:
       '@mdi/font': 7.1.96
+      '@thesortex/vuetify-plugin': link:../../../packages/vuetify-plugin
       vue: 3.2.36
       vuetify: 3.1.1_kfapu4tyyecrlhaokt6pxkposm
     devDependencies:
@@ -43,6 +59,7 @@ importers:
 
   services/website/frontend:
     specifiers:
+      '@thesortex/vuetify-plugin': workspace:*
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0
       ts-node: 10.9.1
@@ -53,6 +70,7 @@ importers:
       vue-tsc: 1.0.24
       vuetify: 3.1.1
     dependencies:
+      '@thesortex/vuetify-plugin': link:../../../packages/vuetify-plugin
       vue: 3.2.36
       vuetify: 3.1.1_kfapu4tyyecrlhaokt6pxkposm
     devDependencies:
@@ -889,6 +907,25 @@ packages:
     dependencies:
       vite-plugin-vuetify: 1.0.1_fw3zwkizgrhmcumuizzhnigsfy
       vue: 3.2.36
+
+  /vuetify/3.1.1_vue@3.2.36:
+    resolution: {integrity: sha512-BkfRQZ406xQORpgrcUjuPaT/woO96ef/+2zHCfL3an+CrUhjG/sIAptEybHruq3xwFM0uJibDFqGiridsXc99w==}
+    engines: {node: ^12.20 || >=14.13}
+    peerDependencies:
+      vite-plugin-vuetify: ^1.0.0-alpha.12
+      vue: ^3.2.0
+      vue-i18n: ^9.0.0
+      webpack-plugin-vuetify: ^2.0.0-alpha.11
+    peerDependenciesMeta:
+      vite-plugin-vuetify:
+        optional: true
+      vue-i18n:
+        optional: true
+      webpack-plugin-vuetify:
+        optional: true
+    dependencies:
+      vue: 3.2.36
+    dev: false
 
   /yn/3.1.1:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}

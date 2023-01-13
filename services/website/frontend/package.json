@@ -7,6 +7,7 @@
     "vue-tsc": "vue-tsc"
   },
   "dependencies": {
+    "@thesortex/vuetify-plugin": "workspace:*",
     "vue": "*",
     "vuetify": "*"
   },

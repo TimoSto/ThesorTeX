@@ -1,0 +1,20 @@
+{
+  "name": "@thesortex/vuetify-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/vuetify.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@mdi/font": "7.1.96",
+    "vue": "*",
+    "vuetify": "*"
+  }
+}

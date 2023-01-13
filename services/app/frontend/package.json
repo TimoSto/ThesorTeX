@@ -9,7 +9,8 @@
   "dependencies": {
     "@mdi/font": "*",
     "vue": "*",
-    "vuetify": "*"
+    "vuetify": "*",
+    "@thesortex/vuetify-plugin": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "*",
