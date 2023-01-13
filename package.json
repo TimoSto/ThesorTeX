@@ -1,0 +1,11 @@
+{
+  "name": "thesortex",
+  "author": "Timo Stovermann",
+  "license": "ISC",
+  "pnpm": {
+    "overrides": {
+      "vue": "3.2.36",
+      "vuetify": "3.1.1"
+    }
+  }
+}
