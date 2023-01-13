@@ -24,14 +24,14 @@ func HandleAddProject(store database.ThesorTeXStore) http.Handler {
 			return
 		}
 
-		project, err := project.CreateProject(string(data), store)
+		p, err := project.CreateProject(string(data), store)
 		if err != nil {
 			log.Error("Error creating project: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		pData, err := json.Marshal(project)
+		pData, err := json.Marshal(p)
 		if err != nil {
 			log.Error("Error marshaling data: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)

@@ -13,6 +13,7 @@ export default async function CreateProject(name: string): Promise<CreateProject
 
   if( resp.ok ) {
     const obj = await resp.json() as ProjectMetaData;
+    console.log(obj)
     return {
       Project: obj,
       Status: 200

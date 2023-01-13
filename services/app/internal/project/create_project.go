@@ -15,21 +15,21 @@ var (
 	ProjectAlreadyExistsError = fmt.Errorf("project already exists")
 )
 
-func CreateProject(name string, store database.ThesorTeXStore) (ProjectMetaData, error) {
+func CreateProject(name string, store database.ThesorTeXStore) (ProjectMetaDataWithName, error) {
 	existing, err := store.GetAllProjectPaths()
 	if err != nil {
-		return ProjectMetaData{}, err
+		return ProjectMetaDataWithName{}, err
 	}
 
 	for _, e := range existing {
 		if e == name {
-			return ProjectMetaData{}, ProjectAlreadyExistsError
+			return ProjectMetaDataWithName{}, ProjectAlreadyExistsError
 		}
 	}
 
 	err = store.MakeNewProjectPath(name)
 	if err != nil {
-		return ProjectMetaData{}, err
+		return ProjectMetaDataWithName{}, err
 	}
 
 	err = fs.WalkDir(project_template.ProjectTemplate, ".", func(path string, d fs.DirEntry, err error) error {
@@ -50,23 +50,26 @@ func CreateProject(name string, store database.ThesorTeXStore) (ProjectMetaData,
 	})
 
 	if err != nil {
-		return ProjectMetaData{}, err
+		return ProjectMetaDataWithName{}, err
 	}
 
-	meta := ProjectMetaData{
-		Created:         time.Now().Format("2006-01-02 15:04"),
-		LastModified:    time.Now().Format("2006-01-02 15:04"),
-		NumberOfEntries: 1,
+	meta := ProjectMetaDataWithName{
+		ProjectMetaData: ProjectMetaData{
+			Created:         time.Now().Format("2006-01-02 15:04"),
+			LastModified:    time.Now().Format("2006-01-02 15:04"),
+			NumberOfEntries: 1,
+		},
+		Name: name,
 	}
 
 	dataFile, err := json.Marshal(meta)
 	if err != nil {
-		return ProjectMetaData{}, err
+		return ProjectMetaDataWithName{}, err
 	}
 
 	err = store.WriteFileInProject(name, metaDataFile, dataFile)
 	if err != nil {
-		return ProjectMetaData{}, err
+		return ProjectMetaDataWithName{}, err
 	}
 
 	return meta, nil
