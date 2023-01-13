@@ -1,9 +1,0 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-
-go_library(
-    name = "assets",
-    srcs = ["assets.go"],
-    embedsrcs = ["dist/sdf.txt"],
-    importpath = "github.com/TimoSto/ThesorTeX/webclient/assets",
-    visibility = ["//visibility:public"],
-)

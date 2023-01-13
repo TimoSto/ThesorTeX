@@ -1,6 +1,0 @@
-export enum MutationTypes {
-    SET_SUCCESS = "SET_SUCCESS",
-    SET_ERROR = "SET_ERROR",
-    SET_PROJECTS = "SET_PROJECTS",
-    ADD_PROJECT = "ADD_PROJECT"
-}
