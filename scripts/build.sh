@@ -23,9 +23,9 @@ rm -rf services/website/frontend/assets/dist
 
 echo "building frontends..."
 
-#pnpm install
-#
-#pnpm run -r build
+pnpm install
+
+pnpm run -r build
 
 echo "building for windows..."
 

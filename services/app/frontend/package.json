@@ -1,10 +1,23 @@
 {
   "name": "frontend",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "vue-tsc": "vue-tsc"
   },
   "dependencies": {
+    "@mdi/font": "*",
     "vue": "*",
     "vuetify": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@vitejs/plugin-vue": "*",
+    "ts-node": "*",
+    "typescript": "*",
+    "vite": "*",
+    "vite-plugin-vuetify": "*",
+    "vue-tsc": "*"
   }
 }
