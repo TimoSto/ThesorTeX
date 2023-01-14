@@ -1,5 +1,5 @@
 import {createI18n, I18n} from "vue-i18n";
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import {useI18n} from "vue-i18n";
 
 export default function CreateI18n(german: any, english: any): I18n<{ de: any, en: any }> {
     return createI18n({
@@ -13,4 +13,4 @@ export default function CreateI18n(german: any, english: any): I18n<{ de: any, e
     })
 }
 
-export { VueI18nPlugin }
+export { useI18n }
