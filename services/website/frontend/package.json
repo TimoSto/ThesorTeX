@@ -4,9 +4,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "vue-tsc": "vue-tsc"
+    "vue-tsc": "vue-tsc",
+    "lint": "eslint '**/*.{js,ts,vue}'"
   },
   "dependencies": {
+    "@thesortex/eslint-config": "workspace:*",
     "@thesortex/vuetify-plugin": "workspace:*",
     "vue": "*",
     "vuetify": "*"

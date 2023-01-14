@@ -1,0 +1,8 @@
+{
+  "name": "@thesortex/eslint-config",
+  "main": "eslint.js",
+  "dependencies": {
+    "typescript": "*",
+    "vue": "*"
+  }
+}
