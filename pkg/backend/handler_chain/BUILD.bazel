@@ -3,10 +3,10 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "handler_chain",
     srcs = ["handler_chain.go"],
-    importpath = "github.com/TimoSto/ThesorTeX/pkg/handler_chain",
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain",
     visibility = ["//visibility:public"],
     deps = [
-        "//pkg/log",
+        "//pkg/backend/log",
         "//vendor/github.com/justinas/alice",
     ],
 )

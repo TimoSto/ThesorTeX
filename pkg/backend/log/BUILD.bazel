@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "log",
     srcs = ["log.go"],
-    importpath = "github.com/TimoSto/ThesorTeX/pkg/log",
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/log",
     visibility = ["//visibility:public"],
 )

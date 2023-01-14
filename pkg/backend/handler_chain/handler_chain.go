@@ -3,7 +3,7 @@ package handler_chain
 import (
 	"net/http"
 
-	"github.com/TimoSto/ThesorTeX/pkg/log"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/justinas/alice"
 )
 

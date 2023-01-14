@@ -7,7 +7,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/TimoSto/ThesorTeX/pkg/log"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 )
 
 type Server struct {
