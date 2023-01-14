@@ -58,7 +58,7 @@
 import {PropType} from "vue";
 
 export interface ResponsiveTableCell {
-  content: string,
+  content?: string,
   slot?: boolean
 }
 
