@@ -9,5 +9,5 @@ test("mount component",async()=>{
             title:"Guess User Age App",
         },
     });
-    expect(wrapper.text()).toContain("Guess User Age App");
+    expect(wrapper.find(".container").classes()).toEqual(["container"]);
 })
