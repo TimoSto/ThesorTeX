@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/node": "*",
     "@vitejs/plugin-vue": "*",
+    "sass": "*",
     "ts-node": "*",
     "typescript": "*",
     "vite": "*",
