@@ -45,6 +45,21 @@ importers:
       typescript: 4.9.4
       vue: 3.2.36
 
+  pkg/frontend/vue-component-library:
+    specifiers:
+      '@types/node': 18.11.18
+      typescript: 4.9.4
+      vue: 3.2.36
+      vue-tsc: 1.0.24
+      vuetify: 3.1.1
+    dependencies:
+      vue: 3.2.36
+      vuetify: 3.1.1_vue@3.2.36
+    devDependencies:
+      '@types/node': 18.11.18
+      typescript: 4.9.4
+      vue-tsc: 1.0.24_typescript@4.9.4
+
   pkg/frontend/vuetify-plugin:
     specifiers:
       '@mdi/font': 7.1.96
@@ -61,6 +76,7 @@ importers:
   services/app/frontend:
     specifiers:
       '@thesortex/eslint-config': workspace:*
+      '@thesortex/vue-component-library': workspace:*
       '@thesortex/vuetify-plugin': workspace:*
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0
@@ -75,6 +91,7 @@ importers:
       vuetify: 3.1.1
     dependencies:
       '@thesortex/eslint-config': link:../../../pkg/frontend/eslint-config
+      '@thesortex/vue-component-library': link:../../../pkg/frontend/vue-component-library
       '@thesortex/vuetify-plugin': link:../../../pkg/frontend/vuetify-plugin
       pinia: 2.0.28_tysehb7k3kmn3mmclywhxmt624
       vue: 3.2.36

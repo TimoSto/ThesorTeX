@@ -1,5 +1,5 @@
 <template>
-
+  <ComponentA msg="user"/>
 </template>
 
 <script>
