@@ -6,7 +6,8 @@
     "preview": "vite preview",
     "vue-tsc": "vue-tsc",
     "lint": "eslint '**/*.{js,ts,vue}'",
-    "jest": "jest"
+    "vitest:run": "vitest run --dom",
+    "vitest:watch": "vitest --dom"
   },
   "dependencies": {
     "@thesortex/eslint-config": "workspace:*",

@@ -10,7 +10,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "types": ["node", "vuetify"],
+    "types": ["node", "vuetify", "vitest"],
     "skipLibCheck": true,
     "noEmit": true,
     "composite": true,
