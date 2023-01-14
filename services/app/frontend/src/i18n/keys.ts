@@ -4,7 +4,11 @@ export const i18nKeys = {
 
     },
     MainPage: {
-        Welcome: "MainPage.Welcome"
+        Welcome: "MainPage.Welcome",
+        Project: "MainPage.Project",
+        ProjectCreated: "MainPage.ProjectCreated",
+        ProjectLastModified: "MainPage.ProjectLastModified",
+        ProjectNumberOfEntries: "MainPage.ProjectNumberOfEntries"
     }
 }
 

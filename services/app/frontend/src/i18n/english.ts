@@ -6,5 +6,9 @@ export const english: I18nKeys = {
     },
     MainPage: {
         Welcome: "Welcome to ThesorTeX!",
+        Project: "Project",
+        ProjectCreated: "Created",
+        ProjectLastModified: "Last modified",
+        ProjectNumberOfEntries: "Entries"
     }
 }

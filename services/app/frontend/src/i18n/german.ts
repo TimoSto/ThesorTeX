@@ -6,5 +6,9 @@ export const german: I18nKeys = {
     },
     MainPage: {
         Welcome: "Willkommen bei ThesorTeX!",
+        Project: "Projekt",
+        ProjectCreated: "Erstellt",
+        ProjectLastModified: "Zuletzt bearbeitet",
+        ProjectNumberOfEntries: "Einträge"
     }
 }
