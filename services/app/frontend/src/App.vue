@@ -1,25 +1,43 @@
 <template>
   <v-app>
     <v-main>
-      <v-btn
+      <v-app-bar
         color="primary"
-        variant="text"
+        elevation="0"
       >
-        Hallo
-      </v-btn>
-      <v-btn
-        color="secondary"
+        <v-app-bar-nav-icon
+          @click.stop="sidebar = !sidebar"
+        />
+
+        <v-app-bar-title>
+          ThesorTeX
+        </v-app-bar-title>
+
+        <v-spacer />
+      </v-app-bar>
+
+      <v-navigation-drawer
+        permanent
+        :rail="!sidebar"
+        :rail-width="68"
       >
-        Test
-      </v-btn>
+        <!--Sidebar content-->
+      </v-navigation-drawer>
     </v-main>
   </v-app>
 </template>
 
-<script>
-export default {
-  name: "App"
-}
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: "App",
+  data() {
+    return {
+      sidebar: false,
+    }
+  }
+})
 </script>
 
 <style scoped>
