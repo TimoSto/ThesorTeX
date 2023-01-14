@@ -10,6 +10,7 @@
   "dependencies": {
     "@thesortex/eslint-config": "workspace:*",
     "@thesortex/vuetify-plugin": "workspace:*",
+    "pinia": "*",
     "vue": "*",
     "vuetify": "*"
   },
