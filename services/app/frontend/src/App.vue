@@ -67,7 +67,7 @@ const sidebarOpened = computed({
 });
 
 const sidebarDisabled = computed(() => {
-  return appStateStore.currentPage === pageNames[0];
+  return appStateStore.history.length === 1;
 })
 
 const pagesCount = computed(() => {

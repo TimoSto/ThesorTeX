@@ -5,23 +5,32 @@ export const pageNames = [
 ];
 
 export interface AppState {
-    currentPage: string,
+    history: string[],
     sidebarOpen: boolean,
 }
 
 export const useAppStateStore = defineStore( {
     id: 'app-state',
     state: () => ({
-        currentPage: pageNames[0],
+        history: [pageNames[0]],
         sidebarOpen: false,
     } as AppState),
 
+    getters: {
+        currentPage: (state: AppState): string => {
+            return state.history[state.history.length - 1]
+        }
+    },
+
     actions: {
-        setPage(name: string) {
-            this.currentPage = name;
-            if( name === pageNames[0] ) {
-                this.sidebarOpen = false;
-            }
+        navToPage(name: string) {
+            this.history.push(name);
+        },
+        goBack() {
+          this.history.pop();
+          if( this.history.length === 1 ) {
+              this.sidebarOpen = false;
+          }
         },
         setSidebarOpened(v: boolean) {
             this.sidebarOpen = v;
