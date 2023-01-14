@@ -15,9 +15,8 @@
 </template>
 
 <script>
-export default {
-  name: "MainPage"
-}
+// globals
+
 </script>
 
 <style scoped>
