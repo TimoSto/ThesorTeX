@@ -2,7 +2,10 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "project",
-    srcs = ["create_project_handler.go"],
+    srcs = [
+        "create_project_handler.go",
+        "get_all_projects.go",
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project",
     visibility = ["//services/app:__subpackages__"],
     deps = [

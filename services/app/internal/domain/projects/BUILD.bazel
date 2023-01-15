@@ -4,6 +4,7 @@ go_library(
     name = "projects",
     srcs = [
         "create_project.go",
+        "get_all_projects.go",
         "project.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects",
@@ -18,10 +19,15 @@ go_library(
 
 go_test(
     name = "projects_test",
-    srcs = ["create_project_test.go"],
+    srcs = [
+        "create_project_test.go",
+        "get_all_projects_test.go",
+    ],
     embed = [":projects"],
     deps = [
+        "//pkg/backend/pathbuilder",
         "//services/app/internal/config",
         "//services/app/internal/filesystem/fake",
+        "//services/app/internal/project_template",
     ],
 )
