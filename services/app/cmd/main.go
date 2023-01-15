@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
+)
 
 func main() {
-	fmt.Println("Starting the local app...")
+	log.Info("Starting the local app...")
+	log.Info("Version: %s", config.Version)
 }

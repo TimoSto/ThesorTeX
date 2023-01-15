@@ -14,4 +14,4 @@
 
 node_modules/
 /go_build_github_com_TimoSto_ThesorTeX_services_app_cmd
-assets/dist/
+dist/

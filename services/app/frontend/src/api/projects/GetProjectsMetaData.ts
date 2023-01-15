@@ -1,2 +1,4 @@
 
-export default async function GetProjectsMetaData() {}
+export default async function GetProjectsMetaData() {
+
+}

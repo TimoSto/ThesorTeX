@@ -5,10 +5,19 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/cmd",
     visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/backend/log",
+        "//services/app/internal/config",
+    ],
 )
+
+_APP_VERSION = "{APP_VERSION}"
 
 go_binary(
     name = "cmd",
     embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
+    x_defs = {
+        "github.com/TimoSto/ThesorTeX/services/app/internal/config.Version": _APP_VERSION,
+    },
 )
