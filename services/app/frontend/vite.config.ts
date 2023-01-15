@@ -21,7 +21,7 @@ export default defineConfig({
     server: {
         port: 3000,
         proxy: {
-
+            "/getAllProjects": "http://localhost:8448/",
         }
     },
     build: {

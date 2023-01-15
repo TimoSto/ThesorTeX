@@ -9,7 +9,7 @@
       <div style="padding: 8px 16px">
         <ResponsiveTable
           :headers="projectHeaders"
-          :rows="[]"
+          :rows="projectsRows"
         >
           <template #h-4>
             <v-btn
@@ -29,9 +29,14 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
+import {useProjectsListStore} from "../stores/appState/ProjectsListStore";
+import {computed} from "vue";
+import ProjectMetaData from "../domain/projects/ProjectMetaData";
 
 // globals
 const { t } = useI18n();
+
+const projectsStore = useProjectsListStore();
 
 // data
 
@@ -57,6 +62,30 @@ const projectHeaders: ResponsiveTableHeaderCell[] = [
     size: SizeClasses.IconBtn
   },
 ];
+
+// computed
+const projectsRows = computed(() => {
+  return projectsStore.projects.map((p: ProjectMetaData) => [
+    {
+      content: p.Name,
+    },
+    {
+      content: p.Created,
+    },
+    {
+      content: p.LastEdited,
+    },
+    {
+      content: p.NumberOfEntries,
+    },
+    {
+      content: ""
+    }
+  ])
+})
+
+// onload
+projectsStore.readAllProjectsFromServer();
 </script>
 
 <style scoped>
