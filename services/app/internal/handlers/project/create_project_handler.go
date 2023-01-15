@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
@@ -13,7 +14,7 @@ type createProjectData struct {
 	Name string
 }
 
-func CreateProjectHandler(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {
+func CreateProjectHandler(fs filesystem.FileSystem, cfg config.Config) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPut {
 			w.WriteHeader(http.StatusBadRequest)
@@ -28,7 +29,7 @@ func CreateProjectHandler(fs filesystem.FileSystem) func(w http.ResponseWriter, 
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		err = projects.CreateProject(data.Name, fs)
+		err = projects.CreateProject(data.Name, fs, cfg)
 	}
 
 	return fn

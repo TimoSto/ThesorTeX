@@ -28,7 +28,13 @@ func main() {
 
 	fs := local.FileSystem{}
 
-	exists, err := fs.CheckDirectoryExists(pathbuilder.GetPathFromExecRoot("/projects"))
+	cfg, err := config.ReadConfig()
+	if err != nil {
+		log.Error("unexpected error reading the config: %v", err)
+		os.Exit(1)
+	}
+
+	exists, err := fs.CheckDirectoryExists(cfg.ProjectsDir)
 	if err != nil {
 		log.Error("unexpected error reading the projects dir: %v", err)
 		os.Exit(1)
@@ -36,15 +42,15 @@ func main() {
 
 	if !exists {
 		log.Info("Creating example project...")
-		err = projects.CreateProject("example", &fs)
+		err = projects.CreateProject("example", &fs, cfg)
 		if err != nil {
 			log.Error("unexpected error creating the example project: %v", err)
 			os.Exit(1)
 		}
-		log.Info("Created example project under %s", pathbuilder.GetProjectPath("/projects", "example"))
+		log.Info("Created example project under %s", pathbuilder.GetProjectPath(cfg.ProjectsDir, "example"))
 	}
 
-	handlers.RegisterAppHandlers(mux, &fs)
+	handlers.RegisterAppHandlers(mux, &fs, cfg)
 
 	go func() {
 		err := http.ListenAndServe(fmt.Sprintf(":%s", "8448"), chain.Then(mux))

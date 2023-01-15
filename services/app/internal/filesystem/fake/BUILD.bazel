@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "fake",
     srcs = ["fake.go"],
-    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/store/filesystem/fake",
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake",
     visibility = ["//services/app:__subpackages__"],
 )

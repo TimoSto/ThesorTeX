@@ -1,24 +1,22 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
-    name = "projects",
-    srcs = [
-        "create_project.go",
-        "project.go",
-    ],
-    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects",
+    name = "project",
+    srcs = ["create_project_handler.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project",
     visibility = ["//services/app:__subpackages__"],
     deps = [
-        "//pkg/backend/pathbuilder",
+        "//pkg/backend/log",
         "//services/app/internal/config",
+        "//services/app/internal/domain/projects",
         "//services/app/internal/filesystem",
     ],
 )
 
 go_test(
-    name = "projects_test",
-    srcs = ["create_project_test.go"],
-    embed = [":projects"],
+    name = "project_test",
+    srcs = ["create_project_handler_test.go"],
+    embed = [":project"],
     deps = [
         "//services/app/internal/config",
         "//services/app/internal/filesystem/fake",

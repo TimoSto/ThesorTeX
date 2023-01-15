@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
@@ -11,8 +12,8 @@ const (
 	ErrorProjectPathAlreadyExists = "project path for %s already exists"
 )
 
-func CreateProject(name string, fs filesystem.FileSystem) error {
-	path := pathbuilder.GetProjectPath(pathbuilder.GetPathFromExecRoot("projects"), name)
+func CreateProject(name string, fs filesystem.FileSystem, cfg config.Config) error {
+	path := pathbuilder.GetProjectPath(cfg.ProjectsDir, name)
 
 	exists, err := fs.CheckDirectoryExists(path)
 	if err != nil {

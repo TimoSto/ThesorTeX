@@ -8,6 +8,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
 )
 
@@ -19,8 +20,12 @@ func TestCreateProjectHandler_GET(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
+	cfg := config.Config{
+		ProjectsDir: "projects/",
+	}
+
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(CreateProjectHandler(&fs))
+	handler := http.HandlerFunc(CreateProjectHandler(&fs, cfg))
 
 	handler.ServeHTTP(rr, req)
 
@@ -40,8 +45,12 @@ func TestCreateProjectHandler_PUT(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
+	cfg := config.Config{
+		ProjectsDir: "projects/",
+	}
+
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(CreateProjectHandler(&fs))
+	handler := http.HandlerFunc(CreateProjectHandler(&fs, cfg))
 
 	handler.ServeHTTP(rr, req)
 

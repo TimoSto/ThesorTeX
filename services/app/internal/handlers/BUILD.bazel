@@ -8,5 +8,7 @@ go_library(
     deps = [
         "//pkg/backend/roothandler",
         "//services/app/internal/config",
+        "//services/app/internal/filesystem",
+        "//services/app/internal/handlers/project",
     ],
 )

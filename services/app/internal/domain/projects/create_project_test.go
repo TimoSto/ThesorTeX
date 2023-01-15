@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
 )
 
@@ -14,28 +15,28 @@ func TestCreateProject(t *testing.T) {
 		existing    []string
 		name        string
 		expectedRes []string
-		expectedErr error
+		expectedErr string
 	}{
 		{
 			title:       "empty",
 			existing:    []string{},
 			name:        "test1",
 			expectedRes: []string{"projects/test1"},
-			expectedErr: nil,
+			expectedErr: "",
 		},
 		{
 			title:       "different existing",
 			existing:    []string{"projects/test"},
 			name:        "test1",
 			expectedRes: []string{"projects/test", "projects/test1"},
-			expectedErr: nil,
+			expectedErr: "",
 		},
 		{
 			title:       "same existing",
 			existing:    []string{"projects/test1"},
 			name:        "test1",
 			expectedRes: []string{"projects/test1"},
-			expectedErr: fmt.Errorf(ErrorProjectPathAlreadyExists, "test1"),
+			expectedErr: fmt.Sprintf(ErrorProjectPathAlreadyExists, "test1"),
 		},
 	}
 
@@ -45,9 +46,21 @@ func TestCreateProject(t *testing.T) {
 			for _, p := range s.existing {
 				fs.CreateDirectory(p)
 			}
-			err := CreateProject(s.name, &fs)
-			if !reflect.DeepEqual(err, s.expectedErr) {
+
+			cfg := config.Config{ProjectsDir: "projects/"}
+
+			err := CreateProject(s.name, &fs, cfg)
+			if err == nil && s.expectedErr != "" {
 				t.Errorf("expected %v, got %v", s.expectedErr, err)
+			}
+
+			errStr := ""
+			if err != nil {
+				errStr = err.Error()
+			}
+
+			if errStr != s.expectedErr {
+				t.Errorf("expected %v, got %v", s.expectedErr, errStr)
 			}
 			projects, _ := fs.GetAllDirectoriesUnder("")
 			if !reflect.DeepEqual(projects, s.expectedRes) {
