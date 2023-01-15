@@ -26,11 +26,11 @@
     }
   },
   "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "0.8.1",
     "@vue/test-utils": "*",
     "happy-dom": "*",
     "typescript": "*",
-    "vitest": "*",
-    "@intlify/unplugin-vue-i18n": "0.8.1"
+    "vitest": "*"
   },
   "dependencies": {
     "vue": "*"

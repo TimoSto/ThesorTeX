@@ -1,0 +1,11 @@
+{
+  "name": "@thesortex/vitest-vuetify",
+  "main": "index.ts",
+  "devDependencies": {
+    "typescript": "*",
+    "vue": "*"
+  },
+  "dependencies": {
+    "vuetify": "*"
+  }
+}

@@ -28,6 +28,11 @@ export default defineConfig({
         outDir: './assets/dist'
     },
     test: {
-        //...
-    }
+        globals: true,
+        environment: "happy-dom",
+        setupFiles: "vuetify.config.js",
+        deps: {
+            inline: ["vuetify"],
+        },
+    },
 })

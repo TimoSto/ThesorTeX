@@ -6,11 +6,12 @@
     "preview": "vite preview",
     "vue-tsc": "vue-tsc",
     "lint": "eslint '**/*.{js,ts,vue}'",
-    "vitest:run": "vitest run --dom",
+    "vitest:run": "vitest run",
     "vitest:watch": "vitest --dom"
   },
   "dependencies": {
     "@thesortex/eslint-config": "workspace:*",
+    "@thesortex/vitest-vuetify": "workspace:*",
     "@thesortex/vuetify-plugin": "workspace:*",
     "@thesortex/vue-component-library": "workspace:*",
     "@thesortex/vue-i18n-plugin": "workspace:*",

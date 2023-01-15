@@ -1,67 +1,69 @@
 import {mount} from "@vue/test-utils";
 import PageNavigator from "./PageNavigator.vue";
-import {describe, expect, test} from "vitest";
+import {describe, expect, it} from "vitest";
+import CreateVuetifyMountingOptions from "@thesortex/vitest-vuetify";
 
 describe("PageNavigator.vue", () => {
-    test("with empty props, no page should be shown",async()=>{
+
+    it("with empty props, no page should be shown",async()=>{
         expect(PageNavigator).toBeTruthy();
 
-        const wrapper = mount(PageNavigator,{
+        const wrapper = mount(PageNavigator, CreateVuetifyMountingOptions({
             props:{
                 pages: 0,
                 instantSwitch: false
             },
-        });
+        }));
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
         expect(wrapper.findAll(".page")).toHaveLength(0)
     })
-    test("with instantSwitch set, class should be present",async()=>{
+    it("with instantSwitch set, class should be present",async()=>{
         expect(PageNavigator).toBeTruthy();
 
-        const wrapper = mount(PageNavigator,{
+        const wrapper = mount(PageNavigator,CreateVuetifyMountingOptions({
             props:{
                 instantSwitch: true,
                 pages: 0
             },
-        });
+        }));
         expect(wrapper.find(".container").classes()).toEqual(["container", "disable-animations"]);
         expect(wrapper.findAll(".page")).toHaveLength(0)
     })
-    test("with one page set, only one page should be shown",async()=>{
+    it("with one page set, only one page should be shown",async()=>{
         expect(PageNavigator).toBeTruthy();
 
-        const wrapper = mount(PageNavigator,{
+        const wrapper = mount(PageNavigator,CreateVuetifyMountingOptions({
             props:{
                 pages: 1,
                 instantSwitch: false
             },
-        });
+        }));
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
         expect(wrapper.findAll(".page")).toHaveLength(1)
     })
-    test("with two pages set, only one page should be shown but two should exist",async()=>{
+    it("with two pages set, only one page should be shown but two should exist",async()=>{
         expect(PageNavigator).toBeTruthy();
 
-        const wrapper = mount(PageNavigator,{
+        const wrapper = mount(PageNavigator,CreateVuetifyMountingOptions({
             props:{
                 pages: 2,
                 instantSwitch: false
             },
-        });
+        }));
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
         expect(wrapper.findAll(".page")).toHaveLength(2)
         expect(wrapper.findAll(".page")[0].classes()).toEqual(["page"]);
         expect(wrapper.findAll(".page")[1].classes()).toEqual(["page", "opened"]);
     })
-    test("when navigating back, the second last page should have the class 'opened'",async()=>{
+    it("when navigating back, the second last page should have the class 'opened'",async()=>{
         expect(PageNavigator).toBeTruthy();
 
-        const wrapper = mount(PageNavigator,{
+        const wrapper = mount(PageNavigator,CreateVuetifyMountingOptions({
             props:{
                 pages: 3,
                 instantSwitch: false
             },
-        });
+        }));
 
         await wrapper.setProps({
             pages: 3,
