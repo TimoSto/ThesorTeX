@@ -21,14 +21,14 @@ func TestCreateProject(t *testing.T) {
 			title:       "empty",
 			existing:    []string{},
 			name:        "test1",
-			expectedRes: []string{"projects/test1"},
+			expectedRes: []string{"projects/test1", "projects/test1/data", "projects/test1/styPackages"},
 			expectedErr: "",
 		},
 		{
 			title:       "different existing",
 			existing:    []string{"projects/test"},
 			name:        "test1",
-			expectedRes: []string{"projects/test", "projects/test1"},
+			expectedRes: []string{"projects/test", "projects/test1", "projects/test1/data", "projects/test1/styPackages"},
 			expectedErr: "",
 		},
 		{

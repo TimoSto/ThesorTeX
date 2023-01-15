@@ -28,5 +28,17 @@ func CreateProject(name string, fs filesystem.FileSystem, cfg config.Config) err
 		return err
 	}
 
+	dataPath := pathbuilder.GetPathInProject(cfg.ProjectsDir, name, "/data")
+	err = fs.CreateDirectory(dataPath)
+	if err != nil {
+		return err
+	}
+
+	styPath := pathbuilder.GetPathInProject(cfg.ProjectsDir, name, "/styPackages")
+	err = fs.CreateDirectory(styPath)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

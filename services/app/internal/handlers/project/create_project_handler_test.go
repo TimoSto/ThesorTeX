@@ -59,7 +59,7 @@ func TestCreateProjectHandler_PUT(t *testing.T) {
 	}
 
 	existing, _ := fs.GetAllDirectoriesUnder("")
-	if expected := []string{"projects/test"}; !reflect.DeepEqual(existing, expected) {
+	if expected := []string{"projects/test", "projects/test/data", "projects/test/styPackages"}; !reflect.DeepEqual(existing, expected) {
 		t.Errorf("expected %v but got %v", expected, existing)
 	}
 }
