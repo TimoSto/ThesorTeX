@@ -107,17 +107,17 @@ export default {
     padding: 0 4px!important;
     text-align: right!important;
   }
-  &--15-percent {
-    width: 15%;
-    max-width: 15%;
-  }
-  &--25-percent {
-    width: 25%;
-    max-width: 25%;
-  }
-  &--30-percent {
-    width: 30%;
-    max-width: 30%;
-  }
+  //&--15-percent {
+  //  width: 15%;
+  //  max-width: 15%;
+  //}
+  //&--25-percent {
+  //  width: 25%;
+  //  max-width: 25%;
+  //}
+  //&--30-percent {
+  //  width: 30%;
+  //  max-width: 30%;
+  //}
 }
 </style>
