@@ -2,11 +2,14 @@ package projects
 
 import (
 	"fmt"
+	goFs "io/fs"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
 )
 
 func TestCreateProject(t *testing.T) {
@@ -65,6 +68,26 @@ func TestCreateProject(t *testing.T) {
 			projects, _ := fs.GetAllDirectoriesUnder("")
 			if !reflect.DeepEqual(projects, s.expectedRes) {
 				t.Errorf("expected %v, got %v", s.expectedRes, projects)
+			}
+
+			//check if all files from template are there
+			if s.expectedErr == "" {
+				goFs.WalkDir(project_template.ProjectTemplate, ".", func(path string, d goFs.DirEntry, err error) error {
+					if !d.IsDir() {
+						path = strings.TrimPrefix(path, "template/")
+						path = fmt.Sprintf("projects/%s/%s", s.name, path)
+						fmt.Println("from test")
+						file, err := fs.ReadFile(path)
+						if err != nil {
+							t.Errorf("unexpected error %v", err)
+						}
+						if len(file) == 0 {
+							t.Errorf("file %v is empty", path)
+						}
+					}
+
+					return nil
+				})
 			}
 		})
 	}

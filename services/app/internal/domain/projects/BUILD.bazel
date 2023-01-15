@@ -12,6 +12,7 @@ go_library(
         "//pkg/backend/pathbuilder",
         "//services/app/internal/config",
         "//services/app/internal/filesystem",
+        "//services/app/internal/project_template",
     ],
 )
 

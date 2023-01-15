@@ -1,5 +1,7 @@
 package fake
 
+import "fmt"
+
 type FileSystem struct {
 	dirs  []string
 	files map[string][]byte
@@ -40,6 +42,8 @@ func (fs *FileSystem) WriteFile(path string, content []byte) error {
 }
 
 func (fs *FileSystem) ReadFile(path string) ([]byte, error) {
+
+	fmt.Println(path, len(fs.files[path]))
 	return fs.files[path], nil
 }
 

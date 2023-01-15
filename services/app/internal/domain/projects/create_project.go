@@ -2,10 +2,13 @@ package projects
 
 import (
 	"fmt"
+	goFs "io/fs"
+	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
 )
 
 const (
@@ -39,6 +42,24 @@ func CreateProject(name string, fs filesystem.FileSystem, cfg config.Config) err
 	if err != nil {
 		return err
 	}
+
+	err = goFs.WalkDir(project_template.ProjectTemplate, ".", func(path string, d goFs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			return nil
+		}
+		b, err := goFs.ReadFile(project_template.ProjectTemplate, path)
+		if err != nil {
+			return err // or panic or ignore
+		}
+		path = strings.TrimPrefix(path, "template/")
+
+		filepath := pathbuilder.GetPathInProject(cfg.ProjectsDir, name, path)
+
+		return fs.WriteFile(filepath, b)
+	})
 
 	return nil
 }
