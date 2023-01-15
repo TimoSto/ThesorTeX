@@ -2,7 +2,7 @@ package local
 
 import "os"
 
-type FileSystem struct {}
+type FileSystem struct{}
 
 func (fs *FileSystem) CheckDirectoryExists(path string) (bool, error) {
 	_, err := os.Stat(path)
