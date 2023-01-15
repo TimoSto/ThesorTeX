@@ -1,9 +1,11 @@
 package projects
 
 import (
+	"encoding/json"
 	"fmt"
 	goFs "io/fs"
 	"strings"
+	"time"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
@@ -13,6 +15,8 @@ import (
 
 const (
 	ErrorProjectPathAlreadyExists = "project path for %s already exists"
+
+	metaDataFile = "/data/metaData.json"
 )
 
 func CreateProject(name string, fs filesystem.FileSystem, cfg config.Config) error {
@@ -56,10 +60,28 @@ func CreateProject(name string, fs filesystem.FileSystem, cfg config.Config) err
 		}
 		path = strings.TrimPrefix(path, "template/")
 
+		// todo: update time and also check that in tests
+
 		filepath := pathbuilder.GetPathInProject(cfg.ProjectsDir, name, path)
 
 		return fs.WriteFile(filepath, b)
 	})
+
+	meta := ProjectMetaData{
+		Created:         time.Now().Format("2006-01-02 15:04"),
+		LastEdited:      time.Now().Format("2006-01-02 15:04"),
+		NumberOfEntries: 1,
+		Name:            name,
+	}
+
+	dataFile, err := json.Marshal(meta)
+
+	metaDataPath := pathbuilder.GetPathInProject(cfg.ProjectsDir, name, metaDataFile)
+
+	err = fs.WriteFile(metaDataPath, dataFile)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
