@@ -42,3 +42,7 @@ func (fs *FileSystem) WriteFile(path string, content []byte) error {
 func (fs *FileSystem) ReadFile(path string) ([]byte, error) {
 	return fs.files[path], nil
 }
+
+func (fs *FileSystem) GetAllDirectoriesUnder(path string) ([]string, error) {
+	return fs.dirs, nil
+}
