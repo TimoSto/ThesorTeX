@@ -13,7 +13,7 @@ const (
 
 func CreateProject(name string, fs filesystem.FileSystem) error {
 	path := pathbuilder.GetProjectPath(pathbuilder.GetPathFromExecRoot("projects"), name)
-	
+
 	exists, err := fs.CheckDirectoryExists(path)
 	if err != nil {
 		return err

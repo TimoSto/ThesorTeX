@@ -1,6 +1,9 @@
 package local
 
-import "os"
+import (
+	"io/ioutil"
+	"os"
+)
 
 type FileSystem struct{}
 
@@ -29,4 +32,21 @@ func (fs *FileSystem) WriteFile(path string, content []byte) error {
 
 func (fs *FileSystem) ReadFile(path string) ([]byte, error) {
 	return os.ReadFile(path)
+}
+
+func (fs *FileSystem) GetAllDirectoriesUnder(path string) ([]string, error) {
+	res, err := ioutil.ReadDir(path)
+	if err != nil {
+		return nil, err
+	}
+
+	var dirs []string
+
+	for _, r := range res {
+		if r.IsDir() {
+			dirs = append(dirs, r.Name())
+		}
+	}
+
+	return dirs, nil
 }

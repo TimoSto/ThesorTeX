@@ -9,7 +9,10 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/local"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )
 
@@ -17,11 +20,31 @@ func main() {
 	log.Info("Starting the local app...")
 	log.Info("Version: %s", config.Version)
 
+	pathbuilder.Init()
+
 	mux := http.NewServeMux()
 
 	chain := handler_chain.CreateHandlerChain()
 
-	handlers.RegisterAppHandlers(mux)
+	fs := local.FileSystem{}
+
+	exists, err := fs.CheckDirectoryExists(pathbuilder.GetPathFromExecRoot("/projects"))
+	if err != nil {
+		log.Error("unexpected error reading the projects dir: %v", err)
+		os.Exit(1)
+	}
+
+	if !exists {
+		log.Info("Creating example project...")
+		err = projects.CreateProject("example", &fs)
+		if err != nil {
+			log.Error("unexpected error creating the example project: %v", err)
+			os.Exit(1)
+		}
+		log.Info("Created example project under %s", pathbuilder.GetProjectPath("/projects", "example"))
+	}
+
+	handlers.RegisterAppHandlers(mux, &fs)
 
 	go func() {
 		err := http.ListenAndServe(fmt.Sprintf(":%s", "8448"), chain.Then(mux))
