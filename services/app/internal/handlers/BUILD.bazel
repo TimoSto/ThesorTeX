@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "handlers",
+    srcs = ["register.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//pkg/backend/roothandler",
+        "//services/app/internal/config",
+    ],
+)

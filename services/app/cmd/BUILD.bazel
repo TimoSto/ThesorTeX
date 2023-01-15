@@ -6,8 +6,10 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/cmd",
     visibility = ["//visibility:private"],
     deps = [
+        "//pkg/backend/handler_chain",
         "//pkg/backend/log",
         "//services/app/internal/config",
+        "//services/app/internal/handlers",
     ],
 )
 
