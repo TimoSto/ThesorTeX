@@ -7,7 +7,10 @@ describe("PageNavigator.vue", () => {
         expect(PageNavigator).toBeTruthy();
 
         const wrapper = mount(PageNavigator,{
-            props:{},
+            props:{
+                pages: 0,
+                instantSwitch: false
+            },
         });
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
         expect(wrapper.findAll(".page")).toHaveLength(0)
@@ -17,7 +20,8 @@ describe("PageNavigator.vue", () => {
 
         const wrapper = mount(PageNavigator,{
             props:{
-                instantSwitch: true
+                instantSwitch: true,
+                pages: 0
             },
         });
         expect(wrapper.find(".container").classes()).toEqual(["container", "disable-animations"]);
@@ -29,6 +33,7 @@ describe("PageNavigator.vue", () => {
         const wrapper = mount(PageNavigator,{
             props:{
                 pages: 1,
+                instantSwitch: false
             },
         });
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
@@ -40,6 +45,7 @@ describe("PageNavigator.vue", () => {
         const wrapper = mount(PageNavigator,{
             props:{
                 pages: 2,
+                instantSwitch: false
             },
         });
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
@@ -53,12 +59,14 @@ describe("PageNavigator.vue", () => {
         const wrapper = mount(PageNavigator,{
             props:{
                 pages: 3,
+                instantSwitch: false
             },
         });
 
         await wrapper.setProps({
             pages: 3,
-            navigatingBack: true
+            navigatingBack: true,
+            instantSwitch: false
         });
 
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
@@ -69,7 +77,8 @@ describe("PageNavigator.vue", () => {
 
         await wrapper.setProps({
             pages: 2,
-            navigatingBack: false
+            navigatingBack: false,
+            instantSwitch: false
         });
 
         expect(wrapper.find(".container").classes()).toEqual(["container"]);
