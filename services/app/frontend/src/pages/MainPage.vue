@@ -15,6 +15,7 @@
             <v-btn
               flat
               text
+              @click="createNewTriggered = true"
             >
               <v-icon>mdi-plus</v-icon>
             </v-btn>
@@ -23,6 +24,12 @@
       </div>
     </template>
   </ToolbarAndContent>
+
+  <CreateProjectDialog
+    :projects="[]"
+    :open="createNewTriggered"
+    @close="createNewTriggered = false"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -30,8 +37,9 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
 import {useProjectsListStore} from "../stores/appState/ProjectsListStore";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import ProjectMetaData from "../domain/projects/ProjectMetaData";
+import CreateProjectDialog from "../components/CreateProjectDialog.vue";
 
 // globals
 const { t } = useI18n();
@@ -62,6 +70,8 @@ const projectHeaders: ResponsiveTableHeaderCell[] = [
     size: SizeClasses.IconBtn
   },
 ];
+
+const createNewTriggered = ref(false);
 
 // computed
 const projectsRows = computed(() => {

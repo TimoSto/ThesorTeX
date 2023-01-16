@@ -1,5 +1,9 @@
 
 export const i18nKeys = {
+    Common: {
+        Abort: "Common.Abort",
+        Create: "Common.Create"
+    },
     App: {
 
     },
@@ -8,7 +12,9 @@ export const i18nKeys = {
         Project: "MainPage.Project",
         ProjectCreated: "MainPage.ProjectCreated",
         ProjectLastModified: "MainPage.ProjectLastModified",
-        ProjectNumberOfEntries: "MainPage.ProjectNumberOfEntries"
+        ProjectNumberOfEntries: "MainPage.ProjectNumberOfEntries",
+        CreateProject: "MainPage.CreateProject",
+        ProjectName: "MainPage.ProjectName"
     }
 }
 

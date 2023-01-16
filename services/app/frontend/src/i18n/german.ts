@@ -1,6 +1,10 @@
 import {I18nKeys} from "./keys";
 
 export const german: I18nKeys = {
+    Common: {
+        Abort: "Abbrechen",
+        Create: "Erstellen"
+    },
     App: {
 
     },
@@ -9,6 +13,8 @@ export const german: I18nKeys = {
         Project: "Projekt",
         ProjectCreated: "Erstellt",
         ProjectLastModified: "Zuletzt bearbeitet",
-        ProjectNumberOfEntries: "Einträge"
+        ProjectNumberOfEntries: "Einträge",
+        CreateProject: "Neues Projekt anlegen",
+        ProjectName: "Name des Projektes"
     }
 }
