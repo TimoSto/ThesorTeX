@@ -1,4 +1,5 @@
 import ProjectMetaData from "../../domain/projects/ProjectMetaData";
+import {host} from "../config";
 
 interface GetAllProjectsResponse {
     Ok: boolean
@@ -6,7 +7,7 @@ interface GetAllProjectsResponse {
 }
 
 export default async function GetProjectsMetaData(): Promise<GetAllProjectsResponse> {
-    const resp = await fetch("/getAllProjects");
+    const resp = await fetch(host + "/getAllProjects");
 
     if( !resp.ok ) {
         return {

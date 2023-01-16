@@ -12,9 +12,9 @@
   "dependencies": {
     "@thesortex/eslint-config": "workspace:*",
     "@thesortex/vitest-vuetify": "workspace:*",
-    "@thesortex/vuetify-plugin": "workspace:*",
     "@thesortex/vue-component-library": "workspace:*",
     "@thesortex/vue-i18n-plugin": "workspace:*",
+    "@thesortex/vuetify-plugin": "workspace:*",
     "pinia": "*",
     "vue": "*",
     "vuetify": "*"
@@ -22,6 +22,8 @@
   "devDependencies": {
     "@types/node": "*",
     "@vitejs/plugin-vue": "*",
+    "cross-fetch": "^3.1.5",
+    "msw": "^0.49.2",
     "sass": "*",
     "ts-node": "*",
     "typescript": "*",

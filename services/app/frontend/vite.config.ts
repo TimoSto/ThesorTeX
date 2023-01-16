@@ -30,7 +30,7 @@ export default defineConfig({
     test: {
         globals: true,
         environment: "happy-dom",
-        setupFiles: "vuetify.config.js",
+        setupFiles: ["vuetify.config.js", "src/api/mocks/testSetup.ts"],
         deps: {
             inline: ["vuetify"],
         },
