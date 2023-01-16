@@ -1,1 +1,1 @@
-export const host = import.meta.env.MODE === "production" ? '' : "http://localhost:2345"
+export const host = import.meta.env.VITEST ? "http://localhost:2345" : ""
