@@ -52,9 +52,11 @@ importers:
     specifiers:
       typescript: 4.9.4
       vue: 3.2.36
+      vue-i18n: '*'
       vuetify: 3.1.1
     dependencies:
-      vuetify: 3.1.1_vue@3.2.36
+      vue-i18n: 9.2.2_vue@3.2.36
+      vuetify: 3.1.1_vue-i18n@9.2.2+vue@3.2.36
     devDependencies:
       typescript: 4.9.4
       vue: 3.2.36
@@ -2302,6 +2304,26 @@ packages:
     dependencies:
       vite-plugin-vuetify: 1.0.1_fw3zwkizgrhmcumuizzhnigsfy
       vue: 3.2.36
+
+  /vuetify/3.1.1_vue-i18n@9.2.2+vue@3.2.36:
+    resolution: {integrity: sha512-BkfRQZ406xQORpgrcUjuPaT/woO96ef/+2zHCfL3an+CrUhjG/sIAptEybHruq3xwFM0uJibDFqGiridsXc99w==}
+    engines: {node: ^12.20 || >=14.13}
+    peerDependencies:
+      vite-plugin-vuetify: ^1.0.0-alpha.12
+      vue: ^3.2.0
+      vue-i18n: ^9.0.0
+      webpack-plugin-vuetify: ^2.0.0-alpha.11
+    peerDependenciesMeta:
+      vite-plugin-vuetify:
+        optional: true
+      vue-i18n:
+        optional: true
+      webpack-plugin-vuetify:
+        optional: true
+    dependencies:
+      vue: 3.2.36
+      vue-i18n: 9.2.2_vue@3.2.36
+    dev: false
 
   /vuetify/3.1.1_vue@3.2.36:
     resolution: {integrity: sha512-BkfRQZ406xQORpgrcUjuPaT/woO96ef/+2zHCfL3an+CrUhjG/sIAptEybHruq3xwFM0uJibDFqGiridsXc99w==}

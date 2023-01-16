@@ -6,6 +6,7 @@
     "vue": "*"
   },
   "dependencies": {
+    "vue-i18n": "*",
     "vuetify": "*"
   }
 }
