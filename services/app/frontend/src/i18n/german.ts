@@ -5,6 +5,11 @@ export const german: I18nKeys = {
         Abort: "Abbrechen",
         Create: "Erstellen"
     },
+    Rules: {
+        NoSpaces: "Keine Leerzeichen erlaubt",
+        NoEmpty: "Kein leerer Wert erlaubt",
+        ProjectAlreadyExists: "Projektname bereits vergeben"
+    },
     App: {
 
     },

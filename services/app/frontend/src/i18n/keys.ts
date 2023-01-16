@@ -4,6 +4,11 @@ export const i18nKeys = {
         Abort: "Common.Abort",
         Create: "Common.Create"
     },
+    Rules: {
+        NoSpaces: "Rules.NoSpaces",
+        NoEmpty: "Rules.NoEmpty",
+        ProjectAlreadyExists: "Rules.ProjectAlreadyExists"
+    },
     App: {
 
     },

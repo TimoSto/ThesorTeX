@@ -5,6 +5,11 @@ export const english: I18nKeys = {
         Abort: "Abort",
         Create: "Create"
     },
+    Rules: {
+        NoSpaces: "No spaces allowed",
+        NoEmpty: "No empty value allowed",
+        ProjectAlreadyExists: "Projectname already exists"
+    },
     App: {
 
     },

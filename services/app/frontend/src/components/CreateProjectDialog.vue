@@ -11,6 +11,7 @@
         <v-text-field
           v-model="projectName"
           :label="t(i18nKeys.MainPage.ProjectName)"
+          :rules="[nameRules]"
         />
       </v-card-text>
       <v-card-actions>
@@ -34,6 +35,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {computed, ref} from "vue";
 import {i18nKeys} from "../i18n/keys";
+import getProjectNameRules from "../domain/projects/ProjectNameRules";
 
 // globals
 const emit = defineEmits(['close', 'success'])
@@ -59,10 +61,15 @@ const opened = computed({
   },
   set(v: boolean) {
     if( !v ) {
+      projectName.value = "";
       emit('close');
     }
   }
 });
+
+const nameRules = computed(() => {
+  return getProjectNameRules(props.projects, "", t)
+})
 </script>
 
 <style scoped>

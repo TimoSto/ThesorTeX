@@ -26,7 +26,7 @@
   </ToolbarAndContent>
 
   <CreateProjectDialog
-    :projects="[]"
+    :projects="existingProjects"
     :open="createNewTriggered"
     @close="createNewTriggered = false"
   />
@@ -92,6 +92,10 @@ const projectsRows = computed(() => {
       content: ""
     }
   ])
+})
+
+const existingProjects = computed(() => {
+  return projectsStore.projects.map(p => p.Name)
 })
 
 // onload
