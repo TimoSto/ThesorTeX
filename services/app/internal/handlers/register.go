@@ -12,7 +12,7 @@ import (
 func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg config.Config) {
 	mux.HandleFunc("/", roothandler.GetRootHandler(config.Version))
 
-	mux.HandleFunc("/createProject", project.CreateProjectHandler(fs, cfg))
+	mux.HandleFunc("/createNewProject", project.CreateProjectHandler(fs, cfg))
 
 	mux.HandleFunc("/getAllProjects", project.GetAllProjectsHandler(fs, cfg))
 }

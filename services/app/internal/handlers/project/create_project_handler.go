@@ -29,7 +29,20 @@ func CreateProjectHandler(fs filesystem.FileSystem, cfg config.Config) func(w ht
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		err = projects.CreateProject(data.Name, fs, cfg)
+		metaData, err := projects.CreateProject(data.Name, fs, cfg)
+
+		if err != nil {
+			log.Error("got error creating new project: %v", err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+
+		respData, err := json.Marshal(metaData)
+		if err != nil {
+			log.Error("got error sending data of created project back to client: %v", err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+
+		w.Write(respData)
 	}
 
 	return fn

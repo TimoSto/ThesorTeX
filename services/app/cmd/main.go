@@ -42,7 +42,7 @@ func main() {
 
 	if !exists {
 		log.Info("Creating example project...")
-		err = projects.CreateProject("example", &fs, cfg)
+		_, err = projects.CreateProject("example", &fs, cfg)
 		if err != nil {
 			log.Error("unexpected error creating the example project: %v", err)
 			os.Exit(1)

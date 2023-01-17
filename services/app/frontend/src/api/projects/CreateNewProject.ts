@@ -16,7 +16,7 @@ export default async function CreateNewProject(name: string): Promise<ProjectCre
         Name: name
     }
     const resp = await fetch(`${host}/createNewProject`, {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(data)
     });
 
