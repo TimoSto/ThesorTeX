@@ -45,6 +45,7 @@ import {useProjectsListStore} from "../stores/appState/ProjectsListStore";
 import {computed, ref} from "vue";
 import ProjectMetaData from "../domain/projects/ProjectMetaData";
 import CreateProjectCard from "../components/CreateProjectCard.vue";
+import CreateNewProject from "../api/projects/CreateNewProject";
 
 // globals
 const { t } = useI18n();
@@ -104,10 +105,12 @@ const existingProjects = computed(() => {
 })
 
 // methods
-function triggerProjectCreation(name: string) {
-  console.log(name);
+async function triggerProjectCreation(name: string) {
+  const resp = await CreateNewProject(name);
 
   createNewTriggered.value = false;
+
+  console.log(resp.Success)
 }
 
 // onload

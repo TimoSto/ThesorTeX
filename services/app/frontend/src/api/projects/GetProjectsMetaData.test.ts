@@ -1,6 +1,6 @@
 import {describe, expect, it} from "vitest";
 import GetProjectsMetaData from "./GetProjectsMetaData";
-import {SetResponse} from "../mocks/handlers";
+import {SetResponse_GetAllProjects} from "../mocks/handlers";
 
 describe("GetProjectsMetaData", async () => {
     it("should give ok and empty", async () => {
@@ -10,7 +10,7 @@ describe("GetProjectsMetaData", async () => {
         expect(resp.Projects).toEqual([]);
     })
     it("should give ok and two projects", async () => {
-        SetResponse([
+        SetResponse_GetAllProjects([
             {Name: "test", Created: "", LastEdited: "", NumberOfEntries: ""},
             {Name: "test2", Created: "", LastEdited: "", NumberOfEntries: ""},
         ], 200)
@@ -20,7 +20,7 @@ describe("GetProjectsMetaData", async () => {
         expect(resp.Projects.length).toEqual(2);
     })
     it("should give not ok and zero projects", async () => {
-        SetResponse([
+        SetResponse_GetAllProjects([
             {Name: "test", Created: "", LastEdited: "", NumberOfEntries: ""},
             {Name: "test2", Created: "", LastEdited: "", NumberOfEntries: ""},
         ], 500)
