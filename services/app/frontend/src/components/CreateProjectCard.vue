@@ -14,11 +14,14 @@
       <v-spacer />
       <v-btn
         color="primary"
+        @click="emit('close')"
       >
         {{ t(i18nKeys.Common.Abort) }}
       </v-btn>
       <v-btn
         color="primary"
+        :disabled="!rulesAreMet"
+        @click="emit('confirm', projectName)"
       >
         {{ t(i18nKeys.Common.Create) }}
       </v-btn>
@@ -33,13 +36,12 @@ import {i18nKeys} from "../i18n/keys";
 import getProjectNameRules from "../domain/projects/ProjectNameRules";
 
 // globals
-const emit = defineEmits(['close', 'success'])
+const emit = defineEmits(['close', 'confirm'])
 
 const { t } = useI18n();
 
 // props
 const props = defineProps({
-  open: Boolean,
   projects: {
     required: true,
     type: Array<string>
@@ -49,21 +51,13 @@ const props = defineProps({
 // data
 const projectName = ref('');
 
-// computed
-const opened = computed({
-  get() {
-    return props.open;
-  },
-  set(v: boolean) {
-    if( !v ) {
-      projectName.value = "";
-      emit('close');
-    }
-  }
-});
-
 const nameRules = computed(() => {
   return getProjectNameRules(props.projects, "", t)
+})
+
+// computed
+const rulesAreMet = computed(() => {
+  return nameRules.value(projectName.value) === true;
 })
 </script>
 

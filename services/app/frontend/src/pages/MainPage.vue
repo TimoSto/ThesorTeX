@@ -32,6 +32,7 @@
     <CreateProjectCard
       :projects="existingProjects"
       @close="createNewTriggered = false"
+      @confirm="triggerProjectCreation($event)"
     />
   </v-dialog>
 </template>
@@ -43,7 +44,6 @@ import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../compon
 import {useProjectsListStore} from "../stores/appState/ProjectsListStore";
 import {computed, ref} from "vue";
 import ProjectMetaData from "../domain/projects/ProjectMetaData";
-import CreateProjectDialog from "../components/CreateProjectCard.vue";
 import CreateProjectCard from "../components/CreateProjectCard.vue";
 
 // globals
@@ -102,6 +102,13 @@ const projectsRows = computed(() => {
 const existingProjects = computed(() => {
   return projectsStore.projects.map(p => p.Name)
 })
+
+// methods
+function triggerProjectCreation(name: string) {
+  console.log(name);
+
+  createNewTriggered.value = false;
+}
 
 // onload
 projectsStore.readAllProjectsFromServer();
