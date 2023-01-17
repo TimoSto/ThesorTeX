@@ -25,11 +25,15 @@
     </template>
   </ToolbarAndContent>
 
-  <CreateProjectDialog
-    :projects="existingProjects"
-    :open="createNewTriggered"
-    @close="createNewTriggered = false"
-  />
+  <v-dialog
+    v-model="createNewTriggered"
+    width="450"
+  >
+    <CreateProjectCard
+      :projects="existingProjects"
+      @close="createNewTriggered = false"
+    />
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -39,7 +43,8 @@ import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../compon
 import {useProjectsListStore} from "../stores/appState/ProjectsListStore";
 import {computed, ref} from "vue";
 import ProjectMetaData from "../domain/projects/ProjectMetaData";
-import CreateProjectDialog from "../components/CreateProjectDialog.vue";
+import CreateProjectDialog from "../components/CreateProjectCard.vue";
+import CreateProjectCard from "../components/CreateProjectCard.vue";
 
 // globals
 const { t } = useI18n();

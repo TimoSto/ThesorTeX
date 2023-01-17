@@ -1,34 +1,29 @@
 <template>
-  <v-dialog
-    v-model="opened"
-    width="400"
-  >
-    <v-card>
-      <v-card-title>
-        {{ t(i18nKeys.MainPage.CreateProject) }}
-      </v-card-title>
-      <v-card-text>
-        <v-text-field
-          v-model="projectName"
-          :label="t(i18nKeys.MainPage.ProjectName)"
-          :rules="[nameRules]"
-        />
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer />
-        <v-btn
-          color="primary"
-        >
-          {{ t(i18nKeys.Common.Abort) }}
-        </v-btn>
-        <v-btn
-          color="primary"
-        >
-          {{ t(i18nKeys.Common.Create) }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  <v-card>
+    <v-card-title>
+      {{ t(i18nKeys.MainPage.CreateProject) }}
+    </v-card-title>
+    <v-card-text>
+      <v-text-field
+        v-model="projectName"
+        :label="t(i18nKeys.MainPage.ProjectName)"
+        :rules="[nameRules]"
+      />
+    </v-card-text>
+    <v-card-actions>
+      <v-spacer />
+      <v-btn
+        color="primary"
+      >
+        {{ t(i18nKeys.Common.Abort) }}
+      </v-btn>
+      <v-btn
+        color="primary"
+      >
+        {{ t(i18nKeys.Common.Create) }}
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script lang="ts" setup>
