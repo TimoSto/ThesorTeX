@@ -30,7 +30,7 @@ export const handlers = [
             ctx.json(getAllProjectsData.data)
         )
     }),
-    rest.post("http://localhost:2345/createNewProject", (req, res, ctx) => {
+    rest.put("http://localhost:2345/createNewProject", (req, res, ctx) => {
 
         return res(
             // Respond with a 200 status code
