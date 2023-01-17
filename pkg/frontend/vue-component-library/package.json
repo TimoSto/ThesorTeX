@@ -4,11 +4,16 @@
   "description": "",
   "main": "src/index.ts",
   "devDependencies": {
+    "@thesortex/vitest-vuetify": "workspace:*",
     "@types/node": "*",
+    "@vitejs/plugin-vue": "*",
     "typescript": "*",
+    "vite": "*",
     "vue-tsc": "*"
   },
   "dependencies": {
+    "pinia": "*",
+    "vite-plugin-vuetify": "*",
     "vue": "*",
     "vuetify": "*"
   }

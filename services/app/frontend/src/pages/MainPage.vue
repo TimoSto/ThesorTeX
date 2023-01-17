@@ -41,16 +41,19 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
-import {useProjectsListStore} from "../stores/appState/ProjectsListStore";
+import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 import {computed, ref} from "vue";
 import ProjectMetaData from "../domain/projects/ProjectMetaData";
 import CreateProjectCard from "../components/CreateProjectCard.vue";
 import CreateNewProject from "../api/projects/CreateNewProject";
+import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 
 // globals
 const { t } = useI18n();
 
 const projectsStore = useProjectsListStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 // data
 
@@ -112,6 +115,9 @@ async function triggerProjectCreation(name: string) {
 
   if( resp.Success ) {
     projectsStore.addProject(resp.Data);
+    errorSuccessStore.setMessage(true, "Erfolgreich erstellt");
+  } else {
+    errorSuccessStore.setMessage(false, "Erfolgreich erstellt");
   }
 }
 

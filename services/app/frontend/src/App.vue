@@ -41,6 +41,14 @@
         </template>
       </PageNavigator>
     </v-main>
+    <ErrorSuccessDisplay
+      :valid="success"
+      :message="message"
+      :error-title="'Smth went wrong'"
+      :error-suffix="'If you think this is an error'"
+      :close="'close'"
+      @close="message = ''"
+    />
   </v-app>
 </template>
 
@@ -48,11 +56,14 @@
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
 import {computed,} from "vue";
 import PageNavigator from "./components/PageNavigator.vue";
+import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
+import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 
 //globals
-
 const appStateStore = useAppStateStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 // data
 
@@ -83,6 +94,21 @@ const titleAppendix = computed(() => {
     default: appendix = "";
   }
   return appendix
+});
+
+const success = computed(() => {
+  return errorSuccessStore.valid;
+})
+
+const message = computed({
+  get(): string {
+    return errorSuccessStore.message;
+  },
+  set(v: string) {
+    if( v === "" ) {
+      errorSuccessStore.clear();
+    }
+  }
 })
 
 </script>
