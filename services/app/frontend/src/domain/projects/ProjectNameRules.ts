@@ -11,8 +11,6 @@ export default function getProjectNameRules(projectNames: string [], initial: st
             return t(i18nKeys.Rules.NoSpaces)
         }
 
-        console.log(projectNames, name)
-
         const i = projectNames.indexOf(name);
 
         if( i >= 0 && projectNames[i] != initial ) {
