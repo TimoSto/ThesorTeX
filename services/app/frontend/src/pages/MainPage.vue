@@ -110,7 +110,9 @@ async function triggerProjectCreation(name: string) {
 
   createNewTriggered.value = false;
 
-  console.log(resp.Success)
+  if( resp.Success ) {
+    projectsStore.addProject(resp.Data);
+  }
 }
 
 // onload
