@@ -9,15 +9,15 @@
       <v-card>
         <v-card-text>
           <ResponsiveTable
-              :headers="projectHeaders"
-              :rows="projectsRows"
-              @row-clicked="OpenProject"
+            :headers="projectHeaders"
+            :rows="projectsRows"
+            @row-clicked="OpenProject"
           >
             <template #h-4>
               <v-btn
-                  flat
-                  text
-                  @click="createNewTriggered = true"
+                flat
+                text
+                @click="createNewTriggered = true"
               >
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
