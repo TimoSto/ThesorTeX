@@ -6,23 +6,25 @@
       </v-toolbar-title>
     </template>
     <template #content>
-      <div style="padding: 8px 16px">
-        <ResponsiveTable
-          :headers="projectHeaders"
-          :rows="projectsRows"
-          @row-clicked="OpenProject"
-        >
-          <template #h-4>
-            <v-btn
-              flat
-              text
-              @click="createNewTriggered = true"
-            >
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </template>
-        </ResponsiveTable>
-      </div>
+      <v-card>
+        <v-card-text>
+          <ResponsiveTable
+              :headers="projectHeaders"
+              :rows="projectsRows"
+              @row-clicked="OpenProject"
+          >
+            <template #h-4>
+              <v-btn
+                  flat
+                  text
+                  @click="createNewTriggered = true"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </template>
+          </ResponsiveTable>
+        </v-card-text>
+      </v-card>
     </template>
   </ToolbarAndContent>
 
