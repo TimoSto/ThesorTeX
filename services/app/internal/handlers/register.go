@@ -15,4 +15,6 @@ func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg confi
 	mux.HandleFunc("/createNewProject", project.CreateProjectHandler(fs, cfg))
 
 	mux.HandleFunc("/getAllProjects", project.GetAllProjectsHandler(fs, cfg))
+
+	mux.HandleFunc("/getProjectData", project.GetProjectDataHandler(fs, cfg))
 }

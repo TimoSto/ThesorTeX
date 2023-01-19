@@ -71,7 +71,7 @@ func TestGetAllCategories(t *testing.T) {
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", categoriesFile), data)
 
-	got, err := getAllCategories("test", &fs, cfg)
+	got, err := GetAllCategories("test", &fs, cfg)
 
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)

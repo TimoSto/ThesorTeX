@@ -5,12 +5,15 @@ go_library(
     srcs = [
         "create_project_handler.go",
         "get_all_projects_handler.go",
+        "get_project_data_handler.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project",
     visibility = ["//services/app:__subpackages__"],
     deps = [
         "//pkg/backend/log",
         "//services/app/internal/config",
+        "//services/app/internal/domain/categories",
+        "//services/app/internal/domain/entries",
         "//services/app/internal/domain/projects",
         "//services/app/internal/filesystem",
     ],
@@ -21,6 +24,7 @@ go_test(
     srcs = [
         "create_project_handler_test.go",
         "get_all_projects_handler_test.go",
+        "get_project_data_handler_test.go",
     ],
     embed = [":project"],
     deps = [

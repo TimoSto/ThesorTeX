@@ -52,7 +52,7 @@ func TestCreateProject(t *testing.T) {
 
 			cfg := config.Config{ProjectsDir: "projects/"}
 
-			err := CreateProject(s.name, &fs, cfg)
+			_, err := CreateProject(s.name, &fs, cfg)
 			if err == nil && s.expectedErr != "" {
 				t.Errorf("expected %v, got %v", s.expectedErr, err)
 			}
