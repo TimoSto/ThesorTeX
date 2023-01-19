@@ -44,11 +44,24 @@
     <ErrorSuccessDisplay
       :valid="success"
       :message="message"
-      :error-title="'Smth went wrong'"
-      :error-suffix="'If you think this is an error'"
-      :close="'close'"
+      :error-title="t(i18nKeys.Common.Error)"
+      :close="t(i18nKeys.Common.Close)"
       @close="message = ''"
-    />
+    >
+      <template #suffix>
+        <i18n-t :keypath="i18nKeys.Common.ContactBug">
+          <template #link>
+            <a
+              href="https://github.com/TimoSto/ThesorTeX/issues"
+              class="text-primary"
+              target="_blank"
+            >
+              https://github.com/TimoSto/ThesorTeX/issues
+            </a>
+          </template>
+        </i18n-t>
+      </template>
+    </ErrorSuccessDisplay>
   </v-app>
 </template>
 
@@ -59,11 +72,15 @@ import PageNavigator from "./components/PageNavigator.vue";
 import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
+import {i18nKeys} from "./i18n/keys";
+import {useI18n} from "@thesortex/vue-i18n-plugin"
 
 //globals
 const appStateStore = useAppStateStore();
 
 const errorSuccessStore = useErrorSuccessStore();
+
+const { t } = useI18n();
 
 // data
 

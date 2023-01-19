@@ -10,7 +10,7 @@
           {{ message }}
         </p>
         <p class="suffix">
-          {{ errorSuffix }}
+          <slot name="suffix" />
         </p>
       </v-card-text>
       <v-card-actions>
@@ -108,5 +108,8 @@ function startTimeout() {
 <style scoped lang="scss">
 .error-message {
   font-style: italic;
+}
+.suffix{
+  padding-top: 8px;
 }
 </style>

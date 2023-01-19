@@ -9,6 +9,7 @@ interface ProjectCreationData {
 interface ProjectCreationResponse {
     Success: boolean
     Data: ProjectMetaData
+    Status: number
 }
 
 export default async function CreateNewProject(name: string): Promise<ProjectCreationResponse> {
@@ -23,11 +24,13 @@ export default async function CreateNewProject(name: string): Promise<ProjectCre
     if( !resp.ok ) {
         return {
             Success: false,
+            Status: resp.status
         } as ProjectCreationResponse
     }
 
     return {
         Success: true,
-        Data: await resp.json()
+        Data: await resp.json(),
+        Status: resp.status
     }
 }

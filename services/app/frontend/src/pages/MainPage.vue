@@ -115,9 +115,21 @@ async function triggerProjectCreation(name: string) {
 
   if( resp.Success ) {
     projectsStore.addProject(resp.Data);
-    errorSuccessStore.setMessage(true, "Erfolgreich erstellt");
+    errorSuccessStore.setMessage(true, t(i18nKeys.MainPage.SuccessCreation).replace("NAME", name));
   } else {
-    errorSuccessStore.setMessage(false, "Erfolgreich erstellt");
+    let appendix = "";
+    switch (resp.Status) {
+      case 400:
+        appendix = t(i18nKeys.Common.Error400);
+        break;
+      case 404:
+        appendix = t(i18nKeys.Common.Error404);
+        break;
+      case 500:
+        appendix = t(i18nKeys.Common.Error500);
+        break;
+    }
+    errorSuccessStore.setMessage(false, `${t(i18nKeys.MainPage.ErrorCreation)} ${appendix}`);
   }
 }
 

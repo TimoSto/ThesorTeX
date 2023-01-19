@@ -2,7 +2,13 @@
 export const i18nKeys = {
     Common: {
         Abort: "Common.Abort",
-        Create: "Common.Create"
+        Create: "Common.Create",
+        Close: "Common.Close",
+        Error: "Common.Error",
+        ContactBug: "Common.ContactBug",
+        Error404: "Common.Error404",
+        Error400: "Common.Error400",
+        Error500: "Common.Error500"
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -19,7 +25,9 @@ export const i18nKeys = {
         ProjectLastModified: "MainPage.ProjectLastModified",
         ProjectNumberOfEntries: "MainPage.ProjectNumberOfEntries",
         CreateProject: "MainPage.CreateProject",
-        ProjectName: "MainPage.ProjectName"
+        ProjectName: "MainPage.ProjectName",
+        SuccessCreation: "MainPage.SuccessCreation",
+        ErrorCreation: "MainPage.ErrorCreation"
     }
 }
 
