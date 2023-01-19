@@ -7,7 +7,7 @@
     </template>
     <template #content>
       <v-card elevation="0">
-        <v-card-text>
+        <v-card-text style="padding-bottom: 8px;">
           <v-expansion-panels>
             <v-expansion-panel>
               <v-expansion-panel-title>
@@ -21,7 +21,7 @@
         </v-card-text>
       </v-card>
       <v-card elevation="0">
-        <v-card-text>
+        <v-card-text style="padding-top: 8px;">
           <v-expansion-panels>
             <v-expansion-panel>
               <v-expansion-panel-title>
