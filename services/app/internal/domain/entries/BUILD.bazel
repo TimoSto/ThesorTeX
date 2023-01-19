@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "entries",
+    srcs = [
+        "entry.go",
+        "get_all_entries.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/entries",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//pkg/backend/pathbuilder",
+        "//services/app/internal/config",
+        "//services/app/internal/filesystem",
+    ],
+)
+
+go_test(
+    name = "entries_test",
+    srcs = ["get_all_entries_test.go"],
+    embed = [":entries"],
+    deps = [
+        "//pkg/backend/pathbuilder",
+        "//services/app/internal/config",
+        "//services/app/internal/filesystem/fake",
+    ],
+)

@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "categories",
+    srcs = [
+        "category.go",
+        "get_all_categories.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/categories",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//pkg/backend/pathbuilder",
+        "//services/app/internal/config",
+        "//services/app/internal/filesystem",
+    ],
+)
+
+go_test(
+    name = "categories_test",
+    srcs = ["get_all_categories_test.go"],
+    embed = [":categories"],
+    deps = [
+        "//pkg/backend/pathbuilder",
+        "//services/app/internal/config",
+        "//services/app/internal/filesystem/fake",
+    ],
+)
