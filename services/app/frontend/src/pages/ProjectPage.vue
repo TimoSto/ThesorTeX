@@ -11,7 +11,7 @@
           <v-expansion-panels :model-value="0">
             <v-expansion-panel>
               <v-expansion-panel-title>
-                Einträge im Literaturverzeichnis
+                {{ t(i18nKeys.ProjectPage.Entries) }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
@@ -37,10 +37,22 @@
           <v-expansion-panels :model-value="0">
             <v-expansion-panel>
               <v-expansion-panel-title>
-                Einträge im Literaturverzeichnis
+                {{ t(i18nKeys.ProjectPage.EntryCategory) }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
-                <div style="width: 200px; height: 1000px; border: 1px solid black"></div>
+                <ResponsiveTable
+                  :rows="[]"
+                  :headers="categoriesHeaders"
+                >
+                  <template #h-2>
+                    <v-btn
+                      flat
+                      text
+                    >
+                      <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                  </template>
+                </ResponsiveTable>
               </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -55,9 +67,13 @@
 import {useAppStateStore} from "../stores/appState/AppStateStore";
 import {computed} from "vue";
 import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
+import {useI18n} from "@thesortex/vue-i18n-plugin";
+import {i18nKeys} from "../i18n/keys";
 
 // globals
 const appStateStore = useAppStateStore();
+
+const {t} = useI18n();
 
 // computed
 const projectName = computed(() => {
@@ -67,15 +83,15 @@ const projectName = computed(() => {
 const entriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
-      content: "Schlüsel",
+      content: t(i18nKeys.ProjectPage.EntryKey),
       size: SizeClasses.MaxWidth250
     },
     {
-      content: "Kategorie",
+      content: t(i18nKeys.ProjectPage.EntryCategory),
       size: SizeClasses.MaxWidth250
     },
     {
-      content: "Eintrag",
+      content: t(i18nKeys.ProjectPage.Entry),
       size: SizeClasses.ThirtyPercent
     },
     {
@@ -83,7 +99,24 @@ const entriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
       size: SizeClasses.IconBtn
     },
   ]
-})
+});
+
+const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
+  return [
+    {
+      content: t(i18nKeys.ProjectPage.CategoryName),
+      size: SizeClasses.MaxWidth250
+    },
+    {
+      content: t(i18nKeys.ProjectPage.CategoryExample),
+      size: ""
+    },
+    {
+      slot: true,
+      size: SizeClasses.IconBtn
+    },
+  ]
+});
 </script>
 
 <style scoped>

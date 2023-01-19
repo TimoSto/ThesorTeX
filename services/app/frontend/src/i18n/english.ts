@@ -31,6 +31,10 @@ export const english: I18nKeys = {
         ErrorCreation: "The project could not be created."
     },
     ProjectPage: {
-        Title: " - Projectview"
+        Title: " - Projectview",
+        Entries: "Entries in bibliography",
+        EntryKey: "Key",
+        Entry: "Entry",
+        EntryCategory: "Category",
     }
 }

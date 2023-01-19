@@ -31,6 +31,13 @@ export const german: I18nKeys = {
         ErrorCreation: "Das Projekt konnte nicht erstellt werden."
     },
     ProjectPage: {
-        Title: " - Projektansicht"
+        Title: " - Projektansicht",
+        Entries: "Einträge im Literaturverzeichnis",
+        EntryKey: "Schlüssel",
+        Entry: "Eintrag",
+        EntryCategory: "Kategorie",
+        Categories: "Kategorien für Einträge",
+        CategoryName: "Name",
+        CategoryExample: "Beispiel für Eintrag"
     }
 }

@@ -30,7 +30,14 @@ export const i18nKeys = {
         ErrorCreation: "MainPage.ErrorCreation"
     },
     ProjectPage: {
-        Title: "ProjectPage.Title"
+        Title: "ProjectPage.Title",
+        Entries: "ProjectPage.Entries",
+        EntryKey: "ProjectPage.EntryKey",
+        Entry: "ProjectPage.Entry",
+        EntryCategory: "ProjectPage.EntryCategory",
+        Categories: "ProjectPage.Categories",
+        CategoryName: "ProjectPage.CategoryName",
+        CategoryExample: "ProjectPage.CategoryExample"
     }
 }
 
