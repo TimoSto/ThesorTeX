@@ -26,7 +26,7 @@
     </v-navigation-drawer>
     <v-main>
       <PageNavigator
-        :pages="1"
+        :pages="pagesCount"
         :instant-switch="false"
         :navigating-back="false"
       >
@@ -36,6 +36,11 @@
         >
           <MainPage
             v-if="i === 1"
+            :key="`page-${i}`"
+          />
+
+          <ProjectPage
+            v-if="i === 2"
             :key="`page-${i}`"
           />
         </template>
@@ -74,6 +79,7 @@ import MainPage from "./pages/MainPage.vue";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {i18nKeys} from "./i18n/keys";
 import {useI18n} from "@thesortex/vue-i18n-plugin"
+import ProjectPage from "./pages/ProjectPage.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -99,7 +105,8 @@ const sidebarDisabled = computed(() => {
 })
 
 const pagesCount = computed(() => {
-  return 1;
+  console.log(appStateStore.history.length)
+  return appStateStore.history.length;
 })
 
 const titleAppendix = computed(() => {
@@ -107,6 +114,9 @@ const titleAppendix = computed(() => {
   switch (appStateStore.currentPage) {
     case pageNames[0]:
       appendix = "";
+      break;
+    case pageNames[1]:
+      appendix = t(i18nKeys.ProjectPage.Title);
       break;
     default: appendix = "";
   }

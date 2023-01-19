@@ -10,6 +10,7 @@
         <ResponsiveTable
           :headers="projectHeaders"
           :rows="projectsRows"
+          @row-clicked="OpenProject"
         >
           <template #h-4>
             <v-btn
@@ -47,6 +48,7 @@ import ProjectMetaData from "../domain/projects/ProjectMetaData";
 import CreateProjectCard from "../components/CreateProjectCard.vue";
 import CreateNewProject from "../api/projects/CreateNewProject";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
+import {pageNames, useAppStateStore} from "../stores/appState/AppStateStore";
 
 // globals
 const { t } = useI18n();
@@ -54,6 +56,8 @@ const { t } = useI18n();
 const projectsStore = useProjectsListStore();
 
 const errorSuccessStore = useErrorSuccessStore();
+
+const appStateStore = useAppStateStore();
 
 // data
 
@@ -131,6 +135,11 @@ async function triggerProjectCreation(name: string) {
     }
     errorSuccessStore.setMessage(false, `${t(i18nKeys.MainPage.ErrorCreation)} ${appendix}`);
   }
+}
+
+function OpenProject(n: number) {
+  appStateStore.navToPage(pageNames[1]);
+  console.log(n)
 }
 
 // onload

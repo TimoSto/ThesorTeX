@@ -29,5 +29,8 @@ export const english: I18nKeys = {
         ProjectName: "Name of the project",
         SuccessCreation: "The project NAME was successfully created",
         ErrorCreation: "The project could not be created."
+    },
+    ProjectPage: {
+        Title: " - Projectview"
     }
 }

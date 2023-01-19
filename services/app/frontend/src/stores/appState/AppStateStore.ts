@@ -1,7 +1,8 @@
 import {defineStore} from "pinia";
 
 export const pageNames = [
-    "main"
+    "main",
+    "project"
 ];
 
 export interface AppState {

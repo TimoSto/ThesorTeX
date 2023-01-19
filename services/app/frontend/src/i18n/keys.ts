@@ -28,6 +28,9 @@ export const i18nKeys = {
         ProjectName: "MainPage.ProjectName",
         SuccessCreation: "MainPage.SuccessCreation",
         ErrorCreation: "MainPage.ErrorCreation"
+    },
+    ProjectPage: {
+        Title: "ProjectPage.Title"
     }
 }
 
