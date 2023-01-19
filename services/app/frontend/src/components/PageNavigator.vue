@@ -24,6 +24,9 @@
 </template>
 <script setup lang="ts">
 
+// globals
+const emit = defineEmits(["navBackFinish"]);
+
 // data
 import {watch} from "vue";
 
@@ -46,11 +49,12 @@ const props = defineProps({
 let animationClass = "";
 
 // watchers
-watch(() => props.pages, (newValue: number, oldValue: number) => {
-  if( newValue < oldValue ) {
+watch(() => props.navigatingBack, () => {
+  if( props.navigatingBack ) {
     animationClass = 'nav-back';
     setTimeout(() => {
       animationClass = '';
+      emit("navBackFinish");
     }, 750);
   }
 })

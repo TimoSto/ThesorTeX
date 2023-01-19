@@ -9,6 +9,13 @@
         @click.stop="sidebarOpened = !sidebarOpened"
       />
 
+      <v-app-bar-nav-icon
+        v-if="pagesCount > 1"
+        @click="navBack"
+      >
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-app-bar-nav-icon>
+
       <v-app-bar-title>
         ThesorTeX
         {{ titleAppendix }}
@@ -28,7 +35,8 @@
       <PageNavigator
         :pages="pagesCount"
         :instant-switch="false"
-        :navigating-back="false"
+        :navigating-back="navigatingBack"
+        @nav-back-finish="finishNavBack"
       >
         <template
           v-for="i in pagesCount"
@@ -72,7 +80,7 @@
 
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
-import {computed,} from "vue";
+import {computed, ref,} from "vue";
 import PageNavigator from "./components/PageNavigator.vue";
 import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
@@ -87,6 +95,8 @@ const appStateStore = useAppStateStore();
 const errorSuccessStore = useErrorSuccessStore();
 
 const { t } = useI18n();
+
+const navigatingBack = ref(false);
 
 // data
 
@@ -136,7 +146,17 @@ const message = computed({
       errorSuccessStore.clear();
     }
   }
-})
+});
+
+// methods
+function navBack() {
+  navigatingBack.value=true;
+}
+
+function finishNavBack() {
+  navigatingBack.value = false;
+  appStateStore.goBack();
+}
 
 </script>
 

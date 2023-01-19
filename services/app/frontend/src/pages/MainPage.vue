@@ -138,8 +138,9 @@ async function triggerProjectCreation(name: string) {
 }
 
 function OpenProject(n: number) {
-  appStateStore.navToPage(pageNames[1]);
-  console.log(n)
+  if( appStateStore.currentPage === pageNames[0] ) {
+    appStateStore.navToPage(pageNames[1]);
+  }
 }
 
 // onload
