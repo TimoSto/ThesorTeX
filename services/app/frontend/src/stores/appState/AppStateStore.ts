@@ -8,6 +8,7 @@ export const pageNames = [
 export interface AppState {
     history: string[],
     sidebarOpen: boolean,
+    currentProject: string
 }
 
 export const useAppStateStore = defineStore( {
@@ -31,10 +32,14 @@ export const useAppStateStore = defineStore( {
           this.history.pop();
           if( this.history.length === 1 ) {
               this.sidebarOpen = false;
+              this.currentProject = "";
           }
         },
         setSidebarOpened(v: boolean) {
             this.sidebarOpen = v;
+        },
+        setProject(name: string) {
+            this.currentProject = name;
         }
     }
 })

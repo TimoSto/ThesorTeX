@@ -140,6 +140,7 @@ async function triggerProjectCreation(name: string) {
 function OpenProject(n: number) {
   if( appStateStore.currentPage === pageNames[0] ) {
     appStateStore.navToPage(pageNames[1]);
+    appStateStore.setProject(projectsStore.projects[n].Name);
   }
 }
 

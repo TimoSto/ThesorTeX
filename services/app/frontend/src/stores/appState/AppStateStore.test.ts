@@ -52,5 +52,25 @@ describe("AppStateStore", () => {
             expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
         });
+        it("project was open on page 2", () => {
+            const store = useAppStateStore();
+            store.history.push("test")
+            store.currentProject = "tesst";
+            store.goBack();
+            expect(store.history.length).toEqual(1);
+            expect(store.currentPage).toEqual("main");
+            expect(store.sidebarOpen).toBeFalsy();
+            expect(store.currentProject).toEqual("");
+        });
+        it("project was open on page 3", () => {
+            const store = useAppStateStore();
+            store.history.push("test", "test2")
+            store.currentProject = "tesst";
+            store.goBack();
+            expect(store.history.length).toEqual(2);
+            expect(store.currentPage).toEqual("test");
+            expect(store.sidebarOpen).toBeFalsy();
+            expect(store.currentProject).toEqual("tesst");
+        });
     })
 })
