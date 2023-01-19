@@ -36,5 +36,8 @@ export const english: I18nKeys = {
         EntryKey: "Key",
         Entry: "Entry",
         EntryCategory: "Category",
+        Categories: "Categories for entries",
+        CategoryName: "Name",
+        CategoryExample: "Example entry"
     }
 }
