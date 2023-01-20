@@ -90,7 +90,7 @@
         </v-btn>
         <v-btn
           color="primary"
-          @click="deleteTriggered=false"
+          @click="deleteProject"
         >
           {{ t(i18nKeys.Common.Delete) }}
         </v-btn>
@@ -115,6 +115,7 @@ import {Entry} from "../domain/entry/Entry";
 import {Category, Field} from "../domain/category/Category";
 import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
+import DeleteProject from "../api/projects/DeleteProject";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -212,6 +213,15 @@ async function syncProjectData() {
     projectDataStore.setProjectData(resp.Data.Entries, resp.Data.Categories);
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorReadingData))
+  }
+}
+
+async function deleteProject() {
+  deleteTriggered.value = false;
+  const success = await DeleteProject(projectName.value);
+
+  if (success) {
+    appStateStore.goBack();
   }
 }
 
