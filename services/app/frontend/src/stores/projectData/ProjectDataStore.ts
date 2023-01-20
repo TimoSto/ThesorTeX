@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import {Entry} from "../../domain/entry/Entry";
-import {Category} from "../../domain/category/category";
+import {Category} from "../../domain/category/Category";
 
 export const useProjectDataStore = defineStore({
     id: "project-data",

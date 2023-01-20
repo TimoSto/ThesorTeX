@@ -1,10 +1,12 @@
-
 export interface Category {
     Name: string
     CtiaviCategory: string
+    BibFields: Field[]
+    CiteFields: Field[]
+    CitaviFilter: string[]
 }
 
-export interface field {
+export interface Field {
     Name: string
     Format: format
     CitaviMapping: string[]

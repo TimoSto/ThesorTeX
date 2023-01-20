@@ -17,9 +17,9 @@
       {
         "Name": "Jahr",
         "Format": {
-          "Style": "italic",
-          "Prefix": "",
-          "Suffix": " ",
+          "Style": "normal",
+          "Prefix": "(",
+          "Suffix": "), ",
           "Preformatted": false
         },
         "CitaviMapping": null
@@ -27,9 +27,9 @@
       {
         "Name": "Titel",
         "Format": {
-          "Style": "italic",
+          "Style": "normal",
           "Prefix": "",
-          "Suffix": " ",
+          "Suffix": ", ",
           "Preformatted": false
         },
         "CitaviMapping": null
@@ -38,7 +38,7 @@
         "Name": "Zeitschrift",
         "Format": {
           "Style": "italic",
-          "Prefix": "",
+          "Prefix": "in: ",
           "Suffix": " ",
           "Preformatted": false
         },
@@ -47,7 +47,7 @@
       {
         "Name": "Ausgabe",
         "Format": {
-          "Style": "italic",
+          "Style": "normal",
           "Prefix": "",
           "Suffix": " ",
           "Preformatted": false
@@ -58,8 +58,8 @@
         "Name": "Seiten",
         "Format": {
           "Style": "italic",
-          "Prefix": "",
-          "Suffix": " ",
+          "Prefix": "S. ",
+          "Suffix": ", ",
           "Preformatted": false
         },
         "CitaviMapping": null
@@ -68,7 +68,7 @@
         "Name": "url",
         "Format": {
           "Style": "italic",
-          "Prefix": "",
+          "Prefix": "abrufbar unter: ",
           "Suffix": " ",
           "Preformatted": false
         },

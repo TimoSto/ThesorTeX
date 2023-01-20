@@ -15,13 +15,13 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
-                  :rows="entriesRows"
-                  :headers="entriesHeaders"
+                    :rows="entriesRows"
+                    :headers="entriesHeaders"
                 >
                   <template #h-3>
                     <v-btn
-                      flat
-                      text
+                        flat
+                        text
                     >
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
@@ -41,13 +41,13 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
-                  :rows="categoriesRows"
-                  :headers="categoriesHeaders"
+                    :rows="categoriesRows"
+                    :headers="categoriesHeaders"
                 >
                   <template #h-2>
                     <v-btn
-                      flat
-                      text
+                        flat
+                        text
                     >
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
@@ -76,7 +76,8 @@ import {i18nKeys} from "../i18n/keys";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Entry} from "../domain/entry/Entry";
-import {Category} from "../domain/category/category";
+import {Category, Field} from "../domain/category/Category";
+import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -122,7 +123,7 @@ const entriesRows = computed(() => {
         content: e.Category
       },
       {
-        content: ""
+        content: GenerateEntryForCategory(projectDataStore.categories.find(c => c.Name === e.Category), e.Fields)
       }
     ])
   });
@@ -138,7 +139,7 @@ const categoriesRows = computed(() => {
         content: c.Name
       },
       {
-        content: ""
+        content: GenerateEntryForCategory(c, c.BibFields.map((f: Field) => f.Name))
       }
     ])
   });
@@ -165,7 +166,7 @@ const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
 
 async function syncProjectData() {
   const resp = await GetProjectData(projectName.value);
-  if( resp.Ok ) {
+  if (resp.Ok) {
     projectDataStore.setProjectData(resp.Data.Entries, resp.Data.Categories);
   }
 }
