@@ -1,0 +1,7 @@
+@mixin disableOverlayOnExpansionPanel {
+  .v-expansion-panel-title--active {
+    & .v-expansion-panel-title__overlay {
+      opacity: 0 !important;
+    }
+  }
+}
