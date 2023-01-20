@@ -94,9 +94,7 @@ const appStateStore = useAppStateStore();
 
 const errorSuccessStore = useErrorSuccessStore();
 
-const { t } = useI18n();
-
-const navigatingBack = ref(false);
+const {t} = useI18n();
 
 // data
 
@@ -128,7 +126,8 @@ const titleAppendix = computed(() => {
     case pageNames[1]:
       appendix = t(i18nKeys.ProjectPage.Title);
       break;
-    default: appendix = "";
+    default:
+      appendix = "";
   }
   return appendix
 });
@@ -142,20 +141,23 @@ const message = computed({
     return errorSuccessStore.message;
   },
   set(v: string) {
-    if( v === "" ) {
+    if (v === "") {
       errorSuccessStore.clear();
     }
   }
 });
 
+const navigatingBack = computed(() => {
+  return appStateStore.navigatingBack;
+})
+
 // methods
 function navBack() {
-  navigatingBack.value=true;
+  appStateStore.goBack();
 }
 
 function finishNavBack() {
-  navigatingBack.value = false;
-  appStateStore.goBack();
+  appStateStore.finishGoBack();
 }
 
 </script>

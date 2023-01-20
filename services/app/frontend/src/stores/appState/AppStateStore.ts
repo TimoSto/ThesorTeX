@@ -8,14 +8,16 @@ export const pageNames = [
 export interface AppState {
     history: string[],
     sidebarOpen: boolean,
-    currentProject: string
+    currentProject: string,
+    navigatingBack: boolean
 }
 
-export const useAppStateStore = defineStore( {
-    id: 'app-state',
+export const useAppStateStore = defineStore({
+    id: "app-state",
     state: () => ({
         history: [pageNames[0]],
         sidebarOpen: false,
+        navigatingBack: false,
     } as AppState),
 
     getters: {
@@ -29,11 +31,15 @@ export const useAppStateStore = defineStore( {
             this.history.push(name);
         },
         goBack() {
-          this.history.pop();
-          if( this.history.length === 1 ) {
-              this.sidebarOpen = false;
-              this.currentProject = "";
-          }
+            this.navigatingBack = true;
+        },
+        finishGoBack() {
+            this.navigatingBack = false;
+            this.history.pop();
+            if (this.history.length === 1) {
+                this.sidebarOpen = false;
+                this.currentProject = "";
+            }
         },
         setSidebarOpened(v: boolean) {
             this.sidebarOpen = v;

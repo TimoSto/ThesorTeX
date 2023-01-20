@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
-import { resolve, dirname } from 'node:path'
-import { fileURLToPath } from 'url'
-import vue from '@vitejs/plugin-vue'
+import {defineConfig} from "vite"
+import {resolve, dirname} from "node:path"
+import {fileURLToPath} from "url"
+import vue from "@vitejs/plugin-vue"
 import vuetify from "vite-plugin-vuetify";
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 
 export default defineConfig({
     plugins: [
@@ -15,7 +15,7 @@ export default defineConfig({
         VueI18nPlugin({
             /* options */
             // locale messages resource pre-compile option
-            include: resolve(dirname(fileURLToPath(import.meta.url)), './src/i18n/**'),
+            include: resolve(dirname(fileURLToPath(import.meta.url)), "./src/i18n/**"),
         }),
     ],
     server: {
@@ -24,10 +24,11 @@ export default defineConfig({
             "/getAllProjects": "http://localhost:8448/",
             "/createNewProject": "http://localhost:8448/",
             "/getProjectData": "http://localhost:8448/",
+            "/deleteProject": "http://localhost:8448/",
         }
     },
     build: {
-        outDir: './assets/dist'
+        outDir: "./assets/dist"
     },
     test: {
         globals: true,

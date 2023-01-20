@@ -219,7 +219,6 @@ async function syncProjectData() {
 async function deleteProject() {
   deleteTriggered.value = false;
   const success = await DeleteProject(projectName.value);
-
   if (success) {
     appStateStore.goBack();
   }
