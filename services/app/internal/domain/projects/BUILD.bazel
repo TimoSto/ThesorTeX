@@ -4,6 +4,7 @@ go_library(
     name = "projects",
     srcs = [
         "create_project.go",
+        "delete_project.go",
         "get_all_projects.go",
         "project.go",
     ],
@@ -21,6 +22,7 @@ go_test(
     name = "projects_test",
     srcs = [
         "create_project_test.go",
+        "delete_project_test.go",
         "get_all_projects_test.go",
     ],
     embed = [":projects"],
