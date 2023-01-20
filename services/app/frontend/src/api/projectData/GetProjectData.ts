@@ -1,8 +1,10 @@
 import {Entry} from "../../domain/entry/Entry";
 import {host} from "../config";
+import {Category} from "../../domain/category/category";
 
 export interface ProjectData {
     Entries: Entry[]
+    Categories: Category[]
 }
 
 export interface GetProjectDataResponse {

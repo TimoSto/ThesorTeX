@@ -15,7 +15,7 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
-                  :rows="[]"
+                  :rows="entriesRows"
                   :headers="entriesHeaders"
                 >
                   <template #h-3>
@@ -41,7 +41,7 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
-                  :rows="[]"
+                  :rows="categoriesRows"
                   :headers="categoriesHeaders"
                 >
                   <template #h-2>
@@ -66,11 +66,17 @@
 <script lang="ts" setup>
 import {useAppStateStore} from "../stores/appState/AppStateStore";
 import {computed, watch} from "vue";
-import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
+import ResponsiveTable, {
+  ResponsiveTableCell,
+  ResponsiveTableHeaderCell,
+  SizeClasses
+} from "../components/ResponsiveTable.vue";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import GetProjectData from "../api/projectData/GetProjectData";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
+import {Entry} from "../domain/entry/Entry";
+import {Category} from "../domain/category/category";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -105,6 +111,41 @@ const entriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
   ]
 });
 
+const entriesRows = computed(() => {
+  const rows = [] as ResponsiveTableCell[][];
+  projectDataStore.entries.forEach((e: Entry) => {
+    rows.push([
+      {
+        content: e.Key
+      },
+      {
+        content: e.Category
+      },
+      {
+        content: ""
+      }
+    ])
+  });
+
+  return rows;
+});
+
+const categoriesRows = computed(() => {
+  const rows = [] as ResponsiveTableCell[][];
+  projectDataStore.categories.forEach((c: Category) => {
+    rows.push([
+      {
+        content: c.Name
+      },
+      {
+        content: ""
+      }
+    ])
+  });
+
+  return rows;
+})
+
 const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
@@ -125,13 +166,12 @@ const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
 async function syncProjectData() {
   const resp = await GetProjectData(projectName.value);
   if( resp.Ok ) {
-    console.log(resp.Data.Entries)
-    projectDataStore.setProjectData(resp.Data.Entries);
+    projectDataStore.setProjectData(resp.Data.Entries, resp.Data.Categories);
   }
 }
 
 // watchers
-watch(projectName, async () => {
+watch(projectName, async () => {//TODO: reload on close and open again
   await syncProjectData();
 })
 
