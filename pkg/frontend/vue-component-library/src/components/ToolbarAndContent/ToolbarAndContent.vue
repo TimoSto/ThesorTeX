@@ -3,7 +3,7 @@
     v-if="!props.hideBar"
     :color="props.barColor"
     density="compact"
-    elevation="0"
+    elevation="1"
     style="z-index: 1000"
 
   >
@@ -35,5 +35,6 @@ const props = defineProps({
   margin: 0;
   width: 100%;
   overflow-y: auto;
+  height: calc(100vh - 112px)
 }
 </style>
