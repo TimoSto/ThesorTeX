@@ -37,7 +37,7 @@
           <v-expansion-panels :model-value="0">
             <v-expansion-panel>
               <v-expansion-panel-title>
-                {{ t(i18nKeys.ProjectPage.EntryCategory) }}
+                {{ t(i18nKeys.ProjectPage.Categories) }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
