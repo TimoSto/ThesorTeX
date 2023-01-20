@@ -1,4 +1,4 @@
 root = true
 
-[*]
+[*.vue]
 indent_size = 2

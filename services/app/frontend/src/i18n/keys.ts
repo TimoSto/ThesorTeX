@@ -1,4 +1,3 @@
-
 export const i18nKeys = {
     Common: {
         Abort: "Common.Abort",
@@ -15,9 +14,7 @@ export const i18nKeys = {
         NoEmpty: "Rules.NoEmpty",
         ProjectAlreadyExists: "Rules.ProjectAlreadyExists"
     },
-    App: {
-
-    },
+    App: {},
     MainPage: {
         Welcome: "MainPage.Welcome",
         Project: "MainPage.Project",
@@ -37,7 +34,8 @@ export const i18nKeys = {
         EntryCategory: "ProjectPage.EntryCategory",
         Categories: "ProjectPage.Categories",
         CategoryName: "ProjectPage.CategoryName",
-        CategoryExample: "ProjectPage.CategoryExample"
+        CategoryExample: "ProjectPage.CategoryExample",
+        ErrorReadingData: "ProjectPage.ErrorReadingData"
     }
 }
 

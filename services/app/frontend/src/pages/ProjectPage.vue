@@ -78,11 +78,14 @@ import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Entry} from "../domain/entry/Entry";
 import {Category, Field} from "../domain/category/Category";
 import GenerateEntryForCategory from "../domain/category/GenerateEntry";
+import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 
 // globals
 const appStateStore = useAppStateStore();
 
 const projectDataStore = useProjectDataStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 const {t} = useI18n();
 
@@ -168,6 +171,8 @@ async function syncProjectData() {
   const resp = await GetProjectData(projectName.value);
   if (resp.Ok) {
     projectDataStore.setProjectData(resp.Data.Entries, resp.Data.Categories);
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorReadingData))
   }
 }
 

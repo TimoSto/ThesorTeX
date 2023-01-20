@@ -16,6 +16,13 @@ export default async function GetProjectData(project: string): Promise<GetProjec
     const resp = await fetch(`${host}/getProjectData?project=${project}`);
     //TODO: when here is more logic, add a unittest
 
+    if (!resp.ok) {
+        return {
+            Ok: false,
+            Data: {} as ProjectData
+        }
+    }
+
     return {
         Ok: resp.ok,
         Data: await resp.json()

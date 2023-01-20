@@ -16,9 +16,7 @@ export const english: I18nKeys = {
         NoEmpty: "No empty value allowed",
         ProjectAlreadyExists: "Projectname already exists"
     },
-    App: {
-
-    },
+    App: {},
     MainPage: {
         Welcome: "Welcome to ThesorTeX!",
         Project: "Project",
@@ -38,6 +36,7 @@ export const english: I18nKeys = {
         EntryCategory: "Category",
         Categories: "Categories for entries",
         CategoryName: "Name",
-        CategoryExample: "Example entry"
+        CategoryExample: "Example entry",
+        ErrorReadingData: "An error occurred reading the project data"
     }
 }
