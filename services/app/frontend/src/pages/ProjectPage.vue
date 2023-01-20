@@ -116,6 +116,7 @@ import {Category, Field} from "../domain/category/Category";
 import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import DeleteProject from "../api/projects/DeleteProject";
+import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -123,6 +124,8 @@ const appStateStore = useAppStateStore();
 const projectDataStore = useProjectDataStore();
 
 const errorSuccessStore = useErrorSuccessStore();
+
+const projectsListStore = useProjectsListStore();
 
 const {t} = useI18n();
 
@@ -220,7 +223,8 @@ async function deleteProject() {
   deleteTriggered.value = false;
   const success = await DeleteProject(projectName.value);
   if (success) {
-    errorSuccessStore.setMessage(true, t(i18nKeys.ProjectPage.SuccessDelete).replace("PROJECTNAME", projectName.value))
+    errorSuccessStore.setMessage(true, t(i18nKeys.ProjectPage.SuccessDelete).replace("PROJECTNAME", projectName.value));
+    projectsListStore.removeProject(projectName.value);
     appStateStore.goBack();
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorDelete))

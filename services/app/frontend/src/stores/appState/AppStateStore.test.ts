@@ -1,4 +1,4 @@
-import {describe, it, beforeEach, expect} from "vitest";
+import {beforeEach, describe, expect, it} from "vitest";
 import {createPinia, setActivePinia} from "pinia";
 import {useAppStateStore} from "./AppStateStore";
 
@@ -30,6 +30,7 @@ describe("AppStateStore", () => {
             const store = useAppStateStore();
             store.history.push("test")
             store.goBack();
+            store.finishGoBack();
             expect(store.history.length).toEqual(1);
             expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
@@ -39,6 +40,7 @@ describe("AppStateStore", () => {
             store.history.push("test", "test2")
             store.sidebarOpen = true;
             store.goBack();
+            store.finishGoBack();
             expect(store.history.length).toEqual(2);
             expect(store.currentPage).toEqual("test");
             expect(store.sidebarOpen).toBeTruthy();
@@ -48,6 +50,7 @@ describe("AppStateStore", () => {
             store.history.push("test")
             store.sidebarOpen = true;
             store.goBack();
+            store.finishGoBack();
             expect(store.history.length).toEqual(1);
             expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
@@ -57,6 +60,7 @@ describe("AppStateStore", () => {
             store.history.push("test")
             store.currentProject = "tesst";
             store.goBack();
+            store.finishGoBack();
             expect(store.history.length).toEqual(1);
             expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
@@ -67,6 +71,7 @@ describe("AppStateStore", () => {
             store.history.push("test", "test2")
             store.currentProject = "tesst";
             store.goBack();
+            store.finishGoBack();
             expect(store.history.length).toEqual(2);
             expect(store.currentPage).toEqual("test");
             expect(store.sidebarOpen).toBeFalsy();

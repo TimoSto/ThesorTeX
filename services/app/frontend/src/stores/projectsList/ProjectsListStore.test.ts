@@ -28,4 +28,12 @@ describe("ProjectsListStore", () => {
             ]);
         });
     });
+    describe("removeProject", () => {
+        it("should delete last", () => {
+            const store = useProjectsListStore();
+            store.projects.push({Name: "test", Created: "now", LastEdited: "now", NumberOfEntries: "2"});
+            store.removeProject("test");
+            expect(store.projects).toEqual([]);
+        })
+    });
 });

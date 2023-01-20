@@ -51,9 +51,10 @@ import CreateProjectCard from "../components/CreateProjectCard.vue";
 import CreateNewProject from "../api/projects/CreateNewProject";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {pageNames, useAppStateStore} from "../stores/appState/AppStateStore";
+import GetProjectsMetaData from "../api/projects/GetProjectsMetaData";
 
 // globals
-const { t } = useI18n();
+const {t} = useI18n();
 
 const projectsStore = useProjectsListStore();
 
@@ -119,7 +120,7 @@ async function triggerProjectCreation(name: string) {
 
   createNewTriggered.value = false;
 
-  if( resp.Success ) {
+  if (resp.Success) {
     projectsStore.addProject(resp.Data);
     errorSuccessStore.setMessage(true, t(i18nKeys.MainPage.SuccessCreation).replace("NAME", name));
   } else {
@@ -140,14 +141,23 @@ async function triggerProjectCreation(name: string) {
 }
 
 function OpenProject(n: number) {
-  if( appStateStore.currentPage === pageNames[0] ) {
+  if (appStateStore.currentPage === pageNames[0]) {
     appStateStore.navToPage(pageNames[1]);
     appStateStore.setProject(projectsStore.projects[n].Name);
   }
 }
 
+async function syncProjectsListWithServer() {
+  const resp = await GetProjectsMetaData();
+  if (resp.Ok) {
+    projectsStore.setProjects(resp.Projects ? resp.Projects : []);
+  } else {
+    // todo handle error
+  }
+}
+
 // onload
-projectsStore.readAllProjectsFromServer();
+syncProjectsListWithServer();
 </script>
 
 <style scoped>
