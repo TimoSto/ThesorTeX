@@ -38,7 +38,9 @@ export const i18nKeys = {
         CategoryExample: "ProjectPage.CategoryExample",
         ErrorReadingData: "ProjectPage.ErrorReadingData",
         DeleteTitle: "ProjectPage.DeleteTitle",
-        DeleteMessage: "ProjectPage.DeleteMessage"
+        DeleteMessage: "ProjectPage.DeleteMessage",
+        SuccessDelete: "ProjectPage.SuccessDelete",
+        ErrorDelete: "ProjectPage.ErrorDelete"
     }
 }
 

@@ -40,6 +40,8 @@ export const english: I18nKeys = {
         CategoryExample: "Example entry",
         ErrorReadingData: "An error occurred reading the project data",
         DeleteTitle: "Delete project",
-        DeleteMessage: "Do you really want to delete the project {project}?"
+        DeleteMessage: "Do you really want to delete the project {project}?",
+        SuccessDelete: "The project PROJECTNAME was successfully deleted",
+        ErrorDelete: "The project could not be deleted"
     }
 }

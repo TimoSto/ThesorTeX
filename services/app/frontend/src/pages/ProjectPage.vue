@@ -220,7 +220,10 @@ async function deleteProject() {
   deleteTriggered.value = false;
   const success = await DeleteProject(projectName.value);
   if (success) {
+    errorSuccessStore.setMessage(true, t(i18nKeys.ProjectPage.SuccessDelete).replace("PROJECTNAME", projectName.value))
     appStateStore.goBack();
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorDelete))
   }
 }
 
