@@ -53,6 +53,7 @@
                   <ResponsiveTable
                     :rows="categoriesRows"
                     :headers="categoriesHeaders"
+                    @row-clicked="openCategoryEditor"
                   >
                     <template #h-2>
                       <v-btn
@@ -104,7 +105,7 @@
 </template>
 
 <script lang="ts" setup>
-import {useAppStateStore} from "../stores/appState/AppStateStore";
+import {pageNames, useAppStateStore} from "../stores/appState/AppStateStore";
 import {computed, ref, watch} from "vue";
 import ResponsiveTable, {
   ResponsiveTableCell,
@@ -238,7 +239,12 @@ async function deleteProject() {
 // watchers
 watch(projectName, async () => {//TODO: reload on close and open again
   await syncProjectData();
-})
+});
+
+// methods
+function openCategoryEditor(n: number) {
+  appStateStore.navToPage(pageNames[2]);
+}
 
 // onload
 syncProjectData();

@@ -51,6 +51,11 @@
             v-if="i === 2"
             :key="`page-${i}`"
           />
+
+          <CategoryEditor
+            v-if="i === 3"
+            :key="`page-${i}`"
+          />
         </template>
       </PageNavigator>
     </v-main>
@@ -88,6 +93,7 @@ import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/
 import {i18nKeys} from "./i18n/keys";
 import {useI18n} from "@thesortex/vue-i18n-plugin"
 import ProjectPage from "./pages/ProjectPage.vue";
+import CategoryEditor from "./pages/CategoryEditor.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -125,6 +131,9 @@ const titleAppendix = computed(() => {
       break;
     case pageNames[1]:
       appendix = t(i18nKeys.ProjectPage.Title);
+      break;
+    case pageNames[2]:
+      appendix = t(i18nKeys.CategoryEditor.Title);
       break;
     default:
       appendix = "";
