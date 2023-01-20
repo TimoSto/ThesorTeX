@@ -8,6 +8,7 @@
         v-model="projectName"
         :label="t(i18nKeys.MainPage.ProjectName)"
         :rules="[nameRules]"
+        color="primary"
       />
     </v-card-text>
     <v-card-actions>
@@ -36,9 +37,9 @@ import {i18nKeys} from "../i18n/keys";
 import getProjectNameRules from "../domain/projects/ProjectNameRules";
 
 // globals
-const emit = defineEmits(['close', 'confirm'])
+const emit = defineEmits(["close", "confirm"])
 
-const { t } = useI18n();
+const {t} = useI18n();
 
 // props
 const props = defineProps({
@@ -49,7 +50,7 @@ const props = defineProps({
 });
 
 // data
-const projectName = ref('');
+const projectName = ref("");
 
 const nameRules = computed(() => {
   return getProjectNameRules(props.projects, "", t)
