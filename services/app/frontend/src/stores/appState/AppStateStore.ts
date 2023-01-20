@@ -10,7 +10,8 @@ export interface AppState {
     history: string[],
     sidebarOpen: boolean,
     currentProject: string,
-    navigatingBack: boolean
+    navigatingBack: boolean,
+    currentItem: string,//entry key or category name
 }
 
 export const useAppStateStore = defineStore({
@@ -37,6 +38,7 @@ export const useAppStateStore = defineStore({
         finishGoBack() {
             this.navigatingBack = false;
             this.history.pop();
+            this.currentItem = "";
             if (this.history.length === 1) {
                 this.sidebarOpen = false;
                 this.currentProject = "";
@@ -47,6 +49,9 @@ export const useAppStateStore = defineStore({
         },
         setProject(name: string) {
             this.currentProject = name;
+        },
+        setItem(id: string) {
+            this.currentItem = id;
         }
     }
 })

@@ -77,5 +77,19 @@ describe("AppStateStore", () => {
             expect(store.sidebarOpen).toBeFalsy();
             expect(store.currentProject).toEqual("tesst");
         });
+    });
+    describe("currentItem", () => {
+        it("should reset the currentItem", () => {
+            const store = useAppStateStore();
+            store.history.push("test", "test2")
+            store.setItem("tesst");
+            expect(store.currentItem).toEqual("tesst");
+            store.goBack();
+            store.finishGoBack();
+            expect(store.history.length).toEqual(2);
+            expect(store.currentPage).toEqual("test");
+            expect(store.sidebarOpen).toBeFalsy();
+            expect(store.currentItem).toEqual("");
+        });
     })
 })

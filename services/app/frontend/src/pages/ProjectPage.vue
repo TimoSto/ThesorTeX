@@ -244,6 +244,7 @@ watch(projectName, async () => {//TODO: reload on close and open again
 // methods
 function openCategoryEditor(n: number) {
   appStateStore.navToPage(pageNames[2]);
+  appStateStore.setItem(projectDataStore.categories[n].Name);
 }
 
 // onload
