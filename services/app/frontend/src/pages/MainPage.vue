@@ -6,25 +6,27 @@
       </v-toolbar-title>
     </template>
     <template #content>
-      <v-card>
-        <v-card-text>
-          <ResponsiveTable
-            :headers="projectHeaders"
-            :rows="projectsRows"
-            @row-clicked="OpenProject"
-          >
-            <template #h-4>
-              <v-btn
-                flat
-                text
-                @click="createNewTriggered = true"
-              >
-                <v-icon>mdi-plus</v-icon>
-              </v-btn>
-            </template>
-          </ResponsiveTable>
-        </v-card-text>
-      </v-card>
+      <div class="fullsize-card-container">
+        <v-card elevation="3">
+          <v-card-text>
+            <ResponsiveTable
+              :headers="projectHeaders"
+              :rows="projectsRows"
+              @row-clicked="OpenProject"
+            >
+              <template #h-4>
+                <v-btn
+                  flat
+                  text
+                  @click="createNewTriggered = true"
+                >
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </template>
+            </ResponsiveTable>
+          </v-card-text>
+        </v-card>
+      </div>
     </template>
   </ToolbarAndContent>
 
@@ -160,5 +162,8 @@ async function syncProjectsListWithServer() {
 syncProjectsListWithServer();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "../styles/common.scss";
+
+@include fullsizeCardContainer;
 </style>

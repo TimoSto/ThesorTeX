@@ -5,3 +5,10 @@
     }
   }
 }
+
+@mixin fullsizeCardContainer {
+  .fullsize-card-container {
+    width: 100%;
+    padding: 16px;
+  }
+}

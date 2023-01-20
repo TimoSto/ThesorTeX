@@ -1,16 +1,16 @@
 <template>
   <v-toolbar
-      v-if="!props.hideBar"
-      :color="props.barColor"
-      density="compact"
-      elevation="1"
-      style="z-index: 1000"
+    v-if="!props.hideBar"
+    :color="props.barColor"
+    density="compact"
+    elevation="0"
+    style="z-index: 1000"
 
   >
     <slot name="bar" />
   </v-toolbar>
   <v-sheet
-      class="content"
+    class="content"
   >
     <slot name="content" />
   </v-sheet>

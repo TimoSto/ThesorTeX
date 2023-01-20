@@ -13,58 +13,62 @@
       </v-btn>
     </template>
     <template #content>
-      <v-card elevation="1">
-        <v-card-text style="padding-bottom: 8px;">
-          <v-expansion-panels :model-value="0">
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                {{ t(i18nKeys.ProjectPage.Entries) }}
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <ResponsiveTable
-                  :rows="entriesRows"
-                  :headers="entriesHeaders"
-                >
-                  <template #h-3>
-                    <v-btn
-                      flat
-                      text
-                    >
-                      <v-icon>mdi-plus</v-icon>
-                    </v-btn>
-                  </template>
-                </ResponsiveTable>
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </v-card-text>
-      </v-card>
-      <v-card elevation="0">
-        <v-card-text style="padding-top: 8px;">
-          <v-expansion-panels :model-value="0">
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                {{ t(i18nKeys.ProjectPage.Categories) }}
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <ResponsiveTable
-                  :rows="categoriesRows"
-                  :headers="categoriesHeaders"
-                >
-                  <template #h-2>
-                    <v-btn
-                      flat
-                      text
-                    >
-                      <v-icon>mdi-plus</v-icon>
-                    </v-btn>
-                  </template>
-                </ResponsiveTable>
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </v-card-text>
-      </v-card>
+      <div class="fullsize-card-container">
+        <v-card elevation="3">
+          <div>
+            <v-expansion-panels :model-value="0">
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  {{ t(i18nKeys.ProjectPage.Entries) }}
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <ResponsiveTable
+                    :rows="entriesRows"
+                    :headers="entriesHeaders"
+                  >
+                    <template #h-3>
+                      <v-btn
+                        flat
+                        text
+                      >
+                        <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                    </template>
+                  </ResponsiveTable>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </div>
+        </v-card>
+      </div>
+      <div class="fullsize-card-container">
+        <v-card elevation="3">
+          <div>
+            <v-expansion-panels :model-value="0">
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  {{ t(i18nKeys.ProjectPage.Categories) }}
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <ResponsiveTable
+                    :rows="categoriesRows"
+                    :headers="categoriesHeaders"
+                  >
+                    <template #h-2>
+                      <v-btn
+                        flat
+                        text
+                      >
+                        <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                    </template>
+                  </ResponsiveTable>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </div>
+        </v-card>
+      </div>
     </template>
   </ToolbarAndContent>
   <v-dialog
@@ -244,4 +248,6 @@ syncProjectData();
 @import "src/styles/common";
 
 @include disableOverlayOnExpansionPanel;
+
+@include fullsizeCardContainer;
 </style>
