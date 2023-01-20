@@ -23,6 +23,7 @@ export default defineConfig({
         proxy: {
             "/getAllProjects": "http://localhost:8448/",
             "/createNewProject": "http://localhost:8448/",
+            "/getProjectData": "http://localhost:8448/",
         }
     },
     build: {

@@ -1,7 +1,6 @@
 package project
 
 import (
-	"bytes"
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
@@ -36,9 +35,7 @@ func TestGetProjectDataHandler_POST(t *testing.T) {
 }
 
 func TestGetProjectDataHandler_GET(t *testing.T) {
-	reqD := getProjectDataData{Name: "test"}
-	reqData, _ := json.Marshal(reqD)
-	req, err := http.NewRequest("GET", "/getProjectData", bytes.NewReader(reqData))
+	req, err := http.NewRequest("GET", "/getProjectData?project=test", nil)
 	if err != nil {
 		t.Fatal(err)
 	}

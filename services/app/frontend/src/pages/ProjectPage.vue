@@ -65,13 +65,17 @@
 
 <script lang="ts" setup>
 import {useAppStateStore} from "../stores/appState/AppStateStore";
-import {computed} from "vue";
+import {computed, watch} from "vue";
 import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
+import GetProjectData from "../api/projectData/GetProjectData";
+import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 
 // globals
 const appStateStore = useAppStateStore();
+
+const projectDataStore = useProjectDataStore();
 
 const {t} = useI18n();
 
@@ -117,6 +121,22 @@ const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
     },
   ]
 });
+
+async function syncProjectData() {
+  const resp = await GetProjectData(projectName.value);
+  if( resp.Ok ) {
+    console.log(resp.Data.Entries)
+    projectDataStore.setProjectData(resp.Data.Entries);
+  }
+}
+
+// watchers
+watch(projectName, async () => {
+  await syncProjectData();
+})
+
+// onload
+syncProjectData();
 </script>
 
 <style scoped>

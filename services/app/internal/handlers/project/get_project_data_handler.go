@@ -11,10 +11,6 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
-type getProjectDataData struct {
-	Name string
-}
-
 type ProjectData struct {
 	Entries    []entries.Entry
 	Categories []categories.Category
@@ -27,21 +23,22 @@ func GetProjectDataHandler(fs filesystem.FileSystem, cfg config.Config) func(w h
 			return
 		}
 
-		var data getProjectDataData
-		decoder := json.NewDecoder(r.Body)
-		err := decoder.Decode(&data)
-		if err != nil {
-			log.Error("got error reading name of project from request: %v", err)
+		query := r.URL.Query()
+
+		if len(query["project"]) == 0 {
 			w.WriteHeader(http.StatusBadRequest)
+			return
 		}
 
-		projectEntries, err := entries.GetAllEntries(data.Name, fs, cfg)
+		project := query["project"][0]
+
+		projectEntries, err := entries.GetAllEntries(project, fs, cfg)
 		if err != nil {
 			log.Error("got error reading entries of project from request: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
 		}
 
-		projectCategories, err := categories.GetAllCategories(data.Name, fs, cfg)
+		projectCategories, err := categories.GetAllCategories(project, fs, cfg)
 		if err != nil {
 			log.Error("got error reading entries of project from request: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
