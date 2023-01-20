@@ -9,7 +9,8 @@ export const german: I18nKeys = {
         ContactBug: "Wenn du denkst, das ist ein Bug, lege gern ein Issue unter {link} an",
         Error404: "Die angefragte Ressource wurde nicht gefunden.",
         Error400: "Die Aktion ist unzulässig.",
-        Error500: "Bei der Verarbeitung ist ein Fehler aufgetreten."
+        Error500: "Bei der Verarbeitung ist ein Fehler aufgetreten.",
+        Delete: "Löschen"
     },
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",
@@ -37,6 +38,8 @@ export const german: I18nKeys = {
         Categories: "Kategorien für Einträge",
         CategoryName: "Name",
         CategoryExample: "Beispiel für Eintrag",
-        ErrorReadingData: "Beim Abrufen der Projektdaten ist ein Fehler aufgetreten"
+        ErrorReadingData: "Beim Abrufen der Projektdaten ist ein Fehler aufgetreten",
+        DeleteTitle: "Projekt löschen",
+        DeleteMessage: "Willst du das Projekt {project} wirklich löschen?"
     }
 }

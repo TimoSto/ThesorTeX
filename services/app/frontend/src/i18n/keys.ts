@@ -7,7 +7,8 @@ export const i18nKeys = {
         ContactBug: "Common.ContactBug",
         Error404: "Common.Error404",
         Error400: "Common.Error400",
-        Error500: "Common.Error500"
+        Error500: "Common.Error500",
+        Delete: "Common.Delete"
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -35,7 +36,9 @@ export const i18nKeys = {
         Categories: "ProjectPage.Categories",
         CategoryName: "ProjectPage.CategoryName",
         CategoryExample: "ProjectPage.CategoryExample",
-        ErrorReadingData: "ProjectPage.ErrorReadingData"
+        ErrorReadingData: "ProjectPage.ErrorReadingData",
+        DeleteTitle: "ProjectPage.DeleteTitle",
+        DeleteMessage: "ProjectPage.DeleteMessage"
     }
 }
 

@@ -4,6 +4,13 @@
       <v-toolbar-title>
         {{ projectName }}
       </v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        icon
+        @click="deleteTriggered = true"
+      >
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
     </template>
     <template #content>
       <v-card elevation="1">
@@ -60,12 +67,41 @@
       </v-card>
     </template>
   </ToolbarAndContent>
-
+  <v-dialog
+    v-model="deleteTriggered"
+    width="400"
+  >
+    <v-card>
+      <v-card-title>{{ t(i18nKeys.ProjectPage.DeleteTitle) }}</v-card-title>
+      <v-card-text>
+        <i18n-t :keypath="i18nKeys.ProjectPage.DeleteMessage">
+          <template #project>
+            <i>{{ projectName }}</i>
+          </template>
+        </i18n-t>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn
+          color="primary"
+          @click="deleteTriggered=false"
+        >
+          {{ t(i18nKeys.Common.Abort) }}
+        </v-btn>
+        <v-btn
+          color="primary"
+          @click="deleteTriggered=false"
+        >
+          {{ t(i18nKeys.Common.Delete) }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
 import {useAppStateStore} from "../stores/appState/AppStateStore";
-import {computed, watch} from "vue";
+import {computed, ref, watch} from "vue";
 import ResponsiveTable, {
   ResponsiveTableCell,
   ResponsiveTableHeaderCell,
@@ -88,6 +124,9 @@ const projectDataStore = useProjectDataStore();
 const errorSuccessStore = useErrorSuccessStore();
 
 const {t} = useI18n();
+
+// data
+const deleteTriggered = ref(false);
 
 // computed
 const projectName = computed(() => {

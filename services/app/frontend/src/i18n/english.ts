@@ -9,7 +9,8 @@ export const english: I18nKeys = {
         ContactBug: "If you think, this is a bug, feel free to create an issue under {link}",
         Error404: "The requested resource was not found.",
         Error400: "The requested action is not allowed.",
-        Error500: "An error occurred during the processing."
+        Error500: "An error occurred during the processing.",
+        Delete: "Delete"
     },
     Rules: {
         NoSpaces: "No spaces allowed",
@@ -37,6 +38,8 @@ export const english: I18nKeys = {
         Categories: "Categories for entries",
         CategoryName: "Name",
         CategoryExample: "Example entry",
-        ErrorReadingData: "An error occurred reading the project data"
+        ErrorReadingData: "An error occurred reading the project data",
+        DeleteTitle: "Delete project",
+        DeleteMessage: "Do you really want to delete the project {project}?"
     }
 }
