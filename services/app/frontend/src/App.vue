@@ -80,7 +80,7 @@
 
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
-import {computed, ref,} from "vue";
+import {computed,} from "vue";
 import PageNavigator from "./components/PageNavigator.vue";
 import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";

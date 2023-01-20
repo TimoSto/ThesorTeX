@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 import {defineConfig} from "vite"
-import {resolve, dirname} from "node:path"
+import {dirname, resolve} from "node:path"
 import {fileURLToPath} from "url"
 import vue from "@vitejs/plugin-vue"
 import vuetify from "vite-plugin-vuetify";
