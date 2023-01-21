@@ -51,6 +51,7 @@
                       <v-text-field
                         v-model="category.BibFields[i-1].Name"
                         color="primary"
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -61,6 +62,7 @@
                       <v-text-field
                         v-model="category.BibFields[i-1].Format.Prefix"
                         color="primary"
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -71,6 +73,7 @@
                       <v-text-field
                         v-model="category.BibFields[i-1].Format.Suffix"
                         color="primary"
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -78,7 +81,7 @@
                       #[getSlotName(i-1,3)]
                       :key="`bib-cell-${i}-3`"
                     >
-                      <v-checkbox
+                      <v-checkbox-btn
                         v-model="category.BibFields[i-1].Format.Italic"
                         color="primary"
                       />
@@ -88,7 +91,7 @@
                       #[getSlotName(i-1,4)]
                       :key="`bib-cell-${i}-4`"
                     >
-                      <v-checkbox
+                      <v-checkbox-btn
                         v-model="category.BibFields[i-1].Format.Preformatted"
                         color="primary"
                       />
@@ -103,6 +106,7 @@
                         v-model="category.BibFields[i-1].CitaviMapping"
                         :items="['test', 'ts']"
                         multiple
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -153,6 +157,7 @@
                       <v-text-field
                         v-model="category.CiteFields[i-1].Name"
                         color="primary"
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -163,6 +168,7 @@
                       <v-text-field
                         v-model="category.CiteFields[i-1].Format.Prefix"
                         color="primary"
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -173,6 +179,7 @@
                       <v-text-field
                         v-model="category.CiteFields[i-1].Format.Suffix"
                         color="primary"
+                        variant="underlined"
                       />
                     </template>
                     <template
@@ -180,7 +187,7 @@
                       #[getSlotName(i-1,3)]
                       :key="`cite-cell-${i}-3`"
                     >
-                      <v-checkbox
+                      <v-checkbox-btn
                         v-model="category.CiteFields[i-1].Format.Italic"
                         color="primary"
                       />

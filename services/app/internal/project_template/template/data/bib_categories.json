@@ -7,7 +7,7 @@
       {
         "Name": "Autor",
         "Format": {
-          "Style": "italic",
+          "Italic": true,
           "Prefix": "",
           "Suffix": " ",
           "Preformatted": false
@@ -17,7 +17,7 @@
       {
         "Name": "Jahr",
         "Format": {
-          "Style": "normal",
+          "Italic": false,
           "Prefix": "(",
           "Suffix": "), ",
           "Preformatted": false
@@ -27,7 +27,7 @@
       {
         "Name": "Titel",
         "Format": {
-          "Style": "normal",
+          "Italic": false,
           "Prefix": "",
           "Suffix": ", ",
           "Preformatted": false
@@ -37,7 +37,7 @@
       {
         "Name": "Zeitschrift",
         "Format": {
-          "Style": "italic",
+          "Italic": true,
           "Prefix": "in: ",
           "Suffix": " ",
           "Preformatted": false
@@ -47,7 +47,7 @@
       {
         "Name": "Ausgabe",
         "Format": {
-          "Style": "normal",
+          "Italic": false,
           "Prefix": "",
           "Suffix": " ",
           "Preformatted": false
@@ -57,7 +57,7 @@
       {
         "Name": "Seiten",
         "Format": {
-          "Style": "italic",
+          "Italic": true,
           "Prefix": "S. ",
           "Suffix": ", ",
           "Preformatted": false
@@ -67,7 +67,7 @@
       {
         "Name": "url",
         "Format": {
-          "Style": "italic",
+          "Italic": true,
           "Prefix": "abrufbar unter: ",
           "Suffix": " ",
           "Preformatted": false
@@ -79,7 +79,7 @@
       {
         "Name": "Autor_kurz",
         "Format": {
-          "Style": "italic",
+          "Italic": true,
           "Prefix": "",
           "Suffix": " ",
           "Preformatted": false
@@ -89,7 +89,7 @@
       {
         "Name": "Jahr",
         "Format": {
-          "Style": "italic",
+          "Italic": true,
           "Prefix": "",
           "Suffix": " ",
           "Preformatted": false
