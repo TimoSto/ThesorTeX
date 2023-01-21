@@ -51,6 +51,7 @@ export const german: I18nKeys = {
         General: "Allgemein",
         Name: "Name",
         CitaviCategory: "Citavi-Kategorie",
+        CitaviFilter: "Citavi-Filter",
         BibEntry: "Literatureintrag",
         Cites: "Zitate",
         Prefix: "Prefix",

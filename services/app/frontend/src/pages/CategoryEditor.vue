@@ -13,9 +13,30 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
-                  :rows="[]"
+                  :rows="generalRows"
                   :headers="generalHeaders"
                 >
+                  <template #0-1>
+                    <v-text-field
+                      v-model="category.Name"
+                      color="primary"
+                      variant="underlined"
+                    />
+                  </template>
+                  <template #1-1>
+                    <v-text-field
+                      v-model="category.CtiaviCategory"
+                      color="primary"
+                      variant="underlined"
+                    />
+                  </template>
+                  <template #2-1>
+                    <v-combobox
+                      v-model="category.CitaviFilter"
+                      color="primary"
+                      variant="underlined"
+                    />
+                  </template>
                 </ResponsiveTable>
               </v-expansion-panel-text>
             </v-expansion-panel>
@@ -282,6 +303,35 @@ const generalHeaders = computed((): ResponsiveTableHeaderCell[] => {
   ]
 });
 
+const generalRows = computed((): ResponsiveTableCell[][] => {
+  return [
+    [
+      {
+        content: t(i18nKeys.CategoryEditor.Name)
+      },
+      {
+        slot: true
+      }
+    ],
+    [
+      {
+        content: t(i18nKeys.CategoryEditor.CitaviCategory)
+      },
+      {
+        slot: true
+      }
+    ],
+    [
+      {
+        content: t(i18nKeys.CategoryEditor.CitaviFilter)
+      },
+      {
+        slot: true
+      }
+    ]
+  ]
+});
+
 const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
@@ -320,8 +370,7 @@ const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
 const citeHeaders = computed((): ResponsiveTableHeaderCell[] => {
   let h = bibHeaders.value;
   h = h.slice(0, 4);
-  h.push(bibHeaders.value[6])
-  console.log(h)
+  h.push(bibHeaders.value[6]);
   return h;
 })
 

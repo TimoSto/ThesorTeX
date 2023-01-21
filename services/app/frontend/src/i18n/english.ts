@@ -51,6 +51,7 @@ export const english: I18nKeys = {
         General: "General",
         Name: "Name",
         CitaviCategory: "Citavi category",
+        CitaviFilter: "Citavi filter",
         BibEntry: "Bibliography entry",
         Cites: "Cites",
         Prefix: "Prefix",
