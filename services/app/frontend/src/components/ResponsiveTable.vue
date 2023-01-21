@@ -1,12 +1,12 @@
 <template>
   <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.2); border-radius: 4px;">
     <thead>
-      <tr>
-        <th
-          v-for="(h,i) in headers"
-          :key="`header-${i}`"
-          :class="h.size"
-        >
+    <tr>
+      <th
+        v-for="(h,i) in headers"
+        :key="`header-${i}`"
+        :class="h.size"
+      >
           <span
             v-if="h.slot"
           >
@@ -14,41 +14,41 @@
               :name="`h-${i}`"
             />
           </span>
-          <span
-            v-if="!h.slot"
-          >
+        <span
+          v-if="!h.slot"
+        >
             {{ h.content }}
           </span>
-        </th>
-      </tr>
+      </th>
+    </tr>
     </thead>
     <tbody>
-      <tr
-        v-for="(r,i) in rows"
-        :key="`row-${i}`"
-        v-ripple="{
+    <tr
+      v-for="(r,i) in rows"
+      :key="`row-${i}`"
+      v-ripple="{
           class: disableRipple ? 'text-background' : ''
         }"
-        :style="disableRipple ? '' : 'cursor: pointer'"
-        @click="$emit('rowClicked', i)"
+      :style="disableRipple ? '' : 'cursor: pointer'"
+      @click="$emit('rowClicked', i)"
+    >
+      <td
+        v-for="(c,n) in r"
+        :key="`cell${i}${n}`"
       >
-        <td
-          v-for="(c,n) in r"
-          :key="`cell${i}${n}`"
-        >
           <span
             v-if="!c.slot"
             v-html="c.content"
           />
-          <span
-            v-if="c.slot"
-          >
+        <span
+          v-if="c.slot"
+        >
             <slot
               :name="`${i}-${n}`"
             />
           </span>
-        </td>
-      </tr>
+      </td>
+    </tr>
     </tbody>
   </v-table>
 </template>
@@ -62,7 +62,7 @@ export interface ResponsiveTableCell {
   slot?: boolean
 }
 
-export interface ResponsiveTableHeaderCell extends ResponsiveTableCell{
+export interface ResponsiveTableHeaderCell extends ResponsiveTableCell {
   size: string
 }
 
@@ -76,7 +76,9 @@ export enum SizeClasses {
   // eslint-disable-next-line no-unused-vars
   ThirtyPercent = "size--30-percent",
   // eslint-disable-next-line no-unused-vars
-  MaxWidth250 = "size--max-width-250"
+  MaxWidth250 = "size--max-width-250",
+  // eslint-disable-next-line no-unused-vars
+  MaxWidth100 = "size--max-width-100"
 
 }
 
@@ -94,24 +96,33 @@ export default {
       type: Boolean
     }
   },
-  emits: ['rowClicked', 'btnClicked'],
+  emits: ["rowClicked", "btnClicked"],
 }
 </script>
 
 <style scoped lang="scss">
 .hide-ripple {
-  opacity: 1!important;
+  opacity: 1 !important;
 }
-.size{
+
+.size {
   &--icon-btn {
     width: 72px;
     max-width: 72px;
-    padding: 0 4px!important;
-    text-align: right!important;
+    padding: 0 4px !important;
+    text-align: right !important;
   }
+
   &--max-width-250 {
     width: 250px;
+    max-width: 250px;
   }
+
+  &--max-width-100 {
+    width: 100px;
+    max-width: 2100px;
+  }
+
   //&--15-percent {
   //  width: 15%;
   //  max-width: 15%;

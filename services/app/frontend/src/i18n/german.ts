@@ -10,7 +10,9 @@ export const german: I18nKeys = {
         Error404: "Die angefragte Ressource wurde nicht gefunden.",
         Error400: "Die Aktion ist unzulässig.",
         Error500: "Bei der Verarbeitung ist ein Fehler aufgetreten.",
-        Delete: "Löschen"
+        Delete: "Löschen",
+        Attribute: "Attribut",
+        Value: "Wert",
     },
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",
@@ -45,6 +47,14 @@ export const german: I18nKeys = {
         ErrorDelete: "Das Projekt konnte nicht gelöscht werden"
     },
     CategoryEditor: {
-        Title: " - Kategorie bearbeiten"
+        Title: " - Kategorie bearbeiten",
+        General: "Allgemein",
+        Name: "Name",
+        BibEntry: "Literatureintrag",
+        Cites: "Zitate",
+        Prefix: "Prefix",
+        Suffix: "Suffix",
+        Italic: "Kursiv",
+        Preformatted: "Vorformatiert"
     }
 }

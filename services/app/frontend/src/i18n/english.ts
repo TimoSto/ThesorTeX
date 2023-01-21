@@ -10,7 +10,9 @@ export const english: I18nKeys = {
         Error404: "The requested resource was not found.",
         Error400: "The requested action is not allowed.",
         Error500: "An error occurred during the processing.",
-        Delete: "Delete"
+        Delete: "Delete",
+        Attribute: "Attribute",
+        Value: "Value",
     },
     Rules: {
         NoSpaces: "No spaces allowed",
@@ -45,6 +47,14 @@ export const english: I18nKeys = {
         ErrorDelete: "The project could not be deleted"
     },
     CategoryEditor: {
-        Title: " - Category editor"
+        Title: " - Category editor",
+        General: "General",
+        Name: "Name",
+        BibEntry: "Bibliography entry",
+        Cites: "Cites",
+        Prefix: "Prefix",
+        Suffix: "Suffix",
+        Italic: "Italic",
+        Preformatted: "Preformatted"
     }
 }

@@ -8,7 +8,9 @@ export const i18nKeys = {
         Error404: "Common.Error404",
         Error400: "Common.Error400",
         Error500: "Common.Error500",
-        Delete: "Common.Delete"
+        Delete: "Common.Delete",
+        Attribute: "Common.Attribute",
+        Value: "Common.Value",
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -43,7 +45,15 @@ export const i18nKeys = {
         ErrorDelete: "ProjectPage.ErrorDelete"
     },
     CategoryEditor: {
-        Title: "CategoryEditor.Title"
+        Title: "CategoryEditor.Title",
+        General: "CategoryEditor.General",
+        Name: "CategoryEditor.Name",
+        BibEntry: "CategoryEditor.BibEntry",
+        Cites: "CategoryEditor.Cites",
+        Prefix: "CategoryEditor.Prefix",
+        Suffix: "CategoryEditor.Suffix",
+        Italic: "CategoryEditor.Italic",
+        Preformatted: "CategoryEditor.Preformatted"
     }
 }
 
