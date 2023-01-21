@@ -2,6 +2,13 @@
   <ToolbarAndContent>
     <template #bar>
       <v-toolbar-title>{{ categoryName }}</v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        icon
+        :disabled="!changesToSave"
+      >
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
     </template>
     <template #content>
       <div class="fullsize-card-container">
@@ -382,6 +389,10 @@ const citeRows = computed((): ResponsiveTableCell[][] => {
   return Array(category.value ? category.value.CiteFields.length : 0).fill(fieldRow.slice(0, 5));
 });
 
+const changesToSave = computed(() => {
+  return JSON.stringify(category.value) !== JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value))
+})
+
 // watchers
 watch(categoryName, () => {
   getCategoryFromStore();
@@ -389,7 +400,7 @@ watch(categoryName, () => {
 
 // functions
 function getCategoryFromStore() {
-  category.value = projectDataStore.categories.find(c => c.Name === categoryName.value)
+  category.value = JSON.parse(JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value)!));
 }
 
 function getSlotName(i: number, n: number) {
