@@ -1,12 +1,12 @@
 <template>
   <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.2); border-radius: 4px;">
     <thead>
-    <tr>
-      <th
-        v-for="(h,i) in headers"
-        :key="`header-${i}`"
-        :class="h.size"
-      >
+      <tr>
+        <th
+          v-for="(h,i) in headers"
+          :key="`header-${i}`"
+          :class="h.size"
+        >
           <span
             v-if="h.slot"
           >
@@ -14,41 +14,41 @@
               :name="`h-${i}`"
             />
           </span>
-        <span
-          v-if="!h.slot"
-        >
-            {{ h.content }}
-          </span>
-      </th>
-    </tr>
+          <span
+            v-if="!h.slot"
+          >
+              {{ h.content }}
+            </span>
+        </th>
+      </tr>
     </thead>
     <tbody>
-    <tr
-      v-for="(r,i) in rows"
-      :key="`row-${i}`"
-      v-ripple="{
+      <tr
+        v-for="(r,i) in rows"
+        :key="`row-${i}`"
+        v-ripple="{
           class: disableRipple ? 'text-background' : ''
         }"
-      :style="disableRipple ? '' : 'cursor: pointer'"
-      @click="$emit('rowClicked', i)"
-    >
-      <td
-        v-for="(c,n) in r"
-        :key="`cell${i}${n}`"
+        :style="disableRipple ? '' : 'cursor: pointer'"
+        @click="$emit('rowClicked', i)"
       >
+        <td
+          v-for="(c,n) in r"
+          :key="`cell${i}${n}`"
+        >
           <span
             v-if="!c.slot"
             v-html="c.content"
           />
-        <span
-          v-if="c.slot"
-        >
+          <span
+            v-if="c.slot"
+          >
             <slot
               :name="`${i}-${n}`"
             />
           </span>
-      </td>
-    </tr>
+        </td>
+      </tr>
     </tbody>
   </v-table>
 </template>

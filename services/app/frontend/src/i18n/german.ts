@@ -50,11 +50,13 @@ export const german: I18nKeys = {
         Title: " - Kategorie bearbeiten",
         General: "Allgemein",
         Name: "Name",
+        CitaviCategory: "Citavi-Kategorie",
         BibEntry: "Literatureintrag",
         Cites: "Zitate",
         Prefix: "Prefix",
         Suffix: "Suffix",
         Italic: "Kursiv",
-        Preformatted: "Vorformatiert"
+        Preformatted: "Vorformatiert",
+        CitaviMapping: "Citavi-Attribute",
     }
 }

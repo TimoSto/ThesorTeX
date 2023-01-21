@@ -32,9 +32,76 @@
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <ResponsiveTable
-                    :rows="[]"
+                    :rows="bibRows"
                     :headers="entryHeaders"
                   >
+                    <template #h-6>
+                      <v-btn
+                        flat
+                        text
+                      >
+                        <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                    </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,0)]
+                      :key="`bib-cell-${i}-0`"
+                    >
+                      <v-text-field
+                        v-model="category.BibFields[i-1].Name"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,1)]
+                      :key="`bib-cell-${i}-1`"
+                    >
+                      <v-text-field
+                        v-model="category.BibFields[i-1].Format.Prefix"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,2)]
+                      :key="`bib-cell-${i}-2`"
+                    >
+                      <v-text-field
+                        v-model="category.BibFields[i-1].Format.Suffix"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,3)]
+                      :key="`bib-cell-${i}-3`"
+                    >
+                      <v-text-field
+                        v-model="category.BibFields[i-1].Format.Style"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,4)]
+                      :key="`bib-cell-${i}-4`"
+                    >
+                      hallo
+                    </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,5)]
+                      :key="`bib-cell-${i}-5`"
+                    >
+                      <v-combobox
+                        color="primary"
+                        v-model="category.BibFields[i-1].CitaviMapping"
+                        :items="['test', 'ts']"
+                        multiple
+                      />
+                    </template>
                   </ResponsiveTable>
                 </v-expansion-panel-text>
               </v-expansion-panel>
@@ -52,9 +119,76 @@
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <ResponsiveTable
-                    :rows="[]"
+                    :rows="citeRows"
                     :headers="entryHeaders"
                   >
+                    <template #h-6>
+                      <v-btn
+                        flat
+                        text
+                      >
+                        <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                    </template>
+                    <template
+                      v-for="i in citeRows.length"
+                      #[getSlotName(i-1,0)]
+                      :key="`cite-cell-${i}-0`"
+                    >
+                      <v-text-field
+                        v-model="category.CiteFields[i-1].Name"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in citeRows.length"
+                      #[getSlotName(i-1,1)]
+                      :key="`cite-cell-${i}-1`"
+                    >
+                      <v-text-field
+                        v-model="category.CiteFields[i-1].Format.Prefix"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in citeRows.length"
+                      #[getSlotName(i-1,2)]
+                      :key="`cite-cell-${i}-2`"
+                    >
+                      <v-text-field
+                        v-model="category.CiteFields[i-1].Format.Suffix"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in citeRows.length"
+                      #[getSlotName(i-1,3)]
+                      :key="`cite-cell-${i}-3`"
+                    >
+                      <v-text-field
+                        v-model="category.CiteFields[i-1].Format.Style"
+                        color="primary"
+                      />
+                    </template>
+                    <template
+                      v-for="i in citeRows.length"
+                      #[getSlotName(i-1,4)]
+                      :key="`cite-cell-${i}-4`"
+                    >
+                      hallo
+                    </template>
+                    <template
+                      v-for="i in citeRows.length"
+                      #[getSlotName(i-1,5)]
+                      :key="`cite-cell-${i}-5`"
+                    >
+                      <v-combobox
+                        color="primary"
+                        v-model="category.CiteFields[i-1].CitaviMapping"
+                        :items="['test', 'ts']"
+                        multiple
+                      />
+                    </template>
                   </ResponsiveTable>
                 </v-expansion-panel-text>
               </v-expansion-panel>
@@ -68,15 +202,47 @@
 
 <script lang="ts" setup>
 import {useAppStateStore} from "../stores/appState/AppStateStore";
-import {computed} from "vue";
-import ResponsiveTable, {ResponsiveTableHeaderCell, SizeClasses} from "../components/ResponsiveTable.vue";
+import {computed, ref, watch} from "vue";
+import ResponsiveTable, {
+  ResponsiveTableCell,
+  ResponsiveTableHeaderCell,
+  SizeClasses
+} from "../components/ResponsiveTable.vue";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "@thesortex/vue-i18n-plugin"
+import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
+import {Category} from "../domain/category/Category";
 
 // globals
 const appStateStore = useAppStateStore();
 
+const projectDataStore = useProjectDataStore();
+
 const {t} = useI18n();
+
+// data
+const category = ref(undefined as Category | undefined);
+
+const fieldRow = [
+  {
+    slot: true
+  },
+  {
+    slot: true
+  },
+  {
+    slot: true
+  },
+  {
+    slot: true
+  },
+  {
+    slot: true
+  },
+  {
+    slot: true
+  },
+];
 
 // computed
 const categoryName = computed(() => {
@@ -119,11 +285,40 @@ const entryHeaders = computed((): ResponsiveTableHeaderCell[] => {
       size: SizeClasses.MaxWidth100
     },
     {
+      content: t(i18nKeys.CategoryEditor.CitaviMapping),
+      size: ""
+    },
+    {
       slot: true,
       size: SizeClasses.IconBtn
     }
   ]
-})
+});
+
+const bibRows = computed((): ResponsiveTableCell[][] => {
+  return Array(category.value ? category.value.BibFields.length : 0).fill(fieldRow);
+});
+
+const citeRows = computed((): ResponsiveTableCell[][] => {
+  return Array(category.value ? category.value.CiteFields.length : 0).fill(fieldRow);
+});
+
+// watchers
+watch(categoryName, () => {
+  getCategoryFromStore();
+});
+
+// functions
+function getCategoryFromStore() {
+  category.value = projectDataStore.categories.find(c => c.Name === categoryName.value)
+}
+
+function getSlotName(i: number, n: number) {
+  return `${i}-${n}`
+}
+
+// onload
+getCategoryFromStore();
 </script>
 
 <style scoped>

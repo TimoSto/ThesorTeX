@@ -48,12 +48,14 @@ export const i18nKeys = {
         Title: "CategoryEditor.Title",
         General: "CategoryEditor.General",
         Name: "CategoryEditor.Name",
+        CitaviCategory: "CategoryEditor.CitaviCategory",
         BibEntry: "CategoryEditor.BibEntry",
         Cites: "CategoryEditor.Cites",
         Prefix: "CategoryEditor.Prefix",
         Suffix: "CategoryEditor.Suffix",
         Italic: "CategoryEditor.Italic",
-        Preformatted: "CategoryEditor.Preformatted"
+        Preformatted: "CategoryEditor.Preformatted",
+        CitaviMapping: "CategoryEditor.CitaviMapping"
     }
 }
 

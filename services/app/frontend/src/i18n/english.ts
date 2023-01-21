@@ -50,11 +50,13 @@ export const english: I18nKeys = {
         Title: " - Category editor",
         General: "General",
         Name: "Name",
+        CitaviCategory: "Citavi category",
         BibEntry: "Bibliography entry",
         Cites: "Cites",
         Prefix: "Prefix",
         Suffix: "Suffix",
         Italic: "Italic",
-        Preformatted: "Preformatted"
+        Preformatted: "Preformatted",
+        CitaviMapping: "Citavi attributes"
     }
 }
