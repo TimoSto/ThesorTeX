@@ -35,6 +35,7 @@
         <td
           v-for="(c,n) in r"
           :key="`cell${i}${n}`"
+          :style="c.slot ? 'padding-top: 8px' : ''"
         >
           <span
             v-if="!c.slot"
