@@ -17,7 +17,7 @@ type field struct {
 type format struct {
 	Prefix       string
 	Suffix       string
-	Style        string
+	Italic       bool
 	Preformatted bool
 }
 

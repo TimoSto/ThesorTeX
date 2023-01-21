@@ -33,7 +33,7 @@
                 <v-expansion-panel-text>
                   <ResponsiveTable
                     :rows="bibRows"
-                    :headers="entryHeaders"
+                    :headers="bibHeaders"
                   >
                     <template #h-6>
                       <v-btn
@@ -102,6 +102,18 @@
                         multiple
                       />
                     </template>
+                    <template
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,6)]
+                      :key="`bib-cell-${i}-6`"
+                    >
+                      <v-btn
+                        flat
+                        text
+                      >
+                        <v-icon>mdi-delete</v-icon>
+                      </v-btn>
+                    </template>
                   </ResponsiveTable>
                 </v-expansion-panel-text>
               </v-expansion-panel>
@@ -120,7 +132,7 @@
                 <v-expansion-panel-text>
                   <ResponsiveTable
                     :rows="citeRows"
-                    :headers="entryHeaders"
+                    :headers="citeHeaders"
                   >
                     <template #h-6>
                       <v-btn
@@ -171,23 +183,16 @@
                       />
                     </template>
                     <template
-                      v-for="i in citeRows.length"
-                      #[getSlotName(i-1,4)]
-                      :key="`cite-cell-${i}-4`"
+                      v-for="i in bibRows.length"
+                      #[getSlotName(i-1,6)]
+                      :key="`bib-cell-${i}-6`"
                     >
-                      hallo
-                    </template>
-                    <template
-                      v-for="i in citeRows.length"
-                      #[getSlotName(i-1,5)]
-                      :key="`cite-cell-${i}-5`"
-                    >
-                      <v-combobox
-                        color="primary"
-                        v-model="category.CiteFields[i-1].CitaviMapping"
-                        :items="['test', 'ts']"
-                        multiple
-                      />
+                      <v-btn
+                        flat
+                        text
+                      >
+                        <v-icon>mdi-delete</v-icon>
+                      </v-btn>
                     </template>
                   </ResponsiveTable>
                 </v-expansion-panel-text>
@@ -242,6 +247,9 @@ const fieldRow = [
   {
     slot: true
   },
+  {
+    slot: true,
+  },
 ];
 
 // computed
@@ -262,7 +270,7 @@ const generalHeaders = computed((): ResponsiveTableHeaderCell[] => {
   ]
 });
 
-const entryHeaders = computed((): ResponsiveTableHeaderCell[] => {
+const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
       content: t(i18nKeys.Common.Attribute),
@@ -294,6 +302,13 @@ const entryHeaders = computed((): ResponsiveTableHeaderCell[] => {
     }
   ]
 });
+
+const citeHeaders = computed((): ResponsiveTableHeaderCell[] => {
+  let h = bibHeaders.value;
+  h = h.slice(0, 4);
+  h.push(bibHeaders.value[6])
+  return h;
+})
 
 const bibRows = computed((): ResponsiveTableCell[][] => {
   return Array(category.value ? category.value.BibFields.length : 0).fill(fieldRow);
