@@ -249,10 +249,12 @@ const fieldRow = [
     slot: true
   },
   {
-    slot: true
+    slot: true,
+    centered: true
   },
   {
-    slot: true
+    slot: true,
+    centered: true
   },
   {
     slot: true
@@ -296,11 +298,13 @@ const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
     },
     {
       content: t(i18nKeys.CategoryEditor.Italic),
-      size: SizeClasses.MaxWidth100
+      size: SizeClasses.MaxWidth100,
+      centered: true
     },
     {
       content: t(i18nKeys.CategoryEditor.Preformatted),
-      size: SizeClasses.MaxWidth100
+      size: SizeClasses.MaxWidth100,
+      centered: true
     },
     {
       content: t(i18nKeys.CategoryEditor.CitaviMapping),

@@ -6,6 +6,7 @@
           v-for="(h,i) in headers"
           :key="`header-${i}`"
           :class="h.size"
+          :style="h.centered ? 'text-align: center' : ''"
         >
           <span
             v-if="h.slot"
@@ -17,8 +18,8 @@
           <span
             v-if="!h.slot"
           >
-              {{ h.content }}
-            </span>
+            {{ h.content }}
+          </span>
         </th>
       </tr>
     </thead>
@@ -35,6 +36,7 @@
         <td
           v-for="(c,n) in r"
           :key="`cell${i}${n}`"
+          :style="c.centered ? 'text-align: center' : ''"
         >
           <span
             v-if="!c.slot"
@@ -59,7 +61,8 @@ import {PropType} from "vue";
 
 export interface ResponsiveTableCell {
   content?: string,
-  slot?: boolean
+  slot?: boolean,
+  centered?: boolean
 }
 
 export interface ResponsiveTableHeaderCell extends ResponsiveTableCell {
