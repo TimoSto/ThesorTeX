@@ -6,6 +6,7 @@
       <v-btn
         icon
         :disabled="!changesToSave"
+        @click="save"
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
@@ -252,9 +253,10 @@ import ResponsiveTable, {
   SizeClasses
 } from "../components/ResponsiveTable.vue";
 import {i18nKeys} from "../i18n/keys";
-import {useI18n} from "@thesortex/vue-i18n-plugin"
+import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Category} from "../domain/category/Category";
+import SaveCategory from "../api/projectData/SaveCategory";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -307,7 +309,7 @@ const generalHeaders = computed((): ResponsiveTableHeaderCell[] => {
       content: t(i18nKeys.Common.Value),
       size: ""
     }
-  ]
+  ];
 });
 
 const generalRows = computed((): ResponsiveTableCell[][] => {
@@ -336,7 +338,7 @@ const generalRows = computed((): ResponsiveTableCell[][] => {
         slot: true
       }
     ]
-  ]
+  ];
 });
 
 const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
@@ -371,7 +373,7 @@ const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
       slot: true,
       size: SizeClasses.IconBtn
     }
-  ]
+  ];
 });
 
 const citeHeaders = computed((): ResponsiveTableHeaderCell[] => {
@@ -379,7 +381,7 @@ const citeHeaders = computed((): ResponsiveTableHeaderCell[] => {
   h = h.slice(0, 4);
   h.push(bibHeaders.value[6]);
   return h;
-})
+});
 
 const bibRows = computed((): ResponsiveTableCell[][] => {
   return Array(category.value ? category.value.BibFields.length : 0).fill(fieldRow);
@@ -390,8 +392,8 @@ const citeRows = computed((): ResponsiveTableCell[][] => {
 });
 
 const changesToSave = computed(() => {
-  return JSON.stringify(category.value) !== JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value))
-})
+  return JSON.stringify(category.value) !== JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value));
+});
 
 // watchers
 watch(categoryName, () => {
@@ -404,7 +406,12 @@ function getCategoryFromStore() {
 }
 
 function getSlotName(i: number, n: number) {
-  return `${i}-${n}`
+  return `${i}-${n}`;
+}
+
+async function save() {
+  const resp = await SaveCategory(categoryName.value, appStateStore.currentProject, category.value!);
+  console.log(resp);
 }
 
 // onload

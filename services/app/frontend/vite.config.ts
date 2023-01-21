@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
-import {defineConfig} from "vite"
-import {dirname, resolve} from "node:path"
-import {fileURLToPath} from "url"
-import vue from "@vitejs/plugin-vue"
+import {defineConfig} from "vite";
+import {dirname, resolve} from "node:path";
+import {fileURLToPath} from "url";
+import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
-import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
+import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 
 export default defineConfig({
     plugins: [
@@ -25,6 +25,7 @@ export default defineConfig({
             "/createNewProject": "http://localhost:8448/",
             "/getProjectData": "http://localhost:8448/",
             "/deleteProject": "http://localhost:8448/",
+            "/saveCategory": "http://localhost:8448/",
         }
     },
     build: {
@@ -38,4 +39,4 @@ export default defineConfig({
             inline: ["vuetify"],
         },
     },
-})
+});
