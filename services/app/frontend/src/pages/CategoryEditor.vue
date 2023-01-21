@@ -78,8 +78,8 @@
                       #[getSlotName(i-1,3)]
                       :key="`bib-cell-${i}-3`"
                     >
-                      <v-text-field
-                        v-model="category.BibFields[i-1].Format.Style"
+                      <v-checkbox
+                        v-model="category.BibFields[i-1].Format.Italic"
                         color="primary"
                       />
                     </template>
@@ -88,7 +88,10 @@
                       #[getSlotName(i-1,4)]
                       :key="`bib-cell-${i}-4`"
                     >
-                      hallo
+                      <v-checkbox
+                        v-model="category.BibFields[i-1].Format.Preformatted"
+                        color="primary"
+                      />
                     </template>
                     <template
                       v-for="i in bibRows.length"
@@ -134,7 +137,7 @@
                     :rows="citeRows"
                     :headers="citeHeaders"
                   >
-                    <template #h-6>
+                    <template #h-4>
                       <v-btn
                         flat
                         text
@@ -177,15 +180,15 @@
                       #[getSlotName(i-1,3)]
                       :key="`cite-cell-${i}-3`"
                     >
-                      <v-text-field
-                        v-model="category.CiteFields[i-1].Format.Style"
+                      <v-checkbox
+                        v-model="category.CiteFields[i-1].Format.Italic"
                         color="primary"
                       />
                     </template>
                     <template
                       v-for="i in bibRows.length"
-                      #[getSlotName(i-1,6)]
-                      :key="`bib-cell-${i}-6`"
+                      #[getSlotName(i-1,4)]
+                      :key="`bib-cell-${i}-4`"
                     >
                       <v-btn
                         flat
@@ -307,6 +310,7 @@ const citeHeaders = computed((): ResponsiveTableHeaderCell[] => {
   let h = bibHeaders.value;
   h = h.slice(0, 4);
   h.push(bibHeaders.value[6])
+  console.log(h)
   return h;
 })
 
@@ -315,7 +319,7 @@ const bibRows = computed((): ResponsiveTableCell[][] => {
 });
 
 const citeRows = computed((): ResponsiveTableCell[][] => {
-  return Array(category.value ? category.value.CiteFields.length : 0).fill(fieldRow);
+  return Array(category.value ? category.value.CiteFields.length : 0).fill(fieldRow.slice(0, 5));
 });
 
 // watchers

@@ -15,6 +15,6 @@ export interface Field {
 export interface format {
     Prefix: string
     Suffix: string
-    Style: string
+    Italic: boolean
     Preformatted: boolean
 }
