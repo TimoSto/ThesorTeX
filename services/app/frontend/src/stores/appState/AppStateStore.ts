@@ -20,11 +20,13 @@ export const useAppStateStore = defineStore({
         history: [pageNames[0]],
         sidebarOpen: false,
         navigatingBack: false,
+        currentProject: "",
+        currentItem: ""
     } as AppState),
 
     getters: {
         currentPage: (state: AppState): string => {
-            return state.history[state.history.length - 1]
+            return state.history[state.history.length - 1];
         }
     },
 
@@ -51,7 +53,8 @@ export const useAppStateStore = defineStore({
             this.currentProject = name;
         },
         setItem(id: string) {
+            console.log(id);
             this.currentItem = id;
         }
     }
-})
+});

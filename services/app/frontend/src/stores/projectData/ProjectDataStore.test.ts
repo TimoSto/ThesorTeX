@@ -27,4 +27,67 @@ describe("ProjectDataStore", () => {
         expect(store.categories).toEqual(categories);
         expect(store.entries).toEqual(entries);
     });
+    describe("actualize category", () => {
+        it("edit existing", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate"
+                } as Category
+            ];
+            store.setProjectData(entries, categories);
+
+            store.actualizeCategory("testCate", {Name: "testCate", CitaviCategory: "test"} as Category);
+
+            expect(store.categories[0]).toEqual({Name: "testCate", CitaviCategory: "test"});
+        });
+        it("rename existing", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate"
+                } as Category
+            ];
+            store.setProjectData(entries, categories);
+
+            store.actualizeCategory("testCate", {Name: "testCategory"} as Category);
+
+            expect(store.categories[0]).toEqual({Name: "testCategory"});
+        });
+        it("add", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate"
+                } as Category
+            ];
+            store.setProjectData(entries, categories);
+
+            store.actualizeCategory("", {Name: "testCateg", CitaviCategory: "test"} as Category);
+
+            expect(store.categories[0]).toEqual({Name: "testCate"});
+            expect(store.categories[1]).toEqual({Name: "testCateg", CitaviCategory: "test"});
+        });
+    });
 });

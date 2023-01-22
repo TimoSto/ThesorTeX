@@ -33,7 +33,7 @@
                   </template>
                   <template #1-1>
                     <v-text-field
-                      v-model="category.CtiaviCategory"
+                      v-model="category.CitaviCategory"
                       color="primary"
                       variant="underlined"
                     />
@@ -397,11 +397,14 @@ const changesToSave = computed(() => {
 
 // watchers
 watch(categoryName, () => {
-  getCategoryFromStore();
+  if (categoryName.value != "") {
+    getCategoryFromStore();
+  }
 });
 
 // functions
 function getCategoryFromStore() {
+  console.log(categoryName.value);
   category.value = JSON.parse(JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value)!));
 }
 
@@ -410,8 +413,11 @@ function getSlotName(i: number, n: number) {
 }
 
 async function save() {
-  const resp = await SaveCategory(categoryName.value, appStateStore.currentProject, category.value!);
-  console.log(resp);
+  const success = await SaveCategory(categoryName.value, appStateStore.currentProject, category.value!);
+  if (success) {
+    projectDataStore.actualizeCategory(categoryName.value, category.value!);
+    appStateStore.setItem(category.value!.Name);
+  }
 }
 
 // onload
