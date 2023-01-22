@@ -44,7 +44,9 @@
                       v-model="category.CitaviFilter"
                       color="primary"
                       variant="underlined"
-                      :items="filters"
+                      :items="attributes"
+                      multiple
+                      hide-selected
                     />
                   </template>
                 </ResponsiveTable>
@@ -134,10 +136,11 @@
                       :key="`bib-cell-${i}-5`"
                     >
                       <v-combobox
-                        color="primary"
                         v-model="category.BibFields[i-1].CitaviMapping"
-                        :items="['test', 'ts']"
+                        color="primary"
+                        :items="attributes"
                         multiple
+                        hide-selected
                         variant="underlined"
                       />
                     </template>
@@ -263,7 +266,7 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Category} from "../domain/category/Category";
 import SaveCategory from "../api/projectData/SaveCategory";
-import {categories, filters} from "../domain/citavi/Citavi";
+import {attributes, categories} from "../domain/citavi/Citavi";
 
 // globals
 const appStateStore = useAppStateStore();

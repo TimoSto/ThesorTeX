@@ -14,6 +14,9 @@ export const useProjectDataStore = defineStore({
         setProjectData(entries: Entry[], categories: Category[]) {
             this.entries = entries;
             categories.forEach(c => {
+                if (!c.CitaviFilter) {
+                    c.CitaviFilter = [];
+                }
                 c.BibFields.forEach(f => {
                     if (!f.CitaviMapping) {
                         f.CitaviMapping = [];

@@ -8,8 +8,10 @@ export const categories: string[] = [
     "inproceedings",
 ];
 
-export const filters: string[] = [
-    "doi",
+export const attributes: string[] = [
     "author",
-    "url"
+    "title",
+    "publisher",
+    "url",
+    "doi",
 ];
