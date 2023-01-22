@@ -28,7 +28,7 @@ func TestGetAllCategories(t *testing.T) {
 					Format: format{
 						Prefix:       "",
 						Suffix:       " ",
-						Style:        "normal",
+						Italic:       false,
 						Preformatted: false,
 					},
 				},
@@ -38,7 +38,7 @@ func TestGetAllCategories(t *testing.T) {
 					Format: format{
 						Prefix:       "(",
 						Suffix:       ")",
-						Style:        "italic",
+						Italic:       true,
 						Preformatted: false,
 					},
 				},
@@ -50,7 +50,7 @@ func TestGetAllCategories(t *testing.T) {
 					Format: format{
 						Prefix:       "",
 						Suffix:       " ",
-						Style:        "normal",
+						Italic:       false,
 						Preformatted: false,
 					},
 				},
@@ -60,7 +60,7 @@ func TestGetAllCategories(t *testing.T) {
 					Format: format{
 						Prefix:       "- ",
 						Suffix:       "",
-						Style:        "italic",
+						Italic:       true,
 						Preformatted: false,
 					},
 				},

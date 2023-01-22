@@ -5,6 +5,7 @@ go_library(
     srcs = [
         "category.go",
         "get_all_categories.go",
+        "save_category.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/categories",
     visibility = ["//services/app:__subpackages__"],
@@ -17,7 +18,10 @@ go_library(
 
 go_test(
     name = "categories_test",
-    srcs = ["get_all_categories_test.go"],
+    srcs = [
+        "get_all_categories_test.go",
+        "save_category_test.go",
+    ],
     embed = [":categories"],
     deps = [
         "//pkg/backend/pathbuilder",
