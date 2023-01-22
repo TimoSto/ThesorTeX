@@ -175,7 +175,8 @@ const entriesRows = computed(() => {
         content: e.Category
       },
       {
-        content: GenerateEntryForCategory(projectDataStore.categories.find(c => c.Name === e.Category), e.Fields)
+        content: GenerateEntryForCategory(projectDataStore.categories.find(c => c.Name === e.Category), e.Fields),
+        colSpan: 2
       }
     ]);
   });
@@ -191,7 +192,8 @@ const categoriesRows = computed(() => {
         content: c.Name
       },
       {
-        content: GenerateEntryForCategory(c, c.BibFields.map((f: Field) => f.Name))
+        content: GenerateEntryForCategory(c, c.BibFields.map((f: Field) => f.Name)),
+        colSpan: 2
       }
     ]);
   });

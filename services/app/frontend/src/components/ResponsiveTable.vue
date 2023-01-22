@@ -37,6 +37,7 @@
           v-for="(c,n) in r"
           :key="`cell${i}${n}`"
           :style="c.centered ? 'text-align: center' : ''"
+          :colspan="c.colSpan ? c.colSpan : '1'"
         >
           <span
             v-if="!c.slot"
@@ -63,6 +64,7 @@ export interface ResponsiveTableCell {
   content?: string,
   slot?: boolean,
   centered?: boolean
+  colSpan?: number
 }
 
 export interface ResponsiveTableHeaderCell extends ResponsiveTableCell {
