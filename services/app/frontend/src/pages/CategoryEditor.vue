@@ -371,7 +371,7 @@ const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
     },
     {
       content: t(i18nKeys.CategoryEditor.CitaviMapping),
-      size: ""
+      size: SizeClasses.MaxWidth250
     },
     {
       slot: true,
