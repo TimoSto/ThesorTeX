@@ -147,6 +147,7 @@
                       <v-btn
                         flat
                         text
+                        @click="rmBibField(i-1)"
                       >
                         <v-icon>mdi-delete</v-icon>
                       </v-btn>
@@ -231,6 +232,7 @@
                       <v-btn
                         flat
                         text
+                        @click="rmCiteField(i-1)"
                       >
                         <v-icon>mdi-delete</v-icon>
                       </v-btn>
@@ -427,6 +429,10 @@ function addBibField() {
   });
 }
 
+function rmBibField(n: number) {
+  category.value!.BibFields.splice(n, 1);
+}
+
 function addCiteField() {
   category.value!.CiteFields.push({
     Name: "",
@@ -438,6 +444,10 @@ function addCiteField() {
     },
     CitaviMapping: []
   });
+}
+
+function rmCiteField(n: number) {
+  category.value!.CiteFields.splice(n, 1);
 }
 
 async function save() {
