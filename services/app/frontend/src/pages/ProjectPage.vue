@@ -160,7 +160,7 @@ const entriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
       slot: true,
       size: SizeClasses.IconBtn
     },
-  ]
+  ];
 });
 
 const entriesRows = computed(() => {
@@ -176,7 +176,7 @@ const entriesRows = computed(() => {
       {
         content: GenerateEntryForCategory(projectDataStore.categories.find(c => c.Name === e.Category), e.Fields)
       }
-    ])
+    ]);
   });
 
   return rows;
@@ -192,11 +192,11 @@ const categoriesRows = computed(() => {
       {
         content: GenerateEntryForCategory(c, c.BibFields.map((f: Field) => f.Name))
       }
-    ])
+    ]);
   });
 
   return rows;
-})
+});
 
 const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
@@ -212,7 +212,7 @@ const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
       slot: true,
       size: SizeClasses.IconBtn
     },
-  ]
+  ];
 });
 
 async function syncProjectData() {
@@ -220,7 +220,7 @@ async function syncProjectData() {
   if (resp.Ok) {
     projectDataStore.setProjectData(resp.Data.Entries, resp.Data.Categories);
   } else {
-    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorReadingData))
+    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorReadingData));
   }
 }
 
@@ -232,13 +232,15 @@ async function deleteProject() {
     projectsListStore.removeProject(projectName.value);
     appStateStore.goBack();
   } else {
-    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorDelete))
+    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorDelete));
   }
 }
 
 // watchers
 watch(projectName, async () => {//TODO: reload on close and open again
-  await syncProjectData();
+  if (projectName.value !== "") {
+    await syncProjectData();
+  }
 });
 
 // methods
