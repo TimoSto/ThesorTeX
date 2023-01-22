@@ -73,15 +73,16 @@ const projectHeaders: ResponsiveTableHeaderCell[] = [
   },
   {
     content: t(i18nKeys.MainPage.ProjectCreated),
-    size: SizeClasses.TwentyFivePercent
+    size: SizeClasses.MaxWidth250
   },
   {
     content: t(i18nKeys.MainPage.ProjectLastModified),
-    size: SizeClasses.TwentyFivePercent
+    size: SizeClasses.MaxWidth250
   },
   {
     content: t(i18nKeys.MainPage.ProjectNumberOfEntries),
-    size: SizeClasses.TenPercent
+    size: SizeClasses.MaxWidth100,
+    centered: true
   },
   {
     slot: true,
@@ -105,16 +106,17 @@ const projectsRows = computed(() => {
     },
     {
       content: p.NumberOfEntries,
+      centered: true
     },
     {
       content: ""
     }
-  ])
-})
+  ]);
+});
 
 const existingProjects = computed(() => {
-  return projectsStore.projects.map(p => p.Name)
-})
+  return projectsStore.projects.map(p => p.Name);
+});
 
 // methods
 async function triggerProjectCreation(name: string) {
