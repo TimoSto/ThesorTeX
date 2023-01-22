@@ -23,6 +23,7 @@
                 <ResponsiveTable
                   :rows="generalRows"
                   :headers="generalHeaders"
+                  disable-ripple
                 >
                   <template #0-1>
                     <v-text-field
@@ -68,6 +69,7 @@
                   <ResponsiveTable
                     :rows="bibRows"
                     :headers="bibHeaders"
+                    disable-ripple
                   >
                     <template #h-6>
                       <v-btn
@@ -178,6 +180,7 @@
                   <ResponsiveTable
                     :rows="citeRows"
                     :headers="citeHeaders"
+                    disable-ripple
                   >
                     <template #h-4>
                       <v-btn
