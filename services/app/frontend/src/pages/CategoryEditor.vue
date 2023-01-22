@@ -32,10 +32,11 @@
                     />
                   </template>
                   <template #1-1>
-                    <v-text-field
+                    <v-combobox
                       v-model="category.CitaviCategory"
                       color="primary"
                       variant="underlined"
+                      :items="categories"
                     />
                   </template>
                   <template #2-1>
@@ -43,6 +44,7 @@
                       v-model="category.CitaviFilter"
                       color="primary"
                       variant="underlined"
+                      :items="filters"
                     />
                   </template>
                 </ResponsiveTable>
@@ -261,6 +263,7 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Category} from "../domain/category/Category";
 import SaveCategory from "../api/projectData/SaveCategory";
+import {categories, filters} from "../domain/citavi/Citavi";
 
 // globals
 const appStateStore = useAppStateStore();
