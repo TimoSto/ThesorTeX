@@ -13,6 +13,18 @@ export const useProjectDataStore = defineStore({
     actions: {
         setProjectData(entries: Entry[], categories: Category[]) {
             this.entries = entries;
+            categories.forEach(c => {
+                c.BibFields.forEach(f => {
+                    if (!f.CitaviMapping) {
+                        f.CitaviMapping = [];
+                    }
+                });
+                c.CiteFields.forEach(f => {
+                    if (!f.CitaviMapping) {
+                        f.CitaviMapping = [];
+                    }
+                });
+            });
             this.categories = categories;
         },
         actualizeCategory(name: string, category: Category) {
