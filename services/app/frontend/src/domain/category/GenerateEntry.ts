@@ -1,23 +1,22 @@
-import {Category} from "./Category";
+import {Field} from "./Category";
 
-export default function GenerateEntryForCategory(category: Category | undefined, fields: string[]): string {
+export default function GenerateEntryForCategory(fields: Field[], values: string[]): string {
     let entry = "";
 
-    if (!category) {
+    if (!fields) {
         return entry;
     }
 
-    for (let i = 0; i < category.BibFields.length; i++) {
-        entry += category.BibFields[i].Format.Prefix;
+    for (let i = 0; i < fields.length; i++) {
+        entry += fields[i].Format.Prefix;
 
-        let value = i < fields.length ? fields[i] : "";
-        switch (category.BibFields[i].Format.Style) {
-            case "italic":
-                value = `<i>${value}</i>`
+        let value = i < values.length ? values[i] : "";
+        if (fields[i].Format.Italic) {
+            value = `<i>${value}</i>`;
         }
         entry += value;
 
-        entry += category.BibFields[i].Format.Suffix;
+        entry += fields[i].Format.Suffix;
     }
 
     return entry;

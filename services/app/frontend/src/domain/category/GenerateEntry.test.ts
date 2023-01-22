@@ -13,7 +13,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: " ",
-                        Style: "normal",
+                        Italic: false,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -23,7 +23,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: ", ",
-                        Style: "normal",
+                        Italic: false,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -33,7 +33,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: "",
-                        Style: "normal",
+                        Italic: false,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -43,7 +43,7 @@ describe("GenerateEntry", () => {
             CitaviFilter: []
         };
 
-        const got = GenerateEntryForCategory(category, ["field1", "field2", "field3"]);
+        const got = GenerateEntryForCategory(category.BibFields, ["field1", "field2", "field3"]);
         const expected = "field1 field2, field3";
 
         expect(got).toEqual(expected);
@@ -59,7 +59,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: " ",
-                        Style: "italic",
+                        Italic: true,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -69,7 +69,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: ", ",
-                        Style: "normal",
+                        Italic: false,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -79,7 +79,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: "",
-                        Style: "italic",
+                        Italic: true,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -89,14 +89,14 @@ describe("GenerateEntry", () => {
             CitaviFilter: []
         };
 
-        const got = GenerateEntryForCategory(category, ["field1", "field2", "field3"]);
+        const got = GenerateEntryForCategory(category.BibFields, ["field1", "field2", "field3"]);
         const expected = "<i>field1</i> field2, <i>field3</i>";
 
         expect(got).toEqual(expected);
     });
 
     it("should give empty on unknown category", () => {
-        expect(GenerateEntryForCategory(undefined, ["t", "ta", "to"])).toEqual("");
+        expect(GenerateEntryForCategory([], ["t", "ta", "to"])).toEqual("");
     });
 
     it("should print field empty, if it is not set", () => {
@@ -109,7 +109,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: " ",
-                        Style: "italic",
+                        Italic: true,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -119,7 +119,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: ", ",
-                        Style: "normal",
+                        Italic: false,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -129,7 +129,7 @@ describe("GenerateEntry", () => {
                     Format: {
                         Prefix: "",
                         Suffix: "",
-                        Style: "italic",
+                        Italic: true,
                         Preformatted: false
                     },
                     CitaviMapping: []
@@ -139,7 +139,7 @@ describe("GenerateEntry", () => {
             CitaviFilter: []
         };
 
-        const got = GenerateEntryForCategory(category, ["field1", "field2"]);
+        const got = GenerateEntryForCategory(category.BibFields, ["field1", "field2"]);
         const expected = "<i>field1</i> field2, <i></i>";
 
         expect(got).toEqual(expected);

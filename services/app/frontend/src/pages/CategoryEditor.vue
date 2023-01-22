@@ -64,6 +64,7 @@
                   {{ t(i18nKeys.CategoryEditor.BibEntry) }}
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
+                  <p class="example" v-html="bibExample" />
                   <ResponsiveTable
                     :rows="bibRows"
                     :headers="bibHeaders"
@@ -173,6 +174,7 @@
                   {{ t(i18nKeys.CategoryEditor.Cites) }}
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
+                  <p class="example" v-html="citeExample" />
                   <ResponsiveTable
                     :rows="citeRows"
                     :headers="citeHeaders"
@@ -267,6 +269,7 @@ import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Category} from "../domain/category/Category";
 import SaveCategory from "../api/projectData/SaveCategory";
 import {attributes, categories} from "../domain/citavi/Citavi";
+import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -405,6 +408,14 @@ const changesToSave = computed(() => {
   return JSON.stringify(category.value) !== JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value));
 });
 
+const bibExample = computed(() => {
+  return GenerateEntryForCategory(category.value!.BibFields, category.value!.BibFields.map(f => f.Name));
+});
+
+const citeExample = computed(() => {
+  return GenerateEntryForCategory(category.value!.CiteFields, category.value!.CiteFields.map(f => f.Name));
+});
+
 // watchers
 watch(categoryName, () => {
   if (categoryName.value != "") {
@@ -479,5 +490,12 @@ if (categoryName.value != "") {
 </script>
 
 <style scoped>
-
+.example {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-family: "Times New Roman";
+  font-size: 12pt;
+}
 </style>
