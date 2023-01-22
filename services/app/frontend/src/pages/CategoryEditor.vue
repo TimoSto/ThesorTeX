@@ -68,6 +68,7 @@
                       <v-btn
                         flat
                         text
+                        @click="addBibField"
                       >
                         <v-icon>mdi-plus</v-icon>
                       </v-btn>
@@ -174,6 +175,7 @@
                       <v-btn
                         flat
                         text
+                        @click="addCiteField"
                       >
                         <v-icon>mdi-plus</v-icon>
                       </v-btn>
@@ -410,6 +412,32 @@ function getCategoryFromStore() {
 
 function getSlotName(i: number, n: number) {
   return `${i}-${n}`;
+}
+
+function addBibField() {
+  category.value!.BibFields.push({
+    Name: "",
+    Format: {
+      Prefix: "",
+      Suffix: "",
+      Italic: false,
+      Preformatted: false
+    },
+    CitaviMapping: []
+  });
+}
+
+function addCiteField() {
+  category.value!.CiteFields.push({
+    Name: "",
+    Format: {
+      Prefix: "",
+      Suffix: "",
+      Italic: false,
+      Preformatted: false
+    },
+    CitaviMapping: []
+  });
 }
 
 async function save() {
