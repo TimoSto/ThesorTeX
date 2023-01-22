@@ -59,6 +59,7 @@
                       <v-btn
                         flat
                         text
+                        @click="openCategoryEditor(-1)"
                       >
                         <v-icon>mdi-plus</v-icon>
                       </v-btn>
@@ -246,7 +247,7 @@ watch(projectName, async () => {//TODO: reload on close and open again
 // methods
 function openCategoryEditor(n: number) {
   appStateStore.navToPage(pageNames[2]);
-  appStateStore.setItem(projectDataStore.categories[n].Name);
+  appStateStore.setItem(n > -1 ? projectDataStore.categories[n].Name : "");
 }
 
 // onload

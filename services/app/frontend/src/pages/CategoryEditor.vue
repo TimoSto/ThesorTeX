@@ -421,7 +421,17 @@ async function save() {
 }
 
 // onload
-getCategoryFromStore();
+if (categoryName.value != "") {
+  getCategoryFromStore();
+} else {
+  category.value = {
+    Name: "",
+    CitaviCategory: "",
+    BibFields: [],
+    CiteFields: [],
+    CitaviFilter: [],
+  };
+}
 </script>
 
 <style scoped>
