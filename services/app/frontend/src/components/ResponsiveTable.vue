@@ -66,7 +66,7 @@ export interface ResponsiveTableCell {
 }
 
 export interface ResponsiveTableHeaderCell extends ResponsiveTableCell {
-  size: string
+  size: string;
 }
 
 export enum SizeClasses {
@@ -100,7 +100,7 @@ export default {
     }
   },
   emits: ["rowClicked", "btnClicked"],
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -110,8 +110,8 @@ export default {
 
 .size {
   &--icon-btn {
-    width: 72px;
-    max-width: 72px;
+    width: 96px;
+    max-width: 96px;
     padding: 0 16px !important;
     text-align: right !important;
   }
