@@ -6,6 +6,7 @@
       <v-btn
         icon
         :disabled="!changesToSave"
+        @click="save"
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
@@ -95,6 +96,7 @@ import JoinFields from "../domain/entry/JoinFields";
 import {Entry} from "../domain/entry/Entry";
 import {useAppStateStore} from "../stores/appState/AppStateStore";
 import getEntryKeyRules from "../domain/entry/EntryKeyRules";
+import SaveEntry from "../api/projectData/SaveEntry";
 
 // globals
 const {t} = useI18n();
@@ -196,6 +198,11 @@ function getSlotName(i: number, n: number) {
 
 function getEntryFromStore() {
   entry.value = JSON.parse(JSON.stringify(projectDataStore.entries.find(c => c.Key === entryKey.value)!));
+}
+
+async function save() {
+  const success = await SaveEntry(appStateStore.currentProject, entryKey.value, entry.value!);
+  console.log(success);
 }
 
 // onload
