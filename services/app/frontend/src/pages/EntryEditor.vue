@@ -5,6 +5,7 @@
       <v-spacer />
       <v-btn
         icon
+        :disabled="!changesToSave"
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
@@ -176,6 +177,10 @@ const fieldsRows = computed(() => {
       slot: true
     }
   ]);
+});
+
+const changesToSave = computed(() => {
+  return JSON.stringify(entry.value) !== JSON.stringify(projectDataStore.entries.find(c => c.Key === entryKey.value));
 });
 
 // methods
