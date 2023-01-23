@@ -13,6 +13,7 @@ export const german: I18nKeys = {
         Delete: "Löschen",
         Attribute: "Attribut",
         Value: "Wert",
+        General: "Allgemein",
     },
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",
@@ -50,7 +51,6 @@ export const german: I18nKeys = {
     },
     CategoryEditor: {
         Title: " - Kategorie bearbeiten",
-        General: "Allgemein",
         Name: "Name",
         CitaviCategory: "Citavi-Kategorie",
         CitaviFilter: "Citavi-Filter",
@@ -67,5 +67,10 @@ export const german: I18nKeys = {
         DeleteMessage: "Möchtest du die Kategorie {name} wirklich löschen?",
         SuccessDelete: "Kategorie erfolgreich gelöscht",
         ErrorDelete: "Die Kategorie konnte nicht gelöscht werden.",
+    },
+    EntryEditor: {
+        Key: "Schlüssel",
+        Category: "Kategorie",
+        Fields: "Felder"
     }
 };

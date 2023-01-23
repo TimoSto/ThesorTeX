@@ -13,6 +13,7 @@ export const english: I18nKeys = {
         Delete: "Delete",
         Attribute: "Attribute",
         Value: "Value",
+        General: "General",
     },
     Rules: {
         NoSpaces: "No spaces allowed",
@@ -50,7 +51,6 @@ export const english: I18nKeys = {
     },
     CategoryEditor: {
         Title: " - Category editor",
-        General: "General",
         Name: "Name",
         CitaviCategory: "Citavi category",
         CitaviFilter: "Citavi filter",

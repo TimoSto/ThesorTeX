@@ -11,6 +11,7 @@ export const i18nKeys = {
         Delete: "Common.Delete",
         Attribute: "Common.Attribute",
         Value: "Common.Value",
+        General: "Common.General",
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -48,7 +49,6 @@ export const i18nKeys = {
     },
     CategoryEditor: {
         Title: "CategoryEditor.Title",
-        General: "CategoryEditor.General",
         Name: "CategoryEditor.Name",
         CitaviCategory: "CategoryEditor.CitaviCategory",
         CitaviFilter: "CategoryEditor.CitaviFilter",
@@ -65,6 +65,11 @@ export const i18nKeys = {
         DeleteMessage: "CategoryEditor.DeleteMessage",
         SuccessDelete: "CategoryEditor.SuccessDelete",
         ErrorDelete: "CategoryEditor.ErrorDelete",
+    },
+    EntryEditor: {
+        Key: "EntryEditor.Key",
+        Category: "EntryEditor.Category",
+        Fields: "EntryEditor.Fields"
     }
 };
 

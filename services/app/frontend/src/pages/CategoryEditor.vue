@@ -23,7 +23,7 @@
           <v-expansion-panels :model-value="0">
             <v-expansion-panel>
               <v-expansion-panel-title>
-                {{ t(i18nKeys.CategoryEditor.General) }}
+                {{ t(i18nKeys.Common.General) }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <ResponsiveTable
