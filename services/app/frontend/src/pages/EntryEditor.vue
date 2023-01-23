@@ -12,6 +12,7 @@
       </v-btn>
       <v-btn
         icon
+        :disabled="entryKey === ''"
         @click="deleteTriggered = true"
       >
         <v-icon>mdi-delete</v-icon>
