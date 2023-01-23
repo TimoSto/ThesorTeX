@@ -67,5 +67,11 @@ export const english: I18nKeys = {
         DeleteMessage: "Do you really want to delete the category {name}?",
         SuccessDelete: "Category successfully deleted",
         ErrorDelete: "The category could not be deleted.",
+    },
+    EntryEditor: {
+        Key: "Key",
+        Category: "Category",
+        Fields: "Fields",
+        Field: "Field",
     }
 };

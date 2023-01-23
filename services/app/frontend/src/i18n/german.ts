@@ -71,6 +71,7 @@ export const german: I18nKeys = {
     EntryEditor: {
         Key: "Schlüssel",
         Category: "Kategorie",
-        Fields: "Felder"
+        Fields: "Felder",
+        Field: "Feld",
     }
 };

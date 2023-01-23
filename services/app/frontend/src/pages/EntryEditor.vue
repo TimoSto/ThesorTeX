@@ -36,6 +36,7 @@
                   </template>
                   <template #1-1>
                     <v-select
+                      v-model="category"
                       color="primary"
                       variant="underlined"
                       :items="categories"
@@ -54,6 +55,25 @@
               <v-expansion-panel-title>
                 {{ t(i18nKeys.EntryEditor.Fields) }}
               </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <ResponsiveTable
+                  :rows="fieldsRows"
+                  :headers="fieldsHeaders"
+                  disable-ripple
+                >
+                  <template
+                    v-for="i in fieldsRows.length"
+                    :key="`field-${i}`"
+                    #[getSlotName(i-1,1)]
+                  >
+                    <v-text-field
+                      v-model="fieldsValues[i]"
+                      color="primary"
+                      variant="underlined"
+                    />
+                  </template>
+                </ResponsiveTable>
+              </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
         </v-card>
@@ -66,8 +86,9 @@
 import ResponsiveTable, {ResponsiveTableCell, SizeClasses} from "../components/ResponsiveTable.vue";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
+import JoinFields from "../domain/entry/JoinFields";
 
 // globals
 const {t} = useI18n();
@@ -75,6 +96,9 @@ const {t} = useI18n();
 const projectDataStore = useProjectDataStore();
 
 // data
+const category = ref("");
+
+const fieldsValues = ref([] as string[]);
 
 // computed
 const generalHeaders = computed(() => {
@@ -114,6 +138,43 @@ const generalRows = computed((): ResponsiveTableCell[][] => {
 const categories = computed(() => {
   return projectDataStore.categories.map(c => c.Name);
 });
+
+const fields = computed(() => {
+  const i = categories.value.indexOf(category.value);
+  if (i >= 0) {
+    return JoinFields(projectDataStore.categories[i].BibFields, projectDataStore.categories[i].CiteFields);
+  }
+  return [];
+});
+
+const fieldsHeaders = computed(() => {
+  return [
+    {
+      content: t(i18nKeys.EntryEditor.Field),
+      size: SizeClasses.MaxWidth250
+    },
+    {
+      content: t(i18nKeys.Common.Value),
+      size: ""
+    }
+  ];
+});
+
+const fieldsRows = computed(() => {
+  return fields.value.map(f => [
+    {
+      content: f.Name
+    },
+    {
+      slot: true
+    }
+  ]);
+});
+
+// methods
+function getSlotName(i: number, n: number) {
+  return `${i}-${n}`;
+}
 </script>
 
 <style scoped>
