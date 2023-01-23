@@ -30,13 +30,14 @@
                 >
                   <template #0-1>
                     <v-text-field
+                      v-model="entry.Key"
                       color="primary"
                       variant="underlined"
                     />
                   </template>
                   <template #1-1>
                     <v-select
-                      v-model="category"
+                      v-model="entry.Category"
                       color="primary"
                       variant="underlined"
                       :items="categories"
@@ -67,7 +68,7 @@
                     #[getSlotName(i-1,1)]
                   >
                     <v-text-field
-                      v-model="fieldsValues[i]"
+                      v-model="entry.Fields[i-1]"
                       color="primary"
                       variant="underlined"
                     />
@@ -89,18 +90,24 @@ import {i18nKeys} from "../i18n/keys";
 import {computed, ref} from "vue";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import JoinFields from "../domain/entry/JoinFields";
+import {Entry} from "../domain/entry/Entry";
+import {useAppStateStore} from "../stores/appState/AppStateStore";
 
 // globals
 const {t} = useI18n();
 
 const projectDataStore = useProjectDataStore();
 
-// data
-const category = ref("");
+const appStateStore = useAppStateStore();
 
-const fieldsValues = ref([] as string[]);
+// data
+const entry = ref(undefined as Entry | undefined);
 
 // computed
+const entryKey = computed(() => {
+  return appStateStore.currentItem;
+});
+
 const generalHeaders = computed(() => {
   return [
     {
@@ -140,7 +147,7 @@ const categories = computed(() => {
 });
 
 const fields = computed(() => {
-  const i = categories.value.indexOf(category.value);
+  const i = categories.value.indexOf(entry.value!.Category);
   if (i >= 0) {
     return JoinFields(projectDataStore.categories[i].BibFields, projectDataStore.categories[i].CiteFields);
   }
@@ -175,6 +182,13 @@ const fieldsRows = computed(() => {
 function getSlotName(i: number, n: number) {
   return `${i}-${n}`;
 }
+
+function getEntryFromStore() {
+  entry.value = JSON.parse(JSON.stringify(projectDataStore.entries.find(c => c.Key === entryKey.value)!));
+}
+
+// onload
+getEntryFromStore();
 </script>
 
 <style scoped>

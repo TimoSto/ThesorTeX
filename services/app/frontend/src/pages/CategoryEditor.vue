@@ -484,7 +484,6 @@ watch(categoryName, () => {
 
 // functions
 function getCategoryFromStore() {
-  console.log(categoryName.value);
   category.value = JSON.parse(JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value)!));
 }
 
