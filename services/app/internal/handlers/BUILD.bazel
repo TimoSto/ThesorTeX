@@ -10,6 +10,7 @@ go_library(
         "//services/app/internal/config",
         "//services/app/internal/filesystem",
         "//services/app/internal/handlers/category",
+        "//services/app/internal/handlers/entry",
         "//services/app/internal/handlers/project",
     ],
 )

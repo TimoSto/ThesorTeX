@@ -27,4 +27,6 @@ func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg confi
 	mux.HandleFunc("/deleteCategory", category.HandleDeleteCategory(fs, cfg))
 
 	mux.HandleFunc("/saveEntry", entry.HandleSaveEntry(fs, cfg))
+
+	mux.HandleFunc("/deleteEntry", entry.HandleDeleteEntry(fs, cfg))
 }
