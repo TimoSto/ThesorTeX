@@ -17,7 +17,8 @@ export const german: I18nKeys = {
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",
         NoEmpty: "Kein leerer Wert erlaubt",
-        ProjectAlreadyExists: "Projektname bereits vergeben"
+        ProjectAlreadyExists: "Projektname bereits vergeben",
+        CategoryAlreadyExists: "Name bereits vergeben"
     },
     App: {},
     MainPage: {
@@ -60,4 +61,4 @@ export const german: I18nKeys = {
         Preformatted: "Vorformatiert",
         CitaviMapping: "Citavi-Attribute",
     }
-}
+};

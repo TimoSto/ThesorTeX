@@ -17,7 +17,8 @@ export const english: I18nKeys = {
     Rules: {
         NoSpaces: "No spaces allowed",
         NoEmpty: "No empty value allowed",
-        ProjectAlreadyExists: "Projectname already exists"
+        ProjectAlreadyExists: "Projectname already exists",
+        CategoryAlreadyExists: "Name is already used"
     },
     App: {},
     MainPage: {
@@ -60,4 +61,4 @@ export const english: I18nKeys = {
         Preformatted: "Preformatted",
         CitaviMapping: "Citavi attributes"
     }
-}
+};

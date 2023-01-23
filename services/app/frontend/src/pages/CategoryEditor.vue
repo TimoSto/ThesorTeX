@@ -30,6 +30,7 @@
                       v-model="category.Name"
                       color="primary"
                       variant="underlined"
+                      :rules="[categoryNameRule]"
                     />
                   </template>
                   <template #1-1>
@@ -273,6 +274,7 @@ import {Category} from "../domain/category/Category";
 import SaveCategory from "../api/projectData/SaveCategory";
 import {attributes, categories} from "../domain/citavi/Citavi";
 import GenerateEntryForCategory from "../domain/category/GenerateEntry";
+import getCategoryNameRules from "../domain/category/CategoryNameRules";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -417,6 +419,10 @@ const bibExample = computed(() => {
 
 const citeExample = computed(() => {
   return GenerateEntryForCategory(category.value!.CiteFields, category.value!.CiteFields.map(f => f.Name));
+});
+
+const categoryNameRule = computed(() => {
+  return getCategoryNameRules(projectDataStore.categories.map(c => c.Name), categoryName.value, t);
 });
 
 // watchers

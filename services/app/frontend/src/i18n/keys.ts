@@ -15,7 +15,8 @@ export const i18nKeys = {
     Rules: {
         NoSpaces: "Rules.NoSpaces",
         NoEmpty: "Rules.NoEmpty",
-        ProjectAlreadyExists: "Rules.ProjectAlreadyExists"
+        ProjectAlreadyExists: "Rules.ProjectAlreadyExists",
+        CategoryAlreadyExists: "Rules.CategoryAlreadyExists",
     },
     App: {},
     MainPage: {
@@ -56,8 +57,8 @@ export const i18nKeys = {
         Suffix: "CategoryEditor.Suffix",
         Italic: "CategoryEditor.Italic",
         Preformatted: "CategoryEditor.Preformatted",
-        CitaviMapping: "CategoryEditor.CitaviMapping"
+        CitaviMapping: "CategoryEditor.CitaviMapping",
     }
-}
+};
 
 export type I18nKeys = typeof i18nKeys;
