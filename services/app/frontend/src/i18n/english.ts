@@ -45,7 +45,8 @@ export const english: I18nKeys = {
         DeleteTitle: "Delete project",
         DeleteMessage: "Do you really want to delete the project {project}?",
         SuccessDelete: "The project PROJECTNAME was successfully deleted",
-        ErrorDelete: "The project could not be deleted"
+        ErrorDelete: "The project could not be deleted",
+        UnknownCategory: "Unknown category"
     },
     CategoryEditor: {
         Title: " - Category editor",

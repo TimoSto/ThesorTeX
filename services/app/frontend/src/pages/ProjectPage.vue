@@ -167,6 +167,7 @@ const entriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
 const entriesRows = computed(() => {
   const rows = [] as ResponsiveTableCell[][];
   projectDataStore.entries.forEach((e: Entry) => {
+    const category = projectDataStore.categories.find(c => c.Name === e.Category);
     rows.push([
       {
         content: e.Key
@@ -175,7 +176,7 @@ const entriesRows = computed(() => {
         content: e.Category
       },
       {
-        content: GenerateEntryForCategory(projectDataStore.categories.find(c => c.Name === e.Category)!.BibFields, e.Fields),
+        content: category ? GenerateEntryForCategory(category.BibFields, e.Fields) : t(i18nKeys.ProjectPage.UnknownCategory),
         colSpan: 2
       }
     ]);

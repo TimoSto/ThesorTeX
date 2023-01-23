@@ -43,7 +43,8 @@ export const i18nKeys = {
         DeleteTitle: "ProjectPage.DeleteTitle",
         DeleteMessage: "ProjectPage.DeleteMessage",
         SuccessDelete: "ProjectPage.SuccessDelete",
-        ErrorDelete: "ProjectPage.ErrorDelete"
+        ErrorDelete: "ProjectPage.ErrorDelete",
+        UnknownCategory: "ProjectPage.UnknownCategory"
     },
     CategoryEditor: {
         Title: "CategoryEditor.Title",
