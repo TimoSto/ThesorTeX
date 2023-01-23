@@ -2,7 +2,10 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "category",
-    srcs = ["handle_save_category.go"],
+    srcs = [
+        "handle_delete_category.go",
+        "handle_save_category.go",
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category",
     visibility = ["//services/app:__subpackages__"],
     deps = [
@@ -15,7 +18,10 @@ go_library(
 
 go_test(
     name = "category_test",
-    srcs = ["handle_save_category_test.go"],
+    srcs = [
+        "handle_delete_category_test.go",
+        "handle_save_category_test.go",
+    ],
     embed = [":category"],
     deps = [
         "//services/app/internal/config",
