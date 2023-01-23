@@ -22,4 +22,6 @@ func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg confi
 	mux.HandleFunc("/deleteProject", project.HandleProjectDelete(fs, cfg))
 
 	mux.HandleFunc("/saveCategory", category.HandleSaveCategory(fs, cfg))
+
+	mux.HandleFunc("/deleteCategory", category.HandleDeleteCategory(fs, cfg))
 }
