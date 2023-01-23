@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "entry",
+    srcs = ["handle_save_entry.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry",
+    visibility = ["//services/app:__subpackages__"],
+    deps = [
+        "//pkg/backend/log",
+        "//services/app/internal/config",
+        "//services/app/internal/filesystem",
+    ],
+)
+
+go_test(
+    name = "entry_test",
+    srcs = ["handle_save_entry_test.go"],
+    embed = [":entry"],
+    deps = [
+        "//services/app/internal/config",
+        "//services/app/internal/filesystem/fake",
+    ],
+)

@@ -7,6 +7,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project"
 )
 
@@ -24,4 +25,6 @@ func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg confi
 	mux.HandleFunc("/saveCategory", category.HandleSaveCategory(fs, cfg))
 
 	mux.HandleFunc("/deleteCategory", category.HandleDeleteCategory(fs, cfg))
+
+	mux.HandleFunc("/saveEntry", entry.HandleSaveEntry(fs, cfg))
 }
