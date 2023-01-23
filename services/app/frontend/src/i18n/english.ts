@@ -61,6 +61,10 @@ export const english: I18nKeys = {
         Preformatted: "Preformatted",
         CitaviMapping: "Citavi attributes",
         SuccessSave: "Category successfully saved",
-        ErrorSave: "The category could not be saved."
+        ErrorSave: "The category could not be saved.",
+        DeleteTitle: "Delete category",
+        DeleteMessage: "Do you really want to delete the category {name}?",
+        SuccessDelete: "Category successfully deleted",
+        ErrorDelete: "The category could not be deleted.",
     }
 };

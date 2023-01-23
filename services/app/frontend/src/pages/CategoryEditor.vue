@@ -10,6 +10,12 @@
       >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn
+        icon
+        @click="deleteTriggered = true"
+      >
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
     </template>
     <template #content>
       <div class="fullsize-card-container">
@@ -259,6 +265,38 @@
       </div>
     </template>
   </ToolbarAndContent>
+  <v-dialog
+    v-model="deleteTriggered"
+    width="450"
+  >
+    <v-card>
+      <v-card-title>
+        {{ t(i18nKeys.CategoryEditor.DeleteTitle) }}
+      </v-card-title>
+      <v-card-text>
+        <i18n-t :keypath="i18nKeys.CategoryEditor.DeleteMessage">
+          <template #name>
+            <i>{{ categoryName }}</i>
+          </template>
+        </i18n-t>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn
+          color="primary"
+          @click="deleteTriggered=false"
+        >
+          {{ t(i18nKeys.Common.Abort) }}
+        </v-btn>
+        <v-btn
+          color="primary"
+          @click="deleteCategory"
+        >
+          {{ t(i18nKeys.Common.Delete) }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -279,6 +317,7 @@ import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 import getCategoryNameRules from "../domain/category/CategoryNameRules";
 import getAttributeNameRules from "../domain/category/AttributeNameRules";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
+import DeleteCategory from "../api/projectData/DeleteCategory";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -318,6 +357,7 @@ const fieldRow = [
   },
 ];
 
+const deleteTriggered = ref(false);
 // computed
 const categoryName = computed(() => {
   return appStateStore.currentItem;
@@ -494,6 +534,17 @@ async function save() {
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessSave));
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.CategoryEditor.ErrorSave));
+  }
+}
+
+async function deleteCategory() {
+  const success = await DeleteCategory(categoryName.value);
+  deleteTriggered.value = false;
+  if (success) {
+    appStateStore.goBack();
+    errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessDelete));
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.CategoryEditor.ErrorDelete));
   }
 }
 

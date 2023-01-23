@@ -59,7 +59,11 @@ export const i18nKeys = {
         Preformatted: "CategoryEditor.Preformatted",
         CitaviMapping: "CategoryEditor.CitaviMapping",
         SuccessSave: "CategoryEditor.SuccessSave",
-        ErrorSave: "CategoryEditor.ErrorSave"
+        ErrorSave: "CategoryEditor.ErrorSave",
+        DeleteTitle: "CategoryEditor.DeleteTitle",
+        DeleteMessage: "CategoryEditor.DeleteMessage",
+        SuccessDelete: "CategoryEditor.SuccessDelete",
+        ErrorDelete: "CategoryEditor.ErrorDelete",
     }
 };
 
