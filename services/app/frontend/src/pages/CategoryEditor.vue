@@ -541,6 +541,7 @@ async function deleteCategory() {
   const success = await DeleteCategory(appStateStore.currentProject, categoryName.value);
   deleteTriggered.value = false;
   if (success) {
+    projectDataStore.removeCategory(categoryName.value);
     appStateStore.goBack();
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessDelete));
   } else {

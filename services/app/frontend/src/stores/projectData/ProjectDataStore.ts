@@ -41,6 +41,12 @@ export const useProjectDataStore = defineStore({
                     return c1.Name > c2.Name ? 1 : -1;
                 });
             }
+        },
+        removeCategory(name: string) {
+            const i = this.categories.map(c => c.Name).indexOf(name);
+            if (i >= 0) {
+                this.categories.splice(i, 1);
+            }
         }
     }
 });
