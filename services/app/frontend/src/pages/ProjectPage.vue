@@ -31,6 +31,7 @@
                       <v-btn
                         flat
                         text
+                        @click="openEntryEditor(-1)"
                       >
                         <v-icon>mdi-plus</v-icon>
                       </v-btn>

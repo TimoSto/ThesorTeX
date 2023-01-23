@@ -263,7 +263,15 @@ async function deleteEntry() {
 }
 
 // onload
-getEntryFromStore();
+if (entryKey.value !== "") {
+  getEntryFromStore();
+} else {
+  entry.value = {
+    Key: "",
+    Category: "",
+    Fields: []
+  };
+}
 </script>
 
 <style scoped>
