@@ -34,6 +34,7 @@
                       v-model="entry.Key"
                       color="primary"
                       variant="underlined"
+                      :rules="[keyRules]"
                     />
                   </template>
                   <template #1-1>
@@ -93,6 +94,7 @@ import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import JoinFields from "../domain/entry/JoinFields";
 import {Entry} from "../domain/entry/Entry";
 import {useAppStateStore} from "../stores/appState/AppStateStore";
+import getEntryKeyRules from "../domain/entry/EntryKeyRules";
 
 // globals
 const {t} = useI18n();
@@ -181,6 +183,10 @@ const fieldsRows = computed(() => {
 
 const changesToSave = computed(() => {
   return JSON.stringify(entry.value) !== JSON.stringify(projectDataStore.entries.find(c => c.Key === entryKey.value));
+});
+
+const keyRules = computed(() => {
+  return getEntryKeyRules(projectDataStore.entries.map(e => e.Key), entryKey.value, t);
 });
 
 // methods

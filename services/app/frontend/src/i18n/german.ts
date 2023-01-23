@@ -19,7 +19,8 @@ export const german: I18nKeys = {
         NoSpaces: "Keine Leerzeichen erlaubt",
         NoEmpty: "Kein leerer Wert erlaubt",
         ProjectAlreadyExists: "Projektname bereits vergeben",
-        NameAlreadyExists: "Name bereits vergeben"
+        NameAlreadyExists: "Name bereits vergeben",
+        KeyAlreadyExists: "Schlüssel bereits vergeben"
     },
     App: {},
     MainPage: {

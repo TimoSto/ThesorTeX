@@ -19,7 +19,8 @@ export const english: I18nKeys = {
         NoSpaces: "No spaces allowed",
         NoEmpty: "No empty value allowed",
         ProjectAlreadyExists: "Projectname already exists",
-        NameAlreadyExists: "Name is already used"
+        NameAlreadyExists: "Name is already used",
+        KeyAlreadyExists: "This key already exists"
     },
     App: {},
     MainPage: {
