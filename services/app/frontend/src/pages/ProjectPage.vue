@@ -25,6 +25,7 @@
                   <ResponsiveTable
                     :rows="entriesRows"
                     :headers="entriesHeaders"
+                    @row-clicked="openEntryEditor"
                   >
                     <template #h-3>
                       <v-btn
@@ -251,6 +252,11 @@ watch(projectName, async () => {//TODO: reload on close and open again
 function openCategoryEditor(n: number) {
   appStateStore.navToPage(pageNames[2]);
   appStateStore.setItem(n > -1 ? projectDataStore.categories[n].Name : "");
+}
+
+function openEntryEditor(n: number) {
+  appStateStore.navToPage(pageNames[3]);
+  appStateStore.setItem(n > -1 ? projectDataStore.entries[n].Key : "");
 }
 
 // onload

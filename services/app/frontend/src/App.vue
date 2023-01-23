@@ -53,7 +53,12 @@
           />
 
           <CategoryEditor
-            v-if="i === 3"
+            v-if="i === 3 && currentPage === pageNames[2]"
+            :key="`page-${i}`"
+          />
+
+          <EntryEditor
+            v-if="i === 3 && currentPage === pageNames[3]"
             :key="`page-${i}`"
           />
         </template>
@@ -91,9 +96,10 @@ import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/componen
 import MainPage from "./pages/MainPage.vue";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {i18nKeys} from "./i18n/keys";
-import {useI18n} from "@thesortex/vue-i18n-plugin"
+import {useI18n} from "@thesortex/vue-i18n-plugin";
 import ProjectPage from "./pages/ProjectPage.vue";
 import CategoryEditor from "./pages/CategoryEditor.vue";
+import EntryEditor from "./pages/EntryEditor.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -116,12 +122,14 @@ const sidebarOpened = computed({
 
 const sidebarDisabled = computed(() => {
   return appStateStore.history.length === 1;
-})
+});
 
 const pagesCount = computed(() => {
-  console.log(appStateStore.history.length)
+  console.log(appStateStore.history.length);
   return appStateStore.history.length;
-})
+});
+
+const currentPage = computed(() => appStateStore.currentPage);
 
 const titleAppendix = computed(() => {
   let appendix: string;
@@ -138,12 +146,12 @@ const titleAppendix = computed(() => {
     default:
       appendix = "";
   }
-  return appendix
+  return appendix;
 });
 
 const success = computed(() => {
   return errorSuccessStore.valid;
-})
+});
 
 const message = computed({
   get(): string {
@@ -158,7 +166,7 @@ const message = computed({
 
 const navigatingBack = computed(() => {
   return appStateStore.navigatingBack;
-})
+});
 
 // methods
 function navBack() {
