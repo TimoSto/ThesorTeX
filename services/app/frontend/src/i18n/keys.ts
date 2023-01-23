@@ -16,7 +16,7 @@ export const i18nKeys = {
         NoSpaces: "Rules.NoSpaces",
         NoEmpty: "Rules.NoEmpty",
         ProjectAlreadyExists: "Rules.ProjectAlreadyExists",
-        CategoryAlreadyExists: "Rules.CategoryAlreadyExists",
+        NameAlreadyExists: "Rules.NameAlreadyExists",
     },
     App: {},
     MainPage: {

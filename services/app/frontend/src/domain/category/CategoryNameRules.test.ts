@@ -13,7 +13,7 @@ describe("CategoryNameRules", () => {
     });
     it("should fail on existing", () => {
         const rules = getCategoryNameRules(["test"], "", k => k);
-        expect(rules("test")).toEqual(i18nKeys.Rules.CategoryAlreadyExists);
+        expect(rules("test")).toEqual(i18nKeys.Rules.NameAlreadyExists);
     });
     it("should succeed on valid", () => {
         const rules = getCategoryNameRules(["test"], "", k => k);

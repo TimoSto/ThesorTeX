@@ -90,6 +90,7 @@
                         v-model="category.BibFields[i-1].Name"
                         color="primary"
                         variant="underlined"
+                        :rules="[attributeNameRule]"
                       />
                     </template>
                     <template
@@ -201,6 +202,7 @@
                         v-model="category.CiteFields[i-1].Name"
                         color="primary"
                         variant="underlined"
+                        :rules="[attributeNameRule]"
                       />
                     </template>
                     <template
@@ -275,6 +277,7 @@ import SaveCategory from "../api/projectData/SaveCategory";
 import {attributes, categories} from "../domain/citavi/Citavi";
 import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 import getCategoryNameRules from "../domain/category/CategoryNameRules";
+import getAttributeNameRules from "../domain/category/AttributeNameRules";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -423,6 +426,10 @@ const citeExample = computed(() => {
 
 const categoryNameRule = computed(() => {
   return getCategoryNameRules(projectDataStore.categories.map(c => c.Name), categoryName.value, t);
+});
+
+const attributeNameRule = computed(() => {
+  return getAttributeNameRules(t);
 });
 
 // watchers

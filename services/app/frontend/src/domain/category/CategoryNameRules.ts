@@ -13,7 +13,7 @@ export default function getCategoryNameRules(existing: string[], initial: string
         const i = existing.indexOf(name);
 
         if (i >= 0 && existing[i] != initial) {
-            return t(i18nKeys.Rules.CategoryAlreadyExists);
+            return t(i18nKeys.Rules.NameAlreadyExists);
         }
 
         return true;
