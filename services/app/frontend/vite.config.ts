@@ -26,6 +26,7 @@ export default defineConfig({
             "/getProjectData": "http://localhost:8448/",
             "/deleteProject": "http://localhost:8448/",
             "/saveCategory": "http://localhost:8448/",
+            "/deleteCategory": "http://localhost:8448/",
         }
     },
     build: {
