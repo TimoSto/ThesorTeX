@@ -12,6 +12,7 @@
       </v-btn>
       <v-btn
         icon
+        @click="deleteTriggered = true"
       >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
@@ -84,6 +85,38 @@
       </div>
     </template>
   </ToolbarAndContent>
+  <v-dialog
+    v-model="deleteTriggered"
+    width="450"
+  >
+    <v-card>
+      <v-card-title>
+        {{ t(i18nKeys.EntryEditor.DeleteTitle) }}
+      </v-card-title>
+      <v-card-text>
+        <i18n-t :keypath="i18nKeys.EntryEditor.DeleteMessage">
+          <template #key>
+            <i>{{ entryKey }}</i>
+          </template>
+        </i18n-t>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn
+          color="primary"
+          @click="deleteTriggered=false"
+        >
+          {{ t(i18nKeys.Common.Abort) }}
+        </v-btn>
+        <v-btn
+          color="primary"
+          @click="deleteEntry"
+        >
+          {{ t(i18nKeys.Common.Delete) }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -98,6 +131,7 @@ import {useAppStateStore} from "../stores/appState/AppStateStore";
 import getEntryKeyRules from "../domain/entry/EntryKeyRules";
 import SaveEntry from "../api/projectData/SaveEntry";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
+import DeleteEntry from "../api/projectData/DeleteEntry";
 
 // globals
 const {t} = useI18n();
@@ -110,6 +144,8 @@ const errorSuccessStore = useErrorSuccessStore();
 
 // data
 const entry = ref(undefined as Entry | undefined);
+
+const deleteTriggered = ref(false);
 
 // computed
 const entryKey = computed(() => {
@@ -211,6 +247,18 @@ async function save() {
     errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessSave));
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.EntryEditor.ErrorSave));
+  }
+}
+
+async function deleteEntry() {
+  const success = await DeleteEntry(appStateStore.currentProject, entryKey.value);
+  deleteTriggered.value = false;
+  if (success) {
+    projectDataStore.removeEntry(entryKey.value);
+    appStateStore.goBack();
+    errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessDelete));
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.EntryEditor.ErrorDelete));
   }
 }
 
