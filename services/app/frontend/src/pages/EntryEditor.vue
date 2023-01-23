@@ -5,7 +5,7 @@
       <v-spacer />
       <v-btn
         icon
-        :disabled="!changesToSave"
+        :disabled="!changesToSave || !rulesAreMet"
         @click="save"
       >
         <v-icon>mdi-content-save</v-icon>
@@ -229,6 +229,10 @@ const changesToSave = computed(() => {
 
 const keyRules = computed(() => {
   return getEntryKeyRules(projectDataStore.entries.map(e => e.Key), entryKey.value, t);
+});
+
+const rulesAreMet = computed(() => {
+  return keyRules.value(entry.value!.Key) === true;
 });
 
 // methods
