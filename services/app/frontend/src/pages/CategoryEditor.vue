@@ -5,7 +5,7 @@
       <v-spacer />
       <v-btn
         icon
-        :disabled="!changesToSave"
+        :disabled="!changesToSave || !rulesAreMet"
         @click="save"
       >
         <v-icon>mdi-content-save</v-icon>
@@ -474,6 +474,23 @@ const categoryNameRule = computed(() => {
 
 const attributeNameRule = computed(() => {
   return getAttributeNameRules(t);
+});
+
+const rulesAreMet = computed(() => {
+  let valid = true;
+  for (let i = 0; i < category.value!.BibFields.length; i++) {
+    if (categoryNameRule.value(category.value!.BibFields[i].Name) !== true) {
+      valid = false;
+      break;
+    }
+  }
+  for (let i = 0; i < category.value!.CiteFields.length; i++) {
+    if (categoryNameRule.value(category.value!.CiteFields[i].Name) !== true) {
+      valid = false;
+      break;
+    }
+  }
+  return valid && categoryNameRule.value(category.value!.Name) === true;
 });
 
 // watchers
