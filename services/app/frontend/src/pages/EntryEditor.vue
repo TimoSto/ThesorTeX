@@ -97,6 +97,7 @@ import {Entry} from "../domain/entry/Entry";
 import {useAppStateStore} from "../stores/appState/AppStateStore";
 import getEntryKeyRules from "../domain/entry/EntryKeyRules";
 import SaveEntry from "../api/projectData/SaveEntry";
+import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 
 // globals
 const {t} = useI18n();
@@ -104,6 +105,8 @@ const {t} = useI18n();
 const projectDataStore = useProjectDataStore();
 
 const appStateStore = useAppStateStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 // data
 const entry = ref(undefined as Entry | undefined);
@@ -202,7 +205,13 @@ function getEntryFromStore() {
 
 async function save() {
   const success = await SaveEntry(appStateStore.currentProject, entryKey.value, entry.value!);
-  console.log(success);
+  if (success) {
+    projectDataStore.actualizeEntry(entryKey.value, entry.value!);
+    appStateStore.setItem(entry.value!.Key);
+    errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessSave));
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.EntryEditor.ErrorSave));
+  }
 }
 
 // onload

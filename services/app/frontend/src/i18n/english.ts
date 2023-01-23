@@ -74,5 +74,11 @@ export const english: I18nKeys = {
         Category: "Category",
         Fields: "Fields",
         Field: "Field",
+        SuccessSave: "Entry successfully saved",
+        ErrorSave: "The entry could not be saved.",
+        DeleteTitle: "Delete entry",
+        DeleteMessage: "Do you really want to delete the entry {key}?",
+        SuccessDelete: "Entry successfully deleted",
+        ErrorDelete: "The entry could not be deleted.",
     }
 };

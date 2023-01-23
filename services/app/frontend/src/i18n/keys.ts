@@ -72,6 +72,12 @@ export const i18nKeys = {
         Category: "EntryEditor.Category",
         Fields: "EntryEditor.Fields",
         Field: "EntryEditor.Field",
+        SuccessSave: "EntryEditor.SuccessSave",
+        ErrorSave: "EntryEditor.ErrorSave",
+        DeleteTitle: "EntryEditor.DeleteTitle",
+        DeleteMessage: "EntryEditor.DeleteMessage",
+        SuccessDelete: "EntryEditor.SuccessDelete",
+        ErrorDelete: "CategoryEditor.ErrorDelete",
     }
 };
 

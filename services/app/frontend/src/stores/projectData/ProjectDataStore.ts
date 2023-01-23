@@ -47,6 +47,24 @@ export const useProjectDataStore = defineStore({
             if (i >= 0) {
                 this.categories.splice(i, 1);
             }
+        },
+        actualizeEntry(key: string, entry: Entry) {
+            entry = JSON.parse(JSON.stringify(entry));
+            const i = this.entries.map(c => c.Key).indexOf(key);
+            if (i >= 0) {
+                this.entries[i] = entry;
+            } else {
+                this.entries.push(entry);
+                this.entries.sort((c1, c2) => {
+                    return c1.Key > c2.Key ? 1 : -1;
+                });
+            }
+        },
+        removeEntry(key: string) {
+            const i = this.entries.map(c => c.Key).indexOf(key);
+            if (i >= 0) {
+                this.entries.splice(i, 1);
+            }
         }
     }
 });

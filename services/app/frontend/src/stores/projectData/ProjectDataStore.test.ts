@@ -150,4 +150,115 @@ describe("ProjectDataStore", () => {
             expect(store.categories).toEqual([]);
         });
     });
+    describe("actualize entry", () => {
+        it("edit existing", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate",
+                    BibFields: [],
+                    CiteFields: [],
+                    CitaviCategory: "",
+                    CitaviFilter: []
+                }
+            ];
+            store.setProjectData(entries, categories);
+
+            store.actualizeEntry("test", {Key: "test", Category: "testCate"} as Entry);
+
+            expect(store.entries[0]).toEqual({Key: "test", Category: "testCate"});
+        });
+        it("rename existing", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate",
+                    BibFields: [],
+                    CiteFields: [],
+                    CitaviCategory: "",
+                    CitaviFilter: []
+                }
+            ];
+            store.setProjectData(entries, categories);
+
+            store.actualizeEntry("test", {Key: "test2"} as Entry);
+
+            expect(store.entries[0]).toEqual({Key: "test2"});
+        });
+        it("add", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate",
+                    BibFields: [],
+                    CiteFields: [],
+                    CitaviCategory: "",
+                    CitaviFilter: []
+                }
+            ];
+            store.setProjectData(entries, categories);
+
+            store.actualizeEntry("", {
+                Key: "t2",
+                Category: "ttt",
+                Fields: []
+            });
+
+            expect(store.entries[1]).toEqual({
+                Key: "test",
+            });
+            expect(store.entries[0]).toEqual({
+                Key: "t2",
+                Category: "ttt",
+                Fields: []
+            });
+        });
+    });
+    describe("rm entry", () => {
+        it("should remove", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate",
+                    BibFields: [],
+                    CiteFields: [],
+                    CitaviCategory: "",
+                    CitaviFilter: []
+                }
+            ];
+            store.setProjectData(entries, categories);
+
+            store.removeEntry("test");
+
+            expect(store.entries).toEqual([]);
+        });
+    });
 });

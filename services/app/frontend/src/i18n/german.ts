@@ -74,5 +74,11 @@ export const german: I18nKeys = {
         Category: "Kategorie",
         Fields: "Felder",
         Field: "Feld",
+        SuccessSave: "Eintrag erfolgreich gespeichert",
+        ErrorSave: "Der Eintrag konnte nicht gespeichert werden.",
+        DeleteTitle: "Eintrag löschen",
+        DeleteMessage: "Möchtest du den Eintrag {key} wirklich löschen?",
+        SuccessDelete: "Eintrag erfolgreich gelöscht",
+        ErrorDelete: "Der Eintrag konnte nicht gelöscht werden",
     }
 };
