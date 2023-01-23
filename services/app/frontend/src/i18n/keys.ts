@@ -58,6 +58,8 @@ export const i18nKeys = {
         Italic: "CategoryEditor.Italic",
         Preformatted: "CategoryEditor.Preformatted",
         CitaviMapping: "CategoryEditor.CitaviMapping",
+        SuccessSave: "CategoryEditor.SuccessSave",
+        ErrorSave: "CategoryEditor.ErrorSave"
     }
 };
 

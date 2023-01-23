@@ -278,11 +278,14 @@ import {attributes, categories} from "../domain/citavi/Citavi";
 import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 import getCategoryNameRules from "../domain/category/CategoryNameRules";
 import getAttributeNameRules from "../domain/category/AttributeNameRules";
+import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 
 // globals
 const appStateStore = useAppStateStore();
 
 const projectDataStore = useProjectDataStore();
+
+const errorSuccessStore = useErrorSuccessStore();
 
 const {t} = useI18n();
 
@@ -488,6 +491,9 @@ async function save() {
   if (success) {
     projectDataStore.actualizeCategory(categoryName.value, category.value!);
     appStateStore.setItem(category.value!.Name);
+    errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessSave));
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.CategoryEditor.ErrorSave));
   }
 }
 

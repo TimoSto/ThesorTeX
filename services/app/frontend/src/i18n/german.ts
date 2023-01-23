@@ -18,7 +18,7 @@ export const german: I18nKeys = {
         NoSpaces: "Keine Leerzeichen erlaubt",
         NoEmpty: "Kein leerer Wert erlaubt",
         ProjectAlreadyExists: "Projektname bereits vergeben",
-        CategoryAlreadyExists: "Name bereits vergeben"
+        NameAlreadyExists: "Name bereits vergeben"
     },
     App: {},
     MainPage: {
@@ -60,5 +60,7 @@ export const german: I18nKeys = {
         Italic: "Kursiv",
         Preformatted: "Vorformatiert",
         CitaviMapping: "Citavi-Attribute",
+        SuccessSave: "Kategorie erfolgreich gespeichert",
+        ErrorSave: "Die Kategorie konnte nicht gespeichert werden."
     }
 };

@@ -18,7 +18,7 @@ export const english: I18nKeys = {
         NoSpaces: "No spaces allowed",
         NoEmpty: "No empty value allowed",
         ProjectAlreadyExists: "Projectname already exists",
-        CategoryAlreadyExists: "Name is already used"
+        NameAlreadyExists: "Name is already used"
     },
     App: {},
     MainPage: {
@@ -59,6 +59,8 @@ export const english: I18nKeys = {
         Suffix: "Suffix",
         Italic: "Italic",
         Preformatted: "Preformatted",
-        CitaviMapping: "Citavi attributes"
+        CitaviMapping: "Citavi attributes",
+        SuccessSave: "Category successfully saved",
+        ErrorSave: "The category could not be saved."
     }
 };
