@@ -232,7 +232,7 @@ const keyRules = computed(() => {
 });
 
 const rulesAreMet = computed(() => {
-  return keyRules.value(entry.value!.Key) === true;
+  return keyRules.value(entry.value!.Key) === true && entry.value!.Category !== "";
 });
 
 // methods
