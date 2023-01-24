@@ -3,6 +3,12 @@
     & .v-expansion-panel-title__overlay {
       opacity: 0 !important;
     }
+
+    &:hover {
+      & .v-expansion-panel-title__overlay {
+        opacity: calc(0.04 * var(--v-theme-overlay-multiplier)) !important;
+      }
+    }
   }
 }
 
