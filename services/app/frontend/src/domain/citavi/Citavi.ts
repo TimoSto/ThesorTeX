@@ -1,17 +1,26 @@
 export const categories: string[] = [
     "article",
     "book",
-    "inbook",
+    "booklet",
     "collection",
+    "conference",
+    "inbook",
     "incollection",
-    "proceedings",
     "inproceedings",
+    "manual",
+    "masterthesis",
+    "misc",
+    "phdthesis",
+    "proceedings",
+    "techreport",
+    "unpublished"
 ];
 
 export const attributes: string[] = [
+    "address",
     "author",
+    "doi",
+    "edition",
     "title",
     "publisher",
-    "url",
-    "doi",
 ];
