@@ -19,8 +19,14 @@ export const categories: string[] = [
 export const attributes: string[] = [
     "address",
     "author",
+    "booktitle",
     "doi",
     "edition",
+    "editor",
+    "journal",
+    "pages",
     "title",
     "publisher",
+    "volume",
+    "year",
 ];
