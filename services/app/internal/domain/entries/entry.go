@@ -8,4 +8,6 @@ type Entry struct {
 
 const (
 	entriesFile = "/data/bib_entries.json"
+
+	csvFile = "bib_entries.csv"
 )

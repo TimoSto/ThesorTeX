@@ -44,5 +44,12 @@ func SaveEntry(fs filesystem.FileSystem, cfg config.Config, project string, key 
 		return err
 	}
 
+	file := GenerateCsvForEntries(all)
+
+	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
