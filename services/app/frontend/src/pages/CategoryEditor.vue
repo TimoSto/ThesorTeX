@@ -1,7 +1,7 @@
 <template>
   <ToolbarAndContent>
     <template #bar>
-      <v-toolbar-title>{{ categoryName }}</v-toolbar-title>
+      <v-toolbar-title>{{ categoryName }}{{ changesToSave }}{{ rulesAreMet }}</v-toolbar-title>
       <v-spacer />
       <v-btn
         icon
@@ -482,13 +482,13 @@ const attributeNameRule = computed(() => {
 const rulesAreMet = computed(() => {
   let valid = true;
   for (let i = 0; i < category.value!.BibFields.length; i++) {
-    if (categoryNameRule.value(category.value!.BibFields[i].Name) !== true) {
+    if (attributeNameRule.value(category.value!.BibFields[i].Name) !== true) {
       valid = false;
       break;
     }
   }
   for (let i = 0; i < category.value!.CiteFields.length; i++) {
-    if (categoryNameRule.value(category.value!.CiteFields[i].Name) !== true) {
+    if (attributeNameRule.value(category.value!.CiteFields[i].Name) !== true) {
       valid = false;
       break;
     }
