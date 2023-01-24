@@ -19,11 +19,18 @@
 <script lang="ts" setup>
 
 import {ref} from "vue";
+import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
+import {useI18n} from "@thesortex/vue-i18n-plugin";
+import {i18nKeys} from "../i18n/keys";
 
 // globals
 defineProps({
   title: String
 });
+
+const errorSuccessStore = useErrorSuccessStore();
+
+const {t} = useI18n();
 
 // data
 const fileupload = ref(null);
@@ -59,6 +66,29 @@ function handleClick() {
 }
 
 function processFile(file: File) {
+  const extension = file.name.substring(file.name.lastIndexOf("."));
+  if (extension !== ".bib") {
+    console.error(`wrong file type: ${extension}`);
+    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.WrongFileExt));
+    return;
+  }
+  let reader = new FileReader();
+  reader.readAsText(file, "UTF-8");
+
+  // here we tell the reader what to do when it's done reading...
+  reader.onload = readerEvent => {
+    if (readerEvent.target) {
+      console.debug(`got file with name ${file.name}`);
+      let content = readerEvent.target.result; // this is the content!
+      if (content) {
+        if (content instanceof ArrayBuffer) {
+          const enc = new TextDecoder("utf-8");
+          content = enc.decode(content);
+        }
+
+      }
+    }
+  };
 }
 </script>
 

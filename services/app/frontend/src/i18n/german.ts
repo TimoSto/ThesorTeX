@@ -48,7 +48,9 @@ export const german: I18nKeys = {
         DeleteMessage: "Willst du das Projekt {project} wirklich löschen?",
         SuccessDelete: "Das Projekt PROJECTNAME wurde erfolgreich gelöscht",
         ErrorDelete: "Das Projekt konnte nicht gelöscht werden",
-        UnknownCategory: "Unbekannte Kategorie"
+        UnknownCategory: "Unbekannte Kategorie",
+        DragNDrop: "Citavi-Export hochladen",
+        WrongFileExt: "Die Dateiendung muss .bib sein."
     },
     CategoryEditor: {
         Title: " - Kategorie bearbeiten",
@@ -79,7 +81,6 @@ export const german: I18nKeys = {
         DeleteTitle: "Eintrag löschen",
         DeleteMessage: "Möchtest du den Eintrag {key} wirklich löschen?",
         SuccessDelete: "Eintrag erfolgreich gelöscht",
-        ErrorDelete: "Der Eintrag konnte nicht gelöscht werden",
-        DragNDrop: "Citavi-Export hochladen"
+        ErrorDelete: "Der Eintrag konnte nicht gelöscht werden"
     }
 };

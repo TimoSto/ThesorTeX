@@ -48,7 +48,9 @@ export const english: I18nKeys = {
         DeleteMessage: "Do you really want to delete the project {project}?",
         SuccessDelete: "The project PROJECTNAME was successfully deleted",
         ErrorDelete: "The project could not be deleted",
-        UnknownCategory: "Unknown category"
+        UnknownCategory: "Unknown category",
+        DragNDrop: "Upload citavi-export",
+        WrongFileExt: "The file ending has to be .bib."
     },
     CategoryEditor: {
         Title: " - Category editor",
@@ -80,6 +82,5 @@ export const english: I18nKeys = {
         DeleteMessage: "Do you really want to delete the entry {key}?",
         SuccessDelete: "Entry successfully deleted",
         ErrorDelete: "The entry could not be deleted.",
-        DragNDrop: "Upload citavi-export"
     }
 };

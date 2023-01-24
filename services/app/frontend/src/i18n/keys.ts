@@ -46,7 +46,9 @@ export const i18nKeys = {
         DeleteMessage: "ProjectPage.DeleteMessage",
         SuccessDelete: "ProjectPage.SuccessDelete",
         ErrorDelete: "ProjectPage.ErrorDelete",
-        UnknownCategory: "ProjectPage.UnknownCategory"
+        UnknownCategory: "ProjectPage.UnknownCategory",
+        DragNDrop: "ProjectPage.DragNDrop",
+        WrongFileExt: "ProjectPage.WrongFileExt"
     },
     CategoryEditor: {
         Title: "CategoryEditor.Title",
@@ -77,8 +79,7 @@ export const i18nKeys = {
         DeleteTitle: "EntryEditor.DeleteTitle",
         DeleteMessage: "EntryEditor.DeleteMessage",
         SuccessDelete: "EntryEditor.SuccessDelete",
-        ErrorDelete: "EntryEditor.ErrorDelete",
-        DragNDrop: "EntryEditor.DragNDrop"
+        ErrorDelete: "EntryEditor.ErrorDelete"
     }
 };
 

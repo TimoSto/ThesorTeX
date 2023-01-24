@@ -23,7 +23,7 @@
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <CitaviDragNDrop
-                    :title="t(i18nKeys.EntryEditor.DragNDrop)"
+                    :title="t(i18nKeys.ProjectPage.DragNDrop)"
                     style="margin-bottom: 8px;"
                   />
                   <ResponsiveTable
