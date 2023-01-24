@@ -1,7 +1,7 @@
 <template>
   <ToolbarAndContent>
     <template #bar>
-      <v-toolbar-title>{{ categoryName }}{{ changesToSave }}{{ rulesAreMet }}</v-toolbar-title>
+      <v-toolbar-title>{{ categoryName }}</v-toolbar-title>
       <v-spacer />
       <v-btn
         icon

@@ -23,11 +23,16 @@
 	\IfStrEqCase{#1}{%
 	% begin bib assignment
 			{CitaviArticle}{\printCitaviArticle}%
+			{CitaviArticleDoi}{\printCitaviArticleDoi}%
 			{CitaviBook}{\printCitaviBook}%
+			{CitaviBookDoi}{\printCitaviBookDoi}%
 			{CitaviBooklet}{\printCitaviBooklet}%
 			{CitaviInBook}{\printCitaviInBook}%
+			{CitaviInBookDoi}{\printCitaviInBookDoi}%
 			{CitaviInCollection}{\printCitaviInCollection}%
+			{CitaviInCollectionDoi}{\printCitaviInCollectionDoi}%
 			{CitaviInProceedings}{\printCitaviInProceedings}%
+			{CitaviInProceedingsDoi}{\printCitaviInProceedingsDoi}%
 			{aufsatz}{\printaufsatz}%
 	% end bib assignment
 			{empty}{}%
@@ -77,11 +82,29 @@
 	\vspace{-12pt}%
 
 }
+\newcommand{\printCitaviArticleDoi}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV} \argV, \argVI, abrufbar unter: \textit{\argVII}%
+	\\%
+	\vspace{-12pt}%
+
+}
 \newcommand{\printCitaviBook}[0]{%
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
 	\argI (\argII): \textit{\argIII} (\argIV. Aufl.). \argV (Hrsg.).%
+	\\%
+	\vspace{-12pt}%
+
+}
+\newcommand{\printCitaviBookDoi}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} (\argIV. Aufl.). \argV (Hrsg.). abrufbar unter: \textit{\argVI}%
 	\\%
 	\vspace{-12pt}%
 
@@ -99,7 +122,16 @@
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV (Hrsg.), \argVI. \argVII%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV(Hrsg.), \argVI. \argVII%
+	\\%
+	\vspace{-12pt}%
+
+}
+\newcommand{\printCitaviInBookDoi}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV(Hrsg.), \argVI. \argVII, abrufbar unter: \textit{\argVIII}%
 	\\%
 	\vspace{-12pt}%
 
@@ -108,7 +140,16 @@
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV (Hrsg.), \argVI. \argVII%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV(Hrsg.), \argVI. \argVII%
+	\\%
+	\vspace{-12pt}%
+
+}
+\newcommand{\printCitaviInCollectionDoi}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV(Hrsg.), \argVI. \argVII, abrufbar unter: \textit{\argVIII}%
 	\\%
 	\vspace{-12pt}%
 
@@ -117,7 +158,16 @@
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV (Hrsg.), \argVI. \argVII%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV(Hrsg.), \argVI. \argVII%
+	\\%
+	\vspace{-12pt}%
+
+}
+\newcommand{\printCitaviInProceedingsDoi}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV(Hrsg.), \argVI. \argVII, abrufbar unter: \textit{\argVIII}%
 	\\%
 	\vspace{-12pt}%
 
@@ -126,7 +176,7 @@
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	\textit{\argI} (\argII), \argIII, in: \textit{\argIV} \argV S. \textit{\argVI}, abrufbar unter: \textit{\argVII} %
+	\textit{\argI}f (\argII), \argIII, in: \textit{\argIV} \argV S. \textit{\argVI}, abrufbar unter: \textit{\argVII} %
 	\\%
 	\vspace{-12pt}%
 
@@ -175,11 +225,16 @@
 	\IfStrEqCase{\type}{%
 	% begin cite assignment
 			{CitaviArticle}{\citeCitaviArticle}%
+			{CitaviArticleDoi}{\citeCitaviArticleDoi}%
 			{CitaviBook}{\citeCitaviBook}%
+			{CitaviBookDoi}{\citeCitaviBookDoi}%
 			{CitaviBooklet}{\citeCitaviBooklet}%
 			{CitaviInBook}{\citeCitaviInBook}%
+			{CitaviInBookDoi}{\citeCitaviInBookDoi}%
 			{CitaviInCollection}{\citeCitaviInCollection}%
+			{CitaviInCollectionDoi}{\citeCitaviInCollectionDoi}%
 			{CitaviInProceedings}{\citeCitaviInProceedings}%
+			{CitaviInProceedingsDoi}{\citeCitaviInProceedingsDoi}%
 			{aufsatz}{\citeaufsatz}%
 	% end cite assignment
 	}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
@@ -189,8 +244,14 @@
 \newcommand{\citeCitaviArticle}[0]{%
 	\argVII (\argII), %
 }
+\newcommand{\citeCitaviArticleDoi}[0]{%
+	\argVIII (\argII), %
+}
 \newcommand{\citeCitaviBook}[0]{%
 	\argVI (\argII), %
+}
+\newcommand{\citeCitaviBookDoi}[0]{%
+	\argVII (\argII), %
 }
 \newcommand{\citeCitaviBooklet}[0]{%
 	\argIV (\argII), %
@@ -198,11 +259,20 @@
 \newcommand{\citeCitaviInBook}[0]{%
 	\argVIII (\argII), %
 }
+\newcommand{\citeCitaviInBookDoi}[0]{%
+	\argIX (\argII), %
+}
 \newcommand{\citeCitaviInCollection}[0]{%
 	\argVIII (\argII), %
 }
+\newcommand{\citeCitaviInCollectionDoi}[0]{%
+	\argIX (\argII), %
+}
 \newcommand{\citeCitaviInProceedings}[0]{%
 	\argVIII (\argII), %
+}
+\newcommand{\citeCitaviInProceedingsDoi}[0]{%
+	\argIX (\argII), %
 }
 \newcommand{\citeaufsatz}[0]{%
 	\textit{\argVIII} \textit{\argII} %

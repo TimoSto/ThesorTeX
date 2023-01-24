@@ -102,6 +102,121 @@
     "CitaviFilter": []
   },
   {
+    "Name": "CitaviArticleDoi",
+    "BibFields": [
+      {
+        "Name": "Autor",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "author"
+        ]
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "): ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "year"
+        ]
+      },
+      {
+        "Name": "Titel",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "title"
+        ]
+      },
+      {
+        "Name": "Zeitschrift",
+        "Format": {
+          "Prefix": "In: ",
+          "Suffix": " ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "journal"
+        ]
+      },
+      {
+        "Name": "Ausgabe",
+        "Format": {
+          "Prefix": "",
+          "Suffix": ", ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "volume"
+        ]
+      },
+      {
+        "Name": "Seiten",
+        "Format": {
+          "Prefix": "",
+          "Suffix": ", ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "pages"
+        ]
+      },
+      {
+        "Name": "Doi",
+        "Format": {
+          "Prefix": "abrufbar unter: ",
+          "Suffix": "",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "doi"
+        ]
+      }
+    ],
+    "CiteFields": [
+      {
+        "Name": "Autor Nachname",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "), ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      }
+    ],
+    "CitaviCategory": "article",
+    "CitaviFilter": [
+      "doi"
+    ]
+  },
+  {
     "Name": "CitaviBook",
     "BibFields": [
       {
@@ -190,6 +305,109 @@
     ],
     "CitaviCategory": "book",
     "CitaviFilter": []
+  },
+  {
+    "Name": "CitaviBookDoi",
+    "BibFields": [
+      {
+        "Name": "Autor",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "author"
+        ]
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "): ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "year"
+        ]
+      },
+      {
+        "Name": "Titel",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "title"
+        ]
+      },
+      {
+        "Name": "Auflage",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": ". Aufl.). ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "volume"
+        ]
+      },
+      {
+        "Name": "Herausgeber",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " (Hrsg.). ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "publisher"
+        ]
+      },
+      {
+        "Name": "Doi",
+        "Format": {
+          "Prefix": "abrufbar unter: ",
+          "Suffix": "",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "doi"
+        ]
+      }
+    ],
+    "CiteFields": [
+      {
+        "Name": "Autor Nachname",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "), ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      }
+    ],
+    "CitaviCategory": "book",
+    "CitaviFilter": [
+      "doi"
+    ]
   },
   {
     "Name": "CitaviBooklet",
@@ -312,7 +530,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": " (Hrsg.), ",
+          "Suffix": "(Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -371,6 +589,133 @@
     "CitaviFilter": []
   },
   {
+    "Name": "CitaviInBookDoi",
+    "BibFields": [
+      {
+        "Name": "Autor",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "author"
+        ]
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "): ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "year"
+        ]
+      },
+      {
+        "Name": "Titel",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "title"
+        ]
+      },
+      {
+        "Name": "Sammelwerk",
+        "Format": {
+          "Prefix": "In: ",
+          "Suffix": ", ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "booktitle"
+        ]
+      },
+      {
+        "Name": "Herausgeber",
+        "Format": {
+          "Prefix": "",
+          "Suffix": "(Hrsg.), ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "publisher"
+        ]
+      },
+      {
+        "Name": "Adresse",
+        "Format": {
+          "Prefix": "",
+          "Suffix": ". ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "address"
+        ]
+      },
+      {
+        "Name": "Seiten",
+        "Format": {
+          "Prefix": "",
+          "Suffix": ", ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "pages"
+        ]
+      },
+      {
+        "Name": "Doi",
+        "Format": {
+          "Prefix": "abrufbar unter: ",
+          "Suffix": "",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "doi"
+        ]
+      }
+    ],
+    "CiteFields": [
+      {
+        "Name": "Autor Nachname",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "), ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      }
+    ],
+    "CitaviCategory": "inbook",
+    "CitaviFilter": [
+      "doi"
+    ]
+  },
+  {
     "Name": "CitaviInCollection",
     "BibFields": [
       {
@@ -425,7 +770,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": " (Hrsg.), ",
+          "Suffix": "(Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -484,6 +829,133 @@
     "CitaviFilter": []
   },
   {
+    "Name": "CitaviInCollectionDoi",
+    "BibFields": [
+      {
+        "Name": "Autor",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "author"
+        ]
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "): ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "year"
+        ]
+      },
+      {
+        "Name": "Titel",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "title"
+        ]
+      },
+      {
+        "Name": "Sammelwerk",
+        "Format": {
+          "Prefix": "In: ",
+          "Suffix": ", ",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "booktitle"
+        ]
+      },
+      {
+        "Name": "Herausgeber",
+        "Format": {
+          "Prefix": "",
+          "Suffix": "(Hrsg.), ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "publisher"
+        ]
+      },
+      {
+        "Name": "Adresse",
+        "Format": {
+          "Prefix": "",
+          "Suffix": ". ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "address"
+        ]
+      },
+      {
+        "Name": "Seiten",
+        "Format": {
+          "Prefix": "",
+          "Suffix": ", ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "pages"
+        ]
+      },
+      {
+        "Name": "Doi",
+        "Format": {
+          "Prefix": "abrufbar unter: ",
+          "Suffix": "",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "doi"
+        ]
+      }
+    ],
+    "CiteFields": [
+      {
+        "Name": "Autor Nachname",
+        "Format": {
+          "Prefix": "",
+          "Suffix": " ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      },
+      {
+        "Name": "Jahr",
+        "Format": {
+          "Prefix": "(",
+          "Suffix": "), ",
+          "Italic": false,
+          "Preformatted": false
+        },
+        "CitaviMapping": []
+      }
+    ],
+    "CitaviCategory": "incollection",
+    "CitaviFilter": [
+      "doi"
+    ]
+  },
+  {
     "Name": "CitaviInProceedings",
     "BibFields": [
       {
@@ -538,7 +1010,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": " (Hrsg.), ",
+          "Suffix": "(Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -597,7 +1069,7 @@
     "CitaviFilter": []
   },
   {
-    "Name": "CitaviProceedings",
+    "Name": "CitaviInProceedingsDoi",
     "BibFields": [
       {
         "Name": "Autor",
@@ -651,7 +1123,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": " (Hrsg.), ",
+          "Suffix": "(Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -675,12 +1147,24 @@
         "Name": "Seiten",
         "Format": {
           "Prefix": "",
-          "Suffix": "",
+          "Suffix": ", ",
           "Italic": false,
           "Preformatted": false
         },
         "CitaviMapping": [
           "pages"
+        ]
+      },
+      {
+        "Name": "Doi",
+        "Format": {
+          "Prefix": "abrufbar unter: ",
+          "Suffix": "",
+          "Italic": true,
+          "Preformatted": false
+        },
+        "CitaviMapping": [
+          "doi"
         ]
       }
     ],
@@ -706,8 +1190,10 @@
         "CitaviMapping": []
       }
     ],
-    "CitaviCategory": "proceedings",
-    "CitaviFilter": []
+    "CitaviCategory": "inproceedings",
+    "CitaviFilter": [
+      "doi"
+    ]
   },
   {
     "Name": "aufsatz",
@@ -716,7 +1202,7 @@
         "Name": "Autor",
         "Format": {
           "Prefix": "",
-          "Suffix": " ",
+          "Suffix": "f ",
           "Italic": true,
           "Preformatted": false
         },
