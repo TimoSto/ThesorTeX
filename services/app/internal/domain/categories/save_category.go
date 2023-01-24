@@ -34,7 +34,7 @@ func SaveCategory(fs filesystem.FileSystem, cfg config.Config, project string, n
 		return all[i].Name < all[j].Name
 	})
 
-	data, err := json.Marshal(all)
+	data, err := json.MarshalIndent(all, "", "\t")
 	if err != nil {
 		return err
 	}

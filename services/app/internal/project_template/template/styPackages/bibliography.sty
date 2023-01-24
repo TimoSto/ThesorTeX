@@ -22,38 +22,27 @@
 \newcommand{\printBibEntry}[1]{
 	\IfStrEqCase{#1}{%
 	% begin bib assignment
-		{aufsatz}{\printaufsatz}%
-		{Buch}{\printBuch}%
-		{citaviAufsatz}{\printcitaviAufsatz}%
-		{citaviAufsatzDoi}{\printcitaviAufsatzDoi}%
-		{citaviBook}{\printcitaviBook}%
-		{citaviBookDoi}{\printcitaviBookDoi}%
-		{citaviInbook}{\printcitaviInbook}%
-		{citaviInbookDoi}{\printcitaviInbookDoi}%
-		{citaviInCollection}{\printcitaviInCollection}%
-		{citaviInCollectionDoi}{\printcitaviInCollectionDoi}%
-		{citaviInProceedings}{\printcitaviInProceedings}%
-		{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi}%
-		{citaviProceedings}{\printcitaviProceedings}%
-		{citaviProceedingsDoi}{\printcitaviProceedingsDoi}%
-		{citaviThesis}{\printcitaviThesis}%
-		{Norm}{\printNorm}%
-		{onlineAufsatz}{\printonlineAufsatz}%
-		{website}{\printwebsite}%
+			{CitaviArticle}{\printCitaviArticle}%
+			{CitaviBook}{\printCitaviBook}%
+			{CitaviBooklet}{\printCitaviBooklet}%
+			{CitaviInBook}{\printCitaviInBook}%
+			{CitaviInCollection}{\printCitaviInCollection}%
+			{CitaviInProceedings}{\printCitaviInProceedings}%
+			{aufsatz}{\printaufsatz}%
 	% end bib assignment
-		{empty}{}%
+			{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type '.}\color{black}]%
 }
 
 %print bibliography
 \newcommand{\printMyBibliography}[0]{
-	
+
 	\begin{center}
 		\begin{LARGE}
 			Literaturverzeichnis
 		\end{LARGE}
 	\end{center}
-	%Jeder Eintrag in CSV-Datei (literatur-DB) wird auf den type überprüft und die Daten werden an den jeweiligen Command weitergegeben. (Falls type anders ist, kommt es zu einem Fehler)
+%Jeder Eintrag in CSV-Datei (literatur-DB) wird auf den type überprüft und die Daten werden an den jeweiligen Command weitergegeben. (Falls type anders ist, kommt es zu einem Fehler)
 	\DTLforeach*{literatur}
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}
 	{
@@ -79,166 +68,67 @@
 %!!!DO NOT REMOVE SPACES IN THE COMMANDS!!! (Otherwise the indendation after the second line won't work)
 
 % begin bib commands
-\newcommand{\printaufsatz}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII). \argIII. In: \textit{\argIV} \argV, S. \argVI, \argVII
-	\\
-	\vspace{-12pt}
+\newcommand{\printCitaviArticle}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV} \argV, \argVI%
+	\\%
+	\vspace{-12pt}%
 
 }
-\newcommand{\printBuch}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. Ausgabe \argIV (\argV)
-	\\
-	\vspace{-12pt}
+\newcommand{\printCitaviBook}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} (\argIV. Aufl.). \argV (Hrsg.).%
+	\\%
+	\vspace{-12pt}%
 
 }
-\newcommand{\printcitaviAufsatz}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII). \argIII. In: \textit{\argIV} \argV, S. \argVI
-	\\
-	\vspace{-12pt}
+\newcommand{\printCitaviBooklet}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} %
+	\\%
+	\vspace{-12pt}%
 
 }
-\newcommand{\printcitaviAufsatzDoi}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII). \argIII. In: \textit{\argIV} \argV, S. \argVI, https://doi.org/\argVII
-	\\
-	\vspace{-12pt}
+\newcommand{\printCitaviInBook}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV (Hrsg.), \argVI. \argVII%
+	\\%
+	\vspace{-12pt}%
 
 }
-\newcommand{\printcitaviBook}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII). \argIII (ISBN: \argIV). \argV (Hrsg.), \argVI
-	\\
-	\vspace{-12pt}
+\newcommand{\printCitaviInCollection}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV (Hrsg.), \argVI. \argVII%
+	\\%
+	\vspace{-12pt}%
 
 }
-\newcommand{\printcitaviBookDoi}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\argI (\argII). \argIII (ISBN: \argIV). \argV (Hrsg.), https://doi.org/\argVI
-	\\
-	\vspace{-12pt}
+\newcommand{\printCitaviInProceedings}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\argI (\argII): \textit{\argIII} In: \textit{\argIV}, \argV (Hrsg.), \argVI. \argVII%
+	\\%
+	\vspace{-12pt}%
 
 }
-\newcommand{\printcitaviInbook}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV. \argVI (Hrsg.), \argVII.
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInbookDoi}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV. \argVI (Hrsg.), \argVII. https://doi.org/\argVIII
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInCollection}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII). \argIII. In: \argIV (S. \argV). \argVI (Hrsg.), \argVII
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInCollectionDoi}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. \argIV (S. \argV). \argVI, \argVII. https://doi.org/\argVIII
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInProceedings}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV, abrufbar unter: \argVI
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInProceedingsDoi}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. In: \argIV, S. \argV, https://doi.org/\argVI
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviProceedings}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII). \argIII, \argIV
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviProceedingsDoi}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI}  (\argII). \argIII, https://doi.org/\argIV
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviThesis}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI}  (\argII). \argIII, \argIV
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printNorm}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\argI (Hrsg.) (\textit{\argII}):\argIII, \argIV, \argV, \argVI
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printonlineAufsatz}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. abrufbar unter: \argIV, zuletzt abgerufen am \argV
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printwebsite}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{\argI} (\argII) \argIII. \argIV, zuletzt abgerufen am \argV
-	\\
-	\vspace{-12pt}
+\newcommand{\printaufsatz}[0]{%
+	\hangindent=\bibparindent%
+	\parindent 0pt%
+	\hangafter=1%
+	\textit{\argI} (\argII), \argIII, in: \textit{\argIV} \argV S. \textit{\argVI}, abrufbar unter: \textit{\argVII} %
+	\\%
+	\vspace{-12pt}%
 
 }
 % end bib commands
@@ -258,7 +148,7 @@
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}%
 	{%
 		\IfStrEqCase{#1}{%
-			{\key}{%
+				{\key}{%
 				\renewcommand\argI{\a}%
 				\renewcommand\argII{\b}%
 				\renewcommand\argIII{\c}%
@@ -273,8 +163,8 @@
 				\newcommand{\citeContent}{\getCite{\type}}%
 				%
 				\IfStrEqCase{\citeInFootnote}{%
-					{true}{\footnote{#2\citeContent #3.}}%
-					{false}{ (#2\citeContent #3)}%
+						{true}{\footnote{#2\citeContent #3.}}%
+						{false}{ (#2\citeContent #3)}%
 				}%
 			}%
 		}[]% CHANGE IS HERE
@@ -284,82 +174,38 @@
 \newcommand{\getCite}[1] {%
 	\IfStrEqCase{\type}{%
 	% begin cite assignment
-		{aufsatz}{\citeaufsatz}%
-		{Buch}{\citeBuch}%
-		{citaviAufsatz}{\citecitaviAufsatz}%
-		{citaviAufsatzDoi}{\citecitaviAufsatzDoi}%
-		{citaviBook}{\citecitaviBook}%
-		{citaviBookDoi}{\citecitaviBookDoi}%
-		{citaviInbook}{\citecitaviInbook}%
-		{citaviInbookDoi}{\citecitaviInbookDoi}%
-		{citaviInCollection}{\citecitaviInCollection}%
-		{citaviInCollectionDoi}{\citecitaviInCollectionDoi}%
-		{citaviInProceedings}{\citecitaviInProceedings}%
-		{citaviInProceedingsDoi}{\citecitaviInProceedingsDoi}%
-		{citaviProceedings}{\citecitaviProceedings}%
-		{citaviProceedingsDoi}{\citecitaviProceedingsDoi}%
-		{citaviThesis}{\citecitaviThesis}%
-		{Norm}{\citeNorm}%
-		{onlineAufsatz}{\citeonlineAufsatz}%
-		{website}{\citewebsite}%
+			{CitaviArticle}{\citeCitaviArticle}%
+			{CitaviBook}{\citeCitaviBook}%
+			{CitaviBooklet}{\citeCitaviBooklet}%
+			{CitaviInBook}{\citeCitaviInBook}%
+			{CitaviInCollection}{\citeCitaviInCollection}%
+			{CitaviInProceedings}{\citeCitaviInProceedings}%
+			{aufsatz}{\citeaufsatz}%
 	% end cite assignment
 	}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 }
 
 % begin cite commands
+\newcommand{\citeCitaviArticle}[0]{%
+	\argVII (\argII), %
+}
+\newcommand{\citeCitaviBook}[0]{%
+	\argVI (\argII), %
+}
+\newcommand{\citeCitaviBooklet}[0]{%
+	\argIV (\argII), %
+}
+\newcommand{\citeCitaviInBook}[0]{%
+	\argVIII (\argII), %
+}
+\newcommand{\citeCitaviInCollection}[0]{%
+	\argVIII (\argII), %
+}
+\newcommand{\citeCitaviInProceedings}[0]{%
+	\argVIII (\argII), %
+}
 \newcommand{\citeaufsatz}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citeBuch}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviAufsatz}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviAufsatzDoi}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviBook}[0]{%
-	\textit{\argI} (\argII)\argIII%
-}
-\newcommand{\citecitaviBookDoi}[0]{%
-	\argI (\argII)\argIII%
-}
-\newcommand{\citecitaviInbook}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviInbookDoi}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviInCollection}[0]{%
-	\textit{\argI} (\argII)\argIII%
-}
-\newcommand{\citecitaviInCollectionDoi}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviInProceedings}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviInProceedingsDoi}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviProceedings}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviProceedingsDoi}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citecitaviThesis}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citeNorm}[0]{%
-	\textit{\argI}\argII%
-}
-\newcommand{\citeonlineAufsatz}[0]{%
-	\textit{\argI} (\argII), \argIII%
-}
-\newcommand{\citewebsite}[0]{%
-	\textit{\argI} (\argII)\argIII%
+	\textit{\argVIII} \textit{\argII} %
 }
 % end cite commands
 
