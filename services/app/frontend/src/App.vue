@@ -125,7 +125,6 @@ const sidebarDisabled = computed(() => {
 });
 
 const pagesCount = computed(() => {
-  console.log(appStateStore.history.length);
   return appStateStore.history.length;
 });
 

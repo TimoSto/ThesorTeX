@@ -54,7 +54,6 @@ export const useAppStateStore = defineStore({
             this.currentProject = name;
         },
         setItem(id: string) {
-            console.log(id);
             this.currentItem = id;
         }
     }
