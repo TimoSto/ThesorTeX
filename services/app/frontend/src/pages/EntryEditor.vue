@@ -46,6 +46,7 @@
                       color="primary"
                       variant="underlined"
                       :items="categories"
+                      :menu-props="{maxHeight: '200px'}"
                     />
                   </template>
                 </ResponsiveTable>

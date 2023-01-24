@@ -46,6 +46,7 @@
                       color="primary"
                       variant="underlined"
                       :items="categories"
+                      :menu-props="{maxHeight: '200px'}"
                     />
                   </template>
                   <template #2-1>
@@ -56,6 +57,7 @@
                       :items="attributes"
                       multiple
                       hide-selected
+                      :menu-props="{maxHeight: '200px'}"
                     />
                   </template>
                 </ResponsiveTable>
@@ -154,6 +156,7 @@
                         multiple
                         hide-selected
                         variant="underlined"
+                        :menu-props="{maxHeight: '200px'}"
                       />
                     </template>
                     <template
