@@ -19,12 +19,12 @@ func SaveCategoriesToSty(fs filesystem.FileSystem, cfg config.Config, project st
 	}
 
 	bibCommands, citeCommands := GeneratePrintCommands(categories)
-	bibCommands = "% begin bib commands\n" + bibCommands + "% end bib commands\n"
-	citeCommands = "% begin cite commands\n" + citeCommands + "% end cite commands\n"
+	bibCommands = "% begin bib commands\n" + bibCommands + "% end bib commands"
+	citeCommands = "% begin cite commands\n" + citeCommands + "% end cite commands"
 
 	bibAssignments, citeAssignments := GenerateAssignment(categories)
-	bibAssignments = "% begin bib assignment\n" + bibAssignments + "\t% end bib assignment\n"
-	citeAssignments = "% begin cite assignment\n" + citeAssignments + "\t% end cite assignment\n"
+	bibAssignments = "% begin bib assignment\n" + bibAssignments + "\t% end bib assignment"
+	citeAssignments = "% begin cite assignment\n" + citeAssignments + "\t% end cite assignment"
 
 	m1 := regexp.MustCompile(`(?s)% begin bib commands(.*?)% end bib commands`)
 	newFile := m1.ReplaceAllString(string(file), bibCommands)

@@ -44,5 +44,10 @@ func SaveCategory(fs filesystem.FileSystem, cfg config.Config, project string, n
 		return err
 	}
 
+	err = SaveCategoriesToSty(fs, cfg, project, all)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
