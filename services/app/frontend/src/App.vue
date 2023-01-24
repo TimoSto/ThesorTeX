@@ -27,7 +27,7 @@
     <v-navigation-drawer
       permanent
       :rail="!sidebarOpened"
-      :rail-width="68"
+      :rail-width="56"
     >
       <!--Sidebar content-->
     </v-navigation-drawer>
