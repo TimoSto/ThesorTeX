@@ -5,13 +5,16 @@ go_library(
     srcs = [
         "category.go",
         "delete_category.go",
+        "generate_sty.go",
         "get_all_categories.go",
         "save_category.go",
+        "save_sty.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/categories",
     visibility = ["//services/app:__subpackages__"],
     deps = [
         "//pkg/backend/pathbuilder",
+        "//pkg/backend/romannumerals",
         "//services/app/internal/config",
         "//services/app/internal/filesystem",
     ],
@@ -21,8 +24,10 @@ go_test(
     name = "categories_test",
     srcs = [
         "delete_category_test.go",
+        "generate_sty_test.go",
         "get_all_categories_test.go",
         "save_category_test.go",
+        "save_sty_test.go",
     ],
     embed = [":categories"],
     deps = [
@@ -30,5 +35,6 @@ go_test(
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
         "//services/app/internal/filesystem/fake",
+        "//services/app/internal/project_template",
     ],
 )
