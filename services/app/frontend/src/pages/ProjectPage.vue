@@ -22,6 +22,10 @@
                   {{ t(i18nKeys.ProjectPage.Entries) }}
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
+                  <CitaviDragNDrop
+                    :title="t(i18nKeys.EntryEditor.DragNDrop)"
+                    style="margin-bottom: 8px;"
+                  />
                   <ResponsiveTable
                     :rows="entriesRows"
                     :headers="entriesHeaders"
@@ -125,6 +129,7 @@ import GenerateEntryForCategory from "../domain/category/GenerateEntry";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import DeleteProject from "../api/projects/DeleteProject";
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
+import CitaviDragNDrop from "../components/CitaviDragNDrop.vue";
 
 // globals
 const appStateStore = useAppStateStore();

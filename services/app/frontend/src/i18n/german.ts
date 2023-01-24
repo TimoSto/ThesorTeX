@@ -80,5 +80,6 @@ export const german: I18nKeys = {
         DeleteMessage: "Möchtest du den Eintrag {key} wirklich löschen?",
         SuccessDelete: "Eintrag erfolgreich gelöscht",
         ErrorDelete: "Der Eintrag konnte nicht gelöscht werden",
+        DragNDrop: "Citavi-Export hochladen"
     }
 };

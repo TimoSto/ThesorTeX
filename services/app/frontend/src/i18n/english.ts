@@ -80,5 +80,6 @@ export const english: I18nKeys = {
         DeleteMessage: "Do you really want to delete the entry {key}?",
         SuccessDelete: "Entry successfully deleted",
         ErrorDelete: "The entry could not be deleted.",
+        DragNDrop: "Upload citavi-export"
     }
 };

@@ -77,7 +77,8 @@ export const i18nKeys = {
         DeleteTitle: "EntryEditor.DeleteTitle",
         DeleteMessage: "EntryEditor.DeleteMessage",
         SuccessDelete: "EntryEditor.SuccessDelete",
-        ErrorDelete: "CategoryEditor.ErrorDelete",
+        ErrorDelete: "EntryEditor.ErrorDelete",
+        DragNDrop: "EntryEditor.DragNDrop"
     }
 };
 
