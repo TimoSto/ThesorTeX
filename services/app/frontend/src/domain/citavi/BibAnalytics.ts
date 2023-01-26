@@ -1,4 +1,5 @@
 import {CitaviEntry} from "./Citavi";
+import {Category} from "../category/Category";
 
 export function AnalyseBibFile(file: string): CitaviEntry[] {
 
@@ -62,6 +63,38 @@ export function AnalyseBibFile(file: string): CitaviEntry[] {
     return entries;
 }
 
-function AssignCategories() {
+export function getCategoryScore(entry: CitaviEntry, category: Category): number {
+    let score = 0;
+
+    if (entry.Category !== category.CitaviCategory) {
+        return -1;
+    }
+
+    const attributes = entry.Attributes.map(a => a.Attr);
+
+    for (let i = 0; i < category.CitaviFilter.length; i++) {
+        if (attributes.indexOf(category.CitaviFilter[i]) >= 0) {
+            score++;
+        } else {
+            return -1;
+        }
+    }
+
+    return score;
+}
+
+export function AssignCategory(entry: CitaviEntry, categories: Category[]): Category | undefined {
+    let max = -1;
+    let category: Category | undefined;
+
+    categories.forEach(c => {
+        const score = getCategoryScore(entry, c);
+        if (score >= 0 && score > max) {
+            category = c;
+            max = score;
+        }
+    });
+
+    return category;
 
 }

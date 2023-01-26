@@ -1,6 +1,8 @@
 import {describe, expect, it} from "vitest";
 import {ReadFile} from "../testdata/testdataReader";
-import {AnalyseBibFile} from "./BibAnalytics";
+import {AnalyseBibFile, AssignCategory, getCategoryScore} from "./BibAnalytics";
+import {AttributeValue, CitaviEntry} from "./Citavi";
+import {Category} from "../category/Category";
 
 describe("BibAnalytics", () => {
     describe("AnalyseBibFile", () => {
@@ -88,5 +90,167 @@ describe("BibAnalytics", () => {
         //
         //     expect(citaviEntries).toEqual(expected);
         // });
+    });
+    describe("getCategoryScore", () => {
+        it("should give -1 if category name does not match", () => {
+            expect(getCategoryScore({
+                Key: "f",
+                Category: "test",
+                Attributes: [] as AttributeValue[]
+            }, {
+                Name: "teste",
+                CitaviCategory: "teste",
+                CitaviFilter: [] as string[],
+            } as Category)).toEqual(-1);
+        });
+        it("should give 0 if category name does match", () => {
+            expect(getCategoryScore({
+                Key: "f",
+                Category: "test",
+                Attributes: [] as AttributeValue[]
+            }, {
+                Name: "teste",
+                CitaviCategory: "test",
+                CitaviFilter: [] as string[],
+            } as Category)).toEqual(0);
+        });
+        it("should give 1 if one attribute matches", () => {
+            expect(getCategoryScore({
+                Key: "f",
+                Category: "test",
+                Attributes: [
+                    {Attr: "t1", Value: "t2"}
+                ]
+            }, {
+                Name: "teste",
+                CitaviCategory: "test",
+                CitaviFilter: ["t1"],
+            } as Category)).toEqual(1);
+        });
+        it("should give 2 if 2 attributes matches", () => {
+            expect(getCategoryScore({
+                Key: "f",
+                Category: "test",
+                Attributes: [
+                    {Attr: "t1", Value: "t2"},
+                    {Attr: "ta", Value: "t2"}
+                ]
+            }, {
+                Name: "teste",
+                CitaviCategory: "test",
+                CitaviFilter: ["t1", "ta"],
+            } as Category)).toEqual(2);
+        });
+        it("should give -1 if 2 attributes matche but not category name", () => {
+            expect(getCategoryScore({
+                Key: "f",
+                Category: "tester",
+                Attributes: [
+                    {Attr: "t1", Value: "t2"},
+                    {Attr: "ta", Value: "t2"}
+                ]
+            }, {
+                Name: "teste",
+                CitaviCategory: "test",
+                CitaviFilter: ["t1", "ta"],
+            } as Category)).toEqual(-1);
+        });
+        it("should give -1 if an attribute is missing", () => {
+            expect(getCategoryScore({
+                Key: "f",
+                Category: "tester",
+                Attributes: [
+                    {Attr: "t1", Value: "t2"}
+                ]
+            }, {
+                Name: "teste",
+                CitaviCategory: "test",
+                CitaviFilter: ["t1", "ta"],
+            } as Category)).toEqual(-1);
+        });
+    });
+    describe("AssignCategory", () => {
+        it("should give c1 if only c1 exists but matches", () => {
+            const cs: Category[] = [
+                {
+                    Name: "c1",
+                    CitaviCategory: "t1",
+                    CitaviFilter: [] as string[],
+                } as Category
+            ];
+
+            const e: CitaviEntry = {
+                Key: "test",
+                Category: "t1",
+                Attributes: []
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(cs[0]);
+        });
+        it("should give undefined if only c1 exists but matches", () => {
+            const cs: Category[] = [
+                {
+                    Name: "c1",
+                    CitaviCategory: "t1",
+                    CitaviFilter: [] as string[],
+                } as Category
+            ];
+
+            const e: CitaviEntry = {
+                Key: "test",
+                Category: "t2",
+                Attributes: []
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(undefined);
+        });
+        it("should give c1 if it has a higher score that c2", () => {
+            const cs: Category[] = [
+                {
+                    Name: "c1",
+                    CitaviCategory: "t1",
+                    CitaviFilter: ["f1"] as string[],
+                } as Category,
+                {
+                    Name: "c2",
+                    CitaviCategory: "t1",
+                    CitaviFilter: [] as string[],
+                } as Category
+            ];
+
+            const e: CitaviEntry = {
+                Key: "test",
+                Category: "t1",
+                Attributes: [
+                    {Attr: "f1", Value: ""}
+                ]
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(cs[0]);
+        });
+        it("should give c2 if an attribute from c1 is missing", () => {
+            const cs: Category[] = [
+                {
+                    Name: "c1",
+                    CitaviCategory: "t1",
+                    CitaviFilter: ["f1", "f2"] as string[],
+                } as Category,
+                {
+                    Name: "c2",
+                    CitaviCategory: "t1",
+                    CitaviFilter: ["f1"] as string[],
+                } as Category
+            ];
+
+            const e: CitaviEntry = {
+                Key: "test",
+                Category: "t1",
+                Attributes: [
+                    {Attr: "f1", Value: ""}
+                ]
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(cs[1]);
+        });
     });
 });
