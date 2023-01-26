@@ -1,7 +1,8 @@
 import {CitaviEntry} from "./Citavi";
 import {Category} from "../category/Category";
+import {Entry} from "../entry/Entry";
 
-export function AnalyseBibFile(file: string): CitaviEntry[] {
+export function GetEntries(file: string): CitaviEntry[] {
 
     const entries: CitaviEntry[] = [];
 
@@ -83,9 +84,9 @@ export function getCategoryScore(entry: CitaviEntry, category: Category): number
     return score;
 }
 
-export function AssignCategory(entry: CitaviEntry, categories: Category[]): Category | undefined {
+export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entry | undefined {
     let max = -1;
-    let category: Category | undefined;
+    let category: Category = {} as Category;
 
     categories.forEach(c => {
         const score = getCategoryScore(entry, c);
@@ -95,6 +96,28 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Cate
         }
     });
 
-    return category;
+    if (max === -1) {
+        return undefined;
+    }
+
+    const parsedEntry: Entry = {
+        Key: entry.Key,
+        Category: category.Name,
+        Fields: []
+    };
+
+    category.BibFields.forEach(f => {
+        let val = "";
+
+        const attribute = entry.Attributes.find(a => f.CitaviMapping.indexOf(a.Attr) >= 0);
+
+        if (attribute) {
+            val = attribute.Value;
+        }
+
+        parsedEntry.Fields.push(val);
+    });
+
+    return parsedEntry;
 
 }

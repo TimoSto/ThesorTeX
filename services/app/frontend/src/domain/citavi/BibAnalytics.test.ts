@@ -1,15 +1,16 @@
 import {describe, expect, it} from "vitest";
 import {ReadFile} from "../testdata/testdataReader";
-import {AnalyseBibFile, AssignCategory, getCategoryScore} from "./BibAnalytics";
+import {AssignCategory, getCategoryScore, GetEntries} from "./BibAnalytics";
 import {AttributeValue, CitaviEntry} from "./Citavi";
 import {Category} from "../category/Category";
+import {Entry} from "../entry/Entry";
 
 describe("BibAnalytics", () => {
-    describe("AnalyseBibFile", () => {
+    describe("GetEntries", () => {
         it("should give one entry", () => {
             const file = ReadFile("files/citavi/oneEntry.bib");
 
-            const citaviEntries = AnalyseBibFile(file);
+            const citaviEntries = GetEntries(file);
 
             expect(citaviEntries[0].Key).toEqual("f1");
             expect(citaviEntries[0].Category).toEqual("book");
@@ -21,7 +22,7 @@ describe("BibAnalytics", () => {
         it("should give two entries", () => {
             const file = ReadFile("files/citavi/twoEntriesNewline.bib");
 
-            const citaviEntries = AnalyseBibFile(file);
+            const citaviEntries = GetEntries(file);
 
             expect(citaviEntries[0].Key).toEqual("f1");
             expect(citaviEntries[0].Category).toEqual("book");
@@ -40,7 +41,7 @@ describe("BibAnalytics", () => {
         it("should give two entries", () => {
             const file = ReadFile("files/citavi/twoEntriesBracketsSameLine.bib");
 
-            const citaviEntries = AnalyseBibFile(file);
+            const citaviEntries = GetEntries(file);
 
             expect(citaviEntries[0].Key).toEqual("f1");
             expect(citaviEntries[0].Category).toEqual("book");
@@ -176,16 +177,35 @@ describe("BibAnalytics", () => {
                     Name: "c1",
                     CitaviCategory: "t1",
                     CitaviFilter: [] as string[],
+                    BibFields: [
+                        {
+                            Name: "test1",
+                            CitaviMapping: ["attr1"]
+                        }
+                    ]
                 } as Category
             ];
 
             const e: CitaviEntry = {
                 Key: "test",
                 Category: "t1",
-                Attributes: []
+                Attributes: [
+                    {
+                        Attr: "attr1",
+                        Value: "test"
+                    }
+                ]
             };
 
-            expect(AssignCategory(e, cs)).toEqual(cs[0]);
+            const expectedEntry: Entry = {
+                Key: "test",
+                Category: "c1",
+                Fields: [
+                    "test"
+                ]
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(expectedEntry);
         });
         it("should give undefined if only c1 exists but matches", () => {
             const cs: Category[] = [
@@ -209,12 +229,24 @@ describe("BibAnalytics", () => {
                 {
                     Name: "c1",
                     CitaviCategory: "t1",
-                    CitaviFilter: ["f1"] as string[],
+                    CitaviFilter: ["attr1"],
+                    BibFields: [
+                        {
+                            Name: "test1",
+                            CitaviMapping: ["attr1"]
+                        }
+                    ]
                 } as Category,
                 {
                     Name: "c2",
                     CitaviCategory: "t1",
                     CitaviFilter: [] as string[],
+                    BibFields: [
+                        {
+                            Name: "test1",
+                            CitaviMapping: ["attr1"]
+                        }
+                    ]
                 } as Category
             ];
 
@@ -222,23 +254,43 @@ describe("BibAnalytics", () => {
                 Key: "test",
                 Category: "t1",
                 Attributes: [
-                    {Attr: "f1", Value: ""}
+                    {Attr: "attr1", Value: "test"}
                 ]
             };
 
-            expect(AssignCategory(e, cs)).toEqual(cs[0]);
+            const expectedEntry: Entry = {
+                Key: "test",
+                Category: "c1",
+                Fields: [
+                    "test"
+                ]
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(expectedEntry);
         });
         it("should give c2 if an attribute from c1 is missing", () => {
             const cs: Category[] = [
                 {
                     Name: "c1",
                     CitaviCategory: "t1",
-                    CitaviFilter: ["f1", "f2"] as string[],
+                    CitaviFilter: ["attr1", "attr2"],
+                    BibFields: [
+                        {
+                            Name: "test1",
+                            CitaviMapping: ["attr1"]
+                        }
+                    ]
                 } as Category,
                 {
                     Name: "c2",
                     CitaviCategory: "t1",
-                    CitaviFilter: ["f1"] as string[],
+                    CitaviFilter: [] as string[],
+                    BibFields: [
+                        {
+                            Name: "test1",
+                            CitaviMapping: ["attr1"]
+                        }
+                    ]
                 } as Category
             ];
 
@@ -246,11 +298,19 @@ describe("BibAnalytics", () => {
                 Key: "test",
                 Category: "t1",
                 Attributes: [
-                    {Attr: "f1", Value: ""}
+                    {Attr: "attr1", Value: "test"}
                 ]
             };
 
-            expect(AssignCategory(e, cs)).toEqual(cs[1]);
+            const expectedEntry: Entry = {
+                Key: "test",
+                Category: "c2",
+                Fields: [
+                    "test"
+                ]
+            };
+
+            expect(AssignCategory(e, cs)).toEqual(expectedEntry);
         });
     });
 });
