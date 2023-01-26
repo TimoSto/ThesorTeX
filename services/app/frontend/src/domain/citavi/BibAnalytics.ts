@@ -127,8 +127,6 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entr
         }
     });
 
-    console.log(max);
-
     if (max === -1) {
         return undefined;
     }
