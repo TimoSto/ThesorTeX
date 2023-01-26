@@ -3,6 +3,37 @@ import {Category} from "../category/Category";
 import {Entry} from "../entry/Entry";
 import {trimAndParseValue} from "./ParseBibValues";
 
+interface Unknown {
+    Key: string,
+    Category: string
+}
+
+export interface AnalyseResult {
+    Entries: Entry[],
+    Unknown: Unknown[]
+}
+
+export function AnalyseBibFile(file: string, categories: Category[]): AnalyseResult {
+    const citaviEntries = GetEntries(file);
+
+    let entries: Entry[] = [];
+    let unknowns: Unknown[] = [];
+
+    citaviEntries.forEach(e => {
+        const entry = AssignCategory(e, categories);
+        if (entry) {
+            entries.push(entry);
+        } else {
+            unknowns.push({Key: e.Key, Category: e.Category});
+        }
+    });
+
+    return {
+        Entries: entries,
+        Unknown: unknowns
+    };
+}
+
 export function GetEntries(file: string): CitaviEntry[] {
 
     const entries: CitaviEntry[] = [];
@@ -95,6 +126,8 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entr
             max = score;
         }
     });
+
+    console.log(max);
 
     if (max === -1) {
         return undefined;

@@ -1,8 +1,8 @@
 import {describe, expect, it} from "vitest";
 import {ReadFile} from "../testdata/testdataReader";
-import {AssignCategory, getCategoryScore, GetEntries} from "./BibAnalytics";
+import {AnalyseBibFile, AssignCategory, getCategoryScore, GetEntries} from "./BibAnalytics";
 import {AttributeValue, CitaviEntry} from "./Citavi";
-import {Category} from "../category/Category";
+import {Category, Field} from "../category/Category";
 import {Entry} from "../entry/Entry";
 
 describe("BibAnalytics", () => {
@@ -57,40 +57,6 @@ describe("BibAnalytics", () => {
             expect(citaviEntries[1].Attributes[1].Attr).toEqual("field2");
             expect(citaviEntries[1].Attributes[1].Value).not.toEqual("");
         });
-        // it("should get all attributes", () => {
-        //     const file = ReadFile("files/citavi/moreAttributes.bib");
-        //
-        //     const citaviEntries = AnalyseBibFile(file);
-        //
-        //     const expected = [
-        //         {
-        //             Key: "Thiemann2008",
-        //             Category: "book",
-        //             Attributes: [
-        //                 {Attr: "title", Value: "Barrierefreiheit"},
-        //                 {
-        //                     Attr: "bookTitle",
-        //                     Value: "Benutzerfreundliche Online-Hilfen: Grundlagen und Umsetzung mit MadCap Flare"
-        //                 },
-        //                 {Attr: "year", Value: "2008"},
-        //                 {Attr: "publisher", Value: "Vieweg+Teubner"},
-        //                 {Attr: "address", Value: "Wiesbaden"},
-        //                 {Attr: "pages", Value: "143--157"},
-        //                 {
-        //                     Attr: "abstract",
-        //                     Value: "Barrierefreies Design bedeutet, dass Menschen mit Behinderungen ein elektronisches Angebot uneingeschränkt und selbstständig nutzen können. Im Sinne der Nutzbarkeit muss die Barrierefreiheit beispielsweise einer Online-Hilfe im Web einen Schritt über die reine Zugänglichkeit hinausgehen: auch behinderte Nutzer sollen mit ihren Fähigkeiten und Hilfsmitteln elektronische Angebote nutzen können. Barrierefreiheit ist somit Gebrauchstauglichkeit vor dem Hintergrund einer Behinderung oder Einschränkung."
-        //                 },
-        //                 {Attr: "isbn", Value: "978-3-8348-9483-0"},
-        //                 {Attr: "doi", Value: "10.1007/978-3-8348-9483-0_7"},
-        //                 {Attr: "url", Value: "https://doi.org/10.1007/978-3-8348-9483-0_7"}
-        //             ]
-        //         }
-        //     ] as CitaviEntry[];
-        //
-        //     console.log(citaviEntries[0].Attributes[6]);
-        //
-        //     expect(citaviEntries).toEqual(expected);
-        // });
     });
     describe("getCategoryScore", () => {
         it("should give -1 if category name does not match", () => {
@@ -326,6 +292,114 @@ describe("BibAnalytics", () => {
             };
 
             expect(AssignCategory(e, cs)).toEqual(expectedEntry);
+        });
+    });
+    describe("AnalyseBibFile", () => {
+        it("should work on a single entry", () => {
+            const file = ReadFile("files/citavi/oneEntry.bib");
+
+            const categories: Category[] = [
+                {
+                    Name: "test1",
+                    CitaviCategory: "book",
+                    BibFields: [
+                        {
+                            Name: "f1",
+                            CitaviMapping: ["field1"],
+                        } as Field,
+                        {
+                            Name: "f2",
+                            CitaviMapping: ["field2"],
+                        } as Field,
+                    ],
+                    CiteFields: [],
+                    CitaviFilter: []
+                }
+            ];
+
+            const result = AnalyseBibFile(file, categories);
+            expect(result.Unknown.length).toEqual(0);
+            expect(result.Entries.length).toEqual(1);
+            expect(result.Entries[0]).toEqual({
+                Key: "f1",
+                Category: "test1",
+                Fields: [
+                    "hallo",
+                    "@test"
+                ]
+            });
+        });
+        it("Should mark unknown", () => {
+            const file = ReadFile("files/citavi/twoEntriesNewline.bib");
+
+            const categories: Category[] = [
+                {
+                    Name: "test1",
+                    CitaviCategory: "book",
+                    BibFields: [
+                        {
+                            Name: "f1",
+                            CitaviMapping: ["field1"],
+                        } as Field,
+                        {
+                            Name: "f2",
+                            CitaviMapping: ["field2"],
+                        } as Field,
+                    ],
+                    CiteFields: [],
+                    CitaviFilter: []
+                }
+            ];
+
+            const result = AnalyseBibFile(file, categories);
+            expect(result.Unknown.length).toEqual(1);
+            expect(result.Unknown[0]).toEqual({Key: "f2", Category: "wer"});
+            expect(result.Entries.length).toEqual(1);
+            expect(result.Entries[0]).toEqual({
+                Key: "f1",
+                Category: "test1",
+                Fields: [
+                    "hallo",
+                    "@test"
+                ]
+            });
+        });
+        it("should get all attributes", () => {
+            const file = ReadFile("files/citavi/moreAttributes.bib");
+
+            const categories: Category[] = [
+                {
+                    Name: "test1",
+                    CitaviCategory: "book",
+                    BibFields: [
+                        {Name: "f1", CitaviMapping: ["title"]} as Field,
+                        {Name: "f2", CitaviMapping: ["bookTitle"]} as Field,
+                        {Name: "f3", CitaviMapping: ["year"]} as Field,
+                        {Name: "f4", CitaviMapping: ["publisher"]} as Field,
+                        {Name: "f5", CitaviMapping: ["address"]} as Field,
+                        {Name: "f6", CitaviMapping: ["doi"]} as Field,
+                        {Name: "f7", CitaviMapping: ["pages"]} as Field,
+                    ],
+                    CiteFields: [],
+                    CitaviFilter: []
+                }
+            ];
+
+            const citaviEntries = AnalyseBibFile(file, categories);
+
+            expect(citaviEntries.Entries[0]).toEqual({
+                Key: "Thiemann2008",
+                Category: "test1",
+                Fields: [
+                    "Barrierefreiheit",
+                    "Benutzerfreundliche Online-Hilfen: Grundlagen und Umsetzung mit MadCap Flare",
+                    "2008",
+                    "Vieweg+Teubner",
+                    "Wiesbaden",
+                    "10.1007/978-3-8348-9483-0_7",
+                    "143--157",
+                ]
+            });
         });
     });
 });
