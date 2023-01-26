@@ -30,3 +30,14 @@ export const attributes: string[] = [
     "volume",
     "year",
 ];
+
+export interface AttributeValue {
+    Attr: string;
+    Value: string;
+}
+
+export interface CitaviEntry {
+    Key: string;
+    Category: string;
+    Attributes: AttributeValue[];
+}
