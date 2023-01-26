@@ -22,10 +22,13 @@ import {ref} from "vue";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
+import {AnalyseBibFile} from "../domain/citavi/BibAnalytics";
+import {Category} from "../domain/category/Category";
 
 // globals
-defineProps({
-  title: String
+const props = defineProps({
+  title: String,
+  categories: Array<Category>
 });
 
 const errorSuccessStore = useErrorSuccessStore();
@@ -41,6 +44,7 @@ function handleDrop(evt: DragEvent) {
   if (evt.dataTransfer) {
     if (evt.dataTransfer.items) {
       const file = evt.dataTransfer.items[0].getAsFile();
+      // TODO: why null?
       if (file) {
         processFile(file);
       }
@@ -85,7 +89,8 @@ function processFile(file: File) {
           const enc = new TextDecoder("utf-8");
           content = enc.decode(content);
         }
-
+        const result = AnalyseBibFile(content, props.categories!);
+        console.log(result);
       }
     }
   };

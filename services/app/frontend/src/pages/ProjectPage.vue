@@ -24,6 +24,7 @@
                 <v-expansion-panel-text>
                   <CitaviDragNDrop
                     :title="t(i18nKeys.ProjectPage.DragNDrop)"
+                    :categories="categories"
                     style="margin-bottom: 8px;"
                   />
                   <ResponsiveTable
@@ -224,6 +225,10 @@ const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
       size: SizeClasses.IconBtn
     },
   ];
+});
+
+const categories = computed(() => {
+  return projectDataStore.categories;
 });
 
 async function syncProjectData() {
