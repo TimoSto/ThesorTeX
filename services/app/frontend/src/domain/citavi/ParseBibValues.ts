@@ -7,6 +7,7 @@ const unparseValues = [
 ];
 
 export function trimAndParseValue(v: string): string {
+    // this parsing happens always
     v = v.trim();
     if (v.charAt(0) === "{" && v.charAt(v.length - 1) === "}") {
         v = v.substring(1, v.length - 1);

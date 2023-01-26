@@ -1,6 +1,7 @@
 import {CitaviEntry} from "./Citavi";
 import {Category} from "../category/Category";
 import {Entry} from "../entry/Entry";
+import {trimAndParseValue} from "./ParseBibValues";
 
 export function GetEntries(file: string): CitaviEntry[] {
 
@@ -56,7 +57,6 @@ export function GetEntries(file: string): CitaviEntry[] {
                 Value: attrValue[1].trim()
             });
         }
-        console.log(entry.Attributes[6]);
 
         entries.push(entry);
     }
@@ -112,7 +112,7 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entr
         const attribute = entry.Attributes.find(a => f.CitaviMapping.indexOf(a.Attr) >= 0);
 
         if (attribute) {
-            val = attribute.Value;
+            val = trimAndParseValue(attribute.Value);
         }
 
         parsedEntry.Fields.push(val);

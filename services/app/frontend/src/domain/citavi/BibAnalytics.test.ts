@@ -180,7 +180,10 @@ describe("BibAnalytics", () => {
                     BibFields: [
                         {
                             Name: "test1",
-                            CitaviMapping: ["attr1"]
+                            CitaviMapping: ["attr1"],
+                            Format: {
+                                Preformatted: false
+                            }
                         }
                     ]
                 } as Category
@@ -233,7 +236,10 @@ describe("BibAnalytics", () => {
                     BibFields: [
                         {
                             Name: "test1",
-                            CitaviMapping: ["attr1"]
+                            CitaviMapping: ["attr1"],
+                            Format: {
+                                Preformatted: false
+                            }
                         }
                     ]
                 } as Category,
@@ -244,7 +250,10 @@ describe("BibAnalytics", () => {
                     BibFields: [
                         {
                             Name: "test1",
-                            CitaviMapping: ["attr1"]
+                            CitaviMapping: ["attr1"],
+                            Format: {
+                                Preformatted: false
+                            }
                         }
                     ]
                 } as Category
@@ -277,7 +286,10 @@ describe("BibAnalytics", () => {
                     BibFields: [
                         {
                             Name: "test1",
-                            CitaviMapping: ["attr1"]
+                            CitaviMapping: ["attr1"],
+                            Format: {
+                                Preformatted: false
+                            }
                         }
                     ]
                 } as Category,
@@ -288,7 +300,10 @@ describe("BibAnalytics", () => {
                     BibFields: [
                         {
                             Name: "test1",
-                            CitaviMapping: ["attr1"]
+                            CitaviMapping: ["attr1"],
+                            Format: {
+                                Preformatted: false
+                            }
                         }
                     ]
                 } as Category
