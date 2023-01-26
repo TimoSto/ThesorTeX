@@ -63,7 +63,7 @@ export function GetEntries(file: string): CitaviEntry[] {
 
         const entry: CitaviEntry = {
             Key: key[0],
-            Category: category[0],
+            Category: category[0].toLowerCase(),
             Attributes: []
         };
 
@@ -74,10 +74,36 @@ export function GetEntries(file: string): CitaviEntry[] {
             parts[i] = parts[i].slice(0, lastIndex);
         }
 
-        //TODO: take enclosure in {} into account
+        //TODO: do by regex
 
-        // split at comma outside quotes
-        const attributeValuePairs = parts[i].split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/g);
+        // split at commas not part of value (outside quotes or brackets)
+        const attributeValuePairs: string[] = [];
+
+        let inquotes = false;
+        let bracketsCounter = 0;
+        let lastIndexOfComma = 0;
+
+        for (let j = 0; j < parts[i].length; j++) {
+            if (parts[i].charAt(j) === "{") {
+                if (j === 0 || parts[i].charAt(j - 1) !== "\\") {
+                    bracketsCounter++;
+                }
+            }
+            if (parts[i].charAt(j) === "}") {
+                if (parts[i].charAt(j - 1) !== "\\") {
+                    bracketsCounter--;
+                }
+            }
+            if (parts[i].charAt(j) === "\"") {
+                if (j === 0 || parts[i].charAt(j - 1) !== "\\") {
+                    inquotes = !inquotes;
+                }
+            }
+            if ((parts[i].charAt(j) === "," || j === parts[i].length - 1) && bracketsCounter === 0 && !inquotes) {
+                attributeValuePairs.push(parts[i].substring(lastIndexOfComma, parts[i].charAt(j) === "\"" ? j + 1 : j));
+                lastIndexOfComma = j + 1;
+            }
+        }
 
         for (let j = 0; j < attributeValuePairs.length; j++) {
             attributeValuePairs[j] = attributeValuePairs[j].trim();
