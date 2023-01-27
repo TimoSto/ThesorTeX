@@ -35,6 +35,8 @@ const errorSuccessStore = useErrorSuccessStore();
 
 const {t} = useI18n();
 
+const emit = defineEmits(["entriesUploaded"]);
+
 // data
 const fileupload = ref(null);
 
@@ -90,7 +92,7 @@ function processFile(file: File) {
           content = enc.decode(content);
         }
         const result = AnalyseBibFile(content, props.categories!);
-        console.log(result);
+        emit("entriesUploaded", result);
       }
     }
   };

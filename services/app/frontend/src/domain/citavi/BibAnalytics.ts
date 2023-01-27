@@ -3,7 +3,7 @@ import {Category} from "../category/Category";
 import {Entry} from "../entry/Entry";
 import {trimAndParseValue} from "./ParseBibValues";
 
-interface Unknown {
+export interface Unknown {
     Key: string,
     Category: string
 }
@@ -168,8 +168,6 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entr
         let val = "";
 
         const attribute = entry.Attributes.find(a => f.CitaviMapping.indexOf(a.Attr) >= 0);
-
-        console.log(attribute, entry.Attributes, f.CitaviMapping);
 
         if (attribute) {
             val = trimAndParseValue(attribute.Value);

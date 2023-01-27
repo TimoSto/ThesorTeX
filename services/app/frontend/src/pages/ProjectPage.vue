@@ -26,6 +26,7 @@
                     :title="t(i18nKeys.ProjectPage.DragNDrop)"
                     :categories="categories"
                     style="margin-bottom: 8px;"
+                    @entries-uploaded="handleUpload"
                   />
                   <ResponsiveTable
                     :rows="entriesRows"
@@ -110,6 +111,15 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+  <v-dialog
+    v-model="uploadTriggered"
+    width="400"
+  >
+    <CitaviUploadCard
+      :entries="uploadedEntries"
+      :unknowns="uploadedUnknowns"
+    />
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -131,6 +141,8 @@ import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/
 import DeleteProject from "../api/projects/DeleteProject";
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 import CitaviDragNDrop from "../components/CitaviDragNDrop.vue";
+import {AnalyseResult, Unknown} from "../domain/citavi/BibAnalytics";
+import CitaviUploadCard from "../components/CitaviUploadCard.vue";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -145,6 +157,12 @@ const {t} = useI18n();
 
 // data
 const deleteTriggered = ref(false);
+
+const uploadTriggered = ref(false);
+
+const uploadedEntries = ref([] as Entry[]);
+
+const uploadedUnknowns = ref([] as Unknown[]);
 
 // computed
 const projectName = computed(() => {
@@ -268,6 +286,12 @@ function openCategoryEditor(n: number) {
 function openEntryEditor(n: number) {
   appStateStore.navToPage(pageNames[3]);
   appStateStore.setItem(n > -1 ? projectDataStore.entries[n].Key : "");
+}
+
+function handleUpload(result: AnalyseResult) {
+  uploadedEntries.value = result.Entries;
+  uploadedUnknowns.value = result.Unknown;
+  uploadTriggered.value = true;
 }
 
 // onload
