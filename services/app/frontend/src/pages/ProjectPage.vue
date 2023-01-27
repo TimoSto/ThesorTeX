@@ -311,7 +311,9 @@ function rmUploadedEntry(n: number) {
 
 async function uploadDroppedEntries() {
   const success = await UploadEntries(projectName.value, uploadedEntries.value);
-  console.log(success);
+  if (success) {
+    await syncProjectData();
+  }
 }
 
 // onload
