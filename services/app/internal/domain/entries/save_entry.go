@@ -53,3 +53,50 @@ func SaveEntry(fs filesystem.FileSystem, cfg config.Config, project string, key 
 
 	return nil
 }
+
+func SaveEntries(fs filesystem.FileSystem, cfg config.Config, project string, entries []Entry) error {
+	all, err := GetAllEntries(project, fs, cfg)
+	if err != nil {
+		return err
+	}
+
+	for _, entry := range entries {
+		found := false
+		if len(entry.Key) > 0 {
+			for i, c := range all {
+				if c.Key == entry.Key {
+					all[i] = entry
+					found = true
+					break
+				}
+			}
+		}
+
+		if !found {
+			all = append(all, entry)
+		}
+	}
+
+	sort.SliceStable(all, func(i, j int) bool {
+		return all[i].Key < all[j].Key
+	})
+
+	data, err := json.Marshal(all)
+	if err != nil {
+		return err
+	}
+
+	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, entriesFile), data)
+	if err != nil {
+		return err
+	}
+
+	file := GenerateCsvForEntries(all)
+
+	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

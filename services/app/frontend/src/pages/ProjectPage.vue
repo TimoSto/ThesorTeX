@@ -310,7 +310,7 @@ function rmUploadedEntry(n: number) {
 }
 
 async function uploadDroppedEntries() {
-  const success = await UploadEntries(uploadedEntries.value);
+  const success = await UploadEntries(projectName.value, uploadedEntries.value);
   console.log(success);
 }
 

@@ -58,7 +58,7 @@
       </v-btn>
       <v-btn
         color="primary"
-        :disabled="entries.length > 0"
+        :disabled="entries.length == 0"
         @click="emit('upload')"
       >
         {{ t(i18nKeys.ProjectPage.Add) }}

@@ -40,7 +40,7 @@ func TestSaveEntry_Override(t *testing.T) {
 	}
 }
 
-func TestSaveCategory_Rename(t *testing.T) {
+func TestSaveEntry_Rename(t *testing.T) {
 	fs := fake.FileSystem{}
 
 	cfg := config.Config{ProjectsDir: "/projects"}
@@ -70,7 +70,7 @@ func TestSaveCategory_Rename(t *testing.T) {
 	}
 }
 
-func TestSaveCategory_Add(t *testing.T) {
+func TestSaveEntry_Add(t *testing.T) {
 	fs := fake.FileSystem{}
 
 	cfg := config.Config{ProjectsDir: "/projects"}
@@ -101,5 +101,40 @@ func TestSaveCategory_Add(t *testing.T) {
 
 	if !reflect.DeepEqual(result[1], c) {
 		t.Errorf("expected to only find category %v, but found %v", c, result)
+	}
+}
+
+func TestSaveEntries_OverrideAndAdd(t *testing.T) {
+	fs := fake.FileSystem{}
+
+	cfg := config.Config{ProjectsDir: "/projects"}
+
+	file := "[\n  {\n    \"Key\": \"testEntryA\",\n    \"Category\": \"aufsatz\",\n    \"Fields\": [\n      \"Autor xyz\",\n      \"1999\",\n      \"ThesorTeX - Ein tolles Tool\",\n      \"Random Zeitschrift\",\n      \"99/03\",\n      \"20-22\",\n      \"https://wikipedia.org/\"\n    ]\n  }\n]"
+
+	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", entriesFile), []byte(file))
+
+	entries := []Entry{
+		{
+			Key:      "testEntryA",
+			Category: "type2",
+			Fields:   []string{"2test", "21234"},
+		},
+		{
+			Key:      "testEntryB",
+			Category: "aufsatz",
+			Fields:   []string{"test", "1234"},
+		},
+	}
+
+	err := SaveEntries(&fs, cfg, "test", entries)
+
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+	}
+
+	gotFile, _ := fs.ReadFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", entriesFile))
+	expectedFile, _ := json.Marshal(entries)
+	if string(gotFile) != string(expectedFile) {
+		t.Errorf("expected %v but got %v", entries, string(gotFile))
 	}
 }

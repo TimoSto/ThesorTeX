@@ -5,6 +5,7 @@ go_library(
     srcs = [
         "handle_delete_entry.go",
         "handle_save_entry.go",
+        "handle_upload_entries.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry",
     visibility = ["//services/app:__subpackages__"],
@@ -21,6 +22,7 @@ go_test(
     srcs = [
         "handle_delete_entry_test.go",
         "handle_save_entry_test.go",
+        "handle_upload_entries_test.go",
     ],
     embed = [":entry"],
     deps = [
