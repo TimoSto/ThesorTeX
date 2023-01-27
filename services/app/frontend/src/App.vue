@@ -103,7 +103,7 @@
 
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
-import {computed, ref,} from "vue";
+import {computed, ref, watch,} from "vue";
 import PageNavigator from "./components/PageNavigator.vue";
 import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
@@ -197,6 +197,15 @@ const unsaveDialogOpened = computed({
   }
 });
 
+// watcher
+watch(() => appStateStore.unsavedDialogTriggered, () => {
+  if (!appStateStore.unsavedDialogTriggered) {
+    setTimeout(() => {
+      instantSwitch.value = false;
+    }, 0);
+  }
+});
+
 // methods
 function navBack() {
   appStateStore.goBack();
@@ -209,9 +218,11 @@ function finishNavBack() {
 function switchToProject(n: number) {
   instantSwitch.value = true;
   appStateStore.switchToProject(projectsListStore.projects[n].Name);
-  setTimeout(() => {
-    instantSwitch.value = false;
-  }, 0);
+  if (!appStateStore.unsavedChanges) {
+    setTimeout(() => {
+      instantSwitch.value = false;
+    }, 0);
+  }
 }
 
 </script>
