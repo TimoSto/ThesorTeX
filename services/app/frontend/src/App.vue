@@ -29,12 +29,17 @@
       :rail="!sidebarOpened"
       :rail-width="56"
     >
-      <!--Sidebar content-->
+      <ProjectsSidebar
+        v-if="pagesCount > 1"
+        :project="appStateStore.currentProject"
+        :open="sidebarOpened"
+        @switch-to="switchToProject($event)"
+      />
     </v-navigation-drawer>
     <v-main>
       <PageNavigator
         :pages="pagesCount"
-        :instant-switch="false"
+        :instant-switch="instantSwitch"
         :navigating-back="navigatingBack"
         @nav-back-finish="finishNavBack"
       >
@@ -90,7 +95,7 @@
 
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
-import {computed,} from "vue";
+import {computed, ref,} from "vue";
 import PageNavigator from "./components/PageNavigator.vue";
 import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
@@ -100,15 +105,20 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 import ProjectPage from "./pages/ProjectPage.vue";
 import CategoryEditor from "./pages/CategoryEditor.vue";
 import EntryEditor from "./pages/EntryEditor.vue";
+import ProjectsSidebar from "./components/ProjectsSidebar.vue";
+import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
 
 //globals
 const appStateStore = useAppStateStore();
 
 const errorSuccessStore = useErrorSuccessStore();
 
+const projectsListStore = useProjectsListStore();
+
 const {t} = useI18n();
 
 // data
+const instantSwitch = ref(false);
 
 // computed
 const sidebarOpened = computed({
@@ -174,6 +184,14 @@ function navBack() {
 
 function finishNavBack() {
   appStateStore.finishGoBack();
+}
+
+function switchToProject(n: number) {
+  instantSwitch.value = true;
+  appStateStore.switchToProject(projectsListStore.projects[n].Name);
+  setTimeout(() => {
+    instantSwitch.value = false;
+  }, 0);
 }
 
 </script>

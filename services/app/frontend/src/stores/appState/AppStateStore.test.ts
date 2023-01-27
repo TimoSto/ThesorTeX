@@ -4,7 +4,7 @@ import {useAppStateStore} from "./AppStateStore";
 
 describe("AppStateStore", () => {
     beforeEach(() => {
-        setActivePinia(createPinia())
+        setActivePinia(createPinia());
     });
     describe("navToPage", () => {
         it("sidebar was closed", () => {
@@ -28,7 +28,7 @@ describe("AppStateStore", () => {
     describe("goBack", () => {
         it("sidebar was closed", () => {
             const store = useAppStateStore();
-            store.history.push("test")
+            store.history.push("test");
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(1);
@@ -37,7 +37,7 @@ describe("AppStateStore", () => {
         });
         it("sidebar was open on page 3", () => {
             const store = useAppStateStore();
-            store.history.push("test", "test2")
+            store.history.push("test", "test2");
             store.sidebarOpen = true;
             store.goBack();
             store.finishGoBack();
@@ -47,7 +47,7 @@ describe("AppStateStore", () => {
         });
         it("sidebar was open on page 2", () => {
             const store = useAppStateStore();
-            store.history.push("test")
+            store.history.push("test");
             store.sidebarOpen = true;
             store.goBack();
             store.finishGoBack();
@@ -57,7 +57,7 @@ describe("AppStateStore", () => {
         });
         it("project was open on page 2", () => {
             const store = useAppStateStore();
-            store.history.push("test")
+            store.history.push("test");
             store.currentProject = "tesst";
             store.goBack();
             store.finishGoBack();
@@ -68,7 +68,7 @@ describe("AppStateStore", () => {
         });
         it("project was open on page 3", () => {
             const store = useAppStateStore();
-            store.history.push("test", "test2")
+            store.history.push("test", "test2");
             store.currentProject = "tesst";
             store.goBack();
             store.finishGoBack();
@@ -81,7 +81,7 @@ describe("AppStateStore", () => {
     describe("currentItem", () => {
         it("should reset the currentItem", () => {
             const store = useAppStateStore();
-            store.history.push("test", "test2")
+            store.history.push("test", "test2");
             store.setItem("tesst");
             expect(store.currentItem).toEqual("tesst");
             store.goBack();
@@ -91,5 +91,21 @@ describe("AppStateStore", () => {
             expect(store.sidebarOpen).toBeFalsy();
             expect(store.currentItem).toEqual("");
         });
-    })
-})
+    });
+    describe("switchProject", () => {
+        it("switch from project page", () => {
+            const store = useAppStateStore();
+            store.history.push("test");
+            store.switchToProject("test3");
+            expect(store.history).toEqual(["main", "test"]);
+            expect(store.currentProject).toEqual("test3");
+        });
+        it("switch from editor page", () => {
+            const store = useAppStateStore();
+            store.history.push("test", "test2");
+            store.switchToProject("test3");
+            expect(store.history).toEqual(["main", "test"]);
+            expect(store.currentProject).toEqual("test3");
+        });
+    });
+});

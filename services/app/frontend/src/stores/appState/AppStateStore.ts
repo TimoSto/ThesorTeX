@@ -55,6 +55,10 @@ export const useAppStateStore = defineStore({
         },
         setItem(id: string) {
             this.currentItem = id;
+        },
+        switchToProject(name: string) {
+            this.history = this.history.slice(0, 2);
+            this.setProject(name);
         }
     }
 });
