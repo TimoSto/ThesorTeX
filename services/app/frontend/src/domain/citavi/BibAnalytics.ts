@@ -102,6 +102,7 @@ export function GetEntries(file: string): CitaviEntry[] {
             if ((parts[i].charAt(j) === "," || j === parts[i].length - 1) && bracketsCounter === 0 && !inquotes) {
                 attributeValuePairs.push(parts[i].substring(lastIndexOfComma, parts[i].charAt(j) === "\"" ? j + 1 : j));
                 lastIndexOfComma = j + 1;
+                //TODO: {Barcelona in multipleAndCaps
             }
         }
 
@@ -110,7 +111,7 @@ export function GetEntries(file: string): CitaviEntry[] {
 
             const attrValue = attributeValuePairs[j].split(/=(.*)/s);
             entry.Attributes.push({
-                Attr: attrValue[0].trim(),
+                Attr: attrValue[0].trim().toLowerCase(),
                 Value: attrValue[1].trim()
             });
         }
@@ -167,6 +168,8 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entr
         let val = "";
 
         const attribute = entry.Attributes.find(a => f.CitaviMapping.indexOf(a.Attr) >= 0);
+
+        console.log(attribute, entry.Attributes, f.CitaviMapping);
 
         if (attribute) {
             val = trimAndParseValue(attribute.Value);
