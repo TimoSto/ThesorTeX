@@ -4,6 +4,9 @@
       {{ t(i18nKeys.ProjectPage.UploadTitle) }}
     </v-card-title>
     <v-card-text>
+      <span v-if="entries.length === 0 && unknowns.length === 0">
+        {{ t(i18nKeys.ProjectPage.UploadNoEntriesFound) }}
+      </span>
       <span v-if="entries.length > 0">
         {{ t(i18nKeys.ProjectPage.UploadEntries) }}
       </span>
@@ -50,7 +53,7 @@
       <v-btn
         color="primary"
       >
-        {{ t(i18nKeys.Common.Abort) }}
+        {{ entries.length === 0 && unknowns.length === 0 ? t(i18nKeys.Common.Close) : t(i18nKeys.Common.Abort) }}
       </v-btn>
       <v-btn
         color="primary"
