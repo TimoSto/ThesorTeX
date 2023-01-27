@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts" setup>
-
+//TODO: unit tests
 import {Entry} from "../domain/entry/Entry";
 import {Unknown} from "../domain/citavi/BibAnalytics";
 import {useI18n} from "@thesortex/vue-i18n-plugin";

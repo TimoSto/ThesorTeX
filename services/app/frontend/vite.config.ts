@@ -29,6 +29,7 @@ export default defineConfig({
             "/deleteCategory": "http://localhost:8448/",
             "/saveEntry": "http://localhost:8448/",
             "/deleteEntry": "http://localhost:8448/",
+            "/uploadEntries": "http://localhost:8448/",
         }
     },
     build: {

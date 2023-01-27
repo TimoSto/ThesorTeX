@@ -146,6 +146,7 @@ import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 import CitaviDragNDrop from "../components/CitaviDragNDrop.vue";
 import {AnalyseResult, Unknown} from "../domain/citavi/BibAnalytics";
 import CitaviUploadCard from "../components/CitaviUploadCard.vue";
+import UploadEntries from "../api/projectData/uploadEntries";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -308,8 +309,9 @@ function rmUploadedEntry(n: number) {
   uploadedEntries.value.splice(n, 1);
 }
 
-function uploadDroppedEntries() {
-  
+async function uploadDroppedEntries() {
+  const success = await UploadEntries(uploadedEntries.value);
+  console.log(success);
 }
 
 // onload
