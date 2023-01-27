@@ -52,11 +52,14 @@
       <v-spacer />
       <v-btn
         color="primary"
+        @click="emit('close')"
       >
         {{ entries.length === 0 && unknowns.length === 0 ? t(i18nKeys.Common.Close) : t(i18nKeys.Common.Abort) }}
       </v-btn>
       <v-btn
         color="primary"
+        :disabled="entries.length > 0"
+        @click="emit('upload')"
       >
         {{ t(i18nKeys.ProjectPage.Add) }}
       </v-btn>
@@ -84,7 +87,7 @@ defineProps({
 
 const {t} = useI18n();
 
-const emit = defineEmits(["rmEntry"]);
+const emit = defineEmits(["rmEntry", "close", "upload"]);
 </script>
 
 <style scoped>

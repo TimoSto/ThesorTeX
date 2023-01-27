@@ -119,6 +119,8 @@
       :entries="uploadedEntries"
       :unknowns="uploadedUnknowns"
       @rm-entry="rmUploadedEntry"
+      @close="uploadTriggered = false"
+      @upload="uploadDroppedEntries"
     />
   </v-dialog>
 </template>
@@ -278,6 +280,13 @@ watch(projectName, async () => {//TODO: reload on close and open again
   }
 });
 
+watch(uploadTriggered, () => {
+  if (!uploadTriggered.value) {
+    uploadedEntries.value = [];
+    uploadedUnknowns.value = [];
+  }
+});
+
 // methods
 function openCategoryEditor(n: number) {
   appStateStore.navToPage(pageNames[2]);
@@ -297,6 +306,10 @@ function handleUpload(result: AnalyseResult) {
 
 function rmUploadedEntry(n: number) {
   uploadedEntries.value.splice(n, 1);
+}
+
+function uploadDroppedEntries() {
+  
 }
 
 // onload
