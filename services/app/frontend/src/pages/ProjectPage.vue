@@ -177,11 +177,11 @@ const entriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
       content: t(i18nKeys.ProjectPage.EntryKey),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth200
     },
     {
       content: t(i18nKeys.ProjectPage.EntryCategory),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth150
     },
     {
       content: t(i18nKeys.ProjectPage.Entry),
@@ -236,7 +236,7 @@ const categoriesHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
       content: t(i18nKeys.ProjectPage.CategoryName),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth200
     },
     {
       content: t(i18nKeys.ProjectPage.CategoryExample),

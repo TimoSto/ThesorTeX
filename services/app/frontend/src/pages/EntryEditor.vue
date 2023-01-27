@@ -158,7 +158,7 @@ const generalHeaders = computed(() => {
   return [
     {
       content: t(i18nKeys.Common.Attribute),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth200
     },
     {
       content: t(i18nKeys.Common.Value),
@@ -204,7 +204,7 @@ const fieldsHeaders = computed(() => {
   return [
     {
       content: t(i18nKeys.EntryEditor.Field),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth200
     },
     {
       content: t(i18nKeys.Common.Value),

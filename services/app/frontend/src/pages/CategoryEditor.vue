@@ -371,7 +371,7 @@ const generalHeaders = computed((): ResponsiveTableHeaderCell[] => {
   return [
     {
       content: t(i18nKeys.Common.Attribute),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth200
     },
     {
       content: t(i18nKeys.Common.Value),
@@ -435,7 +435,7 @@ const bibHeaders = computed((): ResponsiveTableHeaderCell[] => {
     },
     {
       content: t(i18nKeys.CategoryEditor.CitaviMapping),
-      size: SizeClasses.MaxWidth250
+      size: SizeClasses.MaxWidth200
     },
     {
       slot: true,

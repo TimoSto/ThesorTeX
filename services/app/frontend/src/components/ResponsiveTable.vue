@@ -81,9 +81,11 @@ export enum SizeClasses {
   // eslint-disable-next-line no-unused-vars
   ThirtyPercent = "size--30-percent",
   // eslint-disable-next-line no-unused-vars
-  MaxWidth250 = "size--max-width-250",
+  MaxWidth200 = "size--max-width-200",
   // eslint-disable-next-line no-unused-vars
-  MaxWidth100 = "size--max-width-100"
+  MaxWidth100 = "size--max-width-100",
+  // eslint-disable-next-line no-unused-vars
+  MaxWidth150 = "size--max-width-150"
 
 }
 
@@ -118,9 +120,14 @@ export default {
     text-align: right !important;
   }
 
-  &--max-width-250 {
-    width: 250px;
-    max-width: 250px;
+  &--max-width-200 {
+    width: 200px;
+    max-width: 200px;
+  }
+
+  &--max-width-150 {
+    width: 150px;
+    max-width: 150px;
   }
 
   &--max-width-100 {

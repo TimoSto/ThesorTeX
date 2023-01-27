@@ -73,11 +73,11 @@ const projectHeaders: ResponsiveTableHeaderCell[] = [
   },
   {
     content: t(i18nKeys.MainPage.ProjectCreated),
-    size: SizeClasses.MaxWidth250
+    size: SizeClasses.MaxWidth200
   },
   {
     content: t(i18nKeys.MainPage.ProjectLastModified),
-    size: SizeClasses.MaxWidth250
+    size: SizeClasses.MaxWidth200
   },
   {
     content: t(i18nKeys.MainPage.ProjectNumberOfEntries),
