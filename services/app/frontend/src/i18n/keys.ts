@@ -12,6 +12,7 @@ export const i18nKeys = {
         Attribute: "Common.Attribute",
         Value: "Common.Value",
         General: "Common.General",
+        Continue: "Common.Continue"
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -87,6 +88,10 @@ export const i18nKeys = {
         DeleteMessage: "EntryEditor.DeleteMessage",
         SuccessDelete: "EntryEditor.SuccessDelete",
         ErrorDelete: "EntryEditor.ErrorDelete"
+    },
+    UnsavedChanges: {
+        Title: "UnsavedChanges.Title",
+        Message: "UnsavedChanges.Message"
     }
 };
 

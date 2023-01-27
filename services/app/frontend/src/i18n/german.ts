@@ -14,6 +14,7 @@ export const german: I18nKeys = {
         Attribute: "Attribut",
         Value: "Wert",
         General: "Allgemein",
+        Continue: "Fortfahren"
     },
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",
@@ -89,5 +90,9 @@ export const german: I18nKeys = {
         DeleteMessage: "Möchtest du den Eintrag {key} wirklich löschen?",
         SuccessDelete: "Eintrag erfolgreich gelöscht",
         ErrorDelete: "Der Eintrag konnte nicht gelöscht werden"
+    },
+    UnsavedChanges: {
+        Title: "Es liegen ungespeicherte Änderungen vor",
+        Message: "Wenn du fortfährst, werden diese Änderungen verworfen."
     }
 };

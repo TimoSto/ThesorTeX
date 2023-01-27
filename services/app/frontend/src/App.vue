@@ -90,6 +90,14 @@
         </i18n-t>
       </template>
     </ErrorSuccessDisplay>
+    <v-dialog
+      v-model="unsaveDialogOpened"
+      width="450"
+    >
+      <UnsavedChangesDialog
+        @resolve="appStateStore.resolveCallback($event)"
+      />
+    </v-dialog>
   </v-app>
 </template>
 
@@ -107,6 +115,7 @@ import CategoryEditor from "./pages/CategoryEditor.vue";
 import EntryEditor from "./pages/EntryEditor.vue";
 import ProjectsSidebar from "./components/ProjectsSidebar.vue";
 import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
+import UnsavedChangesDialog from "./components/UnsavedChangesCard.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -175,6 +184,17 @@ const message = computed({
 
 const navigatingBack = computed(() => {
   return appStateStore.navigatingBack;
+});
+
+const unsaveDialogOpened = computed({
+  get(): boolean {
+    return appStateStore.unsavedDialogTriggered;
+  },
+  set(v: boolean) {
+    if (!v) {
+      appStateStore.resolveCallback(false);
+    }
+  }
 });
 
 // methods

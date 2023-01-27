@@ -14,6 +14,7 @@ export const english: I18nKeys = {
         Attribute: "Attribute",
         Value: "Value",
         General: "General",
+        Continue: "Continue"
     },
     Rules: {
         NoSpaces: "No spaces allowed",
@@ -89,5 +90,9 @@ export const english: I18nKeys = {
         DeleteMessage: "Do you really want to delete the entry {key}?",
         SuccessDelete: "Entry successfully deleted",
         ErrorDelete: "The entry could not be deleted.",
+    },
+    UnsavedChanges: {
+        Title: "There are unsaved changes",
+        Message: "If you continue, these changes will be discarded."
     }
 };
