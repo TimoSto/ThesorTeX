@@ -57,7 +57,7 @@ export function GetEntries(file: string): CitaviEntry[] {
         // between first { and first , is the key
         const key = parts[i].match(/(?<={)[^,]*/);
         if (!key) {
-            console.warn("cloud not read key");
+            console.warn("could not read key");
             continue;
         }
 
@@ -167,7 +167,7 @@ export function AssignCategory(entry: CitaviEntry, categories: Category[]): Entr
     category.BibFields.forEach(f => {
         let val = "";
 
-        const attribute = entry.Attributes.find(a => f.CitaviMapping.indexOf(a.Attr) >= 0);
+        const attribute = entry.Attributes.find(a => f.CitaviMapping.map(a => a.toLowerCase()).indexOf(a.Attr) >= 0);
 
         if (attribute) {
             val = trimAndParseValue(attribute.Value);
