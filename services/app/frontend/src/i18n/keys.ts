@@ -53,7 +53,9 @@ export const i18nKeys = {
         UploadEntries: "ProjectPage.UploadEntries",
         UploadUnknowns: "ProjectPage.UploadUnknowns",
         Add: "ProjectPage.Add",
-        UploadNoEntriesFound: "ProjectPage.UploadNoEntriesFound"
+        UploadNoEntriesFound: "ProjectPage.UploadNoEntriesFound",
+        UploadSuccess: "ProjectPage.UploadSuccess",
+        UploadError: "ProjectPage.UploadError"
     },
     CategoryEditor: {
         Title: "CategoryEditor.Title",

@@ -55,7 +55,9 @@ export const german: I18nKeys = {
         UploadEntries: "Folgende Einträge werden hinzugefügt und werden bestehende Einsträge mit demselben Schlüssel überschreiben:",
         UploadUnknowns: "Folgende Einträge konnten keiner Kategorie zugeordnet werden:",
         Add: "Hinzufügen",
-        UploadNoEntriesFound: "Es wurden keine Einträge gefunden."
+        UploadNoEntriesFound: "Es wurden keine Einträge gefunden.",
+        UploadSuccess: "Die Einträge wurden erfolgreich hochgeladen",
+        UploadError: "Die Einträge konnten nicht gespeichert werden."
     },
     CategoryEditor: {
         Title: " - Kategorie bearbeiten",

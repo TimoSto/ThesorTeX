@@ -55,7 +55,9 @@ export const english: I18nKeys = {
         UploadEntries: "Following entries will be added to your project and override existing entries with the same key:",
         UploadUnknowns: "Following entries could not be assigned to a category:",
         Add: "Add",
-        UploadNoEntriesFound: "Es wurden keine Einträge gefunden"
+        UploadNoEntriesFound: "Es wurden keine Einträge gefunden",
+        UploadSuccess: "The entries were successfully uploaded",
+        UploadError: "The entries could not be saved."
     },
     CategoryEditor: {
         Title: " - Category editor",

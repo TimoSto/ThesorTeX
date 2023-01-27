@@ -311,8 +311,12 @@ function rmUploadedEntry(n: number) {
 
 async function uploadDroppedEntries() {
   const success = await UploadEntries(projectName.value, uploadedEntries.value);
+  uploadTriggered.value = false;
   if (success) {
+    errorSuccessStore.setMessage(true, t(i18nKeys.ProjectPage.UploadSuccess));
     await syncProjectData();
+  } else {
+    errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.UploadError));
   }
 }
 
