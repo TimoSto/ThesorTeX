@@ -503,6 +503,10 @@ watch(categoryName, () => {
   }
 });
 
+watch(changesToSave, () => {
+  appStateStore.unsavedChanges = changesToSave.value;
+});
+
 // functions
 function getCategoryFromStore() {
   category.value = JSON.parse(JSON.stringify(projectDataStore.categories.find(c => c.Name === categoryName.value)!));

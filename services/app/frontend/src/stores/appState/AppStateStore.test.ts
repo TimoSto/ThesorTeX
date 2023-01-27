@@ -108,4 +108,31 @@ describe("AppStateStore", () => {
             expect(store.currentProject).toEqual("test3");
         });
     });
+    describe("interrupt because of unsaved changes", () => {
+        describe("goBack", () => {
+            it("decline", () => {
+                const store = useAppStateStore();
+                store.history.push("test", "test2");
+                store.unsavedChanges = true;
+                store.goBack();
+                expect(store.navigatingBack).toBe(false);
+                expect(store.unsavedDialogTriggered).toBe(true);
+                store.resolveCallback(false);
+                expect(store.navigatingBack).toBe(false);
+                expect(store.unsavedDialogTriggered).toBe(false);
+                expect(store.history).toEqual(["main", "test", "test2"]);
+            });
+            it("accept", () => {
+                const store = useAppStateStore();
+                store.history.push("test", "test2");
+                store.unsavedChanges = true;
+                store.goBack();
+                expect(store.navigatingBack).toBe(false);
+                expect(store.unsavedDialogTriggered).toBe(true);
+                store.resolveCallback(true);
+                expect(store.navigatingBack).toBe(true);
+                expect(store.unsavedDialogTriggered).toBe(false);
+            });
+        });
+    });
 });

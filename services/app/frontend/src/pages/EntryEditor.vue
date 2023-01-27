@@ -125,7 +125,7 @@
 import ResponsiveTable, {ResponsiveTableCell, SizeClasses} from "../components/ResponsiveTable.vue";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import JoinFields from "../domain/entry/JoinFields";
 import {Entry} from "../domain/entry/Entry";
@@ -234,6 +234,11 @@ const keyRules = computed(() => {
 
 const rulesAreMet = computed(() => {
   return keyRules.value(entry.value!.Key) === true && entry.value!.Category !== "";
+});
+
+// watchers
+watch(changesToSave, () => {
+  appStateStore.unsavedChanges = changesToSave.value;
 });
 
 // methods

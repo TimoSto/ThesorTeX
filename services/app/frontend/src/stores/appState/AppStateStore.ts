@@ -13,6 +13,9 @@ export interface AppState {
     currentProject: string,
     navigatingBack: boolean,
     currentItem: string,//entry key or category name
+    unsavedChanges: boolean,
+    unsavedDialogTriggered: boolean,
+    unsavedDialogCallback: () => void
 }
 
 export const useAppStateStore = defineStore({
@@ -22,7 +25,11 @@ export const useAppStateStore = defineStore({
         sidebarOpen: false,
         navigatingBack: false,
         currentProject: "",
-        currentItem: ""
+        currentItem: "",
+        unsavedChanges: false,
+        unsavedDialogTriggered: false,
+        unsavedDialogCallback: () => {
+        },
     } as AppState),
 
     getters: {
@@ -36,7 +43,14 @@ export const useAppStateStore = defineStore({
             this.history.push(name);
         },
         goBack() {
-            this.navigatingBack = true;
+            if (!this.unsavedChanges) {
+                this.navigatingBack = true;
+            } else {
+                this.unsavedDialogTriggered = true;
+                this.unsavedDialogCallback = () => {
+                    this.navigatingBack = true;
+                };
+            }
         },
         finishGoBack() {
             this.navigatingBack = false;
@@ -57,8 +71,25 @@ export const useAppStateStore = defineStore({
             this.currentItem = id;
         },
         switchToProject(name: string) {
-            this.history = this.history.slice(0, 2);
-            this.setProject(name);
+            if (!this.unsavedChanges) {
+                this.history = this.history.slice(0, 2);
+                this.setProject(name);
+            } else {
+                this.unsavedDialogTriggered = true;
+                this.unsavedDialogCallback = () => {
+                    this.history = this.history.slice(0, 2);
+                    this.setProject(name);
+                };
+            }
+        },
+        resolveCallback(accept: boolean) {
+            this.unsavedDialogTriggered = false;
+            if (accept) {
+                this.unsavedDialogCallback();
+            } else {
+                this.unsavedDialogCallback = () => {
+                };
+            }
         }
     }
 });
