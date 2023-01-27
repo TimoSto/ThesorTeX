@@ -48,7 +48,11 @@ export const i18nKeys = {
         ErrorDelete: "ProjectPage.ErrorDelete",
         UnknownCategory: "ProjectPage.UnknownCategory",
         DragNDrop: "ProjectPage.DragNDrop",
-        WrongFileExt: "ProjectPage.WrongFileExt"
+        WrongFileExt: "ProjectPage.WrongFileExt",
+        UploadTitle: "ProjectPage.UploadTitle",
+        UploadEntries: "ProjectPage.UploadEntries",
+        UploadUnknowns: "ProjectPage.UploadUnknowns",
+        Add: "ProjectPage.Add"
     },
     CategoryEditor: {
         Title: "CategoryEditor.Title",

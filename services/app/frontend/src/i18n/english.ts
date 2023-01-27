@@ -50,7 +50,11 @@ export const english: I18nKeys = {
         ErrorDelete: "The project could not be deleted",
         UnknownCategory: "Unknown category",
         DragNDrop: "Upload citavi-export",
-        WrongFileExt: "The file ending has to be .bib."
+        WrongFileExt: "The file ending has to be .bib.",
+        UploadTitle: "Add entries",
+        UploadEntries: "Following entries will be added to your project and override existing entries with the same key:",
+        UploadUnknowns: "Following entries could not be assigned to a category:",
+        Add: "Add"
     },
     CategoryEditor: {
         Title: " - Category editor",

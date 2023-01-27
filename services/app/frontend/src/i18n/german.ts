@@ -50,7 +50,11 @@ export const german: I18nKeys = {
         ErrorDelete: "Das Projekt konnte nicht gelöscht werden",
         UnknownCategory: "Unbekannte Kategorie",
         DragNDrop: "Citavi-Export hochladen",
-        WrongFileExt: "Die Dateiendung muss .bib sein."
+        WrongFileExt: "Die Dateiendung muss .bib sein.",
+        UploadTitle: "Einträge hinzufügen",
+        UploadEntries: "Folgende Einträge werden hinzugefügt und werden bestehende Einsträge mit demselben Schlüssel überschreiben:",
+        UploadUnknowns: "Folgende Einträge konnten keiner Kategorie zugeordnet werden:",
+        Add: "Hinzufügen"
     },
     CategoryEditor: {
         Title: " - Kategorie bearbeiten",

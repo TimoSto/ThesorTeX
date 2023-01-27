@@ -118,6 +118,7 @@
     <CitaviUploadCard
       :entries="uploadedEntries"
       :unknowns="uploadedUnknowns"
+      @rm-entry="rmUploadedEntry"
     />
   </v-dialog>
 </template>
@@ -292,6 +293,10 @@ function handleUpload(result: AnalyseResult) {
   uploadedEntries.value = result.Entries;
   uploadedUnknowns.value = result.Unknown;
   uploadTriggered.value = true;
+}
+
+function rmUploadedEntry(n: number) {
+  uploadedEntries.value.splice(n, 1);
 }
 
 // onload
