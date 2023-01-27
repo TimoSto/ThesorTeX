@@ -497,11 +497,12 @@ const rulesAreMet = computed(() => {
 });
 
 // watchers
-watch(categoryName, () => {
-  if (categoryName.value != "") {
-    getCategoryFromStore();
-  }
-});
+// TODO: I think this might be unnecessary, if problems occurr, check if this would fix them
+// watch(categoryName, () => {
+//   if (categoryName.value != "") {
+//     //getCategoryFromStore();
+//   }
+// });
 
 watch(changesToSave, () => {
   appStateStore.unsavedChanges = changesToSave.value;

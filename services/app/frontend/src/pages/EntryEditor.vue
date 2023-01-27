@@ -1,7 +1,9 @@
 <template>
   <ToolbarAndContent>
     <template #bar>
-      <v-toolbar-title>sdf</v-toolbar-title>
+      <v-toolbar-title>
+        {{ entryKey }}
+      </v-toolbar-title>
       <v-spacer />
       <v-btn
         icon
