@@ -1,8 +1,10 @@
 import {After, AfterAll, Before, BeforeAll} from "@cucumber/cucumber";
 import {chromium, ChromiumBrowser, devices} from "playwright";
 import {OurWorld} from "./types";
+import {spawn} from "child_process";
 
 let browser: ChromiumBrowser;
+let sut: any;
 
 BeforeAll(async function () {
     // Browsers are expensive in Playwright so only create 1
@@ -12,6 +14,16 @@ BeforeAll(async function () {
         // Slow so we can see things happening
         slowMo: 50,
     });
+
+    sut = spawn("../services/app/cmd/e2e/main", {
+        // stdio: "ignore",
+        detached: false,
+    });
+    sut.on("error", (err: any) => {
+        throw "Could not start system under test executable";
+    });
+    sut.stdout.on("data", (data: any) => console.log(data.toString()));
+    sut.stderr.on("data", (data: any) => console.error(data.toString()));
 });
 AfterAll(async function () {
     await browser.close();
