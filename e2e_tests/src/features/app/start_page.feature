@@ -15,4 +15,15 @@ Feature: Start page
     Given the url "/" was opened
     When the project " example " is opened
     Then the title of the app is " ThesorTeX  - Projektansicht"
+
+  Scenario: Create new project
+    Given the url "/" was opened
+    When a new project is added
+    Then the dialog for project creation is shown
+    When the name "test" is entered into the projectname field
+    And the create project button is clicked
+    Then following projects are displayed
+      | project |
+      | example |
+      | test    |
   
