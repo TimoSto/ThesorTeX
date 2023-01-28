@@ -1,6 +1,7 @@
-import {DataTable, Then} from "@cucumber/cucumber";
+import {DataTable, Then, When} from "@cucumber/cucumber";
 import {OurWorld} from "../../../types";
 import {expect} from "@playwright/test";
+import waitForAnimations from "../../helpers/waitForAnimations";
 
 Then("following entries are displayed", async function (this: OurWorld, entries: DataTable) {
     for (const el of entries.hashes()) {
@@ -16,4 +17,20 @@ Then("following categories are displayed", async function (this: OurWorld, categ
         expect(await this.page.locator("#page-2").locator(".v-expansion-panel").nth(1).locator("tbody tr").nth(i).locator("td").nth(0).locator("span").textContent()).toEqual(el.name);
     }
     await expect(this.page.locator("#page-2").locator(".v-expansion-panel").nth(1).locator("tbody tr")).toHaveCount(categories.hashes().length);
+});
+
+When("the project is deleted", async function (this: OurWorld) {
+    await this.page.locator(".page--container header button").click();
+});
+
+Then("the user is asked to confirm the deletion of the project", async function (this: OurWorld) {
+    await waitForAnimations(this.page);
+
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Projekt löschen");
+});
+
+Then("the project-page is closed", async function (this: OurWorld) {
+    await waitForAnimations(this.page, ["#page-2", "#page-1"]);
+
+    expect(await this.page.locator("#page-2").count()).toEqual(0);
 });
