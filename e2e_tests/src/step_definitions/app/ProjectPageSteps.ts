@@ -1,34 +1,19 @@
-import {DataTable, Then, When} from "@cucumber/cucumber";
+import {DataTable, Then} from "@cucumber/cucumber";
 import {OurWorld} from "../../../types";
 import {expect} from "@playwright/test";
-import waitForAnimations from "../../helpers/waitForAnimations";
 
-Then("following projects are displayed", async function (this: OurWorld, projects: DataTable) {
-    for (const el of projects.hashes()) {
-        const i = projects.hashes().map(h => h.project).indexOf(el.project);
-        expect(await this.page.locator("#page-1").locator("tbody tr").nth(i).locator("td").nth(0).textContent()).toEqual(el.project);
+Then("following entries are displayed", async function (this: OurWorld, entries: DataTable) {
+    for (const el of entries.hashes()) {
+        const i = entries.hashes().map(h => h.key).indexOf(el.key);
+        expect(await this.page.locator("#page-2").locator(".v-expansion-panel").first().locator("tbody tr").nth(i).locator("td").nth(0).locator("span").textContent()).toEqual(el.key);
     }
-    await expect(this.page.locator("#page-1").locator("tbody tr")).toHaveCount(projects.hashes().length);
+    await expect(this.page.locator("#page-2").locator(".v-expansion-panel").first().locator("tbody tr")).toHaveCount(entries.hashes().length);
 });
 
-When("the project {string} is opened", async function (this: OurWorld, project: string) {
-    await this.page.locator("#page-1").locator("tr", {has: this.page.locator("td", {hasText: project})}).click();
-});
-
-When("a new project is added", async function (this: OurWorld) {
-    await this.page.locator("#page-1").locator("thead").locator("th").last().locator("button").click();
-});
-
-Then("the dialog for project creation is shown", async function (this: OurWorld) {
-    await waitForAnimations(this.page);
-
-    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Neues Projekt anlegen");
-});
-
-When("the name {string} is entered into the projectname field", async function (this: OurWorld, name: string) {
-    await this.page.locator(".v-overlay__content .v-card-text input").type(name);
-});
-
-When("the create project button is clicked", async function (this: OurWorld) {
-    await this.page.locator(".v-overlay__content button").nth(1).click();
+Then("following categories are displayed", async function (this: OurWorld, categories: DataTable) {
+    for (const el of categories.hashes()) {
+        const i = categories.hashes().map(h => h.name).indexOf(el.name);
+        expect(await this.page.locator("#page-2").locator(".v-expansion-panel").nth(1).locator("tbody tr").nth(i).locator("td").nth(0).locator("span").textContent()).toEqual(el.name);
+    }
+    await expect(this.page.locator("#page-2").locator(".v-expansion-panel").nth(1).locator("tbody tr")).toHaveCount(categories.hashes().length);
 });

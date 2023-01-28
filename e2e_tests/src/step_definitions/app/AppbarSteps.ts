@@ -10,5 +10,5 @@ Then("the title of the app is {string}", async function (this: OurWorld, title: 
 });
 
 Then("the title of the main area is {string}", async function (this: OurWorld, title: string) {
-    expect(await this.page.locator(".page--container .v-toolbar-title__placeholder").textContent()).toEqual(title);
+    expect(await this.page.locator(".page--container .v-toolbar-title__placeholder").last().textContent()).toEqual(title);
 });
