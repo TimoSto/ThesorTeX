@@ -7,3 +7,11 @@ go_library(
     visibility = ["//visibility:public"],
     deps = ["//pkg/backend/log"],
 )
+
+go_library(
+    name = "versionhandler",
+    srcs = ["version_handler.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler",
+    visibility = ["//visibility:public"],
+    deps = ["//pkg/backend/log"],
+)
