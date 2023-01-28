@@ -11,3 +11,10 @@ Feature: Entry editor
     And the first category is selected
     Then the save button in the editor is enabled
     And the fields have a length greater than 0
+    When "hallo" is entered into the input at index 0
+    And the save button in the editor is clicked
+    And the back button is clicked
+    Then following entries are displayed
+      | key       |
+      | e2        |
+      | testEntry |

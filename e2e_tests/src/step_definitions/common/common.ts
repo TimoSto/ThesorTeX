@@ -13,3 +13,7 @@ Then("the save button in the editor is disabled", async function (this: OurWorld
 Then("the save button in the editor is enabled", async function (this: OurWorld) {
     await expect(this.page.locator("#page-3 header").locator("button").nth(0)).toBeEnabled();
 });
+
+When("the save button in the editor is clicked", async function (this: OurWorld) {
+    await this.page.locator("#page-3 header").locator("button").nth(0).click();
+});
