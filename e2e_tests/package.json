@@ -1,0 +1,19 @@
+{
+  "name": "e2e_tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.10.0",
+    "@types/node": "*",
+    "playwright": "^1.30.0",
+    "ts-node": "*",
+    "typescript": "*"
+  }
+}
