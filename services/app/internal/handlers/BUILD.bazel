@@ -9,6 +9,7 @@ go_library(
         "//pkg/backend/versionhandler",
         "//services/app/internal/config",
         "//services/app/internal/filesystem",
+        "//services/app/internal/handlers/assets",
         "//services/app/internal/handlers/category",
         "//services/app/internal/handlers/entry",
         "//services/app/internal/handlers/project",

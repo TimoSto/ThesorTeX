@@ -6,12 +6,15 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/assets"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project"
 )
 
 func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg config.Config) {
+	mux.HandleFunc("/", assets.HandleAssets())
+
 	mux.HandleFunc("/version", versionhandler.GetRootHandler(config.Version))
 
 	mux.HandleFunc("/createNewProject", project.CreateProjectHandler(fs, cfg))
