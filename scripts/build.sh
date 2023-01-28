@@ -29,19 +29,19 @@ pnpm run -r build
 
 echo "building for windows..."
 
-build_windows_target //services/app/cmd "$outDir/windows/ThesorTeX.exe" "$(pwd)"
+build_windows_target //services/app/cmd/prod "$outDir/windows/ThesorTeX.exe" "$(pwd)"
 
 echo "building app for linux..."
 
-build_linux_target //services/app/cmd "$outDir/linux/ThesorTeX" "$(pwd)"
+build_linux_target //services/app/cmd/prod "$outDir/linux/ThesorTeX" "$(pwd)"
 
 echo "building app for macOS..."
 
-build_mac_target //services/app/cmd "$outDir/mac/ThesorTeX" "$(pwd)"
+build_mac_target //services/app/cmd/prod "$outDir/mac/ThesorTeX" "$(pwd)"
 
 echo "building app for macOS (Apple Silicon M1)..."
 
-build_mac_m1_target //services/app/cmd "$outDir/mac_silicon/ThesorTeX" "$(pwd)"
+build_mac_m1_target //services/app/cmd/prod "$outDir/mac_silicon/ThesorTeX" "$(pwd)"
 
 echo "building website for linux..."
 
