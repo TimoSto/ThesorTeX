@@ -5,4 +5,6 @@ Feature: Start page
     Then the sidebar is empty
     And the sidebar is disabled
     And the sidebar is closed
+    And the title of the app is " ThesorTeX "
+    And the title of the main area is "Willkommen bei ThesorTeX!"
   
