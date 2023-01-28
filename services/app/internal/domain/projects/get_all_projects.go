@@ -2,6 +2,7 @@ package projects
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
@@ -10,6 +11,7 @@ import (
 
 func GetAllProjects(fs filesystem.FileSystem, cfg config.Config) ([]ProjectMetaData, error) {
 	dirs, err := fs.GetAllDirectoriesUnder(cfg.ProjectsDir)
+	fmt.Println(cfg.ProjectsDir, dirs)
 	if err != nil {
 		return nil, err
 	}
@@ -26,6 +28,7 @@ func GetAllProjects(fs filesystem.FileSystem, cfg config.Config) ([]ProjectMetaD
 		var data ProjectMetaData
 		err = json.Unmarshal(file, &data)
 		if err != nil {
+			fmt.Println(path)
 			return nil, err
 		}
 

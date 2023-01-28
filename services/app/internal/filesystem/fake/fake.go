@@ -1,11 +1,17 @@
 package fake
 
+import (
+	"fmt"
+	"strings"
+)
+
 type FileSystem struct {
 	dirs  []string
 	files map[string][]byte
 }
 
 func (fs *FileSystem) CheckDirectoryExists(path string) (bool, error) {
+	fmt.Println(path, fs.dirs)
 	for _, d := range fs.dirs {
 		if d == path {
 			return true, nil
@@ -45,5 +51,16 @@ func (fs *FileSystem) ReadFile(path string) ([]byte, error) {
 }
 
 func (fs *FileSystem) GetAllDirectoriesUnder(path string) ([]string, error) {
-	return fs.dirs, nil
+	var dirs []string
+	for _, d := range fs.dirs {
+		fmt.Println(d, path)
+		if strings.Index(d, path) == 0 {
+			dir := strings.Split(d[len(path):], "/")
+			if len(dir) == 2 {
+				dirs = append(dirs, dir[1])
+			}
+
+		}
+	}
+	return dirs, nil
 }
