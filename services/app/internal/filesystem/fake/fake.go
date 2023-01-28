@@ -1,7 +1,6 @@
 package fake
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -11,7 +10,6 @@ type FileSystem struct {
 }
 
 func (fs *FileSystem) CheckDirectoryExists(path string) (bool, error) {
-	fmt.Println(path, fs.dirs)
 	for _, d := range fs.dirs {
 		if d == path {
 			return true, nil
