@@ -76,7 +76,6 @@ func TestCreateProject(t *testing.T) {
 					if !d.IsDir() {
 						path = strings.TrimPrefix(path, "template/")
 						path = fmt.Sprintf("projects/%s/%s", s.name, path)
-						fmt.Println("from test")
 						file, err := fs.ReadFile(path)
 						if err != nil {
 							t.Errorf("unexpected error %v", err)
