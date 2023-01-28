@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features/**/*.feature --require-module ts-node/register --require test.setup.ts --require step_definitions/**/*.ts"
+    "test": "cucumber-js features/**/*.feature --config cucumber.json"
   },
   "keywords": [],
   "author": "",
