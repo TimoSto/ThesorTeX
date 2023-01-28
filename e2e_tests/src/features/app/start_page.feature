@@ -10,4 +10,9 @@ Feature: Start page
     And following projects are displayed
       | project |
       | example |
+
+  Scenario: Navigating to a project
+    Given the url "/" was opened
+    When the project " example " is opened
+    Then the title of the app is " ThesorTeX  - Projektansicht"
   

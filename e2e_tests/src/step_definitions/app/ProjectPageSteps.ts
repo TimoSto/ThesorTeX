@@ -1,4 +1,4 @@
-import {DataTable, Then} from "@cucumber/cucumber";
+import {DataTable, Then, When} from "@cucumber/cucumber";
 import {OurWorld} from "../../../types";
 import {expect} from "@playwright/test";
 
@@ -8,4 +8,8 @@ Then("following projects are displayed", async function (this: OurWorld, project
         expect(await this.page.locator("#page-1").locator("tr").nth(i).locator("td").nth(0).textContent()).toEqual(el.project);
     }
     await expect(this.page.locator("#page-1").locator("tbody tr")).toHaveCount(projects.hashes().length);
+});
+
+When("the project {string} is opened", async function (this: OurWorld, project: string) {
+    await this.page.locator("#page-1").locator("tr", {has: this.page.locator("td", {hasText: project})}).click();
 });
