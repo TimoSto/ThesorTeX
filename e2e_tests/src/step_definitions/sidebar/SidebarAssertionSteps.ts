@@ -1,7 +1,6 @@
 import {OurWorld} from "../../../types";
 import {Then} from "@cucumber/cucumber";
 import {expect} from "@playwright/test";
-import {d} from "vitest/dist/index-1cfc7f58";
 
 Then("the sidebar is closed", async function (this: OurWorld) {
     const classList = await this.page.locator("nav").evaluate(el => {

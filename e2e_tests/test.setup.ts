@@ -1,7 +1,6 @@
 import {After, AfterAll, Before, BeforeAll} from "@cucumber/cucumber";
 import {chromium, ChromiumBrowser, devices} from "playwright";
 import {OurWorld} from "./types";
-import {spawn} from "child_process";
 
 let browser: ChromiumBrowser;
 let sut: any;
