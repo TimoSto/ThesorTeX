@@ -53,7 +53,6 @@ func (fs *FileSystem) ReadFile(path string) ([]byte, error) {
 func (fs *FileSystem) GetAllDirectoriesUnder(path string) ([]string, error) {
 	var dirs []string
 	for _, d := range fs.dirs {
-		fmt.Println(d, path)
 		if strings.Index(d, path) == 0 {
 			dir := strings.Split(d[len(path):], "/")
 			if len(dir) == 2 {
