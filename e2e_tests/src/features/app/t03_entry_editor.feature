@@ -10,3 +10,4 @@ Feature: Entry editor
     When "e2" is entered as key
     And the first category is selected
     Then the save button in the editor is enabled
+    And the fields have a length greater than 0
