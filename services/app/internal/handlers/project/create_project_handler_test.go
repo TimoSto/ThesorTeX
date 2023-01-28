@@ -21,7 +21,7 @@ func TestCreateProjectHandler_GET(t *testing.T) {
 	fs := fake.FileSystem{}
 
 	cfg := config.Config{
-		ProjectsDir: "projects/",
+		ProjectsDir: "projects",
 	}
 
 	rr := httptest.NewRecorder()
@@ -46,7 +46,7 @@ func TestCreateProjectHandler_PUT(t *testing.T) {
 	fs := fake.FileSystem{}
 
 	cfg := config.Config{
-		ProjectsDir: "projects/",
+		ProjectsDir: "projects",
 	}
 
 	rr := httptest.NewRecorder()
@@ -59,7 +59,7 @@ func TestCreateProjectHandler_PUT(t *testing.T) {
 	}
 
 	existing, _ := fs.GetAllDirectoriesUnder("")
-	if expected := []string{"projects/test", "projects/test/data", "projects/test/styPackages"}; !reflect.DeepEqual(existing, expected) {
+	if expected := []string{"test"}; !reflect.DeepEqual(existing, expected) {
 		t.Errorf("expected %v but got %v", expected, existing)
 	}
 }

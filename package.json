@@ -30,7 +30,8 @@
     "@vue/test-utils": "*",
     "happy-dom": "*",
     "typescript": "*",
-    "vitest": "*"
+    "vitest": "*",
+    "vue-i18n": "*"
   },
   "dependencies": {
     "vue": "*"

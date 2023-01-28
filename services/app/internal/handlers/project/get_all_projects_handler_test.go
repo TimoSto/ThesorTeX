@@ -22,7 +22,7 @@ func TestGetAllProjectsHandler(t *testing.T) {
 	fs := fake.FileSystem{}
 
 	cfg := config.Config{
-		ProjectsDir: "projects/",
+		ProjectsDir: "projects",
 	}
 
 	existingData := projects.ProjectMetaData{
@@ -36,7 +36,7 @@ func TestGetAllProjectsHandler(t *testing.T) {
 	path := pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", "data/metaData.json")
 
 	fs.WriteFile(path, data)
-	fs.CreateDirectory("test")
+	fs.CreateDirectory("projects/test")
 
 	rr := httptest.NewRecorder()
 	handler := http.HandlerFunc(GetAllProjectsHandler(&fs, cfg))

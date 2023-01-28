@@ -18,7 +18,7 @@ func TestHandleProjectDelete_GET(t *testing.T) {
 	fs := fake.FileSystem{}
 
 	cfg := config.Config{
-		ProjectsDir: "projects/",
+		ProjectsDir: "projects",
 	}
 
 	rr := httptest.NewRecorder()

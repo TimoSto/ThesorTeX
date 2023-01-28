@@ -5,3 +5,7 @@ bazel test //...
 echo "testing vitests..."
 
 pnpm run -r vitest:run
+
+cd e2e_tests
+
+pnpm run test

@@ -7,6 +7,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
@@ -24,21 +25,21 @@ func TestCreateProject(t *testing.T) {
 			title:       "empty",
 			existing:    []string{},
 			name:        "test1",
-			expectedRes: []string{"projects/test1", "projects/test1/data", "projects/test1/styPackages"},
+			expectedRes: []string{"test1"},
 			expectedErr: "",
 		},
 		{
 			title:       "different existing",
-			existing:    []string{"projects/test"},
+			existing:    []string{"test"},
 			name:        "test1",
-			expectedRes: []string{"projects/test", "projects/test1", "projects/test1/data", "projects/test1/styPackages"},
+			expectedRes: []string{"test", "test1"},
 			expectedErr: "",
 		},
 		{
 			title:       "same existing",
-			existing:    []string{"projects/test1"},
+			existing:    []string{"test1"},
 			name:        "test1",
-			expectedRes: []string{"projects/test1"},
+			expectedRes: []string{"test1"},
 			expectedErr: fmt.Sprintf(ErrorProjectPathAlreadyExists, "test1"),
 		},
 	}
@@ -46,11 +47,11 @@ func TestCreateProject(t *testing.T) {
 	for _, s := range scenarios {
 		t.Run(s.title, func(t *testing.T) {
 			fs := fake.FileSystem{}
-			for _, p := range s.existing {
-				fs.CreateDirectory(p)
-			}
-
 			cfg := config.Config{ProjectsDir: "projects/"}
+
+			for _, p := range s.existing {
+				fs.CreateDirectory(pathbuilder.GetProjectPath(cfg.ProjectsDir, p))
+			}
 
 			_, err := CreateProject(s.name, &fs, cfg)
 			if err == nil && s.expectedErr != "" {
