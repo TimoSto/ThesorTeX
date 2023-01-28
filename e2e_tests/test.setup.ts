@@ -15,25 +15,28 @@ BeforeAll(async function () {
         slowMo: 50,
     });
 
-    sut = spawn("../services/app/cmd/e2e/main", {
-        // stdio: "ignore",
-        detached: false,
-    });
-    sut.on("error", (err: any) => {
-        throw "Could not start system under test executable";
-    });
-    sut.stdout.on("data", (data: any) => console.log(data.toString()));
-    sut.stderr.on("data", (data: any) => console.error(data.toString()));
+    // sut = spawn("../services/app/cmd/e2e/main", {
+    //     // stdio: "ignore",
+    //     detached: false,
+    // });
+    // sut.on("error", (err: any) => {
+    //     throw "Could not start system under test executable";
+    // });
+    // sut.stdout.on("data", (data: any) => console.log(data.toString()));
+    // sut.stderr.on("data", (data: any) => console.error(data.toString()));
 });
 AfterAll(async function () {
     await browser.close();
+    await sut?.kill();
 });
 // Create a new test context and page per scenario
 Before(async function (this: OurWorld) {
     const pixel2 = devices["Pixel 2"];
     this.context = await browser.newContext({
-        viewport: pixel2.viewport,
-        userAgent: pixel2.userAgent,
+        viewport: {
+            width: 1200,
+            height: 800
+        }
     });
     this.page = await this.context.newPage();
 });

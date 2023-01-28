@@ -2,7 +2,7 @@
   "default": {
     "require": [
       "test.setup.ts",
-      "step_definitions/**/*.ts"
+      "src/step_definitions/**/*.ts"
     ],
     "requireModule": [
       "ts-node/register"

@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features/**/*.feature --config cucumber.json"
+    "test": "cucumber-js src/features/**/*.feature --config cucumber.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^8.10.0",
+    "@playwright/test": "^1.30.0",
     "@types/node": "*",
     "playwright": "^1.30.0",
     "ts-node": "*",
