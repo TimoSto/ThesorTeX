@@ -7,3 +7,6 @@ Feature: Entry editor
     Then the title of the app is " ThesorTeX "
     And the title of the main area is ""
     And the save button in the editor is disabled
+    When "e2" is entered as key
+    And the first category is selected
+    Then the save button in the editor is enabled
