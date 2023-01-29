@@ -10,7 +10,7 @@ BeforeAll(async function () {
     // Browsers are expensive in Playwright so only create 1
     browser = await chromium.launch({
         // Not headless so we can watch test runs
-        headless: false,
+        headless: true,
         // Slow so we can see things happening
         slowMo: 50,
     });
