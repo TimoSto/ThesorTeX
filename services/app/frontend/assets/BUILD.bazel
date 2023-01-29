@@ -1,17 +1,28 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 go_library(
     name = "assets",
     srcs = ["assets.go"],
     embedsrcs = [
-        "dist/assets/index-59dbf0b2.css",
-        "dist/assets/index-d47f5e34.js",
-        "dist/assets/materialdesignicons-webfont-6d5e4be4.woff",
-        "dist/assets/materialdesignicons-webfont-739dc70d.woff2",
-        "dist/assets/materialdesignicons-webfont-c02d41ce.ttf",
-        "dist/assets/materialdesignicons-webfont-f5966bae.eot",
-        "dist/index.html",
+        "assets_dist",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/frontend/assets",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "assets_dist",
+    srcs = [
+        ":assets_files",
+    ],
+    outs = ["dist"],
+    cmd = "mkdir $(RULEDIR)/dist && tar -C $(RULEDIR)/dist -zxf $(SRCS)",
+)
+
+pkg_tar(
+    name = "assets_files",
+    srcs = glob(["dist/**/*"]),
+    extension = "tar.gz",
     visibility = ["//visibility:public"],
 )
