@@ -65,6 +65,13 @@
                 {{ t(i18nKeys.EntryEditor.Fields) }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
+                <div class="template">
+                  <label for="entry">Eintrag: </label>
+                  <span id="entry" v-html="entryPreview"></span>
+                  <br>
+                  <label for="cite">Zitat: </label>
+                  <span id="cite" v-html="citePreview"></span>
+                </div>
                 <ResponsiveTable
                   :rows="fieldsRows"
                   :headers="fieldsHeaders"
@@ -136,6 +143,7 @@ import getEntryKeyRules from "../domain/entry/EntryKeyRules";
 import SaveEntry from "../api/projectData/SaveEntry";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import DeleteEntry from "../api/projectData/DeleteEntry";
+import GenerateEntryForCategory, {GenerateCiteForCategory} from "../domain/category/GenerateEntry";
 
 // globals
 const {t} = useI18n();
@@ -238,6 +246,22 @@ const rulesAreMet = computed(() => {
   return keyRules.value(entry.value!.Key) === true && entry.value!.Category !== "";
 });
 
+const entryPreview = computed(() => {
+  const i = categories.value.indexOf(entry.value!.Category);
+  if (i >= 0 && entry.value) {
+    return GenerateEntryForCategory(projectDataStore.categories[i].BibFields, entry.value.Fields);
+  }
+  return "";
+});
+
+const citePreview = computed(() => {
+  const i = categories.value.indexOf(entry.value!.Category);
+  if (i >= 0 && entry.value) {
+    return GenerateCiteForCategory(projectDataStore.categories[i].BibFields, projectDataStore.categories[i].CiteFields, entry.value.Fields);
+  }
+  return "";
+});
+
 // watchers
 watch(changesToSave, () => {
   if (appStateStore.currentItem !== "") {
@@ -290,6 +314,20 @@ if (entryKey.value !== "") {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.template {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 12pt;
 
+  & label {
+    font-weight: bold;
+  }
+
+  & span {
+    font-family: "Times New Roman";
+  }
+}
 </style>
