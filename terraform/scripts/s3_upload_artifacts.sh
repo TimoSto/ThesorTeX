@@ -16,3 +16,5 @@ zip -r -D ../artifacts/$VERSIONPATH-zip/mac.zip ../artifacts/$VERSIONPATH/mac
 zip -r -D ../artifacts/$VERSIONPATH-zip/mac_silicon.zip ../artifacts/$VERSIONPATH/mac_silicon
 
 aws s3 cp ../artifacts/$VERSIONPATH-zip/ s3://thesortex-artifacts/$VERSIONPATH/ --recursive
+
+aws s3 cp ../artifacts/$VERSIONPATH-zip/ s3://thesortex-artifacts/latest/ --recursive

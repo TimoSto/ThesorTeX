@@ -3,10 +3,10 @@ Tool for handling bibliography in a LaTeX project
 
 ## Downloads
 The local application can be downloaded on the following links:
-- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/windows.zip)
-- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/linux.zip)
-- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/mac.zip)
-- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/v0.0.1/mac_silicon.zip)
+- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/windows.zip)
+- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/linux.zip)
+- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/mac.zip)
+- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/mac_silicon.zip)
 
 ## Build mechanics
 
