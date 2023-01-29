@@ -22,7 +22,7 @@ When("a new project is added", async function (this: OurWorld) {
 Then("the dialog for project creation is shown", async function (this: OurWorld) {
     await waitForAnimations(this.page);
 
-    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Neues Projekt anlegen");
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Create new project");
 });
 
 When("the name {string} is entered into the projectname field", async function (this: OurWorld, name: string) {

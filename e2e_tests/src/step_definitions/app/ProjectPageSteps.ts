@@ -26,7 +26,7 @@ When("the project is deleted", async function (this: OurWorld) {
 Then("the user is asked to confirm the deletion of the project", async function (this: OurWorld) {
     await waitForAnimations(this.page);
 
-    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Projekt löschen");
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Delete project");
 });
 
 Then("the project-page is closed", async function (this: OurWorld) {

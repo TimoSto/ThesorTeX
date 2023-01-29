@@ -52,7 +52,7 @@ Feature: Entry editor
     And the back button is clicked
     Then the user is prompted that there are unsaved changes
     When the close is confirmed
-    Then the title of the app is " ThesorTeX  - Projektansicht"
+    Then the title of the app is " ThesorTeX  - Projectview"
     And the title of the main area is "test"
 
   Scenario: Delete entry
@@ -63,7 +63,7 @@ Feature: Entry editor
     Then the user is asked to confirm the deletion of the entry
     When the deletion is confirmed
     Then the editor-page is closed
-    And the title of the app is " ThesorTeX  - Projektansicht"
+    And the title of the app is " ThesorTeX  - Projectview"
     And the title of the main area is "test"
     And following entries are displayed
       | key       |

@@ -36,7 +36,8 @@ Before(async function (this: OurWorld) {
         viewport: {
             width: 1200,
             height: 800
-        }
+        },
+        locale: "en"
     });
     this.page = await this.context.newPage();
 });

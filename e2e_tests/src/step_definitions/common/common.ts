@@ -32,7 +32,7 @@ Then("the editor-page is closed", async function (this: OurWorld) {
 Then("the user is prompted that there are unsaved changes", async function (this: OurWorld) {
     await waitForAnimations(this.page);
 
-    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Es liegen ungespeicherte Änderungen vor");
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("There are unsaved changes");
 });
 
 When("the close is confirmed", async function (this: OurWorld) {

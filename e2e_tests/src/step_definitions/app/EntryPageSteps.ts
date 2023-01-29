@@ -33,7 +33,7 @@ When("the entry {string} is opened", async function (this: OurWorld, key: string
 Then("the user is asked to confirm the deletion of the entry", async function (this: OurWorld) {
     await waitForAnimations(this.page);
 
-    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Eintrag löschen");
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Delete entry");
 });
 
 Then("the displayed entry for {string} is {string}", async function (this: OurWorld, key: string, entry: string) {
