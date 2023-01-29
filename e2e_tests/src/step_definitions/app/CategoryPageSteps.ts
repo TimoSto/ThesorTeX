@@ -38,3 +38,9 @@ Then("the displayed example entry for {string} is {string}", async function (thi
 When("the category {string} is opened", async function (this: OurWorld, name: string) {
     await this.page.locator("#page-2").locator("tr", {has: this.page.locator("td", {hasText: name})}).click();
 });
+
+Then("the user is asked to confirm the deletion of the category", async function (this: OurWorld) {
+    await waitForAnimations(this.page);
+
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Delete category");
+});

@@ -18,6 +18,21 @@ Feature: Category editor
     And ")" is entered as the suffix of the field at index 1
     And the save button in the editor is clicked
     And the back button is clicked
+    And following categories are displayed
+      | name                   |
+      | CitaviArticle          |
+      | CitaviArticleDoi       |
+      | CitaviBook             |
+      | CitaviBookDoi          |
+      | CitaviBooklet          |
+      | CitaviInBook           |
+      | CitaviInBookDoi        |
+      | CitaviInCollection     |
+      | CitaviInCollectionDoi  |
+      | CitaviInProceedings    |
+      | CitaviInProceedingsDoi |
+      | aufsatz                |
+      | c1                     |
     Then the displayed example entry for "c1" is "field (field2)"
 
   Scenario: Edit category
@@ -62,3 +77,28 @@ Feature: Category editor
     When the close is confirmed
     Then the title of the app is " ThesorTeX  - Projectview"
     And the title of the main area is "test"
+
+  Scenario: Delete category
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the category "c1" is opened
+    And the delete button in the editor is clicked
+    Then the user is asked to confirm the deletion of the category
+    When the deletion is confirmed
+    Then the editor-page is closed
+    And the title of the app is " ThesorTeX  - Projectview"
+    And the title of the main area is "test"
+    And following categories are displayed
+      | name                   |
+      | CitaviArticle          |
+      | CitaviArticleDoi       |
+      | CitaviBook             |
+      | CitaviBookDoi          |
+      | CitaviBooklet          |
+      | CitaviInBook           |
+      | CitaviInBookDoi        |
+      | CitaviInCollection     |
+      | CitaviInCollectionDoi  |
+      | CitaviInProceedings    |
+      | CitaviInProceedingsDoi |
+      | aufsatz                |
