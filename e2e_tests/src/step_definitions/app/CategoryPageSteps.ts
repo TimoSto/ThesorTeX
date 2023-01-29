@@ -34,3 +34,7 @@ Then("the displayed example entry for {string} is {string}", async function (thi
 
     expect(gotEntry).toEqual(entry);
 });
+
+When("the category {string} is opened", async function (this: OurWorld, name: string) {
+    await this.page.locator("#page-2").locator("tr", {has: this.page.locator("td", {hasText: name})}).click();
+});

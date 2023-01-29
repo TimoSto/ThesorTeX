@@ -19,3 +19,46 @@ Feature: Category editor
     And the save button in the editor is clicked
     And the back button is clicked
     Then the displayed example entry for "c1" is "field (field2)"
+
+  Scenario: Edit category
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the category "c1" is opened
+    Then the title of the app is " ThesorTeX  - Category editor"
+    And the title of the main area is "c1"
+    When a bib field is added
+    And "field3" is entered as the name of the field at index 2
+    And ", " is entered as the prefix of the field at index 2
+    And the save button in the editor is clicked
+    And the back button is clicked
+    Then the displayed example entry for "c1" is "field (field2), field3"
+
+  Scenario: unsafe close abort
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the category "c1" is opened
+    Then the title of the app is " ThesorTeX  - Category editor"
+    And the title of the main area is "c1"
+    When a bib field is added
+    And "field3" is entered as the name of the field at index 2
+    And ", " is entered as the prefix of the field at index 2
+    And the back button is clicked
+    Then the user is prompted that there are unsaved changes
+    When the close is aborted
+    Then the title of the app is " ThesorTeX  - Category editor"
+    And the title of the main area is "c1"
+
+  Scenario: unsafe close confirm
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the category "c1" is opened
+    Then the title of the app is " ThesorTeX  - Category editor"
+    And the title of the main area is "c1"
+    When a bib field is added
+    And "field3" is entered as the name of the field at index 2
+    And ", " is entered as the prefix of the field at index 2
+    And the back button is clicked
+    Then the user is prompted that there are unsaved changes
+    When the close is confirmed
+    Then the title of the app is " ThesorTeX  - Projectview"
+    And the title of the main area is "test"
