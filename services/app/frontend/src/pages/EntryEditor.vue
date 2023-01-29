@@ -240,7 +240,10 @@ const rulesAreMet = computed(() => {
 
 // watchers
 watch(changesToSave, () => {
-  appStateStore.unsavedChanges = changesToSave.value;
+  if (appStateStore.currentItem !== "") {
+    //this check is necessary to avoid a change while navigating back
+    appStateStore.unsavedChanges = changesToSave.value;
+  }
 });
 
 // methods

@@ -54,6 +54,9 @@ Feature: Entry editor
     When the close is confirmed
     Then the title of the app is " ThesorTeX  - Projectview"
     And the title of the main area is "test"
+    When the back button is clicked
+    Then the title of the app is " ThesorTeX "
+    And the title of the main area is "Welcome to ThesorTeX!"
 
   Scenario: Delete entry
     Given the url "/" was opened

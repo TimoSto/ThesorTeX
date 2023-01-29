@@ -86,6 +86,7 @@ export const useAppStateStore = defineStore({
             this.unsavedDialogTriggered = false;
             if (accept) {
                 this.unsavedDialogCallback();
+                this.unsavedChanges = false;
             } else {
                 this.unsavedDialogCallback = () => {
                 };
