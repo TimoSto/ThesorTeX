@@ -22,7 +22,7 @@ BeforeAll(async function () {
     sut.on("error", (err: any) => {
         throw "Could not start system under test executable";
     });
-    sut.stdout.on("data", (data: any) => console.log(data.toString()));
+    // sut.stdout.on("data", (data: any) => console.log(data.toString()));
     sut.stderr.on("data", (data: any) => console.error(data.toString()));
 });
 AfterAll(async function () {
