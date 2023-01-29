@@ -22,6 +22,10 @@
       </v-app-bar-title>
 
       <v-spacer />
+
+      <v-btn icon @click="configOpened=true">
+        <v-icon>mdi-cog</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -98,6 +102,10 @@
         @resolve="appStateStore.resolveCallback($event)"
       />
     </v-dialog>
+    <ConfigDialog
+      :open="configOpened"
+      @close="configOpened=false"
+    />
   </v-app>
 </template>
 
@@ -116,6 +124,7 @@ import EntryEditor from "./pages/EntryEditor.vue";
 import ProjectsSidebar from "./components/ProjectsSidebar.vue";
 import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
 import UnsavedChangesDialog from "./components/UnsavedChangesCard.vue";
+import ConfigDialog from "./pages/ConfigDialog.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -128,6 +137,8 @@ const {t} = useI18n();
 
 // data
 const instantSwitch = ref(false);
+
+const configOpened = ref(false);
 
 // computed
 const sidebarOpened = computed({
