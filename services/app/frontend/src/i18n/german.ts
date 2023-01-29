@@ -14,7 +14,8 @@ export const german: I18nKeys = {
         Attribute: "Attribut",
         Value: "Wert",
         General: "Allgemein",
-        Continue: "Fortfahren"
+        Continue: "Fortfahren",
+        Save: "Speichern"
     },
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",
@@ -95,5 +96,11 @@ export const german: I18nKeys = {
     UnsavedChanges: {
         Title: "Es liegen ungespeicherte Änderungen vor",
         Message: "Wenn du fortfährst, werden diese Änderungen verworfen."
+    },
+    Config: {
+        Title: "Konfiguration",
+        Port: "Port",
+        Dir: "Verzeichnis für Projekte",
+        Open: "Beim Starten Browserfenster öffnen"
     }
 };

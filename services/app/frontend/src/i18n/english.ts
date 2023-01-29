@@ -14,7 +14,8 @@ export const english: I18nKeys = {
         Attribute: "Attribute",
         Value: "Value",
         General: "General",
-        Continue: "Continue"
+        Continue: "Continue",
+        Save: "Save"
     },
     Rules: {
         NoSpaces: "No spaces allowed",
@@ -95,5 +96,11 @@ export const english: I18nKeys = {
     UnsavedChanges: {
         Title: "There are unsaved changes",
         Message: "If you continue, these changes will be discarded."
+    },
+    Config: {
+        Title: "Configuration",
+        Port: "Port",
+        Dir: "Directory for projects",
+        Open: "Open browser on startup"
     }
 };

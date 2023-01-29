@@ -12,7 +12,8 @@ export const i18nKeys = {
         Attribute: "Common.Attribute",
         Value: "Common.Value",
         General: "Common.General",
-        Continue: "Common.Continue"
+        Continue: "Common.Continue",
+        Save: "Common.Save"
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -93,6 +94,12 @@ export const i18nKeys = {
     UnsavedChanges: {
         Title: "UnsavedChanges.Title",
         Message: "UnsavedChanges.Message"
+    },
+    Config: {
+        Title: "Config.Title",
+        Port: "Config.Port",
+        Dir: "Config.Dir",
+        Open: "Config.Open"
     }
 };
 
