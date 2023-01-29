@@ -33,6 +33,28 @@ Feature: Entry editor
       | testEntry |
     And the displayed entry for "e2" is "hallo (feld2):  In:  ,  "
 
+  Scenario: Unsafe close abort
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the entry "e2" is opened
+    When "feld3" is entered into the input at index 2
+    And the back button is clicked
+    Then the user is prompted that there are unsaved changes
+    When the close is aborted
+    Then the title of the app is " ThesorTeX "
+    And the title of the main area is "e2"
+
+  Scenario: Unsafe close confirm
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the entry "e2" is opened
+    When "feld3" is entered into the input at index 2
+    And the back button is clicked
+    Then the user is prompted that there are unsaved changes
+    When the close is confirmed
+    Then the title of the app is " ThesorTeX  - Projektansicht"
+    And the title of the main area is "test"
+
   Scenario: Delete entry
     Given the url "/" was opened
     And the project " test " is opened
