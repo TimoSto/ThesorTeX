@@ -172,6 +172,9 @@ const titleAppendix = computed(() => {
     case pageNames[2]:
       appendix = t(i18nKeys.CategoryEditor.Title);
       break;
+    case pageNames[3]:
+      appendix = t(i18nKeys.EntryEditor.Title);
+      break;
     default:
       appendix = "";
   }

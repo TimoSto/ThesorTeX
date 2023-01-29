@@ -80,6 +80,7 @@ export const german: I18nKeys = {
         ErrorDelete: "Die Kategorie konnte nicht gelöscht werden.",
     },
     EntryEditor: {
+        Title: " - Eintrag bearbeiten",
         Key: "Schlüssel",
         Category: "Kategorie",
         Fields: "Felder",

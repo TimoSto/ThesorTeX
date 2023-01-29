@@ -4,7 +4,7 @@ Feature: Entry editor
     Given the url "/" was opened
     And the project " test " is opened
     When a new entry is created
-    Then the title of the app is " ThesorTeX "
+    Then the title of the app is " ThesorTeX  - Edit entry"
     And the title of the main area is ""
     And the save button in the editor is disabled
     When "e2" is entered as key
@@ -18,7 +18,7 @@ Feature: Entry editor
       | key       |
       | e2        |
       | testEntry |
-    And the displayed entry for "e2" is "hallo ():  In:  ,  "
+    And the displayed entry for "e2" is "hallo ():  In:  , "
 
   Scenario: Edit entry
     Given the url "/" was opened
@@ -31,7 +31,7 @@ Feature: Entry editor
       | key       |
       | e2        |
       | testEntry |
-    And the displayed entry for "e2" is "hallo (feld2):  In:  ,  "
+    And the displayed entry for "e2" is "hallo (feld2):  In:  , "
 
   Scenario: Unsafe close abort
     Given the url "/" was opened
@@ -41,7 +41,7 @@ Feature: Entry editor
     And the back button is clicked
     Then the user is prompted that there are unsaved changes
     When the close is aborted
-    Then the title of the app is " ThesorTeX "
+    Then the title of the app is " ThesorTeX  - Edit entry"
     And the title of the main area is "e2"
 
   Scenario: Unsafe close confirm

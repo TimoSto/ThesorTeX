@@ -78,6 +78,7 @@ export const i18nKeys = {
         ErrorDelete: "CategoryEditor.ErrorDelete",
     },
     EntryEditor: {
+        Title: "EntryEditor.Title",
         Key: "EntryEditor.Key",
         Category: "EntryEditor.Category",
         Fields: "EntryEditor.Fields",

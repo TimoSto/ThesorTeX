@@ -80,6 +80,7 @@ export const english: I18nKeys = {
         ErrorDelete: "The category could not be deleted.",
     },
     EntryEditor: {
+        Title: " - Edit entry",
         Key: "Key",
         Category: "Category",
         Fields: "Fields",
