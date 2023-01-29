@@ -35,3 +35,9 @@ Then("the user is asked to confirm the deletion of the entry", async function (t
 
     expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Eintrag löschen");
 });
+
+Then("the displayed entry for {string} is {string}", async function (this: OurWorld, key: string, entry: string) {
+    const gotEntry = await this.page.locator("#page-2").locator(".v-expansion-panel").first().locator("tbody tr", {has: this.page.locator("td", {hasText: key})}).locator("td").nth(2).textContent();
+    console.log(gotEntry);
+    expect(gotEntry).toEqual(entry);
+});

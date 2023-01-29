@@ -18,6 +18,20 @@ Feature: Entry editor
       | key       |
       | e2        |
       | testEntry |
+    And the displayed entry for "e2" is "hallo ():  In:  ,  "
+
+  Scenario: Edit entry
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the entry "e2" is opened
+    When "feld2" is entered into the input at index 1
+    And the save button in the editor is clicked
+    And the back button is clicked
+    Then following entries are displayed
+      | key       |
+      | e2        |
+      | testEntry |
+    And the displayed entry for "e2" is "hallo (feld2):  In:  ,  "
 
   Scenario: Delete entry
     Given the url "/" was opened
