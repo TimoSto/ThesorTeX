@@ -25,3 +25,13 @@ Then("the fields have a length greater than 0", async function (this: OurWorld) 
 When("{string} is entered into the input at index {int}", async function (this: OurWorld, text: string, i: number) {
     await this.page.locator("#page-3").locator(".v-expansion-panel").nth(1).locator(".v-input").nth(i).locator("input").type(text);
 });
+
+When("the entry {string} is opened", async function (this: OurWorld, key: string) {
+    await this.page.locator("#page-2").locator("tr", {has: this.page.locator("td", {hasText: key})}).click();
+});
+
+Then("the user is asked to confirm the deletion of the entry", async function (this: OurWorld) {
+    await waitForAnimations(this.page);
+
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Eintrag löschen");
+});

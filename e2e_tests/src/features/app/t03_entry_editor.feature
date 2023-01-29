@@ -18,3 +18,17 @@ Feature: Entry editor
       | key       |
       | e2        |
       | testEntry |
+
+  Scenario: Delete entry
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the entry "e2" is opened
+    And the delete button in the editor is clicked
+    Then the user is asked to confirm the deletion of the entry
+    When the deletion is confirmed
+    Then the editor-page is closed
+    And the title of the app is " ThesorTeX  - Projektansicht"
+    And the title of the main area is "test"
+    And following entries are displayed
+      | key       |
+      | testEntry |

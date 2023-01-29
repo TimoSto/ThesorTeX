@@ -1,6 +1,7 @@
 import {Then, When} from "@cucumber/cucumber";
 import {expect} from "@playwright/test";
 import {OurWorld} from "../../../types";
+import waitForAnimations from "../../helpers/waitForAnimations";
 
 When("the deletion is confirmed", async function (this: OurWorld) {
     await this.page.locator(".v-overlay__content .v-card-actions button").nth(1).click();
@@ -16,4 +17,14 @@ Then("the save button in the editor is enabled", async function (this: OurWorld)
 
 When("the save button in the editor is clicked", async function (this: OurWorld) {
     await this.page.locator("#page-3 header").locator("button").nth(0).click();
+});
+
+When("the delete button in the editor is clicked", async function (this: OurWorld) {
+    await this.page.locator("#page-3 header").locator("button").nth(1).click();
+});
+
+Then("the editor-page is closed", async function (this: OurWorld) {
+    await waitForAnimations(this.page, ["#page-3", "#page-2"]);
+
+    expect(await this.page.locator("#page-3").count()).toEqual(0);
 });
