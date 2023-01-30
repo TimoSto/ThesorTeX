@@ -30,12 +30,9 @@ func ReadConfig() (Config, error) {
 	iniCfg, err := ini.Load("ThesorTeX.config.ini")
 	if err != nil {
 		log.Error("cloud not open ini: %v", err)
-		iniCfg = ini.Empty()
-		iniCfg.Section("").Key("port").SetValue(cfg.Port)
-		iniCfg.Section("").Key("projects_dir").SetValue(cfg.ProjectsDir)
-		iniCfg.Section("").Key("open_browser").SetValue(strconv.FormatBool(cfg.OpenBrowser))
 
-		err = iniCfg.SaveTo("ThesorTeX.config.ini")
+		err = SaveConfig(cfg)
+
 		return cfg, err
 	}
 
@@ -50,4 +47,19 @@ func ReadConfig() (Config, error) {
 	}
 
 	return cfg, nil
+}
+
+func SaveConfig(cfg Config) error {
+	iniCfg := ini.Empty()
+	iniCfg.Section("").Key("port").SetValue(cfg.Port)
+	iniCfg.Section("").Key("projects_dir").SetValue(cfg.ProjectsDir)
+	iniCfg.Section("").Key("open_browser").SetValue(strconv.FormatBool(cfg.OpenBrowser))
+
+	err := iniCfg.SaveTo("ThesorTeX.config.ini")
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
