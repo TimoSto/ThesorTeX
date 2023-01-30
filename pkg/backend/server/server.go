@@ -11,25 +11,21 @@ import (
 )
 
 type Server struct {
-	mux  *http.ServeMux
-	port string
-	srv  *http.Server
+	handler http.Handler
+	port    string
+	srv     *http.Server
 }
 
-func New(port string) Server {
+func New(port string, chain http.Handler) Server {
 	return Server{
-		mux:  http.NewServeMux(),
-		port: port,
+		handler: chain,
+		port:    port,
 	}
 }
 
-func (s *Server) Register(path string, handler http.HandlerFunc) {
-	s.mux.HandleFunc(path, handler)
-}
-
-func (s *Server) Start(fin chan bool) {
+func (s *Server) Start(fin chan bool) string {
 	s.srv = &http.Server{
-		Handler: s.mux,
+		Handler: s.handler,
 	}
 
 	socket, err := net.Listen("tcp", "0.0.0.0:"+s.port)
@@ -50,4 +46,6 @@ func (s *Server) Start(fin chan bool) {
 	_, port, _ := net.SplitHostPort(socket.Addr().String())
 
 	log.Info(fmt.Sprintf("Server running at http://localhost:%v", port))
+
+	return fmt.Sprintf("http://localhost:%v", port)
 }

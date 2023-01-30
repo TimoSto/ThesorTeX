@@ -12,6 +12,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/server"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/local"
@@ -54,20 +55,18 @@ func main() {
 
 	handlers.RegisterAppHandlers(mux, &fs)
 
-	go func() {
-		err := http.ListenAndServe(fmt.Sprintf(":%s", config.Cfg.Port), chain.Then(mux))
-		if err != nil {
-			log.Error("unexpected error starting server: %v", err)
-			os.Exit(1)
-		}
-	}()
+	srv := server.New(config.Cfg.Port, chain.Then(mux))
+
+	finished := make(chan bool, 1)
+
+	addr := srv.Start(finished)
 
 	//TODO: get actual url icase of port 0
 
-	log.Info("App running under http://localhost:%s", config.Cfg.Port)
+	log.Info("App running under %s", addr)
 
 	if config.Cfg.OpenBrowser {
-		openBrowser(fmt.Sprintf("http://localhost:%s", config.Cfg.Port))
+		openBrowser(addr)
 	}
 
 	sigs := make(chan os.Signal, 1)
@@ -79,6 +78,8 @@ func main() {
 	sig := <-sigs
 
 	log.Info("received %v", sig)
+
+	finished <- true
 }
 
 func openBrowser(url string) {
