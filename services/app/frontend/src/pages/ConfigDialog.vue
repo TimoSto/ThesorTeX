@@ -8,7 +8,7 @@
         <v-text-field variant="underlined" :label="t(i18nKeys.Config.Port)" v-model="port" color="primary"
                       prefix="http://localhost:" />
         <v-text-field variant="underlined" :label="t(i18nKeys.Config.Dir)" v-model="dir" color="primary" />
-        <v-checkbox-btn :label="t(i18nKeys.Config.Open)" />
+        <v-checkbox-btn :label="t(i18nKeys.Config.Open)" v-model="openBrowser" />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -28,6 +28,7 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 
 import {computed, ref} from "vue";
 import {i18nKeys} from "../i18n/keys";
+import GetConfig from "../api/config/GetConfig";
 
 const emit = defineEmits(["close"]);
 
@@ -42,6 +43,8 @@ const port = ref("");
 
 const dir = ref("");
 
+const openBrowser = ref(false);
+
 // computed
 const opened = computed({
   get(): boolean {
@@ -50,6 +53,13 @@ const opened = computed({
   set(v: boolean) {
     emit("close");
   }
+});
+
+// onmounted
+GetConfig().then(cfg => {
+  port.value = cfg.Port;
+  dir.value = cfg.ProjectsDir;
+  openBrowser.value = cfg.OpenBrowser;
 });
 
 </script>

@@ -30,6 +30,8 @@ export default defineConfig({
             "/saveEntry": "http://localhost:8448/",
             "/deleteEntry": "http://localhost:8448/",
             "/uploadEntries": "http://localhost:8448/",
+            "/getConfig": "http://localhost:8448/",
+            "/saveConfig": "http://localhost:8448/",
         }
     },
     build: {
