@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"os/exec"
 	"os/signal"
+	"runtime"
 	"syscall"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
@@ -53,14 +55,20 @@ func main() {
 	handlers.RegisterAppHandlers(mux, &fs, cfg)
 
 	go func() {
-		err := http.ListenAndServe(fmt.Sprintf(":%s", "8448"), chain.Then(mux))
+		err := http.ListenAndServe(fmt.Sprintf(":%s", cfg.Port), chain.Then(mux))
 		if err != nil {
 			log.Error("unexpected error starting server: %v", err)
 			os.Exit(1)
 		}
 	}()
 
-	log.Info("App running under http://localhost:8448")
+	//TODO: get actual url icase of port 0
+
+	log.Info("App running under http://localhost:%s", cfg.Port)
+
+	if cfg.OpenBrowser {
+		openBrowser(fmt.Sprintf("http://localhost:%s", cfg.Port))
+	}
 
 	sigs := make(chan os.Signal, 1)
 
@@ -71,4 +79,22 @@ func main() {
 	sig := <-sigs
 
 	log.Info("received %v", sig)
+}
+
+func openBrowser(url string) {
+	var err error
+
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", url).Start()
+	case "windows":
+		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
+	case "darwin":
+		err = exec.Command("open", url).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		log.Error("Could not open browser: %v", err)
+	}
 }

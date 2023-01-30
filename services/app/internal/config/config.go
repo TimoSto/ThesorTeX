@@ -10,13 +10,17 @@ import (
 var Version string
 
 type Config struct {
+	Port            string
 	ProjectsDir     string
+	OpenBrowser     bool
 	ProjectTemplate fs.FS
 }
 
 func ReadConfig() (Config, error) {
 	cfg := Config{
+		Port:            "8448",
 		ProjectsDir:     pathbuilder.GetPathFromExecRoot("/projects"),
+		OpenBrowser:     false,
 		ProjectTemplate: project_template.ProjectTemplate,
 	}
 
