@@ -8,6 +8,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/assets"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category"
+	config_handlers "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/entry"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project"
 )
@@ -34,4 +35,6 @@ func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg confi
 	mux.HandleFunc("/uploadEntries", entry.HandleUploadEntries(fs, cfg))
 
 	mux.HandleFunc("/deleteEntry", entry.HandleDeleteEntry(fs, cfg))
+
+	mux.HandleFunc("/getConfig", config_handlers.HandleConfigGet(cfg))
 }
