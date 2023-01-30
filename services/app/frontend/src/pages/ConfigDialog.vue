@@ -15,7 +15,7 @@
         <v-btn color="primary" @click="emit('close')">
           {{ t(i18nKeys.Common.Close) }}
         </v-btn>
-        <v-btn color="primary">
+        <v-btn color="primary" @click="saveConfig" :disabled="!changesToSave">
           {{ t(i18nKeys.Common.Save) }}
         </v-btn>
       </v-card-actions>
@@ -29,6 +29,7 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {computed, ref} from "vue";
 import {i18nKeys} from "../i18n/keys";
 import GetConfig from "../api/config/GetConfig";
+import SaveConfig from "../api/config/SaveConfig";
 
 const emit = defineEmits(["close"]);
 
@@ -45,6 +46,13 @@ const dir = ref("");
 
 const openBrowser = ref(false);
 
+// importing interface gives error
+const initial = ref({} as {
+  Port: string,
+  ProjectsDir: string,
+  OpenBrowser: boolean
+});
+
 // computed
 const opened = computed({
   get(): boolean {
@@ -55,11 +63,34 @@ const opened = computed({
   }
 });
 
+const changesToSave = computed(() => {
+  return port.value !== initial.value.Port || dir.value !== initial.value.ProjectsDir || openBrowser.value !== initial.value.OpenBrowser;
+});
+
+// methods
+async function saveConfig() {
+  const success = await SaveConfig({
+    Port: port.value,
+    ProjectsDir: dir.value,
+    OpenBrowser: openBrowser.value
+  });
+
+  if (success) {
+    initial.value.Port = port.value;
+    initial.value.ProjectsDir = dir.value;
+    initial.value.OpenBrowser = openBrowser.value;
+  }
+
+  console.log(initial);
+}
+
 // onmounted
 GetConfig().then(cfg => {
   port.value = cfg.Port;
   dir.value = cfg.ProjectsDir;
   openBrowser.value = cfg.OpenBrowser;
+
+  initial.value = cfg;
 });
 
 </script>
