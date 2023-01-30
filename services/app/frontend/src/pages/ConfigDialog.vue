@@ -6,7 +6,7 @@
       </v-card-title>
       <v-card-text>
         <v-text-field variant="underlined" :label="t(i18nKeys.Config.Port)" v-model="port" color="primary"
-                      prefix="http://localhost:" />
+                      prefix="http://localhost:" :rules="[portNameRules]" />
         <v-text-field variant="underlined" :label="t(i18nKeys.Config.Dir)" v-model="dir" color="primary" />
         <v-checkbox-btn :label="t(i18nKeys.Config.Open)" v-model="openBrowser" />
       </v-card-text>
@@ -30,6 +30,7 @@ import {computed, ref} from "vue";
 import {i18nKeys} from "../i18n/keys";
 import GetConfig from "../api/config/GetConfig";
 import SaveConfig from "../api/config/SaveConfig";
+import getPortRules from "../domain/config/PortRules";
 
 const emit = defineEmits(["close"]);
 
@@ -67,6 +68,8 @@ const changesToSave = computed(() => {
   return port.value !== initial.value.Port || dir.value !== initial.value.ProjectsDir || openBrowser.value !== initial.value.OpenBrowser;
 });
 
+const portNameRules = getPortRules(t);
+
 // methods
 async function saveConfig() {
   const success = await SaveConfig({
@@ -80,8 +83,6 @@ async function saveConfig() {
     initial.value.ProjectsDir = dir.value;
     initial.value.OpenBrowser = openBrowser.value;
   }
-
-  console.log(initial);
 }
 
 // onmounted

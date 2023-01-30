@@ -99,7 +99,9 @@ export const i18nKeys = {
         Title: "Config.Title",
         Port: "Config.Port",
         Dir: "Config.Dir",
-        Open: "Config.Open"
+        Open: "Config.Open",
+        PortNumInvalid: "Config.PortNumInvalid",
+        PortReserved: "Config.PortReserved"
     }
 };
 

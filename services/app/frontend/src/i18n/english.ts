@@ -101,6 +101,8 @@ export const english: I18nKeys = {
         Title: "Configuration",
         Port: "Port",
         Dir: "Directory for projects",
-        Open: "Open browser on startup"
+        Open: "Open browser on startup",
+        PortNumInvalid: "The portnumber is invalid",
+        PortReserved: "This port is reserved (1024 - 49151 available)"
     }
 };
