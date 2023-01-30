@@ -19,3 +19,4 @@ dist/
 /services/app/cmd/e2e/main
 
 *.ini
+/ThesorTeX.log
