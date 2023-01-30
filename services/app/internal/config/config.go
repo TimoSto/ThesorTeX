@@ -19,6 +19,8 @@ type Config struct {
 	ProjectTemplate fs.FS
 }
 
+var Cfg Config
+
 func ReadConfig() (Config, error) {
 	cfg := Config{
 		Port:            "8448",
@@ -46,6 +48,8 @@ func ReadConfig() (Config, error) {
 		cfg.OpenBrowser = openBrowser
 	}
 
+	Cfg = cfg
+
 	return cfg, nil
 }
 
@@ -60,6 +64,8 @@ func SaveConfig(cfg Config) error {
 	if err != nil {
 		return err
 	}
+
+	Cfg = cfg
 
 	return nil
 }

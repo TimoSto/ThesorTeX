@@ -1,7 +1,6 @@
 package fake
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -51,7 +50,6 @@ func (fs *FileSystem) ReadFile(path string) ([]byte, error) {
 
 func (fs *FileSystem) GetAllDirectoriesUnder(path string) ([]string, error) {
 	var dirs []string
-	fmt.Println(fs.dirs)
 	for _, d := range fs.dirs {
 		if strings.Index(d, path) == 0 {
 			dir := strings.Split(d[len(path):], "/")

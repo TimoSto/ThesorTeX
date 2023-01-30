@@ -17,12 +17,12 @@ func TestHandleProjectDelete_GET(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleProjectDelete(&fs, cfg))
+	handler := http.HandlerFunc(HandleProjectDelete(&fs))
 
 	handler.ServeHTTP(rr, req)
 
@@ -39,12 +39,12 @@ func TestHandleProjectDelete_MissingParameter(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleProjectDelete(&fs, cfg))
+	handler := http.HandlerFunc(HandleProjectDelete(&fs))
 
 	handler.ServeHTTP(rr, req)
 

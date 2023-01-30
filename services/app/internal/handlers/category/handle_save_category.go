@@ -10,7 +10,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
-func HandleSaveCategory(fs filesystem.FileSystem, cfg config.Config) func(w http.ResponseWriter, r *http.Request) {
+func HandleSaveCategory(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
@@ -34,7 +34,7 @@ func HandleSaveCategory(fs filesystem.FileSystem, cfg config.Config) func(w http
 			return
 		}
 
-		err = categories.SaveCategory(fs, cfg, query["project"][0], query["name"][0], data)
+		err = categories.SaveCategory(fs, config.Cfg, query["project"][0], query["name"][0], data)
 		if err != nil {
 			log.Error("could not save category: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)

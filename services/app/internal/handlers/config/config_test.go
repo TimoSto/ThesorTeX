@@ -17,12 +17,12 @@ func TestHandleConfigGet_POST(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleConfigGet(cfg))
+	handler := http.HandlerFunc(HandleConfigGet())
 
 	handler.ServeHTTP(rr, req)
 
@@ -37,14 +37,14 @@ func TestHandleConfigGet_GET(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects",
 		Port:        "5678",
 		OpenBrowser: true,
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleConfigGet(cfg))
+	handler := http.HandlerFunc(HandleConfigGet())
 
 	handler.ServeHTTP(rr, req)
 
@@ -60,8 +60,8 @@ func TestHandleConfigGet_GET(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if !reflect.DeepEqual(cfg, gotConfig) {
-		t.Errorf("expected %v, got %v", cfg, gotConfig)
+	if !reflect.DeepEqual(config.Cfg, gotConfig) {
+		t.Errorf("expected %v, got %v", config.Cfg, gotConfig)
 	}
 }
 

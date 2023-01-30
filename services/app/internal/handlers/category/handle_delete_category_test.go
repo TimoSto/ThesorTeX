@@ -17,12 +17,12 @@ func TestHandleDeleteCategory_GET(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleDeleteCategory(&fs, cfg))
+	handler := http.HandlerFunc(HandleDeleteCategory(&fs))
 
 	handler.ServeHTTP(rr, req)
 
@@ -39,12 +39,12 @@ func TestHandleDeleteCategory_MissingQueryParameters(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleDeleteCategory(&fs, cfg))
+	handler := http.HandlerFunc(HandleDeleteCategory(&fs))
 
 	handler.ServeHTTP(rr, req)
 

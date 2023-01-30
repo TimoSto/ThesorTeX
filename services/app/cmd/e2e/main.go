@@ -26,19 +26,19 @@ func main() {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects",
 	}
 
 	log.Info("Creating example project...")
-	_, err := projects.CreateProject("example", &fs, cfg)
+	_, err := projects.CreateProject("example", &fs, config.Cfg)
 	if err != nil {
 		log.Error("unexpected error creating the example project: %v", err)
 		os.Exit(1)
 	}
-	log.Info("Created example project under %s", pathbuilder.GetProjectPath(cfg.ProjectsDir, "example"))
+	log.Info("Created example project under %s", pathbuilder.GetProjectPath(config.Cfg.ProjectsDir, "example"))
 
-	handlers.RegisterAppHandlers(mux, &fs, cfg)
+	handlers.RegisterAppHandlers(mux, &fs)
 
 	err = http.ListenAndServe(fmt.Sprintf(":%s", "8440"), chain.Then(mux))
 	if err != nil {

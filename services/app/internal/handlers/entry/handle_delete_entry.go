@@ -9,7 +9,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
-func HandleDeleteEntry(fs filesystem.FileSystem, cfg config.Config) func(w http.ResponseWriter, r *http.Request) {
+func HandleDeleteEntry(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodDelete {
 			w.WriteHeader(http.StatusMethodNotAllowed)
@@ -24,7 +24,7 @@ func HandleDeleteEntry(fs filesystem.FileSystem, cfg config.Config) func(w http.
 			return
 		}
 
-		err := entries.DeleteEntry(query["project"][0], query["key"][0], fs, cfg)
+		err := entries.DeleteEntry(query["project"][0], query["key"][0], fs, config.Cfg)
 		if err != nil {
 			log.Error("could not delete entry: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)

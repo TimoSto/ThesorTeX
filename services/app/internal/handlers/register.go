@@ -13,30 +13,30 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/project"
 )
 
-func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem, cfg config.Config) {
+func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem) {
 	mux.HandleFunc("/", assets.HandleAssets())
 
 	mux.HandleFunc("/version", versionhandler.GetRootHandler(config.Version))
 
-	mux.HandleFunc("/createNewProject", project.CreateProjectHandler(fs, cfg))
+	mux.HandleFunc("/createNewProject", project.CreateProjectHandler(fs))
 
-	mux.HandleFunc("/getAllProjects", project.GetAllProjectsHandler(fs, cfg))
+	mux.HandleFunc("/getAllProjects", project.GetAllProjectsHandler(fs))
 
-	mux.HandleFunc("/getProjectData", project.GetProjectDataHandler(fs, cfg))
+	mux.HandleFunc("/getProjectData", project.GetProjectDataHandler(fs))
 
-	mux.HandleFunc("/deleteProject", project.HandleProjectDelete(fs, cfg))
+	mux.HandleFunc("/deleteProject", project.HandleProjectDelete(fs))
 
-	mux.HandleFunc("/saveCategory", category.HandleSaveCategory(fs, cfg))
+	mux.HandleFunc("/saveCategory", category.HandleSaveCategory(fs))
 
-	mux.HandleFunc("/deleteCategory", category.HandleDeleteCategory(fs, cfg))
+	mux.HandleFunc("/deleteCategory", category.HandleDeleteCategory(fs))
 
-	mux.HandleFunc("/saveEntry", entry.HandleSaveEntry(fs, cfg))
+	mux.HandleFunc("/saveEntry", entry.HandleSaveEntry(fs))
 
-	mux.HandleFunc("/uploadEntries", entry.HandleUploadEntries(fs, cfg))
+	mux.HandleFunc("/uploadEntries", entry.HandleUploadEntries(fs))
 
-	mux.HandleFunc("/deleteEntry", entry.HandleDeleteEntry(fs, cfg))
+	mux.HandleFunc("/deleteEntry", entry.HandleDeleteEntry(fs))
 
-	mux.HandleFunc("/getConfig", config_handlers.HandleConfigGet(cfg))
+	mux.HandleFunc("/getConfig", config_handlers.HandleConfigGet())
 
 	mux.HandleFunc("/saveConfig", config_handlers.HandleConfigSave())
 }

@@ -16,7 +16,7 @@ type ProjectData struct {
 	Categories []categories.Category
 }
 
-func GetProjectDataHandler(fs filesystem.FileSystem, cfg config.Config) func(w http.ResponseWriter, r *http.Request) {
+func GetProjectDataHandler(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusBadRequest)
@@ -32,13 +32,13 @@ func GetProjectDataHandler(fs filesystem.FileSystem, cfg config.Config) func(w h
 
 		project := query["project"][0]
 
-		projectEntries, err := entries.GetAllEntries(project, fs, cfg)
+		projectEntries, err := entries.GetAllEntries(project, fs, config.Cfg)
 		if err != nil {
 			log.Error("got error reading entries of project from request: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
 		}
 
-		projectCategories, err := categories.GetAllCategories(project, fs, cfg)
+		projectCategories, err := categories.GetAllCategories(project, fs, config.Cfg)
 		if err != nil {
 			log.Error("got error reading entries of project from request: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)

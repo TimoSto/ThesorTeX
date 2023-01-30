@@ -2,7 +2,6 @@ package projects
 
 import (
 	"encoding/json"
-	"fmt"
 	"reflect"
 	"testing"
 	"time"
@@ -31,8 +30,6 @@ func TestGetAllProjects(t *testing.T) {
 
 	fs.WriteFile(path, data)
 	fs.CreateDirectory("projects/test")
-
-	fmt.Println(fs.GetAllDirectoriesUnder(cfg.ProjectsDir))
 
 	projects, err := GetAllProjects(&fs, cfg)
 	if err != nil {

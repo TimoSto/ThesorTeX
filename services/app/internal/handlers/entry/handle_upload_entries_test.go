@@ -17,12 +17,12 @@ func TestHandleUploadEntries_GET(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleUploadEntries(&fs, cfg))
+	handler := http.HandlerFunc(HandleUploadEntries(&fs))
 
 	handler.ServeHTTP(rr, req)
 
@@ -39,12 +39,12 @@ func TestHandleUploadEntries_MissingQueryParameters(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(HandleUploadEntries(&fs, cfg))
+	handler := http.HandlerFunc(HandleUploadEntries(&fs))
 
 	handler.ServeHTTP(rr, req)
 

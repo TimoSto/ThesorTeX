@@ -20,12 +20,12 @@ func TestGetProjectDataHandler_POST(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(GetProjectDataHandler(&fs, cfg))
+	handler := http.HandlerFunc(GetProjectDataHandler(&fs))
 
 	handler.ServeHTTP(rr, req)
 
@@ -42,18 +42,18 @@ func TestGetProjectDataHandler_GET(t *testing.T) {
 
 	fs := fake.FileSystem{}
 
-	cfg := config.Config{
+	config.Cfg = config.Config{
 		ProjectsDir: "projects/",
 	}
 
 	entriesFile := []byte("[\n  {\n    \"Key\": \"testEntry\",\n    \"Category\": \"aufsatz\",\n    \"Fields\": [\n      \"Autor xyz\",\n      \"1999\",\n      \"ThesorTeX - Ein tolles Tool\",\n      \"Random Zeitschrift\",\n      \"99/03\",\n      \"20-22\",\n      \"https://wikipedia.org/\"\n    ]\n  }\n]")
-	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", "/data/bib_entries.json"), entriesFile)
+	fs.WriteFile(pathbuilder.GetPathInProject(config.Cfg.ProjectsDir, "test", "/data/bib_entries.json"), entriesFile)
 
 	categoriesFile := []byte("[\n  {\n    \"Name\": \"aufsatz\",\n    \"CitaviCategory\": \"\",\n    \"CitaviFilters\": null,\n    \"BibFields\": [\n      {\n        \"Name\": \"Autor\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Jahr\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Titel\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Zeitschrift\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Ausgabe\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Seiten\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"url\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      }\n    ],\n    \"CiteFields\": [\n      {\n        \"Name\": \"Autor_kurz\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Jahr\",\n        \"Format\": {\n          \"Style\": \"italic\",\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      }\n    ]\n  }\n]")
-	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", "/data/bib_categories.json"), categoriesFile)
+	fs.WriteFile(pathbuilder.GetPathInProject(config.Cfg.ProjectsDir, "test", "/data/bib_categories.json"), categoriesFile)
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(GetProjectDataHandler(&fs, cfg))
+	handler := http.HandlerFunc(GetProjectDataHandler(&fs))
 
 	handler.ServeHTTP(rr, req)
 

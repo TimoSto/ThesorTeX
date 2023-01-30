@@ -10,7 +10,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
-func HandleSaveEntry(fs filesystem.FileSystem, cfg config.Config) func(w http.ResponseWriter, r *http.Request) {
+func HandleSaveEntry(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
@@ -34,7 +34,7 @@ func HandleSaveEntry(fs filesystem.FileSystem, cfg config.Config) func(w http.Re
 			return
 		}
 
-		err = entries.SaveEntry(fs, cfg, query["project"][0], query["key"][0], data)
+		err = entries.SaveEntry(fs, config.Cfg, query["project"][0], query["key"][0], data)
 		if err != nil {
 			log.Error("could not save entry: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
