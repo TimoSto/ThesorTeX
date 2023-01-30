@@ -20,6 +20,7 @@ go_library(
         "//pkg/backend/handler_chain",
         "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
+        "//pkg/backend/server",
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
         "//services/app/internal/filesystem/local",
