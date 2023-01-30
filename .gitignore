@@ -17,3 +17,5 @@ node_modules/
 dist/
 /go_build_github_com_TimoSto_ThesorTeX_services_app_cmd_prod
 /services/app/cmd/e2e/main
+
+*.ini
