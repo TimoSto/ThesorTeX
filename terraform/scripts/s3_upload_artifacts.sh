@@ -7,14 +7,31 @@ echo $VERSIONPATH
 
 mkdir ../artifacts/$VERSIONPATH-zip
 
-zip -r -D ../artifacts/$VERSIONPATH-zip/linux.zip ../artifacts/$VERSIONPATH/linux
+mkdir ../artifacts/$VERSIONPATH-zip/linux
+mkdir ../artifacts/$VERSIONPATH-zip/windows
+mkdir ../artifacts/$VERSIONPATH-zip/mac
+mkdir ../artifacts/$VERSIONPATH-zip/mac_silicon
 
-zip -r -D ../artifacts/$VERSIONPATH-zip/windows.zip ../artifacts/$VERSIONPATH/windows
+cd ../artifacts/$VERSIONPATH/linux
+zip ThesorTeX.zip ThesorTeX
 
-zip -r -D ../artifacts/$VERSIONPATH-zip/mac.zip ../artifacts/$VERSIONPATH/mac
+cd ../windows
+zip ThesorTeX.zip ThesorTeX.exe
 
-zip -r -D ../artifacts/$VERSIONPATH-zip/mac_silicon.zip ../artifacts/$VERSIONPATH/mac_silicon
+cd ../mac
+zip ThesorTeX.zip ThesorTeX
 
-aws s3 cp ../artifacts/$VERSIONPATH-zip/ s3://thesortex-artifacts/$VERSIONPATH/ --recursive
+cd ../mac_silicon
+zip ThesorTeX.zip ThesorTeX
 
-aws s3 cp ../artifacts/$VERSIONPATH-zip/ s3://thesortex-artifacts/latest/ --recursive
+cd ../
+cp linux/ThesorTeX.zip ../$VERSIONPATH-zip/linux/
+cp windows/ThesorTeX.zip ../$VERSIONPATH-zip/windows/
+cp mac/ThesorTeX.zip ../$VERSIONPATH-zip/mac/
+cp mac_silicon/ThesorTeX.zip ../$VERSIONPATH-zip/mac_silicon/
+
+cd ../
+
+aws s3 cp $VERSIONPATH-zip/ s3://thesortex-artifacts/$VERSIONPATH/ --recursive
+
+aws s3 cp $VERSIONPATH-zip/ s3://thesortex-artifacts/latest/ --recursive
