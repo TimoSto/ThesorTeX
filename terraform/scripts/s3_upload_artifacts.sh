@@ -19,10 +19,10 @@ cd ../windows
 zip ThesorTeX.zip ThesorTeX.exe
 
 cd ../mac
-zip ThesorTeX.zip ThesorTeX
+zip ThesorTeX.zip ThesorTeX -x "*.DS_Store"
 
 cd ../mac_silicon
-zip ThesorTeX.zip ThesorTeX
+zip ThesorTeX.zip ThesorTeX -x "*.DS_Store"
 
 cd ../
 cp linux/ThesorTeX.zip ../$VERSIONPATH-zip/linux/
