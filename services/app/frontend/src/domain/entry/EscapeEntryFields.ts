@@ -106,13 +106,14 @@ export function EscapeEntryFields(entry: Entry, fields: Field[]): string[] {
     return escapedValues;
 }
 
-export function UnEscapeEntryFields(entry: Entry, fields: Field[]): string[] {
+export function UnEscapeEntryFields(values: string[], fields: Field[]): string[] {
     let unescapedValues: string[] = [];
-    entry.Fields.forEach((f, i) => {
+    values.forEach((f, i) => {
         if (!fields[i].Format.Preformatted) {
             pairs.forEach(p => {
-                unescapedValues.push(f.replaceAll(p.TeX, p.String));
+                f = f.replaceAll(p.TeX, p.String);
             });
+            unescapedValues.push(f);
         } else {
             unescapedValues.push(f);
         }
