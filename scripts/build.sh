@@ -45,4 +45,4 @@ build_mac_m1_target //services/app/cmd/prod "$outDir/mac_silicon/ThesorTeX" "$(p
 
 echo "building website for linux..."
 
-build_linux_target //services/website/cmd "artifacts/website/lambda" "$(pwd)"
+build_linux_target //services/website/cmd:lambda_zip "artifacts/website/lambda.zip" "$(pwd)"
