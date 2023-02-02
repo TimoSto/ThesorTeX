@@ -6,6 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/categories"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
@@ -44,7 +45,9 @@ func SaveEntry(fs filesystem.FileSystem, cfg config.Config, project string, key 
 		return err
 	}
 
-	file := GenerateCsvForEntries(all)
+	avCategories, err := categories.GetAllCategories(project, fs, cfg)
+
+	file := GenerateCsvForEntries(all, avCategories)
 
 	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
 	if err != nil {
@@ -91,7 +94,9 @@ func SaveEntries(fs filesystem.FileSystem, cfg config.Config, project string, en
 		return err
 	}
 
-	file := GenerateCsvForEntries(all)
+	avCategories, err := categories.GetAllCategories(project, fs, cfg)
+
+	file := GenerateCsvForEntries(all, avCategories)
 
 	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
 	if err != nil {

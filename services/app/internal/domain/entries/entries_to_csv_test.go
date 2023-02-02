@@ -73,7 +73,7 @@ func TestGenerateCsvForEntries(t *testing.T) {
 
 	for _, s := range scenarios {
 		t.Run(s.title, func(t *testing.T) {
-			file := GenerateCsvForEntries(s.entries)
+			file := GenerateCsvForEntries(s.entries, nil)
 			expected := strings.Join(s.expectedLines, "\n") + "\n"
 			if file != expected {
 				t.Errorf("expected %v but got %v", expected, string(file))

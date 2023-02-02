@@ -15,6 +15,7 @@ go_library(
         "//pkg/backend/pathbuilder",
         "//pkg/backend/tex_escaping",
         "//services/app/internal/config",
+        "//services/app/internal/domain/categories",
         "//services/app/internal/filesystem",
     ],
 )
