@@ -1,3 +1,9 @@
+# v0.0.3
+
+# Added
+
+- Special chars are escaped in the csv-conversion except the field of the category is configured to be preformatted.
+
 # v0.0.2
 
 ## Added
