@@ -30,5 +30,10 @@ func DeleteCategory(project string, name string, fs filesystem.FileSystem, cfg c
 		return err
 	}
 
+	err = SaveCategoriesToSty(fs, cfg, project, all)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
