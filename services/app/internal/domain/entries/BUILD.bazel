@@ -13,6 +13,7 @@ go_library(
     visibility = ["//services/app:__subpackages__"],
     deps = [
         "//pkg/backend/pathbuilder",
+        "//pkg/backend/tex_escaping",
         "//services/app/internal/config",
         "//services/app/internal/filesystem",
     ],

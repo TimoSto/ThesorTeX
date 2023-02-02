@@ -11,6 +11,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects",
     visibility = ["//services/app:__subpackages__"],
     deps = [
+        "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
         "//services/app/internal/config",
         "//services/app/internal/filesystem",

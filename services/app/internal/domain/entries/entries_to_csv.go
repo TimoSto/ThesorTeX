@@ -2,6 +2,8 @@ package entries
 
 import (
 	"strings"
+
+	"github.com/TimoSto/ThesorTeX/pkg/backend/tex_escaping"
 )
 
 func GenerateCsvForEntries(entries []Entry) string {
@@ -12,6 +14,7 @@ func GenerateCsvForEntries(entries []Entry) string {
 			if i < len(entry.Fields) {
 				//because json converts & into amp;
 				strToAdd := strings.Replace(entry.Fields[i], "amp;", "", -1)
+				strToAdd = tex_escaping.EscapeField(strToAdd)
 				file += strToAdd
 			}
 			file += ";"

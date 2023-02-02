@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "tex_escaping",
+    srcs = ["tex_escaping.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/tex_escaping",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "tex_escaping_test",
+    srcs = ["tex_escaping_test.go"],
+    embed = [":tex_escaping"],
+)

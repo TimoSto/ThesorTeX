@@ -43,6 +43,11 @@ func TestEscapeField(t *testing.T) {
 			input:    "hallo {{\\_}}# du",
 			expected: "hallo {{\\_}}{{\\#}} du",
 		},
+		{
+			title:    "combined",
+			input:    "<> & hallo {{\\_}}# du_°",
+			expected: "{{\\textless}}{{\\textgreater}} {{\\&}} hallo {{\\_}}{{\\#}} du{{\\_}}{{\\degree}}",
+		},
 	}
 
 	for _, s := range scenarios {
