@@ -7,6 +7,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/lambda"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers"
 )
 
 // Handler is your Lambda function handler
@@ -24,7 +25,7 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", Handler)
+	handlers.RegisterWebsiteHandlers(mux)
 
 	chain := handler_chain.CreateHandlerChain()
 

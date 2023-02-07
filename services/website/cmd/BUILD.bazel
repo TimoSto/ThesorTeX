@@ -10,6 +10,7 @@ go_library(
         "//pkg/backend/handler_chain",
         "//pkg/backend/lambda",
         "//pkg/backend/log",
+        "//services/website/internal/handlers",
     ],
 )
 
