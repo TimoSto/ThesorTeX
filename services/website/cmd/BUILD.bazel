@@ -6,6 +6,13 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/cmd",
     visibility = ["//visibility:private"],
+    deps = [
+        "//vendor/github.com/aws/aws-lambda-go/events",
+        "//vendor/github.com/aws/aws-lambda-go/lambda",
+        "//vendor/github.com/aws/aws-lambda-go/lambdacontext",
+        "//vendor/github.com/aws/aws-sdk-go/aws/session",
+        "//vendor/github.com/aws/aws-sdk-go/service/lambda",
+    ],
 )
 
 go_binary(

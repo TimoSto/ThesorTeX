@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "lambda",
+    srcs = [
+        "entry.go",
+        "entry_generic.go",
+        "errors.go",
+        "extensions_api_client.go",
+        "handler.go",
+        "invoke_loop.go",
+        "panic.go",
+        "rpc_function.go",
+        "runtime_api_client.go",
+        "sigterm.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/aws/aws-lambda-go/lambda",
+    importpath = "github.com/aws/aws-lambda-go/lambda",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/aws/aws-lambda-go/lambda/handlertrace",
+        "//vendor/github.com/aws/aws-lambda-go/lambda/messages",
+        "//vendor/github.com/aws/aws-lambda-go/lambdacontext",
+    ],
+)
