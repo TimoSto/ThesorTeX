@@ -1,5 +1,5 @@
-resource "aws_apigatewayv2_api" "lambda" {
-  name          = "apigw-http-lambda"
+resource "aws_apigatewayv2_api" "website_lambda" {
+  name          = "thesortex-website-http-gateway"
   protocol_type = "HTTP"
   description   = "Serverlessland API Gwy HTTP API and AWS Lambda function"
 
@@ -22,7 +22,7 @@ resource "aws_apigatewayv2_api" "lambda" {
 
 
 resource "aws_apigatewayv2_stage" "default" {
-  api_id = aws_apigatewayv2_api.lambda.id
+  api_id = aws_apigatewayv2_api.website_lambda.id
 
   name        = "$default"
   auto_deploy = true
@@ -48,20 +48,20 @@ resource "aws_apigatewayv2_stage" "default" {
 }
 
 resource "aws_apigatewayv2_integration" "app" {
-  api_id = aws_apigatewayv2_api.lambda.id
+  api_id = aws_apigatewayv2_api.website_lambda.id
 
-  integration_uri  = aws_lambda_function.lambda_func.invoke_arn
+  integration_uri  = aws_lambda_function.website_lambda_func.invoke_arn
   integration_type = "AWS_PROXY"
 }
 
 resource "aws_apigatewayv2_route" "any" {
-  api_id    = aws_apigatewayv2_api.lambda.id
+  api_id    = aws_apigatewayv2_api.website_lambda.id
   route_key = "$default"
   target    = "integrations/${aws_apigatewayv2_integration.app.id}"
 }
 
 resource "aws_cloudwatch_log_group" "api_gw" {
-  name = "/aws/api_gw/${aws_apigatewayv2_api.lambda.name}"
+  name = "/aws/api_gw/${aws_apigatewayv2_api.website_lambda.name}"
 
   retention_in_days = 7
 }
@@ -69,8 +69,8 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 resource "aws_lambda_permission" "api_gw" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.lambda_func.function_name
+  function_name = aws_lambda_function.website_lambda_func.function_name
   principal     = "apigateway.amazonaws.com"
 
-  source_arn = "${aws_apigatewayv2_api.lambda.execution_arn}/*/*"
+  source_arn = "${aws_apigatewayv2_api.website_lambda.execution_arn}/*/*"
 }
