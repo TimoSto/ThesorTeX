@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "lambda",
+    srcs = ["lambda.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/lambda",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/backend/log",
+        "//vendor/github.com/aws/aws-lambda-go/events",
+        "//vendor/github.com/aws/aws-lambda-go/lambda",
+    ],
+)
