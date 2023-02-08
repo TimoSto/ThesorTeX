@@ -1,11 +1,83 @@
 <template>
   <v-app>
+    <v-app-bar color="background" elevation="0">
+      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-spacer />
+      <v-btn color="primary">
+        Downloads
+      </v-btn>
+      <v-btn color="primary">
+        Tutorials
+      </v-btn>
+    </v-app-bar>
     <v-main>
-      <div class="partial">
-        <div style="height: 500px">
-          hallo
-        </div>
-      </div>
+      <ToolbarAndContent :hide-bar="true">
+        <template #content>
+          <v-container class="bg-surface mb-6">
+            <v-row>
+              <v-col cols="6">
+                <h2 class="text-h3 font-weight-bold">LaTeX bequemer nutzen</h2>
+                <p class="text-h6">Wenn du LaTeX im akademischen oder beruflichen Kontext nutzt, findest du hier
+                  verschiedene Vorlagen und Tools, die dich dabei unterstützen können.</p>
+              </v-col>
+              <v-col cols="6">
+                icon
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container class="bg-surface mb-6">
+            <v-row>
+              <v-col cols="6">
+                icon
+              </v-col>
+              <v-col cols="6">
+                <h2 class="text-h3 font-weight-bold">Vorlage für wissenschaftliche Arbeiten</h2>
+                <p class="text-h6">
+                  Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal <a
+                  href="/sdfsdf">diese
+                  Vorlage</a> an.</p>
+                <v-btn>
+                  Dokumentation der Vorlage
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container class="bg-surface mb-6">
+            <v-row>
+              <v-col cols="6">
+                <h2 class="text-h3 font-weight-bold">Literaturmanagement</h2>
+                <p class="text-h6">Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell
+                  zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder
+                  importiere deine bibliothek aus <i>Citavi</i>.</p>
+                <v-btn>
+                  Mehr erfahren
+                </v-btn>
+              </v-col>
+              <v-col cols="6">
+                icon
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container class="bg-surface mb-6">
+            <v-row>
+              <v-col cols="6">
+                icon
+              </v-col>
+              <v-col cols="6">
+                <h2 class="text-h3 font-weight-bold">Vorlage für einen Lebenslauf</h2>
+                <p class="text-h6">
+                  Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast, kannst du dich
+                  mit <a
+                  href="/sdfsdf">diese
+                  Vorlage</a> für deien Lebenslauf auf deinen nächsten Job bewerben.</p>
+                <v-btn>
+                  Dokumentation der Vorlage
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </template>
+      </ToolbarAndContent>
     </v-main>
   </v-app>
 </template>
@@ -16,9 +88,16 @@
 </script>
 
 <style scoped lang="scss">
-.partial {
+.section {
   width: 100%;
-  height: 500px;
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 166"><polygon fill="red" points="83 26.8 65.7 61.8 27.1 67.4 55 94.7 48.5 133.2 83 115 117.5 133.2 111 94.7 138.9 67.4 100.3 61.8 83 26.8 83 26.8"/></svg>');
+  background-color: rgba(var(--v-theme-primary), 0.9);
+  padding: 25px 0;
+
+  & .content {
+    width: calc(100% - 100px);
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgb(var(--v-theme-background));
+  }
 }
 </style>
