@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/lambda"
@@ -29,5 +30,14 @@ func main() {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	lambda.Start(chain.Then(mux))
+	dev := os.Getenv("DEV")
+
+	fmt.Println(dev, dev == "true", chain)
+
+	if dev == "true" {
+		fmt.Println("run local")
+		http.ListenAndServe(":8449", chain.Then(mux))
+	} else {
+		lambda.Start(chain.Then(mux))
+	}
 }
