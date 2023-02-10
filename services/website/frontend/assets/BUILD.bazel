@@ -1,5 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
+load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
 
 go_library(
     name = "assets",
@@ -20,9 +21,15 @@ genrule(
     cmd = "mkdir $(RULEDIR)/dist && tar -C $(RULEDIR)/dist -zxf $(SRCS)",
 )
 
+pkg_files(
+    name = "srcs",
+    srcs = glob(["dist/**/*"]),
+    strip_prefix = strip_prefix.from_pkg("dist"),
+)
+
 pkg_tar(
     name = "assets_files",
-    srcs = glob(["dist/**/*"]),
+    srcs = [":srcs"],
     extension = "tar.gz",
     visibility = ["//visibility:public"],
 )
