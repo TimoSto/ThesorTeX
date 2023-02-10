@@ -58,7 +58,7 @@
           <p class="text-h6 pb-6">
             Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast, kannst du
             dich
-            mit <a>diese
+            mit <a href="/templates/cv" download>diese
             Vorlage</a> für deien Lebenslauf auf deinen nächsten Job bewerben.</p>
           <v-btn color="primary">
             Dokumentation der Vorlage

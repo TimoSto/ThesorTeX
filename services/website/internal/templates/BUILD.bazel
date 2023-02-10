@@ -4,17 +4,28 @@ load("@rules_pkg//:mappings.bzl", "strip_prefix")
 
 go_library(
     name = "templates",
-    srcs = ["thesis.go"],
+    srcs = [
+        "cv.go",
+        "thesis.go",
+    ],
     embedsrcs = [
-        ":template_files",  # keep
+        ":template_files_thesis",  # keep
+        ":template_files_cv",  # keep
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/templates",
     visibility = ["//services/website:__subpackages__"],
 )
 
 pkg_zip(
-    name = "template_files",
+    name = "template_files_thesis",
     srcs = ["//pkg/backend/project_template:srcs"],
-    package_file_name = "template.zip",
+    package_file_name = "thesis.zip",
+    visibility = ["//visibility:public"],
+)
+
+pkg_zip(
+    name = "template_files_cv",
+    srcs = ["//pkg/backend/cv_template:srcs"],
+    package_file_name = "cv.zip",
     visibility = ["//visibility:public"],
 )

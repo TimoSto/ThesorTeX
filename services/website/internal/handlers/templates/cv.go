@@ -6,9 +6,9 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/website/internal/templates"
 )
 
-func HandleThesisTemplate() func(w http.ResponseWriter, r *http.Request) {
+func HandleCVTemplate() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		tmpl := templates.ThesisTemplate
+		tmpl := templates.CVTemplate
 
 		w.Write(tmpl)
 	}

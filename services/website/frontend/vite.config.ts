@@ -12,7 +12,7 @@ export default defineConfig({
     server: {
         port: 3001,
         proxy: {
-            "/templates/download": "http://localhost:8449/"
+            "/templates/": "http://localhost:8449/"
         }
     },
     build: {

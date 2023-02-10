@@ -11,4 +11,6 @@ func RegisterWebsiteHandlers(mux *http.ServeMux) {
 	mux.HandleFunc("/", assets.HandleAssets())
 
 	mux.HandleFunc("/templates/thesis", templates.HandleThesisTemplate())
+
+	mux.HandleFunc("/templates/cv", templates.HandleCVTemplate())
 }
