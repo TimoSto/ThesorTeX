@@ -9,6 +9,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/lambda"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/templates"
 )
 
 // Handler is your Lambda function handler
@@ -32,7 +33,7 @@ func main() {
 
 	dev := os.Getenv("DEV")
 
-	fmt.Println(dev, dev == "true", chain)
+	fmt.Println(templates.Template)
 
 	if dev == "true" {
 		fmt.Println("run local")

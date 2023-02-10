@@ -7,6 +7,13 @@ go_library(
     srcs = ["assets.go"],
     embedsrcs = [
         ":assets_dist",  # keep
+        "dist/assets/index-26b28fe2.js",
+        "dist/assets/index-4a93ec36.css",
+        "dist/assets/materialdesignicons-webfont-6d5e4be4.woff",
+        "dist/assets/materialdesignicons-webfont-739dc70d.woff2",
+        "dist/assets/materialdesignicons-webfont-c02d41ce.ttf",
+        "dist/assets/materialdesignicons-webfont-f5966bae.eot",
+        "dist/index.html",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/app/frontend/assets",
     visibility = ["//visibility:public"],
