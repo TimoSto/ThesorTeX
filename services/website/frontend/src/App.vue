@@ -36,23 +36,7 @@ const elevation = ref(0);
 </script>
 
 <style scoped lang="scss">
-.bg-container {
-  width: 100%;
-  padding: 16px 0;
-}
 
-.section {
-  width: 100%;
-  background-color: rgba(var(--v-theme-primary), 0.9);
-  padding: 25px 0;
-
-  & .content {
-    width: calc(100% - 100px);
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: rgb(var(--v-theme-background));
-  }
-}
 </style>
 
 <style>
