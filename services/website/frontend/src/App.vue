@@ -1,31 +1,40 @@
 <template>
   <v-app>
-    <v-app-bar color="background" elevation="0">
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
-      <v-spacer />
-      <v-btn color="primary">
-        Downloads
-      </v-btn>
-      <v-btn color="primary">
-        Tutorials
-      </v-btn>
-    </v-app-bar>
+    <v-sheet>
+      <v-app-bar color="transparent" :elevation="elevation" app>
+        <v-container class="pa-6 fill-height">
+          <v-row align="center" class="fill-height">
+            <v-toolbar-title class="text-h4 font-weight-bold">ThesorTeX</v-toolbar-title>
+            <v-spacer />
+            <v-btn color="primary">
+              Downloads
+            </v-btn>
+            <v-btn color="primary">
+              Tutorials
+            </v-btn>
+          </v-row>
+        </v-container>
+
+      </v-app-bar>
+    </v-sheet>
     <v-main>
-      <ToolbarAndContent :hide-bar="true">
+      <ToolbarAndContent :hide-bar="true" @scroll="elevation=1" @no-scroll="elevation=0">
         <template #content>
-          <v-container class="bg-surface mb-6">
-            <v-row>
-              <v-col cols="6">
-                <h2 class="text-h3 font-weight-bold">LaTeX bequemer nutzen</h2>
-                <p class="text-h6">Wenn du LaTeX im akademischen oder beruflichen Kontext nutzt, findest du hier
-                  verschiedene Vorlagen und Tools, die dich dabei unterstützen können.</p>
-              </v-col>
-              <v-col cols="6">
-                icon
-              </v-col>
-            </v-row>
-          </v-container>
-          <v-container class="bg-surface mb-6">
+          <div class="bg-container">
+            <v-container class="bg-transparent mb-6">
+              <v-row>
+                <v-col cols="6">
+                  <h2 class="text-h3 font-weight-bold">LaTeX bequemer nutzen</h2>
+                  <p class="text-h6">Wenn du LaTeX im akademischen oder beruflichen Kontext nutzt, findest du hier
+                    verschiedene Vorlagen und Tools, die dich dabei unterstützen können.</p>
+                </v-col>
+                <v-col cols="6">
+                  icon
+                </v-col>
+              </v-row>
+            </v-container>
+          </div>
+          <v-container class="bg-transparent mb-6">
             <v-row>
               <v-col cols="6">
                 icon
@@ -83,11 +92,20 @@
 </template>
 
 <script lang="ts" setup>
+import {ref} from "vue";
 
+// data
+const elevation = ref(0);
 
 </script>
 
 <style scoped lang="scss">
+.bg-container {
+  width: 100%;
+  background-image: linear-gradient(#13ab51, #bbccdd);
+  padding: 16px 0;
+}
+
 .section {
   width: 100%;
   background-color: rgba(var(--v-theme-primary), 0.9);
