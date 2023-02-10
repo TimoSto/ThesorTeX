@@ -11,7 +11,6 @@ go_library(
         "//pkg/backend/lambda",
         "//pkg/backend/log",
         "//services/website/internal/handlers",
-        "//services/website/internal/handlers/templates",
     ],
 )
 
