@@ -13,9 +13,9 @@ go_library(
     deps = [
         "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
+        "//pkg/backend/project_template",
         "//services/app/internal/config",
         "//services/app/internal/filesystem",
-        "//services/app/internal/project_template",
     ],
 )
 
@@ -29,8 +29,8 @@ go_test(
     embed = [":projects"],
     deps = [
         "//pkg/backend/pathbuilder",
+        "//pkg/backend/project_template",
         "//services/app/internal/config",
         "//services/app/internal/filesystem/fake",
-        "//services/app/internal/project_template",
     ],
 )

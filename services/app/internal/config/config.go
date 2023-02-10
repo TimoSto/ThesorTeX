@@ -6,7 +6,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
 	"gopkg.in/ini.v1"
 )
 

@@ -32,9 +32,9 @@ go_test(
     embed = [":categories"],
     deps = [
         "//pkg/backend/pathbuilder",
+        "//pkg/backend/project_template",
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
         "//services/app/internal/filesystem/fake",
-        "//services/app/internal/project_template",
     ],
 )

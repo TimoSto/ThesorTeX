@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
 )
 
 const (

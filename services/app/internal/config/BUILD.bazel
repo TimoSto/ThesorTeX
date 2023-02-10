@@ -8,7 +8,7 @@ go_library(
     deps = [
         "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
-        "//services/app/internal/project_template",
+        "//pkg/backend/project_template",
         "//vendor/gopkg.in/ini.v1:ini_v1",
     ],
 )

@@ -8,9 +8,9 @@ import (
 	"testing"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/project_template"
 )
 
 func TestCreateProject(t *testing.T) {
