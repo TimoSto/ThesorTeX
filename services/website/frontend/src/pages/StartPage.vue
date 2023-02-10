@@ -20,7 +20,7 @@
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">Vorlage für wissenschaftliche Arbeiten</h2>
           <p class="text-h6 pb-6">
             Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal <a
-            href="/sdfsdf">diese
+            href="/templates/thesis" download>diese
             Vorlage</a> an.</p>
           <v-btn color="primary" to="/docs/template">
             Dokumentation der Vorlage
@@ -58,8 +58,7 @@
           <p class="text-h6 pb-6">
             Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast, kannst du
             dich
-            mit <a
-            href="/sdfsdf">diese
+            mit <a>diese
             Vorlage</a> für deien Lebenslauf auf deinen nächsten Job bewerben.</p>
           <v-btn color="primary">
             Dokumentation der Vorlage

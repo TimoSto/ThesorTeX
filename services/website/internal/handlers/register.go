@@ -10,5 +10,5 @@ import (
 func RegisterWebsiteHandlers(mux *http.ServeMux) {
 	mux.HandleFunc("/", assets.HandleAssets())
 
-	mux.HandleFunc("/template/thesis", templates.HandleThesisTemplate())
+	mux.HandleFunc("/templates/thesis", templates.HandleThesisTemplate())
 }
