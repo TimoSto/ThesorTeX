@@ -5,25 +5,53 @@
         <v-col cols="4">
           <v-card>
             <v-card-text>
-              <span class="text-h5 text-center"
-                    style="display: inline-block">Vorlage - Wissenschaftliche Arbeiten</span>
-              <TemplateIcon :hide-icon="true" style="transform: scale(0.9)" />
+              <span class="text-h5 text-center font-weight-bold"
+                    style="display: inline-block; width: 100%;">Vorlage - Wissenschaftliche Arbeiten</span>
+              <TemplateIcon :hide-icon="true" style="display: block; margin: 0 auto; transform: scale(0.9)" />
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                Herunterladen
+                Weitere Informationen
               </v-btn>
               <v-btn color="primary" style="width: 100%;">
                 <span style="white-space: normal;">
-                  Weitere Informationen
+                  Herunterladen
                 </span>
               </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="4">
-
+          <v-card>
+            <v-card-text>
+              <span class="text-h5 text-center font-weight-bold"
+                    style="display: inline-block; width: 100%;">Tool - Literaturmanagement</span>
+              <TemplateIcon :hide-icon="false" style="display: block; margin: 0 auto; transform: scale(0.9)" />
+              <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                Weitere Informationen
+              </v-btn>
+              <v-btn color="primary" style="width: 100%;">
+                <span style="white-space: normal;">
+                  Herunterladen
+                </span>
+              </v-btn>
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col cols="4">
-
+          <v-card>
+            <v-card-text>
+              <span class="text-h5 text-center font-weight-bold"
+                    style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
+              <CVIcon style="display: block; margin: 0 auto; transform: scale(0.9)" />
+              <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                Weitere Informationen
+              </v-btn>
+              <v-btn color="primary" style="width: 100%;">
+                <span style="white-space: normal;">
+                  Herunterladen
+                </span>
+              </v-btn>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -32,10 +60,11 @@
 
 <script>
 import TemplateIcon from "../components/TemplateIcon.vue";
+import CVIcon from "../components/CVIcon.vue";
 
 export default {
   name: "DownloadsPage",
-  components: {TemplateIcon}
+  components: {CVIcon, TemplateIcon}
 }
 </script>
 
