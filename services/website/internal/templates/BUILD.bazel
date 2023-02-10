@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@rules_pkg//:pkg.bzl", "pkg_zip")
+load("@rules_pkg//:mappings.bzl", "strip_prefix")
+
+go_library(
+    name = "templates",
+    srcs = ["thesis.go"],
+    embedsrcs = [
+        ":template_files",  # keep
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/templates",
+    visibility = ["//services/website:__subpackages__"],
+)
+
+pkg_zip(
+    name = "template_files",
+    srcs = ["//pkg/backend/project_template:srcs"],
+    package_file_name = "template.zip",
+    visibility = ["//visibility:public"],
+)

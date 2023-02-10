@@ -1,6 +1,17 @@
 package templates
 
-import _ "embed"
+import (
+	"net/http"
 
-//go:embed template.zip
-var Template []byte
+	"github.com/TimoSto/ThesorTeX/services/website/internal/templates"
+)
+
+func HandleThesisTemplate() func(w http.ResponseWriter, r *http.Request) {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		tmpl := templates.Template
+
+		w.Write(tmpl)
+	}
+
+	return fn
+}
