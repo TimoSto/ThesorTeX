@@ -56,15 +56,17 @@
       </v-row>
     </v-container>
   </div>
+  <DownloadsTable />
 </template>
 
 <script>
 import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
+import DownloadsTable from "../components/DownloadsTable.vue";
 
 export default {
   name: "DownloadsPage",
-  components: {CVIcon, TemplateIcon}
+  components: {DownloadsTable, CVIcon, TemplateIcon}
 }
 </script>
 
