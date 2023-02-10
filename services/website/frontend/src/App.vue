@@ -6,10 +6,10 @@
           <v-row align="center" class="fill-height">
             <v-toolbar-title class="text-h4 font-weight-bold">ThesorTeX</v-toolbar-title>
             <v-spacer />
-            <v-btn color="primary">
+            <v-btn color="primary" to="/downloads">
               Downloads
             </v-btn>
-            <v-btn color="primary">
+            <v-btn color="primary" to="/tutorials">
               Tutorials
             </v-btn>
           </v-row>
