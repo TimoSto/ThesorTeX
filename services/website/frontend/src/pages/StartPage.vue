@@ -51,7 +51,7 @@
     </v-container>
   </div>
   <div class="bg-container">
-    <v-container class="bg-transparent pb-6">
+    <v-container class="bg-transparent pb-6 mb-6">
       <v-row>
         <v-col cols="6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">Vorlage für einen Lebenslauf</h2>
