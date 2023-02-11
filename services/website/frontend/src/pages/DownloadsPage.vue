@@ -60,40 +60,60 @@
     <v-container class="bg-transparent pa-16 pt-4">
       <h2 class="text-h5 font-weight-bold">Tool - Literaturmanagement</h2>
       <p class="text-body-1">Aktuellste Version:</p>
-      <v-row>
+      <v-row class="pa-4">
         <v-col cols="3">
-          <v-card>
+          <v-card elevation="6">
             <v-card-text>
               <span class="text-center font-weight-bold text-h6"
                     style="display: inline-block; width: 100%;">Windows</span>
-              <WindowsIcon style="display: block; margin: 0 auto" />
+              <WindowsIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
+              <v-btn color="primary" style="width: 100%;">
+                <span style="white-space: normal;">
+                  Herunterladen
+                </span>
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card>
+          <v-card elevation="6">
             <v-card-text>
               <span class="text-center font-weight-bold text-h6"
                     style="display: inline-block; width: 100%;">Linux</span>
-              <WindowsIcon style="display: block; margin: 0 auto" />
+              <LinuxIcon style="display: block; margin: 0 auto; height: 50px; scale: 2" class="mb-4" />
+              <v-btn color="primary" style="width: 100%;">
+                <span style="white-space: normal;">
+                  Herunterladen
+                </span>
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card>
+          <v-card elevation="6">
             <v-card-text>
               <span class="text-center font-weight-bold text-h6"
                     style="display: inline-block; width: 100%;">MacOS (Intel)</span>
-              <WindowsIcon style="display: block; margin: 0 auto" />
+              <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
+              <v-btn color="primary" style="width: 100%;">
+                <span style="white-space: normal;">
+                  Herunterladen
+                </span>
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card>
+          <v-card elevation="6">
             <v-card-text>
               <span class="text-center font-weight-bold text-h6"
                     style="display: inline-block; width: 100%;">MacOS (Silicon)</span>
-              <WindowsIcon style="display: block; margin: 0 auto" />
+              <MacIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
+              <v-btn color="primary" style="width: 100%;">
+                <span style="white-space: normal;">
+                  Herunterladen
+                </span>
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
@@ -109,10 +129,12 @@ import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
 import DownloadsTable from "../components/DownloadsTable.vue";
 import WindowsIcon from "../components/WindowsIcon.vue";
+import LinuxIcon from "../components/LinuxIcon.vue";
+import MacIcon from "../components/MacIcon.vue";
 
 export default {
   name: "DownloadsPage",
-  components: {WindowsIcon, DownloadsTable, CVIcon, TemplateIcon}
+  components: {MacIcon, LinuxIcon, WindowsIcon, DownloadsTable, CVIcon, TemplateIcon}
 }
 </script>
 
