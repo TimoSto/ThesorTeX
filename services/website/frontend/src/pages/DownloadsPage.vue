@@ -11,11 +11,13 @@
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
-              <v-btn color="primary" style="width: 100%;">
+              <a href="/templates/thesis" download>
+                <v-btn color="primary" style="width: 100%;">
                 <span style="white-space: normal;">
                   Herunterladen
                 </span>
-              </v-btn>
+                </v-btn>
+              </a>
             </v-card-text>
           </v-card>
         </v-col>
@@ -28,7 +30,7 @@
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
-              <v-btn color="primary" style="width: 100%;">
+              <v-btn color="primary" style="width: 100%;" @click="scrollToToolDownload">
                 <span style="white-space: normal;">
                   Herunterladen
                 </span>
@@ -45,11 +47,13 @@
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
-              <v-btn color="primary" style="width: 100%;">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
-              </v-btn>
+              <a href="/templates/thesis" download>
+                <v-btn color="primary" style="width: 100%;">
+                  <span style="white-space: normal;">
+                    Herunterladen
+                  </span>
+                </v-btn>
+              </a>
             </v-card-text>
           </v-card>
         </v-col>
@@ -57,7 +61,7 @@
     </v-container>
   </div>
   <div>
-    <v-container class="bg-transparent pa-16 pt-4">
+    <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
       <h2 class="text-h5 font-weight-bold">Tool - Literaturmanagement</h2>
       <p class="text-body-1">Aktuellste Version:</p>
       <v-row class="pa-4">
@@ -124,17 +128,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
 import DownloadsTable from "../components/DownloadsTable.vue";
 import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
+import {ref} from "vue";
 
-export default {
-  name: "DownloadsPage",
-  components: {MacIcon, LinuxIcon, WindowsIcon, DownloadsTable, CVIcon, TemplateIcon}
+// data
+const toolDownload = ref(null);
+
+function scrollToToolDownload() {
+  console.log(toolDownload.value);
+  if (toolDownload.value) {
+    toolDownload.value.$el.scrollIntoView(true);
+  }
 }
 </script>
 
