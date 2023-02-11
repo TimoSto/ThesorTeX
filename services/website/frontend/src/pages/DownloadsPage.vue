@@ -41,7 +41,7 @@
             <v-card-text>
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
-              <CVIcon style="display: block; margin: 0 auto; transform: scale(0.9)" />
+              <CVIcon style="display: block; margin: 0 auto; transform: scale(0.7)" />
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
