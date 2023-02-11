@@ -28,7 +28,7 @@ func (s *Server) Start(fin chan bool) string {
 		Handler: s.handler,
 	}
 
-	socket, err := net.Listen("tcp", "0.0.0.0:"+s.port)
+	socket, err := net.Listen("tcp", "localhost:"+s.port)
 	if err != nil {
 		panic(fmt.Sprintf("server: could not bind to socket (port: %v)", s.port))
 	}
