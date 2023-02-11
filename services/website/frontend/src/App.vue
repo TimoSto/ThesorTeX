@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-sheet>
-      <v-app-bar color="transparent" :elevation="elevation" app>
+      <v-app-bar color="background" :elevation="elevation" app>
         <v-container class="pa-6 fill-height">
           <v-row align="center" class="fill-height">
             <v-toolbar-title class="text-h4 font-weight-bold">ThesorTeX</v-toolbar-title>

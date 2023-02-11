@@ -56,17 +56,63 @@
       </v-row>
     </v-container>
   </div>
-  <DownloadsTable />
+  <div>
+    <v-container class="bg-transparent pa-16 pt-4">
+      <h2 class="text-h5 font-weight-bold">Tool - Literaturmanagement</h2>
+      <p class="text-body-1">Aktuellste Version:</p>
+      <v-row>
+        <v-col cols="3">
+          <v-card>
+            <v-card-text>
+              <span class="text-center font-weight-bold text-h6"
+                    style="display: inline-block; width: 100%;">Windows</span>
+              <WindowsIcon style="display: block; margin: 0 auto" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="3">
+          <v-card>
+            <v-card-text>
+              <span class="text-center font-weight-bold text-h6"
+                    style="display: inline-block; width: 100%;">Linux</span>
+              <WindowsIcon style="display: block; margin: 0 auto" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="3">
+          <v-card>
+            <v-card-text>
+              <span class="text-center font-weight-bold text-h6"
+                    style="display: inline-block; width: 100%;">MacOS (Intel)</span>
+              <WindowsIcon style="display: block; margin: 0 auto" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="3">
+          <v-card>
+            <v-card-text>
+              <span class="text-center font-weight-bold text-h6"
+                    style="display: inline-block; width: 100%;">MacOS (Silicon)</span>
+              <WindowsIcon style="display: block; margin: 0 auto" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+      <p class="text-body-1">Alle Versionen:</p>
+      <DownloadsTable />
+    </v-container>
+  </div>
 </template>
 
 <script>
 import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
 import DownloadsTable from "../components/DownloadsTable.vue";
+import WindowsIcon from "../components/WindowsIcon.vue";
 
 export default {
   name: "DownloadsPage",
-  components: {DownloadsTable, CVIcon, TemplateIcon}
+  components: {WindowsIcon, DownloadsTable, CVIcon, TemplateIcon}
 }
 </script>
 
