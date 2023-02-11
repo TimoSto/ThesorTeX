@@ -14,7 +14,7 @@
     </v-container>
   </div>
   <div class="bg-container">
-    <v-container class="bg-transparent pb-6">
+    <v-container class="bg-transparent pb-6 pl-12">
       <v-row>
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">Vorlage für wissenschaftliche Arbeiten</h2>
@@ -33,13 +33,13 @@
     </v-container>
   </div>
   <div class="bg-container" style="background-color: #f5f5f5">
-    <v-container class="bg-transparent pb-6">
+    <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
-        <v-col cols="6">
+        <v-col v-if="!smallDisplay" cols="6">
           <TemplateIcon :hide-icon="false" style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
-        <v-col cols="6">
-          <h2 class="text-h3 font-weight-bold pt-6 pb-6">Literaturmanagement</h2>
+        <v-col :cols="smallDisplay ? 12 : 6">
+          <h2 class="text-h3 font-weight-bold pt-6 pb-6">Literatur-Management</h2>
           <p class="text-h6 pb-6">Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell
             zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder
             importiere deine bibliothek aus <i>Citavi</i>.</p>
@@ -51,9 +51,9 @@
     </v-container>
   </div>
   <div class="bg-container">
-    <v-container class="bg-transparent pb-6 mb-6">
+    <v-container class="bg-transparent pb-6 pl-12 mb-6">
       <v-row>
-        <v-col cols="6">
+        <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">Vorlage für einen Lebenslauf</h2>
           <p class="text-h6 pb-6">
             Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast, kannst du
@@ -64,7 +64,7 @@
             Dokumentation der Vorlage
           </v-btn>
         </v-col>
-        <v-col cols="6">
+        <v-col v-if="!smallDisplay" cols="6">
           <CVIcon style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
