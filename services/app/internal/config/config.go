@@ -29,7 +29,7 @@ func ReadConfig() (Config, error) {
 		ProjectTemplate: project_template.ProjectTemplate,
 	}
 
-	iniCfg, err := ini.Load("ThesorTeX.config.ini")
+	iniCfg, err := ini.Load(pathbuilder.GetPathFromExecRoot("ThesorTeX.config.ini"))
 	if err != nil {
 		log.Error("cloud not open ini: %v", err)
 
@@ -59,7 +59,7 @@ func SaveConfig(cfg Config) error {
 	iniCfg.Section("").Key("projects_dir").SetValue(cfg.ProjectsDir)
 	iniCfg.Section("").Key("open_browser").SetValue(strconv.FormatBool(cfg.OpenBrowser))
 
-	err := iniCfg.SaveTo("ThesorTeX.config.ini")
+	err := iniCfg.SaveTo(pathbuilder.GetPathFromExecRoot("ThesorTeX.config.ini"))
 
 	if err != nil {
 		return err
