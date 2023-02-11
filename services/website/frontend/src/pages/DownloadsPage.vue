@@ -63,7 +63,9 @@
   <div>
     <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
       <h2 class="text-h5 font-weight-bold">Tool - Literaturmanagement</h2>
-      <p class="text-body-1">Aktuellste Version:</p>
+      <p class="text-body-1">Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du
+        auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die
+        Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.</p>
       <v-row class="pa-4">
         <v-col cols="3">
           <v-card elevation="6">
@@ -72,9 +74,7 @@
                     style="display: inline-block; width: 100%;">Windows</span>
               <WindowsIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
               <v-btn color="primary" style="width: 100%;">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
+                <v-icon>mdi-download</v-icon>
               </v-btn>
             </v-card-text>
           </v-card>
@@ -86,9 +86,7 @@
                     style="display: inline-block; width: 100%;">Linux</span>
               <LinuxIcon style="display: block; margin: 0 auto; height: 50px; scale: 2" class="mb-4" />
               <v-btn color="primary" style="width: 100%;">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
+                <v-icon>mdi-download</v-icon>
               </v-btn>
             </v-card-text>
           </v-card>
@@ -100,9 +98,7 @@
                     style="display: inline-block; width: 100%;">MacOS (Intel)</span>
               <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
               <v-btn color="primary" style="width: 100%;">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
+                <v-icon>mdi-download</v-icon>
               </v-btn>
             </v-card-text>
           </v-card>
@@ -114,15 +110,12 @@
                     style="display: inline-block; width: 100%;">MacOS (Silicon)</span>
               <MacIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
               <v-btn color="primary" style="width: 100%;">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
+                <v-icon>mdi-download</v-icon>
               </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
-      <p class="text-body-1">Alle Versionen:</p>
       <DownloadsTable />
     </v-container>
   </div>
