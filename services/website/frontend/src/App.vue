@@ -20,7 +20,7 @@
     <v-main>
       <ToolbarAndContent :hide-bar="true" @scroll="elevation=1" @no-scroll="elevation=0">
         <template #content>
-          <router-view />
+          <router-view :small-display="smallDisplay" />
         </template>
       </ToolbarAndContent>
     </v-main>
@@ -32,6 +32,17 @@ import {ref} from "vue";
 
 // data
 const elevation = ref(0);
+const smallDisplay = ref(false);
+
+// onload
+window.addEventListener("resize", () => {
+  console.log(window.innerWidth);
+  if (window.innerWidth < 750) {
+    smallDisplay.value = true;
+  } else {
+    smallDisplay.value = false;
+  }
+});
 
 </script>
 
