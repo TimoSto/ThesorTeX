@@ -21,7 +21,7 @@
         <td>
           <a :href="getDownloadLink(v.Name, 'windows')"
              download="ThesorTeX.zip">
-            <v-btn variant="flat">
+            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
@@ -29,7 +29,7 @@
         <td>
           <a :href="getDownloadLink(v.Name, 'linux')"
              download="ThesorTeX.zip">
-            <v-btn variant="flat">
+            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
@@ -37,7 +37,7 @@
         <td>
           <a :href="getDownloadLink(v.Name, 'mac')"
              download="ThesorTeX.zip">
-            <v-btn variant="flat">
+            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
@@ -45,7 +45,7 @@
         <td>
           <a :href="getDownloadLink(v.Name, 'mac_silico')"
              download="ThesorTeX.zip">
-            <v-btn variant="flat">
+            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
