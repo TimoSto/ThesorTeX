@@ -8,7 +8,9 @@
 import turnVector, {Vector} from "./helper/turnVector";
 import {computed} from "vue";
 
-const turn = 45;
+const props = defineProps({
+  turn: Number,
+});
 
 const startPoint: Vector = {
   x: 0,
@@ -55,7 +57,7 @@ const path = computed(() => {
       y: v.y - prevVec.y
     };
 
-    const turned = turnVector(relVec, turn);
+    const turned = turnVector(relVec, props.turn);
 
     const result = {
       x: prevVecTurned.x + turned.x,

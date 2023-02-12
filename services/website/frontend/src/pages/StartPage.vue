@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <ThesisSVG style="display: block; margin: 0 auto; max-height: 350px" />
+          <SVGTemplate :turn="60" style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
     </v-container>
@@ -75,7 +75,6 @@
 <script lang="ts" setup>
 import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
-import ThesisSVG from "../components/svgs/ThesisSVG.vue";
 
 const props = defineProps({
   smallDisplay: Boolean
