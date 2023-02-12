@@ -56,6 +56,8 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 		sort.Slice(versions, func(i, j int) bool {
 			return versions[i].Name > versions[j].Name
 		})
+
+		versions[0].Name = fmt.Sprintf("%s (latest)", versions[0].Name)
 	}
 
 	return versions, nil
