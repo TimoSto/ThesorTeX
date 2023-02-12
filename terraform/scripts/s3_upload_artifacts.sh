@@ -32,6 +32,6 @@ cp mac_silicon/ThesorTeX.zip ../$VERSIONPATH-zip/mac_silicon/
 
 cd ../
 
-aws s3 cp $VERSIONPATH-zip/ s3://thesortex-artifacts/$VERSIONPATH/ --recursive
+aws s3 cp $VERSIONPATH-zip/ s3://thesortex-artifacts/$VERSIONPATH/ --recursive --cache-control max-age=86400
 
-aws s3 cp $VERSIONPATH-zip/ s3://thesortex-artifacts/latest/ --recursive
+aws s3 cp $VERSIONPATH-zip/ s3://thesortex-artifacts/latest/ --recursive --cache-control max-age=3600
