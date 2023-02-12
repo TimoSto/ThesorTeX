@@ -23,7 +23,7 @@
             href="/templates/thesis" download>diese
             Vorlage</a> an.</p>
           <v-btn color="primary" to="/docs/template">
-            Dokumentation der Vorlage
+            Mehr erfahren
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
@@ -32,7 +32,7 @@
       </v-row>
     </v-container>
   </div>
-  <div class="bg-container" style="background-color: #f5f5f5">
+  <div class="bg-container" style="background-color: #e8e8e8">
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
         <v-col v-if="!smallDisplay" cols="6">
@@ -61,7 +61,7 @@
             mit <a href="/templates/cv" download>diese
             Vorlage</a> für deien Lebenslauf auf deinen nächsten Job bewerben.</p>
           <v-btn color="primary">
-            Dokumentation der Vorlage
+            Mehr erfahren
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
