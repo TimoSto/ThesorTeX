@@ -6,14 +6,15 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/assets"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/templates"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/versions"
+	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
-func RegisterWebsiteHandlers(mux *http.ServeMux, dev bool) {
+func RegisterWebsiteHandlers(mux *http.ServeMux, dev bool, s3Client *s3.Client) {
 	mux.HandleFunc("/", assets.HandleAssets())
 
 	mux.HandleFunc("/templates/thesis", templates.HandleThesisTemplate())
 
 	mux.HandleFunc("/templates/cv", templates.HandleCVTemplate())
 
-	mux.HandleFunc("/versions/tool", versions.HandleToolVersions(dev))
+	mux.HandleFunc("/versions/tool", versions.HandleToolVersions(dev, s3Client))
 }

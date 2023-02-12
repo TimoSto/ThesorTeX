@@ -6,11 +6,16 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/versions"
+	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
-func HandleToolVersions(dev bool) func(w http.ResponseWriter, r *http.Request) {
+func HandleToolVersions(dev bool, s3Client *s3.Client) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		toolVersions := versions.GetToolVersions(dev)
+		toolVersions, err := versions.GetToolVersions(dev, s3Client)
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
 
 		data, err := json.Marshal(toolVersions)
 

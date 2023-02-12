@@ -8,4 +8,9 @@ go_library(
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/versions",
     visibility = ["//services/website:__subpackages__"],
+    deps = [
+        "//pkg/backend/log",
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/s3",
+    ],
 )

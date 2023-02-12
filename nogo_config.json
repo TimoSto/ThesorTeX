@@ -1,4 +1,10 @@
 {
+  "_base": {
+    "exclude_files": {
+      "external/": "external contains third party code from Bazel dependencies",
+      "vendor/": "Go's vendor directory contains third party code"
+    }
+  },
   "shadow": {
     "exclude_files": {
       "/": "enforce shadowing of variables on no files",

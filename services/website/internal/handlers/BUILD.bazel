@@ -9,5 +9,6 @@ go_library(
         "//services/website/internal/handlers/assets",
         "//services/website/internal/handlers/templates",
         "//services/website/internal/handlers/versions",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/s3",
     ],
 )

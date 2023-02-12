@@ -8,5 +8,6 @@ go_library(
     deps = [
         "//pkg/backend/log",
         "//services/website/internal/versions",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/s3",
     ],
 )
