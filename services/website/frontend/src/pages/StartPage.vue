@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :turn="60" :start-point="{x:0, y:50}"
+          <SVGTemplate :turn="10" :start-point="{x:0, y:50}" :points="thesisPath"
                        style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
@@ -80,6 +80,25 @@ import CVIcon from "../components/CVIcon.vue";
 const props = defineProps({
   smallDisplay: Boolean
 });
+
+const thesisPath = [
+  {
+    x: 100,
+    y: 50,
+  },
+  {
+    x: 100,
+    y: 100
+  },
+  {
+    x: 0,
+    y: 100
+  },
+  {
+    x: 0,
+    y: 50
+  }
+];
 </script>
 
 <style scoped>

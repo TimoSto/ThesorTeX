@@ -20,26 +20,6 @@ const props = defineProps({
   points: Array<Vector>
 });
 
-// this is the collection of points, the vectors have to be calculated based on the turning
-const basePath: Vector[] = [
-  {
-    x: 100,
-    y: 50,
-  },
-  {
-    x: 100,
-    y: 100
-  },
-  {
-    x: 0,
-    y: 100
-  },
-  {
-    x: 0,
-    y: 50
-  }
-];
-
 // computed
 const path = computed(() => {
   const startPoint: Vector = {
@@ -59,7 +39,7 @@ const path = computed(() => {
     y: startPoint.y
   };
 
-  const vectors = basePath.map(v => {
+  const vectors = props.points.map(v => {
     const relVec = {
       x: v.x - prevVec.x,
       y: v.y - prevVec.y
