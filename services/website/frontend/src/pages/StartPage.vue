@@ -27,7 +27,8 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :turn="60" style="display: block; margin: 0 auto; max-height: 350px" />
+          <SVGTemplate :turn="60" :start-point="{x:0, y:50}"
+                       style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
     </v-container>

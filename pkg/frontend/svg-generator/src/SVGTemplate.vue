@@ -6,16 +6,19 @@
 
 <script lang="ts" setup>//TODO: turn into general svg component
 import turnVector, {Vector} from "./helper/turnVector";
-import {computed} from "vue";
+import {computed, PropType} from "vue";
 
 const props = defineProps({
   turn: Number,
+  startPoint: {
+    type: Object as PropType<Vector>,
+    default: {
+      x: 0,
+      y: 0
+    }
+  },
+  points: Array<Vector>
 });
-
-const startPoint: Vector = {
-  x: 0,
-  y: 50,
-};
 
 // this is the collection of points, the vectors have to be calculated based on the turning
 const basePath: Vector[] = [
@@ -39,6 +42,11 @@ const basePath: Vector[] = [
 
 // computed
 const path = computed(() => {
+  const startPoint: Vector = {
+    x: props.startPoint.x,
+    y: props.startPoint.y
+  };
+
   let p = `M${startPoint.x},${startPoint.y}`;
 
   let prevVec = {
