@@ -1,0 +1,11 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "versions",
+    srcs = [
+        "tool_versions.go",
+        "version_info.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/versions",
+    visibility = ["//services/website:__subpackages__"],
+)

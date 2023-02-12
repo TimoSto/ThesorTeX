@@ -5,5 +5,8 @@ go_library(
     srcs = ["tool_versions.go"],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/handlers/versions",
     visibility = ["//services/website:__subpackages__"],
-    deps = ["//pkg/backend/log"],
+    deps = [
+        "//pkg/backend/log",
+        "//services/website/internal/versions",
+    ],
 )

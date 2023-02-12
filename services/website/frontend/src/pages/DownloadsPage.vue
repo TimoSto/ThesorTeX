@@ -129,12 +129,12 @@ import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
 import {ref} from "vue";
-import GetToolVersions from "../api/GetToolVersions";
+import GetToolVersions, {VersionInfo} from "../api/GetToolVersions";
 
 // data
 const toolDownload = ref(null);
 
-const versions = ref([] as string[]);
+const versions = ref([] as VersionInfo[]);
 
 // methods
 function scrollToToolDownload() {

@@ -13,10 +13,10 @@
     <tbody>
       <tr v-for="v in versions" :key="v">
         <td>
-          {{ v }}
+          {{ v.Name }}
         </td>
         <td>
-
+          {{ v.Date }}
         </td>
         <td>
           <v-btn variant="flat">
@@ -45,8 +45,10 @@
 
 <script lang="ts" setup>
 
+import {VersionInfo} from "../api/GetToolVersions";
+
 const props = defineProps({
-  versions: Array<String>
+  versions: Array<VersionInfo>
 });
 </script>
 
