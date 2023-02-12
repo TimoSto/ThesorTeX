@@ -2,6 +2,8 @@ package versions
 
 import (
 	"context"
+	"fmt"
+	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -36,11 +38,18 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 			return versions, err
 		}
 
+		foundVersions := ""
+
 		for _, object := range output.Contents {
-			versions = append(versions, VersionInfo{
-				Name: *object.Key,
-				Date: object.LastModified.String(),
-			})
+			pathParts := strings.Split(*object.Key, "/")
+			if pathParts[0] != "latest" && strings.Index(foundVersions, pathParts[0]) == -1 {
+				foundVersions += fmt.Sprintf(";%s", pathParts[0])
+				versions = append(versions, VersionInfo{
+					Name: pathParts[0],
+					Date: object.LastModified.Format("02-01-2006"),
+				})
+			}
+
 		}
 	}
 
