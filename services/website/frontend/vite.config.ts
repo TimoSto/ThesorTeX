@@ -12,7 +12,8 @@ export default defineConfig({
     server: {
         port: 3001,
         proxy: {
-            "/templates/": "http://localhost:8449/"
+            "/templates/": "http://localhost:8449/",
+            "/versions/": "http://localhost:8449/",
         }
     },
     build: {

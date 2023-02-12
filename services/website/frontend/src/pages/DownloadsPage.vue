@@ -116,7 +116,7 @@
           </v-card>
         </v-col>
       </v-row>
-      <DownloadsTable />
+      <DownloadsTable :versions="versions" />
     </v-container>
   </div>
 </template>
@@ -129,16 +129,26 @@ import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
 import {ref} from "vue";
+import GetToolVersions from "../api/GetToolVersions";
 
 // data
 const toolDownload = ref(null);
 
+const versions = ref([] as string[]);
+
+// methods
 function scrollToToolDownload() {
-  console.log(toolDownload.value);
   if (toolDownload.value) {
     toolDownload.value.$el.scrollIntoView(true);
   }
 }
+
+// onload
+GetToolVersions().then(res => {
+  versions.value = res;
+  console.log(res);
+});
+
 </script>
 
 <style scoped>

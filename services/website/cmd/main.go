@@ -26,11 +26,11 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	handlers.RegisterWebsiteHandlers(mux)
+	dev := os.Getenv("DEV")
+
+	handlers.RegisterWebsiteHandlers(mux, dev == "true")
 
 	chain := handler_chain.CreateHandlerChain()
-
-	dev := os.Getenv("DEV")
 
 	if dev == "true" {
 		fmt.Println("run local")

@@ -8,5 +8,6 @@ go_library(
     deps = [
         "//services/website/internal/handlers/assets",
         "//services/website/internal/handlers/templates",
+        "//services/website/internal/handlers/versions",
     ],
 )
