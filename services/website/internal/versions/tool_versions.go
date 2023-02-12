@@ -3,6 +3,7 @@ package versions
 import (
 	"context"
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
@@ -51,6 +52,10 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 			}
 
 		}
+
+		sort.Slice(versions, func(i, j int) bool {
+			return versions[i].Name > versions[j].Name
+		})
 	}
 
 	return versions, nil
