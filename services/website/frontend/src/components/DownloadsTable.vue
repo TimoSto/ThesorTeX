@@ -43,7 +43,7 @@
           </a>
         </td>
         <td>
-          <a :href="getDownloadLink(v.Name, 'mac_silico')"
+          <a :href="getDownloadLink(v.Name, 'mac_silicon')"
              download="ThesorTeX.zip">
             <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
