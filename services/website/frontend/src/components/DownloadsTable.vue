@@ -19,24 +19,36 @@
           {{ v.Date }}
         </td>
         <td>
-          <v-btn variant="flat">
-            <v-icon>mdi-download</v-icon>
-          </v-btn>
+          <a :href="getDownloadLink(v.Name, 'windows')"
+             download="ThesorTeX.zip">
+            <v-btn variant="flat">
+              <v-icon>mdi-download</v-icon>
+            </v-btn>
+          </a>
         </td>
         <td>
-          <v-btn variant="flat">
-            <v-icon>mdi-download</v-icon>
-          </v-btn>
+          <a :href="getDownloadLink(v.Name, 'linux')"
+             download="ThesorTeX.zip">
+            <v-btn variant="flat">
+              <v-icon>mdi-download</v-icon>
+            </v-btn>
+          </a>
         </td>
         <td>
-          <v-btn variant="flat">
-            <v-icon>mdi-download</v-icon>
-          </v-btn>
+          <a :href="getDownloadLink(v.Name, 'mac')"
+             download="ThesorTeX.zip">
+            <v-btn variant="flat">
+              <v-icon>mdi-download</v-icon>
+            </v-btn>
+          </a>
         </td>
         <td>
-          <v-btn variant="flat">
-            <v-icon>mdi-download</v-icon>
-          </v-btn>
+          <a :href="getDownloadLink(v.Name, 'mac_silico')"
+             download="ThesorTeX.zip">
+            <v-btn variant="flat">
+              <v-icon>mdi-download</v-icon>
+            </v-btn>
+          </a>
         </td>
       </tr>
     </tbody>
@@ -44,7 +56,7 @@
 </template>
 
 <script lang="ts" setup>
-
+import getDownloadLink from "../api/GetDownloadLink";
 import {VersionInfo} from "../api/GetToolVersions";
 
 const props = defineProps({

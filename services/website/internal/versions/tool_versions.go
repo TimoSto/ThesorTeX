@@ -17,15 +17,15 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 	if dev {
 		versions = []VersionInfo{
 			{
-				Name: "1.0.0",
+				Name: "v1.0.0",
 				Date: "10-01-2023",
 			},
 			{
-				Name: "0.0.2",
+				Name: "v0.0.2",
 				Date: "02-01-2023",
 			},
 			{
-				Name: "0.0.1",
+				Name: "v0.0.1",
 				Date: "20-12-2022",
 			},
 		}
