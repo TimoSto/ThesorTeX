@@ -20,4 +20,4 @@ export const Path: Vector[] = [
     }
 ];
 
-export const Angle = 90;
+export const Angle = 45;
