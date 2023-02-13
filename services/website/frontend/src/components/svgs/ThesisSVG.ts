@@ -84,9 +84,25 @@ const bookMark: PathPart[] = [
     }
 ];
 
+const leftLine: PathPart[] = [
+    {
+        vector: {
+            x: -140,
+            y: -200,
+        }
+    },
+    {
+        vector: {
+            x: -140,
+            y: 200,
+        }
+    }
+];
+
 export const Paths: PathPart[][] = [
     roundedRect,
-    bookMark
+    bookMark,
+    leftLine
 ];
 
 export const Angle = -10;
