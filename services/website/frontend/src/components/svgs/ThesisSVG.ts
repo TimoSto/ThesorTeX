@@ -144,11 +144,59 @@ const circle: PathPart[] = [
     }
 ];
 
+const bottomLine1: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 70
+        }
+    },
+    {
+        vector: {
+            x: 100,
+            y: 70
+        }
+    }
+];
+
+const bottomLine2: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 100
+        }
+    },
+    {
+        vector: {
+            x: 100,
+            y: 100
+        }
+    }
+];
+
+const bottomLine3: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 130
+        }
+    },
+    {
+        vector: {
+            x: 100,
+            y: 130
+        }
+    }
+];
+
 export const Paths: PathPart[][] = [
     roundedRect,
     bookMark,
     leftLine,
-    circle
+    circle,
+    bottomLine1,
+    bottomLine2,
+    bottomLine3
 ];
 
-export const Angle = 0;
+export const Angle = -5;
