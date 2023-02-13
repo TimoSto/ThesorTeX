@@ -46,12 +46,16 @@ export default function generatePath(points: PathPart[], angle: number) {
             return {
                 vector: result
             };
+        } else if (v.arc) {
+            return v;
         }
     });
 
     vectors.forEach(v => {
         if (v!.vector) {
             p += `L${v!.vector.x},${v!.vector.y} `;
+        } else if (v!.arc) {
+            p += `A${v!.arc.radius},${v!.arc.radius} ${v!.arc.rotation} 0 ${v!.arc.clockwise ? "0" : "1"} ${v!.arc.xEnd} ${v!.arc.yEnd} `;
         }
     });
 
