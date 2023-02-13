@@ -70,4 +70,4 @@ export const Path: PathPart[] = [
     },
 ];
 
-export const Angle = 0;
+export const Angle = 45;

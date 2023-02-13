@@ -47,7 +47,23 @@ export default function generatePath(points: PathPart[], angle: number) {
                 vector: result
             };
         } else if (v.arc) {
-            return v;
+            const relVec = {
+                x: v.arc.xEnd,
+                y: v.arc.yEnd
+            };
+
+            const turned = turnVector(relVec, angle);
+
+            const result = {
+                radius: v.arc.radius,
+                rotation: v.arc.rotation,
+                clockwise: v.arc.clockwise,
+                xEnd: turned.x,
+                yEnd: turned.y
+            };
+            return {
+                arc: result
+            };
         }
     });
 
