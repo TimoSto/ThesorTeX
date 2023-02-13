@@ -5,10 +5,15 @@ export interface Vector {
 
 export default function turnVector(vector: Vector, deg: number): Vector {
     // see: https://studyflix.de/mathematik/drehmatrix-3814
-    
+
     const rads = deg * Math.PI / 180;
-    return {
+    const turned: Vector = {
         x: Math.cos(rads) * vector.x - Math.sin(rads) * vector.y,
         y: Math.sin(rads) * vector.x + Math.cos(rads) * vector.y,
     };
+
+    turned.x = Math.round(turned.x * 1000) / 1000;
+    turned.y = Math.round(turned.y * 1000) / 1000;
+
+    return turned;
 }

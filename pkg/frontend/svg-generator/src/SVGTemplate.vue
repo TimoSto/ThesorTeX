@@ -1,5 +1,7 @@
 <template>
-  <svg width="500" height="500" viewBox="-100 -100 500 500">
+  <svg width="500" height="500" viewBox="-250 -250 500 500">
+    <path stroke="black" stroke-width="5" d="M0,-250 l0,500 z" />
+    <path stroke="black" stroke-width="5" d="M-250,0 l500,0 z" />
     <path stroke="red" stroke-width="10" fill="white" :d="path" />
   </svg>
 </template>
