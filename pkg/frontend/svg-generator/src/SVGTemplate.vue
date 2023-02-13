@@ -7,13 +7,12 @@
 </template>
 
 <script lang="ts" setup>//TODO: turn into general svg component
-import {Vector} from "./helper/turnVector";
 import {computed} from "vue";
-import generatePath from "./helper/generatePath";
+import generatePath, {PathPart} from "./helper/generatePath";
 
 const props = defineProps({
   angle: Number,
-  points: Array<Vector>
+  points: Array<PathPart>
 });
 
 // computed

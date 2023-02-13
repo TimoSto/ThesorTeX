@@ -1,8 +1,13 @@
-import turnVector, {Vector} from "./turnVector";
+import turnVector, {Arc, Vector} from "./turnVector";
+
+export interface PathPart {
+    vector?: Vector;
+    arc?: Arc;
+}
 
 //TODO: optional param turnPoint (default 0,0)
-export default function generatePath(points: Vector[], angle: number) {
-    const startPoint = turnVector(points[0], angle);
+export default function generatePath(points: PathPart[], angle: number) {
+    const startPoint = turnVector(points[0].vector!, angle);
 
     points.shift();
 
@@ -18,30 +23,36 @@ export default function generatePath(points: Vector[], angle: number) {
     //     y: startPoint.y
     // };
 
-    const vectors = points.map(v => {
-        const relVec = {
-            x: v.x,
-            y: v.y
-        };
+    const vectors = points.map((v) => {
+        if (v.vector) {
+            const relVec = {
+                x: v.vector.x,
+                y: v.vector.y
+            };
 
-        const turned = turnVector(relVec, angle);
+            const turned = turnVector(relVec, angle);
 
-        const result = {
-            x: turned.x,
-            y: turned.y
-        };
+            const result = {
+                x: turned.x,
+                y: turned.y
+            };
 
-        // prevVec.x = v.x;
-        // prevVec.y = v.y;
-        //
-        // prevVecTurned.x = result.x;
-        // prevVecTurned.y = result.y;
+            // prevVec.x = v.x;
+            // prevVec.y = v.y;
+            //
+            // prevVecTurned.x = result.x;
+            // prevVecTurned.y = result.y;
 
-        return result;
+            return {
+                vector: result
+            };
+        }
     });
 
     vectors.forEach(v => {
-        p += `L${v.x},${v.y} `;
+        if (v!.vector) {
+            p += `L${v!.vector.x},${v!.vector.y} `;
+        }
     });
 
     p += "z";

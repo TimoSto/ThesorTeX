@@ -1,23 +1,31 @@
-import {Vector} from "@thesortex/svg-generator/src/helper/turnVector";
+import {PathPart} from "@thesortex/svg-generator/src/helper/generatePath";
 
 
-export const Path: Vector[] = [
+export const Path: PathPart[] = [
     {
-        x: -50,
-        y: -20
+        vector: {
+            x: -50,
+            y: -20
+        }
     },
     {
-        x: 50,
-        y: -20
+        vector: {
+            x: 50,
+            y: -20
+        }
     },
     {
-        x: 50,
-        y: 20
+        vector: {
+            x: 50,
+            y: 20
+        },
     },
     {
-        x: -50,
-        y: 20
+        vector: {
+            x: -50,
+            y: 20
+        }
     }
 ];
 
-export const Angle = 45;
+export const Angle = 15;

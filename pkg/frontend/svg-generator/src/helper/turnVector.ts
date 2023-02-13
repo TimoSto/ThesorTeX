@@ -3,6 +3,13 @@ export interface Vector {
     y: number;
 }
 
+export interface Arc {
+    radius: number;
+    rotation: number;
+    xEnd: number;
+    yEnd: number;
+}
+
 export default function turnVector(vector: Vector, deg: number): Vector {
     // see: https://studyflix.de/mathematik/drehmatrix-3814
 
