@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :angle="ThesisAngle" :points="ThesisPath"
+          <SVGTemplate :angle="ThesisAngle" :points="ThesisPath" view-box="-250 -250 500 500"
                        style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
