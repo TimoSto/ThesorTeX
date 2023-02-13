@@ -4,70 +4,52 @@ import {PathPart} from "@thesortex/svg-generator/src/helper/generatePath";
 export const Path: PathPart[] = [
     {
         vector: {
-            x: -40,
-            y: -20
+            x: -140,
+            y: -200
         }
     },
     {
         vector: {
-            x: 40,
-            y: -20
-        }
-    },
-    {
-        arc: {
-            radius: 10,
-            rotation: 0,
-            clockwise: false,
-            xEnd: 50,
-            yEnd: -10
+            x: 140,
+            y: -200
         }
     },
     {
         vector: {
-            x: 50,
-            y: 10
+            x: 140,
+            y: 200
         },
     },
     {
+        vector: {
+            x: -140,
+            y: 200
+        }
+    },
+    {
         arc: {
-            radius: 10,
+            radius: 40,
             rotation: 0,
             clockwise: false,
-            xEnd: 40,
-            yEnd: 20
+            xEnd: -180,
+            yEnd: 160
         }
     },
     {
         vector: {
-            x: -40,
-            y: 20
+            x: -180,
+            y: -160
         }
     },
     {
         arc: {
-            radius: 10,
+            radius: 40,
             rotation: 0,
             clockwise: false,
-            xEnd: -50,
-            yEnd: 10
-        }
-    },
-    {
-        vector: {
-            x: -50,
-            y: -10
-        }
-    },
-    {
-        arc: {
-            radius: 10,
-            rotation: 0,
-            clockwise: false,
-            xEnd: -40,
-            yEnd: -20
+            xEnd: -140,
+            yEnd: -200
         }
     },
 ];
 
-export const Angle = 45;
+export const Angle = 0;
