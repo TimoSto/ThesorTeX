@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :angle="ThesisAngle" :points="ThesisPath" view-box="-250 -250 500 500"
+          <SVGTemplate :angle="ThesisAngle" :paths="ThesisPaths" view-box="-250 -250 500 500"
                        style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
@@ -76,7 +76,7 @@
 <script lang="ts" setup>
 import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
-import {Angle as ThesisAngle, Path as ThesisPath} from "../components/svgs/ThesisSVG";
+import {Angle as ThesisAngle, Paths as ThesisPaths} from "../components/svgs/ThesisSVG";
 
 const props = defineProps({
   smallDisplay: Boolean

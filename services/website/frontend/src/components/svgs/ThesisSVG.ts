@@ -1,7 +1,6 @@
 import {PathPart} from "@thesortex/svg-generator/src/helper/generatePath";
 
-
-export const Path: PathPart[] = [
+const roundedRect: PathPart[] = [
     {
         vector: {
             x: -140,
@@ -52,4 +51,42 @@ export const Path: PathPart[] = [
     },
 ];
 
-export const Angle = 0;
+const bookMark: PathPart[] = [
+    {
+        vector: {
+            x: 30,
+            y: -200
+        },
+    },
+    {
+        vector: {
+            x: 30,
+            y: -120
+        },
+    },
+    {
+        vector: {
+            x: 60,
+            y: -150
+        },
+    },
+    {
+        vector: {
+            x: 90,
+            y: -120
+        },
+    },
+    {
+        vector: {
+            x: 90,
+            y: -200
+        },
+    }
+];
+
+export const Paths: PathPart[][] = [
+    roundedRect,
+    bookMark
+];
+
+export const Angle = -10;
