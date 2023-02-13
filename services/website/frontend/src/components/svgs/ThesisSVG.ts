@@ -54,31 +54,31 @@ const roundedRect: PathPart[] = [
 const bookMark: PathPart[] = [
     {
         vector: {
-            x: 30,
+            x: 40,
             y: -200
         },
     },
     {
         vector: {
-            x: 30,
+            x: 40,
             y: -120
         },
     },
     {
         vector: {
-            x: 60,
+            x: 70,
             y: -150
         },
     },
     {
         vector: {
-            x: 90,
+            x: 100,
             y: -120
         },
     },
     {
         vector: {
-            x: 90,
+            x: 100,
             y: -200
         },
     }
@@ -99,10 +99,56 @@ const leftLine: PathPart[] = [
     }
 ];
 
+const circle: PathPart[] = [
+    {
+        vector: {
+            x: 0,
+            y: -100,
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            xEnd: 40,
+            yEnd: -60,
+            rotation: 0
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            xEnd: 0,
+            yEnd: -20,
+            rotation: 0
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            xEnd: -40,
+            yEnd: -60,
+            rotation: 0
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            xEnd: 0,
+            yEnd: -100,
+            rotation: 0
+        }
+    }
+];
+
 export const Paths: PathPart[][] = [
     roundedRect,
     bookMark,
-    leftLine
+    leftLine,
+    circle
 ];
 
-export const Angle = -10;
+export const Angle = 0;
