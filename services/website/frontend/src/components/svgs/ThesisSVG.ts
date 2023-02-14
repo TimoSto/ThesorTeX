@@ -243,31 +243,31 @@ const hat: PathSegment = {
         {
             vector: {
                 x: 50,
-                y: -40
+                y: -20
             }
         },
         {
             vector: {
                 x: 150,
-                y: -90
+                y: -70
             }
         },
         {
             vector: {
                 x: 250,
-                y: -40
+                y: -20
             }
         },
         {
             vector: {
                 x: 150,
-                y: 10
+                y: 30
             }
         },
         {
             vector: {
                 x: 50,
-                y: -40
+                y: -20
             }
         }
     ],
@@ -282,13 +282,13 @@ const hat2: PathSegment = {
         {
             vector: {
                 x: 90,
-                y: -15
+                y: 5
             }
         },
         {
             vector: {
                 x: 90,
-                y: 35
+                y: 55
             }
         },
         {
@@ -298,13 +298,13 @@ const hat2: PathSegment = {
                 clockwise: true,
                 rotation: 0,
                 xEnd: 210,
-                yEnd: 35
+                yEnd: 55
             }
         },
         {
             vector: {
                 x: 210,
-                y: -15
+                y: 5
             }
         },
     ],
@@ -319,13 +319,13 @@ const hat3: PathSegment = {
         {
             vector: {
                 x: 230,
-                y: -30
+                y: -10
             }
         },
         {
             vector: {
                 x: 230,
-                y: -5
+                y: 15
             }
         },
         {
@@ -334,7 +334,7 @@ const hat3: PathSegment = {
                 clockwise: true,
                 rotation: 0,
                 xEnd: 230,
-                yEnd: 5
+                yEnd: 25
             }
         },
         {
@@ -343,13 +343,13 @@ const hat3: PathSegment = {
                 clockwise: true,
                 rotation: 0,
                 xEnd: 230,
-                yEnd: -5
+                yEnd: 15
             }
         },
         {
             vector: {
                 x: 230,
-                y: 20
+                y: 40
             }
         },
     ],
