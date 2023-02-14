@@ -4,7 +4,8 @@ export interface PathSegment {
     parts: PathPart[],
     strokeColor: string,
     strokeWidth: string,
-    fillColor: string
+    fillColor: string,
+    angle: number
 }
 
 export interface PathPart {

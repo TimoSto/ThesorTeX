@@ -12,14 +12,13 @@ import {computed} from "vue";
 import generatePath, {PathSegment} from "./helper/generatePath";
 
 const props = defineProps({
-  angle: Number,
   viewBox: String,
   paths: Array<Array<PathSegment>>
 });
 
 // computed
 const rotatedPaths = computed(() => {
-  return props.paths.map(p => generatePath(p.parts, props.angle));
+  return props.paths.map(p => generatePath(p.parts, p.angle));
 });
 
 </script>

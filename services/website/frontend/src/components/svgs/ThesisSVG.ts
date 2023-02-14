@@ -1,5 +1,8 @@
 import {PathSegment} from "@thesortex/svg-generator/src/helper/generatePath";
 
+
+const BookAngle = -10;
+
 const roundedRect: PathSegment = {
     strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
@@ -54,6 +57,7 @@ const roundedRect: PathSegment = {
             }
         },
     ],
+    angle: BookAngle
 };
 
 const bookMark: PathSegment = {
@@ -91,7 +95,8 @@ const bookMark: PathSegment = {
                 y: -200
             },
         }
-    ]
+    ],
+    angle: BookAngle
 };
 
 const leftLine: PathSegment = {
@@ -111,7 +116,8 @@ const leftLine: PathSegment = {
                 y: 200,
             }
         }
-    ]
+    ],
+    angle: BookAngle
 };
 
 const circle: PathSegment = {
@@ -161,7 +167,8 @@ const circle: PathSegment = {
                 rotation: 0
             }
         }
-    ]
+    ],
+    angle: BookAngle
 };
 
 const bottomLine1: PathSegment = {
@@ -181,7 +188,8 @@ const bottomLine1: PathSegment = {
                 y: 70
             }
         }
-    ]
+    ],
+    angle: BookAngle
 };
 
 const bottomLine2: PathSegment = {
@@ -201,7 +209,8 @@ const bottomLine2: PathSegment = {
                 y: 100
             }
         }
-    ]
+    ],
+    angle: BookAngle
 };
 
 const bottomLine3: PathSegment = {
@@ -221,7 +230,8 @@ const bottomLine3: PathSegment = {
                 y: 130
             }
         }
-    ]
+    ],
+    angle: BookAngle
 };
 
 export const Paths: PathSegment[] = [
@@ -233,5 +243,3 @@ export const Paths: PathSegment[] = [
     bottomLine2,
     bottomLine3
 ];
-
-export const Angle = -10;
