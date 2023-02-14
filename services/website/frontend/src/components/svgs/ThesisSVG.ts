@@ -199,4 +199,4 @@ export const Paths: PathPart[][] = [
     bottomLine3
 ];
 
-export const Angle = -5;
+export const Angle = -10;
