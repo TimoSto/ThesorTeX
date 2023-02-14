@@ -1,195 +1,230 @@
-import {PathPart} from "@thesortex/svg-generator/src/helper/generatePath";
+import {PathSegment} from "@thesortex/svg-generator/src/helper/generatePath";
 
-const roundedRect: PathPart[] = [
-    {
-        vector: {
-            x: -140,
-            y: -200
-        }
-    },
-    {
-        vector: {
-            x: 140,
-            y: -200
-        }
-    },
-    {
-        vector: {
-            x: 140,
-            y: 200
+const roundedRect: PathSegment = {
+    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: -140,
+                y: -200
+            }
         },
-    },
-    {
-        vector: {
-            x: -140,
-            y: 200
-        }
-    },
-    {
-        arc: {
-            radius: 40,
-            rotation: 0,
-            clockwise: false,
-            xEnd: -180,
-            yEnd: 160
-        }
-    },
-    {
-        vector: {
-            x: -180,
-            y: -160
-        }
-    },
-    {
-        arc: {
-            radius: 40,
-            rotation: 0,
-            clockwise: false,
-            xEnd: -140,
-            yEnd: -200
-        }
-    },
-];
-
-const bookMark: PathPart[] = [
-    {
-        vector: {
-            x: 40,
-            y: -200
+        {
+            vector: {
+                x: 140,
+                y: -200
+            }
         },
-    },
-    {
-        vector: {
-            x: 40,
-            y: -120
+        {
+            vector: {
+                x: 140,
+                y: 200
+            },
         },
-    },
-    {
-        vector: {
-            x: 70,
-            y: -150
+        {
+            vector: {
+                x: -140,
+                y: 200
+            }
         },
-    },
-    {
-        vector: {
-            x: 100,
-            y: -120
+        {
+            arc: {
+                radius: 40,
+                rotation: 0,
+                clockwise: false,
+                xEnd: -180,
+                yEnd: 160
+            }
         },
-    },
-    {
-        vector: {
-            x: 100,
-            y: -200
+        {
+            vector: {
+                x: -180,
+                y: -160
+            }
         },
-    }
-];
+        {
+            arc: {
+                radius: 40,
+                rotation: 0,
+                clockwise: false,
+                xEnd: -140,
+                yEnd: -200
+            }
+        },
+    ],
+};
 
-const leftLine: PathPart[] = [
-    {
-        vector: {
-            x: -140,
-            y: -200,
+const bookMark: PathSegment = {
+    strokeColor: "red",
+    strokeWidth: "10",
+    fillColor: "green",
+    parts: [
+        {
+            vector: {
+                x: 40,
+                y: -200
+            },
+        },
+        {
+            vector: {
+                x: 40,
+                y: -120
+            },
+        },
+        {
+            vector: {
+                x: 70,
+                y: -150
+            },
+        },
+        {
+            vector: {
+                x: 100,
+                y: -120
+            },
+        },
+        {
+            vector: {
+                x: 100,
+                y: -200
+            },
         }
-    },
-    {
-        vector: {
-            x: -140,
-            y: 200,
-        }
-    }
-];
+    ]
+};
 
-const circle: PathPart[] = [
-    {
-        vector: {
-            x: 0,
-            y: -100,
+const leftLine: PathSegment = {
+    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: -140,
+                y: -200,
+            }
+        },
+        {
+            vector: {
+                x: -140,
+                y: 200,
+            }
         }
-    },
-    {
-        arc: {
-            radius: 40,
-            clockwise: false,
-            xEnd: 40,
-            yEnd: -60,
-            rotation: 0
-        }
-    },
-    {
-        arc: {
-            radius: 40,
-            clockwise: false,
-            xEnd: 0,
-            yEnd: -20,
-            rotation: 0
-        }
-    },
-    {
-        arc: {
-            radius: 40,
-            clockwise: false,
-            xEnd: -40,
-            yEnd: -60,
-            rotation: 0
-        }
-    },
-    {
-        arc: {
-            radius: 40,
-            clockwise: false,
-            xEnd: 0,
-            yEnd: -100,
-            rotation: 0
-        }
-    }
-];
+    ]
+};
 
-const bottomLine1: PathPart[] = [
-    {
-        vector: {
-            x: -100,
-            y: 70
+const circle: PathSegment = {
+    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: 0,
+                y: -100,
+            }
+        },
+        {
+            arc: {
+                radius: 40,
+                clockwise: false,
+                xEnd: 40,
+                yEnd: -60,
+                rotation: 0
+            }
+        },
+        {
+            arc: {
+                radius: 40,
+                clockwise: false,
+                xEnd: 0,
+                yEnd: -20,
+                rotation: 0
+            }
+        },
+        {
+            arc: {
+                radius: 40,
+                clockwise: false,
+                xEnd: -40,
+                yEnd: -60,
+                rotation: 0
+            }
+        },
+        {
+            arc: {
+                radius: 40,
+                clockwise: false,
+                xEnd: 0,
+                yEnd: -100,
+                rotation: 0
+            }
         }
-    },
-    {
-        vector: {
-            x: 100,
-            y: 70
-        }
-    }
-];
+    ]
+};
 
-const bottomLine2: PathPart[] = [
-    {
-        vector: {
-            x: -100,
-            y: 100
+const bottomLine1: PathSegment = {
+    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: -100,
+                y: 70
+            }
+        },
+        {
+            vector: {
+                x: 100,
+                y: 70
+            }
         }
-    },
-    {
-        vector: {
-            x: 100,
-            y: 100
-        }
-    }
-];
+    ]
+};
 
-const bottomLine3: PathPart[] = [
-    {
-        vector: {
-            x: -100,
-            y: 130
+const bottomLine2: PathSegment = {
+    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: -100,
+                y: 100
+            }
+        },
+        {
+            vector: {
+                x: 100,
+                y: 100
+            }
         }
-    },
-    {
-        vector: {
-            x: 100,
-            y: 130
-        }
-    }
-];
+    ]
+};
 
-export const Paths: PathPart[][] = [
+const bottomLine3: PathSegment = {
+    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: -100,
+                y: 130
+            }
+        },
+        {
+            vector: {
+                x: 100,
+                y: 130
+            }
+        }
+    ]
+};
+
+export const Paths: PathSegment[] = [
     roundedRect,
     bookMark,
     leftLine,

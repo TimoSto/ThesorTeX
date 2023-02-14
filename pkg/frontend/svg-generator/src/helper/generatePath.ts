@@ -1,5 +1,12 @@
 import turnVector, {Arc, Vector} from "./turnVector";
 
+export interface PathSegment {
+    parts: PathPart[],
+    strokeColor: string,
+    strokeWidth: string,
+    fillColor: string
+}
+
 export interface PathPart {
     vector?: Vector;
     arc?: Arc;
