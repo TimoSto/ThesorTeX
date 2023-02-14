@@ -37,7 +37,7 @@
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :paths="LaptopPaths" view-box="-250 -250 500 500"
+          <SVGTemplate :paths="ThesisPaths" view-box="-250 -250 500 500"
                        style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
@@ -77,7 +77,6 @@
 <script lang="ts" setup>
 import CVIcon from "../components/CVIcon.vue";
 import {Paths as ThesisPaths} from "../components/svgs/ThesisSVG";
-import {Paths as LaptopPaths} from "../components/svgs/LaptopSVG";
 
 const props = defineProps({
   smallDisplay: Boolean

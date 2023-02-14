@@ -18,7 +18,7 @@ const props = defineProps({
 
 // computed
 const rotatedPaths = computed(() => {
-  return props.paths.map(p => generatePath(p.parts, p.angle));
+  return props.paths.map(p => generatePath([...p.parts], p.angle));
 });
 
 </script>
