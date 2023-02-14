@@ -1,7 +1,7 @@
 import {PathSegment} from "@thesortex/svg-generator/src/helper/generatePath";
 
 const roundedRect: PathSegment = {
-    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
     fillColor: "white",
     parts: [
@@ -57,9 +57,9 @@ const roundedRect: PathSegment = {
 };
 
 const bookMark: PathSegment = {
-    strokeColor: "red",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
-    fillColor: "green",
+    fillColor: "white",
     parts: [
         {
             vector: {
@@ -95,7 +95,7 @@ const bookMark: PathSegment = {
 };
 
 const leftLine: PathSegment = {
-    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
     fillColor: "white",
     parts: [
@@ -115,7 +115,7 @@ const leftLine: PathSegment = {
 };
 
 const circle: PathSegment = {
-    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
     fillColor: "white",
     parts: [
@@ -165,7 +165,7 @@ const circle: PathSegment = {
 };
 
 const bottomLine1: PathSegment = {
-    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
     fillColor: "white",
     parts: [
@@ -185,7 +185,7 @@ const bottomLine1: PathSegment = {
 };
 
 const bottomLine2: PathSegment = {
-    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
     fillColor: "white",
     parts: [
@@ -205,7 +205,7 @@ const bottomLine2: PathSegment = {
 };
 
 const bottomLine3: PathSegment = {
-    strokeColor: "rgb(var(--v-theme-primary))",
+    strokeColor: "rgba(var(--v-theme-on-background), .75)",
     strokeWidth: "10",
     fillColor: "white",
     parts: [

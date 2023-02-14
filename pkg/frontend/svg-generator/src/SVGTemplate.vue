@@ -1,7 +1,7 @@
 <template>
   <svg width="500" height="500" :viewBox="viewBox">
-    <path stroke="black" stroke-width="5" d="M0,-250 l0,500 z" />
-    <path stroke="black" stroke-width="5" d="M-250,0 l500,0 z" />
+    <!--    <path stroke="black" stroke-width="5" d="M0,-250 l0,500 z" />-->
+    <!--    <path stroke="black" stroke-width="5" d="M-250,0 l500,0 z" />-->
     <path :stroke="paths[i].strokeColor" :stroke-width="paths[i].strokeWidth" :fill="paths[i].fillColor"
           v-for="(p, i) in rotatedPaths" :d="p" />
   </svg>
