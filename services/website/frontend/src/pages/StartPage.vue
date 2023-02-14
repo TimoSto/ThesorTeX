@@ -37,7 +37,8 @@
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
         <v-col v-if="!smallDisplay" cols="6">
-          <TemplateIcon :hide-icon="false" style="display: block; margin: 0 auto; max-height: 350px" />
+          <SVGTemplate :paths="LaptopPaths" view-box="-250 -250 500 500"
+                       style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">Literatur-Management</h2>
@@ -74,9 +75,9 @@
 </template>
 
 <script lang="ts" setup>
-import TemplateIcon from "../components/TemplateIcon.vue";
 import CVIcon from "../components/CVIcon.vue";
 import {Paths as ThesisPaths} from "../components/svgs/ThesisSVG";
+import {Paths as LaptopPaths} from "../components/svgs/LaptopSVG";
 
 const props = defineProps({
   smallDisplay: Boolean
