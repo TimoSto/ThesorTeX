@@ -311,6 +311,51 @@ const hat2: PathSegment = {
     angle: 0
 };
 
+const hat3: PathSegment = {
+    strokeColor: "rgba(var(--v-theme-on-background), 1)",
+    strokeWidth: "10",
+    fillColor: "white",
+    parts: [
+        {
+            vector: {
+                x: 230,
+                y: -30
+            }
+        },
+        {
+            vector: {
+                x: 230,
+                y: -5
+            }
+        },
+        {
+            arc: {
+                radius: 5,
+                clockwise: true,
+                rotation: 0,
+                xEnd: 230,
+                yEnd: 5
+            }
+        },
+        {
+            arc: {
+                radius: 5,
+                clockwise: true,
+                rotation: 0,
+                xEnd: 230,
+                yEnd: -5
+            }
+        },
+        {
+            vector: {
+                x: 230,
+                y: 20
+            }
+        },
+    ],
+    angle: 0
+};
+
 export const Paths: PathSegment[] = [
     roundedRect,
     bookMark,
@@ -321,4 +366,5 @@ export const Paths: PathSegment[] = [
     bottomLine3,
     hat2,
     hat,
+    hat3
 ];
