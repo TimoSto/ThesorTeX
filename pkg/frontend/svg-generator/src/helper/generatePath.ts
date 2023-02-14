@@ -64,6 +64,7 @@ export default function generatePath(points: PathPart[], angle: number) {
 
             const result = {
                 radius: v.arc.radius,
+                radiusY: v.arc.radiusY ? v.arc.radiusY : v.arc.radius,
                 rotation: v.arc.rotation,
                 clockwise: v.arc.clockwise,
                 xEnd: turned.x,
@@ -79,7 +80,7 @@ export default function generatePath(points: PathPart[], angle: number) {
         if (v!.vector) {
             p += `L${v!.vector.x},${v!.vector.y} `;
         } else if (v!.arc) {
-            p += `A${v!.arc.radius},${v!.arc.radius} ${v!.arc.rotation} 0 ${v!.arc.clockwise ? "0" : "1"} ${v!.arc.xEnd} ${v!.arc.yEnd} `;
+            p += `A${v!.arc.radius},${v!.arc.radiusY} ${v!.arc.rotation} 0 ${v!.arc.clockwise ? "0" : "1"} ${v!.arc.xEnd} ${v!.arc.yEnd} `;
         }
     });
 

@@ -5,6 +5,7 @@ export interface Vector {
 
 export interface Arc {
     radius: number;
+    radiusY?: number;
     rotation: number;
     clockwise: boolean;
     xEnd: number;

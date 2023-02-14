@@ -281,28 +281,29 @@ const hat2: PathSegment = {
     parts: [
         {
             vector: {
-                x: 100,
+                x: 90,
                 y: -5
             }
         },
         {
             vector: {
-                x: 100,
+                x: 90,
                 y: 45
             }
         },
         {
             arc: {
                 radius: 50,
+                radiusY: 20,
                 clockwise: true,
                 rotation: 0,
-                xEnd: 200,
+                xEnd: 210,
                 yEnd: 45
             }
         },
         {
             vector: {
-                x: 200,
+                x: 210,
                 y: -5
             }
         },
