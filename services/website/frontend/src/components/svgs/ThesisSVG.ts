@@ -243,31 +243,31 @@ const hat: PathSegment = {
         {
             vector: {
                 x: 50,
-                y: -30
+                y: -40
             }
         },
         {
             vector: {
                 x: 150,
-                y: -80
+                y: -90
             }
         },
         {
             vector: {
                 x: 250,
-                y: -30
+                y: -40
             }
         },
         {
             vector: {
                 x: 150,
-                y: 20
+                y: 10
             }
         },
         {
             vector: {
                 x: 50,
-                y: -30
+                y: -40
             }
         }
     ],
@@ -282,13 +282,13 @@ const hat2: PathSegment = {
         {
             vector: {
                 x: 90,
-                y: -5
+                y: -15
             }
         },
         {
             vector: {
                 x: 90,
-                y: 45
+                y: 35
             }
         },
         {
@@ -298,13 +298,13 @@ const hat2: PathSegment = {
                 clockwise: true,
                 rotation: 0,
                 xEnd: 210,
-                yEnd: 45
+                yEnd: 35
             }
         },
         {
             vector: {
                 x: 210,
-                y: -5
+                y: -15
             }
         },
     ],
