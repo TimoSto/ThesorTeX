@@ -1,40 +1,111 @@
-import {SVGPartial, TemplateSVG} from "@thesortex/vue-component-library/src/components/SVGTemplate/helper/SVG";
+import {
+    PathPart,
+    SVGPartial,
+    TemplateSVG
+} from "@thesortex/vue-component-library/src/components/SVGTemplate/helper/SVG";
 
-const p1: SVGPartial = {
-    scale: 0.7,
-    angle: 90,
-    translate: {
-        x: 50,
-        y: 20,
+const outerBorder: PathPart[] = [
+    {
+        vector: {
+            x: -140,
+            y: -200
+        }
     },
-    parts: [
-        {
-            vector: {
-                x: 0,
-                y: 0
-            }
+    {
+        vector: {
+            x: 140,
+            y: -200
+        }
+    },
+    {
+        vector: {
+            x: 140,
+            y: 200
         },
-        {
-            vector: {
-                x: -200,
-                y: 0
-            }
-        },
-        {
-            arc: {
-                radius: 50,
-                rotation: 0,
-                clockwise: true,
-                end: {
-                    x: -250,
-                    y: 50
-                }
+    },
+    {
+        vector: {
+            x: -140,
+            y: 200
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            rotation: 0,
+            clockwise: false,
+            end: {
+                x: -180,
+                y: 160
+            },
+        }
+    },
+    {
+        vector: {
+            x: -180,
+            y: -160
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            rotation: 0,
+            clockwise: false,
+            end: {
+                x: -140,
+                y: -200
             }
         }
-    ],
+    },
+];
+
+const bookMArk: PathPart[] = [
+    {
+        vector: {
+            x: 40,
+            y: -200
+        },
+    },
+    {
+        vector: {
+            x: 40,
+            y: -120
+        },
+    },
+    {
+        vector: {
+            x: 70,
+            y: -150
+        },
+    },
+    {
+        vector: {
+            x: 100,
+            y: -120
+        },
+    },
+    {
+        vector: {
+            x: 100,
+            y: -200
+        },
+    }
+];
+
+const p1: SVGPartial = {
     strokeColor: "rgba(var(--v-theme-on-background), 1)",
     strokeWidth: "10",
-    fillColor: "white"
+    fillColor: "white",
+    scale: 1,
+    angle: -10,
+    translate: {
+        x: 0,
+        y: 0,
+    },
+    parts: [
+        outerBorder,
+        bookMArk
+    ]
 };
 
 export const TestSVG: TemplateSVG = {

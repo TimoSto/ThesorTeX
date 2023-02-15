@@ -6,7 +6,7 @@ export interface TemplateSVG {
 }
 
 export interface SVGPartial {
-    parts: PathPart[],
+    parts: PathPart[][],
     strokeColor: string,
     strokeWidth: string,
     fillColor: string,

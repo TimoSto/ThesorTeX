@@ -4,9 +4,9 @@
     <path stroke="black" stroke-width="5" d="M-250,0 l500,0 z" />
     <g v-for="(part, i) in svg.partials" :key="`partial-${i}`"
        :transform="generateTransform(part)">
-      <text>{{ generateTransform(part) }}</text>
-      <path :stroke="part.strokeColor" :stroke-width="part.strokeWidth" :fill="part.fillColor"
-            :d="generatePath(part.parts)" />
+      <path v-for="(p, j) in part.parts" :key="`partial-${i}-${j}`" :stroke="part.strokeColor"
+            :stroke-width="part.strokeWidth" :fill="part.fillColor"
+            :d="generatePath(p)" />
     </g>
   </svg>
 </template>
