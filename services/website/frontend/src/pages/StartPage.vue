@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :paths="ThesisPaths" view-box="-250 -250 500 500"
+          <SVGTemplate :paths="thesisPaths" view-box="-250 -250 500 500"
                        style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
       </v-row>
@@ -37,7 +37,7 @@
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :paths="ThesisPaths" view-box="-250 -250 500 500"
+          <SVGTemplate :paths="laptopPaths" view-box="-250 -250 500 500"
                        style="display: block; margin: 0 auto; max-height: 350px" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
@@ -77,10 +77,29 @@
 <script lang="ts" setup>
 import CVIcon from "../components/CVIcon.vue";
 import {Paths as ThesisPaths} from "../components/svgs/ThesisSVG";
+import {Paths as LaptopPaths} from "../components/svgs/LaptopSVG";
+import {computed} from "vue";
 
 const props = defineProps({
   smallDisplay: Boolean
 });
+
+const thesisPaths = computed(() => {
+  return [...ThesisPaths];
+});
+
+const laptopPaths = computed(() => {
+  let laptop = [...LaptopPaths];
+  const thesis = [...ThesisPaths];
+  thesis.forEach(p => {
+    p.scale = 0.5;
+  });
+
+  laptop.push(...thesis);
+
+  return laptop;
+});
+
 </script>
 
 <style scoped>
