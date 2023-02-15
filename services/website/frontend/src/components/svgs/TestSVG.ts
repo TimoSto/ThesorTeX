@@ -59,7 +59,7 @@ const outerBorder: PathPart[] = [
     },
 ];
 
-const bookMArk: PathPart[] = [
+const bookMark: PathPart[] = [
     {
         vector: {
             x: 40,
@@ -92,6 +92,120 @@ const bookMArk: PathPart[] = [
     }
 ];
 
+
+const leftMark: PathPart[] = [
+    {
+        vector: {
+            x: -140,
+            y: -200,
+        }
+    },
+    {
+        vector: {
+            x: -140,
+            y: 200,
+        }
+    }
+];
+
+const circle: PathPart[] = [
+    {
+        vector: {
+            x: 0,
+            y: -100,
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            end: {
+                x: 40,
+                y: -60,
+            },
+            rotation: 0
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            end: {
+                x: 0,
+                y: -20,
+            },
+            rotation: 0
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            end: {
+                x: -40,
+                y: -60,
+            },
+            rotation: 0
+        }
+    },
+    {
+        arc: {
+            radius: 40,
+            clockwise: false,
+            end: {
+                x: 0,
+                y: -100,
+            },
+            rotation: 0
+        }
+    }
+];
+
+const line1: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 70
+        }
+    },
+    {
+        vector: {
+            x: 100,
+            y: 70
+        }
+    }
+];
+
+const line2: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 100
+        }
+    },
+    {
+        vector: {
+            x: 100,
+            y: 100
+        }
+    }
+];
+
+const line3: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 130
+        }
+    },
+    {
+        vector: {
+            x: 100,
+            y: 130
+        }
+    }
+];
+
 const p1: SVGPartial = {
     strokeColor: "rgba(var(--v-theme-on-background), 1)",
     strokeWidth: "10",
@@ -104,7 +218,12 @@ const p1: SVGPartial = {
     },
     parts: [
         outerBorder,
-        bookMArk
+        bookMark,
+        leftMark,
+        circle,
+        line1,
+        line2,
+        line3
     ]
 };
 
