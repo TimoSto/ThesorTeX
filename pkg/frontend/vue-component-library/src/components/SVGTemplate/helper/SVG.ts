@@ -1,4 +1,4 @@
-export interface templateSVG {
+export interface TemplateSVG {
     partials: SVGPartial[],
     viewport: string,
 }
