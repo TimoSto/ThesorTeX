@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate />
+          <SVGTemplate :svg="TestSVG" />
         </v-col>
       </v-row>
     </v-container>
@@ -76,6 +76,7 @@ import CVIcon from "../components/CVIcon.vue";
 import {Paths as ThesisPaths} from "../components/svgs/ThesisSVG";
 import {Paths as LaptopPaths} from "../components/svgs/LaptopSVG";
 import {computed} from "vue";
+import {TestSVG} from "../components/svgs/TestSVG";
 
 const props = defineProps({
   smallDisplay: Boolean

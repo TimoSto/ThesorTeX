@@ -1,6 +1,8 @@
 export interface TemplateSVG {
     partials: SVGPartial[],
-    viewport: string,
+    viewBox: string,
+    width: number,
+    height: number,
 }
 
 export interface SVGPartial {
