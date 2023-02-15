@@ -12,12 +12,23 @@ const p1: SVGPartial = {
         },
         {
             vector: {
-                x: 200,
+                x: -200,
                 y: 0
+            }
+        },
+        {
+            arc: {
+                radius: 50,
+                rotation: 0,
+                clockwise: true,
+                end: {
+                    x: -250,
+                    y: 50
+                }
             }
         }
     ],
-    strokeColor: "green",
+    strokeColor: "rgba(var(--v-theme-on-background), 1)",
     strokeWidth: "10",
     fillColor: "white"
 };

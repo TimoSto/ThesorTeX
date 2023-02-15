@@ -29,6 +29,5 @@ export interface Arc {
     radiusY?: number;
     rotation: number;
     clockwise: boolean;
-    xEnd: number;
-    yEnd: number;
+    end: Vector;
 }
