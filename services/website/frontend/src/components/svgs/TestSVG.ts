@@ -1,8 +1,8 @@
 import {SVGPartial, TemplateSVG} from "@thesortex/vue-component-library/src/components/SVGTemplate/helper/SVG";
 
 const p1: SVGPartial = {
-    scale: 1,
-    angle: 0,
+    scale: 0.7,
+    angle: 40,
     parts: [
         {
             vector: {

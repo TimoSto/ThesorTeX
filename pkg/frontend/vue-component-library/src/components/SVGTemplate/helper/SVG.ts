@@ -10,7 +10,7 @@ export interface SVGPartial {
     strokeColor: string,
     strokeWidth: string,
     fillColor: string,
-    angle: number,
+    angle?: number,
     scale?: number
 }
 

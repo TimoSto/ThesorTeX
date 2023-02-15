@@ -1,4 +1,4 @@
-import {PathPart} from "./SVG";
+import {PathPart, SVGPartial} from "./SVG";
 
 export function generatePath(parts: PathPart[]): string {
     if (!parts[0].vector) {
@@ -24,4 +24,15 @@ export function generatePath(parts: PathPart[]): string {
 
 
     return path;
+}
+
+export function generateTransform(partial: SVGPartial): string {
+    console.log(partial, typeof partial);
+    let angle = partial.angle ? partial.angle : "0";
+    let scale = partial.scale ? partial.scale : "1";
+
+    let tr = `scale(${scale}) rotate(${angle}, 0, 0)`;
+
+    console.log(tr);
+    return tr;
 }
