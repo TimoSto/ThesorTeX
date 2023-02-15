@@ -11,7 +11,8 @@ export interface SVGPartial {
     strokeWidth: string,
     fillColor: string,
     angle?: number,
-    scale?: number
+    scale?: number,
+    translate?: Vector,
 }
 
 export interface PathPart {

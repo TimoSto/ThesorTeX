@@ -2,7 +2,11 @@ import {SVGPartial, TemplateSVG} from "@thesortex/vue-component-library/src/comp
 
 const p1: SVGPartial = {
     scale: 0.7,
-    angle: 40,
+    angle: 90,
+    translate: {
+        x: 50,
+        y: 20,
+    },
     parts: [
         {
             vector: {
