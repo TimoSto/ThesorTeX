@@ -27,6 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
+          <SVGTemplate />
         </v-col>
       </v-row>
     </v-container>

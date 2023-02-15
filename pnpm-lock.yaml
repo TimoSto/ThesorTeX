@@ -68,8 +68,8 @@ importers:
 
   pkg/frontend/svg-generator:
     specifiers:
-      typescript: '*'
-      vue: '*'
+      typescript: 4.9.4
+      vue: 3.2.36
     devDependencies:
       typescript: 4.9.4
       vue: 3.2.36
