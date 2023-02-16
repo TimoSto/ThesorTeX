@@ -76,7 +76,6 @@
 import CVIcon from "../components/CVIcon.vue";
 import {computed} from "vue";
 import {ThesisSVG} from "../components/svgs/ThesisSVG";
-import {TemplateSVG} from "@thesortex/vue-component-library/src/components/SVGTemplate/helper/SVG";
 import {LaptopSVG} from "../components/svgs/LaptopSVG";
 
 const props = defineProps({
@@ -85,19 +84,19 @@ const props = defineProps({
 
 const thesisPaths = computed(() => {
   //TODO: find a better way to loose reactivity
-  const svg = JSON.parse(JSON.stringify(ThesisSVG)) as TemplateSVG;
-  svg.partials.forEach(p => {
-    p.scale = 0.75;
-  });
-
-  svg.width *= 0.75;
-  svg.height *= 0.75;
+  const svg = ThesisSVG;
+  // svg.partials.forEach(p => {
+  //   p.scale = 0.75;
+  // });
+  //
+  // svg.width *= 0.75;
+  // svg.height *= 0.75;
 
   return svg;
 });
 
 const laptopWithThesis = computed(() => {
-  const svg = JSON.parse(JSON.stringify(LaptopSVG)) as TemplateSVG;
+  const svg = LaptopSVG;
 
   return svg;
 });
