@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :svg="TestSVG" />
+          <SVGTemplate :svg="thesisPaths" />
         </v-col>
       </v-row>
     </v-container>
@@ -73,29 +73,23 @@
 
 <script lang="ts" setup>
 import CVIcon from "../components/CVIcon.vue";
-import {Paths as ThesisPaths} from "../components/svgs/ThesisSVG";
-import {Paths as LaptopPaths} from "../components/svgs/LaptopSVG";
 import {computed} from "vue";
-import {TestSVG} from "../components/svgs/TestSVG";
+import {ThesisSVG} from "../components/svgs/ThesisSVG";
 
 const props = defineProps({
   smallDisplay: Boolean
 });
 
 const thesisPaths = computed(() => {
-  return [...ThesisPaths];
-});
-
-const laptopPaths = computed(() => {
-  let laptop = [...LaptopPaths];
-  const thesis = [...ThesisPaths];
-  thesis.forEach(p => {
-    p.scale = 0.5;
+  const svg = ThesisSVG;
+  svg.partials.forEach(p => {
+    p.scale = 0.75;
   });
 
-  laptop.push(...thesis);
+  svg.width *= 0.75;
+  svg.height *= 0.75;
 
-  return laptop;
+  return svg;
 });
 
 </script>

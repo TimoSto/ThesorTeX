@@ -20,7 +20,6 @@ const props = defineProps({
   svg: Object as PropType<TemplateSVG>,
 });
 
-
 </script>
 
 <style scoped>
