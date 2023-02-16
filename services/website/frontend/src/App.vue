@@ -42,7 +42,6 @@ const smallDisplay = ref(false);
 
 // onload
 window.addEventListener("resize", () => {
-  console.log(window.innerWidth);
   if (window.innerWidth < 750) {
     smallDisplay.value = true;
   } else {
