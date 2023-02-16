@@ -27,7 +27,7 @@
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :svg="thesisPaths" />
+          <SVGTemplate :svg="thesisPaths" style="max-height: 300px; display: block; margin: 0 auto;" />
         </v-col>
       </v-row>
     </v-container>
@@ -36,7 +36,7 @@
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
         <v-col v-if="!smallDisplay" cols="6">
-          <SVGTemplate :svg="laptopWithThesis" />
+          <SVGTemplate :svg="laptopWithThesis" style="max-height: 300px; display: block; margin: 0 auto;" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">Literatur-Management</h2>
@@ -77,6 +77,7 @@ import CVIcon from "../components/CVIcon.vue";
 import {computed} from "vue";
 import {ThesisSVG} from "../components/svgs/ThesisSVG";
 import {TemplateSVG} from "@thesortex/vue-component-library/src/components/SVGTemplate/helper/SVG";
+import {LaptopSVG} from "../components/svgs/LaptopSVG";
 
 const props = defineProps({
   smallDisplay: Boolean
@@ -96,14 +97,7 @@ const thesisPaths = computed(() => {
 });
 
 const laptopWithThesis = computed(() => {
-  const svg = JSON.parse(JSON.stringify(ThesisSVG)) as TemplateSVG;
-  svg.partials.forEach(p => {
-    p.scale = 0.5;
-  });
-
-  svg.width *= 0.5;
-  svg.height *= 0.5;
-  console.log(svg);
+  const svg = JSON.parse(JSON.stringify(LaptopSVG)) as TemplateSVG;
 
   return svg;
 });
