@@ -17,7 +17,7 @@
           {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
-
+          <MarkdownToVuetify :file="''" />
         </v-expansion-panel-text>
       </v-expansion-panel>
       <v-expansion-panel>
