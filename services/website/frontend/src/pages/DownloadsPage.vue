@@ -3,7 +3,7 @@
     <v-container class="bg-transparent pa-16">
       <v-row class="d-flex flex-row">
         <v-col cols="4">
-          <v-card>
+          <v-card class="fill-height-card">
             <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
               <span class="text-h5 text-center font-weight-bold"
@@ -27,7 +27,7 @@
           </v-card>
         </v-col>
         <v-col cols="4">
-          <v-card>
+          <v-card class="fill-height-card">
             <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
@@ -49,8 +49,8 @@
           </v-card>
         </v-col>
         <v-col cols="4">
-          <v-card style="height: 100%">
-            <v-card-text style="height: 100%">
+          <v-card class="fill-height-card">
+            <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
                       style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
@@ -213,6 +213,13 @@ GetToolVersions().then(res => {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.fill-height-card {
+  height: 100%;
+
+  & .v-card-text {
+    height: 100%;
+  }
+}
 
 </style>

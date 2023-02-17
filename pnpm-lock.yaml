@@ -66,14 +66,6 @@ importers:
       typescript: 4.9.4
       vue: 3.2.36
 
-  pkg/frontend/svg-generator:
-    specifiers:
-      typescript: 4.9.4
-      vue: 3.2.36
-    devDependencies:
-      typescript: 4.9.4
-      vue: 3.2.36
-
   pkg/frontend/vitest-vuetify:
     specifiers:
       typescript: 4.9.4
@@ -182,7 +174,6 @@ importers:
   services/website/frontend:
     specifiers:
       '@thesortex/eslint-config': workspace:*
-      '@thesortex/svg-generator': workspace:^1.0.0
       '@thesortex/vue-component-library': workspace:*
       '@thesortex/vuetify-plugin': workspace:*
       '@types/node': 18.11.18
@@ -197,7 +188,6 @@ importers:
       vuetify: 3.1.1
     dependencies:
       '@thesortex/eslint-config': link:../../../pkg/frontend/eslint-config
-      '@thesortex/svg-generator': link:../../../pkg/frontend/svg-generator
       '@thesortex/vue-component-library': link:../../../pkg/frontend/vue-component-library
       '@thesortex/vuetify-plugin': link:../../../pkg/frontend/vuetify-plugin
       vue: 3.2.36
