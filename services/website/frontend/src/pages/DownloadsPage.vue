@@ -82,7 +82,7 @@
       <p class="text-body-1">Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du
         auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die
         Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.</p>
-      <v-row class="pa-4 d-flex flex-row">
+      <v-row class="pa-4 d-flex flex-row mt-1 mb-1">
         <v-col cols="3">
           <v-card elevation="6" style="height: 100%">
             <v-card-text style="height: 100%">
