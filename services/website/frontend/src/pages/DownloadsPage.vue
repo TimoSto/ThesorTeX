@@ -152,19 +152,19 @@ const versions = ref([] as VersionInfo[]);
 // computed
 const thesisPaths = computed(() => {
   //TODO: find a better way to loose reactivity
-  const svg = ThesisSVG;
+  const svg = JSON.parse(JSON.stringify(ThesisSVG));
 
   return svg;
 });
 
 const laptopWithThesis = computed(() => {
-  const svg = LaptopSVG;
+  const svg = JSON.parse(JSON.stringify(LaptopSVG));
 
   return svg;
 });
 
 const cvSVG = computed(() => {
-  const svg = CVSVG;
+  const svg = JSON.parse(JSON.stringify(CVSVG));
 
   return svg;
 });
