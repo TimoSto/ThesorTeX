@@ -3,12 +3,8 @@
     <v-container class="bg-transparent pa-16">
       <v-row>
         <v-col cols="12">
-          <h2 class="text-h3 font-weight-bold text-center text-white pa-4 pt-15">LaTeX bequemer nutzen</h2>
-          <p class="text-h5 text-center text-white pa-4 pb-15">Wenn du LaTeX im akademischen oder beruflichen
-            Kontext
-            nutzt, findest
-            du hier
-            verschiedene Vorlagen und Tools, die dich dabei unterstützen können.</p>
+          <h2 class="text-h3 font-weight-bold text-center text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
+          <p class="text-h5 text-center text-white pa-4 pb-15">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
         </v-col>
       </v-row>
     </v-container>
@@ -77,11 +73,18 @@ import {computed} from "vue";
 import {ThesisSVG} from "../components/svgs/ThesisSVG";
 import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
+import {useI18n} from "@thesortex/vue-i18n-plugin";
+import {i18nKeys} from "../i18n/keys";
 
+// globals
+const {t} = useI18n();
+
+// data
 const props = defineProps({
   smallDisplay: Boolean
 });
 
+// computed
 const thesisPaths = computed(() => {
   //TODO: find a better way to loose reactivity
   const svg = JSON.parse(JSON.stringify(ThesisSVG));

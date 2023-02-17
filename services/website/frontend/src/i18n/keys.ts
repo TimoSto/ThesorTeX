@@ -3,6 +3,10 @@ export const i18nKeys = {
         Downloads: "Titles.Downloads",
         Tutorials: "Titles.Tutorials",
         StartPage: "Titles.StartPage"
+    },
+    StartPage: {
+        Title: "StartPage.Title",
+        Subtitle: "StartPage.Subtitle"
     }
 };
 
