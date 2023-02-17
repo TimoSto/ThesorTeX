@@ -81,13 +81,61 @@ const paperline: PathPart[] = [
     },
 ];
 
+const line1: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: -50
+        },
+    },
+    {
+        vector: {
+            x: 100,
+            y: -50
+        },
+    }
+];
+
+const line2: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 0
+        },
+    },
+    {
+        vector: {
+            x: 100,
+            y: 0
+        },
+    }
+];
+
+const line3: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: 50
+        },
+    },
+    {
+        vector: {
+            x: 100,
+            y: 50
+        },
+    }
+];
+
 const paper: SVGPartial = {
     strokeColor: "rgba(var(--v-theme-on-background), 1)",
     strokeWidth: "10",
     fillColor: "white",
     scale: 1,
     parts: [
-        paperline
+        paperline,
+        line1,
+        line2,
+        line3
     ]
 };
 
