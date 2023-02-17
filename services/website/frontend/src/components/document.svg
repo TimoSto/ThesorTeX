@@ -1,4 +1,0 @@
-<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-    <path stroke="grey" stroke-width="10" stroke-linejoin="round"
-          d="M 100 100 L 200,50 A 50 50 0 0 1 270,70 L 350 200 A 50 50 0 0 1 300,270 L 100 300 Z"/>
-</svg>
