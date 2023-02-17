@@ -15,7 +15,7 @@
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            <i18n-t :keypath="i18nKeys.StartPage.ThesisTemplateSubtitle">
+            <i18n-t :keypath="i18nKeys.StartPage.ThesisTemplateSubtitle" scope="global">
               <template #link>
                 <a href="/templates/thesis" download>
                   {{ t(i18nKeys.StartPage.ThesisTemplateLink) }}
@@ -57,7 +57,7 @@
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            <i18n-t :keypath="i18nKeys.StartPage.CVTemplateSubtitle">
+            <i18n-t :keypath="i18nKeys.StartPage.CVTemplateSubtitle" scope="global">
               <template #link>
                 <a href="/templates/cv" download>
                   {{ t(i18nKeys.StartPage.CVTemplateLink) }}
