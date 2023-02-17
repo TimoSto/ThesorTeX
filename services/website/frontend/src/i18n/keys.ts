@@ -24,6 +24,11 @@ export const i18nKeys = {
         InfoText: "DownloadPage.InfoText",
         Version: "DownloadPage.Version",
         Date: "DownloadPage.Date",
+    },
+    TutorialsPage: {
+        Title: "TutorialsPage.Title",
+        ThesisTemplate: "TutorialsPage.ThesisTemplate",
+        ThesisTemplateTech: "TutorialsPage.ThesisTemplateTech",
     }
 };
 

@@ -26,5 +26,10 @@ export const german: I18nKeys = {
         InfoText: "Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.",
         Version: "Version",
         Date: "Datum",
+    },
+    TutorialsPage: {
+        Title: "Wie kann ich die Vorlagen und Tools nutzen?",
+        ThesisTemplate: "Verwendung der Vorlage für wissenschaftliche Arbeiten",
+        ThesisTemplateTech: "Technische Beschreibung der Vorlage für wissenschaftliche Arbeiten",
     }
 };
