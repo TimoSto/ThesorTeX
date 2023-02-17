@@ -65,5 +65,7 @@ const props = defineProps({
 </script>
 
 <style scoped>
-
+a {
+  text-decoration: none;
+}
 </style>
