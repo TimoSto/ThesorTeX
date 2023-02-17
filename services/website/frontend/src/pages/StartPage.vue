@@ -26,7 +26,7 @@
             Mehr erfahren
           </v-btn>
         </v-col>
-        <v-col v-if="!smallDisplay" cols="6">
+        <v-col v-if="!smallDisplay" cols="6" class="svg-container">
           <SVGTemplate :svg="thesisPaths" style="max-height: 300px; display: block; margin: 0 auto;" />
         </v-col>
       </v-row>
@@ -35,7 +35,7 @@
   <div class="bg-container" style="background-color: #e8e8e8">
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
-        <v-col v-if="!smallDisplay" cols="6">
+        <v-col v-if="!smallDisplay" cols="6" class="svg-container">
           <SVGTemplate :svg="laptopWithThesis" style="max-height: 300px; display: block; margin: 0 auto;" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
@@ -64,7 +64,7 @@
             Mehr erfahren
           </v-btn>
         </v-col>
-        <v-col v-if="!smallDisplay" cols="6">
+        <v-col v-if="!smallDisplay" cols="6" class="svg-container">
           <SVGTemplate :svg="cvSVG" style="max-height: 300px; display: block; margin: 0 auto;" />
         </v-col>
       </v-row>
@@ -104,5 +104,8 @@ const cvSVG = computed(() => {
 </script>
 
 <style scoped>
-
+.svg-container {
+  display: flex;
+  align-items: center;
+}
 </style>
