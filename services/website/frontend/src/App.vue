@@ -4,16 +4,16 @@
       <v-app-bar color="background" :elevation="elevation" app>
         <v-container class="pa-6 fill-height">
           <v-row align="center" class="fill-height">
-            <v-toolbar-title class="text-h4 font-weight-bold">ThesorTeX</v-toolbar-title>
+            <v-toolbar-title class="text-h4 font-weight-bold">ThesorTeX {{ titleAppendix }}</v-toolbar-title>
             <v-spacer />
             <v-btn color="primary" to="/" v-if="currentPage !== 'Home'">
-              Übersicht
+              {{ t(i18nKeys.Titles.StartPage) }}
             </v-btn>
             <v-btn color="primary" to="/downloads" v-if="currentPage !== 'Downloads'">
-              Downloads
+              {{ t(i18nKeys.Titles.Downloads) }}
             </v-btn>
             <v-btn color="primary" to="/tutorials" v-if="currentPage !== 'Tutorials'">
-              Tutorials
+              {{ t(i18nKeys.Titles.Tutorials) }}
             </v-btn>
           </v-row>
         </v-container>
@@ -34,6 +34,7 @@
 import {computed, ref} from "vue";
 import {useRouter} from "vue-router";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
+import {i18nKeys} from "./i18n/keys";
 
 const router = useRouter();
 
@@ -54,6 +55,17 @@ window.addEventListener("resize", () => {
 
 const currentPage = computed(() => {
   return router.currentRoute.value.name;
+});
+
+const titleAppendix = computed(() => {
+  if (currentPage.value === "Tutorials") {
+    return `- ${t(i18nKeys.Titles.Tutorials)}`;
+  }
+  if (currentPage.value === "Downloads") {
+    return `- ${t(i18nKeys.Titles.Downloads)}`;
+  }
+
+  return "";
 });
 
 </script>
