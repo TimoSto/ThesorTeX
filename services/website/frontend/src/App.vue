@@ -12,7 +12,7 @@
             <v-btn color="primary" to="/downloads" v-if="currentPage !== 'Downloads'">
               Downloads
             </v-btn>
-            <v-btn color="primary" to="/tutorials">
+            <v-btn color="primary" to="/tutorials" v-if="currentPage !== 'Tutorials'">
               Tutorials
             </v-btn>
           </v-row>
