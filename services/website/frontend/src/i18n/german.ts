@@ -15,7 +15,7 @@ export const german: I18nKeys = {
         ThesisTemplateTitle: "Vorlage für wissenschaftliche Arbeiten",
         ThesisTemplateSubtitle: "Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal {link} an.",
         ThesisTemplateLink: "diese Vorlage",
-        ThesisToolTitle: "Literatur-Management",
+        ThesisToolTitle: "Tool für Literatur-Management",
         ThesisToolSubtitle: "Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder importiere deine Bibliothek aus Citavi.",
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
         CVTemplateSubtitle: "Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast und du dich auf deinen nächsten Job bewerben willst, schau dir doch mal {link} für einen Lebenslauf an.",

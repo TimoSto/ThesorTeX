@@ -15,7 +15,7 @@ export const english: I18nKeys = {
         ThesisTemplateTitle: "Template for academic papers",
         ThesisTemplateSubtitle: "Would you like to write a thesis or homework paper with LaTeX? Then check out {link}.",
         ThesisTemplateLink: "this template",
-        ThesisToolTitle: "Bibliography manaegement",
+        ThesisToolTitle: "Tool for bibliography manaegement",
         ThesisToolSubtitle: "Using this tool you can build your bibliography comfortabily and customized. Format your literature according to your wishes, create entries manually or import your library from Citavi.",
         CVTemplateTitle: "Curriculum vitae Template",
         CVTemplateSubtitle: "If you've graduated with the help of the support offered here and you're ready to apply for your next job, check out {link} for a CV.",
