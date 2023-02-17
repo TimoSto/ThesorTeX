@@ -21,7 +21,7 @@
       </v-app-bar>
     </v-sheet>
     <v-main>
-      <ToolbarAndContent :hide-bar="true" @scroll="elevation=1" @no-scroll="elevation=0">
+      <ToolbarAndContent :hide-bar="true" @scroll="elevation=1" @no-scroll="elevation=0" :page="currentPage">
         <template #content>
           <router-view :small-display="smallDisplay" />
         </template>

@@ -31,7 +31,8 @@ const props = defineProps({
   barColor: {
     type: String,
     default: "background"
-  }
+  },
+  page: String
 });
 
 // data
@@ -53,6 +54,10 @@ watch(elevation, () => {
   } else {
     emit("scroll");
   }
+});
+
+watch(() => props.page, () => {
+  root.value!.querySelector(".content")!.scrollTo(0, 0);
 });
 </script>
 
