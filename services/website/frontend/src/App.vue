@@ -33,8 +33,11 @@
 <script lang="ts" setup>
 import {computed, ref} from "vue";
 import {useRouter} from "vue-router";
+import {useI18n} from "@thesortex/vue-i18n-plugin";
 
 const router = useRouter();
+
+const {t} = useI18n();
 
 // data
 const elevation = ref(0);

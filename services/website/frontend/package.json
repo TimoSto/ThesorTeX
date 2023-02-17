@@ -12,6 +12,7 @@
   "dependencies": {
     "@thesortex/eslint-config": "workspace:*",
     "@thesortex/vue-component-library": "workspace:*",
+    "@thesortex/vue-i18n-plugin": "workspace:^1.0.0",
     "@thesortex/vuetify-plugin": "workspace:*",
     "vue": "*",
     "vue-router": "4",

@@ -175,6 +175,7 @@ importers:
     specifiers:
       '@thesortex/eslint-config': workspace:*
       '@thesortex/vue-component-library': workspace:*
+      '@thesortex/vue-i18n-plugin': workspace:^1.0.0
       '@thesortex/vuetify-plugin': workspace:*
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0
@@ -189,6 +190,7 @@ importers:
     dependencies:
       '@thesortex/eslint-config': link:../../../pkg/frontend/eslint-config
       '@thesortex/vue-component-library': link:../../../pkg/frontend/vue-component-library
+      '@thesortex/vue-i18n-plugin': link:../../../pkg/frontend/vue-i18n-plugin
       '@thesortex/vuetify-plugin': link:../../../pkg/frontend/vuetify-plugin
       vue: 3.2.36
       vue-router: 4.1.6_vue@3.2.36
