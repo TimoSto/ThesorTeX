@@ -174,6 +174,10 @@ import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
 
 // data
+const props = defineProps({
+  smallDisplay: Boolean
+});
+
 const toolDownload = ref(null);
 
 const versions = ref([] as VersionInfo[]);
