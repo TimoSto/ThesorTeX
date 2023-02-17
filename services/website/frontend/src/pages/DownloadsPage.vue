@@ -208,7 +208,6 @@ function scrollToToolDownload() {
 // onload
 GetToolVersions().then(res => {
   versions.value = res;
-  console.log(res);
 });
 
 </script>
