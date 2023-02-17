@@ -13,13 +13,18 @@
     <v-container class="bg-transparent pb-6 pl-12">
       <v-row>
         <v-col :cols="smallDisplay ? 12 : 6">
-          <h2 class="text-h3 font-weight-bold pt-6 pb-6">Vorlage für wissenschaftliche Arbeiten</h2>
+          <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal <a
-            href="/templates/thesis" download>diese
-            Vorlage</a> an.</p>
+            <i18n-t :keypath="i18nKeys.StartPage.ThesisTemplateSubtitle">
+              <template #link>
+                <a href="/templates/thesis" download>
+                  {{ t(i18nKeys.StartPage.ThesisTemplateLink) }}
+                </a>
+              </template>
+            </i18n-t>
+          </p>
           <v-btn color="primary" to="/docs/template">
-            Mehr erfahren
+            {{ t(i18nKeys.Common.LearnMore) }}
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="svg-container">
@@ -35,12 +40,12 @@
           <SVGTemplate :svg="laptopWithThesis" style="max-height: 300px; display: block; margin: 0 auto;" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
-          <h2 class="text-h3 font-weight-bold pt-6 pb-6">Literatur-Management</h2>
-          <p class="text-h6 pb-6">Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell
-            zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder
-            importiere deine bibliothek aus <i>Citavi</i>.</p>
+          <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
+          <p class="text-h6 pb-6">
+            {{ t(i18nKeys.StartPage.ThesisToolSubtitle) }}
+          </p>
           <v-btn color="primary">
-            Mehr erfahren
+            {{ t(i18nKeys.Common.LearnMore) }}
           </v-btn>
         </v-col>
       </v-row>
@@ -50,14 +55,18 @@
     <v-container class="bg-transparent pb-6 pl-12 mb-6">
       <v-row>
         <v-col :cols="smallDisplay ? 12 : 6">
-          <h2 class="text-h3 font-weight-bold pt-6 pb-6">Vorlage für einen Lebenslauf</h2>
+          <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast, kannst du
-            dich
-            mit <a href="/templates/cv" download>diese
-            Vorlage</a> für deien Lebenslauf auf deinen nächsten Job bewerben.</p>
+            <i18n-t :keypath="i18nKeys.StartPage.CVTemplateSubtitle">
+              <template #link>
+                <a href="/templates/cv" download>
+                  {{ t(i18nKeys.StartPage.CVTemplateLink) }}
+                </a>
+              </template>
+            </i18n-t>
+          </p>
           <v-btn color="primary">
-            Mehr erfahren
+            {{ t(i18nKeys.Common.LearnMore) }}
           </v-btn>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="svg-container">
