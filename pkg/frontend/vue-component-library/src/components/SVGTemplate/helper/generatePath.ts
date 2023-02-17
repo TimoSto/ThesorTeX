@@ -37,7 +37,6 @@ export function generateTransform(partial: SVGPartial): string {
 
     let tr = `scale(${scale}) rotate(${angle}, 0, 0) translate(${translate})`;
 
-    console.log(tr);
     return tr;
 }
 
