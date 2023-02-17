@@ -1,62 +1,75 @@
 <template>
   <div style="background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);">
     <v-container class="bg-transparent pa-16">
-      <v-row>
+      <v-row class="d-flex flex-row">
         <v-col cols="4">
           <v-card>
             <v-card-text>
+              <div class="d-flex flex-column" style="height: 100%">
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">Vorlage - Wissenschaftliche Arbeiten</span>
-              <SVGTemplate :svg="thesisPaths"
-                           style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
-              <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                Weitere Informationen
-              </v-btn>
-              <a href="/templates/thesis" download>
-                <v-btn color="primary" style="width: 100%;">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
-                </v-btn>
-              </a>
+                <div class="mt-auto">
+                  <SVGTemplate :svg="thesisPaths"
+                               style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                    Weitere Informationen
+                  </v-btn>
+                  <a href="/templates/thesis" download>
+                    <v-btn color="primary" style="width: 100%;">
+                    <span style="white-space: normal;">
+                      Herunterladen
+                    </span>
+                    </v-btn>
+                  </a>
+                </div>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="4">
           <v-card>
             <v-card-text>
-              <span class="text-h5 text-center font-weight-bold"
-                    style="display: inline-block; width: 100%;">Tool - Literaturmanagement</span>
-              <SVGTemplate :svg="laptopWithThesis"
-                           style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
-              <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                Weitere Informationen
-              </v-btn>
-              <v-btn color="primary" style="width: 100%;" @click="scrollToToolDownload">
-                <span style="white-space: normal;">
-                  Herunterladen
-                </span>
-              </v-btn>
+              <div class="d-flex flex-column" style="height: 100%">
+                <span class="text-h5 text-center font-weight-bold"
+                      style="display: inline-block; width: 100%;">Tool - Literaturmanagement</span>
+                <div class="mt-auto">
+                  <SVGTemplate :svg="laptopWithThesis"
+                               style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                    Weitere Informationen
+                  </v-btn>
+                  <v-btn color="primary" style="width: 100%;" @click="scrollToToolDownload">
+                    <span style="white-space: normal;">
+                      Herunterladen
+                    </span>
+                  </v-btn>
+                </div>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="4">
-          <v-card>
-            <v-card-text>
-              <span class="text-h5 text-center font-weight-bold"
-                    style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
-              <SVGTemplate :svg="cvSVG"
-                           style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
-              <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                Weitere Informationen
-              </v-btn>
-              <a href="/templates/cv" download>
-                <v-btn color="primary" style="width: 100%;">
-                  <span style="white-space: normal;">
-                    Herunterladen
-                  </span>
-                </v-btn>
-              </a>
+          <v-card style="height: 100%">
+            <v-card-text style="height: 100%">
+              <div class="d-flex flex-column" style="height: 100%">
+                <span class="text-h5 text-center font-weight-bold"
+                      style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
+                <div class="mt-auto">
+                  <SVGTemplate :svg="cvSVG"
+                               style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                    Weitere Informationen
+                  </v-btn>
+                  <a href="/templates/cv" download>
+                    <v-btn color="primary" style="width: 100%;">
+                      <span style="white-space: normal;">
+                        Herunterladen
+                      </span>
+                    </v-btn>
+                  </a>
+                </div>
+              </div>
+
             </v-card-text>
           </v-card>
         </v-col>
