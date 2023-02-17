@@ -7,17 +7,17 @@
             <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
               <span class="text-h5 text-center font-weight-bold"
-                    style="display: inline-block; width: 100%;">Vorlage - Wissenschaftliche Arbeiten</span>
+                    style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="thesisPaths"
                                style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                    Weitere Informationen
+                    {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <a href="/templates/thesis" download>
                     <v-btn color="primary" style="width: 100%;">
                     <span style="white-space: normal;">
-                      Herunterladen
+                      {{ t(i18nKeys.Common.Download) }}
                     </span>
                     </v-btn>
                   </a>
@@ -31,16 +31,16 @@
             <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
-                      style="display: inline-block; width: 100%;">Tool - Literaturmanagement</span>
+                      style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="laptopWithThesis"
                                style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                    Weitere Informationen
+                    {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="scrollToToolDownload">
                     <span style="white-space: normal;">
-                      Herunterladen
+                      {{ t(i18nKeys.Common.Download) }}
                     </span>
                   </v-btn>
                 </div>
@@ -53,17 +53,17 @@
             <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
-                      style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
+                      style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="cvSVG"
                                style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
-                    Weitere Informationen
+                    {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <a href="/templates/cv" download>
                     <v-btn color="primary" style="width: 100%;">
                       <span style="white-space: normal;">
-                        Herunterladen
+                        {{ t(i18nKeys.Common.Download) }}
                       </span>
                     </v-btn>
                   </a>
@@ -171,6 +171,12 @@ import getDownloadLink from "../api/GetDownloadLink";
 import {ThesisSVG} from "../components/svgs/ThesisSVG";
 import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
+import {useI18n} from "@thesortex/vue-i18n-plugin";
+import {i18nKeys} from "../i18n/keys";
+
+// globals
+
+const {t} = useI18n();
 
 // data
 const props = defineProps({

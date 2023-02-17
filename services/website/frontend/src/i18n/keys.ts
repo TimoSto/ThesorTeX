@@ -1,6 +1,7 @@
 export const i18nKeys = {
     Common: {
         LearnMore: "Common.LearnMore",
+        Download: "Common.Download"
     },
     Titles: {
         Downloads: "Titles.Downloads",
@@ -18,7 +19,8 @@ export const i18nKeys = {
         CVTemplateTitle: "StartPage.CVTemplateTitle",
         CVTemplateSubtitle: "StartPage.CVTemplateSubtitle",
         CVTemplateLink: "StartPage.CVTemplateLink",
-    }
+    },
+    DownloadPage: {}
 };
 
 export type I18nKeys = typeof i18nKeys;

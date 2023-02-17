@@ -3,6 +3,7 @@ import {I18nKeys} from "./keys";
 export const german: I18nKeys = {
     Common: {
         LearnMore: "Mehr erfahren",
+        Download: "Herunterladen"
     },
     Titles: {
         Downloads: "Downloads",
@@ -20,5 +21,6 @@ export const german: I18nKeys = {
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
         CVTemplateSubtitle: "Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast und du dich auf deinen nächsten Job bewerben willst, schau dir doch mal {link} für einen Lebenslauf an.",
         CVTemplateLink: "diese Vorlage",
-    }
+    },
+    DownloadPage: {}
 };

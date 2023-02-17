@@ -3,6 +3,7 @@ import {I18nKeys} from "./keys";
 export const english: I18nKeys = {
     Common: {
         LearnMore: "Learn more",
+        Download: "Download"
     },
     Titles: {
         Downloads: "Downloads",
@@ -20,5 +21,6 @@ export const english: I18nKeys = {
         CVTemplateTitle: "Curriculum vitae Template",
         CVTemplateSubtitle: "If you've graduated with the help of the support offered here and you're ready to apply for your next job, check out {link} for a CV.",
         CVTemplateLink: "this template",
-    }
+    },
+    DownloadPage: {}
 };
