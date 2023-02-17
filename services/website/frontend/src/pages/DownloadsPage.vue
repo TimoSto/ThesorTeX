@@ -7,7 +7,8 @@
             <v-card-text>
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">Vorlage - Wissenschaftliche Arbeiten</span>
-              <TemplateIcon :hide-icon="true" style="display: block; margin: 0 auto; transform: scale(0.9)" />
+              <SVGTemplate :svg="thesisPaths"
+                           style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
@@ -26,7 +27,8 @@
             <v-card-text>
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">Tool - Literaturmanagement</span>
-              <TemplateIcon :hide-icon="false" style="display: block; margin: 0 auto; transform: scale(0.9)" />
+              <SVGTemplate :svg="laptopWithThesis"
+                           style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
@@ -43,7 +45,8 @@
             <v-card-text>
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">Vorlage - Lebenslauf</span>
-              <CVIcon style="display: block; margin: 0 auto; transform: scale(0.7)" />
+              <SVGTemplate :svg="cvSVG"
+                           style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
               <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                 Weitere Informationen
               </v-btn>
@@ -130,20 +133,41 @@
 </template>
 
 <script lang="ts" setup>
-import TemplateIcon from "../components/TemplateIcon.vue";
-import CVIcon from "../components/CVIcon.vue";
 import DownloadsTable from "../components/DownloadsTable.vue";
 import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import GetToolVersions, {VersionInfo} from "../api/GetToolVersions";
 import getDownloadLink from "../api/GetDownloadLink";
+import {ThesisSVG} from "../components/svgs/ThesisSVG";
+import {LaptopSVG} from "../components/svgs/LaptopSVG";
+import {CVSVG} from "../components/svgs/CVSVG";
 
 // data
 const toolDownload = ref(null);
 
 const versions = ref([] as VersionInfo[]);
+
+// computed
+const thesisPaths = computed(() => {
+  //TODO: find a better way to loose reactivity
+  const svg = ThesisSVG;
+
+  return svg;
+});
+
+const laptopWithThesis = computed(() => {
+  const svg = LaptopSVG;
+
+  return svg;
+});
+
+const cvSVG = computed(() => {
+  const svg = CVSVG;
+
+  return svg;
+});
 
 // methods
 function scrollToToolDownload() {

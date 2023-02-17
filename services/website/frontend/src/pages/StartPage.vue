@@ -85,12 +85,6 @@ const props = defineProps({
 const thesisPaths = computed(() => {
   //TODO: find a better way to loose reactivity
   const svg = ThesisSVG;
-  // svg.partials.forEach(p => {
-  //   p.scale = 0.75;
-  // });
-  //
-  // svg.width *= 0.75;
-  // svg.height *= 0.75;
 
   return svg;
 });
