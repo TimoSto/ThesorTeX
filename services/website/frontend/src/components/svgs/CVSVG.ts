@@ -223,8 +223,8 @@ const head: PathPart[] = [
 
 const person: SVGPartial = {
     strokeColor: "rgba(var(--v-theme-on-background), 1)",
-    strokeWidth: "10",
-    fillColor: "rgba(var(--v-theme-on-background), 1)",
+    strokeWidth: "7",
+    fillColor: "white",
     scale: 1,
     parts: [
         body,
