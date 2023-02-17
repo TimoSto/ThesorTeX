@@ -82,60 +82,76 @@
       <p class="text-body-1">Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du
         auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die
         Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.</p>
-      <v-row class="pa-4">
+      <v-row class="pa-4 d-flex flex-row">
         <v-col cols="3">
-          <v-card elevation="6">
-            <v-card-text>
-              <span class="text-center font-weight-bold text-h6"
-                    style="display: inline-block; width: 100%;">Windows</span>
-              <WindowsIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
-              <a :href="getDownloadLink('latest', 'windows')">
-                <v-btn color="primary" style="width: 100%;">
-                  <v-icon>mdi-download</v-icon>
-                </v-btn>
-              </a>
+          <v-card elevation="6" style="height: 100%">
+            <v-card-text style="height: 100%">
+              <div class="d-flex flex-column" style="height: 100%">
+                <span class="text-center font-weight-bold text-h6"
+                      style="display: inline-block; width: 100%;">Windows</span>
+                <div class="mt-auto">
+                  <WindowsIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
+                  <a :href="getDownloadLink('latest', 'windows')">
+                    <v-btn color="primary" style="width: 100%;">
+                      <v-icon>mdi-download</v-icon>
+                    </v-btn>
+                  </a>
+                </div>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card elevation="6">
-            <v-card-text>
-              <span class="text-center font-weight-bold text-h6"
-                    style="display: inline-block; width: 100%;">Linux</span>
-              <LinuxIcon style="display: block; margin: 0 auto; height: 50px; scale: 2" class="mb-4" />
-              <a :href="getDownloadLink('latest', 'linux')">
-                <v-btn color="primary" style="width: 100%;">
-                  <v-icon>mdi-download</v-icon>
-                </v-btn>
-              </a>
+          <v-card elevation="6" style="height: 100%">
+            <v-card-text style="height: 100%">
+              <div class="d-flex flex-column" style="height: 100%">
+                <span class="text-center font-weight-bold text-h6"
+                      style="display: inline-block; width: 100%;">Linux</span>
+                <div class="mt-auto">
+                  <LinuxIcon style="display: block; margin: 0 auto; height: 50px; scale: 2" class="mb-4" />
+                  <a :href="getDownloadLink('latest', 'linux')">
+                    <v-btn color="primary" style="width: 100%;">
+                      <v-icon>mdi-download</v-icon>
+                    </v-btn>
+                  </a>
+                </div>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card elevation="6">
-            <v-card-text>
-              <span class="text-center font-weight-bold text-h6"
-                    style="display: inline-block; width: 100%;">MacOS (Intel)</span>
-              <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
-              <a :href="getDownloadLink('latest', 'mac')">
-                <v-btn color="primary" style="width: 100%;">
-                  <v-icon>mdi-download</v-icon>
-                </v-btn>
-              </a>
+          <v-card elevation="6" style="height: 100%">
+            <v-card-text style="height: 100%">
+              <div class="d-flex flex-column" style="height: 100%">
+                <span class="text-center font-weight-bold text-h6"
+                      style="display: inline-block; width: 100%;">MacOS (Intel)</span>
+                <div class="mt-auto">
+                  <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
+                  <a :href="getDownloadLink('latest', 'mac')">
+                    <v-btn color="primary" style="width: 100%;">
+                      <v-icon>mdi-download</v-icon>
+                    </v-btn>
+                  </a>
+                </div>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card elevation="6">
-            <v-card-text>
-              <span class="text-center font-weight-bold text-h6"
-                    style="display: inline-block; width: 100%;">MacOS (Silicon)</span>
-              <MacIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
-              <a :href="getDownloadLink('latest', 'mac_silicon')">
-                <v-btn color="primary" style="width: 100%;">
-                  <v-icon>mdi-download</v-icon>
-                </v-btn>
-              </a>
+          <v-card elevation="6" style="height: 100%">
+            <v-card-text style="height: 100%">
+              <div class="d-flex flex-column" style="height: 100%">
+                <span class="text-center font-weight-bold text-h6"
+                      style="display: inline-block; width: 100%;">MacOS (Silicon)</span>
+                <div class="mt-auto">
+                  <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
+                  <a :href="getDownloadLink('latest', 'mac_silicon')">
+                    <v-btn color="primary" style="width: 100%;">
+                      <v-icon>mdi-download</v-icon>
+                    </v-btn>
+                  </a>
+                </div>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>
