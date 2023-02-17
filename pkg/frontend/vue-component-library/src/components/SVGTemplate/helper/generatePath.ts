@@ -11,7 +11,7 @@ export function generatePath(parts: PathPart[]): string {
 
     parts.forEach(p => {
         if (p.vector) {
-            path += `L${p.vector.x},${p!.vector.y} `;
+            path += `L ${p.vector.x} ${p!.vector.y} `;
         } else if (p!.arc) {
             if (!p.arc.radiusY) {
                 p.arc.radiusY = p.arc.radius;
