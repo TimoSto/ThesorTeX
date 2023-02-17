@@ -22,5 +22,9 @@ export const english: I18nKeys = {
         CVTemplateSubtitle: "If you've graduated with the help of the support offered here and you're ready to apply for your next job, check out {link} for a CV.",
         CVTemplateLink: "this template",
     },
-    DownloadPage: {}
+    DownloadPage: {
+        InfoText: "Here you can download the latest version for your operating system. You can also download one of the older versions below. When you unzip the downloaded ZIP file, copy the file inside to a location of your choice and start it by double-clicking.",
+        Version: "Version",
+        Date: "Date",
+    }
 };

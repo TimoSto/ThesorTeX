@@ -2,8 +2,12 @@
   <v-table>
     <thead>
       <tr>
-        <th>Version</th>
-        <th>Datum</th>
+        <th>
+          {{ t(i18nKeys.DownloadPage.Version) }}
+        </th>
+        <th>
+          {{ t(i18nKeys.DownloadPage.Date) }}
+        </th>
         <th>Windows</th>
         <th>Linux</th>
         <th>MacOS</th>
@@ -58,6 +62,10 @@
 <script lang="ts" setup>
 import getDownloadLink from "../api/GetDownloadLink";
 import {VersionInfo} from "../api/GetToolVersions";
+import {useI18n} from "@thesortex/vue-i18n-plugin";
+import {i18nKeys} from "../i18n/keys";
+
+const {t} = useI18n();
 
 const props = defineProps({
   versions: Array<VersionInfo>

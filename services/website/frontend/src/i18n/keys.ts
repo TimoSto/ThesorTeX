@@ -20,7 +20,11 @@ export const i18nKeys = {
         CVTemplateSubtitle: "StartPage.CVTemplateSubtitle",
         CVTemplateLink: "StartPage.CVTemplateLink",
     },
-    DownloadPage: {}
+    DownloadPage: {
+        InfoText: "DownloadPage.InfoText",
+        Version: "DownloadPage.Version",
+        Date: "DownloadPage.Date",
+    }
 };
 
 export type I18nKeys = typeof i18nKeys;
