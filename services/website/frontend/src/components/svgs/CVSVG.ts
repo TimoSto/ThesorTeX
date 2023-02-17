@@ -232,6 +232,8 @@ const person: SVGPartial = {
     ]
 };
 
+//TODO: diploma icon or smth
+
 export const CVSVG: TemplateSVG = {
     width: 500,
     height: 500,
