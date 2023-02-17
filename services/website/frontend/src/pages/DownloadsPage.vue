@@ -210,7 +210,10 @@ const cvSVG = computed(() => {
 // methods
 function scrollToToolDownload() {
   if (toolDownload.value) {
-    toolDownload.value.$el.scrollIntoView(true);
+    toolDownload.value.$el.scrollIntoView({
+      alignToTop: true,
+      behavior: "smooth"
+    });
   }
 }
 
