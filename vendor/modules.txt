@@ -5,8 +5,6 @@ github.com/aws/aws-lambda-go/lambda
 github.com/aws/aws-lambda-go/lambda/handlertrace
 github.com/aws/aws-lambda-go/lambda/messages
 github.com/aws/aws-lambda-go/lambdacontext
-# github.com/aws/aws-sdk-go v1.44.195
-## explicit; go 1.11
 # github.com/aws/aws-sdk-go-v2 v1.17.4
 ## explicit; go 1.15
 github.com/aws/aws-sdk-go-v2
@@ -120,8 +118,6 @@ github.com/aws/smithy-go/time
 github.com/aws/smithy-go/transport/http
 github.com/aws/smithy-go/transport/http/internal/io
 github.com/aws/smithy-go/waiter
-# github.com/jmespath/go-jmespath v0.4.0
-## explicit; go 1.14
 # github.com/justinas/alice v1.2.0
 ## explicit; go 1.12
 github.com/justinas/alice

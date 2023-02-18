@@ -41,7 +41,7 @@ func main() {
 
 	if dev == "true" {
 		fmt.Println("run local")
-		err := http.ListenAndServe(":8449", chain.Then(mux))
+		err := http.ListenAndServe("localhost:8449", chain.Then(mux))
 		fmt.Println(err)
 	} else {
 		lambda.Start(chain.Then(mux))

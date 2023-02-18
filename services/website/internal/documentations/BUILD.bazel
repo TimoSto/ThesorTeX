@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "documentations",
+    srcs = ["documentations.go"],
+    embedsrcs = glob(["docs/**/*"]),
+    importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/documentations",
+    visibility = ["//services/website:__subpackages__"],
+)
