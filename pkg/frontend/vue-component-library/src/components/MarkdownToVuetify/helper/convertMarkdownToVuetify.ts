@@ -1,5 +1,8 @@
 import {analyseLine} from "./analyseLine";
 
+const boldRegex = new RegExp(/\*\*(.*?)\*\*/gs);
+const italicRegex = new RegExp(/\*(.*?)\*/gs);
+
 export function convertMarkdownToVuetify(file: string): string {
     let html = "";
 
@@ -31,16 +34,23 @@ export function convertMarkdownToVuetify(file: string): string {
                 html += "<p class=\"text-body-1\">";
             }
             let contentToAdd = result.content;
+            const boldResult = contentToAdd!.match(boldRegex);
+            if (boldResult) {
+                boldResult.forEach(v => {
+                    contentToAdd = contentToAdd?.replace(v, `<b>${v.substring(2, v.length - 2)}</b>`);
+                });
+            }
+            const italicResult = contentToAdd!.match(italicRegex);
+            if (italicResult) {
+                italicResult.forEach(v => {
+                    contentToAdd = contentToAdd?.replace(v, `<i>${v.substring(1, v.length - 1)}</i>`);
+                });
+            }
             if (result.content?.endsWith("  ")) {
                 contentToAdd?.trimEnd();
                 contentToAdd += "<br>";
             }
             html += contentToAdd;
-        } else if (result.type === "EMPTY") {
-            // if (insideBlock === "PLAIN_TEXT") {
-            //     html += "</p>\n";
-            //     insideBlock = false;
-            // }
         }
     });
 
