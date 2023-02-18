@@ -1,3 +1,5 @@
-export function convertMarkdownToVuetify(file: string) {
+export function convertMarkdownToVuetify(file: string): string {
+    let html = "";
 
+    return html;
 }

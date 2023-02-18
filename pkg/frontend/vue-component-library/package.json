@@ -16,5 +16,8 @@
     "vite-plugin-vuetify": "*",
     "vue": "*",
     "vuetify": "*"
+  },
+  "scripts": {
+    "vitest:run": "vitest run --dom"
   }
 }
