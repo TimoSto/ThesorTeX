@@ -37,4 +37,11 @@ describe("analyseLine", () => {
         };
         expect(analyseLine("##### TestHeading")).toEqual(expected);
     });
+    it("text on one line", () => {
+        const expected: AnalyseLineResult = {
+            type: "TEXT",
+            content: "Some one line content"
+        };
+        expect(analyseLine("Some one line content")).toEqual(expected);
+    });
 });
