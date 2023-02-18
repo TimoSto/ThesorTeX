@@ -40,7 +40,7 @@ func main() {
 
 	handlers.RegisterAppHandlers(mux, &fs)
 
-	err = http.ListenAndServe(fmt.Sprintf(":%s", "8440"), chain.Then(mux))
+	err = http.ListenAndServe(fmt.Sprintf("localhost:%s", "8440"), chain.Then(mux))
 	if err != nil {
 		log.Error("unexpected error starting server: %v", err)
 		os.Exit(1)
