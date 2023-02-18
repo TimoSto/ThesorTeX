@@ -3,3 +3,6 @@ root = true
 [*.vue]
 indent_size = 2
 ij_html_space_inside_empty_tag = true
+
+[*.md]
+trim_trailing_whitespace = false

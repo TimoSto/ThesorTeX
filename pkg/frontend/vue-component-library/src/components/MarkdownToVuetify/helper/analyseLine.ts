@@ -54,8 +54,12 @@ export function analyseLine(line: string): AnalyseLineResult {
         let content = line.startsWith(type.prefixToRemove) ? line.slice(type.prefixToRemove.length) : line;
         result.content = content;
     } else {
-        result.type = "TEXT";
-        result.content = line;
+        if (line.length > 0) {
+            result.type = "TEXT";
+            result.content = line;
+        } else {
+            result.type = "EMPTY";
+        }
     }
 
     return result;
