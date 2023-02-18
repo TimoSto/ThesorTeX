@@ -17,7 +17,14 @@
           {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
-          <MarkdownToVuetify :file="thesisFile" />
+          <v-progress-circular
+            indeterminate
+            color="primary"
+            size="150"
+            style="width: 100%"
+            v-if="thesisFile.length === 0"
+          ></v-progress-circular>
+          <MarkdownToVuetify :file="thesisFile" v-if="thesisFile.length > 0" />
         </v-expansion-panel-text>
       </v-expansion-panel>
       <v-expansion-panel>
