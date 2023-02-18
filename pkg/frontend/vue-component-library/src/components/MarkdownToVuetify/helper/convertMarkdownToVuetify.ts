@@ -47,7 +47,7 @@ export function convertMarkdownToVuetify(file: string): string {
         } else if (result.type === "LIST_ITEM") {
             if (insideBlock !== "LIST") {
                 insideBlock = "LIST";
-                html += "<ul class=\"text-body-1\">\n";
+                html += "<ul class=\"text-body-1 indented-list\">\n";
             }
             html += `    <li>${parseItalicAndBold(result.content!)}</li>\n`;
         }

@@ -15,6 +15,8 @@ const props = defineProps({
 const parsed = computed(() => convertMarkdownToVuetify(props.file!));
 </script>
 
-<style scoped>
-
+<style>
+.indented-list {
+  padding-left: 24px;
+}
 </style>
