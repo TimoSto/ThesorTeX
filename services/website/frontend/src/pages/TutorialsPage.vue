@@ -11,13 +11,13 @@
     </v-container>
   </div>
   <v-container>
-    <v-expansion-panels>
+    <v-expansion-panels multiple v-model="opened">
       <v-expansion-panel>
         <v-expansion-panel-title>
           {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
-          <MarkdownToVuetify :file="''" />
+          <MarkdownToVuetify :file="thesisFile" />
         </v-expansion-panel-text>
       </v-expansion-panel>
       <v-expansion-panel>
@@ -32,9 +32,27 @@
 <script lang="ts" setup>
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
+import {ref, watch} from "vue";
+import GetDocumentation from "../api/GetDocumentation";
 
 // globals
 const {t} = useI18n();
+const i18nObject = useI18n();
+
+// data
+const props = defineProps({
+  smallDisplay: Boolean
+});
+const opened = ref<number[]>([]);
+
+const thesisFile = ref("");
+
+// watchers
+watch(opened, async () => {
+  if (opened.value.indexOf(0) >= 0 && thesisFile.value === "") {
+    thesisFile.value = await GetDocumentation("thesis_template_usage", i18nObject.locale.value);
+  }
+});
 
 </script>
 

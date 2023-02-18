@@ -19,15 +19,15 @@ export function convertMarkdownToVuetify(file: string): string {
         }
 
         if (result.type === "H1") {
-            html += `<h1 class="text-h1">${result.content}</h1>` + "\n";
+            html += `<h1 class="text-h4">${result.content}</h1>` + "\n";
         } else if (result.type === "H2") {
-            html += `<h2 class="text-h2">${result.content}</h2>` + "\n";
+            html += `<h2 class="text-h5">${result.content}</h2>` + "\n";
         } else if (result.type === "H3") {
-            html += `<h3 class="text-h3">${result.content}</h3>` + "\n";
+            html += `<h3 class="text-h5">${result.content}</h3>` + "\n";
         } else if (result.type === "H4") {
-            html += `<h4 class="text-h4">${result.content}</h4>` + "\n";
+            html += `<h4 class="text-h6">${result.content}</h4>` + "\n";
         } else if (result.type === "H5") {
-            html += `<h5 class="text-h5">${result.content}</h5>` + "\n";
+            html += `<h5 class="text-h6">${result.content}</h5>` + "\n";
         } else if (result.type === "TEXT") {
             if (insideBlock !== "PLAIN_TEXT") {
                 insideBlock = "PLAIN_TEXT";
