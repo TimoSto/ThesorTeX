@@ -1,29 +1,29 @@
-import {describe, it, beforeEach, expect} from "vitest";
+import {beforeEach, describe, expect, it} from "vitest";
 import {createPinia, setActivePinia} from "pinia";
-import {_useErrorSuccessStore} from "./ErrorSuccessStore";
+import {useErrorSuccessStore} from "./ErrorSuccessStore";
 
 describe("ErrorSuccessStore", () => {
     beforeEach(() => {
         setActivePinia(createPinia());
-    })
+    });
     it("setting success", () => {
-        const store = _useErrorSuccessStore();
+        const store = useErrorSuccessStore();
 
         store.setMessage(true, "My success");
 
         expect(store.valid).toBe(true);
         expect(store.message).toEqual("My success");
-    })
+    });
     it("setting error", () => {
-        const store = _useErrorSuccessStore();
+        const store = useErrorSuccessStore();
 
         store.setMessage(false, "My error");
 
         expect(store.valid).toBe(false);
         expect(store.message).toEqual("My error");
-    })
+    });
     it("clearing data", () => {
-        const store = _useErrorSuccessStore();
+        const store = useErrorSuccessStore();
 
         store.message = "tests";
         store.valid = false;
@@ -32,5 +32,5 @@ describe("ErrorSuccessStore", () => {
 
         expect(store.valid).toBe(true);
         expect(store.message).toEqual("");
-    })
-})
+    });
+});
