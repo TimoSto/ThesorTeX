@@ -17,6 +17,10 @@ export function convertMarkdownToVuetify(file: string): string {
             html += "</p>\n";
             insideBlock = false;
         }
+        if (insideBlock === "LIST" && result.type !== "LIST_ITEM") {
+            html += "</ul>\n";
+            insideBlock = false;
+        }
 
         if (result.type === "H1") {
             html += `<h1 class="text-h4">${result.content}</h1>` + "\n";
@@ -33,26 +37,37 @@ export function convertMarkdownToVuetify(file: string): string {
                 insideBlock = "PLAIN_TEXT";
                 html += "<p class=\"text-body-1\">";
             }
-            let contentToAdd = result.content;
-            const boldResult = contentToAdd!.match(boldRegex);
-            if (boldResult) {
-                boldResult.forEach(v => {
-                    contentToAdd = contentToAdd?.replace(v, `<b>${v.substring(2, v.length - 2)}</b>`);
-                });
-            }
-            const italicResult = contentToAdd!.match(italicRegex);
-            if (italicResult) {
-                italicResult.forEach(v => {
-                    contentToAdd = contentToAdd?.replace(v, `<i>${v.substring(1, v.length - 1)}</i>`);
-                });
-            }
+            let contentToAdd = parseItalicAndBold(result.content!);
+
             if (result.content?.endsWith("  ")) {
                 contentToAdd?.trimEnd();
                 contentToAdd += "<br>";
             }
             html += contentToAdd;
+        } else if (result.type === "LIST_ITEM") {
+            if (insideBlock !== "LIST") {
+                insideBlock = "LIST";
+                html += "<ul class=\"text-body-1\">\n";
+            }
+            html += `    <li>${parseItalicAndBold(result.content!)}</li>\n`;
         }
     });
 
     return html;
+}
+
+function parseItalicAndBold(line: string): string {
+    const boldResult = line!.match(boldRegex);
+    if (boldResult) {
+        boldResult.forEach(v => {
+            line = line?.replace(v, `<b>${v.substring(2, v.length - 2)}</b>`);
+        });
+    }
+    const italicResult = line!.match(italicRegex);
+    if (italicResult) {
+        italicResult.forEach(v => {
+            line = line?.replace(v, `<i>${v.substring(1, v.length - 1)}</i>`);
+        });
+    }
+    return line;
 }

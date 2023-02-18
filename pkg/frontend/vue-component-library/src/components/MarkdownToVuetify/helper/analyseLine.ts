@@ -36,6 +36,11 @@ const typeMappings: TypeRegexMapping[] = [
         regex: new RegExp("^##### "),
         prefixToRemove: "##### "
     },
+    {
+        type: "LIST_ITEM",
+        regex: new RegExp("^- "),
+        prefixToRemove: "- "
+    },
 ];
 
 export function analyseLine(line: string): AnalyseLineResult {
