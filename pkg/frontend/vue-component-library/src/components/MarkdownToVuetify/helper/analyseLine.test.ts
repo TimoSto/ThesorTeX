@@ -44,4 +44,17 @@ describe("analyseLine", () => {
         };
         expect(analyseLine("Some one line content")).toEqual(expected);
     });
+    it("begin code", () => {
+        const expected: AnalyseLineResult = {
+            type: "START_CODE",
+            content: "latex"
+        };
+        expect(analyseLine("```latex")).toEqual(expected);
+    });
+    it("end code", () => {
+        const expected: AnalyseLineResult = {
+            type: "END_CODE",
+        };
+        expect(analyseLine("```")).toEqual(expected);
+    });
 });

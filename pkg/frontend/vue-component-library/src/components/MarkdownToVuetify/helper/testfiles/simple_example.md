@@ -16,3 +16,7 @@ hallo
 ende
 
 ## Heading 3
+
+```latex
+\part{Test}
+```

@@ -37,6 +37,11 @@ const typeMappings: TypeRegexMapping[] = [
         prefixToRemove: "##### "
     },
     {
+        type: "START_CODE",
+        regex: new RegExp("^```[^\s]"),
+        prefixToRemove: "```"
+    },
+    {
         type: "LIST_ITEM",
         regex: new RegExp("^- "),
         prefixToRemove: "- "
@@ -62,6 +67,8 @@ export function analyseLine(line: string): AnalyseLineResult {
         if (line.length > 0) {
             if (line.trim() === "---") {
                 result.type = "LINE";
+            } else if (line.trim() === "```") {
+                result.type = "END_CODE";
             } else {
                 result.type = "TEXT";
                 result.content = line;

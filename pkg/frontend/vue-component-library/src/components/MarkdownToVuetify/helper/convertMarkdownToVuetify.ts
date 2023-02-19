@@ -33,17 +33,21 @@ export function convertMarkdownToVuetify(file: string): string {
         } else if (result.type === "H5") {
             html += `<h5 class="text-h6 pt-2 pb-2">${result.content}</h5>` + "\n";
         } else if (result.type === "TEXT") {
-            if (insideBlock !== "PLAIN_TEXT") {
-                insideBlock = "PLAIN_TEXT";
-                html += "<p class=\"text-body-1 pt-2 pb-2\">";
-            }
-            let contentToAdd = parseItalicAndBold(result.content!);
+            if (insideBlock === "CODE") {
+                html += "    " + result.content + "\n";
+            } else {
+                if (insideBlock !== "PLAIN_TEXT") {
+                    insideBlock = "PLAIN_TEXT";
+                    html += "<p class=\"text-body-1 pt-2 pb-2\">";
+                }
+                let contentToAdd = parseItalicAndBold(result.content!);
 
-            if (result.content?.endsWith("  ")) {
-                contentToAdd?.trimEnd();
-                contentToAdd += "<br>";
+                if (result.content?.endsWith("  ")) {
+                    contentToAdd?.trimEnd();
+                    contentToAdd += "<br>";
+                }
+                html += contentToAdd;
             }
-            html += contentToAdd;
         } else if (result.type === "LIST_ITEM") {
             if (insideBlock !== "LIST") {
                 insideBlock = "LIST";
@@ -52,6 +56,16 @@ export function convertMarkdownToVuetify(file: string): string {
             html += `    <li>${parseItalicAndBold(result.content!)}</li>\n`;
         } else if (result.type === "LINE") {
             html += "<hr>\n";
+        } else if (result.type === "START_CODE") {
+            if (insideBlock !== "CODE") {
+                insideBlock = "CODE";
+                html += `<div class="code ${result.content}">\n`;
+            }
+        } else if (result.type === "END_CODE") {
+            if (insideBlock === "CODE") {
+                insideBlock = false;
+                html += `</div>\n`;
+            }
         }
     });
 
