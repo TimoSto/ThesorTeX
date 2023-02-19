@@ -50,6 +50,8 @@ export function convertMarkdownToVuetify(file: string): string {
                 html += "<ul class=\"text-body-1 indented-list pt-2 pb-2\">\n";
             }
             html += `    <li>${parseItalicAndBold(result.content!)}</li>\n`;
+        } else if (result.type === "LINE") {
+            html += "<hr>\n";
         }
     });
 

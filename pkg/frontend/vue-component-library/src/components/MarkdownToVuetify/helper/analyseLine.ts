@@ -60,8 +60,12 @@ export function analyseLine(line: string): AnalyseLineResult {
         result.content = content;
     } else {
         if (line.length > 0) {
-            result.type = "TEXT";
-            result.content = line;
+            if (line.trim() === "---") {
+                result.type = "LINE";
+            } else {
+                result.type = "TEXT";
+                result.content = line;
+            }
         } else {
             result.type = "EMPTY";
         }

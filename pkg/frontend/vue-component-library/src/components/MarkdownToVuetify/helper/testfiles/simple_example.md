@@ -4,6 +4,8 @@ Some content Some more content
 
 Even more content in **bold** and *italic* and **second bold**
 
+---
+
 ## Heading 2
 
 hallo
