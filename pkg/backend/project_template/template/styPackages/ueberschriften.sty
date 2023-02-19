@@ -14,14 +14,14 @@
 \titlespacing{\paragraph}{0pt}{\beforeheading}{\afterheading}
 \titlespacing{\subparagraph}{0pt}{\beforeheading}{\afterheading}
 
-\newcommand{\useLatourHeadings}{
-	%Überschriftnummerierung
-	\renewcommand{\thepart}{\Alph{part}}
-	\renewcommand{\thesection}{\Roman{section}}
-	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\renewcommand{\thesubsubsection}{\alph{subsubsection})}
-	\renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
-	\renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
+\newcommand{\useAlphaNumericHeadings}{
+%Überschriftnummerierung
+    \renewcommand{\thepart}{\Alph{part}}
+    \renewcommand{\thesection}{\Roman{section}}
+    \renewcommand{\thesubsection}{\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\alph{subsubsection})}
+    \renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
+    \renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
 }
 
 \newcommand{\usenumericheadings}{
@@ -84,7 +84,7 @@
 %\titlecontents*{mysection}[285pt]{}{\contentslabel{65pt}}{}
 %{\normalfont\cftdotfill{\cftpartdotsep}\contentspage}[]
 
-\DeclareOption{latour}{\useLatourHeadings}
+\DeclareOption{alphaNumeric}{\useAlphaNumericHeadings}
 \DeclareOption{numeric}{\usenumericheadings}
 \ProcessOptions\relax
 \endinput
