@@ -17,6 +17,14 @@ Standardmäßig werden die Kapitel numerisch gezählt:
 - 1.1.1 Unterkapitel 1.1.1
 - ...
 
+```latex
+    %Stil der Überschriften, siehe ueberschriften.sty
+    \usepackage[numeric]{styPackages/ueberschriften}
+
+    %Stil des Inhaltsverzeichnisses, siehe inhaltsverzeichnis.sty
+    \usepackage[numeric]{styPackages/inhaltsverzeichnis}
+```
+
 Du kannst aber auch auf eine alphanumerische Zählung umstellen:
 
 - A Kapitel 1

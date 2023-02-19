@@ -34,7 +34,7 @@ export function convertMarkdownToVuetify(file: string): string {
             html += `<h5 class="text-h6 pt-2 pb-2">${result.content}</h5>` + "\n";
         } else if (result.type === "TEXT") {
             if (insideBlock === "CODE") {
-                html += "    " + result.content + "\n";
+                html += "    " + result.content + "<br>\n";
             } else {
                 if (insideBlock !== "PLAIN_TEXT") {
                     insideBlock = "PLAIN_TEXT";
