@@ -1,5 +1,3 @@
-# Verwenden der Vorlage für wissenschaftliche Arbeiten
-
 Wenn du die Vorlage als ZIP-Datei heruntergeladen und entpackt hast, wirst du folgende Struktur sehen:
 
 - *styPackages/*
@@ -8,34 +6,22 @@ Wenn du die Vorlage als ZIP-Datei heruntergeladen und entpackt hast, wirst du fo
 - *citedKeys.csv*
 - *main.tex*
 
-Die Datei *main.tex" ist die *Hauptdatei*. Hier schreibst du deine Arbeit im groben so wie in gewöhnlichem LaTeX.
+Die Datei *main.tex* ist die *Hauptdatei*. Hier schreibst du deine Arbeit im groben so wie in gewöhnlichem LaTeX.
 
-Bis Zeile *109* werden verschiedene Packages geladen. Danach geht's los mit dem Inhalt.
+# Wie kann ich die Nummerierung der Kapitel ändern?
 
-## Titel und Autor im Header/Footer
+Standardmäßig werden die Kapitel numerisch gezählt:
 
-Mit den Befehlen **\renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}** und **\renewcommand{\myauthor}{Tom
-Template}** werden die Werte angepasst, die oben und unten links auf jeder Seite stehen. Falls der Titel umgebrochen
-wird, kannst du auch die Höhe des Headers anpassen: **\renewcommand{\headheight}{27pt}**.
+- 1 Kapitel 1
+- 1.1 Unterkapitel 1.1
+- 1.1.1 Unterkapitel 1.1.1
+- ...
 
-Es gibt zwei Möglichkeiten, den Header und Footer zu formattieren.
+Du kannst aber auch auf eine alphanumerische Zählung umstellen:
 
-### FrontMatter
-
-Mit **\frontmatter** aktivierst du den Front-Matter-Stil. Dieser ist z.B. für das Inhaltsverzeichnis gedacht. Der Stil
-wird über folgenden Befehl angegeben:
-
-*\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}*
-
-Die Werte für **mytitle** und **myauthor** sowie den **plaintitle** kannst du beliebig über *\renewcommand* setzen. *
-*thepage** verweist immer auf die aktuelle Seite.
-
-### MainMatter
-
-Mit **\mainmatter** wechselst du in den Stil, bei dem oben rechts der Titel des aktuellen Oberkapitels (**\part**)
-angezeigt wird.
-
-*\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}*
-
-Möchtest du den Titel dort nicht anzeigen, z.B. weil er zu lang ist, entferne den Wert einfach aus **\setMainPageStyle**
-bzw. ***\setPlainPageStyle*.
+- A Kapitel 1
+- I Unterkapitel 1.1
+- 1 Unterkapitel 1.1.1
+- a) Unterkapitel 1.1.1.1
+- aa) Unterkapitel 1.1.1.1.1
+- (1) Unterkapitel 1.1.1.1.1.1
