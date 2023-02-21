@@ -15,8 +15,14 @@ const props = defineProps({
 const parsed = computed(() => convertMarkdownToVuetify(props.file!));
 </script>
 
-<style>
+<style lang="scss">
 .indented-list {
   padding-left: 24px;
+}
+
+.code {
+  border: 3px solid rgba(var(--v-theme-on-background), 0.5);
+  padding: 8px;
+  border-radius: 4px;
 }
 </style>

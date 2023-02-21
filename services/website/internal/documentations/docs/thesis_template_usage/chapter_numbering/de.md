@@ -21,7 +21,7 @@ Du kannst aber auch auf eine alphanumerische Zählung umstellen:
 - (1) Unterkapitel 1.1.1.1.1.1
 
 ```latex
-    \usepackage[latour]{styPackages/ueberschriften}
+    \usepackage[alphaNumeric]{styPackages/ueberschriften}
 
-    \usepackage[latour]{styPackages/inhaltsverzeichnis}
+    \usepackage[alphaNumeric]{styPackages/inhaltsverzeichnis}
 ```
