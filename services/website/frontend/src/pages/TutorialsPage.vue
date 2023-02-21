@@ -22,9 +22,16 @@
             color="primary"
             size="150"
             style="width: 100%"
-            v-if="thesisFile.length === 0"
+            v-if="thesisDocs === undefined"
           ></v-progress-circular>
-          <MarkdownToVuetify :file="thesisFile" v-if="thesisFile.length > 0" />
+          <MarkdownToVuetify :file="thesisDocs.Main" v-if="thesisDocs !== undefined" />
+          <v-expansion-panels multiple v-if="thesisDocs !== undefined">
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Wie kann ich die Nummerierung der Kapitel ändern?
+              </v-expansion-panel-title>
+            </v-expansion-panel>
+          </v-expansion-panels>
         </v-expansion-panel-text>
       </v-expansion-panel>
       <!--      <v-expansion-panel>-->
@@ -40,7 +47,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import {ref, watch} from "vue";
-import GetDocumentation from "../api/GetDocumentation";
+import {GetThesisDocumentation, ThesisDoc} from "../api/GetDocumentation";
 
 // globals
 const {t} = useI18n();
@@ -52,12 +59,12 @@ const props = defineProps({
 });
 const opened = ref<number[]>([]);
 
-const thesisFile = ref("");
+const thesisDocs = ref<ThesisDoc | undefined>(undefined);
 
 // watchers
 watch(opened, async () => {
-  if (opened.value.indexOf(0) >= 0 && thesisFile.value === "") {
-    thesisFile.value = await GetDocumentation("thesis_template_usage", i18nObject.locale.value);
+  if (opened.value.indexOf(0) >= 0 && thesisDocs.value) {
+    thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
   }
 });
 

@@ -1,9 +1,16 @@
-export default async function GetDocumentation(doc: string, lang: string): Promise<string> {
-    const resp = await fetch(`/documentation?doc=${doc}&lang=${lang}`);
+export type ThesisDoc = {
+    Main: string,
+    ChapterNumbering: string,
+    HeaderFooter: string,
+    Abbreviations: string,
+}
+
+export async function GetThesisDocumentation(lang: string): Promise<ThesisDoc> {
+    const resp = await fetch(`/documentation?doc=thesis&lang=${lang}`);
 
     if (resp.ok) {
-        return await resp.text();
+        return await resp.json();
     }
 
-    return "";
+    return {} as ThesisDoc;
 }
