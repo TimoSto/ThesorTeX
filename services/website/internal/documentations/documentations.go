@@ -13,6 +13,7 @@ type ThesisDoc struct {
 	ChapterNumbering string
 	HeaderFooter     string
 	Abbreviations    string
+	Appendix         string
 }
 
 func GetThesisDoc(lang string) (ThesisDoc, error) {
@@ -45,6 +46,13 @@ func GetThesisDoc(lang string) (ThesisDoc, error) {
 	}
 
 	doc.Abbreviations = string(val)
+
+	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/appendix", lang))
+	if err != nil {
+		return doc, err
+	}
+
+	doc.Appendix = string(val)
 
 	return doc, nil
 }

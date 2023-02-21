@@ -50,6 +50,14 @@
                 <MarkdownToVuetify :file="thesisDocs.Abbreviations" />
               </v-expansion-panel-text>
             </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Wie kann ich meine Anhänge strukturieren?
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <MarkdownToVuetify :file="thesisDocs.Appendix" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
           </v-expansion-panels>
         </v-expansion-panel-text>
       </v-expansion-panel>

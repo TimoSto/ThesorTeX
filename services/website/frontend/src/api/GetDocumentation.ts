@@ -3,6 +3,7 @@ export type ThesisDoc = {
     ChapterNumbering: string,
     HeaderFooter: string,
     Abbreviations: string,
+    Appendix: string
 }
 
 export async function GetThesisDocumentation(lang: string): Promise<ThesisDoc> {
