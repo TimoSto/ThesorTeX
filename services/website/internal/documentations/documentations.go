@@ -8,6 +8,43 @@ import (
 //go:embed docs
 var docs embed.FS
 
-func GetDoc(doc string, lang string) ([]byte, error) {
-	return docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", doc, lang))
+type ThesisDoc struct {
+	Main             string
+	ChapterNumbering string
+	HeaderFooter     string
+	Abbreviations    string
+}
+
+func GetThesisDoc(lang string) (ThesisDoc, error) {
+	var doc ThesisDoc
+
+	val, err := docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage", lang))
+	if err != nil {
+		return doc, err
+	}
+
+	doc.Main = string(val)
+
+	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/chapter_numbering", lang))
+	if err != nil {
+		return doc, err
+	}
+
+	doc.ChapterNumbering = string(val)
+
+	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/header_footer", lang))
+	if err != nil {
+		return doc, err
+	}
+
+	doc.HeaderFooter = string(val)
+
+	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/abbreviations", lang))
+	if err != nil {
+		return doc, err
+	}
+
+	doc.Abbreviations = string(val)
+
+	return doc, nil
 }

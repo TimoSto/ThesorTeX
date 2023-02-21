@@ -30,6 +30,25 @@
               <v-expansion-panel-title>
                 Wie kann ich die Nummerierung der Kapitel ändern?
               </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <MarkdownToVuetify :file="thesisDocs.ChapterNumbering" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Wie kann den Inhalt der Kopf- und Fußzeile ändern?
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <MarkdownToVuetify :file="thesisDocs.HeaderFooter" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Wie kann ich Abkürzungen im Abkürzungsverzeichnis auflisten?
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <MarkdownToVuetify :file="thesisDocs.Abbreviations" />
+              </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
         </v-expansion-panel-text>
@@ -63,7 +82,7 @@ const thesisDocs = ref<ThesisDoc | undefined>(undefined);
 
 // watchers
 watch(opened, async () => {
-  if (opened.value.indexOf(0) >= 0 && thesisDocs.value) {
+  if (opened.value.indexOf(0) >= 0 && !thesisDocs.value) {
     thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
   }
 });
