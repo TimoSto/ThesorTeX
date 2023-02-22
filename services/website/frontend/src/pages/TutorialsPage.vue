@@ -58,6 +58,14 @@
                 <MarkdownToVuetify :file="thesisDocs.Appendix" />
               </v-expansion-panel-text>
             </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Wie kann ich ein Literaturverzeichnis erstellen?
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <MarkdownToVuetify :file="thesisDocs.Bibliography" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
           </v-expansion-panels>
         </v-expansion-panel-text>
       </v-expansion-panel>
