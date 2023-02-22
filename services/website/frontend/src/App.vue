@@ -1,24 +1,26 @@
 <template>
-  <v-app>
-    <v-app-bar color="background" :elevation="elevation" app>
+  <v-app style="background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);">
+    <v-app-bar :color="elevation === 0 ? 'transparent' : 'background'" :elevation="elevation" app>
       <v-container class="pa-6 fill-height">
         <v-row align="center" class="fill-height">
-          <v-toolbar-title class="text-h4 font-weight-bold">ThesorTeX {{ titleAppendix }}</v-toolbar-title>
+          <v-toolbar-title class="text-h4 font-weight-bold" :style="`color: ${elevation === 0 ? 'white' : ''}`">
+            ThesorTeX {{ titleAppendix }}
+          </v-toolbar-title>
           <v-spacer />
-          <v-btn color="primary" to="/" v-if="currentPage !== 'Home'">
+          <v-btn :color="elevation === 0 ? 'white' : 'primary'" to="/" v-if="currentPage !== 'Home'">
             {{ t(i18nKeys.Titles.StartPage) }}
           </v-btn>
-          <v-btn color="primary" to="/downloads" v-if="currentPage !== 'Downloads'">
+          <v-btn :color="elevation === 0 ? 'white' : 'primary'" to="/downloads" v-if="currentPage !== 'Downloads'">
             {{ t(i18nKeys.Titles.Downloads) }}
           </v-btn>
-          <v-btn color="primary" to="/tutorials" v-if="currentPage !== 'Tutorials'">
+          <v-btn :color="elevation === 0 ? 'white' : 'primary'" to="/tutorials" v-if="currentPage !== 'Tutorials'">
             {{ t(i18nKeys.Titles.Tutorials) }}
           </v-btn>
         </v-row>
       </v-container>
 
     </v-app-bar>
-    <v-main>
+    <v-main app>
       <ToolbarAndContent :hide-bar="true" @scroll="elevation=1" @no-scroll="elevation=0" :page="currentPage">
         <template #content>
           <router-view :small-display="smallDisplay" />
