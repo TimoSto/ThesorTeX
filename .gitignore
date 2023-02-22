@@ -20,3 +20,10 @@ dist/
 
 *.ini
 /ThesorTeX.log
+/services/website/internal/documentations/example/de/main.aux
+/services/website/internal/documentations/example/de/main.lof
+/services/website/internal/documentations/example/de/main.log
+/services/website/internal/documentations/example/de/main.lot
+/services/website/internal/documentations/example/de/main.mcf
+/services/website/internal/documentations/example/de/main.synctex.gz
+/services/website/internal/documentations/example/de/main.toc
