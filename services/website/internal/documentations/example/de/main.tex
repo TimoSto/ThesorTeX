@@ -108,8 +108,8 @@
 
 \begin{document}
 
-\renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
-\renewcommand{\myauthor}{Timo Stovermann}%Name für unten links
+\renewcommand{\mytitle}{Dokumentation\\Deutsch}%Titel für oben links
+\renewcommand{\myauthor}{Max Mustermann}%Name für unten links
 \renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
 
 \setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
@@ -149,9 +149,57 @@
 \mainmatter%Stil des Headers/Footers ändern
 \pagenumbering{arabic}
 
-\part{test}
-hallo\citebib{testEntry}{}{}\\
-hallo \footnote{\textit{Autor}}
+\part{Einleitung}
+Willkommen bei \textit{ThesorTeX}! In diesem Dokument wird beispielhaft gezeigt, wie du die Vorlage und das Tool verwenden kannst. Schaue gern auch ins FAQ auf der Website.\\
+Für das Verständnis dieser Vorlage und des Tools werden gewisse Vorkenntnisse in \textit{LaTeX} vorausgesetzt. Falls du etwas mal nicht verstehst, google es einfach mal, vielleicht findest du dann schon Antworten. Bei Problemen mit der Vorlage oder dem Tool, lege sonst gern ein Issue in \href{https://github.com/TimoSto/ThesorTeX/issues}{Github} an.
+
+\part{Verwendung der Vorlage}
+Die Vorlage steht unter \url{https://thesortex.com/#/downloads} als ZIP-Datei zum Download bereit. Wenn du diese entpackst, solltest du folgende Struktur sehen:
+\begin{itemize}
+\setlength\itemsep{.15em}
+\item \textbf{data/...}: Diese Dateien sind nur wichtig, wenn du das Tool zum Literaturmanagement verwenden möchtest. Ansonsten kannst du diesen Ordner löschen oder ignorieren.
+\item \textbf{styPackages/...}: In diesem Ordner liegen Style-Dateien für die Vorlage. Die Style-Deklarationen könnte man auch in der \textit{main.tex} direkt schreiben, allerdings würde diese dann zu lang werden.
+\item \textbf{abkuerzungen.csv}: Hier werden die Abkürzungen aufgeführt, welche in deiner Arbeit gelistet werden sollen. Du kannst die einfach durch ein Semikolon separiert ergänzen.
+\item \textbf{bib{\_}entries.csv}: Hier werden deine Literatureinträge im CSV-Format aufgeführt. Auch diese Datei ist primär für die Nutzung mit dem Tool gedacht. Du kannst sie aber grundsätzlich auch ohne nutzen.
+\item \textbf{citedKeys.csv}: Angenommen, du hast einige Einträge in deinem Literaturverzeichnis, die nie zitiert werden. Mit dieser Liste kannst du sie aus dem Literaturverzeichnis raushalten, ohne den Eintrag selbst zu verlieren.
+\item \textbf{main.tex}: Hier spielt sich die meiste Musik ab! Denn hier schreibst du deinen Text, fügst Listen, Bilder oder Tabellen ein und rufst Zitate auf. Mehr dazu weiter unten.
+\end{itemize}
+
+\section{Wie kann ich die Nummerierung der Überschriften ändern?}
+Die Nummerierung kann rein numerisch oder alphanumerisch erfolgen:
+\begin{center}
+\begin{figure}[!h]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{images/numericChapters.png}
+    \caption{Numerische Zählung}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{images/alphaNumericChapters.png}
+    \caption{Alphanumerische Zählung}
+  \end{minipage}
+\end{figure}
+\end{center}
+\noindent Der Wechsel erfolgt über den Parameter in folgenden Packages:
+\begin{lstlisting}
+\usepackage[numeric]{styPackages/ueberschriften}
+\usepackage[numeric]{styPackages/inhaltsverzeichnis}
+\end{lstlisting}
+bzw.
+\begin{lstlisting}
+\usepackage[alphaNumeric]{styPackages/ueberschriften}
+\usepackage[alphaNumeric]{styPackages/inhaltsverzeichnis}
+\end{lstlisting}
+
+\section{Wie kann ich die Kopf- und Fußzeile ändern?}
+In der Kopf- und Fußzeile finden insgesamt vier Informationen Platz. In der Stadnard-Konfiguration sind dies:
+\begin{itemize}
+\item Oben links: Der Titel deiner Arbeit
+\item Oben rechts: Der Titel des aktuellen Ober-Kapitels (\textit{\textbackslash part})
+\item Unten links: Dein Name
+\item Unten rechts: Die aktuelle Seitenzahl
+\end{itemize}
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
