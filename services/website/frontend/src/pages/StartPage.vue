@@ -1,6 +1,6 @@
 <template>
   <div class="bg-container" style="background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);">
-    <v-container class="bg-transparent pa-16">
+    <v-container class="bg-transparent pa-16 pt-4">
       <v-row>
         <v-col cols="12">
           <h2 class="text-h3 font-weight-bold text-center text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
@@ -33,7 +33,7 @@
       </v-row>
     </v-container>
   </div>
-  <div class="bg-container" style="background-color: #e8e8e8">
+  <div class="bg-container" style="background-color: #f4f4f4">
     <v-container class="bg-transparent pb-6 pr-12">
       <v-row>
         <v-col v-if="!smallDisplay" cols="6" class="svg-container">

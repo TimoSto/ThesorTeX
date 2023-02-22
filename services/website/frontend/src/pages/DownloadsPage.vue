@@ -1,6 +1,6 @@
 <template>
   <div style="background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);">
-    <v-container class="bg-transparent pa-16">
+    <v-container class="bg-transparent pa-16 pt-12">
       <v-row class="d-flex flex-row">
         <v-col cols="4">
           <v-card class="fill-height-card">
