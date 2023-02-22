@@ -12,16 +12,16 @@
 
 \newcommand{\printabbreviations}[0]
 {
-	\begin{center}
-		\begin{LARGE}
-			Abkürzungsverzeichnis
-		\end{LARGE}
-	\end{center}	 
-	\DTLforeach*{abkuerzungen}
-	{\abk=abk,\bed=bed}
-	{
-	  \par\noindent\abk\dotfill\bed
-	}
+    \begin{center}
+        \begin{LARGE}
+            Abkürzungsverzeichnis
+        \end{LARGE}
+    \end{center}
+    \DTLforeach*{abkuerzungen}
+    {\abk=abk,\bed=bed}
+    {
+        \par\noindent\abk\dotfill\bed
+    }
 }
 
 \endinput

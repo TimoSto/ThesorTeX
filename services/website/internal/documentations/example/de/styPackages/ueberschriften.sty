@@ -25,13 +25,13 @@
 }
 
 \newcommand{\usenumericheadings}{
-	%Überschriftnummerierung
-	\renewcommand{\thepart}{\arabic{part}}
-	\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
-	\renewcommand{\thesubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}}
-	\renewcommand{\thesubsubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-	\renewcommand{\theparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
-	\renewcommand{\thesubparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
+%Überschriftnummerierung
+    \renewcommand{\thepart}{\arabic{part}}
+    \renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+    \renewcommand{\thesubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+    \renewcommand{\theparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+    \renewcommand{\thesubparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
 }
 
 %Format der Überschriften
@@ -46,7 +46,7 @@
 %Section-Zähler in jedem \part reseten
 \makeatletter
 \@addtoreset{section}{part}
-\makeatother  
+\makeatother
 
 %Tiefe der Nummerierungen
 \setcounter{secnumdepth}{6}
@@ -55,19 +55,19 @@
 \newcommand*\parttitle{}
 \let\origpart\part%alten pert-Befehl behalten
 \renewcommand*{\part}[2][]{%
-   \ifnum\value{part}=0\else\clearpage\fi%at first part no \clearpage
-   \vspace*{-9mm}%Remove vertical space before part-title
-   \origpart{#2}%
-   \renewcommand*\parttitle{#2}%
+    \ifnum\value{part}=0\else\clearpage\fi%at first part no \clearpage
+    \vspace*{-9mm}%Remove vertical space before part-title
+    \origpart{#2}%
+    \renewcommand*\parttitle{#2}%
 }
 
 \newcommand{\partOnSamePage}[0]{
-	\renewcommand*{\part}[2][]{%
-		\ifnum\value{part}=0\vspace*{-12pt}\else\vspace*{12pt}\fi%at first part no \clearpage
-		%Remove vertical space before part-title
-		\origpart{##2}%
-		\renewcommand*\parttitle{##2}%
-	}
+    \renewcommand*{\part}[2][]{%
+        \ifnum\value{part}=0\vspace*{-12pt}\else\vspace*{12pt}\fi%at first part no \clearpage
+        %Remove vertical space before part-title
+        \origpart{##2}%
+        \renewcommand*\parttitle{##2}%
+    }
 }
 
 %Neue Überschriften-Ebene

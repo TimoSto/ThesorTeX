@@ -32,29 +32,29 @@
     \refstepcounter{anhang}
     \addcontentsline{mcf}{anhang}
     {\numberline{\theanhang}\hspace*{3pt}#1}\par
-	\phantomsection
-	\pdfbookmark[section]{#1}{#1}
-	\section*{\arabic{anhang}\hspace{0.5em}#1}
-	\setcounter{theanhangI}{0}
+    \phantomsection
+    \pdfbookmark[section]{#1}{#1}
+    \section*{\arabic{anhang}\hspace{0.5em}#1}
+    \setcounter{theanhangI}{0}
 }
 \newcounter{theanhangI}
 \newcommand{\anhangI}[1]
 {%
-	\renewcommand{\plaintitle}{#1}
-	\refstepcounter{theanhangI}
+    \renewcommand{\plaintitle}{#1}
+    \refstepcounter{theanhangI}
     \addcontentsline{mcf}{anhang}
     {\hspace{20pt}\protect\numberline{\arabic{anhang}.\arabic{theanhangI}}\hspace*{3pt}#1}\par
-	\pdfbookmark[subsection]{#1}{#1}
-	\subsection*{\arabic{anhang}.\arabic{theanhangI}\hspace{0.5em}#1}
-	\setcounter{theanhangII}{0}
+    \pdfbookmark[subsection]{#1}{#1}
+    \subsection*{\arabic{anhang}.\arabic{theanhangI}\hspace{0.5em}#1}
+    \setcounter{theanhangII}{0}
 }
 \newcounter{theanhangII}
 \newcommand{\anhangII}[1]
 {%
-	\refstepcounter{theanhangII}
+    \refstepcounter{theanhangII}
     \addcontentsline{mcf}{anhang}
     {\hspace{40pt}\protect\numberline{\arabic{anhang}.\arabic{theanhangI}.\arabic{theanhangII}}\hspace*{10pt}#1}\par
-	\subsubsection*{\arabic{anhang}.\arabic{theanhangI}.\arabic{theanhangII}\hspace{0.5em}#1}
+    \subsubsection*{\arabic{anhang}.\arabic{theanhangI}.\arabic{theanhangII}\hspace{0.5em}#1}
 }
 
 
