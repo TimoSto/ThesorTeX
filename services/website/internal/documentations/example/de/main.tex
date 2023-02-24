@@ -200,6 +200,82 @@ In der Kopf- und Fußzeile finden insgesamt vier Informationen Platz. In der Sta
 \item Unten links: Dein Name
 \item Unten rechts: Die aktuelle Seitenzahl
 \end{itemize}
+Aber das kannst du ganz einfach ändern. Die Konfiguration für diese Arbeit ist:
+\begin{lstlisting}
+\renewcommand{\mytitle}{Dokumentation\\Deutsch}%Titel für oben links
+\renewcommand{\myauthor}{Max Mustermann}%Name für unten links
+\renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
+
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
+\end{lstlisting}
+Du fragst dich vielleicht, warum es zwei verschiedene Styles gibt. Der \textit{MainPageStyle} ist für den Textteil gedacht. Oben rechts steht dort der Titel des aktuellen Oberkapitels (\textit{\textbackslash part}/\textit{\textbackslash parttitle}). Im \textit{PlainPageStyle} steht dort ein Wert, der frei von dir gewählt werden kann. Dies wird z.B. für das Inhaltsverzeichnis verwendet.\\
+Du kannst beide Stile nach deinen Wünschen anpassen:
+\begin{lstlisting}
+\setPlainPageStyle{OBEN LINKS}{OBEN RECHTS}{UNTEN LINKS}{UNTEN RECHTS}
+
+\setMainPageStyle{OBEN LINKS}{OBEN RECHTS}{UNTEN LINKS}{UNTEN RECHTS}
+\end{lstlisting}
+Der Wechsel zwischen den beiden Stilen erfolgt über die Befehle \textit{\textbf{\textbackslash frontmatter}} und \textit{\textbf{\textbackslash mainmatter}}.
+
+\section{Wie kann ich Abkürzungen im Abkürzungsverzeichnis ergänzen?}
+Das Abkürzungsverzeichnis wird aus der Datei \textbf{\textit{abkuerzungen.csv}} ausgelesen. Dort kannst du deine Abkürzungen in folgendem Format aufführen:
+\begin{quote}
+\textit{\textbf{Abk};\textbf{Bed};}\\
+\textit{Z.B.;Zum Beispiel;}\\
+\textit{...}
+\end{quote}
+
+\section{Wie kann ich Literatureinträge erstellen?}
+\begin{quote}
+Es wird empfohlen, hierfür das Literaturmanamement-Tool zu verwenden. Grundsätzlich geht es aber auch ohne.
+\end{quote}
+Um diese Frage zu beantworten, muss etwas weiter ausgeholt werden. Ein Literatureintrag hat drei Eigenschaften:
+\begin{itemize}
+\item Einen eindeutigen Schlüssel
+\item Eine Kategorie
+\item Eine Liste von Feldern (Textwerte)
+\end{itemize}
+Die Einträge werden auf der Datei \textit{bibEntries.csv} ausgelesen. Für jeden Eintrag wird dann abhängig von der Kategorie ein Literatureintrag bzw. Zitat erstellt.\\
+Eine Kategorie hat folgende Eingenschaften:
+\begin{itemize}
+\item Einen eindeutigen Namen
+\item Eine Liste an Feldern fürs Literaturverzeíchnis
+\item Eine Liste an Feldern für Zitate
+\end{itemize}
+Ein Feld wiederum hat folgende Eigenschaften:
+\begin{itemize}
+\item Einen Namen
+\item Einen Prefix und Suffix
+\item Einen Stil (kursiv oder normal)
+\end{itemize}
+Die TeX-Definition der Einträge im Literaturverzeichnis und der Zitate findet sich in \textit{styPackages/bibliography.sty}. Schauen wir uns beispielhaft mal die Kategorie \textit{CitaviArticle} an:
+\begin{lstlisting}
+\newcommand{\printCitaviArticle}[0]{%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI (\argII): \textit{\argIII} In: \textit{\argIV} \argV, \argVI%
+    \\%
+    \vspace{-12pt}%
+
+}
+\end{lstlisting}
+Dieser Befehl sorgt zunächst dafür, dass der Text ab der zweiten Zeile eingeschoben ist. Dann werden die Felder des Eintrags in dem für der Kategorie festgelegten Format ausgegeben.\\
+Zitate werden prinzipiell nach demselben Schema definiert:
+\begin{lstlisting}
+\newcommand{\citeCitaviArticle}[0]{%
+    \argVII (\argII), %
+}
+\end{lstlisting}
+Hier wird zunächst das Feld an Stelle sieben ausgegeben, welches im Literatureintrag nicht vorhanden ist. Das kann z.B. der Nachname des Autors sein, während im Literaturverzeichnis der vollständige Name steht. Als nächstes wird Feld 2 ausgegeben. Dieses stimmt mit dem Literaturverzeichnis überein. Das kann z.B. die Jahreszahl sein, welche im Literaturverzeichnis und in Zitaten denselben Wert hat. Das Format kann sich allerdings unterscheiden, sofern du das möchtest.\\
+Ein Eintrag in \textit{bibEntries.csv} für die Kategorie \textit{CitaviArticle} sähe wie folgt aus:
+\begin{quote}
+testEntry;CitaviArticle;Peter Hase;1999;ThesorTeX - Ein tolles Tool;Zeitschrift xy;S.20-22;https:/doi.org/xyz;Hase;;;;;;;;;;;;;;;;;;;
+\end{quote}
+Das Ergebnis kannst du im Literatuverzeichnis sehen.\\
+Zitieren kannst du diesen Eintrag über den Befehl \textit{\textbackslash citebib\{testEntry\}\{vgl. \}\{S.10\}}.\citebib{testEntry}{vgl. }{S.10} Das zweite und dritte Argument sind dabei optimal, können also auch leer bleiben (\textit{\textbackslash citebib\{testEntry\}\{\}\{\}}).\citebib{testEntry}{ }{ }
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
