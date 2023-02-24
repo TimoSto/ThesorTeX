@@ -17,7 +17,7 @@
           <p class="text-h6 pb-6">
             <i18n-t :keypath="i18nKeys.StartPage.ThesisTemplateSubtitle" scope="global">
               <template #link>
-                <a href="/templates/thesis" download>
+                <a :href="getThesisTemplateDownloadLink('latest')" download>
                   {{ t(i18nKeys.StartPage.ThesisTemplateLink) }}
                 </a>
               </template>
@@ -59,7 +59,7 @@
           <p class="text-h6 pb-6">
             <i18n-t :keypath="i18nKeys.StartPage.CVTemplateSubtitle" scope="global">
               <template #link>
-                <a href="/templates/cv" download>
+                <a :href="getCVTemplateDownloadLink('latest')" download>
                   {{ t(i18nKeys.StartPage.CVTemplateLink) }}
                 </a>
               </template>
@@ -84,6 +84,7 @@ import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
+import {getCVTemplateDownloadLink, getThesisTemplateDownloadLink} from "../api/GetToolDownloadLink";
 
 // globals
 const {t} = useI18n();
