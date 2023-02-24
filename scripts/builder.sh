@@ -12,8 +12,8 @@ build_target() {
 _build_target_for_platform() {
     bazelisk build \
       --stamp \
-      --disk_cache="$3/.cache" \
-      --repository_cache="$3/.repository_cache" \
+      --disk_cache="./.cache" \
+      --repository_cache="./.repository_cache" \
       --workspace_status_command=./scripts/workspace_status.sh \
       --platforms="$2" \
       "$1"
@@ -94,3 +94,5 @@ build_mac_m1_target() {
   _build_mac_m1_target "$1" "$3"
   _copy_mac_m1_exe "$1" "$2" "$3"
 }
+
+
