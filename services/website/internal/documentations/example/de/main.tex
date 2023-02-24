@@ -272,10 +272,22 @@ Zitate werden prinzipiell nach demselben Schema definiert:
 Hier wird zunächst das Feld an Stelle sieben ausgegeben, welches im Literatureintrag nicht vorhanden ist. Das kann z.B. der Nachname des Autors sein, während im Literaturverzeichnis der vollständige Name steht. Als nächstes wird Feld 2 ausgegeben. Dieses stimmt mit dem Literaturverzeichnis überein. Das kann z.B. die Jahreszahl sein, welche im Literaturverzeichnis und in Zitaten denselben Wert hat. Das Format kann sich allerdings unterscheiden, sofern du das möchtest.\\
 Ein Eintrag in \textit{bibEntries.csv} für die Kategorie \textit{CitaviArticle} sähe wie folgt aus:
 \begin{quote}
-testEntry;CitaviArticle;Peter Hase;1999;ThesorTeX - Ein tolles Tool;Zeitschrift xy;S.20-22;https:/doi.org/xyz;Hase;;;;;;;;;;;;;;;;;;;
+testEntry;CitaviArticle;Peter Hase;1999;ThesorTeX - Ein tolles Tool;Zeitschrift\textbackslash\_ xy;S.20-22;https:/doi.org/xyz;Hase;;;;;;;;;;;;;;;;;;;
 \end{quote}
-Das Ergebnis kannst du im Literatuverzeichnis sehen.\\
+Das Ergebnis kannst du im Literatuverzeichnis sehen. Beachte, dass manche Sonderzeichen, wie z.B. \_ von Latex vorbelegt sind und deshalb escaped durch den jeweiligen TeX-Befehl ersetzt werden müssen.\\
 Zitieren kannst du diesen Eintrag über den Befehl \textit{\textbackslash citebib\{testEntry\}\{vgl. \}\{S.10\}}.\citebib{testEntry}{vgl. }{S.10} Das zweite und dritte Argument sind dabei optimal, können also auch leer bleiben (\textit{\textbackslash citebib\{testEntry\}\{\}\{\}}).\citebib{testEntry}{ }{ }
+
+\section{Wie kann ich Anhänge hinzufügen und auflisten lassen?}
+Anhänge können separat nummeriert ausgegeben werden. Als Überschriften kannst du folgende Befehle verwenden:
+\begin{itemize}
+\item \textit{\textbackslash anhang}
+\item \textit{\textbackslash anhangI}
+\item \textit{\textbackslash anhangII}
+\end{itemize}
+Die Liste der Anhänge kann über folgenden Befehl ausgegeben werden:
+\begin{lstlisting}
+\listofanhang
+\end{lstlisting}
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
@@ -291,5 +303,8 @@ Zitieren kannst du diesen Eintrag über den Befehl \textit{\textbackslash citebi
 {\def\makebox[#1][#2]#3{#3}%
     \listofanhang
 }
+\clearpage
+\anhang{Test Anhang}
+Mein erster Anhang
 
 \end{document}
