@@ -3,12 +3,18 @@ export interface VersionInfo {
     Date: string;
 }
 
-export default async function GetToolVersions(): Promise<VersionInfo[]> {
-    const resp = await fetch("/versions/tool");
+export interface VersionData {
+    Tool: VersionInfo[];
+    ThesisTemplate: VersionInfo[],
+    CvTemplate: VersionInfo[]
+}
+
+export default async function GetToolVersions(): Promise<VersionData> {
+    const resp = await fetch("/versions");
 
     if (resp.ok) {
         return await resp.json();
     }
 
-    return [];
+    return {} as VersionData;
 }

@@ -77,7 +77,7 @@
       <p class="text-body-1 mb-4">
         {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
       </p>
-      <DownloadsTable :versions="versions" :download-func="getThesisTemplateDownloadLink"
+      <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
                       style="max-width: 400px; margin: 0 auto;" />
     </v-container>
   </div>
@@ -161,7 +161,8 @@
           </v-card>
         </v-col>
       </v-row>
-      <DownloadsTable :versions="versions" :per-os="true" :download-func="getToolDownloadLink"
+      <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
+                      :download-func="getToolDownloadLink"
                       style="max-width: 700px; margin: 0 auto;" />
     </v-container>
   </div>
@@ -171,7 +172,7 @@
       <p class="text-body-1 mb-4">
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
-      <DownloadsTable :versions="versions" :download-func="getCVTemplateDownloadLink"
+      <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
                       style="max-width: 400px; margin: 0 auto;" />
     </v-container>
   </div>
@@ -183,7 +184,7 @@ import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
 import {computed, ref} from "vue";
-import GetToolVersions, {VersionInfo} from "../api/GetToolVersions";
+import GetToolVersions, {VersionData} from "../api/GetToolVersions";
 import {
   getCVTemplateDownloadLink,
   getThesisTemplateDownloadLink,
@@ -208,7 +209,7 @@ const thesisDownload = ref(null);
 const toolDownload = ref(null);
 const cvDownload = ref(null);
 
-const versions = ref([] as VersionInfo[]);
+const versions = ref<VersionData | undefined>(undefined);
 
 // computed
 const thesisPaths = computed(() => {
@@ -260,6 +261,7 @@ function scrollToCVDownload() {
 
 // onload
 GetToolVersions().then(res => {
+  console.log(res);
   versions.value = res;
 });
 
