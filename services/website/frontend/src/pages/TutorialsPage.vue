@@ -14,7 +14,7 @@
     <p class="text-body-1 pb-3">
       <i18n-t :keypath="i18nKeys.TutorialsPage.ExampleDownload">
         <template #example>
-          <a href="/downloads/example" download>
+          <a href="/example" download>
             {{ t(i18nKeys.TutorialsPage.Example) }}
           </a>
         </template>

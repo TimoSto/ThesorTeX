@@ -20,6 +20,7 @@ export default defineConfig({
             "/templates/": "http://localhost:8449/",
             "/versions/": "http://localhost:8449/",
             "/documentation": "http://localhost:8449/",
+            "/example": "http://localhost:8449/",
         }
     },
     build: {

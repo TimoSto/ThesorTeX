@@ -22,5 +22,5 @@ func RegisterWebsiteHandlers(mux *http.ServeMux, dev bool, s3Client *s3.Client) 
 
 	mux.HandleFunc("/documentation", documentations.HandleDocumentations())
 
-	mux.HandleFunc("/examples", examples.HandleExamples())
+	mux.HandleFunc("/example", examples.HandleExamples())
 }
