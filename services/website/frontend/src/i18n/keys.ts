@@ -21,7 +21,9 @@ export const i18nKeys = {
         CVTemplateLink: "StartPage.CVTemplateLink",
     },
     DownloadPage: {
-        InfoText: "DownloadPage.InfoText",
+        ToolInfoText: "DownloadPage.ToolInfoText",
+        ThesisInfoText: "DownloadPage.ThesisInfoText",
+        CVInfoText: "DownloadPage.CVInfoText",
         Version: "DownloadPage.Version",
         Date: "DownloadPage.Date",
     },

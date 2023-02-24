@@ -23,7 +23,9 @@ export const english: I18nKeys = {
         CVTemplateLink: "this template",
     },
     DownloadPage: {
-        InfoText: "Here you can download the latest version for your operating system. You can also download one of the older versions below. When you unzip the downloaded ZIP file, copy the file inside to a location of your choice and start it by double-clicking.",
+        ToolInfoText: "Here you can download the latest version for your operating system. You can also download one of the older versions below. When you unzip the downloaded ZIP file, copy the file inside to a location of your choice and start it by double-clicking.",
+        ThesisInfoText: "Here you can download a template for an academic paper. When you unpack the ZIP file, copy the files to a location of your choice and start writing.",
+        CVInfoText: "Here you can download a template for a CV.",
         Version: "Version",
         Date: "Date",
     },

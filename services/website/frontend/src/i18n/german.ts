@@ -23,7 +23,9 @@ export const german: I18nKeys = {
         CVTemplateLink: "diese Vorlage",
     },
     DownloadPage: {
-        InfoText: "Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.",
+        ToolInfoText: "Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.",
+        ThesisInfoText: "Hier kannst du eine Vorlage für eine wissenschaftliche Arbeit herunterladen. Wenn du die ZIP-Datei entpackst, kopiere die Dateien an einen Ort deiner Wahl und fange an zu schreiben.",
+        CVInfoText: "Hier kannst du eine Vorlage für einen Lebenslauf herunterladen.",
         Version: "Version",
         Date: "Datum",
     },

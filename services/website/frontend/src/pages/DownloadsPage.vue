@@ -14,7 +14,7 @@
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
-                  <v-btn color="primary" style="width: 100%;">
+                  <v-btn color="primary" style="width: 100%;" @click="scrollToThesisDownload">
                     <span style="white-space: normal;">
                       {{ t(i18nKeys.Common.Download) }}
                     </span>
@@ -58,7 +58,7 @@
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
-                  <v-btn color="primary" style="width: 100%;">
+                  <v-btn color="primary" style="width: 100%;" @click="scrollToCVDownload">
                       <span style="white-space: normal;">
                         {{ t(i18nKeys.Common.Download) }}
                       </span>
@@ -71,11 +71,21 @@
       </v-row>
     </v-container>
   </div>
-  <div>
-    <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
+  <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
+    <v-container class="bg-transparent pa-16 pt-4 pb-8" ref="thesisDownload">
+      <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
+      <p class="text-body-1 mb-4">
+        {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
+      </p>
+      <DownloadsTable :versions="versions" :download-func="getThesisTemplateDownloadLink"
+                      style="max-width: 400px; margin: 0 auto;" />
+    </v-container>
+  </div>
+  <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
+    <v-container class="bg-transparent pa-16 pt-4 pb-8" ref="toolDownload">
       <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
       <p class="text-body-1">
-        {{ t(i18nKeys.DownloadPage.InfoText) }}
+        {{ t(i18nKeys.DownloadPage.ToolInfoText) }}
       </p>
       <v-row class="pa-4 d-flex flex-row mt-1 mb-1">
         <v-col cols="3">
@@ -154,16 +164,12 @@
       <DownloadsTable :versions="versions" :per-os="true" :download-func="getToolDownloadLink" />
     </v-container>
   </div>
-  <div>
-    <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
-      <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
-      <DownloadsTable :versions="versions" :download-func="getThesisTemplateDownloadLink"
-                      style="max-width: 400px; margin: 0 auto;" />
-    </v-container>
-  </div>
-  <div>
-    <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
+  <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
+    <v-container class="bg-transparent pa-16 pt-4 pb-8" ref="cvDownload">
       <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
+      <p class="text-body-1 mb-4">
+        {{ t(i18nKeys.DownloadPage.CVInfoText) }}
+      </p>
       <DownloadsTable :versions="versions" :download-func="getCVTemplateDownloadLink"
                       style="max-width: 400px; margin: 0 auto;" />
     </v-container>
@@ -197,7 +203,9 @@ const props = defineProps({
   smallDisplay: Boolean
 });
 
+const thesisDownload = ref(null);
 const toolDownload = ref(null);
+const cvDownload = ref(null);
 
 const versions = ref([] as VersionInfo[]);
 
@@ -222,9 +230,27 @@ const cvSVG = computed(() => {
 });
 
 // methods
+function scrollToThesisDownload() {
+  if (thesisDownload.value) {
+    thesisDownload.value.$el.scrollIntoView({
+      alignToTop: true,
+      behavior: "smooth"
+    });
+  }
+}
+
 function scrollToToolDownload() {
   if (toolDownload.value) {
     toolDownload.value.$el.scrollIntoView({
+      alignToTop: true,
+      behavior: "smooth"
+    });
+  }
+}
+
+function scrollToCVDownload() {
+  if (cvDownload.value) {
+    cvDownload.value.$el.scrollIntoView({
       alignToTop: true,
       behavior: "smooth"
     });
