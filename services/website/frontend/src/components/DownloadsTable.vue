@@ -8,10 +8,11 @@
         <th>
           {{ t(i18nKeys.DownloadPage.Date) }}
         </th>
-        <th>Windows</th>
-        <th>Linux</th>
-        <th>MacOS</th>
-        <th>MacOS (Silicon)</th>
+        <th v-if="perOs">Windows</th>
+        <th v-if="perOs">Linux</th>
+        <th v-if="perOs">MacOS</th>
+        <th v-if="perOs">MacOS (Silicon)</th>
+        <th v-if="!perOs">Artefakt</th>
       </tr>
     </thead>
     <tbody>
@@ -22,33 +23,40 @@
         <td>
           {{ v.Date }}
         </td>
-        <td>
-          <a :href="getDownloadLink(v.Name, 'windows')"
+        <td v-if="perOs">
+          <a :href="downloadFunc(v.Name, 'windows')"
              download="ThesorTeX.zip">
             <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
         </td>
-        <td>
-          <a :href="getDownloadLink(v.Name, 'linux')"
+        <td v-if="perOs">
+          <a :href="downloadFunc(v.Name, 'linux')"
              download="ThesorTeX.zip">
             <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
         </td>
-        <td>
-          <a :href="getDownloadLink(v.Name, 'mac')"
+        <td v-if="perOs">
+          <a :href="downloadFunc(v.Name, 'mac')"
              download="ThesorTeX.zip">
             <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
           </a>
         </td>
-        <td>
-          <a :href="getDownloadLink(v.Name, 'mac_silicon')"
+        <td v-if="perOs">
+          <a :href="downloadFunc(v.Name, 'mac_silicon')"
              download="ThesorTeX.zip">
+            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
+              <v-icon>mdi-download</v-icon>
+            </v-btn>
+          </a>
+        </td>
+        <td v-if="!perOs">
+          <a :href="downloadFunc(v.Name)">
             <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
             </v-btn>
@@ -60,7 +68,6 @@
 </template>
 
 <script lang="ts" setup>
-import getDownloadLink from "../api/GetDownloadLink";
 import {VersionInfo} from "../api/GetToolVersions";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
@@ -68,6 +75,8 @@ import {i18nKeys} from "../i18n/keys";
 const {t} = useI18n();
 
 const props = defineProps({
+  perOs: Boolean,
+  downloadFunc: Function,
   versions: Array<VersionInfo>
 });
 </script>
