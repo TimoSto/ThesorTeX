@@ -31,5 +31,7 @@ export const german: I18nKeys = {
         Title: "Wie kann ich die Vorlagen und Tools nutzen?",
         ThesisTemplate: "Verwendung der Vorlage für wissenschaftliche Arbeiten",
         ThesisTemplateTech: "Technische Beschreibung der Vorlage für wissenschaftliche Arbeiten",
+        ExampleDownload: "Da kannst die Dokumentation als {example} herunterladen, oder dir das FAQ hier anschauen.",
+        Example: "Beispielprojekt",
     }
 };
