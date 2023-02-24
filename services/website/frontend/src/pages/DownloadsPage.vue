@@ -161,7 +161,8 @@
           </v-card>
         </v-col>
       </v-row>
-      <DownloadsTable :versions="versions" :per-os="true" :download-func="getToolDownloadLink" />
+      <DownloadsTable :versions="versions" :per-os="true" :download-func="getToolDownloadLink"
+                      style="max-width: 700px; margin: 0 auto;" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">

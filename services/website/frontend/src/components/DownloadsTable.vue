@@ -2,10 +2,10 @@
   <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.25); border-radius: 4px;">
     <thead>
       <tr>
-        <th>
+        <th class="keepAlign">
           {{ t(i18nKeys.DownloadPage.Version) }}
         </th>
-        <th>
+        <th class="keepAlign">
           {{ t(i18nKeys.DownloadPage.Date) }}
         </th>
         <th v-if="perOs">Windows</th>
@@ -17,10 +17,10 @@
     </thead>
     <tbody>
       <tr v-for="v in versions" :key="v">
-        <td>
+        <td class="keepAlign">
           {{ v.Name }}
         </td>
-        <td>
+        <td class="keepAlign">
           {{ v.Date }}
         </td>
         <td v-if="perOs">
@@ -81,8 +81,12 @@ const props = defineProps({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 a {
   text-decoration: none;
+}
+
+td:not(.keepAlign), th:not(.keepAlign) {
+  text-align: center !important;
 }
 </style>
