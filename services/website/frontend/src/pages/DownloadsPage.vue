@@ -157,13 +157,15 @@
   <div>
     <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
       <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
-      <DownloadsTable :versions="versions" :download-func="getThesisTemplateDownloadLink" />
+      <DownloadsTable :versions="versions" :download-func="getThesisTemplateDownloadLink"
+                      style="max-width: 400px; margin: 0 auto;" />
     </v-container>
   </div>
   <div>
     <v-container class="bg-transparent pa-16 pt-4" ref="toolDownload">
       <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
-      <DownloadsTable :versions="versions" :download-func="getCVTemplateDownloadLink" />
+      <DownloadsTable :versions="versions" :download-func="getCVTemplateDownloadLink"
+                      style="max-width: 400px; margin: 0 auto;" />
     </v-container>
   </div>
 </template>
