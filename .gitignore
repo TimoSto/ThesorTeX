@@ -27,3 +27,10 @@ dist/
 /services/website/internal/documentations/example/de/main.mcf
 /services/website/internal/documentations/example/de/main.synctex.gz
 /services/website/internal/documentations/example/de/main.toc
+/services/website/internal/example_project/en/main.synctex.gz
+/services/website/internal/example_project/en/main.mcf
+/services/website/internal/example_project/en/main.lot
+/services/website/internal/example_project/en/main.aux
+/services/website/internal/example_project/en/main.lof
+/services/website/internal/example_project/en/main.log
+/services/website/internal/example_project/en/main.toc
