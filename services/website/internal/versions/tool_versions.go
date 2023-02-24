@@ -77,10 +77,10 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 
 		for _, object := range output.Contents {
 			pathParts := strings.Split(*object.Key, "/")
-			if pathParts[0] != "latest" && strings.Index(foundVersions, pathParts[0]) == -1 {
-				foundVersions += fmt.Sprintf(";%s", pathParts[0])
+			if pathParts[1] != "latest" && strings.Index(foundVersions, pathParts[1]) == -1 {
+				foundVersions += fmt.Sprintf(";%s", pathParts[1])
 				versions = append(versions, VersionInfo{
-					Name: pathParts[0],
+					Name: pathParts[1],
 					Date: object.LastModified.Format("02-01-2006"),
 				})
 			}
@@ -130,10 +130,10 @@ func GetThesisVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 
 		for _, object := range output.Contents {
 			pathParts := strings.Split(*object.Key, "/")
-			if pathParts[0] != "latest" && strings.Index(foundVersions, pathParts[0]) == -1 {
-				foundVersions += fmt.Sprintf(";%s", pathParts[0])
+			if pathParts[1] != "latest" && strings.Index(foundVersions, pathParts[1]) == -1 {
+				foundVersions += fmt.Sprintf(";%s", pathParts[1])
 				versions = append(versions, VersionInfo{
-					Name: pathParts[0],
+					Name: pathParts[1],
 					Date: object.LastModified.Format("02-01-2006"),
 				})
 			}
@@ -183,10 +183,10 @@ func GetCvVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 
 		for _, object := range output.Contents {
 			pathParts := strings.Split(*object.Key, "/")
-			if pathParts[0] != "latest" && strings.Index(foundVersions, pathParts[0]) == -1 {
-				foundVersions += fmt.Sprintf(";%s", pathParts[0])
+			if pathParts[1] != "latest" && strings.Index(foundVersions, pathParts[1]) == -1 {
+				foundVersions += fmt.Sprintf(";%s", pathParts[1])
 				versions = append(versions, VersionInfo{
-					Name: pathParts[0],
+					Name: pathParts[1],
 					Date: object.LastModified.Format("02-01-2006"),
 				})
 			}
