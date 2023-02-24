@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 set -e
 
-version="$(./scripts/env.sh APP VERSIONS)"
-
-echo "building version $version"
-
-source ./scripts/builder.sh
-
-outDir="artifacts/tool"
-
 echo "cleaning out dir..."
 
 rm -rf "artifacts"
+
+source ./scripts/builder.sh
+
+echo "building thesis template"
+
+build_zip_target //pkg/backend/project_template:template_zip artifacts/ThesisTemplate.zip
+
+version="$(./scripts/env.sh APP VERSIONS)"
+
+echo "building tool version $version"
+
+outDir="artifacts/tool"
 
 echo "cleaning frontend-dist-dirs..."
 

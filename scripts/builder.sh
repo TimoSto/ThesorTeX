@@ -51,6 +51,17 @@ _copy_target_executable() {
         "$2"
 }
 
+copy_target_zip() {
+  # Support copying files into subdirectories
+  mkdir -p "$(dirname "$2")"
+
+  cp $(bazelisk cquery \
+          "$1" \
+          --output=starlark \
+          --starlark:file=bazel/show_all_outputs.bzl 2>/dev/null) \
+        "$2"
+}
+
 # Copy the given windows target ($1) to a well known location ($2).
 # This also renames the file to the given final name ($2)
 _copy_windows_exe() {
@@ -95,4 +106,7 @@ build_mac_m1_target() {
   _copy_mac_m1_exe "$1" "$2" "$3"
 }
 
-
+build_zip_target() {
+  build_target  "$1"
+  copy_target_zip "$1" "$2"
+}

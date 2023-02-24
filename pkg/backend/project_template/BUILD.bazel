@@ -1,5 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
 
 go_library(
     name = "project_template",
@@ -30,4 +31,11 @@ pkg_files(
     srcs = glob(["template/**/*"]),
     strip_prefix = strip_prefix.from_pkg("template"),
     visibility = ["//services:__subpackages__"],
+)
+
+pkg_zip(
+    name = "template_zip",
+    srcs = [
+        ":srcs",
+    ],
 )
