@@ -190,6 +190,8 @@
 	\renewcommand{\citeInFootnote}{false}
 }
 
+\newcommand{\citeContent}{}
+
 % #1: key to cite
 % #2: prefix (e.g. vgl. )
 % #3: suffix (e.g. S.201)
@@ -210,7 +212,7 @@
 				\renewcommand\argIX{\i}%
 				\renewcommand\argX{\j}%
 				%
-				\newcommand{\citeContent}{\getCite{\type}}%
+				\renewcommand{\citeContent}{\getCite{\type}}%
 				%
 				\IfStrEqCase{\citeInFootnote}{%
 						{true}{\footnote{#2\citeContent #3.}}%
