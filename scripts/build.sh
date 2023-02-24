@@ -11,6 +11,10 @@ echo "building thesis template"
 
 build_zip_target //pkg/backend/project_template:template_zip artifacts/ThesisTemplate.zip
 
+echo "building cv template"
+
+build_zip_target //pkg/backend/cv_template:template_zip artifacts/CVTemplate.zip
+
 version="$(./scripts/env.sh APP VERSIONS)"
 
 echo "building tool version $version"

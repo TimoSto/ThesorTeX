@@ -1,8 +1,16 @@
 load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
 
 pkg_files(
     name = "srcs",
     srcs = glob(["template/**/*"]),
     strip_prefix = strip_prefix.from_pkg("template"),
     visibility = ["//services:__subpackages__"],
+)
+
+pkg_zip(
+    name = "template_zip",
+    srcs = [
+        ":srcs",
+    ],
 )
