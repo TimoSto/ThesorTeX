@@ -8,7 +8,11 @@ import (
 
 func HandleExamples() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		w.Write(example_project.ExampleDE)
+		lang := r.URL.Query().Get("lang")
+
+		example := example_project.GetExampleZip(lang)
+
+		w.Write(example)
 	}
 
 	return fn

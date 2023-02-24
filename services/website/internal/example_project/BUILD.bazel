@@ -5,7 +5,10 @@ load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
 go_library(
     name = "example_project",
     srcs = ["examples.go"],
-    embedsrcs = [":exampleDe"],
+    embedsrcs = [
+        ":exampleDe",
+        ":exampleEN",
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/example_project",
     visibility = ["//services/website:__subpackages__"],
 )
@@ -21,5 +24,19 @@ pkg_zip(
     name = "exampleDe",
     srcs = [":srcsDe"],
     package_file_name = "example_de.zip",
+    visibility = ["//visibility:public"],
+)
+
+pkg_files(
+    name = "srcsEn",
+    srcs = glob(["en/**/*"]),
+    strip_prefix = strip_prefix.from_pkg("en"),
+    visibility = ["//services:__subpackages__"],
+)
+
+pkg_zip(
+    name = "exampleEN",
+    srcs = [":srcsEn"],
+    package_file_name = "example_en.zip",
     visibility = ["//visibility:public"],
 )

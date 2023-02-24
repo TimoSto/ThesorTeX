@@ -14,7 +14,7 @@
     <p class="text-body-1 pb-3">
       <i18n-t :keypath="i18nKeys.TutorialsPage.ExampleDownload">
         <template #example>
-          <a href="/example" download>
+          <a :href="`/example?lang=${i18nObject.locale.value}`" download>
             {{ t(i18nKeys.TutorialsPage.Example) }}
           </a>
         </template>
