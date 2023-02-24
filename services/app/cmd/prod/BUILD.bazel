@@ -1,9 +1,10 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
 
 _APP_VERSION = "{APP_VERSION}"
 
 go_binary(
-    name = "prod",
+    name = "ThesorTeX",
     embed = [":prod_lib"],
     visibility = ["//visibility:public"],
     x_defs = {
@@ -25,5 +26,12 @@ go_library(
         "//services/app/internal/domain/projects",
         "//services/app/internal/filesystem/local",
         "//services/app/internal/handlers",
+    ],
+)
+
+pkg_zip(
+    name = "app_zip",
+    srcs = [
+        ":ThesorTeX",
     ],
 )

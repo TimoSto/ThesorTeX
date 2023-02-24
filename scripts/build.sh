@@ -27,50 +27,22 @@ pnpm run -r build
 
 echo "building for windows..."
 
-build_windows_target //services/app/cmd/prod "$outDir/windows/ThesorTeX.exe" "$(pwd)"
+build_windows_target //services/app/cmd/prod:app_zip "$outDir/windows/ThesorTeX.zip" "$(pwd)"
 
 echo "building app for linux..."
 
-build_linux_target //services/app/cmd/prod "$outDir/linux/ThesorTeX" "$(pwd)"
+build_linux_target //services/app/cmd/prod:app_zip "$outDir/linux/ThesorTeX.zip" "$(pwd)"
 
 echo "building app for macOS..."
 
-build_mac_target //services/app/cmd/prod "$outDir/mac/ThesorTeX" "$(pwd)"
+build_mac_target //services/app/cmd/prod:app_zip "$outDir/mac/ThesorTeX.zip" "$(pwd)"
 
 echo "building app for macOS (Apple Silicon M1)..."
 
-build_mac_m1_target //services/app/cmd/prod "$outDir/mac_silicon/ThesorTeX" "$(pwd)"
+build_mac_m1_target //services/app/cmd/prod:app_zip "$outDir/mac_silicon/ThesorTeX.zip" "$(pwd)"
 
 echo "building website for linux..."
 
 build_linux_target //services/website/cmd:lambda_zip "artifacts/website/lambda.zip" "$(pwd)"
 
-echo "creating zips of tool..."
-
-cd artifacts/tool/linux
-zip ThesorTeX.zip ThesorTeX
-
-cd ../windows
-zip ThesorTeX.zip ThesorTeX.exe
-
-cd ../mac
-zip ThesorTeX.zip ThesorTeX -x "*.DS_Store"
-
-cd ../mac_silicon
-zip ThesorTeX.zip ThesorTeX -x "*.DS_Store"
-
-cd ../../
-
-echo "copying zips of tool..."
-
-mkdir "zip"
-mkdir "zip/tool"
-mkdir "zip/tool/windows"
-mkdir "zip/tool/linux"
-mkdir "zip/tool/mac"
-mkdir "zip/tool/mac_silicon"
-
-cp tool/linux/ThesorTeX.zip zip/tool/linux/
-cp tool/windows/ThesorTeX.zip zip/tool/windows/
-cp tool/mac/ThesorTeX.zip zip/tool/mac/
-cp tool/mac_silicon/ThesorTeX.zip zip/tool/mac_silicon/
+echo "finished"
