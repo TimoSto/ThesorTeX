@@ -6,7 +6,6 @@
           <v-toolbar-title class="text-h4 font-weight-bold" :style="`color: ${elevation === 0 ? 'white' : ''}`">
             ThesorTeX {{ titleAppendix }}
           </v-toolbar-title>
-          <v-spacer />
           <v-btn :color="elevation === 0 ? 'white' : 'primary'" to="/" v-if="currentPage !== 'Home'">
             {{ t(i18nKeys.Titles.StartPage) }}
           </v-btn>
