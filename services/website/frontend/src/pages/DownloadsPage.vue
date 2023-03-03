@@ -78,7 +78,7 @@
         {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
-                      style="max-width: 400px; margin: 0 auto;" />
+                      style="max-width: 400px;" class="ml-4" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -163,7 +163,7 @@
       </v-row>
       <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
                       :download-func="getToolDownloadLink"
-                      style="max-width: 700px; margin: 0 auto;" />
+                      style="max-width: 700px;" class="ml-4" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -173,7 +173,7 @@
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
-                      style="max-width: 400px; margin: 0 auto;" />
+                      style="max-width: 400px;" class="ml-4" />
     </v-container>
   </div>
 </template>
