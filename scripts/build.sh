@@ -41,13 +41,13 @@ echo "building app for linux..."
 
 build_linux_target //services/app/cmd/prod:app_zip "$outDir/linux/ThesorTeX.zip" "$(pwd)"
 
-echo "building app for macOS..."
+echo "building app for macOS (AMD)..."
 
 build_mac_target //services/app/cmd/prod:app_zip "$outDir/mac/ThesorTeX.zip" "$(pwd)"
 
-echo "building app for macOS (Apple Silicon M1)..."
+echo "building app for macOS (ARM)..."
 
-build_mac_m1_target //services/app/cmd/prod:app_zip "$outDir/mac_silicon/ThesorTeX.zip" "$(pwd)"
+build_mac_m1_target //services/app/cmd/prod:app_zip "$outDir/mac_arm/ThesorTeX.zip" "$(pwd)"
 
 echo "building website for linux..."
 

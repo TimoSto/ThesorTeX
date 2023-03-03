@@ -129,7 +129,7 @@
             <v-card-text style="height: 100%">
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-center font-weight-bold text-h6"
-                      style="display: inline-block; width: 100%;">MacOS (Intel)</span>
+                      style="display: inline-block; width: 100%;">MacOS (AMD)</span>
                 <div class="mt-auto">
                   <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
                   <a :href="getToolDownloadLink('latest', 'mac')">
@@ -147,7 +147,7 @@
             <v-card-text style="height: 100%">
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-center font-weight-bold text-h6"
-                      style="display: inline-block; width: 100%;">MacOS (Silicon)</span>
+                      style="display: inline-block; width: 100%;">MacOS (ARM)</span>
                 <div class="mt-auto">
                   <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
                   <a :href="getToolDownloadLink('latest', 'mac_silicon')">

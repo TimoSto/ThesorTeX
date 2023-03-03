@@ -10,8 +10,8 @@
         </th>
         <th v-if="perOs">Windows</th>
         <th v-if="perOs">Linux</th>
-        <th v-if="perOs">MacOS</th>
-        <th v-if="perOs">MacOS (Silicon)</th>
+        <th v-if="perOs">MacOS (AMD)</th>
+        <th v-if="perOs">MacOS (ARM)</th>
         <th v-if="!perOs">Artefakt</th>
       </tr>
     </thead>
@@ -48,7 +48,7 @@
           </a>
         </td>
         <td v-if="perOs">
-          <a :href="downloadFunc(v.Name, 'mac_silicon')"
+          <a :href="downloadFunc(v.Name, 'mac_arm')"
              download="ThesorTeX.zip">
             <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
               <v-icon>mdi-download</v-icon>
