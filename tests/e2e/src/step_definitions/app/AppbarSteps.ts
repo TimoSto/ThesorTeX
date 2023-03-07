@@ -1,5 +1,5 @@
 import {Then, When} from "@cucumber/cucumber";
-import {OurWorld} from "../../../types";
+import {OurWorld} from "../../types";
 import {expect} from "@playwright/test";
 import waitForAnimations from "../../helpers/waitForAnimations";
 

@@ -2,4 +2,4 @@ packages:
   - "services/app/frontend"
   - "services/website/frontend"
   - "pkg/frontend/*"
-  - "e2e_tests"
+  - "tests/e2e"

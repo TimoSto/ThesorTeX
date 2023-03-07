@@ -42,22 +42,6 @@ importers:
       vitest: 0.29.2_happy-dom@8.1.4
       vue-i18n: 9.2.2_vue@3.2.47
 
-  e2e_tests:
-    specifiers:
-      '@cucumber/cucumber': ^8.10.0
-      '@playwright/test': ^1.30.0
-      '@types/node': 18.11.18
-      playwright: ^1.30.0
-      ts-node: 10.9.1
-      typescript: 4.9.5
-    devDependencies:
-      '@cucumber/cucumber': 8.10.0
-      '@playwright/test': 1.30.0
-      '@types/node': 18.11.18
-      playwright: 1.30.0
-      ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
-      typescript: 4.9.5
-
   pkg/frontend/eslint-config:
     specifiers:
       typescript: 4.9.5
@@ -204,11 +188,27 @@ importers:
       vite-plugin-vuetify: 1.0.2_2yxq5dbnkgulo65nowcw6b5h6a
       vue-tsc: 1.2.0_typescript@4.9.5
 
+  tests/e2e:
+    specifiers:
+      '@cucumber/cucumber': ^8.10.0
+      '@playwright/test': ^1.30.0
+      '@types/node': 18.11.18
+      playwright: ^1.30.0
+      ts-node: 10.9.1
+      typescript: 4.9.5
+    devDependencies:
+      '@cucumber/cucumber': 8.10.0
+      '@playwright/test': 1.30.0
+      '@types/node': 18.11.18
+      playwright: 1.30.0
+      ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
+      typescript: 4.9.5
+
 packages:
 
   /@babel/helper-string-parser/7.19.4:
-    resolution: {integrity: sha512-nHtDoQcuqFmwYNYPz3Rah5ph2p8PFeFCsZk9A/48dPc/rGocJ5J3hAAZ7pb76VWX3fZKu+uEr/FhH5jLx7umrw==}
-    engines: {node: '>=6.9.0'}
+    resolution: { integrity: sha512-nHtDoQcuqFmwYNYPz3Rah5ph2p8PFeFCsZk9A/48dPc/rGocJ5J3hAAZ7pb76VWX3fZKu+uEr/FhH5jLx7umrw== }
+    engines: { node: '>=6.9.0' }
 
   /@babel/helper-validator-identifier/7.19.1:
     resolution: { integrity: sha512-awrNfaMtnHUr653GgGEs++LlAvW6w+DcPrOliSMXWCKo597CwL5Acf/wWdNkf/tfEQE3mjkeD1YOVZOUV/od1w== }

@@ -1,0 +1,27 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(name="node_modules")
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+)
+
+ts_project(
+    name = "playwright_js",
+    srcs = glob(["src/**/*.ts"]),
+    allow_js = True,
+    declaration = False,
+    source_map = True,
+    out_dir = "build",
+    tsconfig = ":tsconfig",
+    deps = [
+        "//:node_modules/typescript",
+        ":node_modules/@types/node",
+        ":node_modules/ts-node",
+        ":node_modules/@cucumber/cucumber",
+        ":node_modules/@playwright/test",
+        ":node_modules/playwright",
+    ],
+)

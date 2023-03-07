@@ -1,6 +1,6 @@
 import {Then, When} from "@cucumber/cucumber";
 import {expect} from "@playwright/test";
-import {OurWorld} from "../../../types";
+import {OurWorld} from "../../types";
 import waitForAnimations from "../../helpers/waitForAnimations";
 
 When("the deletion is confirmed", async function (this: OurWorld) {

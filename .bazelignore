@@ -6,7 +6,7 @@ pkg/frontend/vue-i18n-plugin/node_modules
 pkg/frontend/vuetify-plugin/node_modules
 services/app/frontend/node_modules
 services/website/frontend/node_modules
-e2e_tests/node_modules
+tests/e2e/node_modules
 node_modules
 .bazel-dir/
 .repository_cache/
