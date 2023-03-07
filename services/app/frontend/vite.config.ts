@@ -6,6 +6,8 @@ import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 
+const root = process.env.VITEST_ROOT;
+
 export default defineConfig({
     plugins: [
         vue(),
@@ -38,6 +40,7 @@ export default defineConfig({
         outDir: "./assets/dist"
     },
     test: {
+        root: root ? root : ".",
         globals: true,
         environment: "happy-dom",
         setupFiles: ["vuetify.config.js", "src/api/mocks/testSetup.ts"],
