@@ -29,7 +29,6 @@ buildifier(
     ],
 )
 
-
 # link npm packages in global
 load("@npm//:defs.bzl", "npm_link_all_packages")
 

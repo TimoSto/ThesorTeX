@@ -10,7 +10,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/local"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )
 
@@ -24,7 +24,7 @@ func main() {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	fs := fake.FileSystem{}
+	fs := local.FileSystem{}
 
 	config.Cfg = config.Config{
 		ProjectsDir: "projects",
