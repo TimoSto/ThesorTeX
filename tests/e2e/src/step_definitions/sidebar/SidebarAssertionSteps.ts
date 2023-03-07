@@ -3,7 +3,7 @@ import {Then} from "@cucumber/cucumber";
 import {expect} from "@playwright/test";
 
 Then("the sidebar is closed", async function (this: OurWorld) {
-    const classList = await this.page.locator("nav").evaluate((el: Element) => {
+    const classList = await this.page.locator("nav").evaluate((el: any) => {
         return Array.from(el.classList);
     });
 

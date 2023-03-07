@@ -1,7 +1,7 @@
 {
   "default": {
     "require": [
-      "test.setup.ts",
+      "src/test.setup.ts",
       "src/step_definitions/**/*.ts"
     ],
     "requireModule": [

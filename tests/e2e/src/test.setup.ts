@@ -15,15 +15,23 @@ BeforeAll(async function () {
         slowMo: 50,
     });
 
-    sut = spawn("../services/app/cmd/e2e/main", {
-        // stdio: "ignore",
-        detached: false,
-    });
-    sut.on("error", (err: any) => {
-        throw "Could not start system under test executable";
-    });
-    // sut.stdout.on("data", (data: any) => console.log(data.toString()));
-    sut.stderr.on("data", (data: any) => console.error(data.toString()));
+    const sutExec = process.env.EXECUTABLE;
+    console.log("exec", sutExec);
+    if (sutExec) {
+        sut = spawn(sutExec, {
+            // stdio: "ignore",
+            detached: false,
+        });
+        sut.on("error", (err: any) => {
+            throw "Could not start system under test executable";
+        });
+        // sut.stdout.on("data", (data: any) => console.log(data.toString()));
+        sut.stderr.on("data", (data: any) => console.error(data.toString()));
+        await new Promise(resolve => {
+            console.log("waiting 1s for process to be running");
+            setTimeout(resolve, 1000);
+        });
+    }
 });
 AfterAll(async function () {
     await browser.close();
