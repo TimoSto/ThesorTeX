@@ -1,3 +1,10 @@
+# v 1.0.1
+
+## Fixed
+
+- Indent in ToC in alpha numeric mode fixed.
+-
+
 # v1.0.0
 
 ## Added
