@@ -10,7 +10,7 @@ overrides:
   eslint-plugin-vue: 9.9.0
   happy-dom: 8.1.4
   pinia: 2.0.28
-  sass: 1.57.1
+  sass: 1.58.3
   ts-node: 10.9.1
   typescript: 4.9.5
   vite: 4.0.4
@@ -142,7 +142,7 @@ importers:
       cross-fetch: ^3.1.5
       msw: ^0.49.2
       pinia: 2.0.28
-      sass: 1.57.1
+      sass: 1.58.3
       ts-node: 10.9.1
       typescript: 4.9.5
       vite: 4.0.4
@@ -164,10 +164,10 @@ importers:
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.47
       cross-fetch: 3.1.5
       msw: 0.49.2_typescript@4.9.5
-      sass: 1.57.1
+      sass: 1.58.3
       ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
       typescript: 4.9.5
-      vite: 4.0.4_ovmyjmuuyckt3r3gpaexj2onji
+      vite: 4.0.4_n6fwdzqikzuvphifjfh4k645ae
       vite-plugin-vuetify: 1.0.1_s3vdmo63o5lpmc62223vmvukfy
       vue-tsc: 1.0.24_typescript@4.9.5
 
@@ -2515,15 +2515,15 @@ packages:
     dev: true
 
   /safe-buffer/5.2.1:
-    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
+    resolution: { integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ== }
     dev: true
 
   /safer-buffer/2.1.2:
-    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    resolution: { integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg== }
     dev: true
 
-  /sass/1.57.1:
-    resolution: { integrity: sha512-O2+LwLS79op7GI0xZ8fqzF7X2m/m8WFfI02dHOdsK5R2ECeS5F62zrwg/relM1rjSLy7Vd/DiMNIvPrQGsA0jw== }
+  /sass/1.58.3:
+    resolution: { integrity: sha512-Q7RaEtYf6BflYrQ+buPudKR26/lH+10EmO9bBqbmPh/KeLqv8bjpTNqxe71ocONqXq+jYiCbpPUmQMS+JJPk4A== }
     engines: { node: '>=12.0.0' }
     hasBin: true
     dependencies:
@@ -2962,9 +2962,9 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vite/4.0.4_ovmyjmuuyckt3r3gpaexj2onji:
-    resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
+  /vite/4.0.4_n6fwdzqikzuvphifjfh4k645ae:
+    resolution: { integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw== }
+    engines: { node: ^14.18.0 || >=16.0.0 }
     hasBin: true
     peerDependencies:
       '@types/node': '>= 14'
@@ -2992,7 +2992,7 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.10.0
-      sass: 1.57.1
+      sass: 1.58.3
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
