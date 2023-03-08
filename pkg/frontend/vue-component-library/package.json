@@ -6,8 +6,7 @@
   "devDependencies": {
     "@thesortex/vitest-vuetify": "workspace:*",
     "@vitejs/plugin-vue": "*",
-    "vite": "*",
-    "vue-tsc": "*"
+    "vite": "*"
   },
   "dependencies": {
     "pinia": "*",
