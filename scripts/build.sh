@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+echo "running all tests..."
+
+bazel test //...
+
 echo "cleaning out dir..."
 
 rm -rf "artifacts"
@@ -20,18 +24,6 @@ version="$(./scripts/env.sh APP VERSIONS)"
 echo "building tool version $version"
 
 outDir="artifacts/tool"
-
-echo "cleaning frontend-dist-dirs..."
-
-rm -rf services/app/frontend/assets/dist
-
-rm -rf services/website/frontend/assets/dist
-
-echo "building frontends..."
-
-pnpm install
-
-pnpm run -r build
 
 echo "building for windows..."
 

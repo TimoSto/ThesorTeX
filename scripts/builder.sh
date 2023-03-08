@@ -9,6 +9,7 @@ build_target() {
       "$1"
 }
 
+# enable_runfiles is needed for aspect_rules_js on windows
 _build_target_for_platform() {
     bazelisk build \
       --stamp \
@@ -16,6 +17,7 @@ _build_target_for_platform() {
       --repository_cache="./.repository_cache" \
       --workspace_status_command=./scripts/workspace_status.sh \
       --platforms="$2" \
+      --enable_runfiles \
       "$1"
 }
 
@@ -47,6 +49,7 @@ _copy_target_executable() {
           --platforms="$3" \
           "$1" \
           --output=starlark \
+          --enable_runfiles \
           --starlark:file=bazel/show_all_outputs.bzl 2>/dev/null) \
         "$2"
 }
