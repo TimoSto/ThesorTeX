@@ -30,8 +30,15 @@ func main() {
 		ProjectsDir: "projects",
 	}
 
+	log.Info("removing possibly existing previous projects...")
+	err := os.RemoveAll(pathbuilder.GetPathFromExecRoot("projects"))
+	if err != nil {
+		log.Error("could not delete projects dir: %v", err)
+		os.Exit(1)
+	}
+
 	log.Info("Creating example project...")
-	_, err := projects.CreateProject("example", &fs, config.Cfg)
+	_, err = projects.CreateProject("example", &fs, config.Cfg)
 	if err != nil {
 		log.Error("unexpected error creating the example project: %v", err)
 		os.Exit(1)
