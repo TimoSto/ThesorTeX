@@ -20,16 +20,3 @@ genrule(
     outs = ["dist"],
     cmd = "mkdir $(RULEDIR)/dist && tar -C $(RULEDIR)/dist -zxf $(SRCS)",
 )
-
-pkg_files(
-    name = "srcs",
-    srcs = glob(["dist/**/*"]),
-    strip_prefix = strip_prefix.from_pkg("dist"),
-)
-
-pkg_tar(
-    name = "assets_files",
-    srcs = [":srcs"],
-    extension = "tar.gz",
-    visibility = ["//visibility:public"],
-)
