@@ -75,13 +75,15 @@ importers:
       '@vitejs/plugin-vue': 4.0.0
       pinia: 2.0.32
       sass: 1.58.3
+      typescript: 4.9.5
       vite: 4.1.4
       vite-plugin-vuetify: 1.0.2
       vue: 3.2.47
       vuetify: 3.1.1
     dependencies:
-      pinia: 2.0.32_vue@3.2.47
+      pinia: 2.0.32_hmuptsblhheur2tugfgucj7gc4
       sass: 1.58.3
+      typescript: 4.9.5
       vite-plugin-vuetify: 1.0.2_2yxq5dbnkgulo65nowcw6b5h6a
       vue: 3.2.47
       vuetify: 3.1.1_zhdigtlnoj4qfl4bi7c6fb2bly
@@ -2325,23 +2327,6 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.5.0
       typescript: 4.9.5
-      vue: 3.2.47
-      vue-demi: 0.13.11_vue@3.2.47
-    dev: false
-
-  /pinia/2.0.32_vue@3.2.47:
-    resolution: { integrity: sha512-8Tw4OrpCSJ028UUyp0gYPP/wyjigLoEceuO/x1G+FlHVf73337e5vLm4uDmrRIoBG1hvaed/eSHnrCFjOc4nkA== }
-    peerDependencies:
-      '@vue/composition-api': ^1.4.0
-      typescript: '>=4.4.4'
-      vue: ^2.6.14 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@vue/devtools-api': 6.5.0
       vue: 3.2.47
       vue-demi: 0.13.11_vue@3.2.47
     dev: false
