@@ -1,7 +1,9 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import {defineConfig} from "vite";
+import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
+
+const root = process.env.VITEST_ROOT;
 
 export default defineConfig({
     plugins: [
@@ -11,6 +13,7 @@ export default defineConfig({
         }),
     ],
     test: {
+        root: root ? root : ".",
         globals: true,
         environment: "happy-dom",
         setupFiles: ["vuetify.config.js"],
@@ -19,4 +22,4 @@ export default defineConfig({
         },
         testTimeout: 10000
     },
-})
+});

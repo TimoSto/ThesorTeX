@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "pinia": "*",
+    "sass": "1.58.3",
     "vite-plugin-vuetify": "*",
     "vue": "*",
     "vuetify": "*"
