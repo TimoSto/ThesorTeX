@@ -325,7 +325,7 @@ syncProjectData();
 </script>
 
 <style lang="scss">
-@import "src/styles/common";
+@import "../styles/common.scss";
 
 @include disableOverlayOnExpansionPanel;
 

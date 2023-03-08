@@ -1,7 +1,18 @@
+load("@aspect_rules_js//npm:defs.bzl", "npm_package")
 load("//:bazel/vitest/vitest.bzl", "vitest_run")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 
 npm_link_all_packages(name="node_modules")
+
+npm_package(
+    name = "vue-component-library",
+    srcs = [
+        "package.json",
+    ] + glob([
+        "src/**/*"
+    ]),
+    visibility = ["//visibility:public"]
+)
 
 vitest_run(
     name="vitest",

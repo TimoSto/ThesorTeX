@@ -9,6 +9,7 @@ import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 const root = process.env.VITEST_ROOT;
 
 export default defineConfig({
+    root: root ? root : ".",
     plugins: [
         vue(),
         vuetify({
@@ -35,9 +36,6 @@ export default defineConfig({
             "/getConfig": "http://localhost:8448/",
             "/saveConfig": "http://localhost:8448/",
         }
-    },
-    build: {
-        outDir: "./assets/dist"
     },
     test: {
         root: root ? root : ".",

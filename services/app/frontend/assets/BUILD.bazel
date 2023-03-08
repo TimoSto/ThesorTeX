@@ -15,7 +15,7 @@ go_library(
 genrule(
     name = "assets_dist",
     srcs = [
-        ":assets_files",
+        "//services/app/frontend:app_dist",
     ],
     outs = ["dist"],
     cmd = "mkdir $(RULEDIR)/dist && tar -C $(RULEDIR)/dist -zxf $(SRCS)",
