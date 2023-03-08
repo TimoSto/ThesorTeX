@@ -2,7 +2,10 @@ import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
 
+const root = process.env.VITEST_ROOT;
+
 export default defineConfig({
+    root: root ? root : ".",
     define: {
         __VUE_I18N_FULL_INSTALL__: true,
         __VUE_I18N_LEGACY_API__: false,
@@ -23,7 +26,4 @@ export default defineConfig({
             "/example": "http://localhost:8449/",
         }
     },
-    build: {
-        outDir: "./assets/dist"
-    }
 });
