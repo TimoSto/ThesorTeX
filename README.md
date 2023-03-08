@@ -15,23 +15,44 @@ The frontend is build using pnpm, the backend is build using Bazel. Run `./build
 
 ### Development
 To run the frontend on a watcher
+
 ```
 cd services/app/frontend
 pnpm run dev
 ```
+
 To run the backend
+
 ```
 ./scripts/dev.sh
 ```
 
+## Testing
+
+The testing types are
+
+- unit tests for the backend (Go)
+- unit tests for the frontend (vitest)
+- end to end tests for the app (playwright)
+
+All of these tests can be run using bazel.
+
+```
+bazel test //...
+```
+
 ## Deployment
+
 To update aws infrastructure
+
 ```
 cd terraform
 ./scripts/plan.sh
 ./scripts.apply.sh
 ```
+
 To upload build-artifacts as zips
+
 ```
 cd terraform
 ./scripts/s3_upload_atrifacts.sh
