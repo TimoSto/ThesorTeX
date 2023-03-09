@@ -3,28 +3,46 @@ Tool for handling bibliography in a LaTeX project
 
 ## Downloads
 The local application can be downloaded on the following links:
-- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/windows/ThesorTeX.zip)
-- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/linux/ThesorTeX.zip)
-- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/mac/ThesorTeX.zip)
-- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/latest/mac_silicon/ThesorTeX.zip)
+
+- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/windows/ThesorTeX.zip)
+- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/linux/ThesorTeX.zip)
+- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/mac/ThesorTeX.zip)
+- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/mac_silicon/ThesorTeX.zip)
 
 ## Build mechanics
 
+This repository uses Bazel to build both the backends and the frontends.
+
 ### Production
-The frontend is build using pnpm, the backend is build using Bazel. Run `./build.sh` to trigger the build.
+
+The production build is triggered by calling the script `./scripts/build.sh`. It produces the following `artifacts`:
+
+- ZIP files containing the executables of the app for Windows, Linux, MacOS and MacOS with arm (M1/M2)
+- ZIP files containing the thesis and cv templates
+- A ZIP file for the website lambda
 
 ### Development
-To run the frontend on a watcher
+
+To run the frontends on a watcher:
 
 ```
-cd services/app/frontend
+cd services/app/frontend 
+or 
+cd services/website/frontend
+
 pnpm run dev
 ```
 
-To run the backend
+To run the app backend locally:
 
 ```
-./scripts/dev.sh
+bazel run //services/app/cmd/e2e
+```
+
+To run the website backend locally;
+
+```
+bazel run --run_under="export DEV=true &&" //services/website/cmd
 ```
 
 ## Testing
@@ -54,60 +72,59 @@ cd terraform
 To upload build-artifacts as zips
 
 ```
-cd terraform
 ./scripts/s3_upload_atrifacts.sh
 ```
 
 ## Used technologies
+
 - Go
-- pnpm
+- Pnpm
 - Playwright
-- terraform
-- bazel
+- Terraform
+- Bazel
 
 ## Project structure
 
 ### services
+
 Here the separation of the different services, that are independently runnable.
 
-#### website
-The service for hosting the website.
-
 ##### cmd
-The lambda executable
+
+Here lie the targets for the executables
 
 ##### internal
-The backend for the website using the global go.mod
+
+Internal packages of each service
 
 ##### frontend
-The frontend for the website using the global pnpm-workspace
 
-#### app
-The service for managing the bibliography projects.
-
-##### cmd
-The local executable
-
-##### internal
-The backend for the app using the global go.mod
-
-##### frontend
-The frontend for the app using the global pnpm-workspace
+The frontend of the service using the global pnpm-workspace
 
 ### pkg
-Go packages used among multiple services
 
-### packages
-Pnpm packages used among multiple services
+Packages used by multiple services
 
-### testing
-mocks and playwright tests
+#### backend
+
+Go packages
+
+#### frontend
+
+GUI packages
+
+### tests
+
+global tests
 
 ### terraform
+
 terraform modules
 
 ### scripts
+
 build scripts
 
 ### bazel
+
 global bazel files
