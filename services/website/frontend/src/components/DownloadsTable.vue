@@ -1,11 +1,12 @@
 <template>
-  <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.25); border-radius: 4px;">
+  <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.25); border-radius: 4px; margin: 0 auto;"
+           :style="`max-width: ${maxWidth}px;`">
     <thead>
       <tr>
         <th class="keepAlign">
           {{ t(i18nKeys.DownloadPage.Version) }}
         </th>
-        <th class="keepAlign">
+        <th class="keepAlign" style="min-width: 115px">
           {{ t(i18nKeys.DownloadPage.Date) }}
         </th>
         <th v-if="perOs">Windows</th>
@@ -85,6 +86,7 @@ const {t} = useI18n();
 const props = defineProps({
   perOs: Boolean,
   downloadFunc: Function,
+  maxWidth: Number,
   versions: Array<VersionInfo>
 });
 

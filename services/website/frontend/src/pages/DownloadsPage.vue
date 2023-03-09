@@ -78,7 +78,7 @@
         {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
-                      style="max-width: 400px;" class="ml-4"
+                      max-width="500"
                       @open-notes="openedReleaseNotes = `Template - ${$event}`" />
     </v-container>
   </div>
@@ -164,7 +164,7 @@
       </v-row>
       <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
                       :download-func="getToolDownloadLink"
-                      style="max-width: 700px;" class="ml-4" @open-notes="openedReleaseNotes = `Tool - ${$event}`" />
+                      max-width="800" @open-notes="openedReleaseNotes = `Tool - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -174,7 +174,7 @@
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
-                      style="max-width: 400px;" class="ml-4" @open-notes="openedReleaseNotes = `CV - ${$event}`" />
+                      max-width="500" @open-notes="openedReleaseNotes = `CV - ${$event}`" />
     </v-container>
   </div>
   <v-dialog v-model="releaseNotesOpen" width="600">
