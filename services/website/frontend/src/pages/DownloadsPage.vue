@@ -78,7 +78,8 @@
         {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
-                      style="max-width: 400px;" class="ml-4" />
+                      style="max-width: 400px;" class="ml-4"
+                      @open-notes="openedReleaseNotes = `Template - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -163,7 +164,7 @@
       </v-row>
       <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
                       :download-func="getToolDownloadLink"
-                      style="max-width: 700px;" class="ml-4" />
+                      style="max-width: 700px;" class="ml-4" @open-notes="openedReleaseNotes = `Tool - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -173,9 +174,16 @@
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
-                      style="max-width: 400px;" class="ml-4" />
+                      style="max-width: 400px;" class="ml-4" @open-notes="openedReleaseNotes = `CV - ${$event}`" />
     </v-container>
   </div>
+  <v-dialog v-model="releaseNotesOpen" width="600">
+    <v-card>
+      <v-card-title>
+        {{ openedReleaseNotes }}
+      </v-card-title>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -211,7 +219,18 @@ const cvDownload = ref(null);
 
 const versions = ref<VersionData | undefined>(undefined);
 
+const openedReleaseNotes = ref("");
+
 // computed
+const releaseNotesOpen = computed({
+  get(): boolean {
+    return openedReleaseNotes.value !== "";
+  },
+  set(v: boolean) {
+    return openedReleaseNotes.value = "";
+  }
+});
+
 const thesisPaths = computed(() => {
   //TODO: find a better way to loose reactivity
   const svg = JSON.parse(JSON.stringify(ThesisSVG));

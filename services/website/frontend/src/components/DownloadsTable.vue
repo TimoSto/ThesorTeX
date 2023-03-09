@@ -13,6 +13,9 @@
         <th v-if="perOs">MacOS (AMD)</th>
         <th v-if="perOs">MacOS (ARM)</th>
         <th v-if="!perOs">Artefakt</th>
+        <th>
+          Release-Notes
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -62,6 +65,11 @@
             </v-btn>
           </a>
         </td>
+        <td>
+          <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)" @click="emit('openNotes', v.Name)">
+            <v-icon>mdi-file-outline</v-icon>
+          </v-btn>
+        </td>
       </tr>
     </tbody>
   </v-table>
@@ -79,6 +87,8 @@ const props = defineProps({
   downloadFunc: Function,
   versions: Array<VersionInfo>
 });
+
+const emit = defineEmits(["openNotes"]);
 </script>
 
 <style scoped lang="scss">
