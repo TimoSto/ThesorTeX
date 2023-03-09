@@ -38,14 +38,14 @@ func ApplyHandlerToLambda(handler http.Handler) func(ctx context.Context, reques
 		respw := &responseWriter{header: http.Header{}, body: &bytes.Buffer{}}
 		req, err := newRequest(&request)
 		if err != nil {
-			log.Error(fmt.Sprint(err))
+			log.Error(fmt.Sprintf("could not convert api gw request to http request: %v", err))
 			resp := events.APIGatewayProxyResponse{Body: http.StatusText(http.StatusInternalServerError), StatusCode: http.StatusInternalServerError}
 			return resp, nil
 		}
 		handler.ServeHTTP(respw, req.WithContext(ctx))
 		resp, err := respw.response()
 		if err != nil {
-			log.Error(fmt.Sprint(err))
+			log.Error(fmt.Sprintf("could not write http response to api gw: %v", err))
 			resp := events.APIGatewayProxyResponse{Body: http.StatusText(http.StatusInternalServerError), StatusCode: http.StatusInternalServerError}
 			return resp, nil
 		}
@@ -70,7 +70,7 @@ func newRequest(evt *events.APIGatewayProxyRequest) (*http.Request, error) {
 	if evt.IsBase64Encoded {
 		decodedString, err := base64.StdEncoding.DecodeString(evt.Body)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("Decoding of base64 body failed! cause:%v", err))
+			return nil, errors.New(fmt.Sprintf("Decoding of base64 body failed: %v", err))
 		}
 		req.Body = ioutil.NopCloser(bytes.NewReader(decodedString))
 	} else {
@@ -132,6 +132,7 @@ func (rw *responseWriter) response() (*events.APIGatewayProxyResponse, error) {
 	}
 
 	ct := rw.header.Get("Content-Type")
+	// to fix font types
 	if strings.HasPrefix(ct, "font/") {
 		response.IsBase64Encoded = true
 	}
@@ -158,10 +159,12 @@ func (rw *responseWriter) response() (*events.APIGatewayProxyResponse, error) {
 	return response, nil
 }
 
+// Header necessary to implement the responsewriter interface
 func (rw *responseWriter) Header() http.Header {
 	return rw.header
 }
 
+// Write necessary to implement the responsewriter interface
 func (rw *responseWriter) Write(buf []byte) (int, error) {
 	rw.writeHeader(buf)
 	if rw.body != nil {
