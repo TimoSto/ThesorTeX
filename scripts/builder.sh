@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# This is a shell library for building targets for different environments.
-# It should be `source`d into other shell scripts
 build_target() {
     bazelisk build \
       --stamp \
@@ -36,13 +34,13 @@ _build_mac_target() {
     _build_target_for_platform $1 @io_bazel_rules_go//go/toolchain:darwin_amd64 $2
 }
 
-# Build the given target ($1) for mac x64 m1
+# Build the given target ($1) for mac x64 arm
 _build_mac_m1_target() {
     _build_target_for_platform $1 @io_bazel_rules_go//go/toolchain:darwin_arm64 $2
 }
 
+# to copy the artifact from the bazel.out dir to a desired location
 _copy_target_executable() {
-  # Support copying files into subdirectories
   mkdir -p "$(dirname "$2")"
 
   cp $(bazelisk cquery \
@@ -54,8 +52,8 @@ _copy_target_executable() {
         "$2"
 }
 
+# to copy the artifact from the bazel.out dir to a desired location
 copy_target_zip() {
-  # Support copying files into subdirectories
   mkdir -p "$(dirname "$2")"
 
   cp $(bazelisk cquery \
@@ -65,26 +63,18 @@ copy_target_zip() {
         "$2"
 }
 
-# Copy the given windows target ($1) to a well known location ($2).
-# This also renames the file to the given final name ($2)
 _copy_windows_exe() {
     _copy_target_executable $1 $2 @io_bazel_rules_go//go/toolchain:windows_amd64 $3
 }
 
-# Copy the given linux target ($1) to a well known location ($2).
-# This also renames the file to the given final name ($2)
 _copy_linux_exe() {
     _copy_target_executable $1 $2 @io_bazel_rules_go//go/toolchain:linux_amd64 $3
 }
 
-# Copy the given macOS target ($1) to a well known location ($2).
-# This also renames the file to the given final name ($2)
 _copy_mac_exe() {
     _copy_target_executable $1 $2 @io_bazel_rules_go//go/toolchain:darwin_amd64 $3
 }
 
-# Copy the given macOS m1 target ($1) to a well known location ($2).
-# This also renames the file to the given final name ($2)
 _copy_mac_m1_exe() {
     _copy_target_executable $1 $2 @io_bazel_rules_go//go/toolchain:darwin_arm64 $3
 }
