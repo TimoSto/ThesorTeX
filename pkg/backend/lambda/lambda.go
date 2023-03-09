@@ -16,6 +16,8 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
+//TODO: write differently
+
 // implements https://godoc.org/net/http#ResponseWriter
 type responseWriter struct {
 	statusCode int
@@ -32,9 +34,6 @@ func Start(handler http.Handler) {
 
 func ApplyHandlerToLambda(handler http.Handler) func(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	fn := func(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-		//if lc, success := lambdacontext.FromContext(ctx); success {
-		//	ctx = AddReqIdToCtx(ctx, lc.AwsRequestID)
-		//}
 		log.Info(fmt.Sprintf("Received APIGatewayRequest '%v'", request.RequestContext.RequestID))
 		respw := &responseWriter{header: http.Header{}, body: &bytes.Buffer{}}
 		req, err := newRequest(&request)
