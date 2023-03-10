@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "parser",
+    srcs = [
+        "get_releavnt_notes.go",
+        "get_versions.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/tools/releasenotes/parser",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "parser_test",
+    srcs = [
+        "get_relevant_notes_test.go",
+        "get_versions_test.go",
+    ],
+    embed = [":parser"],
+)

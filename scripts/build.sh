@@ -13,17 +13,23 @@ source ./scripts/builder.sh
 
 echo "building thesis template"
 
+build_zip_target //:release_notes_template "artifacts/ReleaseNotes_ThesisTemplate.md"
+
 build_zip_target //pkg/backend/project_template:template_zip artifacts/ThesisTemplate.zip
 
 echo "building cv template"
 
+build_zip_target //:release_notes_cv_template "artifacts/ReleaseNotes_CVTemplate.md"
+
 build_zip_target //pkg/backend/cv_template:template_zip artifacts/CVTemplate.zip
 
-version="$(./scripts/env.sh APP VERSIONS)"
+version="$(./scripts/env.sh TOOL VERSIONS)"
 
 echo "building tool version $version"
 
 outDir="artifacts/tool"
+
+build_zip_target //:release_notes_app "$outDir/ReleaseNotes.md"
 
 echo "building for windows..."
 
