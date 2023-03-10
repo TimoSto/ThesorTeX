@@ -1,7 +1,7 @@
 
 echo "uploading tool artifacts..."
 
-VERSION=$(scripts/env.sh APP VERSIONS)
+VERSION=$(scripts/env.sh TOOL VERSIONS)
 
 VERSIONPATH=v$VERSION
 
@@ -21,6 +21,8 @@ echo $VERSIONPATH
 
 aws s3 cp artifacts/ThesisTemplate.zip s3://thesortex-artifacts/thesisTemplate/$VERSIONPATH/ --cache-control max-age=86400
 
+aws s3 cp artifacts/ReleaseNotes_ThesisTemplate.md s3://thesortex-artifacts/thesisTemplate/$VERSIONPATH/ReleaseNotes.md --cache-control max-age=86400
+
 aws s3 cp artifacts/ThesisTemplate.zip s3://thesortex-artifacts/thesisTemplate/latest/ --cache-control max-age=3600
 
 echo "uploading cv template..."
@@ -32,5 +34,7 @@ VERSIONPATH=v$VERSION
 echo $VERSIONPATH
 
 aws s3 cp artifacts/CVTemplate.zip s3://thesortex-artifacts/cvTemplate/$VERSIONPATH/ --cache-control max-age=86400
+
+aws s3 cp artifacts/ReleaseNotes_CVTemplate.md s3://thesortex-artifacts/cvTemplate/$VERSIONPATH/ReleaseNotes.md --cache-control max-age=86400
 
 aws s3 cp artifacts/CVTemplate.zip s3://thesortex-artifacts/cvTemplate/latest/ --cache-control max-age=3600
