@@ -22,7 +22,7 @@ func TestGetToolVersions(t *testing.T) {
 
 	expected := []VersionInfo{
 		{
-			Name: "v1.1.0 (latest)",
+			Name: "v1.1.0",
 			Date: "01-01-2022",
 		},
 		{

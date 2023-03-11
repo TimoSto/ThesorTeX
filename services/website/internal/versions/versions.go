@@ -86,8 +86,6 @@ func GetToolVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionInf
 		sort.Slice(versions, func(i, j int) bool {
 			return versions[i].Name > versions[j].Name
 		})
-
-		versions[0].Name = fmt.Sprintf("%s (latest)", versions[0].Name)
 	}
 
 	return versions, nil
@@ -136,8 +134,6 @@ func GetThesisVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionI
 		sort.Slice(versions, func(i, j int) bool {
 			return versions[i].Name > versions[j].Name
 		})
-
-		versions[0].Name = fmt.Sprintf("%s (latest)", versions[0].Name)
 	}
 
 	return versions, nil
@@ -186,8 +182,6 @@ func GetCvVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionInfo,
 		sort.Slice(versions, func(i, j int) bool {
 			return versions[i].Name > versions[j].Name
 		})
-
-		versions[0].Name = fmt.Sprintf("%s (latest)", versions[0].Name)
 	}
 
 	return versions, nil

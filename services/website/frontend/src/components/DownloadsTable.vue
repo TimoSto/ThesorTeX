@@ -12,7 +12,7 @@
         <th v-if="perOs">Windows</th>
         <th v-if="perOs">Linux</th>
         <th v-if="perOs">MacOS (AMD)</th>
-        <th v-if="perOs">MacOS (ARM)</th>
+        <th v-if="perOs">MacOS (ARM/)</th>
         <th v-if="!perOs">Artefakt</th>
         <th>
           Release-Notes

@@ -278,7 +278,6 @@ const releaseNotesTitle = computed(() => {
 // watchers
 watch(releaseNotesOpen, async () => {
   if (releaseNotesOpen.value) {
-    openedReleaseNotes.value = openedReleaseNotes.value.replace(" (latest)", "");
     releaseNotes.value = await GetReleaseNotes(openedReleaseNotes.value);
   }
 });
