@@ -79,7 +79,7 @@
       </p>
       <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
                       max-width="500"
-                      @open-notes="openedReleaseNotes = `Template - ${$event}`" />
+                      @open-notes="openedReleaseNotes = `thesisTemplate - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -164,7 +164,7 @@
       </v-row>
       <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
                       :download-func="getToolDownloadLink"
-                      max-width="800" @open-notes="openedReleaseNotes = `Tool - ${$event}`" />
+                      max-width="800" @open-notes="openedReleaseNotes = `tool - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -174,7 +174,7 @@
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
-                      max-width="500" @open-notes="openedReleaseNotes = `CV - ${$event}`" />
+                      max-width="500" @open-notes="openedReleaseNotes = `cvTemplate - ${$event}`" />
     </v-container>
   </div>
   <v-dialog v-model="releaseNotesOpen" width="600">
@@ -182,6 +182,9 @@
       <v-card-title>
         {{ openedReleaseNotes }}
       </v-card-title>
+      <v-card-text>
+        <MarkdownToVuetify :file="releaseNotes" v-if="releaseNotes !== undefined" />
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
@@ -191,7 +194,7 @@ import DownloadsTable from "../components/DownloadsTable.vue";
 import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import GetToolVersions, {VersionData} from "../api/GetToolVersions";
 import {
   getCVTemplateDownloadLink,
@@ -203,6 +206,7 @@ import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
+import GetReleaseNotes from "../api/GetReleaseNotes";
 
 // globals
 
@@ -220,6 +224,8 @@ const cvDownload = ref(null);
 const versions = ref<VersionData | undefined>(undefined);
 
 const openedReleaseNotes = ref("");
+
+const releaseNotes = ref<string | undefined>(undefined);
 
 // computed
 const releaseNotesOpen = computed({
@@ -248,6 +254,13 @@ const cvSVG = computed(() => {
   const svg = JSON.parse(JSON.stringify(CVSVG));
 
   return svg;
+});
+
+// watchers
+watch(releaseNotesOpen, async () => {
+  if (releaseNotesOpen.value) {
+    releaseNotes.value = await GetReleaseNotes(openedReleaseNotes.value);
+  }
 });
 
 // methods
