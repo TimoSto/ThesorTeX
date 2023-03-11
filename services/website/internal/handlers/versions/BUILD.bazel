@@ -7,7 +7,7 @@ go_library(
     visibility = ["//services/website:__subpackages__"],
     deps = [
         "//pkg/backend/log",
+        "//services/website/internal/buckethandler",
         "//services/website/internal/versions",
-        "//vendor/github.com/aws/aws-sdk-go-v2/service/s3",
     ],
 )

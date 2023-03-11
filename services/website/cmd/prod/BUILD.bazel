@@ -11,6 +11,7 @@ go_library(
         "//pkg/backend/lambda",
         "//pkg/backend/log",
         "//pkg/backend/s3",
+        "//services/website/internal/buckethandler",
         "//services/website/internal/handlers",
     ],
 )

@@ -7,8 +7,7 @@ import (
 	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/service/s3"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler"
 )
 
 type Versions struct {
@@ -17,25 +16,25 @@ type Versions struct {
 	CvTemplate     []VersionInfo
 }
 
-func GetVersions(dev bool, s3Client *s3.Client) (Versions, error) {
+func GetVersions(dev bool, bucket *buckethandler.BucketHandler) (Versions, error) {
 	obj := Versions{
 		Tool:           nil,
 		ThesisTemplate: nil,
 		CvTemplate:     nil,
 	}
-	toolsV, err := GetToolVersions(dev, s3Client)
+	toolsV, err := GetToolVersions(dev, *bucket)
 	if err != nil {
 		return obj, err
 	}
 	obj.Tool = toolsV
 
-	thesisV, err := GetThesisVersions(dev, s3Client)
+	thesisV, err := GetThesisVersions(dev, *bucket)
 	if err != nil {
 		return obj, err
 	}
 	obj.ThesisTemplate = thesisV
 
-	cvV, err := GetCvVersions(dev, s3Client)
+	cvV, err := GetCvVersions(dev, *bucket)
 	if err != nil {
 		return obj, err
 	}
@@ -44,7 +43,7 @@ func GetVersions(dev bool, s3Client *s3.Client) (Versions, error) {
 	return obj, nil
 }
 
-func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
+func GetToolVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionInfo, error) {
 	var versions []VersionInfo
 
 	if dev {
@@ -63,10 +62,7 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 			},
 		}
 	} else {
-		output, err := s3Client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-			Bucket: aws.String("thesortex-artifacts"),
-			Prefix: aws.String("tool"),
-		})
+		output, err := bucket.ListElementsInBucket(context.TODO(), "thesortex-artifacts", "tool")
 
 		if err != nil {
 			log.Error("could not read bucket items: %v", err)
@@ -75,7 +71,7 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 
 		foundVersions := ""
 
-		for _, object := range output.Contents {
+		for _, object := range output {
 			pathParts := strings.Split(*object.Key, "/")
 			if pathParts[1] != "latest" && strings.Index(foundVersions, pathParts[1]) == -1 {
 				foundVersions += fmt.Sprintf(";%s", pathParts[1])
@@ -97,7 +93,7 @@ func GetToolVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 	return versions, nil
 }
 
-func GetThesisVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
+func GetThesisVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionInfo, error) {
 	var versions []VersionInfo
 
 	if dev {
@@ -116,10 +112,7 @@ func GetThesisVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 			},
 		}
 	} else {
-		output, err := s3Client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-			Bucket: aws.String("thesortex-artifacts"),
-			Prefix: aws.String("thesisTemplate"),
-		})
+		output, err := bucket.ListElementsInBucket(context.TODO(), "thesortex-artifacts", "thesisTemplate")
 
 		if err != nil {
 			log.Error("could not read bucket items: %v", err)
@@ -128,7 +121,7 @@ func GetThesisVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 
 		foundVersions := ""
 
-		for _, object := range output.Contents {
+		for _, object := range output {
 			pathParts := strings.Split(*object.Key, "/")
 			if pathParts[1] != "latest" && strings.Index(foundVersions, pathParts[1]) == -1 {
 				foundVersions += fmt.Sprintf(";%s", pathParts[1])
@@ -150,7 +143,7 @@ func GetThesisVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 	return versions, nil
 }
 
-func GetCvVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
+func GetCvVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionInfo, error) {
 	var versions []VersionInfo
 
 	if dev {
@@ -169,10 +162,7 @@ func GetCvVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 			},
 		}
 	} else {
-		output, err := s3Client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-			Bucket: aws.String("thesortex-artifacts"),
-			Prefix: aws.String("cvTemplate"),
-		})
+		output, err := bucket.ListElementsInBucket(context.TODO(), "thesortex-artifacts", "cvTemplate")
 
 		if err != nil {
 			log.Error("could not read bucket items: %v", err)
@@ -181,7 +171,7 @@ func GetCvVersions(dev bool, s3Client *s3.Client) ([]VersionInfo, error) {
 
 		foundVersions := ""
 
-		for _, object := range output.Contents {
+		for _, object := range output {
 			pathParts := strings.Split(*object.Key, "/")
 			if pathParts[1] != "latest" && strings.Index(foundVersions, pathParts[1]) == -1 {
 				foundVersions += fmt.Sprintf(";%s", pathParts[1])

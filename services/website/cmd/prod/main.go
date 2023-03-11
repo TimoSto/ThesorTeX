@@ -10,6 +10,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/lambda"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/s3"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers"
 )
 
@@ -25,7 +26,9 @@ func main() {
 		logD.Fatal(err)
 	}
 
-	handlers.RegisterWebsiteHandlers(mux, dev == "true", s3Client)
+	s3Handler := buckethandler.New(s3Client)
+
+	handlers.RegisterWebsiteHandlers(mux, dev == "true", &s3Handler)
 
 	chain := handler_chain.CreateHandlerChain()
 

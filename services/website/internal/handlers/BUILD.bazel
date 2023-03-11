@@ -6,11 +6,11 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/handlers",
     visibility = ["//services/website:__subpackages__"],
     deps = [
+        "//services/website/internal/buckethandler",
         "//services/website/internal/handlers/assets",
         "//services/website/internal/handlers/documentations",
         "//services/website/internal/handlers/examples",
         "//services/website/internal/handlers/templates",
         "//services/website/internal/handlers/versions",
-        "//vendor/github.com/aws/aws-sdk-go-v2/service/s3",
     ],
 )

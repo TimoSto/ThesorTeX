@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "buckethandler",
+    srcs = [
+        "buckethandler.go",
+        "s3_handler.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler",
+    visibility = ["//services/website:__subpackages__"],
+    deps = [
+        "//pkg/backend/log",
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/s3",
+    ],
+)
