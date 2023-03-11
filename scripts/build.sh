@@ -27,9 +27,9 @@ version="$(./scripts/env.sh THESIS_TOOL VERSIONS)"
 
 echo "building tool version $version"
 
-outDir="artifacts/tool"
+outDir="artifacts/thesisTool"
 
-build_zip_target //:release_notes_app "$outDir/ReleaseNotes.md"
+build_zip_target //:release_notes_app "artifacts/ReleaseNotes_ThesisTool.md"
 
 echo "building for windows..."
 

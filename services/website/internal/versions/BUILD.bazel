@@ -1,10 +1,10 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "versions",
     srcs = [
-        "tool_versions.go",
         "version_info.go",
+        "versions.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/versions",
     visibility = ["//services/website:__subpackages__"],
@@ -12,4 +12,11 @@ go_library(
         "//pkg/backend/log",
         "//services/website/internal/buckethandler",
     ],
+)
+
+go_test(
+    name = "versions_test",
+    srcs = ["versions_test.go"],
+    embed = [":versions"],
+    deps = ["//services/website/internal/buckethandler"],
 )

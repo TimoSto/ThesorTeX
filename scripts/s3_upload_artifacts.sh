@@ -12,9 +12,11 @@ then
 
   echo $VERSIONPATH
 
-  aws s3 cp artifacts/tool/ s3://thesortex-artifacts/tool/$VERSIONPATH/ --recursive --cache-control max-age=86400
+  aws s3 cp artifacts/thesisTool/ s3://thesortex-artifacts/thesisTool/$VERSIONPATH/ --recursive --cache-control max-age=86400
 
-  aws s3 cp artifacts/tool/ s3://thesortex-artifacts/tool/latest/ --recursive --cache-control max-age=3600
+  aws s3 cp artifacts/ReleaseNotes_ThesisTool.md s3://thesortex-artifacts/thesisTool/$VERSIONPATH/ReleaseNotes.md --cache-control max-age=86400
+
+  aws s3 cp artifacts/thesisTool/ s3://thesortex-artifacts/thesisTool/latest/ --recursive --cache-control max-age=3600
 
 fi
 

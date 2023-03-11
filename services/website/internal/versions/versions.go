@@ -62,7 +62,7 @@ func GetToolVersions(dev bool, bucket buckethandler.BucketHandler) ([]VersionInf
 			},
 		}
 	} else {
-		output, err := bucket.ListElementsInBucket(context.TODO(), "thesortex-artifacts", "tool")
+		output, err := bucket.ListElementsInBucket(context.TODO(), "thesortex-artifacts", "thesisTool")
 
 		if err != nil {
 			log.Error("could not read bucket items: %v", err)

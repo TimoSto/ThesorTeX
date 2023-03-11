@@ -19,9 +19,9 @@ func New(client *s3.Client) S3BucketHandler {
 }
 
 func (s *S3BucketHandler) ListElementsInBucket(ctx context.Context, bucket string, subDir string) ([]BucketItem, error) {
-	output, err := s.client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-		Bucket: aws.String("thesortex-artifacts"),
-		Prefix: aws.String("thesisTemplate"),
+	output, err := s.client.ListObjectsV2(ctx, &s3.ListObjectsV2Input{
+		Bucket: aws.String(bucket),
+		Prefix: aws.String(subDir),
 	})
 
 	if err != nil {

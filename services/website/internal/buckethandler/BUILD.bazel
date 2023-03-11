@@ -4,6 +4,7 @@ go_library(
     name = "buckethandler",
     srcs = [
         "buckethandler.go",
+        "fake_handler.go",
         "s3_handler.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler",

@@ -164,7 +164,7 @@
       </v-row>
       <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
                       :download-func="getToolDownloadLink"
-                      max-width="800" @open-notes="openedReleaseNotes = `tool - ${$event}`" />
+                      max-width="800" @open-notes="openedReleaseNotes = `thesisTool - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -260,7 +260,7 @@ const releaseNotesTitle = computed(() => {
   const parts = openedReleaseNotes.value.split(" - ");
   let title = "";
   switch (parts[0]) {
-    case "tool":
+    case "thesisTool":
       title = "Tool für Literaturmanagement";
       break;
     case "thesisTemplate":
