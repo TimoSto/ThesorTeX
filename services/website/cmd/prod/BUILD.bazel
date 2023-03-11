@@ -2,9 +2,9 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
 
 go_library(
-    name = "cmd_lib",
+    name = "prod_lib",
     srcs = ["main.go"],
-    importpath = "github.com/TimoSto/ThesorTeX/services/website/cmd",
+    importpath = "github.com/TimoSto/ThesorTeX/services/website/cmd/prod",
     visibility = ["//visibility:private"],
     deps = [
         "//pkg/backend/handler_chain",
@@ -16,14 +16,14 @@ go_library(
 )
 
 go_binary(
-    name = "cmd",
-    embed = [":cmd_lib"],
+    name = "prod",
+    embed = [":prod_lib"],
     visibility = ["//visibility:public"],
 )
 
 pkg_zip(
     name = "lambda_zip",
     srcs = [
-        ":cmd",
+        ":prod",
     ],
 )

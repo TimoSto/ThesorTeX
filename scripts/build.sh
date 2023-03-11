@@ -49,6 +49,6 @@ build_mac_m1_target //services/app/cmd/prod:app_zip "$outDir/mac_arm/ThesorTeX.z
 
 echo "building website for linux..."
 
-build_linux_target //services/website/cmd:lambda_zip "artifacts/website/lambda.zip" "$(pwd)"
+build_linux_target //services/website/cmd/prod:lambda_zip "artifacts/website/lambda.zip" "$(pwd)"
 
 echo "finished"
