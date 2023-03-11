@@ -72,8 +72,10 @@ cd terraform
 To upload build-artifacts as zips
 
 ```
-./scripts/s3_upload_atrifacts.sh
+./scripts/s3_upload_atrifacts.sh all
 ```
+
+To only deploy one target, replace `all` with `tool`, `thesisTemplate` or `cvTemplate`.
 
 ## Used technologies
 
