@@ -6,13 +6,13 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {convertMarkdownToVuetify} from "./helper/convertMarkdownToVuetify";
+import {convertMarkdownToHTML} from "./helper/convertMarkdownToHTML";
 
 const props = defineProps({
   file: String,
 });
 
-const parsed = computed(() => convertMarkdownToVuetify(props.file!));
+const parsed = computed(() => convertMarkdownToHTML(props.file!));
 </script>
 
 <style lang="scss">

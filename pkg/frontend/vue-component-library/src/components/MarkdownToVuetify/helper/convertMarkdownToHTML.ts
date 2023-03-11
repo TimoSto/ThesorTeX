@@ -3,7 +3,7 @@ import {analyseLine} from "./analyseLine";
 const boldRegex = new RegExp(/\*\*(.*?)\*\*/gs);
 const italicRegex = new RegExp(/\*(.*?)\*/gs);
 
-export function convertMarkdownToVuetify(file: string): string {
+export function convertMarkdownToHTML(file: string): string {
     let html = "";
 
     const lines = file.split("\n");
