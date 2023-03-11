@@ -122,17 +122,17 @@
 
 \pagenumbering{Roman}
 
-\addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
+\addcontentsline{toc}{part}{List of abbreviations}%Abk-Verz. ins Inhaltsverzeichnis
 \printabbreviations%abk_verzeichnis.sty
 \clearpage
-\renewcommand{\plaintitle}{Abbildungsverzeichnis}
-\addcontentsline{toc}{part}{Abbildungsverzeichnis}
+\renewcommand{\plaintitle}{List of figures}
+\addcontentsline{toc}{part}{List of figures}
 {\def\makebox[#1][#2]#3{#3}%
     \listoffigures
 }
 \clearpage
-\renewcommand{\plaintitle}{Tabellenverzeichnis}
-\addcontentsline{toc}{part}{Tabellenverzeichnis}
+\renewcommand{\plaintitle}{List of tables}
+\addcontentsline{toc}{part}{List of tables}
 {\def\makebox[#1][#2]#3{#3}%
     \listoftables
 }
@@ -291,20 +291,20 @@ The list of attachments can be output using the following command:
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
-\renewcommand{\plaintitle}{Literaturverzeichnis}
+\renewcommand{\plaintitle}{Bibliography}
 \pagenumbering{Roman}
 \setcounter{page}{5}
 \addtocontents{toc}{\vspace{24pt}}
-\addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
+\addcontentsline{toc}{part}{Bibliography}%Literatur-Verz. ins Inhaltsverzeichnis
 \printMyBibliography
 \clearpage
-\renewcommand{\plaintitle}{Anhang}
-\addcontentsline{toc}{part}{Anhang}
+\renewcommand{\plaintitle}{Appendix}
+\addcontentsline{toc}{part}{Appendix}
 {\def\makebox[#1][#2]#3{#3}%
     \listofanhang
 }
 \clearpage
-\anhang{Test Anhang}
-Mein erster Anhang
+\anhang{Test ppendix}
+My first appendix
 
 \end{document}
