@@ -6,5 +6,9 @@ export default async function GetReleaseNotes(target: string): Promise<string> {
         return "# Could not read release notes";
     }
 
-    return resp.text();
+    let notes = await resp.text();
+
+    notes = notes.replace(/^# v.*$/gm, "");
+
+    return notes;
 }

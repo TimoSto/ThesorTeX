@@ -179,10 +179,10 @@
   </div>
   <v-dialog v-model="releaseNotesOpen" width="600">
     <v-card>
-      <v-card-title>
-        {{ openedReleaseNotes }}
+      <v-card-title class="text-h5">
+        {{ releaseNotesTitle }}
       </v-card-title>
-      <v-card-text>
+      <v-card-text style="padding-top: 0;">
         <MarkdownToVuetify :file="releaseNotes" v-if="releaseNotes !== undefined" />
       </v-card-text>
     </v-card>
@@ -254,6 +254,25 @@ const cvSVG = computed(() => {
   const svg = JSON.parse(JSON.stringify(CVSVG));
 
   return svg;
+});
+
+const releaseNotesTitle = computed(() => {
+  const parts = openedReleaseNotes.value.split(" - ");
+  let title = "";
+  switch (parts[0]) {
+    case "tool":
+      title = "Tool für Literaturmanagement";
+      break;
+    case "thesisTemplate":
+      title = "Vorlage für wissenschaftliche Arbeiten";
+      break;
+    case "cvTemplate":
+      title = "Vorlage für einen Lebenslauf";
+      break;
+  }
+  title += " - " + parts[1];
+
+  return title;
 });
 
 // watchers
