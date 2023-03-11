@@ -2,7 +2,6 @@ package buckethandler
 
 import (
 	"context"
-	"fmt"
 	"strings"
 	"time"
 )
@@ -25,7 +24,6 @@ func (s *FakeBucketHandler) ListElementsInBucket(ctx context.Context, bucket str
 	t := time.Date(2022, time.January, 1, 1, 1, 1, 1, time.UTC)
 
 	for k, _ := range s.items {
-		fmt.Println(k, strings.Index(k, subDir) >= 0)
 		if strings.Index(k, subDir) >= 0 {
 			key := k
 			result = append(result, BucketItem{
@@ -34,8 +32,6 @@ func (s *FakeBucketHandler) ListElementsInBucket(ctx context.Context, bucket str
 			})
 		}
 	}
-
-	fmt.Println(result)
 
 	return result, nil
 }
