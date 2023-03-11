@@ -5,7 +5,7 @@ locals {
 resource "aws_lambda_function" "website_lambda_func" {
   filename         = local.lambda_file
   function_name    = "thesortex-website"
-  handler          = "cmd"
+  handler          = "prod"
   source_code_hash = base64sha256(local.lambda_file)
   runtime          = "go1.x"
   role             = aws_iam_role.website_lambda_exec.arn
