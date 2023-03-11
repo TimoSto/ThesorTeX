@@ -23,7 +23,7 @@
               </template>
             </i18n-t>
           </p>
-          <v-btn color="primary" to="/docs/template">
+          <v-btn color="primary" to="/tutorials">
             {{ t(i18nKeys.Common.LearnMore) }}
           </v-btn>
         </v-col>
@@ -44,7 +44,7 @@
           <p class="text-h6 pb-6">
             {{ t(i18nKeys.StartPage.ThesisToolSubtitle) }}
           </p>
-          <v-btn color="primary">
+          <v-btn color="primary" to="/tutorials">
             {{ t(i18nKeys.Common.LearnMore) }}
           </v-btn>
         </v-col>
@@ -65,7 +65,7 @@
               </template>
             </i18n-t>
           </p>
-          <v-btn color="primary">
+          <v-btn color="primary" to="/tutorials">
             {{ t(i18nKeys.Common.LearnMore) }}
           </v-btn>
         </v-col>
