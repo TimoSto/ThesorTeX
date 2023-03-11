@@ -6,7 +6,7 @@ if [ "$1" = "tool" ] || [ "$1" = "all" ]
 then
   echo "uploading tool artifacts..."
 
-  VERSION=$(scripts/env.sh TOOL VERSIONS)
+  VERSION=$(scripts/env.sh THESIS_TOOL VERSIONS)
 
   VERSIONPATH=v$VERSION
 

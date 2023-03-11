@@ -37,7 +37,7 @@ npm_link_all_packages()
 filegroup(
     name = "notes_srcs",
     srcs = [
-        "CHANGELOG_TOOL.md",
+        "CHANGELOG_THESIS_TOOL.md",
         "CHANGELOG_THESIS_TEMPLATE.md",
         "CHANGELOG_CV_TEMPLATE.md",
         "VERSIONS",
@@ -48,7 +48,7 @@ filegroup(
 genrule(
     name = "release_notes_app",
     tools = ["//tools/releasenotes:releasenotes"],
-    cmd = "./$(location //tools/releasenotes:releasenotes) -target=TOOL > \"$@\"",
+    cmd = "./$(location //tools/releasenotes:releasenotes) -target=THESIS_TOOL > \"$@\"",
     outs = [
         "ThesisTool.md",
     ],

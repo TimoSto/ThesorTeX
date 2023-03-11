@@ -23,7 +23,7 @@ build_zip_target //:release_notes_cv_template "artifacts/ReleaseNotes_CVTemplate
 
 build_zip_target //pkg/backend/cv_template:template_zip artifacts/CVTemplate.zip
 
-version="$(./scripts/env.sh TOOL VERSIONS)"
+version="$(./scripts/env.sh THESIS_TOOL VERSIONS)"
 
 echo "building tool version $version"
 
