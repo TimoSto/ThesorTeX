@@ -11,14 +11,14 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/versions"
 )
 
-func RegisterWebsiteHandlers(mux *http.ServeMux, dev bool, bucket buckethandler.BucketHandler) {
+func RegisterWebsiteHandlers(mux *http.ServeMux, bucket buckethandler.BucketHandler) {
 	mux.HandleFunc("/", assets.HandleAssets())
 
 	mux.HandleFunc("/templates/thesis", templates.HandleThesisTemplate())
 
 	mux.HandleFunc("/templates/cv", templates.HandleCVTemplate())
 
-	mux.HandleFunc("/versions", versions.HandleVersions(dev, &bucket))
+	mux.HandleFunc("/versions", versions.HandleVersions(&bucket))
 
 	mux.HandleFunc("/documentation", documentations.HandleDocumentations())
 

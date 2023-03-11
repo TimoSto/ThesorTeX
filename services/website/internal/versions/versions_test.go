@@ -14,7 +14,7 @@ func TestGetToolVersions(t *testing.T) {
 	db.SetItem("thesisTool/v1.0.0", "test-1")
 	db.SetItem("thesisTemplate/v1.0.0", "test-1")
 
-	versions, err := GetToolVersions(false, &db)
+	versions, err := GetToolVersions(&db)
 
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)

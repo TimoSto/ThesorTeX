@@ -42,7 +42,7 @@ bazel run //services/app/cmd/e2e
 To run the website backend locally;
 
 ```
-bazel run --run_under="export DEV=true &&" //services/website/cmd
+bazel run //services/website/cmd/e2e
 ```
 
 ## Testing
