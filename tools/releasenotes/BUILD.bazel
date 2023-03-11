@@ -5,17 +5,14 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/tools/releasenotes",
     visibility = ["//visibility:private"],
-    deps = [
-        "//pkg/backend/pathbuilder",
-        "//tools/releasenotes/parser",
-    ],
+    deps = ["//tools/releasenotes/parser"],
 )
 
 go_binary(
     name = "releasenotes",
-    embed = [":releasenotes_lib"],
     data = [
-        "//:notes_srcs"
+        "//:notes_srcs",
     ],
+    embed = [":releasenotes_lib"],
     visibility = ["//visibility:public"],
 )

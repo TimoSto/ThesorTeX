@@ -3,8 +3,8 @@ load("@aspect_rules_js//npm:defs.bzl", "npm_package")
 npm_package(
     name = "vue-i18n-plugin",
     srcs = [
+        "index.ts",
         "package.json",
-        "index.ts"
     ],
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
 )

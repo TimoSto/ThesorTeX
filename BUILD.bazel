@@ -37,9 +37,9 @@ npm_link_all_packages()
 filegroup(
     name = "notes_srcs",
     srcs = [
-        "CHANGELOG_THESIS_TOOL.md",
-        "CHANGELOG_THESIS_TEMPLATE.md",
         "CHANGELOG_CV_TEMPLATE.md",
+        "CHANGELOG_THESIS_TEMPLATE.md",
+        "CHANGELOG_THESIS_TOOL.md",
         "VERSIONS",
     ],
     visibility = ["//visibility:public"],
@@ -47,30 +47,30 @@ filegroup(
 
 genrule(
     name = "release_notes_app",
-    tools = ["//tools/releasenotes:releasenotes"],
-    cmd = "./$(location //tools/releasenotes:releasenotes) -target=THESIS_TOOL > \"$@\"",
+    srcs = [":notes_srcs"],
     outs = [
         "ThesisTool.md",
     ],
-    srcs = [":notes_srcs"]
+    cmd = "./$(location //tools/releasenotes:releasenotes) -target=THESIS_TOOL > \"$@\"",
+    tools = ["//tools/releasenotes"],
 )
 
 genrule(
     name = "release_notes_template",
-    tools = ["//tools/releasenotes:releasenotes"],
-    cmd = "./$(location //tools/releasenotes:releasenotes) -target=THESIS_TEMPLATE > \"$@\"",
+    srcs = [":notes_srcs"],
     outs = [
         "ThesisTemplate.md",
     ],
-    srcs = [":notes_srcs"]
+    cmd = "./$(location //tools/releasenotes:releasenotes) -target=THESIS_TEMPLATE > \"$@\"",
+    tools = ["//tools/releasenotes"],
 )
 
 genrule(
     name = "release_notes_cv_template",
-    tools = ["//tools/releasenotes:releasenotes"],
-    cmd = "./$(location //tools/releasenotes:releasenotes) -target=CV_TEMPLATE > \"$@\"",
+    srcs = [":notes_srcs"],
     outs = [
         "CVTemplate.md",
     ],
-    srcs = [":notes_srcs"]
+    cmd = "./$(location //tools/releasenotes:releasenotes) -target=CV_TEMPLATE > \"$@\"",
+    tools = ["//tools/releasenotes"],
 )

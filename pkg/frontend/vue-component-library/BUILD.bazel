@@ -2,38 +2,38 @@ load("@aspect_rules_js//npm:defs.bzl", "npm_package")
 load("//:bazel/vitest/vitest.bzl", "vitest_run")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 
-npm_link_all_packages(name="node_modules")
+npm_link_all_packages(name = "node_modules")
 
 npm_package(
     name = "vue-component-library",
     srcs = [
         "package.json",
     ] + glob([
-        "src/**/*"
+        "src/**/*",
     ]),
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
 )
 
 vitest_run(
-    name="vitest",
-    config_path="$(execpath :vite.config.ts)",
-    _data= glob([
+    name = "vitest",
+    _data = glob([
         "src/**/*",
     ]) + [
-         ":vite.config.ts",
-         ":vuetify.config.js",
-         ":node_modules/vuetify",
-         "//:node_modules/vite",
-         "//:node_modules/vitest",
-         "//:node_modules/vue",
-         "//:node_modules/@vue/test-utils",
-         ":node_modules/@vitejs/plugin-vue",
-         ":node_modules/vite-plugin-vuetify",
-         ":node_modules/pinia",
-         ":node_modules/sass",
-         ":node_modules/@thesortex/vitest-vuetify",
-         "//:node_modules/vue-i18n",
-         "//:node_modules/happy-dom",
-     ],
-     root = "pkg/frontend/vue-component-library/"
+        ":vite.config.ts",
+        ":vuetify.config.js",
+        ":node_modules/vuetify",
+        "//:node_modules/vite",
+        "//:node_modules/vitest",
+        "//:node_modules/vue",
+        "//:node_modules/@vue/test-utils",
+        ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/vite-plugin-vuetify",
+        ":node_modules/pinia",
+        ":node_modules/sass",
+        ":node_modules/@thesortex/vitest-vuetify",
+        "//:node_modules/vue-i18n",
+        "//:node_modules/happy-dom",
+    ],
+    config_path = "$(execpath :vite.config.ts)",
+    root = "pkg/frontend/vue-component-library/",
 )

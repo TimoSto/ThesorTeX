@@ -4,40 +4,40 @@ load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load("@rules_pkg//:mappings.bzl", "strip_prefix")
 
-npm_link_all_packages(name="node_modules")
+npm_link_all_packages(name = "node_modules")
 
 vite_build(
     name = "assets",
-    config_path="$(execpath :vite.config.ts)",
-    root = package_name(),
     out = ["dist"],
     _data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
         "src/**/*.scss",
-        "src/i18n/**/*"
+        "src/i18n/**/*",
     ]) + [
-       ":index.html",
-       ":vite.config.ts",
-       ":vuetify.config.js",
-       ":node_modules/msw",
-       ":node_modules/cross-fetch",
-       ":node_modules/@thesortex/vue-i18n-plugin",
-       ":node_modules/vuetify",
-       "//:node_modules/vite",
-       "//:node_modules/vitest",
-       "//:node_modules/vue",
-       ":node_modules/sass",
-       "//:node_modules/@vue/test-utils",
-       ":node_modules/@vitejs/plugin-vue",
-       ":node_modules/vite-plugin-vuetify",
-       ":node_modules/pinia",
-       ":node_modules/@thesortex/vitest-vuetify",
-       ":node_modules/@thesortex/vuetify-plugin",
-       ":node_modules/@thesortex/vue-component-library",
-       "//:node_modules/vue-i18n",
-       "//:node_modules/happy-dom",
-   ]
+        ":index.html",
+        ":vite.config.ts",
+        ":vuetify.config.js",
+        ":node_modules/msw",
+        ":node_modules/cross-fetch",
+        ":node_modules/@thesortex/vue-i18n-plugin",
+        ":node_modules/vuetify",
+        "//:node_modules/vite",
+        "//:node_modules/vitest",
+        "//:node_modules/vue",
+        ":node_modules/sass",
+        "//:node_modules/@vue/test-utils",
+        ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/vite-plugin-vuetify",
+        ":node_modules/pinia",
+        ":node_modules/@thesortex/vitest-vuetify",
+        ":node_modules/@thesortex/vuetify-plugin",
+        ":node_modules/@thesortex/vue-component-library",
+        "//:node_modules/vue-i18n",
+        "//:node_modules/happy-dom",
+    ],
+    config_path = "$(execpath :vite.config.ts)",
+    root = package_name(),
 )
 
 pkg_tar(
@@ -49,32 +49,32 @@ pkg_tar(
 )
 
 vitest_run(
-    name="app_frontend",
-    config_path="$(execpath :vite.config.ts)",
-    _data= glob([
+    name = "app_frontend",
+    _data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
         "src/api/mocks/*.ts",
         "src/domain/testdata/files/**/*",
-        "src/i18n/**/*"
+        "src/i18n/**/*",
     ]) + [
-         ":vite.config.ts",
-         ":vuetify.config.js",
-         ":node_modules/msw",
-         ":node_modules/cross-fetch",
-         ":node_modules/@thesortex/vue-i18n-plugin",
-         ":node_modules/vuetify",
-         "//:node_modules/vite",
-         "//:node_modules/vitest",
-         "//:node_modules/vue",
-         ":node_modules/sass",
-         "//:node_modules/@vue/test-utils",
-         ":node_modules/@vitejs/plugin-vue",
-         ":node_modules/vite-plugin-vuetify",
-         ":node_modules/pinia",
-         ":node_modules/@thesortex/vitest-vuetify",
-         "//:node_modules/vue-i18n",
-         "//:node_modules/happy-dom",
-     ],
-     root = "services/app/frontend/"
+        ":vite.config.ts",
+        ":vuetify.config.js",
+        ":node_modules/msw",
+        ":node_modules/cross-fetch",
+        ":node_modules/@thesortex/vue-i18n-plugin",
+        ":node_modules/vuetify",
+        "//:node_modules/vite",
+        "//:node_modules/vitest",
+        "//:node_modules/vue",
+        ":node_modules/sass",
+        "//:node_modules/@vue/test-utils",
+        ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/vite-plugin-vuetify",
+        ":node_modules/pinia",
+        ":node_modules/@thesortex/vitest-vuetify",
+        "//:node_modules/vue-i18n",
+        "//:node_modules/happy-dom",
+    ],
+    config_path = "$(execpath :vite.config.ts)",
+    root = "services/app/frontend/",
 )
