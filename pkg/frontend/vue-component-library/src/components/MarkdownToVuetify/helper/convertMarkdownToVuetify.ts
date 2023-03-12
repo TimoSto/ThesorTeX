@@ -7,6 +7,8 @@ export function ConvertMarkdownToVuetify(file: string): VuetifyComponent[] {
 
     let insideBlock: boolean | "CODE" | "INFO" | "LIST" | "PLAIN_TEXT" = false;
 
+    let newLine = false;
+
     lines.forEach(l => {
         const result = analyseLine(l);
 
@@ -15,8 +17,16 @@ export function ConvertMarkdownToVuetify(file: string): VuetifyComponent[] {
                 if (insideBlock === "CODE") {
                     (components[components.length - 1].Content as string[]).push(result.content as string + "\n");
                 } else {
-                    components.push({Tag: "TEXT", Content: parseItalicAndBold(result.content as string)});
+                    if (components.length > 0 && components[components.length - 1].Tag === "TEXT" && !newLine) {
+                        components[components.length - 1].Content += parseItalicAndBold(result.content as string);
+                    } else {
+                        components.push({Tag: "TEXT", Content: parseItalicAndBold(result.content as string)});
+                        newLine = false;
+                    }
                 }
+                break;
+            case "EMPTY":
+                newLine = true;
                 break;
             case "H1":
                 components.push({Tag: "H1", Content: result.content as string});
@@ -31,7 +41,7 @@ export function ConvertMarkdownToVuetify(file: string): VuetifyComponent[] {
                 if (components[components.length - 1].Tag !== "LIST") {
                     components.push({Tag: "LIST", Content: []});
                 }
-                (components[components.length - 1].Content as string[]).push(result.content as string);
+                (components[components.length - 1].Content as string[]).push(parseItalicAndBold(result.content as string));
                 break;
             case "LINE":
                 components.push({Tag: "HR", Content: ""});
