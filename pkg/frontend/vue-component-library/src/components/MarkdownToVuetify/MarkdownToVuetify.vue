@@ -19,14 +19,11 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {convertMarkdownToHTML} from "./helper/convertMarkdownToHTML";
 import {ConvertMarkdownToVuetify} from "./helper/convertMarkdownToVuetify";
 
 const props = defineProps({
   file: String,
 });
-
-const parsed = computed(() => convertMarkdownToHTML(props.file!));
 
 const components = computed(() => ConvertMarkdownToVuetify(props.file!));
 
