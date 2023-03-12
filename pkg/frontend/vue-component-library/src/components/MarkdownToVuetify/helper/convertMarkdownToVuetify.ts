@@ -39,6 +39,10 @@ export function ConvertMarkdownToVuetify(file: string): VuetifyComponent[] {
             case "START_CODE":
                 components.push({Tag: "CODE", Content: []});
                 insideBlock = "CODE";
+                break;
+            case "END_CODE":
+                insideBlock = false;
+                break;
         }
     });
 
