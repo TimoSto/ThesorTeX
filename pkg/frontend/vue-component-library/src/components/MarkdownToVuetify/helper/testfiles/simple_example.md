@@ -1,4 +1,4 @@
-# TestHeading
+# Test Heading
 
 Some content Some more content
 
@@ -14,8 +14,6 @@ hallo
 - test2
 
 ende
-
-## Heading 3
 
 ```latex
 \part{Test}
