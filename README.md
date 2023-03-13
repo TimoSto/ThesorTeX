@@ -69,6 +69,13 @@ cd terraform
 ./scripts.apply.sh
 ```
 
+or
+
+```
+cd terraform
+./scripts/deploy.sh
+```
+
 To upload build-artifacts as zips
 
 ```
