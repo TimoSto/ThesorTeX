@@ -30,6 +30,21 @@ func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 
+		if doc == "thesis_tool" {
+			docObj, err := documentations.GetThesisToolDoc(lang)
+			if err != nil {
+				log.Error("could not read doc: %v", err)
+				w.WriteHeader(http.StatusNotFound)
+				return
+			}
+			data, err = json.Marshal(docObj)
+			if err != nil {
+				log.Error("could serialize doc: %v", err)
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+		}
+
 		w.Header().Set("Cache-Control", "max-age=3600")
 
 		w.Write(data)

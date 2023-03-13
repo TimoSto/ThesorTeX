@@ -56,6 +56,19 @@
         <v-expansion-panel-title>
           {{ t(i18nKeys.TutorialsPage.ThesisTool) }}
         </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <MarkdownToVuetify :file="thesisToolDocs.Docs[0].Content" v-if="thesisToolDocs !== undefined" />
+          <v-expansion-panels multiple v-if="thesisToolDocs !== undefined">
+            <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisToolDocs.Docs)">
+              <v-expansion-panel-title>
+                {{ e.Title }}
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <MarkdownToVuetify :file="e.Content" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
   </v-container>
@@ -69,7 +82,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import {ref, watch} from "vue";
-import {Documentation, GetThesisDocumentation} from "../api/GetDocumentation";
+import {Documentation, GetThesisDocumentation, GetThesisToolDocumentation} from "../api/GetDocumentation";
 
 // globals
 const {t} = useI18n();
@@ -82,6 +95,8 @@ const props = defineProps({
 const opened = ref<number[]>([]);
 
 const thesisDocs = ref<Documentation | undefined>(undefined);
+
+const thesisToolDocs = ref<Documentation | undefined>(undefined);
 
 const presentationOpened = ref(false);
 
@@ -96,6 +111,8 @@ function arrWithoutFirst(arr: any[]): any[] {
 watch(opened, async () => {
   if (opened.value.indexOf(0) >= 0 && !thesisDocs.value) {
     thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
+  } else if (opened.value.indexOf(1) >= 0 && !thesisToolDocs.value) {
+    thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
   }
 });
 

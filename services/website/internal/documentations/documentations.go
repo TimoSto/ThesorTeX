@@ -42,3 +42,25 @@ func GetThesisDoc(lang string) (Docs, error) {
 
 	return doc, nil
 }
+
+var thesisToolPaths = []string{
+	"thesis_tool_usage",
+	"thesis_tool_usage/startup",
+}
+
+func GetThesisToolDoc(lang string) (Docs, error) {
+	var doc Docs
+
+	for _, p := range thesisToolPaths {
+		d, err := readDoc(p, lang)
+		if err != nil {
+			return doc, err
+		}
+		doc.Docs = append(doc.Docs, Doc{
+			Title:   d.Title,
+			Content: d.Content,
+		})
+	}
+
+	return doc, nil
+}

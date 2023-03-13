@@ -14,3 +14,13 @@ export async function GetThesisDocumentation(lang: string): Promise<Documentatio
 
     return {} as Documentation;
 }
+
+export async function GetThesisToolDocumentation(lang: string): Promise<Documentation> {
+    const resp = await fetch(`/documentation?doc=thesis_tool&lang=${lang}`);
+
+    if (resp.ok) {
+        return await resp.json();
+    }
+
+    return {} as Documentation;
+}
