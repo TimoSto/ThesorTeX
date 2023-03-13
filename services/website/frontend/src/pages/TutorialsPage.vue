@@ -84,11 +84,11 @@
           </v-expansion-panels>
         </v-expansion-panel-text>
       </v-expansion-panel>
-      <!--      <v-expansion-panel>-->
-      <!--        <v-expansion-panel-title>-->
-      <!--          {{ t(i18nKeys.TutorialsPage.ThesisTemplateTech) }}-->
-      <!--        </v-expansion-panel-title>-->
-      <!--      </v-expansion-panel>-->
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          {{ t(i18nKeys.TutorialsPage.ThesisTool) }}
+        </v-expansion-panel-title>
+      </v-expansion-panel>
     </v-expansion-panels>
   </v-container>
 

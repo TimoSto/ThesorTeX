@@ -31,6 +31,7 @@ export const i18nKeys = {
         Title: "TutorialsPage.Title",
         ThesisTemplate: "TutorialsPage.ThesisTemplate",
         ThesisTemplateTech: "TutorialsPage.ThesisTemplateTech",
+        ThesisTool: "TutorialsPage.ThesisTool",
         ExampleDownload: "TutorialsPage.ExampleDownload",
         Example: "TutorialsPage.Example",
     }
