@@ -6,6 +6,12 @@
           <h2 class="text-h3 font-weight-bold text-center text-white pa-4">
             {{ t(i18nKeys.TutorialsPage.Title) }}
           </h2>
+          <div class="presentation-trigger">
+            <v-btn icon flat color="transparent" class="play-btn" width="100" height="100" title="Slide-Präsi"
+                   @click="presentationOpened = true">
+              <v-icon>mdi-play-circle-outline</v-icon>
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -85,6 +91,10 @@
       <!--      </v-expansion-panel>-->
     </v-expansion-panels>
   </v-container>
+
+  <v-dialog v-model="presentationOpened" width="600" height="400">
+
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -105,6 +115,8 @@ const opened = ref<number[]>([]);
 
 const thesisDocs = ref<ThesisDoc | undefined>(undefined);
 
+const presentationOpened = ref(false);
+
 // watchers
 watch(opened, async () => {
   if (opened.value.indexOf(0) >= 0 && !thesisDocs.value) {
@@ -120,6 +132,21 @@ watch(opened, async () => {
 
   & .v-card-text {
     height: 100%;
+  }
+}
+
+.presentation-trigger {
+  width: 400px;
+  height: 200px;
+  background-color: rgba(var(--v-theme-background), 0.85);
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .play-btn {
+    font-size: 65px;
   }
 }
 
