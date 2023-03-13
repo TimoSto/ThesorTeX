@@ -87,7 +87,7 @@ const presentationOpened = ref(false);
 
 // methods
 function arrWithoutFirst(arr: any[]): any[] {
-  const ac = JSON.parse(JSON.stringify(arr));
+  const ac = Array.from(arr);
   ac.shift();
   return ac;
 }
