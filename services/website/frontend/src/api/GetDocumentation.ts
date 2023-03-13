@@ -1,18 +1,16 @@
-export type ThesisDoc = {
-    Main: string,
-    ChapterNumbering: string,
-    HeaderFooter: string,
-    Abbreviations: string,
-    Appendix: string,
-    Bibliography: string
+export type Documentation = {
+    Docs: {
+        Title: string
+        Content: string
+    }[]
 }
 
-export async function GetThesisDocumentation(lang: string): Promise<ThesisDoc> {
+export async function GetThesisDocumentation(lang: string): Promise<Documentation> {
     const resp = await fetch(`/documentation?doc=thesis&lang=${lang}`);
 
     if (resp.ok) {
         return await resp.json();
     }
 
-    return {} as ThesisDoc;
+    return {} as Documentation;
 }

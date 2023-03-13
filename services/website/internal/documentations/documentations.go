@@ -2,66 +2,43 @@ package documentations
 
 import (
 	"embed"
-	"fmt"
 )
 
 //go:embed docs
 var docs embed.FS
 
-// TODO: add "title: ..." to all md files and then display that as title of the expandable area
-type ThesisDoc struct {
-	Main             string
-	ChapterNumbering string
-	HeaderFooter     string
-	Abbreviations    string
-	Appendix         string
-	Bibliography     string
+type Doc struct {
+	Title   string
+	Content string
 }
 
-func GetThesisDoc(lang string) (ThesisDoc, error) {
-	var doc ThesisDoc
+// TODO: add "title: ..." to all md files and then display that as title of the expandable area
+type Docs struct {
+	Docs []Doc
+}
 
-	val, err := docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage", lang))
-	if err != nil {
-		return doc, err
+var thesisPaths = []string{
+	"thesis_template_usage",
+	"thesis_template_usage/chapter_numbering",
+	"thesis_template_usage/header_footer",
+	"thesis_template_usage/abbreviations",
+	"thesis_template_usage/appendix",
+	"thesis_template_usage/bibliography",
+}
+
+func GetThesisDoc(lang string) (Docs, error) {
+	var doc Docs
+
+	for _, p := range thesisPaths {
+		d, err := readDoc(p, lang)
+		if err != nil {
+			return doc, err
+		}
+		doc.Docs = append(doc.Docs, Doc{
+			Title:   d.Title,
+			Content: d.Content,
+		})
 	}
-
-	doc.Main = string(val)
-
-	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/chapter_numbering", lang))
-	if err != nil {
-		return doc, err
-	}
-
-	doc.ChapterNumbering = string(val)
-
-	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/header_footer", lang))
-	if err != nil {
-		return doc, err
-	}
-
-	doc.HeaderFooter = string(val)
-
-	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/abbreviations", lang))
-	if err != nil {
-		return doc, err
-	}
-
-	doc.Abbreviations = string(val)
-
-	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/appendix", lang))
-	if err != nil {
-		return doc, err
-	}
-
-	doc.Appendix = string(val)
-
-	val, err = docs.ReadFile(fmt.Sprintf("docs/%s/%s.md", "thesis_template_usage/bibliography", lang))
-	if err != nil {
-		return doc, err
-	}
-
-	doc.Bibliography = string(val)
 
 	return doc, nil
 }

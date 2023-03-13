@@ -1,3 +1,4 @@
+title: Wie kann ich die Kopf- und Fußzeile anpassen?
 Im Header und Footer können insgesamt vier Informationen angezeigt werden. In dieser Vorlage wird oben links der Titel
 der Arbeit, oben rechts der Titel des aktuellen Kapitels, unten links der Name des Autors (ergo dein Name) und unten
 rechts die Seitenzahl angezeigt. Dabei wird zwischen dem Textteil deiner Arbeit und den Verzeichnissen unterschieden:

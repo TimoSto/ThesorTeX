@@ -39,46 +39,14 @@
             style="width: 100%"
             v-if="thesisDocs === undefined"
           ></v-progress-circular>
-          <MarkdownToVuetify :file="thesisDocs.Main" v-if="thesisDocs !== undefined" />
+          <MarkdownToVuetify :file="thesisDocs.Docs[0].Content" v-if="thesisDocs !== undefined" />
           <v-expansion-panels multiple v-if="thesisDocs !== undefined">
-            <v-expansion-panel>
+            <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisDocs.Docs)">
               <v-expansion-panel-title>
-                Wie kann ich die Nummerierung der Kapitel ändern?
+                {{ e.Title }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
-                <MarkdownToVuetify :file="thesisDocs.ChapterNumbering" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Wie kann den Inhalt der Kopf- und Fußzeile ändern?
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <MarkdownToVuetify :file="thesisDocs.HeaderFooter" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Wie kann ich Abkürzungen im Abkürzungsverzeichnis auflisten?
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <MarkdownToVuetify :file="thesisDocs.Abbreviations" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Wie kann ich meine Anhänge strukturieren?
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <MarkdownToVuetify :file="thesisDocs.Appendix" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Wie kann ich ein Literaturverzeichnis erstellen?
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <MarkdownToVuetify :file="thesisDocs.Bibliography" />
+                <MarkdownToVuetify :file="e.Content" />
               </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -101,7 +69,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import {ref, watch} from "vue";
-import {GetThesisDocumentation, ThesisDoc} from "../api/GetDocumentation";
+import {Documentation, GetThesisDocumentation} from "../api/GetDocumentation";
 
 // globals
 const {t} = useI18n();
@@ -113,9 +81,16 @@ const props = defineProps({
 });
 const opened = ref<number[]>([]);
 
-const thesisDocs = ref<ThesisDoc | undefined>(undefined);
+const thesisDocs = ref<Documentation | undefined>(undefined);
 
 const presentationOpened = ref(false);
+
+// methods
+function arrWithoutFirst(arr: any[]): any[] {
+  const ac = JSON.parse(JSON.stringify(arr));
+  ac.shift();
+  return ac;
+}
 
 // watchers
 watch(opened, async () => {
