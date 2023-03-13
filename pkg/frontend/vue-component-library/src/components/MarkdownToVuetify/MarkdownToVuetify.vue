@@ -38,6 +38,7 @@ const components = computed(() => ConvertMarkdownToVuetify(props.file!));
   border: 3px solid rgba(var(--v-theme-on-background), 0.5);
   padding: 8px;
   border-radius: 4px;
+  margin: 4px 0;
 
   & .code-line {
     display: block;
