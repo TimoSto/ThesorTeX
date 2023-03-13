@@ -8,6 +8,7 @@ import (
 //go:embed docs
 var docs embed.FS
 
+// TODO: add "title: ..." to all md files and then display that as title of the expandable area
 type ThesisDoc struct {
 	Main             string
 	ChapterNumbering string
