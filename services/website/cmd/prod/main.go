@@ -13,6 +13,8 @@ import (
 )
 
 func main() {
+	log.Setup(true)
+
 	log.Info("Start lambda")
 
 	mux := http.NewServeMux()
