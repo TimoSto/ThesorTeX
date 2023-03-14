@@ -4,7 +4,7 @@
       <h1 class="text-h4" v-if="c.Tag === 'H1'">{{ c.Content }}</h1>
       <h2 class="text-h5" v-if="c.Tag === 'H2'">{{ c.Content }}</h2>
       <h3 class="text-h6" v-if="c.Tag === 'H3'">{{ c.Content }}</h3>
-      <p class="text-body-1" v-if="c.Tag === 'TEXT'" v-html="c.Content"></p>
+      <p class="text-body-1 mt-3 mb-3" v-if="c.Tag === 'TEXT'" v-html="c.Content"></p>
       <v-list v-if="c.Tag === 'LIST'" density="compact">
         <v-list-item v-for="li in c.Content" :key="li" v-html="li" />
       </v-list>
