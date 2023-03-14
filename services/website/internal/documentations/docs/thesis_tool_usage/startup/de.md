@@ -6,4 +6,6 @@ Nun wird sich ein Terminal-Fenster öffnen. Sobald du dieses schließt, wird das
 
 Beim ersten Starten wird das Tool ein Beispielprojekt anlegen. Dies findest du im Ordner ***projects/example***.
 
-Wenn du jetzt deinen Browser mit der URL ***http://localhost:8448*** aufrufst, solltest du die Anwendung sehen.
+Wenn du jetzt deinen Browser mit der URL ***http://localhost:8448*** aufrufst, solltest du die Anwendung sehen:
+
+TODO: Screenshot
