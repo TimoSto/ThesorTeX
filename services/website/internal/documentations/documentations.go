@@ -46,6 +46,7 @@ func GetThesisDoc(lang string) (Docs, error) {
 var thesisToolPaths = []string{
 	"thesis_tool_usage",
 	"thesis_tool_usage/startup",
+	"thesis_tool_usage/project_structure",
 }
 
 func GetThesisToolDoc(lang string) (Docs, error) {
