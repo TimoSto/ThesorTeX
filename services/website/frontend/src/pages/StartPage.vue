@@ -6,6 +6,17 @@
         <p class="text-h5 text-center text-white pa-4 pb-15">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="4">
+        <SVGTemplate :svg="thesisPaths" class="smallIcon" />
+      </v-col>
+      <v-col cols="4">
+        <SVGTemplate :svg="laptopWithThesis" class="smallIcon" />
+      </v-col>
+      <v-col cols="4">
+        <SVGTemplate :svg="cvSVG" class="smallIcon" />
+      </v-col>
+    </v-row>
   </FullHeightContainer>
   <FullHeightContainer bg="white">
     <v-row>
@@ -113,5 +124,12 @@ const cvSVG = computed(() => {
 .svg-container {
   display: flex;
   align-items: center;
+}
+
+.smallIcon {
+  max-height: 200px;
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
 }
 </style>
