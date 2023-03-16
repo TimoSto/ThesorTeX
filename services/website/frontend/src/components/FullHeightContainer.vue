@@ -15,7 +15,7 @@ export default {
       return this.bg === "gradient" ? "background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);" : "background-color: white";
     },
     padding() {
-      return this.first ? "padding-top: 100px;" : "";
+      return this.first ? "" : "";
     }
   }
 }

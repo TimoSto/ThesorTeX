@@ -1,5 +1,23 @@
 <template>
   <v-app>
+    <div style="position: absolute; width: 100%">
+      <v-container style="padding-top: 30px; background-color: transparent;">
+        <v-row>
+          <v-col style="font-size: 30px; font-weight: bold; color: white;">
+            ThesorTeX
+          </v-col>
+          <v-col class="d-flex">
+            <v-spacer />
+            <v-btn variant="text" color="white" style="font-weight: bold;">
+              Downloads
+            </v-btn>
+            <v-btn variant="text" color="white" style="font-weight: bold;">
+              Tutorials
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
     <router-view :small-display="smallDisplay" />
   </v-app>
 </template>
