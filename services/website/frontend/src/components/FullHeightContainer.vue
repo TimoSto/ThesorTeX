@@ -1,10 +1,10 @@
 <template>
   <div style="min-height: 100vh; display: flex; align-items: center; box-sizing: border-box; position: relative;"
-       :style="bgColor">
+       :style="bgColor" ref="container">
     <v-container :style="padding">
       <slot />
     </v-container>
-    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-down">
+    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-down" @click="$emit('next')">
       <v-icon size="65"
               :style="`${bg === 'gradient' ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
         mdi-arrow-down-circle-outline
@@ -16,13 +16,21 @@
 <script>
 export default {
   name: "FullHeightContainer",
-  props: ["bg", "first"],
+  props: ["bg", "first", "top"],
+  emits: ["next", "prev"],
   computed: {
     bgColor() {
-      return this.bg === "gradient" ? "background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);" : "background-color: white";
+      return this.bg === "gradient" ? "background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf); " : "background-color: white; ";
     },
     padding() {
       return this.first ? "" : "";
+    },
+  },
+  watch: {
+    top: function () {
+      if (this.top) {
+        this.$refs.container.scrollIntoView({behavior: "smooth"});
+      }
     }
   }
 }
