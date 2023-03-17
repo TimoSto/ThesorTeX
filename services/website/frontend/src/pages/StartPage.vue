@@ -3,26 +3,26 @@
     <v-row>
       <v-col cols="6">
         <h2 class="text-h3 font-weight-bold text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
-        <p class="text-h5 text-white pa-4 pb-15">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
-        <v-list class="text-body-1"
+        <p class="text-h5 text-white pa-4 pb-5">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
+        <v-list class="text-h6"
                 style="background-color: transparent; color: white; font-weight: bold; cursor: pointer;">
           <v-list-item v-ripple>
             <template #prepend>
               <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
             </template>
-            Vorlage für eine Haus-/Abschlussarbeit
+            {{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}
           </v-list-item>
           <v-list-item v-ripple>
             <template #prepend>
               <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
             </template>
-            Tool zum Literaturmanagement
+            {{ t(i18nKeys.StartPage.ThesisToolTitle) }}
           </v-list-item>
           <v-list-item v-ripple>
             <template #prepend>
               <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
             </template>
-            Vorlage für einen Lebenslauf
+            {{ t(i18nKeys.StartPage.CVTemplateTitle) }}
           </v-list-item>
         </v-list>
       </v-col>
