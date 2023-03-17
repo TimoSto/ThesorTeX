@@ -1,5 +1,6 @@
 <template>
-  <FullHeightContainer v-for="i in pages" :bg="i === 1 ? 'gradient' : ''" :top="i === top" :first="i === 1"
+  <FullHeightContainer v-for="i in pages" :bg="i === 1 ? 'gradient' : i % 2 !== 0 ? 'gray' : ''" :top="i === top"
+                       :first="i === 1"
                        :last="i === pages"
                        @next="top = i + 1" @prev="top = i - 1">
     <slot :name="`content-${i}`" :jumpTo="jumpTo" />

@@ -26,7 +26,14 @@ export default {
   emits: ["next", "prev"],
   computed: {
     bgColor() {
-      return this.bg === "gradient" ? "background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf); " : "background-color: white; ";
+      switch (this.bg) {
+        case "gradient":
+          return "background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf); ";
+        case "gray":
+          return "background-color: rgba(0,0,0,0.25);"
+        default:
+          return "background-color: white; "
+      }
     },
     padding() {
       return this.first ? "" : "";
