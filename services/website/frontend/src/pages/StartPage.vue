@@ -1,20 +1,14 @@
 <template>
   <FullHeightContainer bg="gradient" :first="true">
     <v-row>
-      <v-col cols="12">
-        <h2 class="text-h3 font-weight-bold text-center text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
-        <p class="text-h5 text-center text-white pa-4 pb-15">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
+      <v-col cols="6">
+        <h2 class="text-h3 font-weight-bold text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
+        <p class="text-h5 text-white pa-4 pb-15">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
       </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="4">
-        <SVGTemplate :svg="thesisPaths" class="smallIcon" />
-      </v-col>
-      <v-col cols="4">
-        <SVGTemplate :svg="laptopWithThesis" class="smallIcon" />
-      </v-col>
-      <v-col cols="4">
-        <SVGTemplate :svg="cvSVG" class="smallIcon" />
+      <v-col cols="6" style="position: relative">
+        <SVGTemplate :svg="thesisPaths" class="smallIcon top" />
+        <SVGTemplate :svg="laptopWithThesis" class="smallIcon left" />
+        <SVGTemplate :svg="cvSVG" class="smallIcon right" />
       </v-col>
     </v-row>
   </FullHeightContainer>
@@ -120,7 +114,7 @@ const cvSVG = computed(() => {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .svg-container {
   display: flex;
   align-items: center;
@@ -129,7 +123,20 @@ const cvSVG = computed(() => {
 .smallIcon {
   max-height: 200px;
   max-width: 200px;
-  display: block;
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  &.top {
+    transform: translate(-50%, calc(-50% - 90px));
+  }
+
+  &.left {
+    transform: translate(calc(-50% - 120px), calc(-50% + 100px));
+  }
+
+  &.right {
+    transform: translate(calc(-50% + 120px), calc(-50% + 100px));
+  }
 }
 </style>
