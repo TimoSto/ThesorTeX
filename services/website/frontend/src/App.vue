@@ -8,13 +8,15 @@
           </v-col>
           <v-col class="d-flex">
             <v-spacer />
-            <v-btn variant="text" color="white" style="font-weight: bold;" v-if="currentPage !== 'Home'">
+            <v-btn variant="text" color="white" style="font-weight: bold;" v-if="currentPage !== 'Home'" to="/">
               {{ t(i18nKeys.Titles.StartPage) }}
             </v-btn>
-            <v-btn variant="text" color="white" style="font-weight: bold;" v-if="currentPage !== 'Downloads'">
+            <v-btn variant="text" color="white" style="font-weight: bold;" v-if="currentPage !== 'Downloads'"
+                   to="/downloads">
               {{ t(i18nKeys.Titles.Downloads) }}
             </v-btn>
-            <v-btn variant="text" color="white" style="font-weight: bold;" v-if="currentPage !== 'Tutorials'">
+            <v-btn variant="text" color="white" style="font-weight: bold;" v-if="currentPage !== 'Tutorials'"
+                   to="/tutorials">
               {{ t(i18nKeys.Titles.Tutorials) }}
             </v-btn>
           </v-col>
