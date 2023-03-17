@@ -2,7 +2,7 @@
   <FullHeightContainer v-for="i in pages" :bg="i === 1 ? 'gradient' : ''" :top="i === top" :first="i === 1"
                        :last="i === pages"
                        @next="top = i + 1" @prev="top = i - 1">
-    <slot :name="`content-${i}`" />
+    <slot :name="`content-${i}`" :jumpTo="jumpTo" />
   </FullHeightContainer>
 </template>
 
@@ -22,6 +22,11 @@ export default {
     window.addEventListener("scroll", () => {
       this.top = -1;
     });
+  },
+  methods: {
+    jumpTo(i) {
+      this.top = i;
+    }
   }
 }
 </script>
