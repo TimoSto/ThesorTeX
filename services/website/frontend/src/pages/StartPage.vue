@@ -4,6 +4,27 @@
       <v-col cols="6">
         <h2 class="text-h3 font-weight-bold text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
         <p class="text-h5 text-white pa-4 pb-15">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
+        <v-list class="text-body-1"
+                style="background-color: transparent; color: white; font-weight: bold; cursor: pointer;">
+          <v-list-item v-ripple>
+            <template #prepend>
+              <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+            </template>
+            Vorlage für eine Haus-/Abschlussarbeit
+          </v-list-item>
+          <v-list-item v-ripple>
+            <template #prepend>
+              <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+            </template>
+            Tool zum Literaturmanagement
+          </v-list-item>
+          <v-list-item v-ripple>
+            <template #prepend>
+              <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+            </template>
+            Vorlage für einen Lebenslauf
+          </v-list-item>
+        </v-list>
       </v-col>
       <v-col cols="6" style="position: relative">
         <SVGTemplate :svg="thesisPaths" class="smallIcon top" />
