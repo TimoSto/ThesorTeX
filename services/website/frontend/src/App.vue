@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div style="position: absolute; width: 100%">
+    <div style="position: absolute; width: 100%; z-index: 100;">
       <v-container style="padding-top: 30px; background-color: transparent;">
         <v-row>
           <v-col style="font-size: 30px; font-weight: bold; color: white;">
