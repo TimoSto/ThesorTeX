@@ -4,7 +4,13 @@
     <v-container :style="padding">
       <slot />
     </v-container>
-    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-down" @click="$emit('next')">
+    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-up" @click="$emit('prev')" v-if="!first">
+      <v-icon size="65"
+              :style="`${bg === 'gradient' ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
+        mdi-arrow-up-circle-outline
+      </v-icon>
+    </v-btn>
+    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-down" @click="$emit('next')" v-if="!last">
       <v-icon size="65"
               :style="`${bg === 'gradient' ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
         mdi-arrow-down-circle-outline
@@ -16,7 +22,7 @@
 <script>
 export default {
   name: "FullHeightContainer",
-  props: ["bg", "first", "top"],
+  props: ["bg", "first", "last", "top"],
   emits: ["next", "prev"],
   computed: {
     bgColor() {
@@ -44,6 +50,12 @@ export default {
     right: 0;
     bottom: 0;
     transform: translate(-20px, -20px);
+  }
+
+  &.scroll-up {
+    right: 0;
+    top: 0;
+    transform: translate(-20px, 20px);
   }
 }
 </style>
