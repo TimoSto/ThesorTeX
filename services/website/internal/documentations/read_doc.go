@@ -18,7 +18,7 @@ func readDoc(path string, lang string) (Doc, error) {
 	titleMatch := titleRegex.FindString(string(val))
 
 	doc.Title = strings.Trim(strings.TrimLeft(titleMatch, "title: "), "\n")
-	doc.Content = strings.Trim(strings.TrimLeft(string(val), titleMatch), "\n")
+	doc.Content = strings.Trim(strings.TrimLeft(string(val), strings.Trim(titleMatch, "\n")), "\n")
 
 	return doc, nil
 }
