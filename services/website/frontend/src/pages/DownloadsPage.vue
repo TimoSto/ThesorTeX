@@ -1,6 +1,6 @@
 <template>
-  <div style="background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf);">
-    <v-container class="bg-transparent pa-16 pt-12">
+  <FullHeightLayout :pages="4">
+    <template #content-1="{ jumpTo }">
       <v-row class="d-flex flex-row">
         <v-col cols="4">
           <v-card class="fill-height-card">
@@ -9,12 +9,10 @@
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</span>
                 <div class="mt-auto">
-                  <SVGTemplate :svg="thesisPaths"
-                               style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
-                  <v-btn color="primary" style="width: 100%;" @click="scrollToThesisDownload">
+                  <v-btn color="primary" style="width: 100%;" @click="jumpTo(2)">
                     <span style="white-space: normal;">
                       {{ t(i18nKeys.Common.Download) }}
                     </span>
@@ -31,12 +29,10 @@
                 <span class="text-h5 text-center font-weight-bold"
                       style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</span>
                 <div class="mt-auto">
-                  <SVGTemplate :svg="laptopWithThesis"
-                               style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
-                  <v-btn color="primary" style="width: 100%;" @click="scrollToToolDownload">
+                  <v-btn color="primary" style="width: 100%;" @click="jumpTo(3)">
                     <span style="white-space: normal;">
                       {{ t(i18nKeys.Common.Download) }}
                     </span>
@@ -53,12 +49,10 @@
                 <span class="text-h5 text-center font-weight-bold"
                       style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</span>
                 <div class="mt-auto">
-                  <SVGTemplate :svg="cvSVG"
-                               style="max-width: 100%; max-height: 250px; display: block; margin: 0 auto;" />
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
-                  <v-btn color="primary" style="width: 100%;" @click="scrollToCVDownload">
+                  <v-btn color="primary" style="width: 100%;" @click="jumpTo(4)">
                       <span style="white-space: normal;">
                         {{ t(i18nKeys.Common.Download) }}
                       </span>
@@ -69,114 +63,117 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
-  </div>
-  <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
-    <v-container class="bg-transparent pa-16 pt-4 pb-8" ref="thesisDownload">
-      <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
-      <p class="text-body-1 mb-4">
-        {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
-      </p>
-      <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
-                      :max-width="500"
-                      @open-notes="openedReleaseNotes = `thesisTemplate - ${$event}`" />
-    </v-container>
-  </div>
-  <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
-    <v-container class="bg-transparent pa-16 pt-4 pb-8" ref="toolDownload">
-      <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
-      <p class="text-body-1">
-        {{ t(i18nKeys.DownloadPage.ToolInfoText) }}
-      </p>
-      <v-row class="pa-4 d-flex flex-row mt-1 mb-1">
-        <v-col cols="3">
-          <v-card elevation="6" style="height: 100%">
-            <v-card-text style="height: 100%">
-              <div class="d-flex flex-column" style="height: 100%">
-                <span class="text-center font-weight-bold text-h6"
-                      style="display: inline-block; width: 100%;">Windows</span>
-                <div class="mt-auto">
-                  <WindowsIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
-                  <a :href="getToolDownloadLink('latest', 'windows')">
-                    <v-btn color="primary" style="width: 100%;">
-                      <v-icon>mdi-download</v-icon>
-                    </v-btn>
-                  </a>
-                </div>
-              </div>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="3">
-          <v-card elevation="6" style="height: 100%">
-            <v-card-text style="height: 100%">
-              <div class="d-flex flex-column" style="height: 100%">
-                <span class="text-center font-weight-bold text-h6"
-                      style="display: inline-block; width: 100%;">Linux</span>
-                <div class="mt-auto">
-                  <LinuxIcon style="display: block; margin: 0 auto; height: 50px; scale: 2" class="mb-4" />
-                  <a :href="getToolDownloadLink('latest', 'linux')">
-                    <v-btn color="primary" style="width: 100%;">
-                      <v-icon>mdi-download</v-icon>
-                    </v-btn>
-                  </a>
-                </div>
-              </div>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="3">
-          <v-card elevation="6" style="height: 100%">
-            <v-card-text style="height: 100%">
-              <div class="d-flex flex-column" style="height: 100%">
-                <span class="text-center font-weight-bold text-h6"
-                      style="display: inline-block; width: 100%;">MacOS (AMD)</span>
-                <div class="mt-auto">
-                  <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
-                  <a :href="getToolDownloadLink('latest', 'mac')">
-                    <v-btn color="primary" style="width: 100%;">
-                      <v-icon>mdi-download</v-icon>
-                    </v-btn>
-                  </a>
-                </div>
-              </div>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="3">
-          <v-card elevation="6" style="height: 100%">
-            <v-card-text style="height: 100%">
-              <div class="d-flex flex-column" style="height: 100%">
-                <span class="text-center font-weight-bold text-h6"
-                      style="display: inline-block; width: 100%;">MacOS (ARM)</span>
-                <div class="mt-auto">
-                  <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
-                  <a :href="getToolDownloadLink('latest', 'mac_silicon')">
-                    <v-btn color="primary" style="width: 100%;">
-                      <v-icon>mdi-download</v-icon>
-                    </v-btn>
-                  </a>
-                </div>
-              </div>
-            </v-card-text>
-          </v-card>
+    </template>
+    <template #content-2>
+      <v-row>
+        <v-col>
+          <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
+          <p class="text-body-1 mb-4">
+            {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
+          </p>
+          <DownloadsTable :versions="versions ? versions.ThesisTemplate : []"
+                          :download-func="getThesisTemplateDownloadLink"
+                          :max-width="500"
+                          @open-notes="openedReleaseNotes = `thesisTemplate - ${$event}`" />
         </v-col>
       </v-row>
-      <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
-                      :download-func="getToolDownloadLink"
-                      :max-width="800" @open-notes="openedReleaseNotes = `thesisTool - ${$event}`" />
-    </v-container>
-  </div>
-  <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
-    <v-container class="bg-transparent pa-16 pt-4 pb-8" ref="cvDownload">
+    </template>
+    <template #content-3>
+      <v-row>
+        <v-col>
+          <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
+          <p class="text-body-1">
+            {{ t(i18nKeys.DownloadPage.ToolInfoText) }}
+          </p>
+          <v-row class="pa-4 d-flex flex-row mt-1 mb-1">
+            <v-col cols="3">
+              <v-card elevation="6" style="height: 100%">
+                <v-card-text style="height: 100%">
+                  <div class="d-flex flex-column" style="height: 100%">
+                          <span class="text-center font-weight-bold text-h6"
+                                style="display: inline-block; width: 100%;">Windows</span>
+                    <div class="mt-auto">
+                      <WindowsIcon style="display: block; margin: 0 auto; height: 50px;" class="mb-4" />
+                      <a :href="getToolDownloadLink('latest', 'windows')">
+                        <v-btn color="primary" style="width: 100%;">
+                          <v-icon>mdi-download</v-icon>
+                        </v-btn>
+                      </a>
+                    </div>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="3">
+              <v-card elevation="6" style="height: 100%">
+                <v-card-text style="height: 100%">
+                  <div class="d-flex flex-column" style="height: 100%">
+                          <span class="text-center font-weight-bold text-h6"
+                                style="display: inline-block; width: 100%;">Linux</span>
+                    <div class="mt-auto">
+                      <LinuxIcon style="display: block; margin: 0 auto; height: 50px; scale: 2" class="mb-4" />
+                      <a :href="getToolDownloadLink('latest', 'linux')">
+                        <v-btn color="primary" style="width: 100%;">
+                          <v-icon>mdi-download</v-icon>
+                        </v-btn>
+                      </a>
+                    </div>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="3">
+              <v-card elevation="6" style="height: 100%">
+                <v-card-text style="height: 100%">
+                  <div class="d-flex flex-column" style="height: 100%">
+                          <span class="text-center font-weight-bold text-h6"
+                                style="display: inline-block; width: 100%;">MacOS (AMD)</span>
+                    <div class="mt-auto">
+                      <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
+                      <a :href="getToolDownloadLink('latest', 'mac')">
+                        <v-btn color="primary" style="width: 100%;">
+                          <v-icon>mdi-download</v-icon>
+                        </v-btn>
+                      </a>
+                    </div>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="3">
+              <v-card elevation="6" style="height: 100%">
+                <v-card-text style="height: 100%">
+                  <div class="d-flex flex-column" style="height: 100%">
+                          <span class="text-center font-weight-bold text-h6"
+                                style="display: inline-block; width: 100%;">MacOS (ARM)</span>
+                    <div class="mt-auto">
+                      <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
+                      <a :href="getToolDownloadLink('latest', 'mac_silicon')">
+                        <v-btn color="primary" style="width: 100%;">
+                          <v-icon>mdi-download</v-icon>
+                        </v-btn>
+                      </a>
+                    </div>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+          <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
+                          :download-func="getToolDownloadLink"
+                          :max-width="800" @open-notes="openedReleaseNotes = `thesisTool - ${$event}`" />
+        </v-col>
+      </v-row>
+    </template>
+    <template #content-4>
       <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
       <p class="text-body-1 mb-4">
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
                       :max-width="500" @open-notes="openedReleaseNotes = `cvTemplate - ${$event}`" />
-    </v-container>
-  </div>
+    </template>
+  </FullHeightLayout>
   <v-dialog v-model="releaseNotesOpen" width="600">
     <v-card>
       <v-card-title class="text-h5">
@@ -207,6 +204,7 @@ import {CVSVG} from "../components/svgs/CVSVG";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import GetReleaseNotes from "../api/GetReleaseNotes";
+import FullHeightLayout from "../components/FullHeightLayout.vue";
 
 // globals
 
