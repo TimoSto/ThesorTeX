@@ -4,14 +4,14 @@
     <v-container :style="padding">
       <slot />
     </v-container>
-    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-up" @click="$emit('prev')" v-if="!first">
-      <v-icon size="65"
+    <v-btn icon size="65" color="transparent" flat class="scroll-btn scroll-up" @click="$emit('prev')" v-if="!first">
+      <v-icon size="55"
               :style="`${bg === 'gradient' ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
         mdi-arrow-up-circle-outline
       </v-icon>
     </v-btn>
-    <v-btn icon size="75" color="transparent" flat class="scroll-btn scroll-down" @click="$emit('next')" v-if="!last">
-      <v-icon size="65"
+    <v-btn icon size="65" color="transparent" flat class="scroll-btn scroll-down" @click="$emit('next')" v-if="!last">
+      <v-icon size="55"
               :style="`${bg === 'gradient' ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
         mdi-arrow-down-circle-outline
       </v-icon>
