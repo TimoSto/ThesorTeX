@@ -78,7 +78,7 @@
         {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.ThesisTemplate : []" :download-func="getThesisTemplateDownloadLink"
-                      max-width="500"
+                      :max-width="500"
                       @open-notes="openedReleaseNotes = `thesisTemplate - ${$event}`" />
     </v-container>
   </div>
@@ -164,7 +164,7 @@
       </v-row>
       <DownloadsTable :versions="versions ? versions.Tool : []" :per-os="true"
                       :download-func="getToolDownloadLink"
-                      max-width="800" @open-notes="openedReleaseNotes = `thesisTool - ${$event}`" />
+                      :max-width="800" @open-notes="openedReleaseNotes = `thesisTool - ${$event}`" />
     </v-container>
   </div>
   <div style="border-bottom: 1px solid rgba(var(--v-theme-on-background), 0.25)">
@@ -174,7 +174,7 @@
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
-                      max-width="500" @open-notes="openedReleaseNotes = `cvTemplate - ${$event}`" />
+                      :max-width="500" @open-notes="openedReleaseNotes = `cvTemplate - ${$event}`" />
     </v-container>
   </div>
   <v-dialog v-model="releaseNotesOpen" width="600">
@@ -312,7 +312,6 @@ function scrollToCVDownload() {
 
 // onload
 GetToolVersions().then(res => {
-  console.log(res);
   versions.value = res;
 });
 
