@@ -358,7 +358,7 @@ export const ThesisSVG: TemplateSVG = {
     width: 500,
     height: 500,
     partials: [
-        p1,
-        hat
+        JSON.parse(JSON.stringify(p1)),
+        JSON.parse(JSON.stringify(hat))
     ]
 };

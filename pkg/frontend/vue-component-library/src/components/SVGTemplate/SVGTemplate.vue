@@ -1,5 +1,6 @@
 <template>
-  <svg :width="svgEl.width" :height="svgEl.height" :viewBox="svgEl.viewBox" xmlns="http://www.w3.org/2000/svg">
+  <svg :width="svgEl.width" :height="svgEl.height" :viewBox="svgEl.viewBox" xmlns="http://www.w3.org/2000/svg"
+       :style="`max-height: ${maxHeight}; max-width: ${maxWidth}`">
     <!--    <path stroke="black" stroke-width="5" d="M0,-250 l0,500 z" />-->
     <!--    <path stroke="black" stroke-width="5" d="M-250,0 l500,0 z" />-->
     <g v-for="(part, i) in svgEl.partials" :key="`partial-${i}`"
@@ -17,6 +18,8 @@ import {computed, PropType} from "vue";
 import {generatePath, generateTransform} from "./helper/generatePath";
 
 const props = defineProps({
+  maxHeight: String,
+  maxWidth: String,
   svg: Object as PropType<TemplateSVG>,
 });
 
