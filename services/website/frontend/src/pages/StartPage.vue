@@ -68,8 +68,7 @@
           </div>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
-          <v-img contain style="max-height: 500px;"
-                 :src="GermanTemplateImg" :aspect-ratio="5/9.2" />
+          <img :src="GermanTemplateImg" style="border: 1px solid black; max-height: 500px;" />
         </v-col>
       </v-row>
     </template>
