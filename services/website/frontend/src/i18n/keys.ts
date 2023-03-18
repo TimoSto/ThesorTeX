@@ -1,7 +1,8 @@
 export const i18nKeys = {
     Common: {
         LearnMore: "Common.LearnMore",
-        Download: "Common.Download"
+        Download: "Common.Download",
+        Tutorial: "Common.Tutorial",
     },
     Titles: {
         Downloads: "Titles.Downloads",
@@ -13,12 +14,13 @@ export const i18nKeys = {
         Subtitle: "StartPage.Subtitle",
         ThesisTemplateTitle: "StartPage.ThesisTemplateTitle",
         ThesisTemplateSubtitle: "StartPage.ThesisTemplateSubtitle",
-        ThesisTemplateLink: "StartPage.ThesisTemplateLink",
+        ThesisTemplateDownload: "StartPage.ThesisTemplateDownload",
+        ThesisTemplateExample: "StartPage.ThesisTemplateExample",
         ThesisToolTitle: "StartPage.ThesisToolTitle",
         ThesisToolSubtitle: "StartPage.ThesisToolSubtitle",
+        ThesisToolDownload: "StartPage.ThesisToolDownload",
         CVTemplateTitle: "StartPage.CVTemplateTitle",
         CVTemplateSubtitle: "StartPage.CVTemplateSubtitle",
-        CVTemplateLink: "StartPage.CVTemplateLink",
     },
     DownloadPage: {
         ToolInfoText: "DownloadPage.ToolInfoText",

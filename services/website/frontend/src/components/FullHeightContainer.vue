@@ -30,7 +30,7 @@ export default {
         case "gradient":
           return "background-image: linear-gradient(90deg, #0c8635, #259b71, #69beaf); ";
         case "gray":
-          return "background-color: rgba(0,0,0,0.25);"
+          return "background-color: rgba(0,0,0,0.15);"
         default:
           return "background-color: white; "
       }

@@ -2,7 +2,7 @@
   <FullHeightLayout :pages="4">
     <template #content-1="{ jumpTo }">
       <v-row>
-        <v-col cols="6">
+        <v-col :cols="smallDisplay ? 12: 6">
           <h2 class="text-h3 font-weight-bold text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
           <p class="text-h5 text-white pa-4 pb-5">{{ t(i18nKeys.StartPage.Subtitle) }}</p>
           <v-list class="text-h6"
@@ -27,7 +27,7 @@
             </v-list-item>
           </v-list>
         </v-col>
-        <v-col cols="6" style="position: relative">
+        <v-col cols="6" style="position: relative" v-if="!smallDisplay">
           <SVGTemplate :svg="thesisPaths" class="smallIcon top" />
           <SVGTemplate :svg="laptopWithThesis" class="smallIcon left" />
           <SVGTemplate :svg="cvSVG" class="smallIcon right" />
@@ -39,17 +39,29 @@
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            <i18n-t :keypath="i18nKeys.StartPage.ThesisTemplateSubtitle" scope="global">
-              <template #link>
-                <a :href="getThesisTemplateDownloadLink('latest')" download>
-                  {{ t(i18nKeys.StartPage.ThesisTemplateLink) }}
-                </a>
-              </template>
-            </i18n-t>
+            {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
           </p>
-          <v-btn color="primary" to="/tutorials">
-            {{ t(i18nKeys.Common.LearnMore) }}
-          </v-btn>
+          <v-list class="text-h6"
+                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.StartPage.ThesisTemplateDownload) }}
+            </v-list-item>
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.StartPage.ThesisTemplateExample) }}
+            </v-list-item>
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.Tutorial) }}
+            </v-list-item>
+          </v-list>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="svg-container">
           <SVGTemplate :svg="thesisPaths" style="max-height: 300px; display: block; margin: 0 auto;" />
@@ -66,9 +78,21 @@
           <p class="text-h6 pb-6">
             {{ t(i18nKeys.StartPage.ThesisToolSubtitle) }}
           </p>
-          <v-btn color="primary" to="/tutorials">
-            {{ t(i18nKeys.Common.LearnMore) }}
-          </v-btn>
+          <v-list class="text-h6"
+                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.StartPage.ThesisToolDownload) }}
+            </v-list-item>
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.Tutorial) }}
+            </v-list-item>
+          </v-list>
         </v-col>
       </v-row>
     </template>
@@ -77,17 +101,23 @@
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            <i18n-t :keypath="i18nKeys.StartPage.CVTemplateSubtitle" scope="global">
-              <template #link>
-                <a :href="getCVTemplateDownloadLink('latest')" download>
-                  {{ t(i18nKeys.StartPage.CVTemplateLink) }}
-                </a>
-              </template>
-            </i18n-t>
+            {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
           </p>
-          <v-btn color="primary" to="/tutorials">
-            {{ t(i18nKeys.Common.LearnMore) }}
-          </v-btn>
+          <v-list class="text-h6"
+                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.StartPage.ThesisTemplateDownload) }}
+            </v-list-item>
+            <v-list-item v-ripple>
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.Tutorial) }}
+            </v-list-item>
+          </v-list>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="svg-container">
           <SVGTemplate :svg="cvSVG" style="max-height: 300px; display: block; margin: 0 auto;" />
@@ -104,7 +134,6 @@ import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {getCVTemplateDownloadLink, getThesisTemplateDownloadLink} from "../api/GetToolDownloadLink";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 
 // globals
