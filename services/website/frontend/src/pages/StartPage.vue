@@ -36,36 +36,40 @@
     </template>
     <template #content-2>
       <v-row>
-        <v-col :cols="smallDisplay ? 12 : 6">
-          <SVGTemplate :svg="thesisPaths" style="max-height: 100px; display: block; margin: 0 auto;" />
-          <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
-          <p class="text-h6 pb-6">
-            {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
-          </p>
-          <v-list class="text-h6"
-                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
-            <v-list-item v-ripple to="/downloads">
-              <template #prepend>
-                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
-              </template>
-              {{ t(i18nKeys.Common.ToDownloads) }}
-            </v-list-item>
-            <v-list-item v-ripple href="/example?lang=de" target="_blank">
-              <template #prepend>
-                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
-              </template>
-              {{ t(i18nKeys.StartPage.ThesisTemplateExample) }}
-            </v-list-item>
-            <v-list-item v-ripple to="/tutorials">
-              <template #prepend>
-                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
-              </template>
-              {{ t(i18nKeys.Common.Tutorial) }}
-            </v-list-item>
-          </v-list>
+        <v-col :cols="smallDisplay ? 12 : 6" class="d-flex" style="justify-content: center; align-items: center;">
+          <div style="display: block">
+            <h2 class="text-h3 font-weight-bold pt-6 pb-6">
+              {{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}
+            </h2>
+            <p class="text-h6 pb-6">
+              {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
+            </p>
+            <v-list class="text-h6"
+                    style="background-color: transparent; font-weight: bold; cursor: pointer;">
+              <v-list-item v-ripple to="/downloads">
+                <template #prepend>
+                  <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+                </template>
+                {{ t(i18nKeys.Common.ToDownloads) }}
+              </v-list-item>
+              <v-list-item v-ripple href="/example?lang=de" target="_blank">
+                <template #prepend>
+                  <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+                </template>
+                {{ t(i18nKeys.StartPage.ThesisTemplateExample) }}
+              </v-list-item>
+              <v-list-item v-ripple to="/tutorials">
+                <template #prepend>
+                  <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+                </template>
+                {{ t(i18nKeys.Common.Tutorial) }}
+              </v-list-item>
+            </v-list>
+          </div>
         </v-col>
-        <v-col v-if="!smallDisplay" cols="6" class="svg-container">
-
+        <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
+          <v-img contain style="max-height: 500px;"
+                 :src="GermanTemplateImg" :aspect-ratio="5/9.2" />
         </v-col>
       </v-row>
     </template>
@@ -136,6 +140,7 @@ import {CVSVG} from "../components/svgs/CVSVG";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
+import GermanTemplateImg from "../assets/thesis_template_de.png";
 
 // globals
 const {t} = useI18n();

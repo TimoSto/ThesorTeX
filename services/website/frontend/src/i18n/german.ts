@@ -15,7 +15,7 @@ export const german: I18nKeys = {
     StartPage: {
         Title: "LaTeX bequemer nutzen",
         Subtitle: "Wenn du LaTeX im akademischen oder beruflichen Kontext nutzt, findest du hier verschiedene Vorlagen und Tools, die dich dabei unterstützen können.",
-        ThesisTemplateTitle: "Vorlage für eine Abschluss-/Hausarbeit",
+        ThesisTemplateTitle: "Vorlage für eine Abschluss- / Hausarbeit",
         ThesisTemplateSubtitle: "Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal diese Vorlage an.",
         ThesisTemplateExample: "Beispiel herunterladen",
         ThesisToolTitle: "Tool zum Literaturmanagement",
