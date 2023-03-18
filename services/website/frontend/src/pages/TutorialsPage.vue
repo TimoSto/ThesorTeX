@@ -61,7 +61,9 @@
   </v-container>
 
   <v-dialog v-model="presentationOpened" width="600" height="400">
-
+    <v-card>
+      <v-card-title>Coming soon</v-card-title>
+    </v-card>
   </v-dialog>
 </template>
 
