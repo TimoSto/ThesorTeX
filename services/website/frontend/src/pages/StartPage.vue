@@ -37,6 +37,7 @@
     <template #content-2>
       <v-row>
         <v-col :cols="smallDisplay ? 12 : 6">
+          <SVGTemplate :svg="thesisPaths" style="max-height: 100px; display: block; margin: 0 auto;" />
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
             {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
@@ -55,7 +56,7 @@
               </template>
               {{ t(i18nKeys.StartPage.ThesisTemplateExample) }}
             </v-list-item>
-            <v-list-item v-ripple>
+            <v-list-item v-ripple to="/tutorials">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
@@ -64,7 +65,7 @@
           </v-list>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="svg-container">
-          <SVGTemplate :svg="thesisPaths" style="max-height: 300px; display: block; margin: 0 auto;" />
+
         </v-col>
       </v-row>
     </template>
@@ -86,7 +87,7 @@
               </template>
               {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
-            <v-list-item v-ripple>
+            <v-list-item v-ripple to="/tutorials">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
@@ -111,7 +112,7 @@
               </template>
               {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
-            <v-list-item v-ripple>
+            <v-list-item v-ripple to="/tutorials">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
