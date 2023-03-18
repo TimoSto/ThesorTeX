@@ -13,6 +13,7 @@ vite_build(
         "src/**/*.ts",
         "src/**/*.vue",
         "src/**/*.scss",
+        "src/**/*.png",
         "src/i18n/**/*",
     ]) + [
         ":index.html",
