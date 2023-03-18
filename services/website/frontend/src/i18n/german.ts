@@ -4,7 +4,8 @@ export const german: I18nKeys = {
     Common: {
         LearnMore: "Mehr erfahren",
         Download: "Herunterladen",
-        Tutorial: "Anleitung",
+        Tutorial: "Zu den Tutorials",
+        ToDownloads: "Zu den Downloads",
     },
     Titles: {
         Downloads: "Downloads",
@@ -16,11 +17,9 @@ export const german: I18nKeys = {
         Subtitle: "Wenn du LaTeX im akademischen oder beruflichen Kontext nutzt, findest du hier verschiedene Vorlagen und Tools, die dich dabei unterstützen können.",
         ThesisTemplateTitle: "Vorlage für eine Abschluss-/Hausarbeit",
         ThesisTemplateSubtitle: "Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal diese Vorlage an.",
-        ThesisTemplateDownload: "Vorlage herunterladen",
         ThesisTemplateExample: "Beispiel herunterladen",
         ThesisToolTitle: "Tool zum Literaturmanagement",
         ThesisToolSubtitle: "Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder importiere deine Bibliothek aus Citavi.",
-        ThesisToolDownload: "Zu den Downloads",
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
         CVTemplateSubtitle: "Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast und du dich auf deinen nächsten Job bewerben willst, schau dir doch mal diese Vorlage für einen Lebenslauf an.",
     },

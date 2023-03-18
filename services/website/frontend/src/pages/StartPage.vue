@@ -43,11 +43,11 @@
           </p>
           <v-list class="text-h6"
                   style="background-color: transparent; font-weight: bold; cursor: pointer;">
-            <v-list-item v-ripple>
+            <v-list-item v-ripple to="/downloads">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
-              {{ t(i18nKeys.StartPage.ThesisTemplateDownload) }}
+              {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
             <v-list-item v-ripple>
               <template #prepend>
@@ -80,11 +80,11 @@
           </p>
           <v-list class="text-h6"
                   style="background-color: transparent; font-weight: bold; cursor: pointer;">
-            <v-list-item v-ripple>
+            <v-list-item v-ripple to="/downloads">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
-              {{ t(i18nKeys.StartPage.ThesisToolDownload) }}
+              {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
             <v-list-item v-ripple>
               <template #prepend>
@@ -105,11 +105,11 @@
           </p>
           <v-list class="text-h6"
                   style="background-color: transparent; font-weight: bold; cursor: pointer;">
-            <v-list-item v-ripple>
+            <v-list-item v-ripple to="/downloads">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
-              {{ t(i18nKeys.StartPage.ThesisTemplateDownload) }}
+              {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
             <v-list-item v-ripple>
               <template #prepend>
