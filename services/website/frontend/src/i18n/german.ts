@@ -32,10 +32,9 @@ export const german: I18nKeys = {
     },
     TutorialsPage: {
         Title: "Wie kann ich die Vorlagen und Tools nutzen?",
+        SubTitle: "Die Anleitungen sind als Präsentation, als {pdf} und als FAQ direkt auf dieser Seite verfügbar.",
         ThesisTemplate: "Verwendung der Vorlage für wissenschaftliche Arbeiten",
         ThesisTemplateTech: "Technische Beschreibung der Vorlage für wissenschaftliche Arbeiten",
         ThesisTool: "Verwendung des Tools für Literaturmanagement",
-        ExampleDownload: "Da kannst die Dokumentation als {example} herunterladen, oder dir das FAQ hier anschauen.",
-        Example: "Beispielprojekt",
     }
 };

@@ -1,5 +1,6 @@
 <template>
-  <FullHeightContainer v-for="i in pages" :bg="i === 1 ? 'gradient' : i % 2 !== 0 ? 'gray' : ''" :top="i === top"
+  <FullHeightContainer v-for="i in pages" :bg="i === 1 ? 'gradient' : i % 2 !== 0 && !white ? 'gray' : ''"
+                       :top="i === top"
                        :first="i === 1"
                        :last="i === pages"
                        @next="top = i + 1" @prev="top = i - 1">
@@ -13,7 +14,7 @@ import FullHeightContainer from "./FullHeightContainer.vue";
 export default {
   name: "FullHeightLayout",
   components: {FullHeightContainer},
-  props: ["pages"],
+  props: ["pages", "white"],
   data: () => {
     return {
       top: 1

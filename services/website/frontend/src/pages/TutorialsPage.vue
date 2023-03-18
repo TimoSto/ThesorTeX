@@ -1,11 +1,19 @@
 <template>
-  <FullHeightLayout :pages="2">
+  <FullHeightLayout :pages="3" :white="true">
     <template #content-1>
       <v-row class="d-flex flex-row">
         <v-col cols="12">
           <h2 class="text-h3 font-weight-bold text-center text-white pa-4">
             {{ t(i18nKeys.TutorialsPage.Title) }}
           </h2>
+
+          <p class="text-h5 text-center text-white">
+            <i18n-t :keypath="i18nKeys.TutorialsPage.SubTitle">
+              <template #pdf>
+                <a :href="`/example?lang=${i18nObject.locale.value}`" download>PDF</a>
+              </template>
+            </i18n-t>
+          </p>
           <div class="presentation-trigger">
             <v-btn icon flat color="transparent" class="play-btn" width="100" height="100" title="Slide-Präsi"
                    @click="presentationOpened = true">
@@ -16,57 +24,33 @@
       </v-row>
     </template>
     <template #content-2>
-      <p class="text-body-1 pb-3">
-        <i18n-t :keypath="i18nKeys.TutorialsPage.ExampleDownload">
-          <template #example>
-            <a :href="`/example?lang=${i18nObject.locale.value}`" download>
-              {{ t(i18nKeys.TutorialsPage.Example) }}
-            </a>
-          </template>
-        </i18n-t>
-      </p>
-      <v-expansion-panels multiple v-model="opened">
-        <v-expansion-panel>
+      <h2 class="text-h3 font-weight-bold text-center pa-4">
+        {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
+      </h2>
+      <MarkdownToVuetify :file="thesisDocs.Docs[0].Content" v-if="thesisDocs !== undefined" />
+      <v-expansion-panels multiple v-if="thesisDocs !== undefined">
+        <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisDocs.Docs)">
           <v-expansion-panel-title>
-            {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
+            {{ e.Title }}
           </v-expansion-panel-title>
           <v-expansion-panel-text>
-            <v-progress-circular
-              indeterminate
-              color="primary"
-              size="150"
-              style="width: 100%"
-              v-if="thesisDocs === undefined"
-            ></v-progress-circular>
-            <MarkdownToVuetify :file="thesisDocs.Docs[0].Content" v-if="thesisDocs !== undefined" />
-            <v-expansion-panels multiple v-if="thesisDocs !== undefined">
-              <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisDocs.Docs)">
-                <v-expansion-panel-title>
-                  {{ e.Title }}
-                </v-expansion-panel-title>
-                <v-expansion-panel-text>
-                  <MarkdownToVuetify :file="e.Content" />
-                </v-expansion-panel-text>
-              </v-expansion-panel>
-            </v-expansion-panels>
+            <MarkdownToVuetify :file="e.Content" />
           </v-expansion-panel-text>
         </v-expansion-panel>
-        <v-expansion-panel>
+      </v-expansion-panels>
+    </template>
+    <template #content-3>
+      <h2 class="text-h3 font-weight-bold text-center pa-4">
+        {{ t(i18nKeys.TutorialsPage.ThesisTool) }}
+      </h2>
+      <MarkdownToVuetify :file="thesisToolDocs.Docs[0].Content" v-if="thesisToolDocs !== undefined" />
+      <v-expansion-panels multiple v-if="thesisToolDocs !== undefined">
+        <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisToolDocs.Docs)">
           <v-expansion-panel-title>
-            {{ t(i18nKeys.TutorialsPage.ThesisTool) }}
+            {{ e.Title }}
           </v-expansion-panel-title>
           <v-expansion-panel-text>
-            <MarkdownToVuetify :file="thesisToolDocs.Docs[0].Content" v-if="thesisToolDocs !== undefined" />
-            <v-expansion-panels multiple v-if="thesisToolDocs !== undefined">
-              <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisToolDocs.Docs)">
-                <v-expansion-panel-title>
-                  {{ e.Title }}
-                </v-expansion-panel-title>
-                <v-expansion-panel-text>
-                  <MarkdownToVuetify :file="e.Content" />
-                </v-expansion-panel-text>
-              </v-expansion-panel>
-            </v-expansion-panels>
+            <MarkdownToVuetify :file="e.Content" />
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -84,7 +68,7 @@
 <script lang="ts" setup>
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {ref, watch} from "vue";
+import {onMounted, ref} from "vue";
 import {Documentation, GetThesisDocumentation, GetThesisToolDocumentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 
@@ -111,13 +95,9 @@ function arrWithoutFirst(arr: any[]): any[] {
   return ac;
 }
 
-// watchers
-watch(opened, async () => {
-  if (opened.value.indexOf(0) >= 0 && !thesisDocs.value) {
-    thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
-  } else if (opened.value.indexOf(1) >= 0 && !thesisToolDocs.value) {
-    thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
-  }
+onMounted(async () => {
+  thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
+  thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
 });
 
 </script>
