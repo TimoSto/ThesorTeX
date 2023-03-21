@@ -10,7 +10,7 @@
                     style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="thesisPaths" max-height="150px" max-width="100%" />
-                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="jumpTo(2)">
@@ -31,7 +31,7 @@
                       style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="laptopWithThesis" max-height="150px" max-width="100%" />
-                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="jumpTo(3)">
@@ -52,7 +52,7 @@
                       style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="cvSVG" max-height="150px" max-width="100%" />
-                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2">
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="jumpTo(4)">
