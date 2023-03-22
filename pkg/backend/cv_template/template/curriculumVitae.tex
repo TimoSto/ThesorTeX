@@ -13,20 +13,20 @@
 
 \usepackage{xcolor}
 
-\firstname{\color{color2}{John}} % Your first name
-\familyname{\color{color2}{Doe}} % Your last name
+\firstname{\color{color2}{FIRSTNAME}} % Your first name
+\familyname{\color{color2}{LASTNAME}} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
-\title{Lebenslauf}
+\title{Curriculum Vitea}
 \address{333 E Wonderview Ave}{Estes Park, CO 80517, Vereinigte Staaten}
 \mobile{(000) 111 1111}
 \phone{(000) 111 1112}
 \fax{(000) 111 1113}
-\email{deine.mail@adresse.com}
+\email{your.mail@adress.com}
 
 \renewcommand\fbox{\fcolorbox{white}{white}}%to hide picture-border
-\photo[90pt][0.4pt]{jacky.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
-\quote{"Here's Johnny!" - Jack Torrance}
+\photo[90pt][0.4pt]{profile.png} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+\quote{"A quote" - someone}
 
 % Document
 \begin{document}
@@ -34,27 +34,26 @@
 \makecvtitle % Print the CV title
 \pagestyle{empty}
 \vspace*{-1cm}
-\section{Persönliche Daten}
-\cvitem{Geburtsdatum}{DEIN GEBURTSDATUM}
-\cvitem{Telefon}{DEINE TELEFONNUMMER}
-\cvitem{Email}{DEINE MAIL}
-\cvitem{Adresse}{\textbf{DEINE} ADRESSE}
+\section{Personal Data}
+\cvitem{Birthdate}{01.01.2000}
+\cvitem{Telefon}{(000) 111 1112}
+\cvitem{Email}{your.mail@adress.com}
+\cvitem{Adresse}{\textbf{YOUR} ADRESS}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Ausbildung}
+\section{Education}
 
-\cventry{START-ENDE}{ABSCHLUSS}{INSTITUT}{ORT}{NOTE}{} % Arguments not required can be left empty
-\cventry{START-ENDE}{ABSCHLUSS-2}{INSTITUT}{ORT}{NOTE}{}
+\cventry{START-END}{DIPLOMA}{INSTITUT}{ADRESS}{GRADE}{} % Arguments not required can be left empty
+\cventry{START-END}{DIPLOMA 2}{DIPLOMA}{INSTITUT}{ADRESS}{GRADE}{}
 
 \section{Masters Thesis}
 
-\cvitem{Title}{\emph{White mans burden}}
-\cvitem{Supervisors}{Professor Delbert Grady}
-\cvitem{Description}{White man's burden, Lloyd, my man, white man's burden.
-}
+\cvitem{Title}{\emph{YOUR TITLE}}
+\cvitem{Supervisors}{Professor XY}
+\cvitem{Description}{A very interesting topic}
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
@@ -71,7 +70,7 @@
 
 \section{Awards}
 
-\cvitem{1980}{1\textsuperscript{st} Best caretaker of the overlook hotel}
+\cvitem{2020}{1\textsuperscript{st} Best looking thesis}
 
 %----------------------------------------------------------------------------------------
 %	COMPUTER SKILLS SECTION
@@ -79,9 +78,8 @@
 
 \section{Computer skills}
 
-\cvitem{Basic}{Phoning}
-\cvitem{Intermediate}{Editing Pictures}
-\cvitem{Advanced}{Smashing telecommunication devices}
+\cvitem{Intermediate}{MS Office}
+\cvitem{Advanced}{LaTeX}
 
 
 %----------------------------------------------------------------------------------------
@@ -91,7 +89,7 @@
 \section{Languages}
 
 \cvitemwithcomment{English}{Mothertongue}{}
-\cvitemwithcomment{Incomprehensible mumbling}{Advanced}{}
+\cvitemwithcomment{French}{Basic}{}
 
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
@@ -99,10 +97,9 @@
 
 \section{Interests}
 
-\renewcommand{\listitemsymbol}{aa~} % Changes the symbol used for lists
+%\renewcommand{\listitemsymbol}{aa~} % Changes the symbol used for lists
 
-\cvlistdoubleitem{Throwing Balls}{Swining Axes}
-\cvlistdoubleitem{Staring into the void}{Screaming}
-\cvlistitem{test}
+\cvlistdoubleitem{List}{of}
+\cvlistdoubleitem{some}{hobbies}
 
 \end{document}
