@@ -9,7 +9,9 @@
               <span class="text-h5 text-center font-weight-bold"
                     style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</span>
                 <div class="mt-auto">
-                  <SVGTemplate :svg="thesisPaths" max-height="150px" max-width="100%" />
+                  <SVGTemplate :svg="thesisPaths" max-height="200px" max-width="100%" />
+                </div>
+                <div class="mt-auto">
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
@@ -30,7 +32,9 @@
                 <span class="text-h5 text-center font-weight-bold"
                       style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</span>
                 <div class="mt-auto">
-                  <SVGTemplate :svg="laptopWithThesis" max-height="150px" max-width="100%" />
+                  <SVGTemplate :svg="laptopWithThesis" max-height="200px" max-width="100%" />
+                </div>
+                <div class="mt-auto">
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
@@ -51,7 +55,9 @@
                 <span class="text-h5 text-center font-weight-bold"
                       style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</span>
                 <div class="mt-auto">
-                  <SVGTemplate :svg="cvSVG" max-height="150px" max-width="100%" />
+                  <SVGTemplate :svg="cvSVG" max-height="200px" max-width="100%" />
+                </div>
+                <div class="mt-auto">
                   <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
@@ -321,6 +327,7 @@ GetToolVersions().then(res => {
 <style scoped lang="scss">
 .fill-height-card {
   height: 100%;
+  min-height: 500px;
 
   & .v-card-text {
     height: 100%;
