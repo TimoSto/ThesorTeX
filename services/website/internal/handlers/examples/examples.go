@@ -9,8 +9,14 @@ import (
 func HandleExamples() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		lang := r.URL.Query().Get("lang")
+		format := r.URL.Query().Get("format")
 
-		example := example_project.GetExampleZip(lang)
+		var example []byte
+		if format == "pdf" {
+			example = example_project.GetExamplePDF(lang)
+		} else {
+			example = example_project.GetExampleZip(lang)
+		}
 
 		w.Write(example)
 	}

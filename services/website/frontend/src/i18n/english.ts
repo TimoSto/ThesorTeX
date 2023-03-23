@@ -33,6 +33,7 @@ export const english: I18nKeys = {
     TutorialsPage: {
         Title: "How can I use the templates and tools?",
         SubTitle: "The tutorials are available as a presentation, as a {pdf} and as a faq on this page.",
+        ExampleProject: "example project",
         ThesisTemplate: "Using the template for academic papers",
         ThesisTemplateTech: "Technical description of the template for academic papers",
         ThesisTool: "Usage of the tool for bibliography management",

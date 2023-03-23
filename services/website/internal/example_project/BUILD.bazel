@@ -6,8 +6,10 @@ go_library(
     name = "example_project",
     srcs = ["examples.go"],
     embedsrcs = [
-        ":exampleDe",
+        ":exampleDE",
+        ":exampleDE_PDF",
         ":exampleEN",
+        ":exampleEN_PDF",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/example_project",
     visibility = ["//services/website:__subpackages__"],
@@ -21,10 +23,17 @@ pkg_files(
 )
 
 pkg_zip(
-    name = "exampleDe",
+    name = "exampleDE",
     srcs = [":srcsDe"],
     package_file_name = "example_de.zip",
     visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "exampleDE_PDF",
+    srcs = ["de/main.pdf"],
+    outs = ["documentation_de.pdf"],
+    cmd = "cp $< $@",
 )
 
 pkg_files(
@@ -39,4 +48,11 @@ pkg_zip(
     srcs = [":srcsEn"],
     package_file_name = "example_en.zip",
     visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "exampleEN_PDF",
+    srcs = ["en/main.pdf"],
+    outs = ["documentation_en.pdf"],
+    cmd = "cp $< $@",
 )
