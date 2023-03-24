@@ -7,8 +7,8 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/website/cmd/prod",
     visibility = ["//visibility:private"],
     deps = [
+        "//pkg/backend/aws/apigateway",
         "//pkg/backend/handler_chain",
-        "//pkg/backend/lambda",
         "//pkg/backend/log",
         "//pkg/backend/s3",
         "//services/website/internal/buckethandler",

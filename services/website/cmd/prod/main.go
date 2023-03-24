@@ -4,8 +4,8 @@ import (
 	logD "log"
 	"net/http"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/apigateway"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
-	"github.com/TimoSto/ThesorTeX/pkg/backend/lambda"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/s3"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler"
@@ -30,5 +30,5 @@ func main() {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	lambda.Start(chain.Then(mux))
+	apigateway.StartLambda(chain.Then(mux))
 }

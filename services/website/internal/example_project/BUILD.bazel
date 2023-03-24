@@ -6,10 +6,10 @@ go_library(
     name = "example_project",
     srcs = ["examples.go"],
     embedsrcs = [
-        ":exampleDE",
-        ":exampleDE_PDF",
-        ":exampleEN",
-        ":exampleEN_PDF",
+        ":exampleDE", # keep
+        ":exampleDE_PDF", #keep
+        ":exampleEN", #keep
+        ":exampleEN_PDF", #keep
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/example_project",
     visibility = ["//services/website:__subpackages__"],

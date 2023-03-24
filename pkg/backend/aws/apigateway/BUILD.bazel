@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "apigateway",
+    srcs = [
+        "apigateway_mapping.go",
+        "response_writer.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/aws/apigateway",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/backend/log",
+        "//vendor/github.com/aws/aws-lambda-go/events",
+        "//vendor/github.com/aws/aws-lambda-go/lambda",
+    ],
+)
