@@ -8,9 +8,9 @@ go_library(
     visibility = ["//visibility:private"],
     deps = [
         "//pkg/backend/aws/apigateway",
+        "//pkg/backend/aws/s3",
         "//pkg/backend/handler_chain",
         "//pkg/backend/log",
-        "//pkg/backend/s3",
         "//services/website/internal/buckethandler",
         "//services/website/internal/handlers",
     ],
