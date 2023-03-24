@@ -43,6 +43,10 @@ func Error(msg string, a ...any) {
 
 }
 
+func Fatal(msg string, a ...any) {
+	log.Fatalf(msg, a)
+}
+
 func Debug(msg string, a ...any) {
 	fmt.Println(fmt.Sprintf("INFO [%v] %v", time.Now().Format("2006-01-02 15:04"), fmt.Sprintf(msg, a...)))
 }

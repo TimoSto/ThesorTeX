@@ -1,7 +1,6 @@
 package main
 
 import (
-	logD "log"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/apigateway"
@@ -21,7 +20,7 @@ func main() {
 
 	s3Client, err := s3.CreateS3Client()
 	if err != nil {
-		logD.Fatal(err)
+		log.Fatal("could not create s3 client: %v", err)
 	}
 
 	s3Handler := buckethandler.New(s3Client)
