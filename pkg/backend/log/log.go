@@ -44,7 +44,11 @@ func Error(msg string, a ...any) {
 }
 
 func Fatal(msg string, a ...any) {
-	log.Fatalf(msg, a)
+	if a != nil {
+		log.Fatal(fmt.Sprintf("FATAL [%v] %v", time.Now().Format("2006-01-02 15:04"), fmt.Sprintf(msg, a...)))
+	} else {
+		log.Fatalf(fmt.Sprintf("FATAL [%v] %v", time.Now().Format("2006-01-02 15:04"), msg))
+	}
 }
 
 func Debug(msg string, a ...any) {
