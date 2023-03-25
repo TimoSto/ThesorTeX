@@ -7,13 +7,13 @@ import {
 const paperline: PathPart[] = [
     {
         vector: {
-            x: -120,
+            x: -110,
             y: -200
         }
     },
     {
         vector: {
-            x: 120,
+            x: 140,
             y: -200
         }
     },
@@ -23,14 +23,14 @@ const paperline: PathPart[] = [
             clockwise: false,
             rotation: 0,
             end: {
-                x: 140,
+                x: 160,
                 y: -180
             }
         }
     },
     {
         vector: {
-            x: 140,
+            x: 160,
             y: 180
         }
     },
@@ -40,14 +40,14 @@ const paperline: PathPart[] = [
             clockwise: false,
             rotation: 0,
             end: {
-                x: 120,
+                x: 140,
                 y: 200
             }
         }
     },
     {
         vector: {
-            x: -120,
+            x: -140,
             y: 200
         }
     },
@@ -57,25 +57,69 @@ const paperline: PathPart[] = [
             clockwise: false,
             rotation: 0,
             end: {
-                x: -140,
+                x: -160,
                 y: 180
             }
         }
     },
     {
         vector: {
-            x: -140,
-            y: -180
+            x: -160,
+            y: -150
+        }
+    },
+    {
+        vector: {
+            x: -110,
+            y: -200
+        }
+    },
+];
+
+const lash: PathPart[] = [
+    {
+        vector: {
+            x: -110,
+            y: -200
+        }
+    },
+    {
+        vector: {
+            x: -110,
+            y: -160
         }
     },
     {
         arc: {
-            radius: 20,
+            radius: 10,
             clockwise: false,
             rotation: 0,
             end: {
                 x: -120,
-                y: -200
+                y: -150
+            }
+        }
+    },
+    {
+        vector: {
+            x: -160,
+            y: -150
+        }
+    },
+    {
+        vector: {
+            x: -120,
+            y: -150
+        }
+    },
+    {
+        arc: {
+            radius: 10,
+            clockwise: true,
+            rotation: 0,
+            end: {
+                x: -110,
+                y: -160
             }
         }
     },
@@ -85,13 +129,13 @@ const line1: PathPart[] = [
     {
         vector: {
             x: -100,
-            y: -30
+            y: 0
         },
     },
     {
         vector: {
             x: 100,
-            y: -30
+            y: 0
         },
     }
 ];
@@ -100,13 +144,13 @@ const line2: PathPart[] = [
     {
         vector: {
             x: -100,
-            y: 20
+            y: 50
         },
     },
     {
         vector: {
             x: 100,
-            y: 20
+            y: 50
         },
     }
 ];
@@ -115,13 +159,58 @@ const line3: PathPart[] = [
     {
         vector: {
             x: -100,
-            y: 70
+            y: 100
         },
     },
     {
         vector: {
             x: 100,
-            y: 70
+            y: 100
+        },
+    }
+];
+
+const line4: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: -40
+        },
+    },
+    {
+        vector: {
+            x: -20,
+            y: -40
+        },
+    }
+];
+
+const line5: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: -60
+        },
+    },
+    {
+        vector: {
+            x: -20,
+            y: -60
+        },
+    }
+];
+
+const line6: PathPart[] = [
+    {
+        vector: {
+            x: -100,
+            y: -80
+        },
+    },
+    {
+        vector: {
+            x: -20,
+            y: -80
         },
     }
 ];
@@ -135,7 +224,11 @@ const paper: SVGPartial = {
         paperline,
         line1,
         line2,
-        line3
+        line3,
+        line4,
+        line5,
+        line6,
+        lash
     ]
 };
 
@@ -221,15 +314,91 @@ const head: PathPart[] = [
     }
 ];
 
+const border: PathPart[] = [
+    {
+        vector: {
+            x: -50,
+            y: -60
+        },
+    },
+    {
+        arc: {
+            radius: 10,
+            rotation: 0,
+            clockwise: false,
+            end: {
+                x: -60,
+                y: -70
+            }
+        }
+    },
+    {
+        vector: {
+            x: -60,
+            y: -190
+        },
+    },
+    {
+        arc: {
+            radius: 10,
+            rotation: 0,
+            clockwise: false,
+            end: {
+                x: -50,
+                y: -200
+            }
+        }
+    },
+    {
+        vector: {
+            x: 50,
+            y: -200
+        },
+    },
+    {
+        arc: {
+            radius: 10,
+            rotation: 0,
+            clockwise: false,
+            end: {
+                x: 60,
+                y: -190
+            }
+        }
+    },
+    {
+        vector: {
+            x: 60,
+            y: -70
+        },
+    },
+    {
+        arc: {
+            radius: 10,
+            rotation: 0,
+            clockwise: false,
+            end: {
+                x: 50,
+                y: -60
+            }
+        }
+    }
+];
+
 const person: SVGPartial = {
     strokeColor: "rgba(var(--v-theme-on-background), 1)",
     strokeWidth: "7",
     fillColor: "white",
-    scale: 1,
+    scale: 0.8,
     parts: [
+        border,
         body,
-        head
-    ]
+        head,
+    ],
+    translate: {
+        x: 60,
+        y: 20
+    }
 };
 
 //TODO: diploma icon or smth
