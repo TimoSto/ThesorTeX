@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/TimoSto/ThesorTeX/tools/documentationbuilder/parser"
 )
 
 /**
@@ -18,14 +20,26 @@ This go_binary will be used in a bazel genrule
 */
 
 func main() {
-	outDir := flag.String("out-dir", "", "out-dir")
+	outDir := flag.String("out-dir", "", "the dir to write the results to")
+	srcFilePath := flag.String("src", "", "src file")
+
 	flag.Parse()
 
-	fmt.Println(*outDir)
+	fmt.Println("Reading src file...")
 
-	fmt.Println(os.Getwd())
+	srcFile, err := os.ReadFile(*srcFilePath)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	f, err := os.Create(filepath.Join(*outDir, "data.txt"))
+	fmt.Println("converting md to md for vuetify...")
+
+	mdForVuetify, err := parser.GenerateMdForVuetify(srcFile)
+	if err != nil {
+		log.Fatalf("could not generate md for vuetify: %v", err)
+	}
+
+	f, err := os.Create(filepath.Join(*outDir, "md_for_vuetify.md"))
 
 	if err != nil {
 		log.Fatal(err)
@@ -33,10 +47,10 @@ func main() {
 
 	defer f.Close()
 
-	_, err2 := f.WriteString("old falcon\n")
+	_, err = f.Write(mdForVuetify)
 
-	if err2 != nil {
-		log.Fatal(err2)
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	fmt.Println("done")
