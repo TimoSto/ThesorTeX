@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="4" :white="true">
+  <FullHeightLayout :pages="3" :white="true">
     <template #content-1>
       <v-row class="d-flex flex-row">
         <v-col cols="12">
@@ -59,18 +59,13 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </template>
-    <template #content-4>
-      <RevealJS />
-    </template>
   </FullHeightLayout>
   <v-container>
 
   </v-container>
 
   <v-dialog v-model="presentationOpened" width="600" height="400">
-    <v-card>
-      <v-card-title>Coming soon</v-card-title>
-    </v-card>
+    <RevealJS />
   </v-dialog>
 </template>
 
