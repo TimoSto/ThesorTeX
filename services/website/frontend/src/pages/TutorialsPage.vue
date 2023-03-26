@@ -64,8 +64,8 @@
 
   </v-container>
 
-  <v-dialog v-model="presentationOpened" width="600" height="400">
-    <RevealJS />
+  <v-dialog v-model="presentationOpened" width="1000" height="600">
+    <RevealJS :docs="thesisDocs.Docs" />
   </v-dialog>
 </template>
 

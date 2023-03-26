@@ -2,24 +2,12 @@
   <div id="container">
     <div class="reveal">
       <div class="slides">
-        <section data-markdown>
-          <textarea data-template>
-            # Slide 1
-            > A paragraph with some text and a [link](http://hakim.se).
+        <section data-markdown v-for="d in docs">
+          <textarea data-template class="slide">
+            # {{d.Title}}
+            {{ d.Content }}
           </textarea>
         </section>
-        <section data-markdown>
-          <textarea data-template>
-            ```js [1-2|3|4]
-            let a = 1;
-            let b = 2;
-            let c = x => 1 + 2 + x;
-            c(3);
-            ```
-          </textarea>
-        </section>
-        <section>Slide 1</section>
-        <section>Slide 2</section>
       </div>
     </div>
   </div>
@@ -35,6 +23,7 @@ import "reveal.js/plugin/highlight/monokai.css";
 
 export default {
   name: "RevealJS",
+  props: ["docs"],
   mounted() {
     Reveal.initialize({
       embedded: true,
@@ -48,7 +37,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #container {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -57,5 +46,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   height: 90vh;
+
+  & .slide {
+    overflow-y: auto !important;
+  }
 }
 </style>
