@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "parser",
+    srcs = [
+        "md_for_reveal.go",
+        "md_for_vuetify.go",
+        "tex_for_template.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/tools/documentationbuilder/parser",
+    visibility = ["//visibility:public"],
+)

@@ -5,6 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/tools/documentationbuilder",
     visibility = ["//visibility:private"],
+    deps = ["//tools/documentationbuilder/parser"],
 )
 
 go_binary(
@@ -16,6 +17,7 @@ go_binary(
 genrule(
     name = "test",
     outs = ["outs"],
-    cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs)",
+    srcs = ["testfiles/simple.md"],
+    cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs) -src=$(location testfiles/simple.md)",
     tools = [":documentationbuilder"],
 )
