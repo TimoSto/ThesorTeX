@@ -16,8 +16,8 @@ go_binary(
 
 genrule(
     name = "test",
+    srcs = ["//tools/documentationbuilder/testfiles:simple.md"],
     outs = ["outs"],
-    srcs = ["testfiles/simple.md"],
-    cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs) -src=$(location testfiles/simple.md)",
+    cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs) -src=$(location //tools/documentationbuilder/testfiles:simple.md)",
     tools = [":documentationbuilder"],
 )

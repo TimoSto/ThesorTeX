@@ -1,12 +1,21 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "parser",
     srcs = [
         "md_for_reveal.go",
         "md_for_vuetify.go",
+        "split_docs.go",
         "tex_for_template.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/tools/documentationbuilder/parser",
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "parser_test",
+    srcs = ["split_docs_test.go"],
+    data = ["//tools/documentationbuilder/testfiles:simple.md"],
+    embed = [":parser"],
+    deps = ["//vendor/github.com/google/go-cmp/cmp"],
 )
