@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -21,9 +20,7 @@ func SplitDocs(file string) []RawDocs {
 
 	for _, s := range splitted {
 		s = strings.Trim(s, "\n")
-		fmt.Println("splitted", s)
 		titleMatch := titleRegex.FindString(s)
-		fmt.Println("title", titleMatch)
 
 		docs = append(docs, RawDocs{
 			Title:   strings.Trim(strings.TrimLeft(titleMatch, "title: "), "\n"),
