@@ -39,3 +39,13 @@ pkg_zip(
         ":srcs",
     ],
 )
+
+genrule(
+    name = "documentation",
+    srcs = [
+        "documentation.md"
+    ],
+    outs = ["docs"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs) -src=$(location documentation.md)",
+    tools = ["//tools/documentationbuilder:documentationbuilder"],
+)
