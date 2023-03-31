@@ -7,6 +7,6 @@ go_library(
     visibility = ["//services/website:__subpackages__"],
     deps = [
         "//pkg/backend/log",
-        "//services/website/internal/documentations",
+        "//services/website/internal/documentations_depr",
     ],
 )

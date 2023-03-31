@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
-	"github.com/TimoSto/ThesorTeX/services/website/internal/documentations"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/documentations_depr"
 )
 
 func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
