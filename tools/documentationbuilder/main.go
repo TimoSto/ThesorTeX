@@ -47,7 +47,7 @@ func main() {
 
 	defer f.Close()
 
-	data, err := json.Marshal(parsedObjects)
+	data, err := json.MarshalIndent(parsedObjects, "", "\t")
 	if err != nil {
 		log.Fatal(err)
 	}
