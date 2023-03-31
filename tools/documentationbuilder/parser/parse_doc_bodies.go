@@ -6,6 +6,7 @@ import (
 )
 
 type DocBody struct {
+	Title  string
 	Groups []group
 }
 
@@ -44,10 +45,9 @@ func ParseDocBodies(raw []RawDocs) []DocBody {
 }
 
 func parseDocBody(raw RawDocs) DocBody {
-	var body DocBody
-
-	body.Groups = []group{
-		{},
+	body := DocBody{
+		Title:  raw.Title,
+		Groups: []group{{}},
 	}
 
 	splitted := strings.Split(raw.Content, "\n")

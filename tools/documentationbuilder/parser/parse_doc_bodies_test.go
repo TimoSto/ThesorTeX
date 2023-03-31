@@ -216,6 +216,7 @@ func TestSplitLineIntoElements(t *testing.T) {
 
 var simpleExpectedBody = []DocBody{
 	{
+		Title: "Doc 1",
 		Groups: []group{
 			{
 				Type: "TEXT",
@@ -229,6 +230,7 @@ var simpleExpectedBody = []DocBody{
 		},
 	},
 	{
+		Title: "Doc 2 styled",
 		Groups: []group{
 			{
 				Type: "TEXT",
@@ -262,6 +264,7 @@ var simpleExpectedBody = []DocBody{
 		},
 	},
 	{
+		Title: "Extra spacing",
 		Groups: []group{
 			{
 				Type: "TEXT",
