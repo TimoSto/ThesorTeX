@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -34,12 +35,11 @@ func main() {
 
 	fmt.Println("converting md to md for vuetify...")
 
-	mdForVuetify, err := parser.GenerateMdForVuetify(srcFile)
-	if err != nil {
-		log.Fatalf("could not generate md for vuetify: %v", err)
-	}
+	rawDocs := parser.SplitDocs(string(srcFile))
 
-	f, err := os.Create(filepath.Join(*outDir, "md_for_vuetify.md"))
+	parsedObjects := parser.ParseDocBodies(rawDocs)
+
+	f, err := os.Create(filepath.Join(*outDir, "parsed.json"))
 
 	if err != nil {
 		log.Fatal(err)
@@ -47,11 +47,23 @@ func main() {
 
 	defer f.Close()
 
-	_, err = f.Write(mdForVuetify)
-
+	data, err := json.Marshal(parsedObjects)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	_, err = f.Write(data)
+
+	//mdForVuetify, err := parser.GenerateMdForVuetify(srcFile)
+	//if err != nil {
+	//	log.Fatalf("could not generate md for vuetify: %v", err)
+	//}
+	//
+
+	//
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
 
 	fmt.Println("done")
 }
