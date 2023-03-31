@@ -16,9 +16,10 @@ type group struct {
 }
 
 const (
-	StylePlain  = "Plain"
-	StyleBold   = "Bold"
-	StyleItalic = "Italic"
+	StylePlain         = "Plain"
+	StyleBold          = "Bold"
+	StyleItalic        = "Italic"
+	StyleItalicAndBold = "ItalicAndBold"
 )
 
 type element struct {
@@ -102,8 +103,6 @@ func splitLineIntoElements(line string) []element {
 
 	matchIndexes, matches = sortMatches(matchIndexes, matches)
 
-	fmt.Println(matches, matchIndexes)
-
 	if len(matchIndexes) == 0 {
 		elements = []element{
 			{
@@ -129,7 +128,6 @@ func splitLineIntoElements(line string) []element {
 		}
 
 		plainContentToAdd := line[beg:end]
-		fmt.Println(plainContentToAdd, beg, end, "plain")
 		if plainContentToAdd != "" {
 			elements = append(elements, element{
 				Content: plainContentToAdd,
@@ -150,11 +148,16 @@ func splitLineIntoElements(line string) []element {
 				Style:   StyleItalic,
 			})
 		}
-		fmt.Println(boldRegex.MatchString(matchValue), "h"+matchValue)
 		if boldRegex.MatchString(matchValue) {
 			elements = append(elements, element{
 				Content: matchValue[2+shift : len(matchValue)-2],
 				Style:   StyleBold,
+			})
+		}
+		if boldAndItalicRegex.MatchString(matchValue) {
+			elements = append(elements, element{
+				Content: matchValue[3+shift : len(matchValue)-3],
+				Style:   StyleItalicAndBold,
 			})
 		}
 

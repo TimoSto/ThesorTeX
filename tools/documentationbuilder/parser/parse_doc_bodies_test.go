@@ -132,6 +132,35 @@ func TestSplitLineIntoElements(t *testing.T) {
 				},
 			},
 		},
+		{
+			line: "**foo** *bar* ***de***veloper",
+			exp: []element{
+				{
+					Style:   StyleBold,
+					Content: "foo",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   StyleItalic,
+					Content: "bar",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   StyleItalicAndBold,
+					Content: "de",
+				},
+				{
+					Style:   StylePlain,
+					Content: "veloper",
+				},
+			},
+		},
 	}
 
 	for _, tc := range tcs {
