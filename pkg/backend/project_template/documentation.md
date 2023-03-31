@@ -1,5 +1,5 @@
 title: Wie ist die Vorlage aufgebaut?
-Unter ***styPAckages/*** liegen die Dateien, in denen die Formatierungen definiert sind.
+Unter ***styPackages/*** liegen die Dateien, in denen die Formatierungen definiert sind.
 
 Die Datei ***main.tex*** ist die *Haupt-Datei*. Du kannst sie in einem TeX-Editor deiner Wahl öffnen und kompilieren.
 

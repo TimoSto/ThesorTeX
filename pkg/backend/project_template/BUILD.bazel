@@ -1,6 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
-load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_zip", "pkg_tar")
 
 go_library(
     name = "project_template",
@@ -48,4 +48,12 @@ genrule(
     outs = ["docs"],
     cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs) -src=$(location documentation.md)",
     tools = ["//tools/documentationbuilder:documentationbuilder"],
+)
+
+pkg_tar(
+    name = "documentation_tar",
+    srcs = [":documentation"],
+    extension = "tar.gz",
+    strip_prefix = strip_prefix.from_pkg("docs"),
+    visibility = ["//visibility:public"],
 )
