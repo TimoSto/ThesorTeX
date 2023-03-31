@@ -52,19 +52,23 @@ func parseDocBody(raw RawDocs) DocBody {
 
 	splitted := strings.Split(raw.Content, "\n")
 
+	lengthElements := 1
+
 	for _, s := range splitted {
 		l := analyseLine(s)
-		lengthElements := 1
 		if l.Type == TypeEmpty {
+			// empty line => if the last group in the docs already has elements, start a new group
 			if len(body.Groups[len(body.Groups)-1].Elements) > 0 {
 				body.Groups = append(body.Groups, group{})
 				lengthElements = 1
 			}
 		} else if l.Type == TypeText {
 			if body.Groups[len(body.Groups)-1].Type == "" {
+				//first element in group sets the type
 				body.Groups[len(body.Groups)-1].Type = "TEXT"
 			} else if body.Groups[len(body.Groups)-1].Type != "TEXT" {
-				body.Groups = append(body.Groups, group{})
+				// if type differs with previous, create a new group
+				body.Groups = append(body.Groups, group{Type: "TEXT"})
 				lengthElements = 1
 			} else {
 				// still text but new line => space
@@ -74,15 +78,19 @@ func parseDocBody(raw RawDocs) DocBody {
 			elements := splitLineIntoElements(l.Content)
 			for _, e := range elements {
 				if len(body.Groups[len(body.Groups)-1].Elements) < lengthElements {
+					// if tto few elements are present, create an empty one
 					body.Groups[len(body.Groups)-1].Elements = append(
 						body.Groups[len(body.Groups)-1].Elements, element{})
 				}
 				if body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style == "" {
+					// first element in group sets style
 					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style = e.Style
 					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content = e.Content
 				} else if body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style == e.Style {
+					// if style matches, jsut add the content
 					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content += e.Content
 				} else {
+					//if style differs, create new group and add in there
 					body.Groups[len(body.Groups)-1].Elements = append(
 						body.Groups[len(body.Groups)-1].Elements, element{})
 					lengthElements++
