@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -39,6 +40,106 @@ func TestAnalyseLine(t *testing.T) {
 			result := analyseLine(tc.line)
 
 			if diff := cmp.Diff(result, tc.exp); diff != "" {
+				t.Errorf("%s", diff)
+			}
+		})
+	}
+}
+
+func TestSplitLineIntoElements(t *testing.T) {
+	tcs := []struct {
+		line string
+		exp  []element
+	}{
+		{
+			line: "foo bar developer",
+			exp: []element{
+				{
+					Style:   StylePlain,
+					Content: "foo bar developer",
+				},
+			},
+		},
+		{
+			line: "foo *bar* developer",
+			exp: []element{
+				{
+					Style:   StylePlain,
+					Content: "foo ",
+				},
+				{
+					Style:   StyleItalic,
+					Content: "bar",
+				},
+				{
+					Style:   StylePlain,
+					Content: " developer",
+				},
+			},
+		},
+		{
+			line: "**foo** bar developer",
+			exp: []element{
+				{
+					Style:   StyleBold,
+					Content: "foo",
+				},
+				{
+					Style:   StylePlain,
+					Content: " bar developer",
+				},
+			},
+		},
+		{
+			line: "**foo** hallo *bar* developer",
+			exp: []element{
+				{
+					Style:   StyleBold,
+					Content: "foo",
+				},
+				{
+					Style:   StylePlain,
+					Content: " hallo ",
+				},
+				{
+					Style:   StyleItalic,
+					Content: "bar",
+				},
+				{
+					Style:   StylePlain,
+					Content: " developer",
+				},
+			},
+		},
+		{
+			line: "**foo** *bar* developer",
+			exp: []element{
+				{
+					Style:   StyleBold,
+					Content: "foo",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   StyleItalic,
+					Content: "bar",
+				},
+				{
+					Style:   StylePlain,
+					Content: " developer",
+				},
+			},
+		},
+	}
+
+	for _, tc := range tcs {
+		t.Run(tc.line, func(t *testing.T) {
+			result := splitLineIntoElements(tc.line)
+
+			if diff := cmp.Diff(tc.exp, result); diff != "" {
+				fmt.Print(result)
 				t.Errorf("%s", diff)
 			}
 		})
