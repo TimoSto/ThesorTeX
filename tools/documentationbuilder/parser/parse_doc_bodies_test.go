@@ -318,3 +318,12 @@ func TestParseDocBody(t *testing.T) {
 		})
 	}
 }
+
+func TestParseDocBodies(t *testing.T) {
+
+	result := ParseDocBodies(simpleExpected)
+
+	if diff := cmp.Diff(simpleExpectedBody, result); diff != "" {
+		t.Errorf("%s", diff)
+	}
+}
