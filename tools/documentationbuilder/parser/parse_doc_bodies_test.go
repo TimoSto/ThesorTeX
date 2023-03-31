@@ -48,11 +48,13 @@ func TestAnalyseLine(t *testing.T) {
 
 func TestSplitLineIntoElements(t *testing.T) {
 	tcs := []struct {
-		line string
-		exp  []element
+		title string
+		line  string
+		exp   []element
 	}{
 		{
-			line: "foo bar developer",
+			title: "just plain",
+			line:  "foo bar developer",
 			exp: []element{
 				{
 					Style:   StylePlain,
@@ -61,7 +63,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 			},
 		},
 		{
-			line: "foo *bar* developer",
+			title: "italic in middle",
+			line:  "foo *bar* developer",
 			exp: []element{
 				{
 					Style:   StylePlain,
@@ -78,7 +81,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 			},
 		},
 		{
-			line: "**foo** bar developer",
+			title: "bold in front",
+			line:  "**foo** bar developer",
 			exp: []element{
 				{
 					Style:   StyleBold,
@@ -91,7 +95,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 			},
 		},
 		{
-			line: "**foo** hallo *bar* developer",
+			title: "italic and bold texts separated by word",
+			line:  "**foo** hallo *bar* developer",
 			exp: []element{
 				{
 					Style:   StyleBold,
@@ -112,7 +117,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 			},
 		},
 		{
-			line: "**foo** *bar* developer",
+			title: "italic and bold separated by space",
+			line:  "**foo** *bar* developer",
 			exp: []element{
 				{
 					Style:   StyleBold,
@@ -133,7 +139,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 			},
 		},
 		{
-			line: "**foo** *bar* ***de***veloper",
+			title: "italic, bold and italic-bold",
+			line:  "**foo** *bar* ***de***veloper",
 			exp: []element{
 				{
 					Style:   StyleBold,
@@ -158,6 +165,40 @@ func TestSplitLineIntoElements(t *testing.T) {
 				{
 					Style:   StylePlain,
 					Content: "veloper",
+				},
+			},
+		},
+		{
+			title: "italic, bold and italic-bold twice at end",
+			line:  "**foo** *bar* ***de***velop***er***",
+			exp: []element{
+				{
+					Style:   StyleBold,
+					Content: "foo",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   StyleItalic,
+					Content: "bar",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   StyleItalicAndBold,
+					Content: "de",
+				},
+				{
+					Style:   StylePlain,
+					Content: "velop",
+				},
+				{
+					Style:   StyleItalicAndBold,
+					Content: "er",
 				},
 			},
 		},

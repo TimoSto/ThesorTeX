@@ -123,7 +123,7 @@ func splitLineIntoElements(line string) []element {
 				beg++
 			}
 		}
-		if string(line[end]) == " " {
+		if string(line[end]) != "*" {
 			end++
 		}
 
@@ -138,7 +138,7 @@ func splitLineIntoElements(line string) []element {
 		// add the actual result
 		matchValue := line[match[0] : match[0]+len(matches[i])]
 		shift := 0
-		if string(matchValue[0]) == " " {
+		if string(matchValue[0]) != "*" {
 			shift++
 		}
 
@@ -160,6 +160,8 @@ func splitLineIntoElements(line string) []element {
 				Style:   StyleItalicAndBold,
 			})
 		}
+
+		fmt.Println(len(matchValue), matchValue, shift)
 
 		beg = end + len(matchValue) - 1
 
