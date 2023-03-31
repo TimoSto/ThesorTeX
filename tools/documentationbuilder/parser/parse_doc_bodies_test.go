@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -209,7 +208,6 @@ func TestSplitLineIntoElements(t *testing.T) {
 			result := splitLineIntoElements(tc.line)
 
 			if diff := cmp.Diff(tc.exp, result); diff != "" {
-				fmt.Print(result)
 				t.Errorf("%s", diff)
 			}
 		})
@@ -307,14 +305,14 @@ var simpleExpectedBody = []DocBody{
 	},
 }
 
-func testParseDocBody(t *testing.T) {
+func TestParseDocBody(t *testing.T) {
 	for i, s := range simpleExpected {
 		t.Run(s.Title, func(t *testing.T) {
 			result := parseDocBody(s)
 
 			expected := simpleExpectedBody[i]
 
-			if diff := cmp.Diff(result, expected); diff != "" {
+			if diff := cmp.Diff(expected, result); diff != "" {
 				t.Errorf("%s", diff)
 			}
 		})

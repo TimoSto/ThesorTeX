@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -10,16 +9,23 @@ type DocBody struct {
 	Groups []group
 }
 
+type AllowedType string
+
+const (
+	TypeText  AllowedType = "Text"
+	TypeEmpty             = "Empty"
+)
+
 type group struct {
-	Type     string
+	Type     AllowedType
 	Elements []element
 }
 
 const (
-	StylePlain         = "Plain"
-	StyleBold          = "Bold"
-	StyleItalic        = "Italic"
-	StyleItalicAndBold = "ItalicAndBold"
+	StylePlain         = "PLAIN"
+	StyleBold          = "BOLD"
+	StyleItalic        = "ITALIC"
+	StyleItalicAndBold = "ITALIC-BOLD"
 )
 
 type element struct {
@@ -48,18 +54,48 @@ func parseDocBody(raw RawDocs) DocBody {
 
 	for _, s := range splitted {
 		l := analyseLine(s)
-		fmt.Println(l)
+		lengthElements := 1
+		if l.Type == TypeEmpty {
+			if len(body.Groups[len(body.Groups)-1].Elements) > 0 {
+				body.Groups = append(body.Groups, group{})
+				lengthElements = 1
+			}
+		} else if l.Type == TypeText {
+			if body.Groups[len(body.Groups)-1].Type == "" {
+				body.Groups[len(body.Groups)-1].Type = "TEXT"
+			} else if body.Groups[len(body.Groups)-1].Type != "TEXT" {
+				body.Groups = append(body.Groups, group{})
+				lengthElements = 1
+			} else {
+				// still text but new line => space
+				body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content += " "
+			}
+
+			elements := splitLineIntoElements(l.Content)
+			for _, e := range elements {
+				if len(body.Groups[len(body.Groups)-1].Elements) < lengthElements {
+					body.Groups[len(body.Groups)-1].Elements = append(
+						body.Groups[len(body.Groups)-1].Elements, element{})
+				}
+				if body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style == "" {
+					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style = e.Style
+					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content = e.Content
+				} else if body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style == e.Style {
+					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content += e.Content
+				} else {
+					body.Groups[len(body.Groups)-1].Elements = append(
+						body.Groups[len(body.Groups)-1].Elements, element{})
+					lengthElements++
+					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style = e.Style
+					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content = e.Content
+				}
+			}
+
+		}
 	}
 
 	return body
 }
-
-type AllowedType string
-
-const (
-	TypeText  AllowedType = "Text"
-	TypeEmpty             = "Empty"
-)
 
 type analyseLineResult struct {
 	Type    AllowedType
@@ -160,8 +196,6 @@ func splitLineIntoElements(line string) []element {
 				Style:   StyleItalicAndBold,
 			})
 		}
-
-		fmt.Println(len(matchValue), matchValue, shift)
 
 		beg = end + len(matchValue) - 1
 
