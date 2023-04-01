@@ -32,7 +32,7 @@
         {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
       </h2>
 
-      <v-expansion-panels>
+      <v-expansion-panels multiple>
         <DocumentationPanel v-for="d in thesisTemplateDocs" :doc="d" />
       </v-expansion-panels>
 
