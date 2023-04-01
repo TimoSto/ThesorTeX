@@ -18,6 +18,7 @@ const (
 	TypeBeginCode             = "BeginCode"
 	TypeCode                  = "Code"
 	TypeEndCode               = "EndCode"
+	TypeListItem              = "ListItem"
 )
 
 type group struct {
@@ -115,6 +116,17 @@ func parseDocBody(raw RawDocs) DocBody {
 			body.Groups[len(body.Groups)-1].Elements = append(body.Groups[len(body.Groups)-1].Elements, element{
 				Content: l.Content,
 			})
+		} else if l.Type == TypeListItem {
+			if body.Groups[len(body.Groups)-1].Type != "LIST" {
+				// if type differs with previous, create a new group
+				body.Groups = append(body.Groups, group{Type: "LIST"})
+				lengthElements = 1
+			}
+
+			//TODO: support bold, italic, ... link in regular text
+			body.Groups[len(body.Groups)-1].Elements = append(body.Groups[len(body.Groups)-1].Elements, element{
+				Content: l.Content,
+			})
 		}
 	}
 
@@ -143,6 +155,12 @@ func analyseLine(line string, incode bool) analyseLineResult {
 		return analyseLineResult{
 			Type:    TypeEndCode,
 			Content: "",
+		}
+	}
+	if line[:2] == "- " {
+		return analyseLineResult{
+			Type:    TypeListItem,
+			Content: line[2:],
 		}
 	}
 

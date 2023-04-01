@@ -11,6 +11,11 @@
         <div v-if="g.Type === 'CODE'" class="code-container pa-2 ml-2 mr-2">
           <p v-for="e in g.Elements" class="text-body-1"> {{ e.Content }} </p>
         </div>
+        <v-list v-if="g.Type === 'LIST'" density="compact">
+          <v-list-item v-for="e in g.Elements">
+            {{ e.Content }}
+          </v-list-item>
+        </v-list>
       </template>
     </v-expansion-panel-text>
   </v-expansion-panel>
