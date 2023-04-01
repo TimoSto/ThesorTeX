@@ -35,6 +35,7 @@ export const i18nKeys = {
         ThesisTemplate: "TutorialsPage.ThesisTemplate",
         ThesisTemplateTech: "TutorialsPage.ThesisTemplateTech",
         ThesisTool: "TutorialsPage.ThesisTool",
+        TexKnowledge: "TutorialsPage.TexKnowledge"
     }
 };
 

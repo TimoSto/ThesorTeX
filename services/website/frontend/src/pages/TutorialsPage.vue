@@ -32,6 +32,8 @@
         {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
       </h2>
 
+      <p class="text-body-1 text-center pb-4"> {{ t(i18nKeys.TutorialsPage.TexKnowledge) }}</p>
+
       <v-expansion-panels multiple>
         <DocumentationPanel v-for="d in thesisTemplateDocs" :doc="d" />
       </v-expansion-panels>

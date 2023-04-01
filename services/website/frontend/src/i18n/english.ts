@@ -37,5 +37,6 @@ export const english: I18nKeys = {
         ThesisTemplate: "Using the template for academic papers",
         ThesisTemplateTech: "Technical description of the template for academic papers",
         ThesisTool: "Usage of the tool for bibliography management",
+        TexKnowledge: "Basic knowledge in the use of LaTeX is required"
     }
 };

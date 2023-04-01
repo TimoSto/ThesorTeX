@@ -37,5 +37,6 @@ export const german: I18nKeys = {
         ThesisTemplate: "Verwendung der Vorlage für eine Abschluss- / Hausarbeit",
         ThesisTemplateTech: "Technische Beschreibung der Vorlage für wissenschaftliche Arbeiten",
         ThesisTool: "Verwendung des Tools für Literaturmanagement",
+        TexKnowledge: "Grundkenntnisse in der Verwendung von LaTeX werden vorrausgesetzt"
     }
 };
