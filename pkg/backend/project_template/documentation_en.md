@@ -36,3 +36,34 @@ You can set the attributes ***mytitle***, ***plaintitle*** and ***myauthor*** as
 The attributes ***parttitle*** and ***thepage*** refer to the current upper chapter (***\part***) and the current page number.
 
 To switch between the two variants, use ***\frontmatter*** (to *PlainPageStyle*) or ***\mainmatter*** (to *MainPageStyle*).
+
+---
+
+title: How can I change the numbering of the chapters?
+By default, the chapters are numbered numerically:
+
+- 1 Chapter 1
+- 1.1 Subchapter 1.1
+- 1.1.1 Subchapter 1.1.1
+- ...
+
+```latex
+\usepackage[numeric]{styPackages/headings}
+
+\usepackage[numeric]{styPackages/table-of-contents}
+```
+
+You can also switch to an alphanumeric count:
+
+- A Chapter 1
+- I Subchapter 1.1
+- 1 Subchapter 1.1.1
+- a) Subchapter 1.1.1.1
+- aa) Subchapter 1.1.1.1
+- (1) Subchapter 1.1.1.1.1
+
+```latex
+\usepackage[alphaNumeric]{styPackages/headings}
+
+\usepackage[alphaNumeric]{styPackages/table of contents}
+```
