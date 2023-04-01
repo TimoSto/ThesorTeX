@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "documentations",
@@ -12,5 +12,11 @@ genrule(
     name = "copyDocs",
     srcs = ["//pkg/backend/project_template:documentation_tar"],
     outs = ["docs/thesisTemplate/de"],
-    cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)"
+    cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
+)
+
+go_test(
+    name = "documentations_test",
+    srcs = ["documentations_test.go"],
+    embed = [":documentations"],
 )
