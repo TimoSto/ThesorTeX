@@ -74,3 +74,9 @@ title: How can I add abbreviations?
 The abbreviations are read from the file ***abkuerzungen.csv***. There you can enter them in the form *abbreviation*;*meaning*;.
 
 If you call up the command ***\printabbreviations*** in your document, the list of abbreviations is output.
+
+---
+
+title: How can I add attachments?
+If your work has appendices, you can output them in a structured way. The commands ***\annexI***, ***\annexII*** and ***\annexIII*** are basically nothing other than the usual chapters.
+However, they are numbered separately and output via the command ***\listofanhang***.

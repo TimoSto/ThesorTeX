@@ -74,3 +74,9 @@ title: Wie kann ich Abkürzungen hinzufügen?
 Die Abkürzungen werden aus der Datei ***abkuerzungen.csv*** ausgelesen. Dort kannst du sie in der Form *Abkürzung*;*Bedeutung*; eintragen.
 
 Wenn du den Befehl ***\printabbreviations*** in deinem Dokument aufrufst, wird das Abkürzungsverzeichnis ausegeben.
+
+---
+
+title: Wie kann ich Anhänge hinzufügen?
+Wenn deine Arbeit Anhänge hat, kannst du sie strukturiert ausgeben. Die Befehle ***\anhangI***, ***\anhangII*** und ***\anhangIII*** sind im Grunde nichts anderes als die gewöhnlichen Kapitel.
+Sie werden allerdings separat nummeriert und über den Befehl ***\listofanhang*** ausgegeben.
