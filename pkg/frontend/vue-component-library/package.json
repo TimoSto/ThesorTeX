@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "devDependencies": {
     "@thesortex/vitest-vuetify": "workspace:*",
+    "@types/reveal.js": "^4.4.2",
     "@vitejs/plugin-vue": "*",
     "vite": "*"
   },

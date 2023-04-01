@@ -72,6 +72,7 @@ importers:
   pkg/frontend/vue-component-library:
     specifiers:
       '@thesortex/vitest-vuetify': workspace:*
+      '@types/reveal.js': ^4.4.2
       '@vitejs/plugin-vue': 4.0.0
       pinia: 2.0.32
       reveal.js: ^4.4.0
@@ -91,6 +92,7 @@ importers:
       vuetify: 3.1.1_zhdigtlnoj4qfl4bi7c6fb2bly
     devDependencies:
       '@thesortex/vitest-vuetify': link:../vitest-vuetify
+      '@types/reveal.js': 4.4.2
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
       vite: 4.1.4_sass@1.58.3
 
@@ -800,6 +802,10 @@ packages:
 
   /@types/node/18.11.18:
     resolution: { integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA== }
+    dev: true
+
+  /@types/reveal.js/4.4.2:
+    resolution: { integrity: sha512-z+lVPEWGPFrPv3S9Mx2qLKXA4zT+Mo3GxvW68OR7lbUcCmqjn4vjaQJ2qCW+xNkBUgfR8d3fzLWHmu1PIfRiIA== }
     dev: true
 
   /@types/set-cookie-parser/2.4.2:
