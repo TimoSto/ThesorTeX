@@ -19,7 +19,7 @@ var docsMap = map[string][]byte{
 }
 
 func GetDocumentation(topic string, format string, lang string) ([]byte, error) {
-	doc := docsMap[fmt.Sprintf("%s_%s_%s", topic, strings.ToUpper(format), strings.ToUpper(lang))]
+	doc := docsMap[fmt.Sprintf("%s_%s_%s", topic, format, strings.ToUpper(lang))]
 
 	if len(doc) > 0 {
 		return doc, nil
