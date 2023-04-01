@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
-	documentations2 "github.com/TimoSto/ThesorTeX/services/website/internal/documentations"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/documentations"
 )
 
 func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
@@ -17,10 +17,10 @@ func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
 			format = "PDF"
 		}
 
-		data, err := documentations2.GetDocumentation(doc, format, lang)
+		data, err := documentations.GetDocumentation(doc, format, lang)
 
 		if err != nil {
-			if err == documentations2.ErrNotFound {
+			if err == documentations.ErrNotFound {
 				w.WriteHeader(http.StatusNotFound)
 				return
 			}
