@@ -8,10 +8,17 @@
             {{ p.Title }}
             <template v-for="g in p.Groups">
               <p v-if="g.Type === 'TEXT'">
-              <span v-for="e in g.Elements">
-                {{ e.Content }}
-              </span>
+                <span v-for="e in g.Elements">
+                  {{ e.Content }}
+                </span>
               </p>
+              <pre v-if="g.Type === 'CODE'">
+                <code data-trim data-noescape>
+                  <template v-for="e in g.Elements">
+                    {{ e.Content }}
+                  </template>
+                </code>
+              </pre>
             </template>
           </section>
         </section>
@@ -22,6 +29,7 @@
 
 <script lang="ts" setup>
 import Reveal from "reveal.js";
+import Hightlight from "reveal.js/plugin/highlight/highlight";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/black.css";
 import "reveal.js/plugin/highlight/monokai.css";
@@ -42,7 +50,7 @@ const props = defineProps({
 onMounted(() => {
   Reveal.initialize({
     embedded: true,
-    plugins: [],
+    plugins: [Hightlight],
     markdown: {
       breaks: true,
       gfm: true,
