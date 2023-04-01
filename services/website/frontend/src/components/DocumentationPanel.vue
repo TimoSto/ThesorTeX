@@ -5,7 +5,7 @@
     </v-expansion-panel-title>
     <v-expansion-panel-text>
       <template v-for="g in doc.Groups">
-        <p v-if="g.Type === 'TEXT'" class="text-body-1">
+        <p v-if="g.Type === 'TEXT'" class="text-body-1 ma-2">
           <span v-for="e in g.Elements" :class="getClass(e.Style)">{{ e.Content }}</span>
         </p>
       </template>
