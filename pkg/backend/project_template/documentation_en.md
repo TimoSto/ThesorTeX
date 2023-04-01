@@ -67,3 +67,10 @@ You can also switch to an alphanumeric count:
 
 \usepackage[alphaNumeric]{styPackages/table of contents}
 ```
+
+---
+
+title: How can I add abbreviations?
+The abbreviations are read from the file ***abkuerzungen.csv***. There you can enter them in the form *abbreviation*;*meaning*;.
+
+If you call up the command ***\printabbreviations*** in your document, the list of abbreviations is output.
