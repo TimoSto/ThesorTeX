@@ -63,7 +63,7 @@ func parseDocBody(raw RawDocs) DocBody {
 
 	for _, s := range splitted {
 		l := analyseLine(s, incode)
-		if l.Type == TypeEmpty {
+		if l.Type == TypeEmpty && !incode {
 			// empty line => if the last group in the docs already has elements, start a new group
 			if len(body.Groups[len(body.Groups)-1].Elements) > 0 {
 				body.Groups = append(body.Groups, group{})

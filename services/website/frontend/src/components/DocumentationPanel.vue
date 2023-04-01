@@ -8,6 +8,9 @@
         <p v-if="g.Type === 'TEXT'" class="text-body-1 ma-2">
           <span v-for="e in g.Elements" :class="getClass(e.Style)">{{ e.Content }}</span>
         </p>
+        <div v-if="g.Type === 'CODE'" class="code-container pa-2 ml-2 mr-2">
+          <p v-for="e in g.Elements" class="text-body-1"> {{ e.Content }} </p>
+        </div>
       </template>
     </v-expansion-panel-text>
   </v-expansion-panel>
@@ -39,6 +42,16 @@ function getClass(s: string): string {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.code-container {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.71);
+  border-radius: 8px;
 
+  & p {
+    color: white;
+    opacity: 0.9;
+  }
+}
 </style>
