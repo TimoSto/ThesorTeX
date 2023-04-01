@@ -41,18 +41,28 @@ pkg_zip(
 )
 
 genrule(
-    name = "documentation",
+    name = "documentation_de",
     srcs = [
-        "documentation.md"
+        "documentation_de.md"
     ],
-    outs = ["docs"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs) -src=$(location documentation.md)",
+    outs = ["docs/de"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/de) -src=$(location documentation_de.md)",
+    tools = ["//tools/documentationbuilder:documentationbuilder"],
+)
+
+genrule(
+    name = "documentation_en",
+    srcs = [
+        "documentation_en.md"
+    ],
+    outs = ["docs/en"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/en) -src=$(location documentation_en.md)",
     tools = ["//tools/documentationbuilder:documentationbuilder"],
 )
 
 pkg_tar(
     name = "documentation_tar",
-    srcs = [":documentation"],
+    srcs = [":documentation_de", ":documentation_en"],
     extension = "tar.gz",
     strip_prefix = strip_prefix.from_pkg("docs"),
     visibility = ["//visibility:public"],
