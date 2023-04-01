@@ -1,3 +1,4 @@
 exports_files([
     "simple.md",
+    "withCode.md"
 ])

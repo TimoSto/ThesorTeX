@@ -17,7 +17,7 @@ go_test(
         "parse_doc_bodies_test.go",
         "split_docs_test.go",
     ],
-    data = ["//tools/documentationbuilder/testfiles:simple.md"],
+    data = ["//tools/documentationbuilder/testfiles:simple.md","//tools/documentationbuilder/testfiles:withCode.md"],
     embed = [":parser"],
     deps = ["//vendor/github.com/google/go-cmp/cmp"],
 )

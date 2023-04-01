@@ -36,7 +36,7 @@ func TestAnalyseLine(t *testing.T) {
 
 	for _, tc := range tcs {
 		t.Run(tc.line, func(t *testing.T) {
-			result := analyseLine(tc.line)
+			result := analyseLine(tc.line, false)
 
 			if diff := cmp.Diff(result, tc.exp); diff != "" {
 				t.Errorf("%s", diff)
@@ -308,12 +308,65 @@ var simpleExpectedBody = []DocBody{
 	},
 }
 
+var withCodeExpectedBody = []DocBody{
+	{
+		Title: "Doc 1",
+		Groups: []group{
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "Some content",
+					},
+				},
+			},
+			{
+				Type: "CODE",
+				Elements: []element{
+					{
+						Style:   "",
+						Content: "\\testcommdand{}",
+					},
+					{
+						Style:   "",
+						Content: "hallo",
+					},
+				},
+			},
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "test",
+					},
+				},
+			},
+		},
+	},
+}
+
 func TestParseDocBody(t *testing.T) {
 	for i, s := range simpleExpected {
 		t.Run(s.Title, func(t *testing.T) {
 			result := parseDocBody(s)
 
 			expected := simpleExpectedBody[i]
+
+			if diff := cmp.Diff(expected, result); diff != "" {
+				t.Errorf("%s", diff)
+			}
+		})
+	}
+}
+
+func TestParseDocBodyWithCode(t *testing.T) {
+	for i, s := range withCodeExpected {
+		t.Run(s.Title, func(t *testing.T) {
+			result := parseDocBody(s)
+
+			expected := withCodeExpectedBody[i]
 
 			if diff := cmp.Diff(expected, result); diff != "" {
 				t.Errorf("%s", diff)

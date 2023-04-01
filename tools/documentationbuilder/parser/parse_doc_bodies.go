@@ -13,8 +13,11 @@ type DocBody struct {
 type AllowedType string
 
 const (
-	TypeText  AllowedType = "Text"
-	TypeEmpty             = "Empty"
+	TypeText      AllowedType = "Text"
+	TypeEmpty                 = "Empty"
+	TypeBeginCode             = "BeginCode"
+	TypeCode                  = "Code"
+	TypeEndCode               = "EndCode"
 )
 
 type group struct {
@@ -56,8 +59,10 @@ func parseDocBody(raw RawDocs) DocBody {
 
 	lengthElements := 1
 
+	incode := false
+
 	for _, s := range splitted {
-		l := analyseLine(s)
+		l := analyseLine(s, incode)
 		if l.Type == TypeEmpty {
 			// empty line => if the last group in the docs already has elements, start a new group
 			if len(body.Groups[len(body.Groups)-1].Elements) > 0 {
@@ -100,7 +105,16 @@ func parseDocBody(raw RawDocs) DocBody {
 					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content = e.Content
 				}
 			}
-
+		} else if l.Type == TypeBeginCode {
+			incode = true
+			body.Groups = append(body.Groups, group{Type: "CODE"})
+			lengthElements = 1
+		} else if l.Type == TypeEndCode {
+			incode = false
+		} else if l.Type == TypeCode {
+			body.Groups[len(body.Groups)-1].Elements = append(body.Groups[len(body.Groups)-1].Elements, element{
+				Content: l.Content,
+			})
 		}
 	}
 
@@ -112,11 +126,30 @@ type analyseLineResult struct {
 	Content string
 }
 
-func analyseLine(line string) analyseLineResult {
+func analyseLine(line string, incode bool) analyseLineResult {
 	if line == "" || line == "\n" {
 		return analyseLineResult{
 			Type:    TypeEmpty,
 			Content: "",
+		}
+	}
+	if strings.Trim(line, " ") == "```latex" {
+		return analyseLineResult{
+			Type:    TypeBeginCode,
+			Content: "",
+		}
+	}
+	if strings.Trim(line, " ") == "```" {
+		return analyseLineResult{
+			Type:    TypeEndCode,
+			Content: "",
+		}
+	}
+
+	if incode {
+		return analyseLineResult{
+			Type:    TypeCode,
+			Content: line,
 		}
 	}
 

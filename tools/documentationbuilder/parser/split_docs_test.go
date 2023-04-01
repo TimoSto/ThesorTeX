@@ -22,6 +22,13 @@ var simpleExpected = []RawDocs{
 	},
 }
 
+var withCodeExpected = []RawDocs{
+	{
+		Title:   "Doc 1",
+		Content: "Some\ncontent\n```latex\n\\testcommdand{}\nhallo\n```\ntest",
+	},
+}
+
 func TestSplitDocs(t *testing.T) {
 	file, err := os.ReadFile("../testfiles/simple.md")
 	if err != nil {
@@ -31,6 +38,19 @@ func TestSplitDocs(t *testing.T) {
 	result := SplitDocs(string(file))
 
 	if diff := cmp.Diff(simpleExpected, result); diff != "" {
+		t.Errorf("%s", diff)
+	}
+}
+
+func TestSplitDocsWithCode(t *testing.T) {
+	file, err := os.ReadFile("../testfiles/withCode.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result := SplitDocs(string(file))
+
+	if diff := cmp.Diff(withCodeExpected, result); diff != "" {
 		t.Errorf("%s", diff)
 	}
 }
