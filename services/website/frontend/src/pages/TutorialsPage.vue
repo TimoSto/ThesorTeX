@@ -31,33 +31,13 @@
       <h2 class="text-h3 font-weight-bold text-center pa-4">
         {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
       </h2>
-      <MarkdownToVuetify :file="thesisDocs.Docs[0].Content" v-if="thesisDocs !== undefined" />
-      <v-expansion-panels multiple v-if="thesisDocs !== undefined">
-        <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisDocs.Docs)">
-          <v-expansion-panel-title>
-            {{ e.Title }}
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <MarkdownToVuetify :file="e.Content" />
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
+
     </template>
     <template #content-3>
       <h2 class="text-h3 font-weight-bold text-center pa-4">
         {{ t(i18nKeys.TutorialsPage.ThesisTool) }}
       </h2>
-      <MarkdownToVuetify :file="thesisToolDocs.Docs[0].Content" v-if="thesisToolDocs !== undefined" />
-      <v-expansion-panels multiple v-if="thesisToolDocs !== undefined">
-        <v-expansion-panel v-for="(e, i) in arrWithoutFirst(thesisToolDocs.Docs)">
-          <v-expansion-panel-title>
-            {{ e.Title }}
-          </v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <MarkdownToVuetify :file="e.Content" />
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
+
     </template>
   </FullHeightLayout>
   <v-container>
@@ -65,7 +45,7 @@
   </v-container>
 
   <v-dialog v-model="presentationOpened" width="1000" height="600">
-    <RevealJS :docs="thesisDocs.Docs" />
+    <!--    <RevealJS :docs="thesisDocs.Docs" />-->
   </v-dialog>
 </template>
 
@@ -73,7 +53,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import {onMounted, ref} from "vue";
-import {Documentation, GetThesisDocumentation, GetThesisToolDocumentation} from "../api/GetDocumentation";
+import {Documentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 
 // globals
@@ -100,8 +80,8 @@ function arrWithoutFirst(arr: any[]): any[] {
 }
 
 onMounted(async () => {
-  thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
-  thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
+  // thesisDocs.value = await GetThesisDocumentation(i18nObject.locale.value);
+  // thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
 });
 
 </script>
