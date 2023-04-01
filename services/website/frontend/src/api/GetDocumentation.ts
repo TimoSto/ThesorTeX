@@ -1,18 +1,26 @@
 export type Documentation = {
-    Docs: {
-        Title: string
-        Content: string
-    }[]
+    Title: string
+    Groups: Group[]
 }
 
-export async function GetThesisDocumentation(lang: string): Promise<Documentation> {
-    const resp = await fetch(`/documentation?doc=thesis&lang=${lang}`);
+export type Group = {
+    Type: "TEXT",
+    Elements: Element[]
+}
+
+export type Element = {
+    Content: string,
+    Style: "PLAIN" | "BOLD" | "ITALIC" | "ITALIC_BOLD"
+}
+
+export async function GetThesisTemplateDocumentation(lang: string): Promise<Documentation[]> {
+    const resp = await fetch(`/documentation?doc=thesisTemplate&lang=${lang}`);
 
     if (resp.ok) {
         return await resp.json();
     }
 
-    return {} as Documentation;
+    return [] as Documentation[];
 }
 
 export async function GetThesisToolDocumentation(lang: string): Promise<Documentation> {
