@@ -52,14 +52,14 @@
 
   <v-dialog v-model="presentationOpened" width="1000" height="700">
     <!--    <RevealJS :docs="thesisDocs.Docs" />-->
-    <RevealJS />
+    <RevealJS :docs="[thesisTemplateDocsReveal]" />
   </v-dialog>
 </template>
 
 <script lang="ts" setup>
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {onMounted, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {Documentation, GetThesisTemplateDocumentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
@@ -80,6 +80,14 @@ const thesisToolDocs = ref<Documentation | undefined>(undefined);
 
 const presentationOpened = ref(false);
 
+// computed
+const thesisTemplateDocsReveal = computed(() => {
+  return {
+    Title: t(i18nKeys.TutorialsPage.ThesisTemplate),
+    Pages: thesisTemplateDocs.value
+  };
+});
+
 // methods
 function arrWithoutFirst(arr: any[]): any[] {
   const ac = Array.from(arr);
@@ -90,6 +98,8 @@ function arrWithoutFirst(arr: any[]): any[] {
 onMounted(async () => {
   thesisTemplateDocs.value = await GetThesisTemplateDocumentation(i18nObject.locale.value);
   // thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
+
+  console.log(thesisTemplateDocsReveal.value, thesisTemplateDocs.value);
 });
 
 </script>
