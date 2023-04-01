@@ -17,8 +17,6 @@
 
 <script lang="ts" setup>
 import Reveal from "reveal.js";
-import Markdown from "reveal.js/plugin/markdown/markdown.js";
-import Highlight from "reveal.js/plugin/highlight/highlight.js";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/black.css";
 import "reveal.js/plugin/highlight/monokai.css";
@@ -27,7 +25,7 @@ import {onMounted} from "vue";
 onMounted(() => {
   Reveal.initialize({
     embedded: true,
-    plugins: [Markdown, Highlight],
+    plugins: [],
     markdown: {
       breaks: true,
       gfm: true,
