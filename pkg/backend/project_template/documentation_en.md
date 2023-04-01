@@ -19,3 +19,20 @@ This should work without problems in any case. If not, please create an issue in
 If LaTeX has built successfully, you can start adjusting the values in the header and footer (***How can I adjust the header and footer?***) or you can start replacing the example chapters with your own and write your text.
 
 ---
+
+title: How can I customise the header and footer?
+A total of four pieces of information can be displayed in the header and footer. In this template, the title of the work is displayed at the top left
+the title of the current chapter, the name of the author (ergo your name) at the bottom left and the page number at the bottom right.
+the page number at the bottom right. A distinction is made between the text part of your work and the indexes:
+
+```latex
+% text part
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
+% Directories and miscellaneous
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
+```
+
+You can set the attributes ***mytitle***, ***plaintitle*** and ***myauthor*** as you wish via ***\renewcommand***.
+The attributes ***parttitle*** and ***thepage*** refer to the current upper chapter (***\part***) and the current page number.
+
+To switch between the two variants, use ***\frontmatter*** (to *PlainPageStyle*) or ***\mainmatter*** (to *MainPageStyle*).
