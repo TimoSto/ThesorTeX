@@ -5,4 +5,4 @@ indent_size = 2
 ij_html_space_inside_empty_tag = true
 
 [*.md]
-trim_trailing_whitespace = false
+ij_formatter_enabled = false
