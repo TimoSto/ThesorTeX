@@ -19,6 +19,11 @@
                   </template>
                 </code>
               </pre>
+              <ul v-if="g.Type === 'LIST'">
+                <li v-for="e in g.Elements">
+                  {{ e.Content }}
+                </li>
+              </ul>
             </template>
           </section>
         </section>
