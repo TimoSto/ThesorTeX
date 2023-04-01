@@ -2,11 +2,13 @@
   <div id="container">
     <div class="reveal">
       <div class="slides">
-        <section data-markdown v-for="d in docs">
-          <textarea data-template class="slide">
-            # {{d.Title}}
-            {{ d.Content }}
-          </textarea>
+        <section>
+          <section>slide 1</section>
+          <section>slide 1.2</section>
+        </section>
+        <section>
+          <section>slide 2</section>
+          <section>slide 2.2</section>
         </section>
       </div>
     </div>
@@ -44,7 +46,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   height: 90vh;
 
   & .slide {
