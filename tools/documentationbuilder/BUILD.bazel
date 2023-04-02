@@ -24,7 +24,7 @@ genrule(
 
 genrule(
     name = "test_pdf",
-    srcs = ["main.tex"],
+    srcs = glob(["*.tex"]),
     tools = ["//tools/documentationbuilder/pdflatex:pdflatex.sh"],
     outs = ["compiled"],
     cmd = "$(location //tools/documentationbuilder/pdflatex:pdflatex.sh) $(location main.tex) && mkdir $(OUTS) && cp main.pdf $(OUTS)"
