@@ -10,6 +10,7 @@ go_library(
     ],
     importpath = "github.com/TimoSto/ThesorTeX/tools/documentationbuilder/parser",
     visibility = ["//visibility:public"],
+    deps = ["//pkg/backend/project_template"],
 )
 
 go_test(

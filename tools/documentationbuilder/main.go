@@ -54,6 +54,16 @@ func main() {
 
 	_, err = f.Write(data)
 
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = parser.BuildDocumentationFromTemplate(*outDir)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	//mdForVuetify, err := parser.GenerateMdForVuetify(srcFile)
 	//if err != nil {
 	//	log.Fatalf("could not generate md for vuetify: %v", err)

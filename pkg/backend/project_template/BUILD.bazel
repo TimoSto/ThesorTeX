@@ -23,7 +23,7 @@ go_library(
         "template/main.tex",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/project_template",
-    visibility = ["//services/app:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 pkg_files(

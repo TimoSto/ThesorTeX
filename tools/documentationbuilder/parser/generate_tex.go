@@ -1,6 +1,53 @@
 package parser
 
-import "fmt"
+import (
+	"fmt"
+	goFs "io/fs"
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
+)
+
+//TODO: use file system
+func BuildDocumentationFromTemplate(outPath string) error {
+	outPath = filepath.Join(outPath, "tex")
+
+	err := os.MkdirAll(outPath, os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	err = os.MkdirAll(filepath.Join(outPath, "data"), os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	err = os.MkdirAll(filepath.Join(outPath, "styPackages"), os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	return goFs.WalkDir(project_template.ProjectTemplate, ".", func(path string, d goFs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			return nil
+		}
+		b, err := goFs.ReadFile(project_template.ProjectTemplate, path)
+		if err != nil {
+			return err // or panic or ignore
+		}
+
+		path = strings.TrimPrefix(path, "template/")
+
+		fmt.Println("Writing: ", filepath.Join(outPath, path))
+
+		return os.WriteFile(filepath.Join(outPath, path), b, os.ModePerm)
+	})
+}
 
 func GenerateContentForTeX(docs []DocBody) (string, error) {
 	var body string
