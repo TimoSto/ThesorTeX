@@ -21,3 +21,11 @@ genrule(
     cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs) -src=$(location //tools/documentationbuilder/testfiles:simple.md)",
     tools = [":documentationbuilder"],
 )
+
+genrule(
+    name = "test_pdf",
+    srcs = ["main.tex"],
+    tools = ["//tools/documentationbuilder/pdflatex:pdflatex.sh"],
+    outs = ["compiled"],
+    cmd = "$(location //tools/documentationbuilder/pdflatex:pdflatex.sh) $(location main.tex) && mkdir $(OUTS) && cp main.pdf $(OUTS)"
+)
