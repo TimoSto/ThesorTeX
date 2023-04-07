@@ -44,3 +44,11 @@ genrule(
     outs = ["compiled_tmpl"],
     cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder/pdflatex:pdflatex.sh) main.tex $(locations :template_srcs) $(OUTS) && cd $(RULEDIR) && cp ./tmpl_srcs/main.pdf ./compiled_tmpl/main.pdf"
 )
+
+genrule(
+    name = "test_template_pdf",
+    srcs = [":test"],
+    tools = ["//tools/documentationbuilder/pdflatex:pdflatex.sh"],
+    outs = ["test_tmpl"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder/pdflatex:pdflatex.sh) main.tex $(locations :test)/tex $(OUTS) && cd $(RULEDIR) && cp ./outs/tex/main.pdf ./test_tmpl/main.pdf"
+)

@@ -5,13 +5,14 @@ import (
 	goFs "io/fs"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
 )
 
 //TODO: use file system
-func BuildDocumentationFromTemplate(outPath string) error {
+func BuildDocumentationFromTemplate(outPath string, docs []DocBody) error {
 	outPath = filepath.Join(outPath, "tex")
 
 	err := os.MkdirAll(outPath, os.ModePerm)
@@ -43,13 +44,26 @@ func BuildDocumentationFromTemplate(outPath string) error {
 
 		path = strings.TrimPrefix(path, "template/")
 
+		//TODO: unit test
+		if path == "main.tex" {
+			content := string(b)
+			r := regexp.MustCompile("(?s)% Start Content(.*?)% End Content")
+
+			c, err := GenerateContentForTeX(docs)
+			if err != nil {
+				panic(err)
+			}
+			content = r.ReplaceAllString(content, string(c))
+			b = []byte(content)
+		}
+
 		fmt.Println("Writing: ", filepath.Join(outPath, path))
 
 		return os.WriteFile(filepath.Join(outPath, path), b, os.ModePerm)
 	})
 }
 
-func GenerateContentForTeX(docs []DocBody) (string, error) {
+func GenerateContentForTeX(docs []DocBody) ([]byte, error) {
 	var body string
 
 	for _, d := range docs {
@@ -67,7 +81,7 @@ func GenerateContentForTeX(docs []DocBody) (string, error) {
 		}
 	}
 
-	return body, nil
+	return []byte(body), nil
 }
 
 func getFormatForType(t string) string {

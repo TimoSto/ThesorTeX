@@ -58,7 +58,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = parser.BuildDocumentationFromTemplate(*outDir)
+	err = parser.BuildDocumentationFromTemplate(*outDir, parsedObjects)
 
 	if err != nil {
 		log.Fatal(err)

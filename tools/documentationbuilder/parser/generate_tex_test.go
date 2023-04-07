@@ -25,7 +25,7 @@ Simple\\
 content \textit{with} \textbf{some} \textit{\textbf{styling}}
 `
 	expSlice := strings.Split(expectedContent, "\n")
-	gotSlice := strings.Split(content, "\n")
+	gotSlice := strings.Split(string(content), "\n")
 	if diff := cmp.Diff(expSlice, gotSlice); diff != "" {
 		t.Errorf("%s", diff)
 	}
