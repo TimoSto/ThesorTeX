@@ -4,6 +4,8 @@ set -eu
 
 echo "first run..."
 
+echo "$1"
+
 pdflatex "$1"
 
 echo "second run..."
