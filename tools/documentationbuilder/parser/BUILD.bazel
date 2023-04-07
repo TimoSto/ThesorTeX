@@ -6,7 +6,6 @@ go_library(
         "generate_tex.go",
         "parse_doc_bodies.go",
         "split_docs.go",
-        "tex_for_template.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/tools/documentationbuilder/parser",
     visibility = ["//visibility:public"],

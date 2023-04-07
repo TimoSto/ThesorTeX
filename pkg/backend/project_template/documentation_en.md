@@ -1,3 +1,4 @@
+MainTitle: Template for academic papers
 title: How is the template structured?
 The files in which the formatting is defined are located under ***styPackages/***.
 

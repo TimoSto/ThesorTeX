@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -12,9 +13,22 @@ type RawDocs struct {
 
 var splitRegex = regexp.MustCompile("(?m)^---$")
 var titleRegex = regexp.MustCompile("^title: .*\n")
+var mainTitleRegex = regexp.MustCompile("^MainTitle: .*\n")
 
-func SplitDocs(file string) []RawDocs {
+func SplitDocs(file string) (string, []RawDocs) {
 	var docs []RawDocs
+
+	mainTitleMatch := mainTitleRegex.FindString(file)
+	mainTitle := strings.Trim(strings.TrimLeft(mainTitleMatch, "MainTitle: "), "\n")
+
+	if mainTitle == "" {
+		panic("no title was found")
+	}
+
+	fmt.Println(mainTitleMatch)
+
+	file = file[len(mainTitleMatch):]
+	fmt.Println(file)
 
 	splitted := splitRegex.Split(file, -1)
 
@@ -28,5 +42,5 @@ func SplitDocs(file string) []RawDocs {
 		})
 	}
 
-	return docs
+	return mainTitle, docs
 }

@@ -1,3 +1,4 @@
+MainTitle: Verwendung der Vorlage für Haus-/Abschlussarbeiten
 title: Wie ist die Vorlage aufgebaut?
 Unter ***styPackages/*** liegen die Dateien, in denen die Formatierungen definiert sind.
 

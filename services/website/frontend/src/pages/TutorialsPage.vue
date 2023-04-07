@@ -35,7 +35,7 @@
       <p class="text-body-1 text-center pb-4"> {{ t(i18nKeys.TutorialsPage.TexKnowledge) }}</p>
 
       <v-expansion-panels multiple>
-        <DocumentationPanel v-for="d in thesisTemplateDocs" :doc="d" />
+        <DocumentationPanel v-for="d in thesisTemplateDocs?.Docs" :doc="d" />
       </v-expansion-panels>
 
     </template>
@@ -60,7 +60,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import {computed, onMounted, ref} from "vue";
-import {Documentation, GetThesisTemplateDocumentation} from "../api/GetDocumentation";
+import {Documentation, DocumentationPack, GetThesisTemplateDocumentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
 
@@ -74,7 +74,7 @@ const props = defineProps({
 });
 const opened = ref<number[]>([]);
 
-const thesisTemplateDocs = ref<Documentation[]>([]);
+const thesisTemplateDocs = ref<DocumentationPack | undefined>(undefined);
 
 const thesisToolDocs = ref<Documentation | undefined>(undefined);
 
@@ -97,6 +97,7 @@ function arrWithoutFirst(arr: any[]): any[] {
 
 onMounted(async () => {
   thesisTemplateDocs.value = await GetThesisTemplateDocumentation(i18nObject.locale.value);
+  console.log(thesisTemplateDocs.value);
   // thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
 
   console.log(thesisTemplateDocsReveal.value, thesisTemplateDocs.value);

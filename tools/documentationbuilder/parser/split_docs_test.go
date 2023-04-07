@@ -35,7 +35,13 @@ func TestSplitDocs(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := SplitDocs(string(file))
+	title, result := SplitDocs(string(file))
+
+	expTitle := "Simple Docs"
+
+	if title != expTitle {
+		t.Errorf("expected title %s, but got %s", expTitle, title)
+	}
 
 	if diff := cmp.Diff(simpleExpected, result); diff != "" {
 		t.Errorf("%s", diff)
@@ -48,7 +54,13 @@ func TestSplitDocsWithCode(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := SplitDocs(string(file))
+	title, result := SplitDocs(string(file))
+
+	expTitle := "With code"
+
+	if title != expTitle {
+		t.Errorf("expected title %s, but got %s", expTitle, title)
+	}
 
 	if diff := cmp.Diff(withCodeExpected, result); diff != "" {
 		t.Errorf("%s", diff)

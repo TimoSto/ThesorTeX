@@ -1,3 +1,4 @@
+MainTitle: Simple Docs
 title: Doc 1
 Some
 content

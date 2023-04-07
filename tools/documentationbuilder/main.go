@@ -20,6 +20,11 @@ Tool to convert a documentation in MD format into
 This go_binary will be used in a bazel genrule
 */
 
+type DocumentationPack struct {
+	Title string
+	Docs  []parser.DocBody
+}
+
 func main() {
 	outDir := flag.String("out-dir", "", "the dir to write the results to")
 	srcFilePath := flag.String("src", "", "src file")
@@ -35,9 +40,16 @@ func main() {
 
 	fmt.Println("converting md to md for vuetify...")
 
-	rawDocs := parser.SplitDocs(string(srcFile))
+	title, rawDocs := parser.SplitDocs(string(srcFile))
+
+	fmt.Println(title)
 
 	parsedObjects := parser.ParseDocBodies(rawDocs)
+
+	docsPack := DocumentationPack{
+		Title: title,
+		Docs:  parsedObjects,
+	}
 
 	f, err := os.Create(filepath.Join(*outDir, "parsed.json"))
 
@@ -47,7 +59,7 @@ func main() {
 
 	defer f.Close()
 
-	data, err := json.MarshalIndent(parsedObjects, "", "\t")
+	data, err := json.MarshalIndent(docsPack, "", "\t")
 	if err != nil {
 		log.Fatal(err)
 	}
