@@ -38,6 +38,7 @@ pkg_zip(
     srcs = [
         ":srcs",
     ],
+    visibility = ["//tools:__subpackages__"],
 )
 
 genrule(
