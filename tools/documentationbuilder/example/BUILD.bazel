@@ -1,6 +1,5 @@
-
 filegroup(
     name = "testfiles",
     srcs = glob(["**/*.tex"]),
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
 )

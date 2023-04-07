@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "documentationcombinator_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/tools/documentationcombinator",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "documentationcombinator",
+    embed = [":documentationcombinator_lib"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "template_pdf",
+    srcs = ["//tools/documentationbuilder:template_srcs"],
+    outs = ["template.pdf"],
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations //tools/documentationbuilder:template_srcs) ../../documentationcombinator/ template.pdf",
+    tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
+)
+
+genrule(
+    name = "test_template_pdf",
+    srcs = ["//tools/documentationbuilder:test"],
+    outs = ["test_template.pdf"],
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations //tools/documentationbuilder:test)/tex ../../../documentationcombinator/ test_template.pdf",
+    tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
+)

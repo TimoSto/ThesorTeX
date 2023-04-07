@@ -23,6 +23,8 @@ pdflatex "$1"
 
 ls
 
-# cp main.pdf "$3"
+echo "copy from $PWD to $3"
+
+mv main.pdf "$3$4"
 
 echo "finished"

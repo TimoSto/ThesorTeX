@@ -20,35 +20,13 @@ genrule(
     outs = ["outs"],
     cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs) -src=$(location //tools/documentationbuilder/testfiles:simple.md)",
     tools = [":documentationbuilder"],
-)
-
-genrule(
-    name = "test_pdf",
-    srcs = ["//tools/documentationbuilder/example:testfiles"],
-    tools = ["//tools/documentationbuilder/pdflatex:pdflatex.sh"],
-    outs = ["compiled"],
-    cmd = "echo $(locations //tools/documentationbuilder/example:testfiles) && $(location //tools/documentationbuilder/pdflatex:pdflatex.sh) $(locations //tools/documentationbuilder/example:testfiles) && mkdir $(OUTS) && cp main.pdf $(OUTS)"
+    visibility = ["//visibility:public"],
 )
 
 genrule(
     name = "template_srcs",
     srcs = ["//pkg/backend/project_template:template_zip"],
     outs = ["tmpl_srcs"],
-    cmd = "mkdir $(OUTS) && unzip $(SRCS) -d $(OUTS)"
-)
-
-genrule(
-    name = "template_pdf",
-    srcs = [":template_srcs"],
-    tools = ["//tools/documentationbuilder/pdflatex:pdflatex.sh"],
-    outs = ["compiled_tmpl"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder/pdflatex:pdflatex.sh) main.tex $(locations :template_srcs) $(OUTS) && cd $(RULEDIR) && cp ./tmpl_srcs/main.pdf ./compiled_tmpl/main.pdf"
-)
-
-genrule(
-    name = "test_template_pdf",
-    srcs = [":test"],
-    tools = ["//tools/documentationbuilder/pdflatex:pdflatex.sh"],
-    outs = ["test_tmpl"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder/pdflatex:pdflatex.sh) main.tex $(locations :test)/tex $(OUTS) && cd $(RULEDIR) && cp ./outs/tex/main.pdf ./test_tmpl/main.pdf"
+    cmd = "mkdir $(OUTS) && unzip $(SRCS) -d $(OUTS)",
+    visibility = ["//visibility:public"],
 )
