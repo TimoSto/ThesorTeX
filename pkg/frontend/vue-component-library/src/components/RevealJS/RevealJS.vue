@@ -1,5 +1,10 @@
 <template>
   <div id="container">
+    <span id="beta-label">
+      <span id="pre">
+
+      </span>
+    </span>
     <div class="reveal">
       <div class="slides">
         <section v-for="d in docs">
@@ -72,6 +77,7 @@ onMounted(() => {
   text-align: center;
   color: #2c3e50;
   height: 90vh;
+  position: relative;
 
   & .slide {
     overflow-y: auto !important;
@@ -87,4 +93,59 @@ onMounted(() => {
 .small {
   font-size: 25px;
 }
+
+#beta-label {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 75px 75px 0;
+  border-color: transparent rgb(var(--v-theme-primary)) transparent transparent;
+
+  &:after {
+    content: "beta";
+    position: fixed;
+    background: transparent;
+    top: 7px;
+    right: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    line-height: 35px;
+    transform: rotate(45deg) translate(8px, -3px);
+  }
+
+  & #pre {
+    position: absolute;
+    z-index: 2;
+    right: -75px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 35px 35px 0;
+    border-color: transparent black transparent transparent;
+  }
+}
+
+//#container:after {
+//  content: "beta";
+//  position: fixed;
+//  width: 80px;
+//  height: 25px;
+//  color: rgb(var(--v-theme-primary));
+//  top: 7px;
+//  left: -20px;
+//  text-align: center;
+//  font-size: 13px;
+//  font-family: sans-serif;
+//  text-transform: uppercase;
+//  font-weight: bold;
+//  line-height: 27px;
+//  transform: rotate(-45deg);
+//}
 </style>
