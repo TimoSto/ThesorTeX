@@ -11,11 +11,12 @@ import (
 func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		lang := r.URL.Query().Get("lang")
+		format := r.URL.Query().Get("format")
 		var data []byte
 		var err error
 
-		if r.Header.Get("Accept") == "application/pdf" {
-			// get pdf
+		if format == "pdf" {
+			data, err = documentations.GetPDFDocs(lang)
 		} else {
 			data, err = documentations.GetJsonDocs(lang)
 		}

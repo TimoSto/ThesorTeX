@@ -10,7 +10,8 @@
           <p class="text-h5 text-center text-white mb-4">
             <i18n-t :keypath="i18nKeys.TutorialsPage.SubTitle">
               <template #pdf>
-                <a :href="`/example?lang=${i18nObject.locale.value}&format=pdf`" style="color: white" download>PDF</a>
+                <a :href="`/example?lang=${i18nObject.locale.value}&format=pdf`" style="color: white"
+                   download="documentation.pdf">PDF</a>
               </template>
               <template #example>
                 <a :href="`/example?lang=${i18nObject.locale.value}`" style="color: white"

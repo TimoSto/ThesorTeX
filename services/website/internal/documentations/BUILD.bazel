@@ -3,13 +3,17 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "documentations",
     srcs = ["documentations.go"],
-    embedsrcs = [":copyDocsDe"],
+    embedsrcs = [
+        ":copyDocsJSON",
+        ":docs_de_pdf",
+        ":docs_en_pdf"
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/documentations",
     visibility = ["//services/website:__subpackages__"],
 )
 
 genrule(
-    name = "copyDocsDe",
+    name = "copyDocsJSON",
     srcs = ["//pkg/backend/project_template:documentation_tar"],
     outs = ["docs/thesisTemplate"],
     cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
