@@ -3,6 +3,8 @@
 ## Changed
 - Change commands and comments to english.
 - Add possibility to change the title of the list of abbreviations.
+- Add possibility to change the title of the list of figures.
+- Add possibility to change the title of the list of tables.
 
 # v1.0.0
 

@@ -167,19 +167,25 @@
 \printabbreviations
 
 \clearpage
+
+% Change the title of the list of figures here
+\renewcommand{\listfigurename}{My list of figures}
 % Change the title in the header
-\renewcommand{\plaintitle}{List of figures}
+\renewcommand{\plaintitle}{\listfigurename}
 % add a line to the table of contents
-\addcontentsline{toc}{part}{List of figures}
+\addcontentsline{toc}{part}{\listfigurename}
 % This construct removes some spacing between the dotted line and the page number
 {\def\makebox[#1][#2]#3{#3}%
     \listoffigures
 }
 \clearpage
+
+% Change the title of the list of tables here
+\renewcommand{\listtablename}{My List of tables}
 % Change the title in the header
-\renewcommand{\plaintitle}{List of tables}
+\renewcommand{\plaintitle}{\listtablename}
 % add a line to the table of contents
-\addcontentsline{toc}{part}{List of tables}
+\addcontentsline{toc}{part}{\listtablename}
 % This construct removes some spacing between the dotted line and the page number
 {\def\makebox[#1][#2]#3{#3}%
     \listoftables
