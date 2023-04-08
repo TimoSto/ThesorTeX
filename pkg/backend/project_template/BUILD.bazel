@@ -15,7 +15,7 @@ go_library(
         "template/styPackages/appendix.sty",
         "template/styPackages/bibliography.sty",
         "template/styPackages/codes.sty",
-        "template/styPackages/fusszeilen.sty",
+        "template/styPackages/footer.sty",
         "template/styPackages/header_footer.sty",
         "template/styPackages/html.sty",
         "template/styPackages/inhaltsverzeichnis.sty",

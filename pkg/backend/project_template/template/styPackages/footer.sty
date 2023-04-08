@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{styPackages/footer}
+
+% Remove spacing to the left of footnotes
+\usepackage[hang,flushmargin]{footmisc}
+
+% Font size of footnotes
+\renewcommand{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}
+
+% Spacing between footnote and numbering
+\setlength{\footnotemargin}{3mm}
+
+% Spacing between footer and text (in most cases the default fits)
+\setlength{\skip\footins}{12pt}
+
+\endinput
