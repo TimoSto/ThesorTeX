@@ -1,3 +1,9 @@
+# v1.1.0
+
+## Changed
+- Change commands and comments to english.
+- Add possibility to change the title of the list of abbreviations.
+
 # v1.0.0
 
 ## Added
