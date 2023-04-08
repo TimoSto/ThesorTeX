@@ -11,7 +11,7 @@ The local application can be downloaded on the following links:
 
 ## Build mechanics
 
-This repository uses Bazel to build both the backends and the frontends.
+This repository uses Bazel to build both the backends and the frontends. But you need to have LaTeX isntalled on your machine to build everything.
 
 ### Production
 
