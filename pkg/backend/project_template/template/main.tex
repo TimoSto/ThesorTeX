@@ -41,6 +41,9 @@
 % This is an alternative to BibLaTeX
 \usepackage{styPackages/bibliography}
 
+% Change the title of the bibliography
+\renewcommand{\bibliographytitle}{My Bibliography}
+
 % Style and contents of the header and footer, see styPackages/header_footer.sty
 % If you dont want to include this package, the commands \frontmatter and \mainmatter must be removed too
 \usepackage{styPackages/header_footer}
@@ -214,7 +217,7 @@ Just try around with this template!
 \frontmatter
 
 % Title in header
-\renewcommand{\plaintitle}{Bibliography}
+\renewcommand{\plaintitle}{\bibliographytitle}
 % Roman page numbering
 \pagenumbering{Roman}
 % Set the counter to whatever value you want it to start from (everytime you change the numbering style, it resets)
@@ -222,7 +225,7 @@ Just try around with this template!
 % Spacing in ToC
 \addtocontents{toc}{\vspace{24pt}}
 % Entry in ToC
-\addcontentsline{toc}{part}{Bibliography}
+\addcontentsline{toc}{part}{\bibliographytitle}
 % Prints the bibliography from bibEntries.csv
 \printMyBibliography
 \clearpage

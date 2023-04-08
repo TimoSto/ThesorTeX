@@ -2,12 +2,18 @@
 
 \ProvidesPackage{styPackages/bibliography}
 
-%Literatur-DB aus CSV laden
+% To compare strings
 \usepackage{xstring}
+% for colors
 \usepackage{xcolor}
 
-\DTLloaddb{literatur}{bib_entries.csv}
+% Bibliography title used also in header/Footer
+\newcommand{\bibliographytitle}{Bibliography}
 
+% Load the bibliography from a csv file
+\DTLloaddb{bibliography}{bib_entries.csv}
+
+% Assign the column values
 \newcommand\argI{\a}
 \newcommand\argII{\b}
 \newcommand\argIII{\c}
@@ -21,6 +27,8 @@
 
 \newcommand{\printBibEntry}[1]{
 	\IfStrEqCase{#1}{%
+	% the following segment assigns a category specific command to the given entry
+	% it was generated programmatically
 	% begin bib assignment
 			{CitaviArticle}{\printCitaviArticle}%
 			{CitaviArticleDoi}{\printCitaviArticleDoi}%
@@ -44,11 +52,11 @@
 
 	\begin{center}
 		\begin{LARGE}
-			Literaturverzeichnis
+			\bibliographytitle
 		\end{LARGE}
 	\end{center}
-%Jeder Eintrag in CSV-Datei (literatur-DB) wird auf den type überprüft und die Daten werden an den jeweiligen Command weitergegeben. (Falls type anders ist, kommt es zu einem Fehler)
-	\DTLforeach*{literatur}
+% All attributes of the entry are assigned to the global args values. Then the print command is called with the type of the entry
+	\DTLforeach*{bibliography}
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}
 	{
 		\renewcommand\argI{\a}
@@ -71,7 +79,7 @@
 \newcommand\bibparindent{1.5em}
 
 %!!!DO NOT REMOVE SPACES IN THE COMMANDS!!! (Otherwise the indendation after the second line won't work)
-
+% The following section was programmatically generated
 % begin bib commands
 \newcommand{\printCitaviArticle}[0]{%
 	\hangindent=\bibparindent%
@@ -185,6 +193,7 @@
 
 % Cites
 
+% Commands to switch between inline and footnote cites
 \newcommand{\citeInFootnote}{true}
 \newcommand{\useInlineCites}{
 	\renewcommand{\citeInFootnote}{false}
