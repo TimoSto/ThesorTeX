@@ -24,6 +24,15 @@ genrule(
 )
 
 genrule(
+    name = "simpleWithCode",
+    srcs = ["//tools/documentationbuilder/testfiles:withCode.md"],
+    outs = ["outs2"],
+    cmd = "mkdir $(OUTS) && $(location :documentationbuilder) -out-dir=$(location outs2) -src=$(location //tools/documentationbuilder/testfiles:withCode.md)",
+    tools = [":documentationbuilder"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
     name = "template_srcs",
     srcs = ["//pkg/backend/project_template:template_zip"],
     outs = ["tmpl_srcs"],

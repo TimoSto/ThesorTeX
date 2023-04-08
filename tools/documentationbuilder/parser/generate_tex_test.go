@@ -10,13 +10,14 @@ import (
 func TestGenerateContentForTeX(t *testing.T) {
 	bodies := simpleExpectedBody
 
-	content, err := GenerateContentForTeX(bodies)
+	content, err := GenerateContentForTeX("test", bodies)
 
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)
 	}
 
-	expectedContent := `\section{Doc 1}
+	expectedContent := `\part{test}
+\section{Doc 1}
 Some content
 \section{Doc 2 styled}
 Simple content \textit{with} \textbf{some} \textit{\textbf{styling}}

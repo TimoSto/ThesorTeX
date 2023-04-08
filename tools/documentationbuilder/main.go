@@ -70,7 +70,21 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = parser.BuildDocumentationFromTemplate(*outDir, parsedObjects)
+	f2, err := os.Create(filepath.Join(*outDir, "parsed.tex"))
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f2.Close()
+
+	tex, err := parser.GenerateContentForTeX(title, parsedObjects)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = f2.Write(tex)
 
 	if err != nil {
 		log.Fatal(err)

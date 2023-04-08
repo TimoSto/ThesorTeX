@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -25,10 +24,7 @@ func SplitDocs(file string) (string, []RawDocs) {
 		panic("no title was found")
 	}
 
-	fmt.Println(mainTitleMatch)
-
 	file = file[len(mainTitleMatch):]
-	fmt.Println(file)
 
 	splitted := splitRegex.Split(file, -1)
 

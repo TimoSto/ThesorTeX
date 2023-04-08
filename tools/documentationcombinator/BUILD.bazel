@@ -5,6 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/tools/documentationcombinator",
     visibility = ["//visibility:private"],
+    deps = ["//tools/documentationcombinator/builder"],
 )
 
 go_binary(
@@ -22,9 +23,18 @@ genrule(
 )
 
 genrule(
+    name = "test",
+    srcs = ["//tools/documentationbuilder:test","//tools/documentationbuilder:simpleWithCode"],
+    outs = ["docs"],
+    cmd = "mkdir $(OUTS) && $(location :documentationcombinator) -out-dir=$(location docs) -docs=$(location //tools/documentationbuilder:test),$(location //tools/documentationbuilder:simpleWithCode)",
+    tools = [":documentationcombinator"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
     name = "test_template_pdf",
-    srcs = ["//tools/documentationbuilder:test"],
+    srcs = [":test"],
     outs = ["test_template.pdf"],
-    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations //tools/documentationbuilder:test)/tex ../../../documentationcombinator/ test_template.pdf",
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :test) ../ test_template.pdf",
     tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
 )
