@@ -29,13 +29,13 @@
     </template>
     <template #content-2>
       <h2 class="text-h3 font-weight-bold text-center pa-4">
-        {{ t(i18nKeys.TutorialsPage.ThesisTemplate) }}
+        {{ jsonDocs?.ThesisTemplate.Title }}
       </h2>
 
       <p class="text-body-1 text-center pb-4"> {{ t(i18nKeys.TutorialsPage.TexKnowledge) }}</p>
 
       <v-expansion-panels multiple>
-        <DocumentationPanel v-for="d in thesisTemplateDocs?.Docs" :doc="d" />
+        <DocumentationPanel v-for="d in jsonDocs?.ThesisTemplate.Docs" :doc="d" />
       </v-expansion-panels>
 
     </template>
@@ -60,7 +60,7 @@
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import {computed, onMounted, ref} from "vue";
-import {Documentation, DocumentationPack, GetThesisTemplateDocumentation} from "../api/GetDocumentation";
+import {GetDocumentationsJSON, ThesorTeXDocumentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
 
@@ -74,17 +74,15 @@ const props = defineProps({
 });
 const opened = ref<number[]>([]);
 
-const thesisTemplateDocs = ref<DocumentationPack | undefined>(undefined);
-
-const thesisToolDocs = ref<Documentation | undefined>(undefined);
+const jsonDocs = ref<ThesorTeXDocumentation | undefined>(undefined);
 
 const presentationOpened = ref(false);
 
 // computed
 const thesisTemplateDocsReveal = computed(() => {
   return {
-    Title: t(i18nKeys.TutorialsPage.ThesisTemplate),
-    Pages: thesisTemplateDocs.value
+    Title: jsonDocs.value?.ThesisTemplate.Title,
+    Pages: jsonDocs.value?.ThesisTemplate.Docs
   };
 });
 
@@ -96,11 +94,11 @@ function arrWithoutFirst(arr: any[]): any[] {
 }
 
 onMounted(async () => {
-  thesisTemplateDocs.value = await GetThesisTemplateDocumentation(i18nObject.locale.value);
-  console.log(thesisTemplateDocs.value);
+  jsonDocs.value = await GetDocumentationsJSON(i18nObject.locale.value);
+  console.log(jsonDocs.value);
   // thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
 
-  console.log(thesisTemplateDocsReveal.value, thesisTemplateDocs.value);
+  console.log(thesisTemplateDocsReveal.value, jsonDocs.value);
 });
 
 </script>

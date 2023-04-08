@@ -2,6 +2,7 @@ package documentations
 
 import (
 	_ "embed"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
@@ -22,16 +23,18 @@ var docsMap = map[string][]byte{
 	"thesisTemplate_JSON_EN": templateDocJSON_EN,
 }
 
-func GetDocumentation(topic string, format string, lang string) ([]byte, error) {
+type ThesorTexDocs struct {
+	ThesisTemplate string
+}
+
+func GetJsonDocs(lang string) ([]byte, error) {
 	lang = strings.ToUpper(lang)
 	if lang != "DE" {
 		lang = "EN"
 	}
 
-	doc := docsMap[fmt.Sprintf("%s_%s_%s", topic, format, lang)]
+	var docs ThesorTexDocs
+	docs.ThesisTemplate = string(docsMap[fmt.Sprintf("thesisTemplate_JSON_%s", lang)])
 
-	if len(doc) > 0 {
-		return doc, nil
-	}
-	return nil, ErrNotFound
+	return json.Marshal(docs)
 }

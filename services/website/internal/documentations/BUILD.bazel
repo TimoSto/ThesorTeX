@@ -19,4 +19,5 @@ go_test(
     name = "documentations_test",
     srcs = ["documentations_test.go"],
     embed = [":documentations"],
+    deps = ["//vendor/github.com/google/go-cmp/cmp"],
 )

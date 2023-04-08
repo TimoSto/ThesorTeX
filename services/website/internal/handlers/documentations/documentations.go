@@ -7,17 +7,18 @@ import (
 	"github.com/TimoSto/ThesorTeX/services/website/internal/documentations"
 )
 
+//TODO: unit test
 func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
-		doc := r.URL.Query().Get("doc")
 		lang := r.URL.Query().Get("lang")
-		format := "JSON"
+		var data []byte
+		var err error
 
 		if r.Header.Get("Accept") == "application/pdf" {
-			format = "PDF"
+			// get pdf
+		} else {
+			data, err = documentations.GetJsonDocs(lang)
 		}
-
-		data, err := documentations.GetDocumentation(doc, format, lang)
 
 		if err != nil {
 			if err == documentations.ErrNotFound {

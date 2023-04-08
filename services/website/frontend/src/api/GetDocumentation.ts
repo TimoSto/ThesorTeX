@@ -1,3 +1,7 @@
+export type ThesorTeXDocumentation = {
+    ThesisTemplate: DocumentationPack
+}
+
 export type DocumentationPack = {
     Title: string
     Docs: Documentation[]
@@ -18,14 +22,19 @@ export type Element = {
     Style: "PLAIN" | "BOLD" | "ITALIC" | "ITALIC_BOLD"
 }
 
-export async function GetThesisTemplateDocumentation(lang: string): Promise<DocumentationPack> {
-    const resp = await fetch(`/documentation?doc=thesisTemplate&lang=${lang}`);
+export async function GetDocumentationsJSON(lang: string): Promise<ThesorTeXDocumentation> {
+    const resp = await fetch(`/documentation?lang=${lang}`);
+
+    let docs: ThesorTeXDocumentation = {
+        ThesisTemplate: {} as DocumentationPack
+    };
 
     if (resp.ok) {
-        return await resp.json();
+        let data = await resp.json();
+        docs.ThesisTemplate = JSON.parse(data.ThesisTemplate);
     }
 
-    return {} as DocumentationPack;
+    return docs;
 }
 
 export async function GetThesisToolDocumentation(lang: string): Promise<Documentation> {
