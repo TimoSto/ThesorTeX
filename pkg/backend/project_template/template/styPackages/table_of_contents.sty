@@ -2,22 +2,31 @@
 
 \ProvidesPackage{styPackages/inhaltsverzeichnis}
 
-%Gepunktete Linie im ToC auch bei Part und Section
 \usepackage{tocloft}
+% To include the dotted line in the ToC for parts too
 \renewcommand{\cftpartdotsep}{\cftdotsep}
-\renewcommand{\cftpartleader}{\normalfont\cftdotfill{\cftpartdotsep}}%gepunktete Linie bei Part nicht fett
+% But dont make this dotted line bold
+\renewcommand{\cftpartleader}{\normalfont\cftdotfill{\cftpartdotsep}}
+% To include the dotted line in the ToC for sections too
 \renewcommand{\cftsecdotsep}{\cftdotsep}
-\renewcommand{\cftsecleader}{\normalfont\cftdotfill{\cftsecdotsep}}%gepunktete Linie bei Section nicht fett
+% But dont make this dotted line bold
+\renewcommand{\cftsecleader}{\normalfont\cftdotfill{\cftsecdotsep}}
 
-%Gepunktete Linie feiner
+% Dotted line finer
 \renewcommand{\cftdotsep}{0.5}
 
+% Dont make part and section bold in the ToC
+\renewcommand{\cftsecfont}{\mdseries}
+\renewcommand{\cftsecpagefont}{\mdseries}
+\renewcommand{\cftpartfont}{\mdseries}
+\renewcommand{\cftpartpagefont}{\mdseries}
+
 \newcommand{\usealphaNumerictoc}{
-%Abstände Nummer-Überschrift im TOC
-    \def\secnumwidth{20pt}
-    \setlength{\cftpartnumwidth}{\secnumwidth}
-    \setlength{\cftsecnumwidth}{\secnumwidth}
-    \setlength{\cftsubsecnumwidth}{\secnumwidth}
+% Spacing between numbers and titles in alphanumeric ToC
+	\def\secnumwidth{20pt}
+	\setlength{\cftpartnumwidth}{\secnumwidth}
+	\setlength{\cftsecnumwidth}{\secnumwidth}
+	\setlength{\cftsubsecnumwidth}{\secnumwidth}
 	\setlength{\cftsubsubsecnumwidth}{\secnumwidth}
 	\setlength{\cftparanumwidth}{\secnumwidth}
 	\setlength{\cftsubparanumwidth}{\secnumwidth}
@@ -25,7 +34,7 @@
 	\setlength{\cftfignumwidth}{\secnumwidth}
 	\setlength{\cfttabnumwidth}{\secnumwidth}
 
-	%Einschub der Abschnitts-Überschriften im ToC
+	% Indents of the titles in alphanumeric ToC
 	\setlength{\cftsecindent}{20pt}
 	\setlength{\cftsubsecindent}{40pt}
 	\setlength{\cftsubsubsecindent}{60pt}
@@ -34,7 +43,7 @@
 }
 
 \newcommand{\usenumerictoc}{
-	%Abstände Nummer-Überschrift im TOC
+% Spacing between numbers and titles in numeric ToC
 	\setlength{\cftpartnumwidth}{20pt}
 	\setlength{\cftsecnumwidth}{25pt}
 	\setlength{\cftsubsecnumwidth}{38pt}
@@ -45,7 +54,7 @@
 	\setlength{\cftfignumwidth}{20pt}
 	\setlength{\cfttabnumwidth}{20pt}
 
-	%Einschub der Abschnitts-Überschriften im ToC
+	% Indents of the titles in numeric ToC
 	\setlength{\cftsecindent}{20pt}
 	\setlength{\cftsubsecindent}{45pt}
 	\setlength{\cftsubsubsecindent}{83pt}
@@ -53,27 +62,23 @@
 	\setlength{\cftsubparaindent}{188pt}
 }
 
-%Part und Section im ToC nicht fett
-\renewcommand{\cftsecfont}{\mdseries}
-\renewcommand{\cftsecpagefont}{\mdseries}
-\renewcommand{\cftpartfont}{\mdseries}
-\renewcommand{\cftpartpagefont}{\mdseries}
-
-%Übertschrift von ToC zentriert
+% Center the heading of the ToC
 \renewcommand{\cfttoctitlefont}{\hspace*{\fill}\LARGE}
 \renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
 
-%Abstand zwischen Gliederungspunkten in ToC entfernen
-\setlength{\cftbeforepartskip}{0cm}%Für Part
-\setlength{\cftbeforesecskip}{0pt}%für Section
+% Remove spacing between entries in ToC
+\setlength{\cftbeforepartskip}{0cm}% For part
+\setlength{\cftbeforesecskip}{0pt}% For section
 
-%Tiefe des Inhaltsverzeichnis
+% Set the depth of the ToC (1:part, 2:section, 3:subsection, 4:subsubsection, 5:paragraph, 6:subparagraph)
 \setcounter{tocdepth}{6}
 
+% Call this to make the part bold
 \newcommand{\partInBold}{
-    \renewcommand{\cftpartfont}{\bfseries}
+	\renewcommand{\cftpartfont}{\bfseries}
 }
 
+% Switch between numeric and alphanumeric via an option
 \DeclareOption{alphaNumeric}{\usealphaNumerictoc}
 \DeclareOption{numeric}{\usenumerictoc}
 \ProcessOptions\relax

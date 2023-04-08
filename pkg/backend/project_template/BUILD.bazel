@@ -18,7 +18,7 @@ go_library(
         "template/styPackages/footer.sty",
         "template/styPackages/header_footer.sty",
         "template/styPackages/html.sty",
-        "template/styPackages/inhaltsverzeichnis.sty",
+        "template/styPackages/table_of_contents.sty",
         "template/styPackages/ueberschriften.sty",
         "template/main.tex",
     ],
