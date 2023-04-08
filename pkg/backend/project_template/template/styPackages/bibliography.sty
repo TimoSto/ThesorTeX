@@ -205,7 +205,7 @@
 % #2: prefix (e.g. vgl. )
 % #3: suffix (e.g. S.201)
 \newcommand{\citebib}[3] {%
-	\DTLforeach*{literatur}%
+	\DTLforeach*{bibliography}%
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}%
 	{%
 		\IfStrEqCase{#1}{%
