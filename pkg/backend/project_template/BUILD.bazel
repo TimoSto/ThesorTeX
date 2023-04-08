@@ -60,6 +60,7 @@ genrule(
     outs = ["docs/en"],
     cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/en) -src=$(location documentation_en.md)",
     tools = ["//tools/documentationbuilder:documentationbuilder"],
+    visibility = ["//visibility:public"],
 )
 
 pkg_tar(

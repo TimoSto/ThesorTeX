@@ -38,3 +38,20 @@ genrule(
     cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :docs_de_tex) ../ documentation_de.pdf",
     tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
 )
+
+genrule(
+    name = "docs_en_tex",
+    srcs = ["//pkg/backend/project_template:documentation_en"],
+    outs = ["docs_en"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en)",
+    tools = ["//tools/documentationcombinator:documentationcombinator"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "docs_en_pdf",
+    srcs = [":docs_en_tex"],
+    outs = ["documentation_en.pdf"],
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :docs_en_tex) ../ documentation_en.pdf",
+    tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
+)
