@@ -1,96 +1,117 @@
 \documentclass[12pt]{article}
 
-%Filter Warning messages, otherwise it would stuff like
+% To filter warning messages
 \usepackage{silence}
-%Disable all warnings issued by latex starting with "You have..."
+% Disable all warnings issued by latex starting with "You have requested package" (caused by local imports)
 \WarningFilter{latex}{You have requested package}
 
-%Allgemeine Einstellungen
+% General settings
 
-%Abstände
+% Paper spacings
 \usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3.5cm,headsep=12pt]{geometry}%Bottom extra 0.5cm für Footer
 
-%Deutsches Sprachpacket
+% german language package (for Umlauts)
 \usepackage[german,ngerman]{babel}
 
-%For synmbols like \degree
+% For synmbols like \degree
 \usepackage{gensymb}
 
-%Times New Roman
+% Times New Roman
 \usepackage{mathptmx}
 
-%Titelseite einbinden
+% To include a pdf file (e.g. the title page)
 \usepackage{pdfpages}
 
-%1.5-Zeilenabstand
+% 1.5 line spacing
 \usepackage[onehalfspacing]{setspace}
 
-%Stil der Überschriften, siehe ueberschriften.sty
+% Styling of the headlines, see styPackages/headlines.sty
 \usepackage[numeric]{styPackages/ueberschriften}
 
-%Stil des Inhaltsverzeichnisses, siehe inhaltsverzeichnis.sty
+% Style of the table of contents, see styPAckages/tableOfContents.sty
 \usepackage[numeric]{styPackages/inhaltsverzeichnis}
 
-%Abkürzungsverzeichnis, siehe abk_verzeichnis.sty
+% Implementation of the list of abbreviations, see styPackages/abbreviations.sty
 \usepackage{styPackages/abk_verzeichnis}
 
-%Stil der Fußzeilen, siehe fusszeilen.sty
+% Style (font size and spacing) of the footer, see styPackages/footer.sty
 \usepackage{styPackages/fusszeilen}
 
-%Literaturverzeichnis und Zitate, siehe literatur.sty
+% Bibliography and quotes, see styPackages/bibliography.sty
+% This is an alternative to BibLaTeX
 \usepackage{styPackages/bibliography}
 
-%Stil für Header und Footer, siehe header_footer.sty
-%Wenn nicht erwünscht, müssen auch die Befehle \frontmatter, \mainmatter auskommentiert werden
+% Style and contents of the header and footer, see styPackages/header_footer.sty
+% If you dont want to include this package, the commands \frontmatter and \mainmatter must be removed too
 \usepackage{styPackages/header_footer}
 
-%Stile für Code-Ausschnitte, siehe codes.sty
+% Style for code snippets, see codes.sty
+% If you dont have any code snippets in your document, this package can be removed
 \usepackage{styPackages/codes}
-
-%Stile für Anhänge, Bilder, ...
-\usepackage{styPackages/anhang}
-
+% Special code style for html, see styPackages/html.sty
 \usepackage{styPackages/html}
 
-%Silbentrennung (manche Worte werden am Zeilenende nicht getrennt, diese müssen dann nachgetragen werden)
+% Style and contents for the appendix and the list of appendix, see styPAckages/appendix.sty
+\usepackage{styPackages/appendix}
+
+% Extend the hyphenation with unknown cases
 \usepackage[T1]{fontenc}
 \hyphenation{öf-fent-lich-en}
 
-%DEBUGGING (Zeigt Boxen an)
+% DEBUGGING (Shows the boxes of header, footer and content)
 %\usepackage{showframe}
-\setlength{\skip\footins}{12pt}
 
 \usepackage{makecell}
 \usepackage{placeins}
 
-%Anführungszeichen
+% Change the style of quotation marks
 \usepackage{csquotes}
 \MakeOuterQuote{"}
 
-%[H]-Placing
+% To improve the placing of figures and tables
 \usepackage{float}
 
+% TODO: can be deleted?
 \usepackage{verbatimbox}
 
+% For images
+\usepackage{graphicx}
+
+% Change the naming of figures and tables to the german abbreviations
 \addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
 \addto\captionsngerman{\renewcommand{\tablename}{Tab.}}
 
-%Tabellen oder Bilder mit Textumfluss
+% No indent in the list of figures
+\setlength{\cftfigindent}{0 em}
+
+% Center the heading of the list of figures
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\LARGE}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+
+% No indent in the list of tables
+\setlength{\cfttabindent}{0 em}
+
+% Center the heading of the list of tables
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\LARGE}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+
+% To properly include images and tables floating in text
 \usepackage{wrapfig}
 \usepackage{etoolbox}
 \BeforeBeginEnvironment{wraptable}{\setlength{\intextsep}{1pt}}
 \usepackage[justification=centering]{caption}
 
-%Helvetica font
+% Helvetica font (similar to Arial)
+% WARNING: If you use this font, you cannot have multiline values inside the header. This is already a known issue (https://github.com/TimoSto/ThesorTeX/issues/128)
 \usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
-%Bookmarks and querverweise
+% To create bookmarks for the chapters in the pdf
 \newcounter{dummy}
 \usepackage[hidelinks,bookmarks=true]{hyperref}
 \usepackage{bookmark}
 
-%Linebreaks Bib und URL
+% Improve linebreaks
 \usepackage[copyfonts,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1000,stretch=10,shrink=10]{microtype}
 \SetExpansion
 [ context = sloppy,
@@ -100,74 +121,117 @@
 { encoding = {OT1,T1,TS1} }
 { }
 
+% Styles of urls
 \urlstyle{same}
-
 \renewcommand\UrlFont\itshape
-
 \usepackage{xurl}
 
 \begin{document}
 
-\renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
-\renewcommand{\myauthor}{Timo Stovermann}%Name für unten links
-\renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+\renewcommand{\mytitle}{The title of my document\\possibly with multiple lines}% Title to show in the header or footer
+\renewcommand{\myauthor}{My name}% Name to show in the header or footer
+\renewcommand{\headheight}{27pt}% On multiline headers, this value must be explicitly set, otherwise LaTeX will print warnings or errors
 
+% Style of header and footer for table of contents, bibliography, ...
+% This style is activated using the command \frontmatter
+% first param: top left
+% second param: top right
+% third param: bottom left
+% forth param: bottom right
+% the \plaintitle value is set manually (see below)
+% the \thepage value is set automatically by LaTeX
 \setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
 
+% Style of header and footer for the text part of your document
+% This style is activated using the command \mainmatter
+% the \parttitle value refers to the current top level chapter on a page (\part)
 \setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
 
+% Here you can include one or more pages from a pdf file, e.g. as the title page
 %\includepdf[pages={1-}]{titelseite.pdf}
 
-\frontmatter%Stil des Headers/Footers ändern
+% Activate the frontmatter style for the header and footer
+\frontmatter
 
+% Use roman page numbering
 \pagenumbering{Roman}
 
-\addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
-\printabbreviations%abk_verzeichnis.sty
+% Change the title in the header
+\renewcommand{\plaintitle}{List of abbreviations}
+% add a line to the table of contents
+\addcontentsline{toc}{part}{List of abbreviations}
+% print the abbreviations (see styPackages/abbreviations.sty)
+\printabbreviations
+
 \clearpage
-\renewcommand{\plaintitle}{Abbildungsverzeichnis}
-\addcontentsline{toc}{part}{Abbildungsverzeichnis}
+% Change the title in the header
+\renewcommand{\plaintitle}{List of figures}
+% add a line to the table of contents
+\addcontentsline{toc}{part}{List of figures}
+% This construct removes some spacing between the dotted line and the page number
 {\def\makebox[#1][#2]#3{#3}%
     \listoffigures
 }
 \clearpage
-\renewcommand{\plaintitle}{Tabellenverzeichnis}
-\addcontentsline{toc}{part}{Tabellenverzeichnis}
+% Change the title in the header
+\renewcommand{\plaintitle}{List of tables}
+% add a line to the table of contents
+\addcontentsline{toc}{part}{List of tables}
+% This construct removes some spacing between the dotted line and the page number
 {\def\makebox[#1][#2]#3{#3}%
     \listoftables
 }
 \clearpage
-\renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
-%Defbox, damit gepunktete Linie bis zur Zahl geht
+% Change the title in the header
+\renewcommand{\plaintitle}{Table of contents}
+% This construct removes some spacing between the dotted line and the page number
 {\def\makebox[#1][#2]#3{#3}%
     \tableofcontents
 }
 
-\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
+% Add vertical spacing to the table of contents
+\addtocontents{toc}{\vspace{24pt}}
 
 \clearpage
-\mainmatter%Stil des Headers/Footers ändern
+
+% Switch the style of the header and footer
+\mainmatter
+% Use arabic page numbering
 \pagenumbering{arabic}
 
 % Start Content
-\part{test}
-hallo\citebib{testEntry}{}{}\\
-hallo \footnote{\textit{Autor}}
+\part{Introduction}
+Here you can write your text. Refer to the documentations under \url{https://thesortex.com/#/tutorials} for more information.
+\part{Main part}
+An example for a quote would be "Someone intelligent said this"\citebib{testEntry}{S. 123}{}. An indirect quote would look like this.\citebib{testEntry}{S. 321}{vgl. }
+\part{Conclusion}
+Just try around with this template!
 % End Content
 
 \clearpage
-\frontmatter%Stil des Headers/Footers ändern
-\renewcommand{\plaintitle}{Literaturverzeichnis}
+
+% Change the style and contents of the header and footer
+\frontmatter
+
+% Title in header
+\renewcommand{\plaintitle}{Bibliography}
+% Roman page numbering
 \pagenumbering{Roman}
+% Set the counter to whatever value you want it to start from (everytime you change the numbering style, it resets)
 \setcounter{page}{5}
+% Spacing in ToC
 \addtocontents{toc}{\vspace{24pt}}
-\addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
+% Entry in ToC
+\addcontentsline{toc}{part}{Bibliography}
+% Prints the bibliography from bibEntries.csv
 \printMyBibliography
 \clearpage
-\renewcommand{\plaintitle}{Anhang}
-\addcontentsline{toc}{part}{Anhang}
+
+% Appendix in Header and ToC
+\renewcommand{\plaintitle}{Appendix}
+\addcontentsline{toc}{part}{Appendix}
 {\def\makebox[#1][#2]#3{#3}%
-    \listofanhang
+    \listofappendix
 }
 
 \end{document}
