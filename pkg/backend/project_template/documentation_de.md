@@ -4,7 +4,7 @@ Unter ***styPackages/*** liegen die Dateien, in denen die Formatierungen definie
 
 Die Datei ***main.tex*** ist die *Haupt-Datei*. Du kannst sie in einem TeX-Editor deiner Wahl öffnen und kompilieren.
 
-In der Datei ***abkuerzungen.csv*** kannst du Abkürzungen aufführen. Diese werden dann automatisch im Abürzungsverzeichnis aufgelistet. Näheres dazu unter ***Wie kann ich Abkürzungen hinzufügen?***.
+In der Datei ***abbreviations.csv*** kannst du Abkürzungen aufführen. Diese werden dann automatisch im Abürzungsverzeichnis aufgelistet. Näheres dazu unter ***Wie kann ich Abkürzungen hinzufügen?***.
 
 In der Datei ***bib_entries.csv*** kannst du Literatureinträge im *CSV*-Format auflisten. Näheres dazu unter ***Wie kann ich Literatureinträge hinzufügen?***.
 
@@ -49,9 +49,9 @@ Standardmäßig werden die Kapitel numerisch gezählt:
 - ...
 
 ```latex
-    \usepackage[numeric]{styPackages/ueberschriften}
+    \usepackage[numeric]{styPackages/headings}
 
-    \usepackage[numeric]{styPackages/inhaltsverzeichnis}
+    \usepackage[numeric]{styPackages/table_of_contents}
 ```
 
 Du kannst aber auch auf eine alphanumerische Zählung umstellen:
@@ -64,20 +64,20 @@ Du kannst aber auch auf eine alphanumerische Zählung umstellen:
 - (1) Unterkapitel 1.1.1.1.1.1
 
 ```latex
-    \usepackage[alphaNumeric]{styPackages/ueberschriften}
+    \usepackage[alphaNumeric]{styPackages/headings}
 
-    \usepackage[alphaNumeric]{styPackages/inhaltsverzeichnis}
+    \usepackage[alphaNumeric]{styPackages/table_of_contents}
 ```
 
 ---
 
 title: Wie kann ich Abkürzungen hinzufügen?
-Die Abkürzungen werden aus der Datei ***abkuerzungen.csv*** ausgelesen. Dort kannst du sie in der Form *Abkürzung*;*Bedeutung*; eintragen.
+Die Abkürzungen werden aus der Datei ***abbreviations.csv*** ausgelesen. Dort kannst du sie in der Form *Abkürzung*;*Bedeutung*; eintragen.
 
 Wenn du den Befehl ***\printabbreviations*** in deinem Dokument aufrufst, wird das Abkürzungsverzeichnis ausegeben.
 
 ---
 
 title: Wie kann ich Anhänge hinzufügen?
-Wenn deine Arbeit Anhänge hat, kannst du sie strukturiert ausgeben. Die Befehle ***\anhangI***, ***\anhangII*** und ***\anhangIII*** sind im Grunde nichts anderes als die gewöhnlichen Kapitel.
-Sie werden allerdings separat nummeriert und über den Befehl ***\listofanhang*** ausgegeben.
+Wenn deine Arbeit Anhänge hat, kannst du sie strukturiert ausgeben. Die Befehle ***\appendixI***, ***\appendixII*** und ***\appendixIII*** sind im Grunde nichts anderes als die gewöhnlichen Kapitel.
+Sie werden allerdings separat nummeriert und über den Befehl ***\listofappendix*** ausgegeben.

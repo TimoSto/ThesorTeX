@@ -51,7 +51,7 @@ By default, the chapters are numbered numerically:
 ```latex
 \usepackage[numeric]{styPackages/headings}
 
-\usepackage[numeric]{styPackages/table-of-contents}
+\usepackage[numeric]{styPackages/table_of_contents}
 ```
 
 You can also switch to an alphanumeric count:
@@ -66,18 +66,18 @@ You can also switch to an alphanumeric count:
 ```latex
 \usepackage[alphaNumeric]{styPackages/headings}
 
-\usepackage[alphaNumeric]{styPackages/table of contents}
+\usepackage[alphaNumeric]{styPackages/table_of_contents}
 ```
 
 ---
 
 title: How can I add abbreviations?
-The abbreviations are read from the file ***abkuerzungen.csv***. There you can enter them in the form *abbreviation*;*meaning*;.
+The abbreviations are read from the file ***abbreviations.csv***. There you can enter them in the form *abbreviation*;*meaning*;.
 
 If you call up the command ***\printabbreviations*** in your document, the list of abbreviations is output.
 
 ---
 
 title: How can I add attachments?
-If your work has appendices, you can output them in a structured way. The commands ***\annexI***, ***\annexII*** and ***\annexIII*** are basically nothing other than the usual chapters.
-However, they are numbered separately and output via the command ***\listofanhang***.
+If your work has appendices, you can output them in a structured way. The commands ***\appendixI***, ***\appendixII*** and ***\appendixIII*** are basically nothing other than the usual chapters.
+However, they are numbered separately and output via the command ***\listofappendix***.
