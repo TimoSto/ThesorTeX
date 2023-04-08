@@ -19,7 +19,7 @@ go_library(
         "template/styPackages/header_footer.sty",
         "template/styPackages/html.sty",
         "template/styPackages/table_of_contents.sty",
-        "template/styPackages/ueberschriften.sty",
+        "template/styPackages/headings.sty",
         "template/main.tex",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/project_template",
