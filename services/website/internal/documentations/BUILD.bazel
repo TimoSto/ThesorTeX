@@ -21,3 +21,20 @@ go_test(
     embed = [":documentations"],
     deps = ["//vendor/github.com/google/go-cmp/cmp"],
 )
+
+genrule(
+    name = "docs_de_tex",
+    srcs = ["//pkg/backend/project_template:documentation_de"],
+    outs = ["docs_de"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de)",
+    tools = ["//tools/documentationcombinator:documentationcombinator"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "docs_de_pdf",
+    srcs = [":docs_de_tex"],
+    outs = ["documentation_de.pdf"],
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :docs_de_tex) ../ documentation_de.pdf",
+    tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
+)

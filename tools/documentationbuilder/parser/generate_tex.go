@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"strings"
 )
 
 func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
@@ -12,6 +13,11 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 		for i, g := range d.Groups {
 			if g.Type == "TEXT" {
 				for _, e := range g.Elements {
+					//e.Content = strings.Replace(e.Content, "\\anhang", "{{\\\\anhang}}", -1)
+					//e.Content = strings.Replace(e.Content, "\\part", "{{\\\\part}}", -1)
+					//e.Content = strings.Replace(e.Content, "\\section", "{{\\\\section}}", -1)
+					e.Content = strings.Replace(e.Content, "\\", "\\textbackslash ", -1)
+					e.Content = strings.Replace(e.Content, "_", "{{\\_}}", -1)
 					body += fmt.Sprintf(getFormatForType(e.Style), e.Content)
 				}
 				if i < len(d.Groups)-1 {

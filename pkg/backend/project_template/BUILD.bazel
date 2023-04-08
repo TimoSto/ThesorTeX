@@ -49,6 +49,7 @@ genrule(
     outs = ["docs/de"],
     cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/de) -src=$(location documentation_de.md)",
     tools = ["//tools/documentationbuilder:documentationbuilder"],
+    visibility = ["//visibility:public"],
 )
 
 genrule(
