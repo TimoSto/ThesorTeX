@@ -20,10 +20,17 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 					e.Content = strings.Replace(e.Content, "_", "{{\\_}}", -1)
 					body += fmt.Sprintf(getFormatForType(e.Style), e.Content)
 				}
-				if i < len(d.Groups)-1 {
+				if i < len(d.Groups)-1 && d.Groups[i+1].Type == "TEXT" {
 					body += "\\\\"
 				}
 				body += "\n"
+			} else if g.Type == "CODE" {
+				body += "\\begin{verbatim}\n"
+				for _, e := range g.Elements {
+					body += e.Content
+					body += "\n"
+				}
+				body += "\\end{verbatim}\n"
 			}
 		}
 	}
