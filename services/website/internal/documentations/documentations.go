@@ -29,6 +29,12 @@ var docPDF_DE []byte
 //go:embed documentation_en.pdf
 var docPDF_EN []byte
 
+//go:embed documentation_de.zip
+var docZIP_DE []byte
+
+//go:embed documentation_en.zip
+var docZIP_EN []byte
+
 //go:embed docsImages
 var docsImages embed.FS
 
@@ -43,6 +49,8 @@ var docsMap = map[string][]byte{
 	"cvTemplate_JSON_EN":     cvTemplateDocJSON_EN,
 	"documantation_PDF_DE":   docPDF_DE,
 	"documantation_PDF_EN":   docPDF_EN,
+	"documantation_ZIP_DE":   docZIP_DE,
+	"documantation_ZIP_EN":   docZIP_EN,
 }
 
 type ThesorTexDocs struct {
@@ -64,12 +72,22 @@ func GetJsonDocs(lang string) ([]byte, error) {
 }
 
 func GetPDFDocs(lang string) ([]byte, error) {
+	//TODO: why doesnt the map work here
+	lang = strings.ToUpper(lang)
+	if lang != "DE" {
+		return docPDF_EN, nil
+	}
+
+	return docPDF_DE, nil
+}
+
+func GetZIPDocs(lang string) ([]byte, error) {
 	lang = strings.ToUpper(lang)
 	if lang != "DE" {
 		lang = "EN"
 	}
 
-	return docPDF_DE, nil
+	return docZIP_DE, nil
 }
 
 func GetDocsImage(path string) ([]byte, error) {

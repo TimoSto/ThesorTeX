@@ -19,6 +19,8 @@ func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
 
 		if format == "pdf" {
 			data, err = documentations.GetPDFDocs(lang)
+		} else if format == "zip" {
+			data, err = documentations.GetZIPDocs(lang)
 		} else {
 			data, err = documentations.GetJsonDocs(lang)
 		}

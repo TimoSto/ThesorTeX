@@ -14,7 +14,7 @@
                    download="documentation.pdf">PDF</a>
               </template>
               <template #example>
-                <a :href="`/example?lang=${i18nObject.locale.value}`" style="color: white"
+                <a :href="`/documentation?lang=${i18nObject.locale.value}&format=zip`" style="color: white"
                    download>{{ t(i18nKeys.TutorialsPage.ExampleProject) }}</a>
               </template>
             </i18n-t>
