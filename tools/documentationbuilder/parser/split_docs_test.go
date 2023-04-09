@@ -32,7 +32,7 @@ var withCodeExpected = []RawDocs{
 var withImageExpected = []RawDocs{
 	{
 		Title:   "Doc 1",
-		Content: "Some\ncontent\n![test image](images/img1.png)\ntest",
+		Content: "Some\ncontent\n![test image](./images/img1.png)\ntest",
 	},
 }
 

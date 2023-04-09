@@ -372,7 +372,7 @@ var withImageExpectedBody = []DocBody{
 				Elements: []element{
 					{
 						Style:   "",
-						Content: "images/img1.png",
+						Content: "./images/img1.png",
 					},
 					{
 						Style:   "",
