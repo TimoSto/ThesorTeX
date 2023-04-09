@@ -61,9 +61,9 @@ genrule(
 
 genrule(
     name = "docs_en_tex",
-    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en"],
+    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en", "//pkg/backend/cv_template:documentation_images"],
     outs = ["docs_en"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //pkg/backend/cv_template:documentation_en)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //pkg/backend/cv_template:documentation_en)",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )

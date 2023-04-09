@@ -16,7 +16,8 @@
             {{ e.Content }}
           </v-list-item>
         </v-list>
-        <v-img v-if="g.Type === 'IMAGE'" :src="`/documentation/images/${g.Elements[0].Content}`" />
+        <v-img v-if="g.Type === 'IMAGE'" :src="`/documentation/images/${g.Elements[0].Content}`">
+        </v-img>
       </template>
     </v-expansion-panel-text>
   </v-expansion-panel>
