@@ -28,7 +28,7 @@ func (rw *responseWriter) response() (*events.APIGatewayProxyResponse, error) {
 	}
 
 	ct := rw.header.Get("Content-Type")
-	// to fix font and image types
+	// to fix font, image, pdf and zip types
 	if strings.HasPrefix(ct, "font/") || strings.HasPrefix(ct, "image/") || ct == "application/pdf" || ct == "application/zip" {
 		response.IsBase64Encoded = true
 	}
