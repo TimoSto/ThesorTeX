@@ -29,6 +29,13 @@ var withCodeExpected = []RawDocs{
 	},
 }
 
+var withImageExpected = []RawDocs{
+	{
+		Title:   "Doc 1",
+		Content: "Some\ncontent\n![test image](images/img1.png)\ntest",
+	},
+}
+
 func TestSplitDocs(t *testing.T) {
 	file, err := os.ReadFile("../testfiles/simple.md")
 	if err != nil {
@@ -63,6 +70,25 @@ func TestSplitDocsWithCode(t *testing.T) {
 	}
 
 	if diff := cmp.Diff(withCodeExpected, result); diff != "" {
+		t.Errorf("%s", diff)
+	}
+}
+
+func TestSplitDocsWithImage(t *testing.T) {
+	file, err := os.ReadFile("../testfiles/withImage.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	title, result := SplitDocs(string(file))
+
+	expTitle := "With image"
+
+	if title != expTitle {
+		t.Errorf("expected title %s, but got %s", expTitle, title)
+	}
+
+	if diff := cmp.Diff(withImageExpected, result); diff != "" {
 		t.Errorf("%s", diff)
 	}
 }

@@ -13,13 +13,14 @@ type DocBody struct {
 type AllowedType string
 
 const (
-	TypeText      AllowedType = "Text"
-	TypeEmpty                 = "Empty"
-	TypeBeginCode             = "BeginCode"
-	TypeCode                  = "Code"
-	TypeEndCode               = "EndCode"
-	TypeListItem              = "ListItem"
-	TypeImage                 = "Image"
+	TypeText       AllowedType = "Text"
+	TypeEmpty                  = "Empty"
+	TypeBeginCode              = "BeginCode"
+	TypeCode                   = "Code"
+	TypeEndCode                = "EndCode"
+	TypeListItem               = "ListItem"
+	TypeImage                  = "Image"
+	TypeImageLabel             = "ImageLabel"
 )
 
 type group struct {
@@ -50,6 +51,9 @@ func ParseDocBodies(raw []RawDocs) []DocBody {
 
 	return bodies
 }
+
+var imgLabelRegex = regexp.MustCompile("\\[(.*?)\\]")
+var imgLinkRegex = regexp.MustCompile("\\((.*?)\\)")
 
 func parseDocBody(raw RawDocs) DocBody {
 	body := DocBody{
@@ -128,6 +132,22 @@ func parseDocBody(raw RawDocs) DocBody {
 			body.Groups[len(body.Groups)-1].Elements = append(body.Groups[len(body.Groups)-1].Elements, element{
 				Content: l.Content,
 			})
+		} else if l.Type == TypeImage {
+			label := imgLabelRegex.FindString(l.Content)
+			link := imgLinkRegex.FindString(l.Content)
+			body.Groups = append(body.Groups, group{Type: "IMAGE"})
+			lengthElements = 1
+			// image group always has these two elements
+			body.Groups[len(body.Groups)-1].Elements = []element{
+				{
+					Content: link[1 : len(link)-1],
+					Style:   "",
+				},
+				{
+					Content: label[1 : len(label)-1],
+					Style:   "",
+				},
+			}
 		}
 	}
 

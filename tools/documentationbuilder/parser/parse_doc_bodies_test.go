@@ -354,6 +354,45 @@ var withCodeExpectedBody = []DocBody{
 	},
 }
 
+var withImageExpectedBody = []DocBody{
+	{
+		Title: "Doc 1",
+		Groups: []group{
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "Some content",
+					},
+				},
+			},
+			{
+				Type: "IMAGE",
+				Elements: []element{
+					{
+						Style:   "",
+						Content: "images/img1.png",
+					},
+					{
+						Style:   "",
+						Content: "test image",
+					},
+				},
+			},
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "test",
+					},
+				},
+			},
+		},
+	},
+}
+
 func TestParseDocBody(t *testing.T) {
 	for i, s := range simpleExpected {
 		t.Run(s.Title, func(t *testing.T) {
@@ -374,6 +413,20 @@ func TestParseDocBodyWithCode(t *testing.T) {
 			result := parseDocBody(s)
 
 			expected := withCodeExpectedBody[i]
+
+			if diff := cmp.Diff(expected, result); diff != "" {
+				t.Errorf("%s", diff)
+			}
+		})
+	}
+}
+
+func TestParseDocBodyWithImage(t *testing.T) {
+	for i, s := range withImageExpected {
+		t.Run(s.Title, func(t *testing.T) {
+			result := parseDocBody(s)
+
+			expected := withImageExpectedBody[i]
 
 			if diff := cmp.Diff(expected, result); diff != "" {
 				t.Errorf("%s", diff)
