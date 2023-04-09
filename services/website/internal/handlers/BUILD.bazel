@@ -9,7 +9,6 @@ go_library(
         "//services/website/internal/buckethandler",
         "//services/website/internal/handlers/assets",
         "//services/website/internal/handlers/documentations",
-        "//services/website/internal/handlers/examples",
         "//services/website/internal/handlers/templates",
         "//services/website/internal/handlers/versions",
     ],

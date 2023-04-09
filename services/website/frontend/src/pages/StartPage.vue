@@ -55,7 +55,7 @@
                 </template>
                 {{ t(i18nKeys.Common.ToDownloads) }}
               </v-list-item>
-              <v-list-item v-ripple href="/example?lang=de" target="_blank">
+              <v-list-item v-ripple href="/documentation?lang=de&format=zip" target="_blank">
                 <template #prepend>
                   <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
                 </template>
