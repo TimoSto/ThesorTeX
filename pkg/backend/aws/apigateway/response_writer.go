@@ -3,6 +3,7 @@ package apigateway
 import (
 	"bytes"
 	"encoding/base64"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -28,8 +29,9 @@ func (rw *responseWriter) response() (*events.APIGatewayProxyResponse, error) {
 	}
 
 	ct := rw.header.Get("Content-Type")
+	fmt.Println(ct)
 	// to fix font, image, pdf and zip types
-	if strings.HasPrefix(ct, "font/") || strings.HasPrefix(ct, "image/") || ct == "application/pdf" || ct == "application/zip" {
+	if strings.HasPrefix(ct, "font/") || ct == "application/font-woff" || strings.HasPrefix(ct, "image/") || ct == "application/pdf" || ct == "application/zip" {
 		response.IsBase64Encoded = true
 	}
 
