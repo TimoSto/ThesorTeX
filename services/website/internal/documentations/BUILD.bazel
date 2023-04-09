@@ -80,7 +80,7 @@ genrule(
         ":docs_de_pdf",
     ],
     outs = ["documentation_de.zip"],
-    cmd = "cp -r $(location :docs_de_tex) ./documentation_de && cp $(location :docs_de_pdf) ./documentation_de/main.pdf && zip -r $(OUTS) ./documentation_de"
+    cmd = "cp -r $(location :docs_de_tex) ./documentation_de && cp $(location :docs_de_pdf) ./documentation_de/main.pdf && rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && zip -r $(OUTS) ./documentation_de"
 )
 
 genrule(
@@ -100,7 +100,7 @@ genrule(
         ":docs_en_pdf",
     ],
     outs = ["documentation_en.zip"],
-    cmd = "cp -r $(location :docs_en_tex) ./documentation_en && cp $(location :docs_en_pdf) ./documentation_en/main.pdf && zip -r $(OUTS) ./documentation_en"
+    cmd = "cp -r $(location :docs_en_tex) ./documentation_en && cp $(location :docs_en_pdf) ./documentation_en/main.pdf && rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && zip -r $(OUTS) ./documentation_en"
 )
 
 genrule(
