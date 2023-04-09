@@ -53,8 +53,5 @@ func GetPDFDocs(lang string) ([]byte, error) {
 		lang = "EN"
 	}
 
-	var docs ThesorTexDocs
-	docs.ThesisTemplate = string(docsMap[fmt.Sprintf("docs_PDF_%s", lang)])
-
-	return json.Marshal(docs)
+	return docPDF_DE, nil
 }

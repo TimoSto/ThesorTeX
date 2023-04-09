@@ -28,9 +28,9 @@ go_test(
 
 genrule(
     name = "docs_de_tex",
-    srcs = ["//pkg/backend/project_template:documentation_de"],
+    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de"],
     outs = ["docs_de"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de)",
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //pkg/backend/cv_template:documentation_de)",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
@@ -45,9 +45,9 @@ genrule(
 
 genrule(
     name = "docs_en_tex",
-    srcs = ["//pkg/backend/project_template:documentation_en"],
+    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en"],
     outs = ["docs_en"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en)",
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //pkg/backend/cv_template:documentation_en)",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
