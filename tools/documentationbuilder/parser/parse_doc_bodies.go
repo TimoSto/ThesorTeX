@@ -19,6 +19,7 @@ const (
 	TypeCode                  = "Code"
 	TypeEndCode               = "EndCode"
 	TypeListItem              = "ListItem"
+	TypeImage                 = "Image"
 )
 
 type group struct {
@@ -138,6 +139,8 @@ type analyseLineResult struct {
 	Content string
 }
 
+var imgRegex = regexp.MustCompile("!\\[[^\\]]*\\]\\([^\\)]*\\)")
+
 func analyseLine(line string, incode bool) analyseLineResult {
 	if line == "" || line == "\n" {
 		return analyseLineResult{
@@ -161,6 +164,14 @@ func analyseLine(line string, incode bool) analyseLineResult {
 		return analyseLineResult{
 			Type:    TypeListItem,
 			Content: line[2:],
+		}
+	}
+
+	img := imgRegex.FindString(line)
+	if img != "" {
+		return analyseLineResult{
+			Type:    TypeImage,
+			Content: img,
 		}
 	}
 

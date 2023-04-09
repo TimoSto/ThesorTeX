@@ -32,6 +32,13 @@ func TestAnalyseLine(t *testing.T) {
 				Content: "foo bar",
 			},
 		},
+		{
+			line: "![some img](./some/images.png) ",
+			exp: analyseLineResult{
+				Type:    TypeImage,
+				Content: "![some img](./some/images.png)",
+			},
+		},
 	}
 
 	for _, tc := range tcs {
