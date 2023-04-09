@@ -38,3 +38,20 @@ genrule(
     cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :test) ../ test_template.pdf",
     tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
 )
+
+genrule(
+    name = "test_img",
+    srcs = ["//tools/documentationbuilder:test","//tools/documentationbuilder:simpleWithImage","//tools/documentationbuilder/testfiles:test_images"],
+    outs = ["docs2"],
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/images && tar -C $(OUTS)/images -zxf $(location //tools/documentationbuilder/testfiles:test_images) &&  $(location :documentationcombinator) -out-dir=$(location docs2) -docs=$(location //tools/documentationbuilder:test),$(location //tools/documentationbuilder:simpleWithImage)",
+    tools = [":documentationcombinator"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "test_img_pdf",
+    srcs = [":test_img"],
+    outs = ["test_img.pdf"],
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :test_img) ../ test_img.pdf",
+    tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
+)

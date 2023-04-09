@@ -1,5 +1,14 @@
+load("@rules_pkg//pkg:pkg.bzl", "pkg_zip", "pkg_tar")
+
 exports_files([
     "simple.md",
     "withCode.md",
     "withImage.md",
 ])
+
+pkg_tar(
+    name = "test_images",
+    srcs = ["images/img1.png"],
+    extension = "tar.gz",
+    visibility = ["//visibility:public"],
+)
