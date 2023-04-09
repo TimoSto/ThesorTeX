@@ -1,5 +1,6 @@
 export type ThesorTeXDocumentation = {
     ThesisTemplate: DocumentationPack
+    CVTemplate: DocumentationPack
 }
 
 export type DocumentationPack = {
@@ -26,12 +27,14 @@ export async function GetDocumentationsJSON(lang: string): Promise<ThesorTeXDocu
     const resp = await fetch(`/documentation?lang=${lang}`);
 
     let docs: ThesorTeXDocumentation = {
-        ThesisTemplate: {} as DocumentationPack
+        ThesisTemplate: {} as DocumentationPack,
+        CVTemplate: {} as DocumentationPack
     };
 
     if (resp.ok) {
         let data = await resp.json();
         docs.ThesisTemplate = JSON.parse(data.ThesisTemplate);
+        docs.CVTemplate = JSON.parse(data.CVTemplate);
     }
 
     return docs;

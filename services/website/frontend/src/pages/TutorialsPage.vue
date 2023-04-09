@@ -42,8 +42,12 @@
     </template>
     <template #content-3>
       <h2 class="text-h3 font-weight-bold text-center pa-4">
-        {{ t(i18nKeys.TutorialsPage.ThesisTool) }}
+        {{ jsonDocs?.CVTemplate.Title }}
       </h2>
+
+      <v-expansion-panels multiple>
+        <DocumentationPanel v-for="d in jsonDocs?.CVTemplate.Docs" :doc="d" />
+      </v-expansion-panels>
 
     </template>
   </FullHeightLayout>

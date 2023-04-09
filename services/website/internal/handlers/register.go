@@ -22,5 +22,7 @@ func RegisterWebsiteHandlers(mux *http.ServeMux, bucket buckethandler.BucketHand
 
 	mux.HandleFunc("/documentation", documentations.HandleDocumentations())
 
+	mux.HandleFunc("/documentation/images/", documentations.HandleDocumentationImages())
+
 	mux.HandleFunc("/example", examples.HandleExamples())
 }

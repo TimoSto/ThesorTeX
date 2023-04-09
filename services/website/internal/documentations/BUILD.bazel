@@ -5,17 +5,33 @@ go_library(
     srcs = ["documentations.go"],
     embedsrcs = [
         ":copyDocsJSON",
+        ":copyDocsJSONCV",
         ":docs_de_pdf",
-        ":docs_en_pdf"
+        ":docs_en_pdf",
+        ":docsImages"
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/documentations",
     visibility = ["//services/website:__subpackages__"],
 )
 
 genrule(
+    name = "docsImages",
+    srcs = ["//pkg/backend/cv_template:documentation_images"],
+    outs = ["docsImages"],
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images)"
+)
+
+genrule(
     name = "copyDocsJSON",
     srcs = ["//pkg/backend/project_template:documentation_tar"],
     outs = ["docs/thesisTemplate"],
+    cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
+)
+
+genrule(
+    name = "copyDocsJSONCV",
+    srcs = ["//pkg/backend/cv_template:documentation_tar"],
+    outs = ["docs/cvTemplate"],
     cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
 )
 
@@ -28,9 +44,9 @@ go_test(
 
 genrule(
     name = "docs_de_tex",
-    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de"],
+    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de", "//pkg/backend/cv_template:documentation_images"],
     outs = ["docs_de"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //pkg/backend/cv_template:documentation_de)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //pkg/backend/cv_template:documentation_de)",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )

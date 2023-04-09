@@ -45,3 +45,10 @@ pkg_tar(
     visibility = ["//visibility:public"],
 )
 
+pkg_tar(
+    name = "documentation_images",
+    srcs = ["cv_images/cv_styles.png"],
+    extension = "tar.gz",
+    visibility = ["//visibility:public"],
+)
+
