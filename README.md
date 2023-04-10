@@ -1,5 +1,7 @@
 # ThesorTeX
-Tool for handling bibliography in a LaTeX project
+Tool for handling bibliography in a LaTeX project.
+
+The website is available under [https://thesortex.com](https://thesortex.com).
 
 ## Downloads
 The local application can be downloaded on the following links:
