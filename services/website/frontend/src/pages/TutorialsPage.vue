@@ -57,7 +57,7 @@
 
   <v-dialog v-model="presentationOpened" width="1000" height="700">
     <!--    <RevealJS :docs="thesisDocs.Docs" />-->
-    <RevealJS :docs="[thesisTemplateDocsReveal]" />
+    <RevealJS :docs="[thesisTemplateDocsReveal, cvTemplateDocsReveal]" />
   </v-dialog>
 </template>
 
@@ -88,6 +88,13 @@ const thesisTemplateDocsReveal = computed(() => {
   return {
     Title: jsonDocs.value?.ThesisTemplate.Title,
     Pages: jsonDocs.value?.ThesisTemplate.Docs
+  };
+});
+
+const cvTemplateDocsReveal = computed(() => {
+  return {
+    Title: jsonDocs.value?.CVTemplate.Title,
+    Pages: jsonDocs.value?.CVTemplate.Docs
   };
 });
 
