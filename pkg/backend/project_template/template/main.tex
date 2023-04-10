@@ -191,8 +191,11 @@
     \listoftables
 }
 \clearpage
+
+% Change the title of the toc
+\renewcommand{\contentsname}{My table of contents}
 % Change the title in the header
-\renewcommand{\plaintitle}{Table of contents}
+\renewcommand{\plaintitle}{\contentsname}
 % This construct removes some spacing between the dotted line and the page number
 {\def\makebox[#1][#2]#3{#3}%
     \tableofcontents
