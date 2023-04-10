@@ -30,7 +30,9 @@
             <v-card-text>
               <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
-                      style="display: inline-block; width: 100%;">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</span>
+                      style="display: inline-block; width: 100%;">{{
+                    t(i18nKeys.StartPage.ThesisToolTitle, {hyphen: "&shy;"})
+                  }}</span>
                 <div class="mt-auto">
                   <SVGTemplate :svg="laptopWithThesis" max-height="200px" max-width="100%" />
                 </div>

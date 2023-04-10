@@ -18,7 +18,7 @@ export const german: I18nKeys = {
         ThesisTemplateTitle: "Vorlage für eine Abschluss- / Hausarbeit",
         ThesisTemplateSubtitle: "Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal diese Vorlage an.",
         ThesisTemplateExample: "Beispiel herunterladen",
-        ThesisToolTitle: "Tool zum Literaturmanagement",
+        ThesisToolTitle: "Tool zum Literatur{hyphen}management",
         ThesisToolSubtitle: "Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder importiere deine Bibliothek aus Citavi.",
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
         CVTemplateSubtitle: "Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast und du dich auf deinen nächsten Job bewerben willst, schau dir doch mal diese Vorlage für einen Lebenslauf an.",
@@ -34,9 +34,6 @@ export const german: I18nKeys = {
         Title: "Wie kann ich die Vorlagen und Tools nutzen?",
         SubTitle: "Die Anleitungen sind als Präsentation, als {pdf}, als {example} und als FAQ direkt auf dieser Seite verfügbar.",
         ExampleProject: "Beispielprojekt",
-        ThesisTemplate: "Verwendung der Vorlage für eine Abschluss- / Hausarbeit",
-        ThesisTemplateTech: "Technische Beschreibung der Vorlage für wissenschaftliche Arbeiten",
-        ThesisTool: "Verwendung des Tools für Literaturmanagement",
         TexKnowledge: "Grundkenntnisse in der Verwendung von LaTeX werden vorrausgesetzt"
     }
 };
