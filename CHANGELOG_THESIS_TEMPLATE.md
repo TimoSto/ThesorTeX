@@ -9,6 +9,7 @@
 - Add possibility to change the title of the list of abbreviations.
 - Add possibility to change the title of the list of figures.
 - Add possibility to change the title of the list of tables.
+- Add possibility to change the title of the table of contents.
 
 # v1.0.0
 
