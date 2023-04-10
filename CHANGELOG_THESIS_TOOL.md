@@ -1,3 +1,9 @@
+# v0.0.2
+
+## Fixed
+
+- Version of the tool is correctly displayed on startup.
+
 # v0.0.1
 
 ## Added
