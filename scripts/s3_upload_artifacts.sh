@@ -2,7 +2,7 @@
 
 echo "$1"
 
-if [ "$1" = "tool" ] || [ "$1" = "all" ]
+if [ "$1" = "thesisTool" ] || [ "$1" = "all" ]
 then
   echo "uploading tool artifacts..."
 
