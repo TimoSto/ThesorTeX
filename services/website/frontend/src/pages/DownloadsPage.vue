@@ -157,7 +157,7 @@
                                 style="display: inline-block; width: 100%;">MacOS (ARM)</span>
                     <div class="mt-auto">
                       <MacIcon style="display: block; margin: 0 auto;height: 50px;" class="mb-4" />
-                      <a :href="getToolDownloadLink('latest', 'mac_silicon')">
+                      <a :href="getToolDownloadLink('latest', 'mac_arm')">
                         <v-btn color="primary" style="width: 100%;">
                           <v-icon>mdi-download</v-icon>
                         </v-btn>
