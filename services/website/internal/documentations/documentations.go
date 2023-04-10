@@ -23,6 +23,12 @@ var cvTemplateDocJSON_DE []byte
 //go:embed docs/cvTemplate/en/parsed.json
 var cvTemplateDocJSON_EN []byte
 
+//go:embed docs/thesisTool/de/parsed.json
+var thesisToolDocJSON_DE []byte
+
+//go:embed docs/thesisTool/en/parsed.json
+var thesisToolDocJSON_EN []byte
+
 //go:embed documentation_de.pdf
 var docPDF_DE []byte
 
@@ -47,6 +53,8 @@ var docsMap = map[string][]byte{
 	"thesisTemplate_JSON_EN": templateDocJSON_EN,
 	"cvTemplate_JSON_DE":     cvTemplateDocJSON_DE,
 	"cvTemplate_JSON_EN":     cvTemplateDocJSON_EN,
+	"thesisTool_JSON_DE":     thesisToolDocJSON_DE,
+	"thesisTool_JSON_EN":     thesisToolDocJSON_EN,
 	"documantation_PDF_DE":   docPDF_DE,
 	"documantation_PDF_EN":   docPDF_EN,
 	"documantation_ZIP_DE":   docZIP_DE,
@@ -56,6 +64,7 @@ var docsMap = map[string][]byte{
 type ThesorTexDocs struct {
 	ThesisTemplate string
 	CVTemplate     string
+	ThesisTool     string
 }
 
 func GetJsonDocs(lang string) ([]byte, error) {
@@ -67,6 +76,7 @@ func GetJsonDocs(lang string) ([]byte, error) {
 	var docs ThesorTexDocs
 	docs.ThesisTemplate = string(docsMap[fmt.Sprintf("thesisTemplate_JSON_%s", lang)])
 	docs.CVTemplate = string(docsMap[fmt.Sprintf("cvTemplate_JSON_%s", lang)])
+	docs.ThesisTool = string(docsMap[fmt.Sprintf("thesisTool_JSON_%s", lang)])
 
 	return json.Marshal(docs)
 }

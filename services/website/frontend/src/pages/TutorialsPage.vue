@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="3" :white="true">
+  <FullHeightLayout :pages="4" :white="true">
     <template #content-1>
       <v-row class="d-flex flex-row">
         <v-col cols="12">
@@ -42,6 +42,16 @@
     </template>
     <template #content-3>
       <h2 class="text-h3 font-weight-bold text-center pa-4">
+        {{ jsonDocs?.ThesisTool.Title }}
+      </h2>
+
+      <v-expansion-panels multiple>
+        <DocumentationPanel v-for="d in jsonDocs?.ThesisTool.Docs" :doc="d" />
+      </v-expansion-panels>
+
+    </template>
+    <template #content-4>
+      <h2 class="text-h3 font-weight-bold text-center pa-4">
         {{ jsonDocs?.CVTemplate.Title }}
       </h2>
 
@@ -57,7 +67,7 @@
 
   <v-dialog v-model="presentationOpened" width="1000" height="700">
     <!--    <RevealJS :docs="thesisDocs.Docs" />-->
-    <RevealJS :docs="[thesisTemplateDocsReveal, cvTemplateDocsReveal]" />
+    <RevealJS :docs="[thesisTemplateDocsReveal, thesisToolDocsReveal, cvTemplateDocsReveal]" />
   </v-dialog>
 </template>
 
@@ -88,6 +98,13 @@ const thesisTemplateDocsReveal = computed(() => {
   return {
     Title: jsonDocs.value?.ThesisTemplate.Title,
     Pages: jsonDocs.value?.ThesisTemplate.Docs
+  };
+});
+
+const thesisToolDocsReveal = computed(() => {
+  return {
+    Title: jsonDocs.value?.ThesisTool.Title,
+    Pages: jsonDocs.value?.ThesisTool.Docs
   };
 });
 

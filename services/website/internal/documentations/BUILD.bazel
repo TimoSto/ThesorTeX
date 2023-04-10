@@ -17,6 +17,7 @@ go_library(
     embedsrcs = [
         ":copyDocsJSON",
         ":copyDocsJSONCV",
+        ":copyDocsJSONThesisTool",
         ":docs_de_pdf",
         ":docs_de_zip",
         ":docs_en_pdf",
@@ -48,6 +49,13 @@ genrule(
     cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
 )
 
+genrule(
+    name = "copyDocsJSONThesisTool",
+    srcs = ["//services/app/documentation:documentation_tar"],
+    outs = ["docs/thesisTool"],
+    cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
+)
+
 go_test(
     name = "documentations_test",
     srcs = ["documentations_test.go"],
@@ -57,9 +65,9 @@ go_test(
 
 genrule(
     name = "docs_de_tex",
-    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de", "//pkg/backend/cv_template:documentation_images"],
+    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de", "//pkg/backend/cv_template:documentation_images", "//services/app/documentation:documentation_de"],
     outs = ["docs_de"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //pkg/backend/cv_template:documentation_de)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //pkg/backend/cv_template:documentation_de),$(location //services/app/documentation:documentation_de)",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
@@ -85,9 +93,9 @@ genrule(
 
 genrule(
     name = "docs_en_tex",
-    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en", "//pkg/backend/cv_template:documentation_images"],
+    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en", "//pkg/backend/cv_template:documentation_images", "//services/app/documentation:documentation_en"],
     outs = ["docs_en"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //pkg/backend/cv_template:documentation_en)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //pkg/backend/cv_template:documentation_en),$(location //services/app/documentation:documentation_en)",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
