@@ -65,9 +65,9 @@ go_test(
 
 genrule(
     name = "docs_de_tex",
-    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de", "//pkg/backend/cv_template:documentation_images", "//services/app/documentation:documentation_de"],
+    srcs = ["//pkg/backend/project_template:documentation_de", "//pkg/backend/cv_template:documentation_de", "//pkg/backend/cv_template:documentation_images", "//services/app/documentation:documentation_de", "//services/website/internal/documentations/titlepages:titlepage_de.pdf"],
     outs = ["docs_de"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/app/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/app/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de) -title-page=titlepages/titlepage_de.pdf && mkdir $(location docs_de)/titlepages && cp $(location //services/website/internal/documentations/titlepages:titlepage_de.pdf) $(location docs_de)/titlepages/titlepage_de.pdf",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
@@ -93,9 +93,9 @@ genrule(
 
 genrule(
     name = "docs_en_tex",
-    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en", "//pkg/backend/cv_template:documentation_images", "//services/app/documentation:documentation_en"],
+    srcs = ["//pkg/backend/project_template:documentation_en","//pkg/backend/cv_template:documentation_en", "//pkg/backend/cv_template:documentation_images", "//services/app/documentation:documentation_en", "//services/website/internal/documentations/titlepages:titlepage_en.pdf"],
     outs = ["docs_en"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/app/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/app/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en) -title-page=titlepages/titlepage_en.pdf && mkdir $(location docs_en)/titlepages && cp $(location //services/website/internal/documentations/titlepages:titlepage_en.pdf) $(location docs_en)/titlepages/titlepage_en.pdf",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
