@@ -32,7 +32,7 @@ export const english: I18nKeys = {
     },
     TutorialsPage: {
         Title: "How can I use the templates and tools?",
-        SubTitle: "The tutorials are available as a presentation, as a {pdf} and as a faq on this page.",
+        SubTitle: "The tutorials are available as a {pdf}, as an {example}, as a presentation and as a faq on this page.",
         ExampleProject: "example project",
         TexKnowledge: "Basic knowledge in the use of LaTeX is required"
     }
