@@ -5,15 +5,13 @@
   </FullHeightContainer>
   <v-btn icon size="65" color="transparent" flat class="scroll-btn scroll-up" v-if="lowestVisible > 1"
          @click="jumpTo(lowestVisible - 1)">
-    <v-icon size="55"
-            :style="`${lowestVisible === 1 ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
+    <v-icon size="55" style="color: rgba(0, 0, 0, 0.5)">
       mdi-arrow-up-circle-outline
     </v-icon>
   </v-btn>
   <v-btn icon size="65" color="transparent" flat class="scroll-btn scroll-down" v-if="lowestVisible < pages"
          @click="jumpTo(lowestVisible + 1)">
-    <v-icon size="55"
-            :style="`${lowestVisible === 1 ? 'color: rgba(255, 255, 255, 0.75);' : 'color: rgba(0, 0, 0, 0.5);'}`">
+    <v-icon size="55" style="color: rgba(0, 0, 0, 0.5)">
       mdi-arrow-down-circle-outline
     </v-icon>
   </v-btn>
