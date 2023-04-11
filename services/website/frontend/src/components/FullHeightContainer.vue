@@ -27,10 +27,8 @@ export default {
   methods: {
     scrollToTop() {
       this.$refs.container.scrollIntoView({behavior: "smooth"});
-    }
-  },
-  mounted() {
-    window.addEventListener("scroll", () => {
+    },
+    onScroll() {
       let docViewTop = document.documentElement.scrollTop;
       let docViewBottom = docViewTop + window.innerHeight - 200;
 
@@ -39,7 +37,13 @@ export default {
       if ((elemTop < docViewBottom) && (elemTop > docViewTop)) {
         this.$emit("scrolledIntoView");
       }
-    })
+    }
+  },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll, true)
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.onScroll, true)
   }
 }
 </script>
