@@ -30,7 +30,8 @@ export default defineComponent({
   data: () => {
     return {
       top: 1,
-      lowestVisible: 1
+      lowestVisible: 1,
+      scrollTriggeredByButton: false
     };
   },
   mounted() {
@@ -42,11 +43,15 @@ export default defineComponent({
   },
   methods: {
     jumpTo(i: number) {
-      console.log(i, this.lowestVisible);
+      this.scrollTriggeredByButton = true;
       (this.$refs.container as any[])[i - 1].scrollToTop();
+      this.lowestVisible = i;
+      setTimeout(() => {
+        this.scrollTriggeredByButton = false;
+      }, 750);
     },
     setLowestVisible(n: number) {
-      if (n !== this.lowestVisible) {
+      if (n !== this.lowestVisible && !this.scrollTriggeredByButton) {
         this.lowestVisible = n;
       }
     }
