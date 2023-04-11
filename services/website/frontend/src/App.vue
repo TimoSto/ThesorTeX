@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "./i18n/keys";
@@ -42,14 +42,13 @@ const {t} = useI18n();
 const elevation = ref(0);
 const smallDisplay = ref(false);
 
-// onload
-window.addEventListener("resize", () => {
-  if (window.innerWidth < 750) {
+function onResize() {
+  if (window.innerWidth < 1000) {
     smallDisplay.value = true;
   } else {
     smallDisplay.value = false;
   }
-});
+}
 
 const currentPage = computed(() => {
   return router.currentRoute.value.name;
@@ -64,6 +63,13 @@ const titleAppendix = computed(() => {
   }
 
   return "";
+});
+
+onMounted(() => {
+  onResize();
+  window.addEventListener("resize", () => {
+    onResize();
+  });
 });
 
 </script>
