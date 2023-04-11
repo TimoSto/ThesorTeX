@@ -1,5 +1,6 @@
 <template>
   <FullHeightContainer v-for="i in pages" :bg="i === 1 ? 'gradient' : i % 2 !== 0 && !white ? 'gray' : ''"
+                       :small-display="smallDisplay"
                        @scrolled-into-view="setLowestVisible(i)" ref="container">
     <slot :name="`content-${i}`" :jumpTo="jumpTo" />
   </FullHeightContainer>
@@ -24,7 +25,7 @@ import FullHeightContainer from "./FullHeightContainer.vue";
 export default defineComponent({
   name: "FullHeightLayout",
   components: {FullHeightContainer},
-  props: ["pages", "white"],
+  props: ["pages", "white", "smallDisplay"],
   data: () => {
     return {
       top: 1,

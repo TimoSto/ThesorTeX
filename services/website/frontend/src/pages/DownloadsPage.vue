@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="4">
+  <FullHeightLayout :pages="4" :small-display="smallDisplay">
     <template #content-1="{ jumpTo }">
       <v-row class="d-flex flex-row">
         <v-col cols="4">

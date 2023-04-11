@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 100vh; display: flex; align-items: center; box-sizing: border-box; position: relative;"
+  <div class="fullHeightContainer" :class="smallDisplay ? 'small': 'large'"
        :style="bgColor" ref="container">
     <v-container>
       <slot />
@@ -10,7 +10,7 @@
 <script>
 export default {
   name: "FullHeightContainer",
-  props: ["bg", "first", "last", "top"],
+  props: ["bg", "first", "last", "top", "smallDisplay"],
   emits: ["scrolledIntoView"],
   computed: {
     bgColor() {
@@ -49,5 +49,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.fullHeightContainer {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
 
+  &.large {
+    min-height: 100vh;
+  }
+
+  &.small {
+    min-height: 33vh;
+    padding-bottom: 75px;
+    padding-top: 75px;
+  }
+}
 </style>
