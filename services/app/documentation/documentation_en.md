@@ -28,7 +28,7 @@ First navigate to the project in which you want to add an entry. To do this, cli
 
 ![Project overview: example](./app_images/project_overview.png)
 
-Under *Literature entries* you will already find a *TestEntry*. To create a new entry, click on the ***+*** icon.
+Under *Literature entries* you will already find a *testEntry*. To create a new entry, click on the ***+*** icon.
 
 Under *General* you must now enter a key for the new entry that is unique in the project. You will use this key when you want to cite this entry.
 

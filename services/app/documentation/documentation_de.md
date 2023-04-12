@@ -28,7 +28,7 @@ Navigiere zunächst in das Projekt, in dem du einen Eintrag hinzufügen möchtes
 
 ![Projektüberischt: example](./app_images/project_overview.png)
 
-Unter *Literatureinträge* findest du bereits einen *TestEntry*. Um einen neuen Eintrag zu erstellen, klicke auf das ***+***-Icon.
+Unter *Literatureinträge* findest du bereits einen *testEntry*. Um einen neuen Eintrag zu erstellen, klicke auf das ***+***-Icon.
 
 Unter *Allgemein* musst du nun einen im Projekt eindeutigen Schlüssel für den neuen Eintrag eingeben. Diesen wirst du verwenden, wenn du diesen Eintrag zitieren willst.
 
