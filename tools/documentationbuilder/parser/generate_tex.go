@@ -33,8 +33,8 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 				body += "\\end{verbatim}\n"
 			} else if g.Type == "IMAGE" {
 				//TODO: unit test
-				body += "\\begin{figure}[!h]\n"
-				body += fmt.Sprintf("\\includegraphics[width=\\textwidth]{%s}", g.Elements[0].Content)
+				body += "\\begin{figure}[H]\n"
+				body += fmt.Sprintf("\\includegraphics[width=\\textwidth]{%s}\n", g.Elements[0].Content)
 				body += fmt.Sprintf("\\caption{%s}\n", g.Elements[1].Content)
 				body += "\\end{figure}\n"
 			}

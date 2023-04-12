@@ -58,3 +58,29 @@ test
 	}
 
 }
+
+func TestGenerateContentForTeXWithImage(t *testing.T) {
+	bodies := withImageExpectedBody
+
+	content, err := GenerateContentForTeX("test 3", bodies)
+
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+	}
+
+	expectedContent := `\part{test 3}
+\section{Doc 1}
+Some content
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./images/img1.png}
+\caption{test image}
+\end{figure}
+test
+`
+	expSlice := strings.Split(expectedContent, "\n")
+	gotSlice := strings.Split(string(content), "\n")
+	if diff := cmp.Diff(expSlice, gotSlice); diff != "" {
+		t.Errorf("%s", diff)
+	}
+
+}
