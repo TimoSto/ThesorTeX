@@ -32,7 +32,7 @@ export const german: I18nKeys = {
     },
     TutorialsPage: {
         Title: "Wie kann ich die Vorlagen und Tools nutzen?",
-        SubTitle: "Die Anleitungen sind als {pdf}, als {example}, als Präsentation und als FAQ direkt auf dieser Seite verfügbar.",
+        SubTitle: "Die Anleitungen sind als {pdf} und als {example} zum Download und als Präsentation und als FAQ direkt auf dieser Seite verfügbar.",
         ExampleProject: "Beispielprojekt",
         TexKnowledge: "Grundkenntnisse in der Verwendung von LaTeX werden vorrausgesetzt"
     }
