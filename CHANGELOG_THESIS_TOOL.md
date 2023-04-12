@@ -1,3 +1,9 @@
+# v0.0.3
+
+## Fixed
+
+- The entry preview is translated correctly.
+
 # v0.0.2
 
 ## Fixed
