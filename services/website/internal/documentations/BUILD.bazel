@@ -30,9 +30,12 @@ go_library(
 
 genrule(
     name = "docsImages",
-    srcs = ["//pkg/backend/cv_template:documentation_images"],
+    srcs = [
+        "//pkg/backend/cv_template:documentation_images",
+        "//services/app/documentation:documentation_images"
+    ],
     outs = ["docsImages"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images)"
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/app_images && tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images)"
 )
 
 genrule(
