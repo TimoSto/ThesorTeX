@@ -66,10 +66,10 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <div class="template">
-                  <label for="entry">Eintrag: </label>
+                  <label for="entry">{{ t(i18nKeys.ProjectPage.Entry) }}: </label>
                   <span id="entry" v-html="entryPreview"></span>
                   <br>
-                  <label for="cite">Zitat: </label>
+                  <label for="cite">{{ t(i18nKeys.CategoryEditor.Cites) }}: </label>
                   <span id="cite" v-html="citePreview"></span>
                 </div>
                 <ResponsiveTable
