@@ -16,7 +16,7 @@ Jetzt taucht ein Terminal-Fenster bei dir auf, in welchem die Anwendung läuft. 
 
 Wenn du die Adresse ***http://localhost:8448*** in einem Browser aufrufst, solltest du die Anwendung sehen.
 
-![Projektübersicht](./app_images/startpage.png)
+![Liste der Projekte](./app_images/startpage.png)
 
 Jetzt kannst du anfangen, im ***example***-Projekt die im folgenden beschriebenen Schritte durchzuführen. Oder du erstellt dein eigenes Projekt.
 
@@ -24,4 +24,18 @@ Jetzt kannst du anfangen, im ***example***-Projekt die im folgenden beschriebene
 
 title: Wie kann ich einen Literatureintrag anlegen?
 
-sdf
+Navigiere zunächst in das Projekt, in dem du einen Eintrag hinzufügen möchtest. Klicke dazu auf den entsprechenden Listeneintrag auf der Startseite.
+
+![Projektüberischt: example](./app_images/project_overview.png)
+
+Unter *Literatureinträge* findest du bereits einen *TestEntry*. Um einen neuen Eintrag zu erstellen, klicke auf das ***+***-Icon.
+
+Unter *Allgemein* musst du nun einen im Projekt eindeutigen Schlüssel für den neuen Eintrag eingeben. Diesen wirst du verwenden, wenn du diesen Eintrag zitieren willst.
+
+![Neuer Literatureintrag: Allgemein](./app_images/entry_editor_general.png)
+
+Sobald du eine Kategorie ausgewählt hast, werden die Felder dieser Kategorie angezeigt und du kannst Werte eingeben.
+
+![Neuer Literatureintrag: Felder](./app_images/entry_editor_fields.png)
+
+Oben kannst du sehen, wie der Eintrag im Literaturverzeichnis und in einem Zitat aussehen würde.

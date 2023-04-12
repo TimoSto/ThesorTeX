@@ -16,7 +16,7 @@ Now a terminal window will appear in which the application is running. As soon a
 
 If you call up the address ***http://localhost:8448*** in a browser, you should see the application.
 
-![Projektübersicht](./app_images/startpage.png)
+![List of projects](./app_images/startpage.png)
 
 Now you can start do do the following steps in the ***example*** project. Or you can create your own project..
 
@@ -24,4 +24,18 @@ Now you can start do do the following steps in the ***example*** project. Or you
 
 title: How can I add a bibliography entry?
 
-sdf
+First navigate to the project in which you want to add an entry. To do this, click on the corresponding list entry on the start page.
+
+![Project overview: example](./app_images/project_overview.png)
+
+Under *Literature entries* you will already find a *TestEntry*. To create a new entry, click on the ***+*** icon.
+
+Under *General* you must now enter a key for the new entry that is unique in the project. You will use this key when you want to cite this entry.
+
+![New entry: General](./app_images/entry_editor_general.png)
+
+As soon as you have selected a category, the fields of this category are displayed and you can enter values.
+
+![New Literature Entry: Fields](./app_images/entry_editor_fields.png)
+
+Above you can see how the entry would look in the bibliography and in a citation.

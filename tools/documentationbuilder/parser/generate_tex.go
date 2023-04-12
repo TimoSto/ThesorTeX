@@ -37,7 +37,7 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 				body += fmt.Sprintf("\\includegraphics[width=\\textwidth]{%s}\n", g.Elements[0].Content)
 				body += fmt.Sprintf("\\caption{%s}\n", g.Elements[1].Content)
 				body += "\\end{figure}\n"
-				if i < len(g.Type)-1 && d.Groups[i+1].Type == "TEXT" {
+				if i < len(g.Elements)-1 && d.Groups[i+1].Type == "TEXT" {
 					body += "\\noindent "
 				}
 			}

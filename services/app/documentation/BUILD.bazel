@@ -33,7 +33,12 @@ pkg_tar(
 
 pkg_tar(
     name = "documentation_images",
-    srcs = ["app_images/startpage.png"],
+    srcs = [
+        "app_images/startpage.png",
+        "app_images/project_overview.png",
+        "app_images/entry_editor_general.png",
+        "app_images/entry_editor_fields.png",
+    ],
     extension = "tar.gz",
     visibility = ["//visibility:public"],
 )
