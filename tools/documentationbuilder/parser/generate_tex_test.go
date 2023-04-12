@@ -75,7 +75,7 @@ Some content
 \includegraphics[width=\textwidth]{./images/img1.png}
 \caption{test image}
 \end{figure}
-test
+\noindent test
 `
 	expSlice := strings.Split(expectedContent, "\n")
 	gotSlice := strings.Split(string(content), "\n")
