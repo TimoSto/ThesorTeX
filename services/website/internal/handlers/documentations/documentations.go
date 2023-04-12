@@ -1,7 +1,6 @@
 package documentations
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -46,7 +45,6 @@ func HandleDocumentations() func(w http.ResponseWriter, r *http.Request) {
 func HandleDocumentationImages() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		strippedPath := strings.Replace(r.URL.Path, "/documentation/images/", "", 1)
-		fmt.Print(strippedPath)
 
 		data, err := documentations.GetDocsImage(strippedPath)
 

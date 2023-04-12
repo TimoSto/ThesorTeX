@@ -42,8 +42,6 @@ func main() {
 
 	title, rawDocs := parser.SplitDocs(string(srcFile))
 
-	fmt.Println(title)
-
 	parsedObjects := parser.ParseDocBodies(rawDocs)
 
 	docsPack := DocumentationPack{

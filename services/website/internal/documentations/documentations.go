@@ -102,7 +102,6 @@ func GetZIPDocs(lang string) ([]byte, error) {
 
 func GetDocsImage(path string) ([]byte, error) {
 	fs.WalkDir(docsImages, ".", func(path string, d fs.DirEntry, err error) error {
-		fmt.Println(path)
 		return nil
 	})
 	path = filepath.Join("docsImages", path)
