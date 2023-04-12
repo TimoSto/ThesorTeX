@@ -24,17 +24,17 @@ export default defineConfig({
     server: {
         port: 3000,
         proxy: {
-            "/getAllProjects": "http://localhost:8448/",
-            "/createNewProject": "http://localhost:8448/",
-            "/getProjectData": "http://localhost:8448/",
-            "/deleteProject": "http://localhost:8448/",
-            "/saveCategory": "http://localhost:8448/",
-            "/deleteCategory": "http://localhost:8448/",
-            "/saveEntry": "http://localhost:8448/",
-            "/deleteEntry": "http://localhost:8448/",
-            "/uploadEntries": "http://localhost:8448/",
-            "/getConfig": "http://localhost:8448/",
-            "/saveConfig": "http://localhost:8448/",
+            "/getAllProjects": "http://localhost:8440/",
+            "/createNewProject": "http://localhost:8440/",
+            "/getProjectData": "http://localhost:8440/",
+            "/deleteProject": "http://localhost:8440/",
+            "/saveCategory": "http://localhost:8440/",
+            "/deleteCategory": "http://localhost:8440/",
+            "/saveEntry": "http://localhost:8440/",
+            "/deleteEntry": "http://localhost:8440/",
+            "/uploadEntries": "http://localhost:8440/",
+            "/getConfig": "http://localhost:8440/",
+            "/saveConfig": "http://localhost:8440/",
         }
     },
     test: {
