@@ -82,6 +82,7 @@ export const english: I18nKeys = {
     },
     EntryEditor: {
         Title: " - Edit entry",
+        NewEntry: "Create new entry",
         Key: "Key",
         Category: "Category",
         Fields: "Fields",

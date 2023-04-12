@@ -2,7 +2,7 @@
   <ToolbarAndContent>
     <template #bar>
       <v-toolbar-title>
-        {{ entryKey }}
+        {{ entryKey ? entryKey : t(i18nKeys.EntryEditor.NewEntry) }}
       </v-toolbar-title>
       <v-spacer />
       <v-btn

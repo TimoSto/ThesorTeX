@@ -4,6 +4,10 @@
 
 - The entry preview is translated correctly.
 
+## Changed
+
+- Add specific title for new entry page.
+
 # v0.0.2
 
 ## Fixed

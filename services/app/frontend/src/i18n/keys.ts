@@ -80,6 +80,7 @@ export const i18nKeys = {
     },
     EntryEditor: {
         Title: "EntryEditor.Title",
+        NewEntry: "EntryEditor.NewEntry",
         Key: "EntryEditor.Key",
         Category: "EntryEditor.Category",
         Fields: "EntryEditor.Fields",

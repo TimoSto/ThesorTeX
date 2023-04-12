@@ -82,6 +82,7 @@ export const german: I18nKeys = {
     },
     EntryEditor: {
         Title: " - Eintrag bearbeiten",
+        NewEntry: "Neuen Eintrag erstellen",
         Key: "Schlüssel",
         Category: "Kategorie",
         Fields: "Felder",
