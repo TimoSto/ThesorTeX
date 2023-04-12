@@ -1,6 +1,5 @@
-
 export interface Entry {
-    Key: string
-    Category: string
-    Fields: string[]
+    Key: string;
+    Category: string;
+    Fields: string[];
 }

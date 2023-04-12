@@ -137,7 +137,8 @@ import {i18nKeys} from "../i18n/keys";
 import {computed, ref, watch} from "vue";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import JoinFields from "../domain/entry/JoinFields";
-import {Entry} from "../domain/entry/Entry";
+// type because vue issue, see: https://github.com/vitejs/vite/issues/2117#issuecomment-804444502
+import type {Entry} from "../domain/entry/Entry";
 import {useAppStateStore} from "../stores/appState/AppStateStore";
 import getEntryKeyRules from "../domain/entry/EntryKeyRules";
 import SaveEntry from "../api/projectData/SaveEntry";
