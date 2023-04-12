@@ -38,6 +38,7 @@ pkg_tar(
         "app_images/project_overview.png",
         "app_images/entry_editor_general.png",
         "app_images/entry_editor_fields.png",
+        "app_images/entry_added.png",
     ],
     extension = "tar.gz",
     visibility = ["//visibility:public"],

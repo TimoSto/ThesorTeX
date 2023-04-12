@@ -39,3 +39,7 @@ Sobald du eine Kategorie ausgewählt hast, werden die Felder dieser Kategorie an
 ![Neuer Literatureintrag: Felder](./app_images/entry_editor_fields.png)
 
 Oben kannst du sehen, wie der Eintrag im Literaturverzeichnis und in einem Zitat aussehen würde.
+
+Wenn du auf das ***Speichern***-Icon in der Toolbar klickst, wird der Eintrag gespeichert. Wenn du nun zurück navigierst, siehst du deinen Eintrag in der Liste.
+
+![Projektüberischt: Mit neuem Eintrag](./app_images/entry_added.png)

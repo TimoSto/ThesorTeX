@@ -39,3 +39,7 @@ As soon as you have selected a category, the fields of this category are display
 ![New Literature Entry: Fields](./app_images/entry_editor_fields.png)
 
 Above you can see how the entry would look in the bibliography and in a citation.
+
+If you click on the ***Save*** icon in the toolbar, the entry is saved. If you now navigate back, you will see your entry in the list.
+
+![Project overview: With new entry](./app_images/entry_added.png)
