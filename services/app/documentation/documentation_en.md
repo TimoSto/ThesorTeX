@@ -15,3 +15,13 @@ Go to the ***Downloads*** page and download the package for your operating syste
 Now a terminal window will appear in which the application is running. As soon as you close this window, the application is closed. In addition, a folder ***projects*** with a sample project has been created.
 
 If you call up the address ***http://localhost:8448*** in a browser, you should see the application.
+
+![Projektübersicht](./app_images/startpage.png)
+
+Now you can start do do the following steps in the ***example*** project. Or you can create your own project..
+
+---
+
+title: How can I add a bibliography entry?
+
+sdf

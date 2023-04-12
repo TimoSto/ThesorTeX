@@ -30,3 +30,10 @@ pkg_tar(
     strip_prefix = strip_prefix.from_pkg("docs"),
     visibility = ["//visibility:public"],
 )
+
+pkg_tar(
+    name = "documentation_images",
+    srcs = ["app_images/startpage.png"],
+    extension = "tar.gz",
+    visibility = ["//visibility:public"],
+)
