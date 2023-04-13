@@ -33,6 +33,21 @@ Feature: Entry editor
       | testEntry |
     And the displayed entry for "e2" is "hallo (feld2):  In:  , "
 
+  Scenario: Edit entry and enter a lot of special characters
+    Given the url "/" was opened
+    And the project " test " is opened
+    And the entry "e2" is opened
+    When "feld_2" is entered into the input at index 1
+    And "f_3" is entered into the input at index 2
+    And "&f_4" is entered into the input at index 3
+    And the save button in the editor is clicked
+    And the back button is clicked
+    Then following entries are displayed
+      | key       |
+      | e2        |
+      | testEntry |
+    And the displayed entry for "e2" is "hallo (feld_2): f_3 In: &f_4 , "
+
   Scenario: Unsafe close abort
     Given the url "/" was opened
     And the project " test " is opened

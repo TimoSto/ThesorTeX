@@ -23,6 +23,7 @@ Then("the fields have a length greater than 0", async function (this: OurWorld) 
 });
 
 When("{string} is entered into the input at index {int}", async function (this: OurWorld, text: string, i: number) {
+    await this.page.locator("#page-3").locator(".v-expansion-panel").nth(1).locator(".v-input").nth(i).locator("input").clear();
     await this.page.locator("#page-3").locator(".v-expansion-panel").nth(1).locator(".v-input").nth(i).locator("input").type(text);
 });
 

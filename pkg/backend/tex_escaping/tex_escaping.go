@@ -88,18 +88,17 @@ func EscapeField(field string) string {
 					break
 				}
 				iOffset := i + offset
+				surrounded := false
 				if iOffset > 2 && iOffset < len(field)-2 {
-					surrounded := false
 					// dont escape if it is already escaped
 					if p.TeX == "{{;}}" && field[iOffset-2:iOffset+2] == "{{;}}" || field[iOffset-3:iOffset+3] == fmt.Sprintf("{{\\%s}}", p.String) {
 						surrounded = true
 					}
-
-					if !surrounded {
-						field = field[:iOffset] + p.TeX + field[iOffset+1:]
-					}
 				}
-				offset += i + 6
+				if !surrounded {
+					field = field[:iOffset] + p.TeX + field[iOffset+1:]
+				}
+				offset += i + len(p.TeX)
 			}
 		} else {
 			field = strings.ReplaceAll(field, p.String, p.TeX)

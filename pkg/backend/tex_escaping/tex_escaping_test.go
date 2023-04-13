@@ -19,6 +19,11 @@ func TestEscapeField(t *testing.T) {
 			expected: "hallo{{\\_}} du",
 		},
 		{
+			title:    "one escape (surrounded short)",
+			input:    "o_d",
+			expected: "o{{\\_}}d",
+		},
+		{
 			title:    "two escapes nest to each other (surrounded)",
 			input:    "hallo__ du",
 			expected: "hallo{{\\_}}{{\\_}} du",
@@ -47,6 +52,11 @@ func TestEscapeField(t *testing.T) {
 			title:    "combined",
 			input:    "<> & hallo {{\\_}}# du_°",
 			expected: "{{\\textless}}{{\\textgreater}} {{\\&}} hallo {{\\_}}{{\\#}} du{{\\_}}{{\\degree}}",
+		},
+		{
+			title:    "combined short",
+			input:    "h<> &",
+			expected: "h{{\\textless}}{{\\textgreater}} {{\\&}}",
 		},
 	}
 
