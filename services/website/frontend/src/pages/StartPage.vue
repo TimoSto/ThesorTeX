@@ -151,7 +151,7 @@
           </p>
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
-          
+          <SVGTemplate :svg="bugSVG" />
         </v-col>
       </v-row>
     </template>
@@ -170,6 +170,7 @@ import GermanTemplateImg from "../assets/thesis_template_de.png";
 import CvTemplateImg from "../assets/cv_template_de.png";
 import ThesisTool1Img from "../assets/thesis_tool_1_de.png";
 import ThesisTool2Img from "../assets/thesis_tool_2_de.png";
+import {BugSVG} from "../components/svgs/BugSVG";
 
 // globals
 const {t} = useI18n();
@@ -195,6 +196,12 @@ const laptopWithThesis = computed(() => {
 
 const cvSVG = computed(() => {
   const svg = JSON.parse(JSON.stringify(CVSVG));
+
+  return svg;
+});
+
+const bugSVG = computed(() => {
+  const svg = JSON.parse(JSON.stringify(BugSVG));
 
   return svg;
 });

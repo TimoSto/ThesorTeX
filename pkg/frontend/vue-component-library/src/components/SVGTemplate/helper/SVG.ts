@@ -32,3 +32,13 @@ export interface Arc {
     clockwise: boolean;
     end: Vector;
 }
+
+export function MirrorVectorsY(parts: PathPart[]): PathPart[] {
+    parts.forEach(p => {
+        if (p.vector) {
+            p.vector.x *= -1;
+        }
+    });
+
+    return parts;
+}
