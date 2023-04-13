@@ -5,7 +5,7 @@ Feature: Entry editor
     And the project " test " is opened
     When a new entry is created
     Then the title of the app is " ThesorTeX  - Edit entry"
-    And the title of the main area is ""
+    And the title of the main area is "Create new entry"
     And the save button in the editor is disabled
     When "e2" is entered as key
     And the first category is selected

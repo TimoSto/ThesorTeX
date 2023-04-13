@@ -5,7 +5,7 @@ Feature: Category editor
     And the project " test " is opened
     When a new category is created
     Then the title of the app is " ThesorTeX  - Category editor"
-    And the title of the main area is ""
+    And the title of the main area is "Create new category"
     And the save button in the editor is disabled
     When "c1" is entered as name
     Then the save button in the editor is enabled
