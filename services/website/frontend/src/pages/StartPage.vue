@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="4" :small-display="smallDisplay">
+  <FullHeightLayout :pages="5" :small-display="smallDisplay">
     <template #content-1="{ jumpTo }">
       <v-row>
         <v-col :cols="smallDisplay ? 12: 6">
@@ -129,6 +129,29 @@
               {{ t(i18nKeys.Common.Tutorial) }}
             </v-list-item>
           </v-list>
+        </v-col>
+      </v-row>
+    </template>
+    <template #content-5>
+      <v-row>
+        <v-col :cols="smallDisplay ? 12 : 6">
+          <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.KnownIssuesTitle) }}</h2>
+          <p class="text-h6 pb-6">
+            <i18n-t :keypath="i18nKeys.StartPage.KnownIssuesText">
+              <template #here>
+                <a href="https://github.com/TimoSto/ThesorTeX/labels/bug" target="_blank">{{
+                    t(i18nKeys.Common.Here)
+                  }}</a>
+              </template>
+              <template #bug>
+                <span
+                  style="color: red; border: 2px solid red; border-radius: 16px; padding: 0 8px; background-color: rgba(255, 0, 0, 0.25)">bug</span>
+              </template>
+            </i18n-t>
+          </p>
+        </v-col>
+        <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
+          
         </v-col>
       </v-row>
     </template>

@@ -6,6 +6,7 @@ export const german: I18nKeys = {
         Download: "Herunterladen",
         Tutorial: "Zu den Tutorials",
         ToDownloads: "Zu den Downloads",
+        Here: "hier"
     },
     Titles: {
         Downloads: "Downloads",
@@ -22,6 +23,8 @@ export const german: I18nKeys = {
         ThesisToolSubtitle: "Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder importiere deine Bibliothek aus Citavi.",
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
         CVTemplateSubtitle: "Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast und du dich auf deinen nächsten Job bewerben willst, schau dir doch mal diese Vorlage für einen Lebenslauf an.",
+        KnownIssuesTitle: "Known Issues",
+        KnownIssuesText: "Die bekannten Fehler bei den Produkten auf dieser Seite kannst du {here} finden. Falls du auf ein Problem stößt, welches dort noch nicht gelistet ist, erstelle gern ein Issue und füge diesem das Label {bug} hinzu."
     },
     DownloadPage: {
         ToolInfoText: "Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.",

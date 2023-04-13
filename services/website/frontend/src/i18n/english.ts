@@ -6,6 +6,7 @@ export const english: I18nKeys = {
         Download: "Download",
         Tutorial: "Tutorial",
         ToDownloads: "To the downloads",
+        Here: "here"
     },
     Titles: {
         Downloads: "Downloads",
@@ -22,6 +23,8 @@ export const english: I18nKeys = {
         ThesisToolSubtitle: "Using this tool you can build your bibliography comfortabily and customized. Format your literature according to your wishes, create entries manually or import your library from Citavi.",
         CVTemplateTitle: "Curriculum vitae Template",
         CVTemplateSubtitle: "If you've graduated with the help of the support offered here and you're ready to apply for your next job, check out this template for a CV.",
+        KnownIssuesTitle: "Known Issues",
+        KnownIssuesText: "The known issues with the products on this page can be found {here}. If you have an Issue not listed there, feel free to create one and add the label {bug}."
     },
     DownloadPage: {
         ToolInfoText: "Here you can download the latest version for your operating system. You can also download one of the older versions below. When you unzip the downloaded ZIP file, copy the file inside to a location of your choice and start it by double-clicking.",

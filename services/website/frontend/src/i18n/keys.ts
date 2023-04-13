@@ -4,6 +4,7 @@ export const i18nKeys = {
         Download: "Common.Download",
         Tutorial: "Common.Tutorial",
         ToDownloads: "Common.ToDownloads",
+        Here: "Common.Here"
     },
     Titles: {
         Downloads: "Titles.Downloads",
@@ -20,6 +21,8 @@ export const i18nKeys = {
         ThesisToolSubtitle: "StartPage.ThesisToolSubtitle",
         CVTemplateTitle: "StartPage.CVTemplateTitle",
         CVTemplateSubtitle: "StartPage.CVTemplateSubtitle",
+        KnownIssuesTitle: "StartPage.KnownIssuesTitle",
+        KnownIssuesText: "StartPage.KnownIssuesText",
     },
     DownloadPage: {
         ToolInfoText: "DownloadPage.ToolInfoText",
