@@ -61,6 +61,7 @@ export const i18nKeys = {
     },
     CategoryEditor: {
         Title: "CategoryEditor.Title",
+        NewCategory: "CategoryEditor.NewCategory",
         Name: "CategoryEditor.Name",
         CitaviCategory: "CategoryEditor.CitaviCategory",
         CitaviFilter: "CategoryEditor.CitaviFilter",

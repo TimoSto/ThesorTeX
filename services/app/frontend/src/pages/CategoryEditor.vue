@@ -1,7 +1,7 @@
 <template>
   <ToolbarAndContent>
     <template #bar>
-      <v-toolbar-title>{{ categoryName }}</v-toolbar-title>
+      <v-toolbar-title>{{ categoryName ? categoryName : t(i18nKeys.CategoryEditor.NewCategory) }}</v-toolbar-title>
       <v-spacer />
       <v-btn
         icon

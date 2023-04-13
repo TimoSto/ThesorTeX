@@ -63,6 +63,7 @@ export const english: I18nKeys = {
     },
     CategoryEditor: {
         Title: " - Category editor",
+        NewCategory: "Create new category",
         Name: "Name",
         CitaviCategory: "Citavi category",
         CitaviFilter: "Citavi filter",

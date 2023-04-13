@@ -63,6 +63,7 @@ export const german: I18nKeys = {
     },
     CategoryEditor: {
         Title: " - Kategorie bearbeiten",
+        NewCategory: "Neue Kategorie erstellen",
         Name: "Name",
         CitaviCategory: "Citavi-Kategorie",
         CitaviFilter: "Citavi-Filter",

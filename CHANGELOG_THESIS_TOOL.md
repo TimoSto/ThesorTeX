@@ -7,6 +7,7 @@
 ## Changed
 
 - Add specific title for new entry page.
+- Add specific title for new category page.
 
 # v0.0.2
 
