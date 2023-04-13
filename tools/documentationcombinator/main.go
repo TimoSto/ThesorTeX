@@ -13,6 +13,7 @@ func main() {
 	titlepage := flag.String("title-page", "", "path to the title page")
 	title := flag.String("title", "", "title of the document")
 	author := flag.String("author", "", "author of the document")
+	lang := flag.String("lang", "", "language of the document")
 
 	flag.Parse()
 
@@ -23,7 +24,7 @@ func main() {
 		panic(err)
 	}
 
-	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author)
+	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang)
 	if err != nil {
 		panic(err)
 	}

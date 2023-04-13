@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 //TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -60,6 +60,9 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 		//TODO: unit test
 		if path == "main.tex" {
 			content := string(b)
+			if lang != "DE" {
+				content = strings.Replace(content, "\\renewcommand{\\figurename}{Abb.}", "\\renewcommand{\\figurename}{Fig.}", 1)
+			}
 			if titlepage != "" {
 				content = strings.Replace(content, "%\\includepdf[pages={1-}]{titlepage.pdf}", fmt.Sprintf("\\includepdf[pages={1-}]{%s}", titlepage), 1)
 			}

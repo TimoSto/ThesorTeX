@@ -87,7 +87,8 @@ genrule(
             -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/app/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de) \
             -title-page=titlepages/titlepage_de.pdf \
             -title=ThesorTeX\\\\\\\\Dokumentation \
-            -author='ThesorTeX' && \
+            -author='ThesorTeX' \
+            -lang=DE && \
         mkdir $(location docs_de)/titlepages && \
         cp $(location //services/website/internal/documentations/titlepages:titlepage_de.pdf) $(location docs_de)/titlepages/titlepage_de.pdf",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
@@ -137,7 +138,8 @@ genrule(
                 -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/app/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en) \
                 -title-page=titlepages/titlepage_en.pdf \
                 -title=ThesorTeX\\\\\\\\Documentation \
-                -author='ThesorTeX' && \
+                -author='ThesorTeX' \
+                -lang=EN && \
             mkdir $(location docs_en)/titlepages && \
             cp $(location //services/website/internal/documentations/titlepages:titlepage_en.pdf) $(location docs_en)/titlepages/titlepage_en.pdf",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
