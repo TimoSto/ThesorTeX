@@ -77,7 +77,19 @@ genrule(
         "//services/website/internal/documentations/titlepages:titlepage_de.pdf"
     ],
     outs = ["docs_de"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/app_images && tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_de) -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/app/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de) -title-page=titlepages/titlepage_de.pdf -title=ThesorTeX\\\\\\\\Dokumentation -author='ThesorTeX' && mkdir $(location docs_de)/titlepages && cp $(location //services/website/internal/documentations/titlepages:titlepage_de.pdf) $(location docs_de)/titlepages/titlepage_de.pdf",
+    cmd = "mkdir $(OUTS) && \
+        mkdir $(OUTS)/cv_images && \
+        tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && \
+        mkdir $(OUTS)/app_images && \
+        tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images) && \
+        $(location //tools/documentationcombinator:documentationcombinator) \
+            -out-dir=$(location docs_de) \
+            -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/app/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de) \
+            -title-page=titlepages/titlepage_de.pdf \
+            -title=ThesorTeX\\\\\\\\Dokumentation \
+            -author='ThesorTeX' && \
+        mkdir $(location docs_de)/titlepages && \
+        cp $(location //services/website/internal/documentations/titlepages:titlepage_de.pdf) $(location docs_de)/titlepages/titlepage_de.pdf",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
@@ -98,7 +110,10 @@ genrule(
         ":docs_de_pdf",
     ],
     outs = ["documentation_de.zip"],
-    cmd = "cp -r $(location :docs_de_tex) ./documentation_de && cp $(location :docs_de_pdf) ./documentation_de/main.pdf && rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && zip -r $(OUTS) ./documentation_de"
+    cmd = "cp -r $(location :docs_de_tex) ./documentation_de && \
+        cp $(location :docs_de_pdf) ./documentation_de/main.pdf && \
+        rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && \
+        zip -r $(OUTS) ./documentation_de"
 )
 
 genrule(
@@ -112,7 +127,19 @@ genrule(
         "//services/website/internal/documentations/titlepages:titlepage_en.pdf"
     ],
     outs = ["docs_en"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/app_images && tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images) && $(location //tools/documentationcombinator:documentationcombinator) -out-dir=$(location docs_en) -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/app/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en) -title-page=titlepages/titlepage_en.pdf -title=ThesorTeX\\\\\\\\Documentation -author='ThesorTeX' && mkdir $(location docs_en)/titlepages && cp $(location //services/website/internal/documentations/titlepages:titlepage_en.pdf) $(location docs_en)/titlepages/titlepage_en.pdf",
+    cmd = "mkdir $(OUTS) && \
+            mkdir $(OUTS)/cv_images && \
+            tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && \
+            mkdir $(OUTS)/app_images && \
+            tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images) && \
+            $(location //tools/documentationcombinator:documentationcombinator) \
+                -out-dir=$(location docs_en) \
+                -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/app/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en) \
+                -title-page=titlepages/titlepage_en.pdf \
+                -title=ThesorTeX\\\\\\\\Documentation \
+                -author='ThesorTeX' && \
+            mkdir $(location docs_en)/titlepages && \
+            cp $(location //services/website/internal/documentations/titlepages:titlepage_en.pdf) $(location docs_en)/titlepages/titlepage_en.pdf",
     tools = ["//tools/documentationcombinator:documentationcombinator"],
     visibility = ["//visibility:public"],
 )
@@ -125,7 +152,10 @@ genrule(
         ":docs_en_pdf",
     ],
     outs = ["documentation_en.zip"],
-    cmd = "cp -r $(location :docs_en_tex) ./documentation_en && cp $(location :docs_en_pdf) ./documentation_en/main.pdf && rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && zip -r $(OUTS) ./documentation_en"
+    cmd = "cp -r $(location :docs_en_tex) ./documentation_en && \
+            cp $(location :docs_en_pdf) ./documentation_en/main.pdf && \
+            rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && \
+            zip -r $(OUTS) ./documentation_en"
 )
 
 genrule(
