@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 //TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -62,6 +62,12 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 			content := string(b)
 			if titlepage != "" {
 				content = strings.Replace(content, "%\\includepdf[pages={1-}]{titlepage.pdf}", fmt.Sprintf("\\includepdf[pages={1-}]{%s}", titlepage), 1)
+			}
+			if title != "" {
+				content = strings.Replace(content, "\\renewcommand{\\mytitle}{The title of my document\\\\possibly with multiple lines}", fmt.Sprintf("\\renewcommand{\\mytitle}{%s}", title), 1)
+			}
+			if author != "" {
+				content = strings.Replace(content, "\\renewcommand{\\myauthor}{My name}", fmt.Sprintf("\\renewcommand{\\myauthor}{%s}", author), 1)
 			}
 
 			r := regexp.MustCompile("(?s)% Start Content(.*?)% End Content")
