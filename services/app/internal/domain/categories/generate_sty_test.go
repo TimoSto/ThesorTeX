@@ -74,14 +74,14 @@ func TestGeneratePrintCommands(t *testing.T) {
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	in: \textit{\argI}. %
+	in:{ }\textit{\argI}.{ }%
 	\\%
 	\vspace{-12pt}%
 
 }
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
-	\textit{\argII}, %
+	\textit{\argII},{ }%
 }
 `,
 		},
@@ -122,14 +122,14 @@ func TestGeneratePrintCommands(t *testing.T) {
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	in: \textit{\argI}. %
+	in:{ }\textit{\argI}.{ }%
 	\\%
 	\vspace{-12pt}%
 
 }
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
-	\textit{\argI}, %
+	\textit{\argI},{ }%
 }
 `,
 		},
@@ -190,14 +190,14 @@ func TestGeneratePrintCommands(t *testing.T) {
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	in: \textit{\argI}. (\textit{\argII})%
+	in:{ }\textit{\argI}.{ }(\textit{\argII})%
 	\\%
 	\vspace{-12pt}%
 
 }
 `,
 			expectedCites: `\newcommand{\citetest}[0]{%
-	\textit{\argIII}, Jahr: \textit{\argII}%
+	\textit{\argIII},{ }Jahr:{ }\textit{\argII}%
 }
 `,
 		},
@@ -257,7 +257,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviMapping: nil,
 				},
 			},
-			expected: `\argI(\argII). in: \textit{\argIII}, `,
+			expected: `\argI(\argII).{ }in:{ }\textit{\argIII},{ }`,
 		},
 		{
 			title: "one italic with suffix, one with pre- and suffix, one italic",
@@ -293,7 +293,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviMapping: nil,
 				},
 			},
-			expected: `\textit{\argI} - (\argII). \textit{\argIII}`,
+			expected: `\textit{\argI}{ }-{ }(\argII).{ }\textit{\argIII}`,
 		},
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix with searchfields (less than fields)",
@@ -341,7 +341,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviMapping: nil,
 				},
 			},
-			expected: `\argII(\argI). in: \textit{\argIII}, `,
+			expected: `\argII(\argI).{ }in:{ }\textit{\argIII},{ }`,
 		},
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix with searchfields (equal num than fields)",
@@ -409,7 +409,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviMapping: nil,
 				},
 			},
-			expected: `\argI(\argII). in: \textit{\argIV}, `,
+			expected: `\argI(\argII).{ }in:{ }\textit{\argIV},{ }`,
 		},
 		{
 			title: "one plain, one with pre- and suffix, one italic with pre- and suffix with searchfields (less than fields)",
@@ -467,7 +467,7 @@ func TestGenerateCommand(t *testing.T) {
 					CitaviMapping: nil,
 				},
 			},
-			expected: `\argI in: \textit{\argIV}, `,
+			expected: `\argI{ }in:{ }\textit{\argIV},{ }`,
 		},
 	}
 

@@ -2,6 +2,7 @@ package categories
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/romannumerals"
 )
@@ -44,7 +45,7 @@ func GenerateCommand(fields []field, searchfields []field) string {
 	foundCount := 0
 
 	for i, f := range fields {
-		command += f.Format.Prefix
+		command += strings.Replace(f.Format.Prefix, " ", "{ }", -1)
 		index := i
 		if searchfields != nil {
 			found := false
@@ -64,7 +65,7 @@ func GenerateCommand(fields []field, searchfields []field) string {
 			arg = fmt.Sprintf(`\textit{%s}`, arg)
 		}
 		command += arg
-		command += f.Format.Suffix
+		command += strings.Replace(f.Format.Suffix, " ", "{ }", -1)
 	}
 
 	return command

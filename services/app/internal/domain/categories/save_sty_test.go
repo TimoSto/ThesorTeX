@@ -113,7 +113,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	\argI (\textit{\argII}), \argIII%
+	\argI{ }(\textit{\argII}),{ }\argIII%
 	\\%
 	\vspace{-12pt}%
 
@@ -122,7 +122,7 @@ func TestSaveCategoriesToSty(t *testing.T) {
 	\hangindent=\bibparindent%
 	\parindent 0pt%
 	\hangafter=1%
-	\argI, \argII%
+	\argI,{ }\argII%
 	\\%
 	\vspace{-12pt}%
 
@@ -142,10 +142,10 @@ func TestSaveCategoriesToSty(t *testing.T) {
 
 	expectedCiteCommands := `% begin cite commands
 \newcommand{\citetest1}[0]{%
-	\argIV, (\textit{\argII})%
+	\argIV,{ }(\textit{\argII})%
 }
 \newcommand{\citetest2}[0]{%
-	\argIII, (\textit{\argII})%
+	\argIII,{ }(\textit{\argII})%
 }
 % end cite commands`
 
