@@ -10,11 +10,13 @@
 
 \DTLloaddb{abbreviations}{abbreviations.csv}
 
+\newcommand{\listabbreviationname}{List of abbreviations}
+
 \newcommand{\printabbreviations}[0]
 {
 	\begin{center}
 		\begin{LARGE}
-			List of abbreviations
+			\listabbreviationname
 		\end{LARGE}
 	\end{center}
 	\DTLforeach*{abbreviations}

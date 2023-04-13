@@ -159,10 +159,12 @@
 % Use roman page numbering
 \pagenumbering{Roman}
 
+% Change the title of the list of abbreviations here
+\renewcommand{\listabbreviationname}{My list of abbreviations}
 % Change the title in the header
-\renewcommand{\plaintitle}{List of abbreviations}
+\renewcommand{\plaintitle}{\listabbreviationname}
 % add a line to the table of contents
-\addcontentsline{toc}{part}{List of abbreviations}
+\addcontentsline{toc}{part}{\listabbreviationname}
 % print the abbreviations (see styPackages/abbreviations.sty)
 \printabbreviations
 
@@ -181,7 +183,7 @@
 \clearpage
 
 % Change the title of the list of tables here
-\renewcommand{\listtablename}{My List of tables}
+\renewcommand{\listtablename}{My list of tables}
 % Change the title in the header
 \renewcommand{\plaintitle}{\listtablename}
 % add a line to the table of contents
