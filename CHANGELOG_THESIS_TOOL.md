@@ -8,6 +8,7 @@
 
 - Add specific title for new entry page.
 - Add specific title for new category page.
+- ThesisTemplate was updated to v1.1.0
 
 # v0.0.2
 
