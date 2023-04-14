@@ -94,7 +94,7 @@ func GetPDFDocs(lang string) ([]byte, error) {
 func GetZIPDocs(lang string) ([]byte, error) {
 	lang = strings.ToUpper(lang)
 	if lang != "DE" {
-		lang = "EN"
+		return docZIP_EN, nil
 	}
 
 	return docZIP_DE, nil
