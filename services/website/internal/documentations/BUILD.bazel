@@ -5,31 +5,31 @@ load("@rules_pkg//pkg:pkg.bzl", "pkg_tar", "pkg_zip")
 genrule(
     name = "template_zip",
     srcs = [
-        ":docsImages",
+        ":docsImagesDir",
     ],
     outs = ["test.zip"],
-    cmd = "zip -r $(OUTS) $(location :docsImages)",
+    cmd = "zip -r $(OUTS) $(location :docsImagesDir)",
 )
 
 go_library(
     name = "documentations",
     srcs = ["documentations.go"],
     embedsrcs = [
-        ":copyDocsJSON",  # keep
-        ":copyDocsJSONCV",  # keep
-        ":copyDocsJSONThesisTool",  # keep
-        ":docs_de_pdf",  # keep
-        ":docs_de_zip",  # keep
-        ":docs_en_pdf",  # keep
-        ":docs_en_zip",  # keep
-        ":docsImages",  # keep
+        "docs/thesisTemplate",
+        "docs/thesisTool",
+        "docs/cvTemplate",
+        "documentation_de.pdf",
+        "documentation_de.zip",
+        "documentation_en.pdf",
+        "documentation_en.zip",
+        "docsImages",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/documentations",
     visibility = ["//services/website:__subpackages__"],
 )
 
 genrule(
-    name = "docsImages",
+    name = "docsImagesDir",
     srcs = [
         "//pkg/backend/cv_template:documentation_images",
         "//services/app/documentation:documentation_images",
