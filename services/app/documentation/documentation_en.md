@@ -58,3 +58,62 @@ title: How can I edit a bibliography entry?
 
 Click on the entry you want to edit in the *Project overview*. Now you can change the fields and the values under *General* as you wish.
 If you click the ***Save*** button, the entry will be updated in the overview.
+
+---
+
+title: How can I import literature entries from Citavi?
+
+Go to the ***Project Overview***. If you click on ***Upload Citavi export***, you can select a *.bib* file and upload it. You can also drag and drop it into the marked area.
+
+You can create this *.bib* file via *Citavis* ***Export*** function or download it from sites like *Springer Link*.
+
+If I upload a .bib file with the following content
+
+```latex
+@INPROCEEDINGS{8528296,
+  author={Suyanto, Yohanes},
+  booktitle={2018 4th International Conference on Science and Technology (ICST)}, 
+  title={Numbered Musical Notation and LATEX Document Integration}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/ICSTC.2018.8528296}}
+```
+
+this file is analysed and the entry is assigned to a known literature category. This is done on the basis of the attributes ***Citavi category*** and ***Citavi filter*** (for more information see ***How can I create a new literature category?***).
+
+![Citavi upload](./app_images/upload_entry.png)
+
+The *key* can be cryptic, because it is read directly from the *.bib* file. You can change it afterwards.
+
+Now you can remove the entries you do not want to upload. Note that uploading will overwrite existing entries with the same keys.
+
+If you click on ***Add***, the entries will be added to your list. When you compile your *tex* file, the uploaded entries will also appear in the bibliography.
+
+In the ***project overview*** you can open the uploaded entries and adjust the attributes and fields.
+
+---
+
+title: How can I create a new literature category?
+
+In the predefined literature categories, the categories from *Citavi* have been tried to be reproduced. If you want to create an additional one, click on the ***+*** at ***Categories for entries*** in the project overview.
+
+The ***name*** of the category must be unique in the project.
+The ***Citavi category*** is used to assign uploads from *Citavi*.
+The ***Citavi filter*** can be set to e.g. only assign entries with the attribute *doi* to this category.
+
+![Kategorie: Allgemein](./app_images/category_general.png)
+
+Now you can add fields under ***entry in bibliography*** and ***citations***. You can configure the following for each field:
+
+- Attribute: The name of the field
+- Prefix: A prefix, such as (
+- Suffix: A suffix, such as ) or a comma.
+- Italic: Whether the value should be displayed in italics.
+- Forformatted: See What does Preformatted mean?
+- Citavi Attributes: The fields in the Citavi upload that should be associated with this field.
+
+![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
+
+Note that fields under ***Citations*** whose attribute name already exists under ***Literature entry*** are considered the same attribute.

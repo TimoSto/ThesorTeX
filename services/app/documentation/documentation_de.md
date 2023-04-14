@@ -60,3 +60,62 @@ title: Wie kann ich einen Literatureintrag bearbeiten?
 
 Klicke den Eintrag, den du bearbeiten willst, in der *Projektübersicht* an. Nun kannst du die Felder und die Werte unter *Allgemein* nach Belieben ändern.
 Wenn du den ***Speichern***-Button klickst wird der Eintrag in der Übersicht aktualisiert.
+
+---
+
+title: Wie kann ich Literatureinträge aus Citavi importieren?
+
+Gehe zur ***Projektübersicht***. Wenn du auf ***Citavi-Export hochladen*** klickst, kannst du eine *.bib*-Datei auswählen und hochladen. Du kannst sie auch über *Drag and Drop* in den markierten Bereich ziehen.
+
+Diese *.bib*-Datei kannst du über *Citavis* ***Exportieren*** Funktion erstellen oder auf Seiten wie *Springer Link* herunterladen.
+
+Wenn ich eine .bib-Datei mit dem folgenden Inhalt hochlade
+
+```latex
+@INPROCEEDINGS{8528296,
+  author={Suyanto, Yohanes},
+  booktitle={2018 4th International Conference on Science and Technology (ICST)}, 
+  title={Numbered Musical Notation and LATEX Document Integration}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/ICSTC.2018.8528296}}
+```
+
+wird diese Datei analysiert und der Eintrag einer bekannten Literatur-Kategorie zugeordnet. Dies geschieht auf Basis der Attribute ***Citavi-Kategorie*** und ***Citavi-Filter*** (mehr dazu unter ***Wie kann ich eine neue Literatur-Kategorie erstellen?***).
+
+![Citavi-Upload](./app_images/upload_entry.png)
+
+Der *Key* kann kryptisch sein, da er direkt aus der *.bib*-Datei gelesen wird. Du kannst ihn im Nachhinein noch anpassen.
+
+Nun kannst du die Einträge die du nicht hochladen möchtest, entfernen. Beachte, dass durch das Hochladen existierende Einträge mit denselben Schlüsseln überschrieben werden.
+
+Wenn du auf ***Hinzufügen*** klickst, werden die Einträge deiner Liste hinzugefügt. Wenn du deine *tex*-Datei nun kompilierst, werden die hochgeladenen Einträge auch im Literaturverzeichnis auftauchen.
+
+In der ***Projektübersicht*** kannst du die hochgeladenen Einträge öffnen und die Attribute und Felder anpassen.
+
+---
+
+title: Wie kann ich eine neue Literatur-Kategorie anlegen?
+
+In den vordefinieren Literatur-Kategorien wurden die Kategorien aus *Citavi* versucht abzubilden. Falls du einen zusätzlichen erstellen möchtest, klicke in der Projektübersicht auf das ***+*** bei ***Kategorien für Einträge***.
+
+Der ***Name*** der KAtegorie muss im Projekt eindeutig sein.
+Die ***Citavi-Kategorie*** wird genutzt, um Uploads aus *Citavi* zuzuordnen.
+Der ***Citavi-Filter*** kann gesetzt werden, um z.B. nur Einträge mit dem Attribut *doi* dieser Kategorie zuzuordnen.
+
+![Citavi-Upload](./app_images/category_general.png)
+
+Nun kannst du Felder unter ***Eintrag im Literaturverzeichnis*** und ***Zitate*** hinzufügen. Dabei kannst du pro Feld folgendes konfigurieren:
+
+- Attribut: Der Name des Feldes
+- Prefix: Ein Prefix, wie z.B. (
+- Suffix: Ein Suffix, wie z.B. ) oder ein Komma
+- Kursiv: Ob der Wert kursiv dargestellt werden soll
+- Forformatiert: Siehe Was bedeutet Vorformatiert
+- Citavi-Attribute: Die Felder im Citavi-Upload, welche diesem Feld zugeordnet werden sollen.
+
+![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
+
+Beachte, dass Felder unter ***Zitate***, deren Attribut-Name unter ***Literatureintrag*** bereits existiert, als das selbe Attribut betrachtet werden.
