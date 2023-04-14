@@ -38,5 +38,9 @@
   },
   "dependencies": {
     "vue": "*"
+  },
+  "scripts": {
+    "runAppE2E": "bazel run //services/app/cmd/e2e",
+    "runWebsiteE2E": "bazel run //services/website/cmd/e2e"
   }
 }
