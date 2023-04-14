@@ -61,7 +61,7 @@
                 </template>
                 {{ t(i18nKeys.StartPage.ThesisTemplateExample) }}
               </v-list-item>
-              <v-list-item v-ripple to="/tutorials">
+              <v-list-item v-ripple to="/tutorials?target=thesisTemplate">
                 <template #prepend>
                   <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
                 </template>
@@ -87,7 +87,7 @@
               </template>
               {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
-            <v-list-item v-ripple to="/tutorials">
+            <v-list-item v-ripple to="/tutorials?target=thesisTool">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
@@ -112,7 +112,7 @@
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
           <p class="text-h6 pb-6">
-            {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
+            {{ t(i18nKeys.StartPage.CVTemplateSubtitle) }}
           </p>
           <v-list class="text-h6"
                   style="background-color: transparent; font-weight: bold; cursor: pointer;">
@@ -122,7 +122,7 @@
               </template>
               {{ t(i18nKeys.Common.ToDownloads) }}
             </v-list-item>
-            <v-list-item v-ripple to="/tutorials">
+            <v-list-item v-ripple to="/tutorials?target=cvTemplate">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>

@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="4" :white="true" :small-display="smallDisplay">
+  <FullHeightLayout :pages="4" :white="true" :small-display="smallDisplay" ref="fullHeightLayout">
     <template #content-1>
       <v-row class="d-flex flex-row">
         <v-col cols="12">
@@ -78,10 +78,13 @@ import {computed, onMounted, ref} from "vue";
 import {GetDocumentationsJSON, ThesorTeXDocumentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
+import {useRouter} from "vue-router";
 
 // globals
 const {t} = useI18n();
 const i18nObject = useI18n();
+
+const router = useRouter();
 
 // data
 const props = defineProps({
@@ -92,6 +95,8 @@ const opened = ref<number[]>([]);
 const jsonDocs = ref<ThesorTeXDocumentation | undefined>(undefined);
 
 const presentationOpened = ref(false);
+
+const fullHeightLayout = ref(null);
 
 // computed
 const thesisTemplateDocsReveal = computed(() => {
@@ -124,10 +129,18 @@ function arrWithoutFirst(arr: any[]): any[] {
 
 onMounted(async () => {
   jsonDocs.value = await GetDocumentationsJSON(i18nObject.locale.value);
-  console.log(jsonDocs.value);
-  // thesisToolDocs.value = await GetThesisToolDocumentation(i18nObject.locale.value);
 
-  console.log(thesisTemplateDocsReveal.value, jsonDocs.value);
+  switch (router.currentRoute.value.query.target) {
+    case "thesisTemplate":
+      (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(2);
+      break;
+    case "thesisTool":
+      (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(3);
+      break;
+    case "cvTemplate":
+      (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(4);
+      break;
+  }
 });
 
 </script>
