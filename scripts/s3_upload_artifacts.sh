@@ -4,9 +4,13 @@ echo "$1"
 
 if [ "$1" = "thesisTool" ] || [ "$1" = "all" ]
 then
-  echo "uploading tool artifacts..."
-
   VERSION=$(scripts/env.sh THESIS_TOOL VERSIONS)
+
+  echo "tagging commit for thesisTool release $VERSION"
+
+  git tag "ThesisTool-v$VERSION"
+
+  echo "uploading tool artifacts..."
 
   VERSIONPATH=v$VERSION
 
@@ -22,9 +26,13 @@ fi
 
 if [ "$1" = "thesisTemplate" ] || [ "$1" = "all" ]
 then
-  echo "uploading thesis template..."
-
   VERSION=$(scripts/env.sh THESIS_TEMPLATE VERSIONS)
+
+  echo "tagging commit for thesisTemplate release $VERSION"
+
+  git tag "ThesisTemplate-v$VERSION"
+
+  echo "uploading thesis template..."
 
   VERSIONPATH=v$VERSION
 
@@ -40,9 +48,13 @@ fi
 
 if [ "$1" = "cvTemplate" ] || [ "$1" = "all" ]
 then
-  echo "uploading cv template..."
-
   VERSION=$(scripts/env.sh CV_TEMPLATE VERSIONS)
+
+  echo "tagging commit for cvTemplate release $VERSION"
+
+  git tag "CVTemplate-v$VERSION"
+
+  echo "uploading cv template..."
 
   VERSIONPATH=v$VERSION
 
