@@ -128,6 +128,6 @@ In *LaTeX* sind bestimmte Zeichen vorbelegt und können nicht einfach so im Text
 
 Unter Umständen möchte man dies aber verhindern. So z.B. wenn man selbst schon einen escaped Wert eingeben möchte. Dies wäre notwendig, um eine URL klickbar zu machen:
 
-![Forformattiertes Feld](./app_images/escaped_field.png)
+![Vorformattiertes Feld](./app_images/escaped_field.png)
 
 Sonderzeichen in dieser URL dürfen nämlich nicht separat escaped werden. Dies wird durch das ***Forformattiert*** Attribut verhindert.

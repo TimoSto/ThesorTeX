@@ -103,7 +103,7 @@ The ***name*** of the category must be unique in the project.
 The ***Citavi category*** is used to assign uploads from *Citavi*.
 The ***Citavi filter*** can be set to e.g. only assign entries with the attribute *doi* to this category.
 
-![Kategorie: Allgemein](./app_images/category_general.png)
+![Category: General](./app_images/category_general.png)
 
 Now you can add fields under ***entry in bibliography*** and ***citations***. You can configure the following for each field:
 
@@ -114,7 +114,7 @@ Now you can add fields under ***entry in bibliography*** and ***citations***. Yo
 - Forformatted: See What does Preformatted mean?
 - Citavi Attributes: The fields in the Citavi upload that should be associated with this field.
 
-![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
+![Category: Bibliography entries](./app_images/category_bib_fields.png)
 
 Note that fields under ***Citations*** whose attribute name already exists under ***bibliography entry*** are considered the same attribute.
 
@@ -126,6 +126,6 @@ In *LaTeX*, certain characters are occupied and cannot simply be used in the tex
 
 Under certain circumstances, however, you may want to prevent this. For example, if you want to enter an escaped value yourself. This would be necessary to make an URL clickable:
 
-![Forformattiertes Feld](./app_images/escaped_field.png)
+![Preformatted field](./app_images/escaped_field.png)
 
 Special characters in this URL must not be escaped separately. This is prevented by the ***Preformatted*** attribute.
