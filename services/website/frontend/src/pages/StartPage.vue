@@ -38,6 +38,7 @@
       <v-row>
         <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
           <img :src="GermanTemplateImg" style="border: 1px solid black; max-height: 500px;" />
+          <!--TODO: Update doc image-->
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6" class="d-flex" style="justify-content: center; align-items: center;">
           <div style="display: block">

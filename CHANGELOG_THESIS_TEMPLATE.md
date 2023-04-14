@@ -1,3 +1,9 @@
+# v1.1.1
+
+## Fixed
+
+- Fixed missing spaces in bibliography.
+
 # v1.1.0
 
 ## Changed
