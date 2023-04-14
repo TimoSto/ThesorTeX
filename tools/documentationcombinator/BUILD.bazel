@@ -24,7 +24,10 @@ genrule(
 
 genrule(
     name = "test",
-    srcs = ["//tools/documentationbuilder:test","//tools/documentationbuilder:simpleWithCode"],
+    srcs = [
+        "//tools/documentationbuilder:test",
+        "//tools/documentationbuilder:simpleWithCode",
+    ],
     outs = ["docs"],
     cmd = "mkdir $(OUTS) && $(location :documentationcombinator) -out-dir=$(location docs) -docs=$(location //tools/documentationbuilder:test),$(location //tools/documentationbuilder:simpleWithCode)",
     tools = [":documentationcombinator"],
@@ -41,7 +44,11 @@ genrule(
 
 genrule(
     name = "test_img",
-    srcs = ["//tools/documentationbuilder:test","//tools/documentationbuilder:simpleWithImage","//tools/documentationbuilder/testfiles:test_images"],
+    srcs = [
+        "//tools/documentationbuilder:test",
+        "//tools/documentationbuilder:simpleWithImage",
+        "//tools/documentationbuilder/testfiles:test_images",
+    ],
     outs = ["docs2"],
     cmd = "mkdir $(OUTS) && mkdir $(OUTS)/images && tar -C $(OUTS)/images -zxf $(location //tools/documentationbuilder/testfiles:test_images) &&  $(location :documentationcombinator) -out-dir=$(location docs2) -docs=$(location //tools/documentationbuilder:test),$(location //tools/documentationbuilder:simpleWithImage)",
     tools = [":documentationcombinator"],

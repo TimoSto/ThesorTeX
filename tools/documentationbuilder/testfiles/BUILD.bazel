@@ -1,4 +1,4 @@
-load("@rules_pkg//pkg:pkg.bzl", "pkg_zip", "pkg_tar")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_tar", "pkg_zip")
 
 exports_files([
     "simple.md",
