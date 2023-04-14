@@ -43,6 +43,7 @@ pkg_tar(
         "app_images/upload_entry.png",
         "app_images/category_general.png",
         "app_images/category_bib_fields.png",
+        "app_images/escaped_field.png",
     ],
     extension = "tar.gz",
     visibility = ["//visibility:public"],

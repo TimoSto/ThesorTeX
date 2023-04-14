@@ -119,3 +119,15 @@ Nun kannst du Felder unter ***Eintrag im Literaturverzeichnis*** und ***Zitate**
 ![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
 
 Beachte, dass Felder unter ***Zitate***, deren Attribut-Name unter ***Literatureintrag*** bereits existiert, als das selbe Attribut betrachtet werden.
+
+---
+
+title: Was bedeutet Vorformattiert?
+
+In *LaTeX* sind bestimmte Zeichen vorbelegt und können nicht einfach so im Text verwendet werden, wie z.B. _. Deshalb werden solche Zeichen von der Anwendung *escaped*, bevor sie in die *csv*-Datei mit den Literatureinträgen geschrieben werden.
+
+Unter Umständen möchte man dies aber verhindern. So z.B. wenn man selbst schon einen escaped Wert eingeben möchte. Dies wäre notwendig, um eine URL klickbar zu machen:
+
+![Forformattiertes Feld](./app_images/escaped_field.png)
+
+Sonderzeichen in dieser URL dürfen nämlich nicht separat escaped werden. Dies wird durch das ***Forformattiert*** Attribut verhindert.

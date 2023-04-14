@@ -95,7 +95,7 @@ In the ***project overview*** you can open the uploaded entries and adjust the a
 
 ---
 
-title: How can I create a new literature category?
+title: How can I create a new bibliography category?
 
 In the predefined literature categories, the categories from *Citavi* have been tried to be reproduced. If you want to create an additional one, click on the ***+*** at ***Categories for entries*** in the project overview.
 
@@ -117,3 +117,15 @@ Now you can add fields under ***entry in bibliography*** and ***citations***. Yo
 ![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
 
 Note that fields under ***Citations*** whose attribute name already exists under ***Literature entry*** are considered the same attribute.
+
+---
+
+title: What does Preformatted mean?
+
+In *LaTeX*, certain characters are occupied and cannot simply be used in the text, such as _. Therefore, such characters are *escaped* by the application before they are written into the *csv* file with the literature entries.
+
+Under certain circumstances, however, you may want to prevent this. For example, if you want to enter an escaped value yourself. This would be necessary to make an URL clickable:
+
+![Forformattiertes Feld](./app_images/escaped_field.png)
+
+Special characters in this URL must not be escaped separately. This is prevented by the ***Preformed*** attribute.
