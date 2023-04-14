@@ -1,4 +1,4 @@
 exports_files([
     "titlepage_de.pdf",
-    "titlepage_en.pdf"
+    "titlepage_en.pdf",
 ])

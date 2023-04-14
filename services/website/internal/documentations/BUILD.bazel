@@ -1,6 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
-load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix", "pkg_filegroup")
-load("@rules_pkg//pkg:pkg.bzl", "pkg_zip", "pkg_tar")
+load("@rules_pkg//:mappings.bzl", "pkg_filegroup", "pkg_files", "strip_prefix")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_tar", "pkg_zip")
 
 genrule(
     name = "template_zip",
@@ -8,21 +8,21 @@ genrule(
         ":docsImages",
     ],
     outs = ["test.zip"],
-    cmd = "zip -r $(OUTS) $(location :docsImages)"
+    cmd = "zip -r $(OUTS) $(location :docsImages)",
 )
 
 go_library(
     name = "documentations",
     srcs = ["documentations.go"],
     embedsrcs = [
-        ":copyDocsJSON",
-        ":copyDocsJSONCV",
-        ":copyDocsJSONThesisTool",
-        ":docs_de_pdf",
-        ":docs_de_zip",
-        ":docs_en_pdf",
-        ":docs_en_zip",
-        ":docsImages"
+        ":copyDocsJSON",  # keep
+        ":copyDocsJSONCV",  # keep
+        ":copyDocsJSONThesisTool",  # keep
+        ":docs_de_pdf",  # keep
+        ":docs_de_zip",  # keep
+        ":docs_en_pdf",  # keep
+        ":docs_en_zip",  # keep
+        ":docsImages",  # keep
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/documentations",
     visibility = ["//services/website:__subpackages__"],
@@ -32,10 +32,10 @@ genrule(
     name = "docsImages",
     srcs = [
         "//pkg/backend/cv_template:documentation_images",
-        "//services/app/documentation:documentation_images"
+        "//services/app/documentation:documentation_images",
     ],
     outs = ["docsImages"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/app_images && tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images)"
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/app_images && tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images)",
 )
 
 genrule(
@@ -74,7 +74,7 @@ genrule(
         "//pkg/backend/cv_template:documentation_images",
         "//services/app/documentation:documentation_de",
         "//services/app/documentation:documentation_images",
-        "//services/website/internal/documentations/titlepages:titlepage_de.pdf"
+        "//services/website/internal/documentations/titlepages:titlepage_de.pdf",
     ],
     outs = ["docs_de"],
     cmd = "mkdir $(OUTS) && \
@@ -91,7 +91,7 @@ genrule(
             -lang=DE && \
         mkdir $(location docs_de)/titlepages && \
         cp $(location //services/website/internal/documentations/titlepages:titlepage_de.pdf) $(location docs_de)/titlepages/titlepage_de.pdf",
-    tools = ["//tools/documentationcombinator:documentationcombinator"],
+    tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
 )
 
@@ -114,7 +114,7 @@ genrule(
     cmd = "cp -r $(location :docs_de_tex) ./documentation_de && \
         cp $(location :docs_de_pdf) ./documentation_de/main.pdf && \
         rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && \
-        zip -r $(OUTS) ./documentation_de"
+        zip -r $(OUTS) ./documentation_de",
 )
 
 genrule(
@@ -125,7 +125,7 @@ genrule(
         "//pkg/backend/cv_template:documentation_images",
         "//services/app/documentation:documentation_en",
         "//services/app/documentation:documentation_images",
-        "//services/website/internal/documentations/titlepages:titlepage_en.pdf"
+        "//services/website/internal/documentations/titlepages:titlepage_en.pdf",
     ],
     outs = ["docs_en"],
     cmd = "mkdir $(OUTS) && \
@@ -142,7 +142,7 @@ genrule(
                 -lang=EN && \
             mkdir $(location docs_en)/titlepages && \
             cp $(location //services/website/internal/documentations/titlepages:titlepage_en.pdf) $(location docs_en)/titlepages/titlepage_en.pdf",
-    tools = ["//tools/documentationcombinator:documentationcombinator"],
+    tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
 )
 
@@ -157,7 +157,7 @@ genrule(
     cmd = "cp -r $(location :docs_en_tex) ./documentation_en && \
             cp $(location :docs_en_pdf) ./documentation_en/main.pdf && \
             rm -f {**/*.aux,**/*.lot,**/*.lof,**/*.mcf,**/*.toc,**/*.log} && \
-            zip -r $(OUTS) ./documentation_en"
+            zip -r $(OUTS) ./documentation_en",
 )
 
 genrule(
