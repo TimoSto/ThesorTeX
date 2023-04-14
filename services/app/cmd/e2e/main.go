@@ -26,12 +26,14 @@ func main() {
 
 	fs := local.FileSystem{}
 
-	config.Cfg = config.Config{
-		ProjectsDir: "projects",
+	_, err := config.ReadConfig()
+	if err != nil {
+		log.Error("could read/init config: %v", err)
+		os.Exit(1)
 	}
 
 	log.Info("removing possibly existing previous projects...")
-	err := os.RemoveAll(pathbuilder.GetPathFromExecRoot("projects"))
+	err = os.RemoveAll(pathbuilder.GetPathFromExecRoot("projects"))
 	if err != nil {
 		log.Error("could not delete projects dir: %v", err)
 		os.Exit(1)
