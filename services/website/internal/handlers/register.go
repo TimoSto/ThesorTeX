@@ -3,7 +3,9 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler"
+	"github.com/TimoSto/ThesorTeX/services/website/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/assets"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/documentations"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/handlers/templates"
@@ -12,6 +14,8 @@ import (
 
 func RegisterWebsiteHandlers(mux *http.ServeMux, bucket buckethandler.BucketHandler) {
 	mux.HandleFunc("/", assets.HandleAssets())
+
+	mux.HandleFunc("/version", versionhandler.GetRootHandler(config.Version))
 
 	mux.HandleFunc("/templates/thesis", templates.HandleThesisTemplate())
 

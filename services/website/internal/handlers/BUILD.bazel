@@ -6,7 +6,9 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/handlers",
     visibility = ["//services/website:__subpackages__"],
     deps = [
+        "//pkg/backend/versionhandler",
         "//services/website/internal/buckethandler",
+        "//services/website/internal/config",
         "//services/website/internal/handlers/assets",
         "//services/website/internal/handlers/documentations",
         "//services/website/internal/handlers/templates",
