@@ -16,10 +16,15 @@ go_library(
     ],
 )
 
+_WEBSITE_VERSION = "{WEBSITE_VERSION}"
+
 go_binary(
     name = "prod",
     embed = [":prod_lib"],
     visibility = ["//visibility:public"],
+    x_defs = {
+        "github.com/TimoSto/ThesorTeX/services/website/internal/config.Version": _WEBSITE_VERSION,
+    },
 )
 
 pkg_zip(
