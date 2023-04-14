@@ -1,3 +1,9 @@
+# v1.0.0
+
+## Fixed
+
+- The tex escaping has been fixed for short inputs.
+
 # v0.0.3
 
 ## Fixed
