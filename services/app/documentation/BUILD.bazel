@@ -4,28 +4,31 @@ load("@rules_pkg//pkg:pkg.bzl", "pkg_tar")
 genrule(
     name = "documentation_de",
     srcs = [
-        "documentation_de.md"
+        "documentation_de.md",
     ],
     outs = ["docs/de"],
     cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/de) -src=$(location documentation_de.md)",
-    tools = ["//tools/documentationbuilder:documentationbuilder"],
+    tools = ["//tools/documentationbuilder"],
     visibility = ["//visibility:public"],
 )
 
 genrule(
     name = "documentation_en",
     srcs = [
-        "documentation_en.md"
+        "documentation_en.md",
     ],
     outs = ["docs/en"],
     cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/en) -src=$(location documentation_en.md)",
-    tools = ["//tools/documentationbuilder:documentationbuilder"],
+    tools = ["//tools/documentationbuilder"],
     visibility = ["//visibility:public"],
 )
 
 pkg_tar(
     name = "documentation_tar",
-    srcs = [":documentation_de", ":documentation_en"],
+    srcs = [
+        ":documentation_de",
+        ":documentation_en",
+    ],
     extension = "tar.gz",
     strip_prefix = strip_prefix.from_pkg("docs"),
     visibility = ["//visibility:public"],
@@ -34,16 +37,16 @@ pkg_tar(
 pkg_tar(
     name = "documentation_images",
     srcs = [
-        "app_images/startpage.png",
-        "app_images/project_overview.png",
-        "app_images/entry_editor_general.png",
-        "app_images/entry_editor_fields.png",
-        "app_images/entry_added.png",
-        "app_images/pdf_bibliography_new_entry.png",
-        "app_images/upload_entry.png",
-        "app_images/category_general.png",
         "app_images/category_bib_fields.png",
+        "app_images/category_general.png",
+        "app_images/entry_added.png",
+        "app_images/entry_editor_fields.png",
+        "app_images/entry_editor_general.png",
         "app_images/escaped_field.png",
+        "app_images/pdf_bibliography_new_entry.png",
+        "app_images/project_overview.png",
+        "app_images/startpage.png",
+        "app_images/upload_entry.png",
     ],
     extension = "tar.gz",
     visibility = ["//visibility:public"],
