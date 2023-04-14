@@ -32,6 +32,9 @@ func main() {
 		os.Exit(1)
 	}
 
+	config.Cfg.Port = "8440"
+	config.Cfg.ProjectsDir = "projects"
+
 	log.Info("removing possibly existing previous projects...")
 	err = os.RemoveAll(pathbuilder.GetPathFromExecRoot("projects"))
 	if err != nil {
