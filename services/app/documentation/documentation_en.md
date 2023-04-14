@@ -43,3 +43,13 @@ Above you can see how the entry would look in the bibliography and in a citation
 If you click on the ***Save*** icon in the toolbar, the entry is saved. If you now navigate back, you will see your entry in the list.
 
 ![Project overview: With new entry](./app_images/entry_added.png)
+
+When you compile the *main.tex* of the project, you should see the following entries in the bibliography:
+
+![Literaturverzeichnis mit neuem Eintrag](./app_images/pdf_bibliography_new_entry.png)
+
+And you can cite your entry with the key you have given it:
+
+```latex
+\citebib{myNewEntry}{p.P. 203-205}{cf.}
+```

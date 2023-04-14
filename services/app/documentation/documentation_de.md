@@ -43,3 +43,13 @@ Oben kannst du sehen, wie der Eintrag im Literaturverzeichnis und in einem Zitat
 Wenn du auf das ***Speichern***-Icon in der Toolbar klickst, wird der Eintrag gespeichert. Wenn du nun zurück navigierst, siehst du deinen Eintrag in der Liste.
 
 ![Projektüberischt: Mit neuem Eintrag](./app_images/entry_added.png)
+
+Wenn du die *main.tex* des Projektes nun kompilierts, solltest du folgende Einträge im Literaturverzeichnis sehen:
+
+![Literaturverzeichnis mit neuem Eintrag](./app_images/pdf_bibliography_new_entry.png)
+
+Und du kannst den Eintrag mit dem Schlüssel, den du vergeben hast, zitieren:
+
+```latex
+\citebib{myNewEntry}{S. 203-205}{vgl.}
+```

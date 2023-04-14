@@ -39,6 +39,7 @@ pkg_tar(
         "app_images/entry_editor_general.png",
         "app_images/entry_editor_fields.png",
         "app_images/entry_added.png",
+        "app_images/pdf_bibliography_new_entry.png",
     ],
     extension = "tar.gz",
     visibility = ["//visibility:public"],
