@@ -1,12 +1,12 @@
 MainTitle: Usage of the tool for bibliography management
 title: What can I use this tool for?
-This tool facilitates the creation and formatting of literature entries. It builds on the ***Template for academic papers***.
+This tool facilitates the creation and formatting of bibliography entries. It builds on the ***Template for academic papers***.
 
 The motivation for this was that adjustments to *BibLaTeX* can be very cumbersome and complicated. The scope of functions is roughly summarised as follows:
 - Create projects based on the template
-- Create and edit literature entries via the web interface.
-- You can then easily cite these literature entries in your document.
-- Create and edit literature categories via the web interface
+- Create and edit bibliography entries via the web interface.
+- You can then easily cite these bibliography entries in your document.
+- Create and edit bibliography categories via the web interface
 - Import your library or individual entries from Citavi
 
 title: What is the best way to get started?
@@ -28,7 +28,7 @@ First navigate to the project in which you want to add an entry. To do this, cli
 
 ![Project overview: example](./app_images/project_overview.png)
 
-Under *Literature entries* you will already find a *testEntry*. To create a new entry, click on the ***+*** icon.
+Under *bibliography entries* you will already find a *testEntry*. To create a new entry, click on the ***+*** icon.
 
 Under *General* you must now enter a key for the new entry that is unique in the project. You will use this key when you want to cite this entry.
 
@@ -36,7 +36,7 @@ Under *General* you must now enter a key for the new entry that is unique in the
 
 As soon as you have selected a category, the fields of this category are displayed and you can enter values.
 
-![New Literature Entry: Fields](./app_images/entry_editor_fields.png)
+![New bibliography Entry: Fields](./app_images/entry_editor_fields.png)
 
 Above you can see how the entry would look in the bibliography and in a citation.
 
@@ -61,7 +61,7 @@ If you click the ***Save*** button, the entry will be updated in the overview.
 
 ---
 
-title: How can I import literature entries from Citavi?
+title: How can I import bibliography entries from Citavi?
 
 Go to the ***Project Overview***. If you click on ***Upload Citavi export***, you can select a *.bib* file and upload it. You can also drag and drop it into the marked area.
 
@@ -81,7 +81,7 @@ If I upload a .bib file with the following content
   doi={10.1109/ICSTC.2018.8528296}}
 ```
 
-this file is analysed and the entry is assigned to a known literature category. This is done on the basis of the attributes ***Citavi category*** and ***Citavi filter*** (for more information see ***How can I create a new literature category?***).
+this file is analysed and the entry is assigned to a known bibliography category. This is done on the basis of the attributes ***Citavi category*** and ***Citavi filter*** (for more information see ***How can I create a new bibliography category?***).
 
 ![Citavi upload](./app_images/upload_entry.png)
 
@@ -97,7 +97,7 @@ In the ***project overview*** you can open the uploaded entries and adjust the a
 
 title: How can I create a new bibliography category?
 
-In the predefined literature categories, the categories from *Citavi* have been tried to be reproduced. If you want to create an additional one, click on the ***+*** at ***Categories for entries*** in the project overview.
+In the predefined bibliography categories, the categories from *Citavi* have been tried to be reproduced. If you want to create an additional one, click on the ***+*** at ***Categories for entries*** in the project overview.
 
 The ***name*** of the category must be unique in the project.
 The ***Citavi category*** is used to assign uploads from *Citavi*.
@@ -116,16 +116,16 @@ Now you can add fields under ***entry in bibliography*** and ***citations***. Yo
 
 ![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
 
-Note that fields under ***Citations*** whose attribute name already exists under ***Literature entry*** are considered the same attribute.
+Note that fields under ***Citations*** whose attribute name already exists under ***bibliography entry*** are considered the same attribute.
 
 ---
 
 title: What does Preformatted mean?
 
-In *LaTeX*, certain characters are occupied and cannot simply be used in the text, such as _. Therefore, such characters are *escaped* by the application before they are written into the *csv* file with the literature entries.
+In *LaTeX*, certain characters are occupied and cannot simply be used in the text, such as _. Therefore, such characters are *escaped* by the application before they are written into the *csv* file with the bibliography entries.
 
 Under certain circumstances, however, you may want to prevent this. For example, if you want to enter an escaped value yourself. This would be necessary to make an URL clickable:
 
 ![Forformattiertes Feld](./app_images/escaped_field.png)
 
-Special characters in this URL must not be escaped separately. This is prevented by the ***Preformed*** attribute.
+Special characters in this URL must not be escaped separately. This is prevented by the ***Preformatted*** attribute.
