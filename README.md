@@ -13,13 +13,13 @@ The local application can be downloaded on the following links:
 
 ## Build mechanics
 
-This repository uses Bazel to build both the backends and the frontends. But you need to have LaTeX isntalled on your machine to build everything.
+This repository uses Bazel to build both the backends and the frontends. But you need to have LaTeX installed on your machine to build everything.
 
 ### Production
 
-The production build is triggered by calling the script `./scripts/build.sh`. It produces the following `artifacts`:
+The production build is triggered by calling the script `./scripts/build.sh` with the parameter `thesisTemplate`, `thesisTool`, `cvTemplate`or `all`. It produces the following `artifacts`:
 
-- ZIP files containing the executables of the app for Windows, Linux, MacOS and MacOS with arm (M1/M2)
+- ZIP files containing the executables of the thesisTool for Windows, Linux, MacOS and MacOS with arm (M1/M2)
 - ZIP files containing the thesis and cv templates
 - A ZIP file for the website lambda
 
@@ -67,14 +67,6 @@ To update aws infrastructure
 
 ```
 cd terraform
-./scripts/plan.sh
-./scripts.apply.sh
-```
-
-or
-
-```
-cd terraform
 ./scripts/deploy.sh
 ```
 
@@ -84,12 +76,14 @@ To upload build-artifacts as zips
 ./scripts/s3_upload_atrifacts.sh all
 ```
 
-To only deploy one target, replace `all` with `tool`, `thesisTemplate` or `cvTemplate`.
+To only deploy one target, replace `all` with `thesisTool`, `thesisTemplate` or `cvTemplate`.
 
 ## Used technologies
 
 - Go
 - Pnpm
+- Typescript
+- Vue 3
 - Playwright
 - Terraform
 - Bazel
