@@ -12,7 +12,8 @@
                   <SVGTemplate :svg="thesisPaths" max-height="200px" max-width="100%" />
                 </div>
                 <div class="mt-auto">
-                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2"
+                         to="/tutorials?target=thesisTemplate">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="jumpTo(2)">
@@ -37,7 +38,8 @@
                   <SVGTemplate :svg="laptopWithThesis" max-height="200px" max-width="100%" />
                 </div>
                 <div class="mt-auto">
-                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2"
+                         to="/tutorials?target=thesisTool">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="jumpTo(3)">
@@ -60,7 +62,8 @@
                   <SVGTemplate :svg="cvSVG" max-height="200px" max-width="100%" />
                 </div>
                 <div class="mt-auto">
-                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2" to="/tutorials">
+                  <v-btn variant="text" color="primary" style="width: 100%;" class="mb-2"
+                         to="/tutorials?target=cvTemplate">
                     {{ t(i18nKeys.Common.LearnMore) }}
                   </v-btn>
                   <v-btn color="primary" style="width: 100%;" @click="jumpTo(4)">
