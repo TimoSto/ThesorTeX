@@ -15,9 +15,9 @@ go_library(
     name = "documentations",
     srcs = ["documentations.go"],
     embedsrcs = [
-        "docs/thesisTemplate",
-        "docs/thesisTool",
-        "docs/cvTemplate",
+        "docs/thesisTemplate",  # keep
+        "docs/thesisTool",  # keep
+        "docs/cvTemplate",  # keep
         "documentation_de.pdf",
         "documentation_de.zip",
         "documentation_en.pdf",
