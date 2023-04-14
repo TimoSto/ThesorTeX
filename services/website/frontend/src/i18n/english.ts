@@ -15,13 +15,13 @@ export const english: I18nKeys = {
     },
     StartPage: {
         Title: "Use LaTeX more comfortably",
-        Subtitle: "If you use it in an academic or professional context, you will find various templates and tools here that can support you.",
+        Subtitle: "If you use LaTeX in an academic or professional context, you will find various templates and tools here that can support you.",
         ThesisTemplateTitle: "Template for academic papers",
         ThesisTemplateSubtitle: "Would you like to write a thesis or homework paper with LaTeX? Then check out this template.",
         ThesisTemplateExample: "Download an example",
         ThesisToolTitle: "Tool for bibliography management",
-        ThesisToolSubtitle: "Using this tool you can build your bibliography comfortabily and customized. Format your literature according to your wishes, create entries manually or import your library from Citavi.",
-        CVTemplateTitle: "Curriculum vitae Template",
+        ThesisToolSubtitle: "Using this tool you can build your bibliography comfortabily and customized. Format your bibliography according to your wishes, create entries manually or import your library from Citavi.",
+        CVTemplateTitle: "template for a curriculum vitae",
         CVTemplateSubtitle: "If you've graduated with the help of the support offered here and you're ready to apply for your next job, check out this template for a CV.",
         KnownIssuesTitle: "Known Issues",
         KnownIssuesText: "The known issues with the products on this page can be found {here}. If you have an issue not listed there, feel free to create one and add the label {bug}. Requests for new functionalities can be found {here2}. If you have a new request, create an issue and add the label {feature} to it."
