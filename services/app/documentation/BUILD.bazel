@@ -47,6 +47,7 @@ pkg_tar(
         "app_images/project_overview.png",
         "app_images/startpage.png",
         "app_images/upload_entry.png",
+        "app_images/config_dialog.png",
     ],
     extension = "tar.gz",
     visibility = ["//visibility:public"],

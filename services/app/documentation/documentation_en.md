@@ -129,3 +129,16 @@ Under certain circumstances, however, you may want to prevent this. For example,
 ![Preformatted field](./app_images/escaped_field.png)
 
 Special characters in this URL must not be escaped separately. This is prevented by the ***Preformatted*** attribute.
+
+---
+
+title: Which settings can I change?
+
+If you click on the cogwheel at the top right, a configuration dialogue appears.
+
+![Configuration dialogue](./app_images/config_dialog.png)
+
+There you can enter the ***Port*** on which the application should run. By default this is *8448*, but you can also specify another port of your choice. 
+After saving, you have to restart the application once and then it will run on the port you selected.
+
+Secondly, you can specify the ***Directory for projects***. The projects are saved in this directory. The path is relative to the storage location of the application.
