@@ -53,3 +53,8 @@ And you can cite your entry with the key you have given it:
 ```latex
 \citebib{myNewEntry}{p.P. 203-205}{cf.}
 ```
+
+title: How can I edit a bibliography entry?
+
+Click on the entry you want to edit in the *Project overview*. Now you can change the fields and the values under *General* as you wish.
+If you click the ***Save*** button, the entry will be updated in the overview.

@@ -53,3 +53,10 @@ Und du kannst den Eintrag mit dem Schlüssel, den du vergeben hast, zitieren:
 ```latex
 \citebib{myNewEntry}{S. 203-205}{vgl.}
 ```
+
+---
+
+title: Wie kann ich einen Literatureintrag bearbeiten?
+
+Klicke den Eintrag, den du bearbeiten willst, in der *Projektübersicht* an. Nun kannst du die Felder und die Werte unter *Allgemein* nach Belieben ändern.
+Wenn du den ***Speichern***-Button klickst wird der Eintrag in der Übersicht aktualisiert.
