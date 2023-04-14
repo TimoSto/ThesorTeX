@@ -21,7 +21,7 @@ export const english: I18nKeys = {
         ThesisTemplateExample: "Download an example",
         ThesisToolTitle: "Tool for bibliography management",
         ThesisToolSubtitle: "Using this tool you can build your bibliography comfortabily and customized. Format your bibliography according to your wishes, create entries manually or import your library from Citavi.",
-        CVTemplateTitle: "template for a curriculum vitae",
+        CVTemplateTitle: "Template for a curriculum vitae",
         CVTemplateSubtitle: "If you've graduated with the help of the support offered here and you're ready to apply for your next job, check out this template for a CV.",
         KnownIssuesTitle: "Known Issues",
         KnownIssuesText: "The known issues with the products on this page can be found {here}. If you have an issue not listed there, feel free to create one and add the label {bug}. Requests for new functionalities can be found {here2}. If you have a new request, create an issue and add the label {feature} to it."
