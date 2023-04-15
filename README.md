@@ -4,12 +4,16 @@ Tool for handling bibliography in a LaTeX project.
 The website is available under [https://thesortex.com](https://thesortex.com).
 
 ## Downloads
+The template for academic papers can be downloaded [here](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTemplate/latest/ThesisTemplate.zip)
+
 The local application can be downloaded on the following links:
 
-- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/windows/ThesorTeX.zip)
-- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/linux/ThesorTeX.zip)
-- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/mac/ThesorTeX.zip)
-- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/tool/latest/mac_silicon/ThesorTeX.zip)
+- [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/windows/ThesorTeX.zip)
+- [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/linux/ThesorTeX.zip)
+- [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/mac/ThesorTeX.zip)
+- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/mac_silicon/ThesorTeX.zip)
+
+The template for a CV can be downloaded [here](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/cvTemplate/latest/CVTemplate.zip)
 
 ## Build mechanics
 
