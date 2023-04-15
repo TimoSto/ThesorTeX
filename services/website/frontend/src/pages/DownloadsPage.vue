@@ -82,9 +82,18 @@
       <v-row>
         <v-col>
           <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
-          <p class="text-body-1 mb-4">
+          <p class="text-body-1">
             {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
           </p>
+          <v-list class="text-h6"
+                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
+            <v-list-item v-ripple to="/tutorials?target=thesisTemplate">
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.LearnMore) }}
+            </v-list-item>
+          </v-list>
           <DownloadsTable :versions="versions ? versions.ThesisTemplate : []"
                           :download-func="getThesisTemplateDownloadLink"
                           :max-width="500"
@@ -99,7 +108,16 @@
           <p class="text-body-1">
             {{ t(i18nKeys.DownloadPage.ToolInfoText) }}
           </p>
-          <v-row class="pa-4 d-flex flex-row mt-1 mb-1">
+          <v-list class="text-h6"
+                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
+            <v-list-item v-ripple to="/tutorials?target=thesisTool">
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.LearnMore) }}
+            </v-list-item>
+          </v-list>
+          <v-row class="pa-4 d-flex flex-row mb-1">
             <v-col cols="3">
               <v-card elevation="6" style="height: 100%">
                 <v-card-text style="height: 100%">
@@ -181,9 +199,18 @@
     </template>
     <template #content-4>
       <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
-      <p class="text-body-1 mb-4">
+      <p class="text-body-1">
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
+      <v-list class="text-h6"
+              style="background-color: transparent; font-weight: bold; cursor: pointer;">
+        <v-list-item v-ripple to="/tutorials?target=cvTemplate">
+          <template #prepend>
+            <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+          </template>
+          {{ t(i18nKeys.Common.LearnMore) }}
+        </v-list-item>
+      </v-list>
       <DownloadsTable :versions="versions ? versions.CvTemplate : []" :download-func="getCVTemplateDownloadLink"
                       :max-width="500" @open-notes="openedReleaseNotes = `cvTemplate - ${$event}`" />
     </template>
