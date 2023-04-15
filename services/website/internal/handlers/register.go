@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/faviconhandler"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/buckethandler"
 	"github.com/TimoSto/ThesorTeX/services/website/internal/config"
@@ -16,6 +17,8 @@ func RegisterWebsiteHandlers(mux *http.ServeMux, bucket buckethandler.BucketHand
 	mux.HandleFunc("/", assets.HandleAssets())
 
 	mux.HandleFunc("/version", versionhandler.GetRootHandler(config.Version))
+
+	mux.HandleFunc("/favicon", faviconhandler.GetFaviconHandler())
 
 	mux.HandleFunc("/templates/thesis", templates.HandleThesisTemplate())
 
