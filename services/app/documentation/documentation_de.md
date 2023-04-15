@@ -8,7 +8,9 @@ Die Motivation hierfür war, dass Anpassungen an *BibLaTeX* sehr umständlich un
 - Diese Literatureinträge kannst du dann ganz einfach in deinem Dokument zitieren
 - Erstelle und bearbeite Literatur-Kategorien über die Weboberfläche
 - Importiere deine Bibliothek oder einzelne Einträge aus Citavi
+
 ---
+
 title: Wie fang ich am besten an?
 Gehe auf die ***Downloads*** Seite und lade das Paket für dein Betriebssystem herunter. Wenn du die heruntergeladene ZIP-Datei entpackst, solltest du eine ausführbare Datei sehen. Kopiere diese Datei in den Ordner, in dem die LaTeX-Projekte erstellt werden sollen und starte sie über einen Doppelklick.
 
@@ -19,6 +21,28 @@ Wenn du die Adresse ***http://localhost:8448*** in einem Browser aufrufst, sollt
 ![Liste der Projekte](./app_images/startpage.png)
 
 Jetzt kannst du anfangen, im ***example***-Projekt die im folgenden beschriebenen Schritte durchzuführen. Oder du erstellt dein eigenes Projekt.
+
+---
+title: Was passiert, wenn ich die Anwendung starte? (Bedenken bzgl. Sicherheit)
+
+Die Begriffe ***Terminal-Fenster*** oder ***localhost*** wirken vielleicht etwas suspekt auf dich. Und vermutlich hat dein Computer dich beim Download oder beim Starten der Anwendung gewarnt, dass man mit Dateien aus dem Internet vorsichtig sein sollte. Und da hat er Recht, deshalb wird hier kurz erklärt, was diese Anwendung macht.
+
+Diese Anwendung interagiert mit zwei Dingen auf deinem Computer: Dem Dateisystem und dem lokalen Netzwerk.
+
+Der Zugriff auf das Dateisystem wird benötigt, um Projekte, Literatureinträge und Literaturkategorien erstellen zu können. Die erstellten ORdner und Dateien sollten dabei von dir bearbeitet, verschoben und gelöscht werden können. Falls dies nicht geht, lege bitte einen Bug im Github-Projekt an.
+
+Der Zugriff auf das lokale Netzwerk wird benötigt, um die Anwendung im Browser verfügbar zu machen. 
+Der Begriff ***localhost*** bezieht sich auf deinen Computer. Es ist der Standard-Kanal für Verbindungen auf und mit deinem Computer.
+Der ***Port*** legt die Adresse fest, unter welcher die Anwendung zu erreichen ist. Standardmäßig verwendet diese Anwendung den Port ***8448***.
+Aber wenn auf diesem Port bereits eine andere Anwendung läuft, musst du einen anderen Port auswählen.
+
+Du hast vielleicht schon mal den Begriff ***HTTPS*** gehört. Damit werden sichere, verschlüsselte Verbindungen zu Servern hergestellt. Dir ist vielleicht auch aufgefallen, dass die Adresse der Anwendung nur ein ***http*** hat und kein ***https***.
+Diese Anwendung läuft lokal und ist nur von deinem Computer aus erreichbar. Deshalb wurde *HTTPS* im ersten Wurf nicht umgesetzt.
+
+Wenn du die Anwendung durch einen Doppelklick startest, wird ein ***Terminal-Fenster*** geöffnet. Da man sowas bei Programmen wie *MS Word* nicht sieht, fragst du dich vielleicht, was das ist.
+Das Terminal ist der *Rahmen* in dem die Anwendung läuft. Dort siehst du Log-Nachrichten (Info und Fehler) und du kannst die Anwendung wieder beenden. Drücke dazu ***STRG + C*** im Terminal oder schließe das Fenster.
+
+Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in ***Github*** an und füge diesem das Label ***question*** hinzu.
 
 ---
 
