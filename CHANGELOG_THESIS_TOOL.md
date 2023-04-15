@@ -4,6 +4,10 @@
 
 - The tex escaping has been fixed for short inputs.
 
+## Added
+
+- Added favicon.
+
 # v0.0.3
 
 ## Fixed
