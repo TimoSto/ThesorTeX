@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/faviconhandler"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
@@ -17,6 +18,8 @@ func RegisterAppHandlers(mux *http.ServeMux, fs filesystem.FileSystem) {
 	mux.HandleFunc("/", assets.HandleAssets())
 
 	mux.HandleFunc("/version", versionhandler.GetRootHandler(config.Version))
+
+	mux.HandleFunc("/favicon", faviconhandler.GetFaviconHandler())
 
 	mux.HandleFunc("/createNewProject", project.CreateProjectHandler(fs))
 
