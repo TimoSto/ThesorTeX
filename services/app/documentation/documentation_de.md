@@ -29,7 +29,7 @@ Die Begriffe ***Terminal-Fenster*** oder ***localhost*** wirken vielleicht etwas
 
 Diese Anwendung interagiert mit zwei Dingen auf deinem Computer: Dem Dateisystem und dem lokalen Netzwerk.
 
-Der Zugriff auf das Dateisystem wird benötigt, um Projekte, Literatureinträge und Literaturkategorien erstellen zu können. Die erstellten ORdner und Dateien sollten dabei von dir bearbeitet, verschoben und gelöscht werden können. Falls dies nicht geht, lege bitte einen Bug im Github-Projekt an.
+Der Zugriff auf das Dateisystem wird benötigt, um Projekte, Literatureinträge und Literaturkategorien erstellen zu können. Die erstellten Ordner und Dateien sollten dabei von dir bearbeitet, verschoben und gelöscht werden können. Falls dies nicht geht, lege bitte einen Bug im Github-Projekt an.
 
 Der Zugriff auf das lokale Netzwerk wird benötigt, um die Anwendung im Browser verfügbar zu machen. 
 Der Begriff ***localhost*** bezieht sich auf deinen Computer. Es ist der Standard-Kanal für Verbindungen auf und mit deinem Computer.
