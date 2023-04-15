@@ -9,6 +9,8 @@ The motivation for this was that adjustments to *BibLaTeX* can be very cumbersom
 - Create and edit bibliography categories via the web interface
 - Import your library or individual entries from Citavi
 
+---
+
 title: What is the best way to get started?
 Go to the ***Downloads*** page and download the package for your operating system. When you unzip the downloaded ZIP file, you should see an executable file. Copy this file into the folder where the LaTeX projects are to be created and start it by double-clicking on it.
 
