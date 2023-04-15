@@ -168,3 +168,5 @@ Dort kannst du zum einen den ***Port*** angeben, auf welchem die Anwendung laufe
 Nach dem Speichern musst du die Anwendung einmal neu starten und dann läuft sie auf dem von dir ausgewählen Port.
 
 Zum anderen kannst du das ***Verzeichnis für Projekte*** angeben. In diesem werden die Projekte gespeichert. Der Pfad ist relativ zum Speicherort des Programmes.
+
+Außerdem kannst du aktivieren, dass sich der Browser mit der richtigen Adresse automatisch öffnet, sobald du die Anwendung startest.

@@ -167,3 +167,5 @@ There you can enter the ***Port*** on which the application should run. By defau
 After saving, you have to restart the application once and then it will run on the port you selected.
 
 Secondly, you can specify the ***Directory for projects***. The projects are saved in this directory. The path is relative to the storage location of the application.
+
+You can also activate the browser to open automatically with the correct address as soon as you start the application.
