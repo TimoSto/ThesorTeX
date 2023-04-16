@@ -67,6 +67,7 @@ const titleAppendix = computed(() => {
 });
 
 onMounted(() => {
+  document.title = `ThesorTeX - ${t(i18nKeys.StartPage.Title)}`;
   onResize();
   window.addEventListener("resize", () => {
     onResize();
