@@ -25,7 +25,9 @@ func ApplyCacheTimes(r *http.Request, w *http.ResponseWriter) {
 
 	var cache time.Duration
 
-	if ct == "html" {
+	fmt.Println(r.URL.Path)
+
+	if ct == "html" || r.URL.Path == "/" {
 		cache = CacheTimeHTML
 	} else if ct == "css" || ct == "js" {
 		cache = CacheTimeAssets
