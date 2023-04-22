@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="4" :white="true" :small-display="smallDisplay" ref="fullHeightLayout">
+  <FullHeightLayout :pages="jsonDocs ? 4 : 2" :white="true" :small-display="smallDisplay" ref="fullHeightLayout">
     <template #content-1>
       <v-row class="d-flex flex-row">
         <v-col cols="12">
@@ -28,7 +28,16 @@
         </v-col>
       </v-row>
     </template>
-    <template #content-2>
+    <template #content-2 v-if="!jsonDocs">
+      <v-progress-circular
+        indeterminate
+        color="primary"
+        size="300"
+        width="7"
+        style="margin: 0 auto; display: block"
+      ></v-progress-circular>
+    </template>
+    <template #content-2 v-if="jsonDocs">
       <h2 class="text-h3 font-weight-bold text-center pa-4">
         {{ jsonDocs?.ThesisTemplate.Title }}
       </h2>
@@ -40,7 +49,7 @@
       </v-expansion-panels>
 
     </template>
-    <template #content-3>
+    <template #content-3 v-if="jsonDocs">
       <h2 class="text-h3 font-weight-bold text-center pa-4">
         {{ jsonDocs?.ThesisTool.Title }}
       </h2>
@@ -50,7 +59,7 @@
       </v-expansion-panels>
 
     </template>
-    <template #content-4>
+    <template #content-4 v-if="jsonDocs">
       <h2 class="text-h3 font-weight-bold text-center pa-4">
         {{ jsonDocs?.CVTemplate.Title }}
       </h2>
