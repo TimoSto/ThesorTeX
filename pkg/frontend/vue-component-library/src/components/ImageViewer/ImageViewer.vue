@@ -1,6 +1,6 @@
 <template>
   <v-img :src="image" @click="opened=true" style="cursor: pointer" :style="imageStyles" />
-  <v-dialog v-model="opened" fullscreen>
+  <v-dialog v-model="opened" fullscreen scrim="black" class="darker-scrim">
     <v-img :src="image"
            style="max-height: calc(100% - 50px); max-width: calc(100% - 50px); margin-top: 25px; margin-left: 25px;" />
     <v-btn icon position="fixed" size="large" style="right: 25px; top: 25px;" @click="opened=false">
@@ -23,6 +23,10 @@ defineProps({
 const opened = ref(false);
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.darker-scrim {
+  & .v-overlay__scrim {
+    opacity: 0.7;
+  }
+}
 </style>
