@@ -1,7 +1,8 @@
 <template>
   <v-img :src="image" @click="opened=true" style="cursor: pointer" />
   <v-dialog v-model="opened" fullscreen>
-    <v-img :src="image" style="max-height: calc(100% - 50px); margin-top: 25px;" />
+    <v-img :src="image"
+           style="max-height: calc(100% - 50px); max-width: calc(100% - 50px); margin-top: 25px; margin-left: 25px;" />
     <v-btn icon position="fixed" size="large" style="right: 25px; top: 25px;" @click="opened=false">
       <v-icon size="large">mdi-close</v-icon>
     </v-btn>

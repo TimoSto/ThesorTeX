@@ -37,7 +37,8 @@
     <template #content-2>
       <v-row>
         <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
-          <img :src="GermanTemplateImg" style="border: 1px solid black; max-height: 500px;" />
+          <ImageViewer :image="GermanTemplateImg" />
+          <!--          <img :src="GermanTemplateImg" style="border: 1px solid black; max-height: 500px;" />-->
           <!--TODO: Update doc image-->
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6" class="d-flex" style="justify-content: center; align-items: center;">
@@ -98,17 +99,14 @@
         </v-col>
         <v-col v-if="!smallDisplay" cols="6" class="d-flex"
                style="justify-content: center; align-items: center; position: relative;">
-          <img :src="ThesisTool1Img"
-               style="border: 1px solid black; max-width: 80%; transform: translate(75px, -50px); position: absolute;" />
-          <img :src="ThesisTool2Img"
-               style="border: 1px solid black; max-width: 80%; transform: translate(125px, 50px); position: absolute;" />
+          <ImageViewer :image="ThesisToolImg" />
         </v-col>
       </v-row>
     </template>
     <template #content-4>
       <v-row>
         <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
-          <img :src="CvTemplateImg" style="border: 1px solid black; max-height: 500px;" />
+          <ImageViewer :image="CvTemplateImg" />
         </v-col>
         <v-col :cols="smallDisplay ? 12 : 6">
           <h2 class="text-h3 font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
@@ -178,8 +176,7 @@ import {i18nKeys} from "../i18n/keys";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 import GermanTemplateImg from "../assets/thesis_template_de.png";
 import CvTemplateImg from "../assets/cv_template_de.png";
-import ThesisTool1Img from "../assets/thesis_tool_1_de.png";
-import ThesisTool2Img from "../assets/thesis_tool_2_de.png";
+import ThesisToolImg from "../assets/thesis_tool_de.png";
 import {BugSVG} from "../components/svgs/BugSVG";
 
 // globals
