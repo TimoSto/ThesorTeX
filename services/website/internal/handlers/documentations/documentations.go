@@ -54,6 +54,8 @@ func HandleDocumentationImages() func(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		w.Header().Set("Cache-Control", "max-age=3600")
+
 		w.Write(data)
 	}
 

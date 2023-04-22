@@ -25,6 +25,8 @@ func HandleVersions(bucket *buckethandler.BucketHandler) func(w http.ResponseWri
 			return
 		}
 
+		w.Header().Set("Cache-Control", "max-age=500")
+
 		w.Write(data)
 	}
 
