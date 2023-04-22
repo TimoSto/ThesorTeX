@@ -16,9 +16,9 @@
             {{ e.Content }}
           </v-list-item>
         </v-list>
-        <v-img v-if="g.Type === 'IMAGE'" :src="`/documentation/images/${g.Elements[0].Content}`"
-               style="border: 1px solid rgb(var(--v-theme-on-background)); width: calc(100% - 40px); margin: 0 auto;">
-        </v-img>
+        <ImageViewer v-if="g.Type === 'IMAGE'" :image="`/documentation/images/${g.Elements[0].Content}`"
+                     image-styles="border: 1px solid rgb(var(--v-theme-on-background)); width: calc(100% - 40px); margin: 0 auto;">
+        </ImageViewer>
       </template>
     </v-expansion-panel-text>
   </v-expansion-panel>
