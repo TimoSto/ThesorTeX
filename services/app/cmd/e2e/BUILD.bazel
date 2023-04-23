@@ -12,6 +12,7 @@ go_library(
         "//pkg/backend/pathbuilder",
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
+        "//services/app/internal/domain/updatechecker",
         "//services/app/internal/handlers",
     ],
 )

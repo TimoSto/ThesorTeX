@@ -49,6 +49,7 @@ func CheckUpdateAvailable() {
 	}
 
 	if semver.Compare(current, available) == 1 {
+		log.Info("An update is available: %s", available.ToString())
 		config.UpdateAvailable = available.ToString()
 	}
 }

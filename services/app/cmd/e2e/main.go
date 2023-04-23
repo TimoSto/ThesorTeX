@@ -11,10 +11,14 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/updatechecker"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )
 
 func main() {
+	config.Version = "0.0.1"
+	updatechecker.CheckUpdateAvailable()
+
 	log.Info("Starting the e2e app...")
 	log.Info("Version: %s", config.Version)
 

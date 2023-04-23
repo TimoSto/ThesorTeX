@@ -16,10 +16,13 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/server"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
+	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/updatechecker"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )
 
 func main() {
+	updatechecker.CheckUpdateAvailable()
+
 	log.Info("Starting the local app...")
 	log.Info("Version: %s", config.Version)
 

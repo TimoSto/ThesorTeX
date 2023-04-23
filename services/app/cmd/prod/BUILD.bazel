@@ -25,6 +25,7 @@ go_library(
         "//pkg/backend/server",
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
+        "//services/app/internal/domain/updatechecker",
         "//services/app/internal/handlers",
     ],
 )
