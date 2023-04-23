@@ -17,6 +17,7 @@ type versions struct {
 }
 
 //TODO: unit test this
+//TODO: use go client and then add timeout
 func CheckUpdateAvailable() {
 	resp, err := http.Get("https://thesortex.com/versions")
 	if err != nil {
