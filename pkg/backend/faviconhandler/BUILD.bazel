@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "faviconhandler",
@@ -6,4 +6,10 @@ go_library(
     embedsrcs = ["favicon.svg"],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/faviconhandler",
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "faviconhandler_test",
+    srcs = ["favicon_handler_test.go"],
+    embed = [":faviconhandler"],
 )
