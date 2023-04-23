@@ -19,6 +19,7 @@ type versions struct {
 //TODO: unit test this
 //TODO: use go client and then add timeout
 func CheckUpdateAvailable() {
+	log.Info("Checking for updates...")
 	resp, err := http.Get("https://thesortex.com/versions")
 	if err != nil {
 		log.Error("could not read versions from remote: %v", err)
@@ -50,7 +51,7 @@ func CheckUpdateAvailable() {
 	}
 
 	if semver.Compare(current, available) == 1 {
-		log.Info("An update is available: %s", available.ToString())
+		log.Info("A new version is available: %s", available.ToString())
 		config.UpdateAvailable = available.ToString()
 	}
 }

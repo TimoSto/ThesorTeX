@@ -17,10 +17,10 @@ import (
 
 func main() {
 	config.Version = "0.0.1"
+	log.Info("Version: %s", config.Version)
 	updatechecker.CheckUpdateAvailable()
 
 	log.Info("Starting the e2e app...")
-	log.Info("Version: %s", config.Version)
 
 	//pathbuilder.Init()
 

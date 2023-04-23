@@ -21,10 +21,11 @@ import (
 )
 
 func main() {
+	log.Info("Version: %s", config.Version)
+
 	updatechecker.CheckUpdateAvailable()
 
 	log.Info("Starting the local app...")
-	log.Info("Version: %s", config.Version)
 
 	pathbuilder.Init()
 
