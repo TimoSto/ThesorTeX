@@ -11,6 +11,7 @@ func CreateHandlerChain() alice.Chain {
 	return alice.New(
 		LogRequest(),
 		//TODO: add headers
+		//TODO: unit test
 	)
 }
 
