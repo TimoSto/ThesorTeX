@@ -1,3 +1,8 @@
+# v1.1.0
+
+## Added
+- When the app is started, the latest version is read from remote and logged to the console, if it is newer than the current version.
+
 # v1.0.0
 
 ## Fixed
