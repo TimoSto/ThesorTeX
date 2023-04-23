@@ -2,7 +2,9 @@ package faviconhandler
 
 import (
 	_ "embed"
+	"fmt"
 	"net/http"
+	"time"
 )
 
 //TODO: generate this at build time
@@ -11,6 +13,8 @@ var favicon []byte
 
 func GetFaviconHandler() func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%v", int(24*time.Hour/time.Second)))
+
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
