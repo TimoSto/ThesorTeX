@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "updatechecker",
+    srcs = ["updatechecker.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/updatechecker",
+    visibility = ["//services/app:__subpackages__"],
+    deps = ["//pkg/backend/log"],
+)

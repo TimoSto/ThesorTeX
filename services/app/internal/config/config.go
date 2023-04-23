@@ -12,6 +12,8 @@ import (
 
 var Version string
 
+var UpdateAvailable string
+
 type Config struct {
 	Port            string
 	ProjectsDir     string
