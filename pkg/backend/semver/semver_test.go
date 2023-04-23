@@ -67,7 +67,7 @@ func TestCompare(t *testing.T) {
 				Minor: 1,
 				Patch: 0,
 			},
-			exp: -1,
+			exp: 1,
 		},
 		{
 			title: "v1 is larger",
@@ -81,7 +81,7 @@ func TestCompare(t *testing.T) {
 				Minor: 1,
 				Patch: 0,
 			},
-			exp: 1,
+			exp: -1,
 		},
 	} {
 		t.Run(tc.title, func(t *testing.T) {

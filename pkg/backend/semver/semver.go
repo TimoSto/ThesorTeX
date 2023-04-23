@@ -56,9 +56,9 @@ func sliceCompare(v1 []int64, v2 []int64) int {
 	a := v1[0]
 	b := v2[0]
 
-	if a > b {
+	if a < b {
 		return 1
-	} else if a < b {
+	} else if a > b {
 		return -1
 	}
 
