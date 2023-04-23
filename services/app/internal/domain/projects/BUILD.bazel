@@ -11,11 +11,11 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects",
     visibility = ["//services/app:__subpackages__"],
     deps = [
+        "//pkg/backend/filesystem",
         "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
         "//pkg/backend/project_template",
         "//services/app/internal/config",
-        "//services/app/internal/filesystem",
     ],
 )
 
@@ -28,9 +28,9 @@ go_test(
     ],
     embed = [":projects"],
     deps = [
+        "//pkg/backend/filesystem/fake",
         "//pkg/backend/pathbuilder",
         "//pkg/backend/project_template",
         "//services/app/internal/config",
-        "//services/app/internal/filesystem/fake",
     ],
 )

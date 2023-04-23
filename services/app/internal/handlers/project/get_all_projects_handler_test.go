@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
 )
 
 func TestGetAllProjectsHandler(t *testing.T) {

@@ -3,9 +3,9 @@ package categories
 import (
 	"testing"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
 )
 
 func TestDeleteCategory(t *testing.T) {

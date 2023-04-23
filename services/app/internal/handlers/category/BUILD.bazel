@@ -9,10 +9,10 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category",
     visibility = ["//services/app:__subpackages__"],
     deps = [
+        "//pkg/backend/filesystem",
         "//pkg/backend/log",
         "//services/app/internal/config",
         "//services/app/internal/domain/categories",
-        "//services/app/internal/filesystem",
     ],
 )
 
@@ -24,7 +24,7 @@ go_test(
     ],
     embed = [":category"],
     deps = [
+        "//pkg/backend/filesystem/fake",
         "//services/app/internal/config",
-        "//services/app/internal/filesystem/fake",
     ],
 )

@@ -3,8 +3,8 @@ package projects
 import (
 	"testing"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/fake"
 )
 
 func TestDeleteProject(t *testing.T) {

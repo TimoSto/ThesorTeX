@@ -18,13 +18,13 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/cmd/prod",
     visibility = ["//visibility:private"],
     deps = [
+        "//pkg/backend/filesystem/local",
         "//pkg/backend/handler_chain",
         "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
         "//pkg/backend/server",
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
-        "//services/app/internal/filesystem/local",
         "//services/app/internal/handlers",
     ],
 )

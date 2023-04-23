@@ -12,11 +12,11 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/app/internal/domain/entries",
     visibility = ["//services/app:__subpackages__"],
     deps = [
+        "//pkg/backend/filesystem",
         "//pkg/backend/pathbuilder",
         "//pkg/backend/tex_escaping",
         "//services/app/internal/config",
         "//services/app/internal/domain/categories",
-        "//services/app/internal/filesystem",
     ],
 )
 
@@ -30,9 +30,9 @@ go_test(
     ],
     embed = [":entries"],
     deps = [
+        "//pkg/backend/filesystem/fake",
         "//pkg/backend/pathbuilder",
         "//services/app/internal/config",
         "//services/app/internal/domain/projects",
-        "//services/app/internal/filesystem/fake",
     ],
 )

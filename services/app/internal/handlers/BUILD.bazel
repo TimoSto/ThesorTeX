@@ -7,9 +7,9 @@ go_library(
     visibility = ["//services/app:__subpackages__"],
     deps = [
         "//pkg/backend/faviconhandler",
+        "//pkg/backend/filesystem",
         "//pkg/backend/versionhandler",
         "//services/app/internal/config",
-        "//services/app/internal/filesystem",
         "//services/app/internal/handlers/assets",
         "//services/app/internal/handlers/category",
         "//services/app/internal/handlers/config",

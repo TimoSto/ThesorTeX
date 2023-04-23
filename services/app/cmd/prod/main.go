@@ -9,13 +9,13 @@ import (
 	"runtime"
 	"syscall"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/local"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/server"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem/local"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers"
 )
 

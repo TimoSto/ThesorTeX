@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/entries"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
 func HandleSaveEntry(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {

@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/faviconhandler"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/assets"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/handlers/category"
 	config_handlers "github.com/TimoSto/ThesorTeX/services/app/internal/handlers/config"

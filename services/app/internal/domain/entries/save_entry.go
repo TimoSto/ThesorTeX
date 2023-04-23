@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"sort"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/categories"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
 func SaveEntry(fs filesystem.FileSystem, cfg config.Config, project string, key string, entry Entry) error {

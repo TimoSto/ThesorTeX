@@ -3,10 +3,10 @@ package project
 import (
 	"net/http"
 
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/app/internal/domain/projects"
-	"github.com/TimoSto/ThesorTeX/services/app/internal/filesystem"
 )
 
 func HandleProjectDelete(fs filesystem.FileSystem) func(w http.ResponseWriter, r *http.Request) {
