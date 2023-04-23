@@ -2,7 +2,9 @@ package versionhandler
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 )
@@ -13,8 +15,10 @@ type versionRes struct {
 
 func GetRootHandler(version string) func(w http.ResponseWriter, r *http.Request) {
 	fn := func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%v", int(24*time.Hour/time.Second)))
+
 		if r.Method != http.MethodGet {
-			w.WriteHeader(http.StatusBadRequest)
+			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
 		}
 
