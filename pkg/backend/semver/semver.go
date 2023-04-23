@@ -12,6 +12,10 @@ type Version struct {
 	Patch int64
 }
 
+func (v Version) ToString() string {
+	return fmt.Sprintf("%v.%v.%v", v.Major, v.Minor, v.Patch)
+}
+
 func ParseString(version string) (Version, error) {
 	// rm possible leading v
 	version = strings.TrimLeft(version, "v")
