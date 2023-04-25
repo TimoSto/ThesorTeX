@@ -2,6 +2,7 @@
 
 ## Added
 - When the app is started, the latest version is read from remote and logged to the console, if it is newer than the current version.
+- Display a card, when an update is available.
 
 # v1.0.0
 
