@@ -25,6 +25,12 @@ export const german: I18nKeys = {
         KeyAlreadyExists: "Schlüssel bereits vergeben"
     },
     App: {},
+    UpdateDialog: {
+        Title: "Eine neue Version is verfügbar: {version}",
+        Content: "Gehe zu {link} und lade die aktuellste Version herunter. Beende die Applikation (STG + C oder Terminalfenster schließen), entpacke die ZIP-Datei und ersetze die Programm-Datei. Nun kannst du die Applikation durch einen Doppelklick wieder starten.",
+        ToDownloads: "Zu den Downloads",
+        Ignore: "Ignorieren"
+    },
     MainPage: {
         Welcome: "Willkommen bei ThesorTeX!",
         Project: "Projekt",

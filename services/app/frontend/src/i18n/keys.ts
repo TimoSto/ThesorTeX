@@ -23,6 +23,12 @@ export const i18nKeys = {
         KeyAlreadyExists: "Rules.KeyAlreadyExists",
     },
     App: {},
+    UpdateDialog: {
+        Title: "UpdateDialog.Title",
+        Content: "UpdateDialog.Content",
+        ToDownloads: "UpdateDialog.ToDownloads",
+        Ignore: "UpdateDialog.Ignore"
+    },
     MainPage: {
         Welcome: "MainPage.Welcome",
         Project: "MainPage.Project",

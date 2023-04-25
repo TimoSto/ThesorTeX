@@ -25,6 +25,12 @@ export const english: I18nKeys = {
         KeyAlreadyExists: "This key already exists"
     },
     App: {},
+    UpdateDialog: {
+        Title: "A new version is available: {version}",
+        Content: "Go to {link} and download the latest version. Close the application (STG + C or close terminal window), unpack the ZIP file and replace the programme file. Now you can start the application again with a double click.",
+        ToDownloads: "To the downloads",
+        Ignore: "Ignore"
+    },
     MainPage: {
         Welcome: "Welcome to ThesorTeX!",
         Project: "Project",

@@ -21,6 +21,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+  <UpdateDialog :version="updateAvailable" />
 </template>
 
 <script lang="ts" setup>
@@ -31,6 +32,7 @@ import {i18nKeys} from "../i18n/keys";
 import GetConfig from "../api/config/GetConfig";
 import SaveConfig from "../api/config/SaveConfig";
 import getPortRules from "../domain/config/PortRules";
+import UpdateDialog from "../components/UpdateDialog.vue";
 
 const emit = defineEmits(["close"]);
 
@@ -46,6 +48,8 @@ const port = ref("");
 const dir = ref("");
 
 const openBrowser = ref(false);
+
+const updateAvailable = ref("");
 
 // importing interface gives error
 const initial = ref({} as {
@@ -75,7 +79,8 @@ async function saveConfig() {
   const success = await SaveConfig({
     Port: port.value,
     ProjectsDir: dir.value,
-    OpenBrowser: openBrowser.value
+    OpenBrowser: openBrowser.value,
+    UpdateAvailable: updateAvailable.value
   });
 
   if (success) {
@@ -90,6 +95,7 @@ GetConfig().then(cfg => {
   port.value = cfg.Port;
   dir.value = cfg.ProjectsDir;
   openBrowser.value = cfg.OpenBrowser;
+  updateAvailable.value = cfg.UpdateAvailable;
 
   initial.value = cfg;
 });

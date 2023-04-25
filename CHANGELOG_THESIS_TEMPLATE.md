@@ -1,3 +1,6 @@
+# v1.2.0
+- Display a card, when an update is available.
+
 # v1.1.1
 
 ## Fixed
