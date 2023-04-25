@@ -52,6 +52,6 @@ func CheckUpdateAvailable() {
 
 	if semver.Compare(current, available) == 1 {
 		log.Info("A new version is available: %s", available.ToString())
-		config.UpdateAvailable = available.ToString()
+		config.Cfg.UpdateAvailable = available.ToString()
 	}
 }

@@ -23,8 +23,6 @@ import (
 func main() {
 	log.Info("Version: %s", config.Version)
 
-	updatechecker.CheckUpdateAvailable()
-
 	log.Info("Starting the local app...")
 
 	pathbuilder.Init()
@@ -40,6 +38,8 @@ func main() {
 		log.Error("unexpected error reading the config: %v", err)
 		os.Exit(1)
 	}
+
+	updatechecker.CheckUpdateAvailable()
 
 	exists, err := fs.CheckDirectoryExists(config.Cfg.ProjectsDir)
 	if err != nil {

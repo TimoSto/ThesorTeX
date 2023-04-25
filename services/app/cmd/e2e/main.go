@@ -18,7 +18,6 @@ import (
 func main() {
 	config.Version = "0.0.1"
 	log.Info("Version: %s", config.Version)
-	updatechecker.CheckUpdateAvailable()
 
 	log.Info("Starting the e2e app...")
 
@@ -35,6 +34,8 @@ func main() {
 		log.Error("could read/init config: %v", err)
 		os.Exit(1)
 	}
+
+	updatechecker.CheckUpdateAvailable()
 
 	config.Cfg.Port = "8440"
 	config.Cfg.ProjectsDir = "projects"
