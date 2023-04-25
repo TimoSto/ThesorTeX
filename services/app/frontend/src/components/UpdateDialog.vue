@@ -1,14 +1,14 @@
 <template>
   <v-card position="fixed" elevation="3" max-width="500" style="z-index: 1010; right: 25px; top: 50px;" v-if="display">
     <v-card-title>
-      <i18n-t :keypath="i18nKeys.UpdateDialog.Title">
+      <i18n-t :keypath="i18nKeys.UpdateDialog.Title" scope="global">
         <template #version>
           {{ version }}
         </template>
       </i18n-t>
     </v-card-title>
     <v-card-text class="text-body-1">
-      <i18n-t :keypath="i18nKeys.UpdateDialog.Content">
+      <i18n-t :keypath="i18nKeys.UpdateDialog.Content" scope="global">
         <template #link>
           <a href="https://thesortex.com/#/downloads/" target="_blank" style="color: rgb(var(--v-theme-primary))">thesortex.com</a>
         </template>
