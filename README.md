@@ -1,7 +1,10 @@
 # ThesorTeX
-Tool for handling bibliography in a LaTeX project.
+A Template for a thesis, a cv and a Tool for handling bibliography in a LaTeX project.
 
 The website is available under [https://thesortex.com](https://thesortex.com).
+
+## Target consumers
+Consumers of these templates and tools should have basic knowledge in the use of LaTeX. The target audience are students, who want to use LaTeX.
 
 ## Downloads
 The template for academic papers can be downloaded [here](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTemplate/latest/ThesisTemplate.zip)
