@@ -33,6 +33,9 @@ const {t} = useI18n();
 const ignored = ref([] as string[]);
 
 const display = computed(() => {
+  if (document.cookie.match(/^(.*;)?\s*IgnoreThesorTeXUpdates\s*=\s*[^;]+(.*)?$/)) {
+    return false;
+  }
   return props.version && props.version.length > 0 && ignored.value.indexOf(props.version) === -1;
 });
 

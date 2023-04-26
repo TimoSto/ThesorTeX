@@ -48,6 +48,11 @@ Before(async function (this: OurWorld) {
         locale: "en"
     });
     this.page = await this.context.newPage();
+    this.page.context().addCookies([{
+        name: "IgnoreThesorTeXUpdates",
+        value: "mytokenvalue123",
+        url: "http://localhost:8440"
+    }]);
 });
 // Cleanup after each scenario
 After(async function (this: OurWorld) {
