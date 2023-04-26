@@ -1,10 +1,7 @@
 /// <reference types="vitest" />
 import {defineConfig} from "vite";
-import {dirname, resolve} from "node:path";
-import {fileURLToPath} from "url";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
-import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 
 const root = process.env.VITEST_ROOT;
 
@@ -14,11 +11,6 @@ export default defineConfig({
         vue(),
         vuetify({
             autoImport: true,
-        }),
-        VueI18nPlugin({
-            /* options */
-            // locale messages resource pre-compile option
-            include: resolve(dirname(fileURLToPath(import.meta.url)), "./src/i18n/**"),
         }),
     ],
     server: {
