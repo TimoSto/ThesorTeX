@@ -200,6 +200,7 @@ importers:
 
   tests/e2e:
     specifiers:
+      '@axe-core/playwright': ^4.6.1
       '@cucumber/cucumber': ^8.10.0
       '@playwright/test': ^1.30.0
       '@types/node': 18.11.18
@@ -207,6 +208,7 @@ importers:
       ts-node: 10.9.1
       typescript: 4.9.5
     devDependencies:
+      '@axe-core/playwright': 4.6.1_playwright@1.30.0
       '@cucumber/cucumber': 8.10.0
       '@playwright/test': 1.30.0
       '@types/node': 18.11.18
@@ -215,6 +217,15 @@ importers:
       typescript: 4.9.5
 
 packages:
+
+  /@axe-core/playwright/4.6.1_playwright@1.30.0:
+    resolution: { integrity: sha512-XMKP2OzGfGIYpU9G9FgI2ulyjEXQDP6qtZerOwdQ7YC1w4SFgofK3ogSk0qVoy0QI+q6XWLUJMfMMkUwdTR2dA== }
+    peerDependencies:
+      playwright: '>= 1.0.0'
+    dependencies:
+      axe-core: 4.7.0
+      playwright: 1.30.0
+    dev: true
 
   /@babel/helper-string-parser/7.19.4:
     resolution: { integrity: sha512-nHtDoQcuqFmwYNYPz3Rah5ph2p8PFeFCsZk9A/48dPc/rGocJ5J3hAAZ7pb76VWX3fZKu+uEr/FhH5jLx7umrw== }
@@ -1175,12 +1186,17 @@ packages:
     engines: { node: '>= 0.4' }
     dev: true
 
+  /axe-core/4.7.0:
+    resolution: { integrity: sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ== }
+    engines: { node: '>=4' }
+    dev: true
+
   /balanced-match/1.0.2:
-    resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+    resolution: { integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw== }
     dev: true
 
   /base64-js/1.5.1:
-    resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    resolution: { integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA== }
     dev: true
 
   /binary-extensions/2.2.0:

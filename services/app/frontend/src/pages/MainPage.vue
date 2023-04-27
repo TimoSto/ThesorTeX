@@ -18,6 +18,7 @@
                 <v-btn
                   flat
                   text
+                  title="Newes Projekt erstellen"
                   @click="createNewTriggered = true"
                 >
                   <v-icon>mdi-plus</v-icon>

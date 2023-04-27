@@ -6,6 +6,7 @@
     >
       <v-app-bar-nav-icon
         :disabled="sidebarDisabled"
+        title="Sidebar öffnen"
         @click.stop="sidebarOpened = !sidebarOpened"
       />
 
@@ -16,14 +17,14 @@
         <v-icon>mdi-arrow-left</v-icon>
       </v-app-bar-nav-icon>
 
-      <v-app-bar-title>
+      <v-app-bar-title role="heading" aria-level="1">
         ThesorTeX
         {{ titleAppendix }}
       </v-app-bar-title>
 
       <v-spacer />
 
-      <v-btn icon @click="configOpened=true">
+      <v-btn icon title="Konfiguration" @click="configOpened=true">
         <v-icon>mdi-cog</v-icon>
       </v-btn>
     </v-app-bar>

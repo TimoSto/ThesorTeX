@@ -22,6 +22,7 @@ def run_playwright_cucumber(name, executable, data = [], **kwargs):
             ":node_modules/@cucumber/cucumber",
             ":node_modules/@playwright/test",
             ":node_modules/playwright",
+            ":node_modules/@axe-core/playwright",
         ],
     )
 
