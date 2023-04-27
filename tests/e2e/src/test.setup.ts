@@ -1,5 +1,6 @@
 import {After, AfterAll, Before, BeforeAll} from "@cucumber/cucumber";
-import {chromium, ChromiumBrowser, devices} from "playwright";
+import {APIRequestContext, chromium, ChromiumBrowser, devices} from "playwright";
+import {expect, request} from "@playwright/test";
 import {OurWorld} from "./types";
 import {spawn} from "child_process";
 
@@ -22,17 +23,35 @@ BeforeAll(async function () {
             // stdio: "ignore",
             detached: false,
         });
+        sut.on("exit", (code: number) => {
+            if (code && code !== 0) {
+                throw `System under test exited with code ${code}`;
+            }
+        });
         sut.on("error", (err: any) => {
             throw "Could not start system under test executable";
         });
         // sut.stdout.on("data", (data: any) => console.log(data.toString()));
         sut.stderr.on("data", (data: any) => console.error(data.toString()));
-        await new Promise(resolve => {
-            console.log("waiting 1s for process to be running");
-            setTimeout(resolve, 1000);
+
+        console.log("sbu", process.env.SYSTEM_BASE_URL);
+        const ctx = await request.newContext({
+            baseURL: process.env.SYSTEM_BASE_URL,
+            ignoreHTTPSErrors: true,
         });
+        await expect.poll(() => isReachable(ctx), {timeout: 10000}).toBeTruthy();
     }
 });
+
+async function isReachable(ctx: APIRequestContext) {
+    try {
+        await ctx.head("/");
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 AfterAll(async function () {
     await browser.close();
     await sut?.kill();

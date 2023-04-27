@@ -27,7 +27,8 @@ def run_playwright_cucumber(name, executable, data = [], **kwargs):
     )
 
     _env = {
-        "EXECUTABLE": executable
+        "EXECUTABLE": executable,
+        "SYSTEM_BASE_URL": "http://localhost:8440"
     }
 
     cucmber_bin.cucumber_js_test(
