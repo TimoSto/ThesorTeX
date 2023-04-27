@@ -8,6 +8,7 @@ npm_link_all_packages(name = "node_modules")
 run_playwright_cucumber(
     name = "app",
     target = "app",
+    sbu = "http://localhost:8440",
     data = [
         "//services/app/cmd/e2e",
     ],
@@ -17,6 +18,7 @@ run_playwright_cucumber(
 run_playwright_cucumber(
     name = "thesisTool_Accessibility",
     target = "accessibility/thesisTool",
+    sbu = "http://localhost:8440",
     data = [
         "//services/app/cmd/e2e",
     ],
