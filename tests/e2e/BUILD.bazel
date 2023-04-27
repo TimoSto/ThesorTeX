@@ -6,8 +6,8 @@ load(":run_playwright_cucumber.bzl", "run_playwright_cucumber")
 npm_link_all_packages(name = "node_modules")
 
 run_playwright_cucumber(
-    name = "app",
-    target = "app",
+    name = "thesisTool",
+    target = "thesisTool",
     sbu = "http://localhost:8440",
     data = [
         "//services/app/cmd/e2e",
