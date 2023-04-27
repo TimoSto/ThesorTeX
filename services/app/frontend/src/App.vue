@@ -6,7 +6,7 @@
     >
       <v-app-bar-nav-icon
         :disabled="sidebarDisabled"
-        title="Sidebar öffnen"
+        :title="sidebarOpened ? t(i18nKeys.App.CloseSidebar) : t(i18nKeys.App.OpenSidebar)"
         @click.stop="sidebarOpened = !sidebarOpened"
       />
 
@@ -24,7 +24,7 @@
 
       <v-spacer />
 
-      <v-btn icon title="Konfiguration" @click="configOpened=true">
+      <v-btn icon :title="t(i18nKeys.Config.OpenConfig)" @click="configOpened=true">
         <v-icon>mdi-cog</v-icon>
       </v-btn>
     </v-app-bar>

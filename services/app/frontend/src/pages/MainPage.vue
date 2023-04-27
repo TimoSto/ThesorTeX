@@ -18,7 +18,7 @@
                 <v-btn
                   flat
                   text
-                  title="Newes Projekt erstellen"
+                  :title="t(i18nKeys.MainPage.CreateProject)"
                   @click="createNewTriggered = true"
                 >
                   <v-icon>mdi-plus</v-icon>

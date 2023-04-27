@@ -24,7 +24,10 @@ export const german: I18nKeys = {
         NameAlreadyExists: "Name bereits vergeben",
         KeyAlreadyExists: "Schlüssel bereits vergeben"
     },
-    App: {},
+    App: {
+        OpenSidebar: "Erweitern",
+        CloseSidebar: "Minimieren"
+    },
     UpdateDialog: {
         Title: "Eine neue Version is verfügbar: {version}",
         Content: "Gehe zu {link} und lade die aktuellste Version herunter. Beende die Applikation (STG + C oder Terminalfenster schließen), entpacke die ZIP-Datei und ersetze die Programm-Datei. Nun kannst du die Applikation durch einen Doppelklick wieder starten.",
@@ -107,6 +110,7 @@ export const german: I18nKeys = {
     },
     Config: {
         Title: "Konfiguration",
+        OpenConfig: "Konfiguration öffnen",
         Port: "Port",
         Dir: "Verzeichnis für Projekte",
         Open: "Beim Starten Browserfenster öffnen",

@@ -22,7 +22,10 @@ export const i18nKeys = {
         NameAlreadyExists: "Rules.NameAlreadyExists",
         KeyAlreadyExists: "Rules.KeyAlreadyExists",
     },
-    App: {},
+    App: {
+        OpenSidebar: "App.OpenSidebar",
+        CloseSidebar: "App.CloseSidebar",
+    },
     UpdateDialog: {
         Title: "UpdateDialog.Title",
         Content: "UpdateDialog.Content",
@@ -105,6 +108,7 @@ export const i18nKeys = {
     },
     Config: {
         Title: "Config.Title",
+        OpenConfig: "Config.OpenConfig",
         Port: "Config.Port",
         Dir: "Config.Dir",
         Open: "Config.Open",

@@ -24,7 +24,10 @@ export const english: I18nKeys = {
         NameAlreadyExists: "Name is already used",
         KeyAlreadyExists: "This key already exists"
     },
-    App: {},
+    App: {
+        OpenSidebar: "Expand",
+        CloseSidebar: "Minimize"
+    },
     UpdateDialog: {
         Title: "A new version is available: {version}",
         Content: "Go to {link} and download the latest version. Close the application (STG + C or close terminal window), unpack the ZIP file and replace the programme file. Now you can start the application again with a double click.",
@@ -107,6 +110,7 @@ export const english: I18nKeys = {
     },
     Config: {
         Title: "Configuration",
+        OpenConfig: "Open configuration",
         Port: "Port",
         Dir: "Directory for projects",
         Open: "Open browser on startup",
