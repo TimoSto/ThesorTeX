@@ -5,7 +5,9 @@ import AxeBuilder from "@axe-core/playwright";
 
 Then("the wcag guidelines are met", async function (this: OurWorld) {
     const page = this.page;
-    const accessibilityScanResults = await new AxeBuilder({page}).analyze();
+    const accessibilityScanResults = await new AxeBuilder({page})
+        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+        .analyze();
 
     expect(accessibilityScanResults.violations).toEqual([]);
 });
