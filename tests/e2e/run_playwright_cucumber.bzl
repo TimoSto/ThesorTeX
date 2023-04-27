@@ -1,7 +1,7 @@
 load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 
-def run_playwright_cucumber(name, executable, data = [], **kwargs):
+def run_playwright_cucumber(name, executable, target, data = [], **kwargs):
     ts_config(
         name = name + "_tsconfig",
         src = "tsconfig.json",
@@ -43,7 +43,7 @@ def run_playwright_cucumber(name, executable, data = [], **kwargs):
                 ":node_modules/playwright",
             ] + native.glob([
                 # We lookup only service specific feature files.
-                "features/**/*.feature",
+                "features/" + target + "/*.feature",
                 # The playwright inspectors shows now the original typescript source file
                 # by including source maps and the original typescript files.
                 "src/**/*.ts",
