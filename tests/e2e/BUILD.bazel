@@ -13,3 +13,12 @@ run_playwright_cucumber(
     ],
     executable = "../../services/app/cmd/e2e/e2e_/e2e",
 )
+
+run_playwright_cucumber(
+    name = "thesisTool_Accessibility",
+    target = "accessibility/thesisTool",
+    data = [
+        "//services/app/cmd/e2e",
+    ],
+    executable = "../../services/app/cmd/e2e/e2e_/e2e",
+)
