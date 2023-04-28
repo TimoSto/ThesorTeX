@@ -70,7 +70,7 @@ Before(async function (this: OurWorld) {
     this.page.context().addCookies([{
         name: "IgnoreThesorTeXUpdates",
         value: "mytokenvalue123",
-        url: "http://localhost:8440"
+        url: process.env.SYSTEM_BASE_URL
     }]);
 });
 // Cleanup after each scenario

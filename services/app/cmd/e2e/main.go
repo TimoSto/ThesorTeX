@@ -37,7 +37,16 @@ func main() {
 
 	updatechecker.CheckUpdateAvailable()
 
-	config.Cfg.Port = "8440"
+	envPort := os.Getenv("E2E_PORT")
+
+	if envPort != "" {
+		config.Cfg.Port = envPort
+	} else {
+		config.Cfg.Port = "8440"
+	}
+
+	fmt.Println(config.Cfg.Port)
+
 	config.Cfg.ProjectsDir = "projects"
 
 	log.Info("removing possibly existing previous projects...")
@@ -57,7 +66,7 @@ func main() {
 
 	handlers.RegisterAppHandlers(mux, &fs)
 
-	err = http.ListenAndServe(fmt.Sprintf("localhost:%s", "8440"), chain.Then(mux))
+	err = http.ListenAndServe(fmt.Sprintf("localhost:%s", config.Cfg.Port), chain.Then(mux))
 	if err != nil {
 		log.Error("unexpected error starting server: %v", err)
 		os.Exit(1)

@@ -1,3 +1,3 @@
 export default function getFullUri(path: string): string {
-    return new URL(path, "http://localhost:8440").href;
+    return new URL(path, process.env.SYSTEM_BASE_URL).href;
 }

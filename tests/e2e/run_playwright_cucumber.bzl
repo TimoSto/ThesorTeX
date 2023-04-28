@@ -1,7 +1,7 @@
 load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 
-def run_playwright_cucumber(name, executable, target, sbu, data = [], **kwargs):
+def run_playwright_cucumber(name, executable, target, port, sbu, data = [], **kwargs):
     ts_config(
         name = name + "_tsconfig",
         src = "tsconfig.json",
@@ -28,7 +28,8 @@ def run_playwright_cucumber(name, executable, target, sbu, data = [], **kwargs):
 
     _env = {
         "EXECUTABLE": executable,
-        "SYSTEM_BASE_URL": sbu
+        "SYSTEM_BASE_URL": sbu,
+        "E2E_PORT": port,
     }
 
     cucmber_bin.cucumber_js_test(
