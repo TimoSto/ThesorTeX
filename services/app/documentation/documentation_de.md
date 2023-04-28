@@ -42,7 +42,7 @@ Diese Anwendung läuft lokal und ist nur von deinem Computer aus erreichbar. Des
 Wenn du die Anwendung durch einen Doppelklick startest, wird ein ***Terminal-Fenster*** geöffnet. Da man sowas bei Programmen wie *MS Word* nicht sieht, fragst du dich vielleicht, was das ist.
 Das Terminal ist der *Rahmen* in dem die Anwendung läuft. Dort siehst du Log-Nachrichten (Info und Fehler) und du kannst die Anwendung wieder beenden. Drücke dazu ***STRG + C*** im Terminal oder schließe das Fenster.
 
-Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in ***Github*** an und füge diesem das Label ***question*** hinzu.
+Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in ***Github*** an und füge diesem das Label ***question*** hinzu, oder schreibe einen Beitrag in die Diskussionsrunde.
 
 ---
 

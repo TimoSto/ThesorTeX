@@ -43,7 +43,7 @@ This application runs locally and is only accessible from your computer. Therefo
 When you start the application by double-clicking, a ***terminal window*** opens. Since you don't see this with programs like *MS Word*, you may be wondering what it is.
 The terminal is the *frame* in which the application runs. There you will see log messages (info and errors) and you can close the application. To do this, press ***STRG + C*** in the terminal or close the window.
 
-If you have further questions or uncertainties, feel free to create an issue in ***Github*** and add the label ***question*** to it.
+If you have further questions or uncertainties, feel free to create an issue in ***Github*** and add the label ***question*** to it, or write a post in the discussion board.
 
 ---
 
