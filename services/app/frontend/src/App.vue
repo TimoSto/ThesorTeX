@@ -25,6 +25,12 @@
 
       <v-spacer />
 
+      <a target="_blank" href="https://thesortex.com/#/tutorials?target=ThesisTool"
+         style="color: rgb(var(--v-theme-on-primary))">
+        <v-btn icon :title="t(i18nKeys.App.GoToDocs)">
+          <v-icon>mdi-book-open-variant</v-icon>
+        </v-btn>
+      </a>
       <v-btn icon :title="t(i18nKeys.Config.OpenConfig)" @click="configOpened=true">
         <v-icon>mdi-cog</v-icon>
       </v-btn>

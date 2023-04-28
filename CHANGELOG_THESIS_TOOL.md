@@ -3,6 +3,9 @@
 ## Fixed
 - Buttons now have titles. (Accessibility)
 
+## Added
+- Add a link to the documentation in the header.
+
 # v1.1.0
 
 ## Added
