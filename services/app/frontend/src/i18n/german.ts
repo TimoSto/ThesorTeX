@@ -15,7 +15,8 @@ export const german: I18nKeys = {
         Value: "Wert",
         General: "Allgemein",
         Continue: "Fortfahren",
-        Save: "Speichern"
+        Save: "Speichern",
+        Back: "Zurück"
     },
     Rules: {
         NoSpaces: "Keine Leerzeichen erlaubt",

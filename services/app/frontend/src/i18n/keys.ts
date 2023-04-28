@@ -13,7 +13,8 @@ export const i18nKeys = {
         Value: "Common.Value",
         General: "Common.General",
         Continue: "Common.Continue",
-        Save: "Common.Save"
+        Save: "Common.Save",
+        Back: "Common.Back"
     },
     Rules: {
         NoSpaces: "Rules.NoSpaces",
@@ -25,7 +26,7 @@ export const i18nKeys = {
     App: {
         OpenSidebar: "App.OpenSidebar",
         CloseSidebar: "App.CloseSidebar",
-        ProjectsList: "App.ProjectsList"
+        ProjectsList: "App.ProjectsList",
     },
     UpdateDialog: {
         Title: "UpdateDialog.Title",

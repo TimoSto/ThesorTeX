@@ -15,7 +15,8 @@ export const english: I18nKeys = {
         Value: "Value",
         General: "General",
         Continue: "Continue",
-        Save: "Save"
+        Save: "Save",
+        Back: "Back"
     },
     Rules: {
         NoSpaces: "No spaces allowed",

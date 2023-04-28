@@ -7,6 +7,7 @@
       <v-spacer />
       <v-btn
         icon
+        :title="t(i18nKeys.ProjectPage.DeleteTitle)"
         @click="deleteTriggered = true"
       >
         <v-icon>mdi-delete</v-icon>
@@ -37,6 +38,7 @@
                       <v-btn
                         flat
                         text
+                        :title="t(i18nKeys.EntryEditor.NewEntry)"
                         @click="openEntryEditor(-1)"
                       >
                         <v-icon>mdi-plus</v-icon>
@@ -67,6 +69,7 @@
                       <v-btn
                         flat
                         text
+                        :title="t(i18nKeys.CategoryEditor.NewCategory)"
                         @click="openCategoryEditor(-1)"
                       >
                         <v-icon>mdi-plus</v-icon>

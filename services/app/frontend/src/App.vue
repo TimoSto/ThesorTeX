@@ -12,6 +12,7 @@
 
       <v-app-bar-nav-icon
         v-if="pagesCount > 1"
+        :title="t(i18nKeys.Common.Back)"
         @click="navBack"
       >
         <v-icon>mdi-arrow-left</v-icon>
