@@ -8,6 +8,7 @@
     <template #content>
       <v-list
         :selected="[currentProject]"
+        :title="t(i18nKeys.App.ProjectsList)"
         @update:selected="currentProject = $event[0]"
       >
         <v-list-item
@@ -27,11 +28,15 @@
 <script lang="ts" setup>
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 import {computed} from "vue";
+import {useI18n} from "vue-i18n";
+import {i18nKeys} from "../i18n/keys";
 
 // globals
 const projectsListStore = useProjectsListStore();
 
 const emit = defineEmits(["switchTo"]);
+
+const {t} = useI18n();
 
 // props
 const props = defineProps({

@@ -25,6 +25,7 @@ export const i18nKeys = {
     App: {
         OpenSidebar: "App.OpenSidebar",
         CloseSidebar: "App.CloseSidebar",
+        ProjectsList: "App.ProjectsList"
     },
     UpdateDialog: {
         Title: "UpdateDialog.Title",
