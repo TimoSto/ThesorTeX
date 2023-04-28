@@ -26,6 +26,7 @@
               color="grey-lighten-1"
               icon="mdi-close"
               variant="text"
+              :title="t(i18nKeys.Common.Close)"
               @click="emit('rmEntry', i)"
             />
           </template>

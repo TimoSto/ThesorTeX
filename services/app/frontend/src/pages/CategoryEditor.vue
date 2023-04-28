@@ -5,6 +5,7 @@
       <v-spacer />
       <v-btn
         icon
+        :title="t(i18nKeys.Common.Save)"
         :disabled="!changesToSave || !rulesAreMet"
         @click="save"
       >
@@ -12,6 +13,7 @@
       </v-btn>
       <v-btn
         icon
+        :title="t(i18nKeys.CategoryEditor.DeleteTitle)"
         :disabled="categoryName === ''"
         @click="deleteTriggered = true"
       >
@@ -256,6 +258,7 @@
                         flat
                         text
                         @click="rmCiteField(i-1)"
+                        :title="t(i18nKeys.Common.Delete)"
                       >
                         <v-icon>mdi-delete</v-icon>
                       </v-btn>
@@ -289,12 +292,14 @@
         <v-btn
           color="primary"
           @click="deleteTriggered=false"
+          :title="t(i18nKeys.Common.Abort)"
         >
           {{ t(i18nKeys.Common.Abort) }}
         </v-btn>
         <v-btn
           color="primary"
           @click="deleteCategory"
+          :title="t(i18nKeys.Common.Delete)"
         >
           {{ t(i18nKeys.Common.Delete) }}
         </v-btn>

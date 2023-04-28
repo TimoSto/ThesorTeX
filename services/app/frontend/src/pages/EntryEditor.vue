@@ -7,6 +7,7 @@
       <v-spacer />
       <v-btn
         icon
+        :title="t(i18nKeys.Common.Save)"
         :disabled="!changesToSave || !rulesAreMet"
         @click="save"
       >
@@ -14,6 +15,7 @@
       </v-btn>
       <v-btn
         icon
+        :title="t(i18nKeys.Common.Delete)"
         :disabled="entryKey === ''"
         @click="deleteTriggered = true"
       >
@@ -115,12 +117,14 @@
         <v-spacer />
         <v-btn
           color="primary"
+          :title="t(i18nKeys.Common.Abort)"
           @click="deleteTriggered=false"
         >
           {{ t(i18nKeys.Common.Abort) }}
         </v-btn>
         <v-btn
           color="primary"
+          :title="t(i18nKeys.Common.Delete)"
           @click="deleteEntry"
         >
           {{ t(i18nKeys.Common.Delete) }}

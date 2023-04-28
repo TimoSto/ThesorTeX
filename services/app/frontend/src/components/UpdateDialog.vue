@@ -16,9 +16,15 @@
     </v-card-text>
     <v-card-actions>
       <a href="https://thesortex.com/#/downloads" target="_blank">
-        <v-btn color="primary">{{ t(i18nKeys.UpdateDialog.ToDownloads) }}</v-btn>
+        <v-btn color="primary" :title="t(i18nKeys.UpdateDialog.ToDownloads)">{{
+            t(i18nKeys.UpdateDialog.ToDownloads)
+          }}
+        </v-btn>
       </a>
-      <v-btn color="primary" @click="ignore">{{ t(i18nKeys.UpdateDialog.Ignore) }}</v-btn>
+      <v-btn color="primary" @click="ignore" :title="t(i18nKeys.UpdateDialog.Ignore)">{{
+          t(i18nKeys.UpdateDialog.Ignore)
+        }}
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>

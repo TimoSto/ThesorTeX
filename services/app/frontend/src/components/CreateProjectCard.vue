@@ -16,12 +16,14 @@
       <v-btn
         color="primary"
         @click="emit('close')"
+        :title="t(i18nKeys.Common.Abort)"
       >
         {{ t(i18nKeys.Common.Abort) }}
       </v-btn>
       <v-btn
         color="primary"
         :disabled="!rulesAreMet"
+        :title="t(i18nKeys.Common.Create)"
         @click="emit('confirm', projectName)"
       >
         {{ t(i18nKeys.Common.Create) }}
@@ -37,7 +39,7 @@ import {i18nKeys} from "../i18n/keys";
 import getProjectNameRules from "../domain/projects/ProjectNameRules";
 
 // globals
-const emit = defineEmits(["close", "confirm"])
+const emit = defineEmits(["close", "confirm"]);
 
 const {t} = useI18n();
 
@@ -53,13 +55,13 @@ const props = defineProps({
 const projectName = ref("");
 
 const nameRules = computed(() => {
-  return getProjectNameRules(props.projects, "", t)
-})
+  return getProjectNameRules(props.projects, "", t);
+});
 
 // computed
 const rulesAreMet = computed(() => {
   return nameRules.value(projectName.value) === true;
-})
+});
 </script>
 
 <style scoped>

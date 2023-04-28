@@ -10,12 +10,14 @@
       <v-spacer />
       <v-btn
         color="primary"
+        :title="t(i18nKeys.Common.Abort)"
         @click="emit('resolve', false)"
       >
         {{ t(i18nKeys.Common.Abort) }}
       </v-btn>
       <v-btn
         color="primary"
+        :title="t(i18nKeys.Common.Continue)"
         @click="emit('resolve', true)"
       >
         {{ t(i18nKeys.Common.Continue) }}

@@ -1,3 +1,8 @@
+# v1.2.0
+
+## Fixed
+- Buttons now have titles. (Accessibility)
+
 # v1.1.0
 
 ## Added

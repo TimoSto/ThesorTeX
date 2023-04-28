@@ -12,10 +12,10 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="primary" @click="emit('close')">
+        <v-btn color="primary" @click="emit('close')" :title="t(i18nKeys.Common.Close)">
           {{ t(i18nKeys.Common.Close) }}
         </v-btn>
-        <v-btn color="primary" @click="saveConfig" :disabled="!changesToSave">
+        <v-btn color="primary" @click="saveConfig" :title="t(i18nKeys.Common.Save)" :disabled="!changesToSave">
           {{ t(i18nKeys.Common.Save) }}
         </v-btn>
       </v-card-actions>
