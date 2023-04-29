@@ -1,2 +1,0 @@
-
-terraform apply "plan.bin"
