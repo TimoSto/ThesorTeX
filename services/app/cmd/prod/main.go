@@ -21,6 +21,8 @@ import (
 )
 
 func main() {
+	log.Setup(false, "INFO")
+
 	log.Info("Version: %s", config.Version)
 
 	log.Info("Starting the local app...")

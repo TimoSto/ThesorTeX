@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	log.Setup(true)
+	log.Setup(true, "INFO")
 
 	log.Info("Start lambda")
 
