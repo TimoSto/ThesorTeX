@@ -18,6 +18,7 @@ type Config struct {
 	OpenBrowser     bool
 	ProjectTemplate fs.FS
 	UpdateAvailable string
+	LogLevel        string
 }
 
 var Cfg Config
@@ -32,7 +33,7 @@ func ReadConfig() (Config, error) {
 
 	iniCfg, err := ini.Load(pathbuilder.GetPathFromExecRoot("ThesorTeX.config.ini"))
 	if err != nil {
-		log.Error("cloud not open ini: %v", err)
+		log.Info("could not open ini: %v", err)
 
 		err = SaveConfig(cfg)
 
