@@ -4,5 +4,5 @@ go_library(
     name = "local",
     srcs = ["local.go"],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/local",
-    visibility = ["//services/app:__subpackages__"],
+    visibility = ["//services/thesisTool:__subpackages__"],
 )

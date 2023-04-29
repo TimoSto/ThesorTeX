@@ -1,0 +1,38 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "project",
+    srcs = [
+        "create_project_handler.go",
+        "delete_project_handler.go",
+        "get_all_projects_handler.go",
+        "get_project_data_handler.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/handlers/project",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = [
+        "//pkg/backend/filesystem",
+        "//pkg/backend/log",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/categories",
+        "//services/thesisTool/internal/domain/entries",
+        "//services/thesisTool/internal/domain/projects",
+    ],
+)
+
+go_test(
+    name = "project_test",
+    srcs = [
+        "create_project_handler_test.go",
+        "delete_project_handler_test.go",
+        "get_all_projects_handler_test.go",
+        "get_project_data_handler_test.go",
+    ],
+    embed = [":project"],
+    deps = [
+        "//pkg/backend/filesystem/fake",
+        "//pkg/backend/pathbuilder",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/projects",
+    ],
+)

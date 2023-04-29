@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "assets",
+    srcs = ["assets_handler.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/handlers/assets",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = ["//services/thesisTool/frontend/assets"],
+)

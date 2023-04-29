@@ -1,0 +1,38 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
+
+_APP_VERSION = "{APP_VERSION}"
+
+go_binary(
+    name = "ThesorTeX",
+    embed = [":prod_lib"],
+    visibility = ["//visibility:public"],
+    x_defs = {
+        "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/config.Version": _APP_VERSION,
+    },
+)
+
+go_library(
+    name = "prod_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/cmd/prod",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/backend/filesystem/local",
+        "//pkg/backend/handler_chain",
+        "//pkg/backend/log",
+        "//pkg/backend/pathbuilder",
+        "//pkg/backend/server",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/projects",
+        "//services/thesisTool/internal/domain/updatechecker",
+        "//services/thesisTool/internal/handlers",
+    ],
+)
+
+pkg_zip(
+    name = "thesisTool_zip",
+    srcs = [
+        ":ThesorTeX",
+    ],
+)

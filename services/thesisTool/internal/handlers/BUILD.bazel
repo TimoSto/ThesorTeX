@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "handlers",
+    srcs = ["register.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/handlers",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = [
+        "//pkg/backend/faviconhandler",
+        "//pkg/backend/filesystem",
+        "//pkg/backend/versionhandler",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/handlers/assets",
+        "//services/thesisTool/internal/handlers/category",
+        "//services/thesisTool/internal/handlers/config",
+        "//services/thesisTool/internal/handlers/entry",
+        "//services/thesisTool/internal/handlers/project",
+    ],
+)

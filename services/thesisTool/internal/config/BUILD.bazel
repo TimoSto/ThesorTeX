@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "config",
+    srcs = ["config.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/config",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = [
+        "//pkg/backend/log",
+        "//pkg/backend/pathbuilder",
+        "//pkg/backend/project_template",
+        "//vendor/gopkg.in/ini.v1:ini_v1",
+    ],
+)

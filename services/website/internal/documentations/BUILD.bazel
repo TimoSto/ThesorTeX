@@ -32,10 +32,10 @@ genrule(
     name = "docsImagesDir",
     srcs = [
         "//pkg/backend/cv_template:documentation_images",
-        "//services/app/documentation:documentation_images",
+        "//services/thesisTool/documentation:documentation_images",
     ],
     outs = ["docsImages"],
-    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/app_images && tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images)",
+    cmd = "mkdir $(OUTS) && mkdir $(OUTS)/cv_images && tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && mkdir $(OUTS)/thesisTool_images && tar -C $(OUTS)/thesisTool_images -zxf $(location //services/thesisTool/documentation:documentation_images)",
 )
 
 genrule(
@@ -54,7 +54,7 @@ genrule(
 
 genrule(
     name = "copyDocsJSONThesisTool",
-    srcs = ["//services/app/documentation:documentation_tar"],
+    srcs = ["//services/thesisTool/documentation:documentation_tar"],
     outs = ["docs/thesisTool"],
     cmd = "mkdir -p $(OUTS) && tar -C $(OUTS) -zxf $(SRCS)",
 )
@@ -72,19 +72,19 @@ genrule(
         "//pkg/backend/project_template:documentation_de",
         "//pkg/backend/cv_template:documentation_de",
         "//pkg/backend/cv_template:documentation_images",
-        "//services/app/documentation:documentation_de",
-        "//services/app/documentation:documentation_images",
+        "//services/thesisTool/documentation:documentation_de",
+        "//services/thesisTool/documentation:documentation_images",
         "//services/website/internal/documentations/titlepages:titlepage_de.pdf",
     ],
     outs = ["docs_de"],
     cmd = "mkdir $(OUTS) && \
         mkdir $(OUTS)/cv_images && \
         tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && \
-        mkdir $(OUTS)/app_images && \
-        tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images) && \
+        mkdir $(OUTS)/thesisTool_images && \
+        tar -C $(OUTS)/thesisTool_images -zxf $(location //services/thesisTool/documentation:documentation_images) && \
         $(location //tools/documentationcombinator:documentationcombinator) \
             -out-dir=$(location docs_de) \
-            -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/app/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de) \
+            -docs=$(location //pkg/backend/project_template:documentation_de),$(location //services/thesisTool/documentation:documentation_de),$(location //pkg/backend/cv_template:documentation_de) \
             -title-page=titlepages/titlepage_de.pdf \
             -title=ThesorTeX\\\\\\\\Dokumentation \
             -author='ThesorTeX' \
@@ -123,19 +123,19 @@ genrule(
         "//pkg/backend/project_template:documentation_en",
         "//pkg/backend/cv_template:documentation_en",
         "//pkg/backend/cv_template:documentation_images",
-        "//services/app/documentation:documentation_en",
-        "//services/app/documentation:documentation_images",
+        "//services/thesisTool/documentation:documentation_en",
+        "//services/thesisTool/documentation:documentation_images",
         "//services/website/internal/documentations/titlepages:titlepage_en.pdf",
     ],
     outs = ["docs_en"],
     cmd = "mkdir $(OUTS) && \
             mkdir $(OUTS)/cv_images && \
             tar -C $(OUTS)/cv_images -zxf $(location //pkg/backend/cv_template:documentation_images) && \
-            mkdir $(OUTS)/app_images && \
-            tar -C $(OUTS)/app_images -zxf $(location //services/app/documentation:documentation_images) && \
+            mkdir $(OUTS)/thesisTool_images && \
+            tar -C $(OUTS)/thesisTool_images -zxf $(location //services/thesisTool/documentation:documentation_images) && \
             $(location //tools/documentationcombinator:documentationcombinator) \
                 -out-dir=$(location docs_en) \
-                -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/app/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en) \
+                -docs=$(location //pkg/backend/project_template:documentation_en),$(location //services/thesisTool/documentation:documentation_en),$(location //pkg/backend/cv_template:documentation_en) \
                 -title-page=titlepages/titlepage_en.pdf \
                 -title=ThesorTeX\\\\\\\\Documentation \
                 -author='ThesorTeX' \

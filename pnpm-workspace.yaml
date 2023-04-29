@@ -1,5 +1,5 @@
 packages:
-  - "services/app/frontend"
+  - "services/thesisTool/frontend"
   - "services/website/frontend"
   - "pkg/frontend/*"
   - "tests/e2e"

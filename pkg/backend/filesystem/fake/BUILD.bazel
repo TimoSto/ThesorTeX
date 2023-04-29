@@ -4,5 +4,5 @@ go_library(
     name = "fake",
     srcs = ["fake.go"],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake",
-    visibility = ["//services/app:__subpackages__"],
+    visibility = ["//services/thesisTool:__subpackages__"],
 )

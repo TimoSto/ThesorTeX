@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "config",
+    srcs = ["config.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/handlers/config",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = [
+        "//pkg/backend/log",
+        "//services/thesisTool/internal/config",
+    ],
+)
+
+go_test(
+    name = "config_test",
+    srcs = ["config_test.go"],
+    embed = [":config"],
+    deps = ["//services/thesisTool/internal/config"],
+)

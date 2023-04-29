@@ -1,0 +1,54 @@
+load("@rules_pkg//:mappings.bzl", "strip_prefix")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_tar")
+
+genrule(
+    name = "documentation_de",
+    srcs = [
+        "documentation_de.md",
+    ],
+    outs = ["docs/de"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/de) -src=$(location documentation_de.md)",
+    tools = ["//tools/documentationbuilder"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "documentation_en",
+    srcs = [
+        "documentation_en.md",
+    ],
+    outs = ["docs/en"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/en) -src=$(location documentation_en.md)",
+    tools = ["//tools/documentationbuilder"],
+    visibility = ["//visibility:public"],
+)
+
+pkg_tar(
+    name = "documentation_tar",
+    srcs = [
+        ":documentation_de",
+        ":documentation_en",
+    ],
+    extension = "tar.gz",
+    strip_prefix = strip_prefix.from_pkg("docs"),
+    visibility = ["//visibility:public"],
+)
+
+pkg_tar(
+    name = "documentation_images",
+    srcs = [
+        "thesisTool_images/category_bib_fields.png",
+        "thesisTool_images/category_general.png",
+        "thesisTool_images/config_dialog.png",
+        "thesisTool_images/entry_added.png",
+        "thesisTool_images/entry_editor_fields.png",
+        "thesisTool_images/entry_editor_general.png",
+        "thesisTool_images/escaped_field.png",
+        "thesisTool_images/pdf_bibliography_new_entry.png",
+        "thesisTool_images/project_overview.png",
+        "thesisTool_images/startpage.png",
+        "thesisTool_images/upload_entry.png",
+    ],
+    extension = "tar.gz",
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "category",
+    srcs = [
+        "handle_delete_category.go",
+        "handle_save_category.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/handlers/category",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = [
+        "//pkg/backend/filesystem",
+        "//pkg/backend/log",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/categories",
+    ],
+)
+
+go_test(
+    name = "category_test",
+    srcs = [
+        "handle_delete_category_test.go",
+        "handle_save_category_test.go",
+    ],
+    embed = [":category"],
+    deps = [
+        "//pkg/backend/filesystem/fake",
+        "//services/thesisTool/internal/config",
+    ],
+)

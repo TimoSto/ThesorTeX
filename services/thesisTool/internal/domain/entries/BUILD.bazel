@@ -1,0 +1,38 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "entries",
+    srcs = [
+        "delete_entry.go",
+        "entries_to_csv.go",
+        "entry.go",
+        "get_all_entries.go",
+        "save_entry.go",
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/entries",
+    visibility = ["//services/thesisTool:__subpackages__"],
+    deps = [
+        "//pkg/backend/filesystem",
+        "//pkg/backend/pathbuilder",
+        "//pkg/backend/tex_escaping",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/categories",
+    ],
+)
+
+go_test(
+    name = "entries_test",
+    srcs = [
+        "delete_entry_test.go",
+        "entries_to_csv_test.go",
+        "get_all_entries_test.go",
+        "save_entry_test.go",
+    ],
+    embed = [":entries"],
+    deps = [
+        "//pkg/backend/filesystem/fake",
+        "//pkg/backend/pathbuilder",
+        "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/projects",
+    ],
+)

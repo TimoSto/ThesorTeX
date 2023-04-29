@@ -35,7 +35,7 @@ The production build is triggered by calling the script `./scripts/build.sh` wit
 To run the frontends on a watcher:
 
 ```
-cd services/app/frontend 
+cd services/thesisTool/frontend 
 or 
 cd services/website/frontend
 
@@ -45,7 +45,7 @@ pnpm run dev
 To run the app backend locally:
 
 ```
-bazel run //services/app/cmd/e2e
+bazel run //services/thesisTool/cmd/e2e
 ```
 
 To run the website backend locally;

@@ -4,5 +4,5 @@ go_library(
     name = "filesystem",
     srcs = ["file_system.go"],
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/filesystem",
-    visibility = ["//services/app:__subpackages__"],
+    visibility = ["//services/thesisTool:__subpackages__"],
 )

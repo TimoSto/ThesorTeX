@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
+
+go_library(
+    name = "assets",
+    srcs = ["assets.go"],
+    embedsrcs = [
+        ":assets_dist",  # keep
+    ],
+    importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/frontend/assets",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "assets_dist",
+    srcs = [
+        "//services/thesisTool/frontend:thesisTool_dist",
+    ],
+    outs = ["dist"],
+    cmd = "mkdir $(RULEDIR)/dist && tar -C $(RULEDIR)/dist -zxf $(SRCS)",
+)

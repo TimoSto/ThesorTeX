@@ -41,19 +41,19 @@ then
 
   echo "building for windows..."
 
-  build_windows_target //services/app/cmd/prod:app_zip "$outDir/windows/ThesorTeX.zip" "$(pwd)"
+  build_windows_target //services/thesisTool/cmd/prod:thesisTool_zip "$outDir/windows/ThesorTeX.zip" "$(pwd)"
 
   echo "building app for linux..."
 
-  build_linux_target //services/app/cmd/prod:app_zip "$outDir/linux/ThesorTeX.zip" "$(pwd)"
+  build_linux_target //services/thesisTool/cmd/prod:thesisTool_zip "$outDir/linux/ThesorTeX.zip" "$(pwd)"
 
   echo "building app for macOS (AMD)..."
 
-  build_mac_target //services/app/cmd/prod:app_zip "$outDir/mac/ThesorTeX.zip" "$(pwd)"
+  build_mac_target //services/thesisTool/cmd/prod:thesisTool_zip "$outDir/mac/ThesorTeX.zip" "$(pwd)"
 
   echo "building app for macOS (ARM)..."
 
-  build_mac_m1_target //services/app/cmd/prod:app_zip "$outDir/mac_arm/ThesorTeX.zip" "$(pwd)"
+  build_mac_m1_target //services/thesisTool/cmd/prod:thesisTool_zip "$outDir/mac_arm/ThesorTeX.zip" "$(pwd)"
 fi
 
 if [ "$1" = "website" ] || [ "$1" = "all" ]

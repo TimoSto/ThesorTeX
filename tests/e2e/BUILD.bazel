@@ -7,22 +7,22 @@ npm_link_all_packages(name = "node_modules")
 
 run_playwright_cucumber(
     name = "thesisTool",
-    target = "thesisTool",
+    data = [
+        "//services/thesisTool/cmd/e2e",
+    ],
+    executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
     port = "8441",
     sbu = "http://localhost:8441",
-    data = [
-        "//services/app/cmd/e2e",
-    ],
-    executable = "../../services/app/cmd/e2e/e2e_/e2e",
+    target = "thesisTool",
 )
 
 run_playwright_cucumber(
     name = "thesisTool_Accessibility",
-    target = "accessibility/thesisTool",
+    data = [
+        "//services/thesisTool/cmd/e2e",
+    ],
+    executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
     port = "8442",
     sbu = "http://localhost:8442",
-    data = [
-        "//services/app/cmd/e2e",
-    ],
-    executable = "../../services/app/cmd/e2e/e2e_/e2e",
+    target = "accessibility/thesisTool",
 )
