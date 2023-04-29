@@ -137,7 +137,7 @@ Nun kannst du Felder unter ***Eintrag im Literaturverzeichnis*** und ***Zitate**
 - Prefix: Ein Prefix, wie z.B. (
 - Suffix: Ein Suffix, wie z.B. ) oder ein Komma
 - Kursiv: Ob der Wert kursiv dargestellt werden soll
-- Forformatiert: Siehe Was bedeutet Vorformatiert
+- Vorformatiert: Siehe Was bedeutet Vorformatiert
 - Citavi-Attribute: Die Felder im Citavi-Upload, welche diesem Feld zugeordnet werden sollen.
 
 ![Kategorie: Literatur-Einträge](./app_images/category_bib_fields.png)
@@ -154,7 +154,7 @@ Unter Umständen möchte man dies aber verhindern. So z.B. wenn man selbst schon
 
 ![Vorformattiertes Feld](./app_images/escaped_field.png)
 
-Sonderzeichen in dieser URL dürfen nämlich nicht separat escaped werden. Dies wird durch das ***Forformattiert*** Attribut verhindert.
+Sonderzeichen in dieser URL dürfen nämlich nicht separat escaped werden. Dies wird durch das ***Vorformattiert*** Attribut verhindert.
 
 ---
 
