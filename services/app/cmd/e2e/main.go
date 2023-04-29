@@ -49,8 +49,6 @@ func main() {
 		config.Cfg.Port = "8440"
 	}
 
-	fmt.Println(config.Cfg.Port)
-
 	config.Cfg.ProjectsDir = "projects"
 
 	log.Info("removing possibly existing previous projects...")
