@@ -16,6 +16,8 @@ import (
 )
 
 func main() {
+	log.Setup(false, "INFO")
+
 	config.Version = "0.0.1"
 	log.Info("Version: %s", config.Version)
 

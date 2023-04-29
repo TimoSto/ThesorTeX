@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+	log.Setup(false, "INFO")
 	log.Info("Start fake website")
 
 	bucket := buckethandler.FakeBucketHandler{}
