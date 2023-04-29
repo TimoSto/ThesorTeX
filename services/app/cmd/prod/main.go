@@ -40,6 +40,7 @@ func main() {
 		log.Error("unexpected error reading the config: %v", err)
 		os.Exit(1)
 	}
+	log.Setup(false, config.Cfg.LogLevel)
 
 	updatechecker.CheckUpdateAvailable()
 

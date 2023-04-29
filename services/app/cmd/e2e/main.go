@@ -37,6 +37,8 @@ func main() {
 		os.Exit(1)
 	}
 
+	log.Setup(false, config.Cfg.LogLevel)
+
 	updatechecker.CheckUpdateAvailable()
 
 	envPort := os.Getenv("E2E_PORT")

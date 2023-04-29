@@ -29,6 +29,7 @@ func ReadConfig() (Config, error) {
 		ProjectsDir:     pathbuilder.GetPathFromExecRoot("/projects"),
 		OpenBrowser:     false,
 		ProjectTemplate: project_template.ProjectTemplate,
+		LogLevel:        "INFO",
 	}
 
 	iniCfg, err := ini.Load(pathbuilder.GetPathFromExecRoot("ThesorTeX.config.ini"))
@@ -49,6 +50,9 @@ func ReadConfig() (Config, error) {
 	if openBrowser, err := iniCfg.Section("").Key("open_browser").Bool(); err == nil {
 		cfg.OpenBrowser = openBrowser
 	}
+	if logLevel := iniCfg.Section("").Key("logLevel").String(); logLevel != "" {
+		cfg.LogLevel = logLevel
+	}
 
 	Cfg = cfg
 
@@ -60,6 +64,7 @@ func SaveConfig(cfg Config) error {
 	iniCfg.Section("").Key("port").SetValue(cfg.Port)
 	iniCfg.Section("").Key("projects_dir").SetValue(cfg.ProjectsDir)
 	iniCfg.Section("").Key("open_browser").SetValue(strconv.FormatBool(cfg.OpenBrowser))
+	iniCfg.Section("").Key("logLevel").SetValue(cfg.LogLevel)
 
 	err := iniCfg.SaveTo(pathbuilder.GetPathFromExecRoot("ThesorTeX.config.ini"))
 
