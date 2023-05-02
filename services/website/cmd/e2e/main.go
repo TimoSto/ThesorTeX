@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
@@ -27,7 +28,15 @@ func main() {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	err := http.ListenAndServe("localhost:8449", chain.Then(mux))
+	port := "8449"
+
+	envPort := os.Getenv("E2E_PORT")
+
+	if envPort != "" {
+		port = envPort
+	}
+
+	err := http.ListenAndServe(fmt.Sprintf("localhost:%s", port), chain.Then(mux))
 	fmt.Println(err)
 
 }
