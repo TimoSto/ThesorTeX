@@ -14,3 +14,7 @@ Then("the url is {string}", async function (this: OurWorld, url: string) {
 When("the button with the text {string} is clicked", async function (this: OurWorld, text: string) {
     await this.page.locator(".v-btn", {has: this.page!.locator(`text=${text}`)}).first().click();
 });
+
+When("the list item with the text {string} is clicked", async function (this: OurWorld, text: string) {
+    await this.page.locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first().click();
+});
