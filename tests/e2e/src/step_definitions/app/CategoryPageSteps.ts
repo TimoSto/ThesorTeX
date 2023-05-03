@@ -6,7 +6,7 @@ import {expect} from "@playwright/test";
 When("a new category is created", async function (this: OurWorld) {
     await this.page.locator("#page-2").locator(".v-expansion-panel").nth(1).locator("thead button").click();
 
-    await waitForAnimations(this.page, ["#page-2"]);
+    await waitForAnimations(this.page, [".pages", "#page-2", ".v-overlay-container"]);
 });
 
 When("{string} is entered as name", async function (this: OurWorld, name: string) {
@@ -40,7 +40,7 @@ When("the category {string} is opened", async function (this: OurWorld, name: st
 });
 
 Then("the user is asked to confirm the deletion of the category", async function (this: OurWorld) {
-    await waitForAnimations(this.page);
+    await waitForAnimations(this.page, [".pages", ".v-overlay-container"]);
 
     expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Delete category");
 });

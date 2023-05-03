@@ -6,7 +6,7 @@ import waitForAnimations from "../../helpers/waitForAnimations";
 When("a new entry is created", async function (this: OurWorld) {
     await this.page.locator("#page-2").locator(".v-expansion-panel").nth(0).locator("thead button").click();
 
-    await waitForAnimations(this.page, ["#page-2"]);
+    await waitForAnimations(this.page, [".pages", "#page-2", ".v-overlay-container"]);
 });
 
 When("{string} is entered as key", async function (this: OurWorld, key: string) {
@@ -32,7 +32,7 @@ When("the entry {string} is opened", async function (this: OurWorld, key: string
 });
 
 Then("the user is asked to confirm the deletion of the entry", async function (this: OurWorld) {
-    await waitForAnimations(this.page);
+    await waitForAnimations(this.page, [".pages", ".v-overlay-container"]);
 
     expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Delete entry");
 });

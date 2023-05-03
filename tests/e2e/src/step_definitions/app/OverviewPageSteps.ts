@@ -20,7 +20,7 @@ When("a new project is added", async function (this: OurWorld) {
 });
 
 Then("the dialog for project creation is shown", async function (this: OurWorld) {
-    await waitForAnimations(this.page);
+    await waitForAnimations(this.page, [".pages", ".v-overlay-container"]);
 
     expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Create new project");
 });
