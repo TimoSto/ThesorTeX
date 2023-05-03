@@ -12,3 +12,10 @@ Feature: The start page of the website contains general information and links
     Then the url is "/#/downloads"
     And area 1 is shown in full height
     And the title of area 1 is not existent
+
+  Scenario: switching to tutorials
+    Given the url "/" was opened
+    When the button with the text "Tutorials" is clicked
+    Then the url is "/#/tutorials"
+    And area 1 is shown in full height
+    And the title of area 1 is "How can I use the templates and tools?"
