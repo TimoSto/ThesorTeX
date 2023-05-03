@@ -25,3 +25,15 @@ Feature: The start page of the website contains general information and links
     When the list item with the text "Template for academic papers" is clicked
     Then area 2 is shown in full height
     And the title of area 2 is "Template for academic papers"
+
+  Scenario: Jumping to area 3
+    Given the url "/" was opened
+    When the list item with the text "Tool for bibliography management" is clicked
+    Then area 3 is shown in full height
+    And the title of area 3 is "Tool for bibliography management"
+
+  Scenario: Jumping to area 4
+    Given the url "/" was opened
+    When the list item with the text "Template for a curriculum vitae" is clicked
+    Then area 4 is shown in full height
+    And the title of area 4 is "Template for a curriculum vitae"
