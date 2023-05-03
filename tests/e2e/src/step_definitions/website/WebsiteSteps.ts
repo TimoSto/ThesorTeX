@@ -1,8 +1,11 @@
 import {Then, When} from "@cucumber/cucumber";
 import {OurWorld} from "../../types";
 import {expect} from "@playwright/test";
+import waitForAnimations from "../../helpers/waitForAnimations";
 
 Then("area {int} is shown in full height", async function (this: OurWorld, n: number) {
+    await waitForAnimations(this.page, ["#app"]);
+    
     const element = await this.page.locator(".fullHeightContainer").nth(n - 1);
     await expect(element).toBeVisible();
     const box = await element.boundingBox();
