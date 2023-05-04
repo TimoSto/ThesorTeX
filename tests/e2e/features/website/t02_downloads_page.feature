@@ -7,6 +7,20 @@ Feature: Lists of downloads
     And the title of area 1 is not existent
     And three cards are shown for the products
 
+  Scenario: switching to the start page
+    Given the url "/#/downloads" was opened
+    When the button with the text "Overview" is clicked
+    Then the url is "/#/"
+    And area 1 is shown in full height
+    And the title of area 1 is "Use LaTeX more comfortably"
+
+  Scenario: switching to tutorials
+    Given the url "/#/downloads" was opened
+    When the button with the text "Tutorials" is clicked
+    Then the url is "/#/tutorials"
+    And area 1 is shown in full height
+    And the title of area 1 is "How can I use the templates and tools?"
+
   Scenario: displaying the downloads for the thesis template
     Given the url "/#/downloads" was opened
     When the download button in card 1 is clicked
