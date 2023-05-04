@@ -12,3 +12,15 @@ Feature: Lists of downloads
     When the download button in card 1 is clicked
     Then area 2 is shown in full height
     And the title of area 2 is "Template for academic papers"
+
+  Scenario: displaying the downloads for the thesis template
+    Given the url "/#/downloads" was opened
+    When the download button in card 2 is clicked
+    Then area 3 is shown in full height
+    And the title of area 3 is "Tool for bibliography management"
+
+  Scenario: displaying the downloads for the thesis template
+    Given the url "/#/downloads" was opened
+    When the download button in card 3 is clicked
+    Then area 4 is shown in full height
+    And the title of area 4 is "Template for a curriculum vitae"
