@@ -56,3 +56,7 @@ Then("the following versions are shown in area {int}", async function (this: Our
         await expect(d).toEqual(el.date);
     }
 });
+
+When("the list item with the text {string} in area {int} is clicked", async function (this: OurWorld, text: string, n: number) {
+    await this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first().click();
+});

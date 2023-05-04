@@ -83,7 +83,7 @@
 <script lang="ts" setup>
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {computed, onMounted, ref} from "vue";
+import {computed, nextTick, onMounted, ref} from "vue";
 import {GetDocumentationsJSON, ThesorTeXDocumentation} from "../api/GetDocumentation";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
@@ -139,17 +139,19 @@ function arrWithoutFirst(arr: any[]): any[] {
 onMounted(async () => {
   jsonDocs.value = await GetDocumentationsJSON(i18nObject.locale.value);
 
-  switch (router.currentRoute.value.query.target) {
-    case "thesisTemplate":
-      (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(2);
-      break;
-    case "thesisTool":
-      (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(3);
-      break;
-    case "cvTemplate":
-      (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(4);
-      break;
-  }
+  await nextTick(() => {
+    switch (router.currentRoute.value.query.target) {
+      case "thesisTemplate":
+        (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(2);
+        break;
+      case "thesisTool":
+        (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(3);
+        break;
+      case "cvTemplate":
+        (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(4);
+        break;
+    }
+  });
 });
 
 </script>
