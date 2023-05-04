@@ -42,3 +42,7 @@ Then("three cards are shown for the products", async function (this: OurWorld) {
     await expect(cards.nth(1).locator(".text-h5")).toHaveText("Tool for bibliography management");
     await expect(cards.nth(2).locator(".text-h5")).toHaveText("Template for a curriculum vitae");
 });
+
+When("the download button in card {int} is clicked", async function (this: OurWorld, n: number) {
+    await this.page.locator(".fullHeightContainer").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Download`)}).nth(n - 1).click();
+});

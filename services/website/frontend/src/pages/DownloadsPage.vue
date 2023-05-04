@@ -81,7 +81,7 @@
     <template #content-2>
       <v-row>
         <v-col>
-          <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
+          <h2 class="text-h3 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}</h2>
           <p class="text-body-1">
             {{ t(i18nKeys.DownloadPage.ThesisInfoText) }}
           </p>
@@ -104,7 +104,7 @@
     <template #content-3>
       <v-row>
         <v-col>
-          <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
+          <h2 class="text-h3 font-weight-bold">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
           <p class="text-body-1">
             {{ t(i18nKeys.DownloadPage.ToolInfoText) }}
           </p>
@@ -198,7 +198,7 @@
       </v-row>
     </template>
     <template #content-4>
-      <h2 class="text-h5 font-weight-bold">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
+      <h2 class="text-h3 font-weight-bold">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>
       <p class="text-body-1">
         {{ t(i18nKeys.DownloadPage.CVInfoText) }}
       </p>
