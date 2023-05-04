@@ -41,3 +41,14 @@ run_playwright_cucumber(
     sbu = "http://localhost:8442",
     target = "accessibility/thesisTool",
 )
+
+run_playwright_cucumber(
+    name = "website_Accessibility",
+    data = [
+        "//services/website/cmd/e2e",
+    ],
+    executable = "../../services/website/cmd/e2e/e2e_/e2e",
+    port = "8444",
+    sbu = "http://localhost:8444",
+    target = "accessibility/website",
+)
