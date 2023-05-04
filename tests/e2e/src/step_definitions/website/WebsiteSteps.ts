@@ -5,7 +5,7 @@ import waitForAnimations from "../../helpers/waitForAnimations";
 
 Then("area {int} is shown in full height", async function (this: OurWorld, n: number) {
     await waitForAnimations(this.page, ["#app"]);
-    
+
     const element = await this.page.locator(".fullHeightContainer").nth(n - 1);
     await expect(element).toBeVisible();
     const box = await element.boundingBox();
@@ -33,4 +33,12 @@ Then("the title of area {int} is {string}", async function (this: OurWorld, n: n
 
 Then("the title of area {int} is not existent", async function (this: OurWorld, n: number) {
     await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".text-h3")).toHaveCount(0);
+});
+
+Then("three cards are shown for the products", async function (this: OurWorld) {
+    const cards = await this.page.locator(".fullHeightContainer").nth(0).locator(".v-card");
+    await expect(cards).toHaveCount(3);
+    await expect(cards.nth(0).locator(".text-h5")).toHaveText("Template for academic papers");
+    await expect(cards.nth(1).locator(".text-h5")).toHaveText("Tool for bibliography management");
+    await expect(cards.nth(2).locator(".text-h5")).toHaveText("Template for a curriculum vitae");
 });
