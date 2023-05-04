@@ -1,4 +1,4 @@
-import {Then, When} from "@cucumber/cucumber";
+import {DataTable, Then, When} from "@cucumber/cucumber";
 import {OurWorld} from "../../types";
 import {expect} from "@playwright/test";
 import waitForAnimations from "../../helpers/waitForAnimations";
@@ -45,4 +45,14 @@ Then("three cards are shown for the products", async function (this: OurWorld) {
 
 When("the download button in card {int} is clicked", async function (this: OurWorld, n: number) {
     await this.page.locator(".fullHeightContainer").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Download`)}).nth(n - 1).click();
+});
+
+Then("the following versions are shown in area {int}", async function (this: OurWorld, n: number, versions: DataTable) {
+    for (const el of versions.hashes()) {
+        const i = versions.hashes().map(v => v.name).indexOf(el.name);
+        let v = await this.page.locator(".fullHeightContainer").nth(n - 1).locator("tbody tr").nth(i).locator("td").nth(0).textContent();
+        await expect(v).toEqual(el.name);
+        let d = await this.page.locator(".fullHeightContainer").nth(n - 1).locator("tbody tr").nth(i).locator("td").nth(1).textContent();
+        await expect(d).toEqual(el.date);
+    }
 });
