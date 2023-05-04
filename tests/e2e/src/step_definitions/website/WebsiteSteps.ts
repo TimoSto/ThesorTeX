@@ -47,6 +47,10 @@ When("the download button in card {int} is clicked", async function (this: OurWo
     await this.page.locator(".fullHeightContainer").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Download`)}).nth(n - 1).click();
 });
 
+When("the more info button in card {int} is clicked", async function (this: OurWorld, n: number) {
+    await this.page.locator(".fullHeightContainer").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Learn more`)}).nth(n - 1).click();
+});
+
 Then("the following versions are shown in area {int}", async function (this: OurWorld, n: number, versions: DataTable) {
     for (const el of versions.hashes()) {
         const i = versions.hashes().map(v => v.name).indexOf(el.name);

@@ -43,6 +43,13 @@ Feature: Lists of downloads
     And area 2 is shown in full height
     And the title of area 2 is "Usage of the template for academic papers"
 
+  Scenario: Jump to tutorials (from card): thesis Template
+    Given the url "/#/downloads" was opened
+    And the more info button in card 1 is clicked
+    Then the url is "/#/tutorials?target=thesisTemplate"
+    And area 2 is shown in full height
+    And the title of area 2 is "Usage of the template for academic papers"
+
   Scenario: Jump to tutorials: thesis Tool
     Given the url "/#/downloads" was opened
     And the download button in card 2 is clicked
@@ -51,10 +58,24 @@ Feature: Lists of downloads
     And area 3 is shown in full height
     And the title of area 3 is "Usage of the tool for bibliography management"
 
+  Scenario: Jump to tutorials (from card): thesis Tool
+    Given the url "/#/downloads" was opened
+    And the more info button in card 2 is clicked
+    Then the url is "/#/tutorials?target=thesisTool"
+    And area 3 is shown in full height
+    And the title of area 3 is "Usage of the tool for bibliography management"
+
   Scenario: Jump to tutorials: cv Template
     Given the url "/#/downloads" was opened
     And the download button in card 3 is clicked
     When the list item with the text "Learn more" in area 4 is clicked
+    Then the url is "/#/tutorials?target=cvTemplate"
+    And area 4 is shown in full height
+    And the title of area 4 is "Usage of the template for a curriculum vitae"
+
+  Scenario: Jump to tutorials (from card): cv Template
+    Given the url "/#/downloads" was opened
+    And the more info button in card 3 is clicked
     Then the url is "/#/tutorials?target=cvTemplate"
     And area 4 is shown in full height
     And the title of area 4 is "Usage of the template for a curriculum vitae"
