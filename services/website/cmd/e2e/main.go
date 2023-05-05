@@ -12,7 +12,11 @@ import (
 )
 
 func main() {
-	log.Setup(false, "INFO")
+	loglevel := os.Getenv("LOG_LEVEL")
+	if loglevel == "" {
+		loglevel = "INFO"
+	}
+	log.Setup(false, loglevel)
 	log.Info("Start fake website")
 
 	bucket := buckethandler.FakeBucketHandler{}

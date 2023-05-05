@@ -6,6 +6,7 @@ def run_playwright_cucumber(name, executable, target, port, sbu, data = [], **kw
         "EXECUTABLE": executable,
         "SYSTEM_BASE_URL": sbu,
         "E2E_PORT": port,
+        "LOG_LEVEL": "ERROR"
     }
 
     cucmber_bin.cucumber_js_test(
