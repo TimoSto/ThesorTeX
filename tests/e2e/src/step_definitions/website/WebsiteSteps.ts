@@ -86,3 +86,7 @@ When("the list item with the text {string} in area {int} is clicked", async func
 Then("the list item with the text {string} in area {int} is focussed", async function (this: OurWorld, text: string, n: number) {
     await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
 });
+
+Then("the button with the text {string} in area {int} and card {int} is focussed", async function (this: OurWorld, text: string, n: number, m: number) {
+    await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-card").nth(m - 1).locator(".v-btn", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
+});
