@@ -76,7 +76,10 @@ const {t} = useI18n();
 
 const props = defineProps({
   perOs: Boolean,
-  downloadFunc: Function,
+  downloadFunc: {
+    type: Function,
+    required: true
+  },
   maxWidth: Number,
   versions: Array<VersionInfo>
 });
