@@ -45,3 +45,15 @@ Then("the first link with the text {string} is focussed", async function (this: 
 Then("the second link with the text {string} is focussed", async function (this: OurWorld, text: string) {
     await expect(this.page.locator("a", {has: this.page!.locator(`text=${text}`)}).nth(1)).toBeFocused();
 });
+
+Then("the expansion panel with the title {string} is focussed", async function (this: OurWorld, text: string) {
+    const el = await this.page.locator(".v-expansion-panel", {has: this.page!.locator(`text=${text}`)}).first().locator("button");
+    await expect(el).toBeVisible();
+    await expect(el).toBeFocused();
+});
+
+Then("the expansion panel with the title {string} is expanded", async function (this: OurWorld, text: string) {
+    const el = await this.page.locator(".v-expansion-panel", {has: this.page!.locator(`text=${text}`)}).first().locator(".v-expansion-panel-text");
+    await expect(el).toBeVisible();
+    //await expect(el).toBeFocused();
+});

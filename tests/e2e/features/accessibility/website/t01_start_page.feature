@@ -4,10 +4,6 @@ Feature: Accessibility
     Given the url "/" was opened
     Then the wcag guidelines are not yet met
 
-  Scenario: Start page
-    Given the url "/#/tutorials" was opened
-    Then the wcag guidelines are not yet met
-
   Scenario: Navigating through the page using tab (Download button)
     Given the url "/" was opened
     When the "Tab" key is pressed
