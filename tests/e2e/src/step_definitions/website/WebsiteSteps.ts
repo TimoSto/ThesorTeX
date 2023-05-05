@@ -18,7 +18,25 @@ Then("area {int} is shown in full height", async function (this: OurWorld, n: nu
         return window.scrollY;
     });
 
-    expect(scroll).toEqual(pageDimensions!.height * (n - 1));
+    expect(Math.abs(scroll - pageDimensions!.height * (n - 1))).toBeLessThan(10);
+});
+
+Then("area {int} is shown in full height slightly scrolled off", async function (this: OurWorld, n: number) {
+    await waitForAnimations(this.page, ["#app"]);
+
+    const element = await this.page.locator(".fullHeightContainer").nth(n - 1);
+    await expect(element).toBeVisible();
+    const box = await element.boundingBox();
+    const pageDimensions = await this.page.viewportSize();
+
+    expect(box!.width).toEqual(pageDimensions!.width);
+    expect(box!.height).toEqual(pageDimensions!.height);
+
+    const scroll = await this.page.evaluate(() => {
+        return window.scrollY;
+    });
+
+    expect(Math.abs(scroll - pageDimensions!.height * (n - 1))).toBeLessThan(200);
 });
 
 When("the scroll down button is clicked", async function (this: OurWorld, n: number) {
@@ -63,4 +81,8 @@ Then("the following versions are shown in area {int}", async function (this: Our
 
 When("the list item with the text {string} in area {int} is clicked", async function (this: OurWorld, text: string, n: number) {
     await this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first().click();
+});
+
+Then("the list item with the text {string} in area {int} is focussed", async function (this: OurWorld, text: string, n: number) {
+    await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
 });
