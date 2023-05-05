@@ -28,43 +28,34 @@
           {{ v.Date }}
         </td>
         <td v-if="perOs">
-          <a :href="downloadFunc(v.Name, 'windows')"
-             download="ThesorTeX.zip">
-            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
-              <v-icon>mdi-download</v-icon>
-            </v-btn>
-          </a>
+          <v-btn variant="flat" :href="downloadFunc(v.Name, 'windows')"
+                 download="ThesorTeX.zip" style="color: rgba(var(--v-theme-on-background), 1)">
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
         </td>
         <td v-if="perOs">
-          <a :href="downloadFunc(v.Name, 'linux')"
-             download="ThesorTeX.zip">
-            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
-              <v-icon>mdi-download</v-icon>
-            </v-btn>
-          </a>
+          <v-btn variant="flat" :href="downloadFunc(v.Name, 'linux')"
+                 download="ThesorTeX.zip" style="color: rgba(var(--v-theme-on-background), 1)">
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
         </td>
         <td v-if="perOs">
-          <a :href="downloadFunc(v.Name, 'mac')"
-             download="ThesorTeX.zip">
-            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
-              <v-icon>mdi-download</v-icon>
-            </v-btn>
-          </a>
+          <v-btn variant="flat" :href="downloadFunc(v.Name, 'mac')"
+                 download="ThesorTeX.zip" style="color: rgba(var(--v-theme-on-background), 1)">
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
         </td>
         <td v-if="perOs">
-          <a :href="downloadFunc(v.Name, 'mac_arm')"
-             download="ThesorTeX.zip">
-            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
-              <v-icon>mdi-download</v-icon>
-            </v-btn>
-          </a>
+          <v-btn variant="flat" :href="downloadFunc(v.Name, 'mar_arm')"
+                 download="ThesorTeX.zip" style="color: rgba(var(--v-theme-on-background), 1)">
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
         </td>
         <td v-if="!perOs">
-          <a :href="downloadFunc(v.Name)">
-            <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)">
-              <v-icon>mdi-download</v-icon>
-            </v-btn>
-          </a>
+          <v-btn variant="flat" :href="downloadFunc(v.Name)"
+                 download="ThesorTeX.zip" style="color: rgba(var(--v-theme-on-background), 1)">
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
         </td>
         <td>
           <v-btn variant="flat" style="color: rgba(var(--v-theme-on-background), 1)" @click="emit('openNotes', v.Name)">
