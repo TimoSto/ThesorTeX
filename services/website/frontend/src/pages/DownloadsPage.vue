@@ -1,5 +1,5 @@
 <template>
-  <FullHeightLayout :pages="4" :small-display="smallDisplay">
+  <FullHeightLayout :pages="4" :small-display="smallDisplay" ref="fullHeightLayout">
     <template #content-1="{ jumpTo }">
       <v-row class="d-flex flex-row">
         <v-col cols="4">
@@ -232,7 +232,7 @@ import DownloadsTable from "../components/DownloadsTable.vue";
 import WindowsIcon from "../components/WindowsIcon.vue";
 import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
-import {computed, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import GetToolVersions, {VersionData} from "../api/GetToolVersions";
 import {
   getCVTemplateDownloadLink,
@@ -246,10 +246,13 @@ import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
 import GetReleaseNotes from "../api/GetReleaseNotes";
 import FullHeightLayout from "../components/FullHeightLayout.vue";
+import {useRouter} from "vue-router";
 
 // globals
 
 const {t} = useI18n();
+
+const router = useRouter();
 
 // data
 const props = defineProps({
@@ -265,6 +268,8 @@ const versions = ref<VersionData | undefined>(undefined);
 const openedReleaseNotes = ref("");
 
 const releaseNotes = ref<string | undefined>(undefined);
+
+const fullHeightLayout = ref(null);
 
 // computed
 const releaseNotesOpen = computed({
@@ -322,36 +327,28 @@ watch(releaseNotesOpen, async () => {
 });
 
 // methods
-function scrollToThesisDownload() {
-  if (thesisDownload.value) {
-    thesisDownload.value.$el.scrollIntoView({
-      alignToTop: true,
-      behavior: "smooth"
-    });
-  }
-}
-
-function scrollToToolDownload() {
-  if (toolDownload.value) {
-    toolDownload.value.$el.scrollIntoView({
-      alignToTop: true,
-      behavior: "smooth"
-    });
-  }
-}
-
-function scrollToCVDownload() {
-  if (cvDownload.value) {
-    cvDownload.value.$el.scrollIntoView({
-      alignToTop: true,
-      behavior: "smooth"
-    });
-  }
-}
 
 // onload
 GetToolVersions().then(res => {
   versions.value = res;
+});
+
+onMounted(async () => {
+
+  //TODO: find out why I need this here but not in tutorials page
+  setTimeout(() => {
+    switch (router.currentRoute.value.query.target) {
+      case "thesisTemplate":
+        (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(2);
+        break;
+      case "thesisTool":
+        (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(3);
+        break;
+      case "cvTemplate":
+        (fullHeightLayout.value! as typeof FullHeightLayout).jumpTo(4);
+        break;
+    }
+  });
 });
 
 </script>

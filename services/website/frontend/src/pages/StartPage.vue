@@ -51,7 +51,7 @@
             </p>
             <v-list class="text-h6"
                     style="background-color: transparent; font-weight: bold; cursor: pointer;">
-              <v-list-item v-ripple to="/downloads">
+              <v-list-item v-ripple to="/downloads?target=thesisTemplate">
                 <template #prepend>
                   <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
                 </template>
@@ -83,7 +83,7 @@
           </p>
           <v-list class="text-h6"
                   style="background-color: transparent; font-weight: bold; cursor: pointer;">
-            <v-list-item v-ripple to="/downloads">
+            <v-list-item v-ripple to="/downloads?target=thesisTool">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
@@ -115,7 +115,7 @@
           </p>
           <v-list class="text-h6"
                   style="background-color: transparent; font-weight: bold; cursor: pointer;">
-            <v-list-item v-ripple to="/downloads">
+            <v-list-item v-ripple to="/downloads?target=cvTemplate">
               <template #prepend>
                 <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
               </template>
