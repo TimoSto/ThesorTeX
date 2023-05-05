@@ -76,3 +76,5 @@ Feature: Accessibility
     When the "Enter" key is pressed
     Then the url is "/#/downloads"
     And area 4 is shown in full height
+
+    # TODO: test tables
