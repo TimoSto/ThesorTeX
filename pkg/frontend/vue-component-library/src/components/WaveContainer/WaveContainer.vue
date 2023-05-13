@@ -9,7 +9,7 @@ const height = ref(0);
 
 // computed
 const bgSvg = computed(() => {
-  const svg = generateWaveSVG(width.value, height.value, (x: number) => 100 * Math.sin(x / 100));
+  const svg = generateWaveSVG(width.value, height.value, (x: number) => 100 * Math.sin(x / 100) + 0.25 * height.value);
 
   return window.btoa(svg);
 });
