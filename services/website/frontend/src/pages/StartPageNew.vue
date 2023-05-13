@@ -3,7 +3,7 @@
 </script>
 
 <template>
-
+  <WaveContainer></WaveContainer>
 </template>
 
 <style scoped lang="scss">

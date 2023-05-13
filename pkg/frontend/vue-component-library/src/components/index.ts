@@ -4,6 +4,7 @@ import SVGTemplate from "./SVGTemplate/SVGTemplate.vue";
 import MarkdownToVuetify from "./MarkdownToVuetify/MarkdownToVuetify.vue";
 import RevealJS from "./RevealJS/RevealJS.vue";
 import ImageViewer from "./ImageViewer/ImageViewer.vue";
+import WaveContainer from "./WaveContainer/WaveContainer.vue";
 
 export {
     ToolbarAndContent,
@@ -12,4 +13,5 @@ export {
     MarkdownToVuetify,
     RevealJS,
     ImageViewer,
+    WaveContainer
 };
