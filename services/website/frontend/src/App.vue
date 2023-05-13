@@ -43,7 +43,6 @@ const elevation = ref(0);
 const smallDisplay = ref(false);
 
 function onResize() {
-  console.log(screen.width);
   if (screen.width < 900) {
     smallDisplay.value = true;
   } else {
