@@ -6,6 +6,7 @@ const props = defineProps({
   waveFunc: Number,
   bgColor: String,
   waveColor: String,
+  smallDisplay: Boolean
 });
 
 // data
@@ -42,14 +43,29 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :style="`background-image: url(data:image/svg+xml;base64,${bgSvg})`" class="container" ref="content">
-    <slot></slot>
+  <div :style="`background-image: url(data:image/svg+xml;base64,${bgSvg})`" class="container"
+       :class="smallDisplay ? 'small': 'large'" ref="content">
+    <v-container>
+      <slot></slot>
+    </v-container>
   </div>
 </template>
 
 <style scoped lang="scss">
 .container {
-  width: 100vw;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+
+  &.large {
+    min-height: 100vh;
+  }
+
+  &.small {
+    min-height: 33vh;
+    padding-bottom: 75px;
+    padding-top: 75px;
+  }
 }
 </style>
