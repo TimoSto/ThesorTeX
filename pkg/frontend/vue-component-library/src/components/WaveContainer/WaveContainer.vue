@@ -33,10 +33,10 @@ onMounted(() => {
   width.value = (content.value! as HTMLElement).clientWidth;
   height.value = (content.value! as HTMLElement).clientHeight;
 
-  window.onresize = () => {
+  window.addEventListener("resize", () => {
     width.value = (content.value! as HTMLElement).clientWidth;
     height.value = (content.value! as HTMLElement).clientHeight;
-  };
+  });
 });
 
 </script>
