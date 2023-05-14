@@ -7,6 +7,7 @@ import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
 import {BugSVG} from "../components/svgs/BugSVG";
 import GermanTemplateImg from "../assets/thesis_template_de.png";
+import ThesisToolImg from "../assets/thesis_tool_de.png";
 
 const {t} = useI18n();
 
@@ -116,6 +117,38 @@ const bugSVG = computed(() => {
         </div>
       </v-col>
     </v-row>
+  </WaveContainer>
+  <WaveContainer :wave-func="3" :small-display="smallDisplay" bg-color="#001220" wave-color="#008833">
+    <v-row>
+      <v-col :cols="smallDisplay ? 12 : 6">
+        <h2 class="text-h3 text-white font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.ThesisToolTitle) }}</h2>
+        <p class="text-h6 pb-6 text-white">
+          {{ t(i18nKeys.StartPage.ThesisToolSubtitle) }}
+        </p>
+        <v-list class="text-h6 text-white"
+                style="background-color: transparent; font-weight: bold; cursor: pointer;">
+          <v-list-item v-ripple to="/downloads?target=thesisTool">
+            <template #prepend>
+              <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+            </template>
+            {{ t(i18nKeys.Common.ToDownloads) }}
+          </v-list-item>
+          <v-list-item v-ripple to="/tutorials?target=thesisTool">
+            <template #prepend>
+              <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+            </template>
+            {{ t(i18nKeys.Common.Tutorial) }}
+          </v-list-item>
+        </v-list>
+      </v-col>
+      <v-col v-if="!smallDisplay" cols="6" class="d-flex"
+             style="justify-content: center; align-items: center; position: relative;">
+        <ImageViewer :image="ThesisToolImg" />
+      </v-col>
+    </v-row>
+  </WaveContainer>
+  <WaveContainer :wave-func="2" :small-display="smallDisplay" bg-color="#008833" wave-color="#001220">
+    
   </WaveContainer>
 </template>
 
