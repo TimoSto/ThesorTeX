@@ -1,6 +1,6 @@
 export default function generateWaveSVG(width: number, height: number, bg: string, fn: (x: number) => number): string {
     let points = "";
-    for (let x = -width / 2; x < width / 2; x += 10) {
+    for (let x = -width / 2; x < width / 2 + 10; x += 10) {
         points += `L ${x} ${fn(x)} `;
     }
 
