@@ -4,7 +4,8 @@ import generateWaveSVG from "./waves/generateWaveSVG";
 
 const props = defineProps({
   waveFunc: Number,
-  bgColor: String
+  bgColor: String,
+  waveColor: String,
 });
 
 // data
@@ -14,7 +15,7 @@ const height = ref(0);
 // computed
 const bgSvg = computed(() => {
   const fn = waveFunc1;
-  const svg = generateWaveSVG(width.value, height.value, props.bgColor!, fn);
+  const svg = generateWaveSVG(width.value, height.value, props.bgColor!, props.waveColor!, fn);
 
   return window.btoa(svg);
 });
