@@ -12,6 +12,8 @@ const props = defineProps({
 const width = ref(0);
 const height = ref(0);
 
+const content = ref(null);
+
 // computed
 const bgSvg = computed(() => {
   const fn = waveFunc1;
@@ -28,24 +30,26 @@ function waveFunc1(x: number): number {
 
 //onmounted
 onMounted(() => {
-  width.value = window.innerWidth;
-  height.value = window.innerHeight;
+  width.value = (content.value! as HTMLElement).clientWidth;
+  height.value = (content.value! as HTMLElement).clientHeight;
 
   window.onresize = () => {
-    width.value = window.innerWidth;
-    height.value = window.innerHeight;
+    width.value = (content.value! as HTMLElement).clientWidth;
+    height.value = (content.value! as HTMLElement).clientHeight;
   };
 });
 
 </script>
 
 <template>
-  <div :style="`background-image: url(data:image/svg+xml;base64,${bgSvg})`" class="container"></div>
+  <div :style="`background-image: url(data:image/svg+xml;base64,${bgSvg})`" class="container" ref="content">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 </style>
