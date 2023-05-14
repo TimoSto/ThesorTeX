@@ -3,7 +3,7 @@ import {
     SVGPartial,
     TemplateSVG
 } from "@thesortex/vue-component-library/src/components/SVGTemplate/helper/SVG";
-import {ThesisSVG} from "./ThesisSVG";
+import {GetThesisSVG, ThesisSVG} from "./ThesisSVG";
 
 const display: PathPart[] = [
     {
@@ -188,3 +188,93 @@ export const LaptopSVG: TemplateSVG = {
         thesisPart2
     ]
 };
+
+export function GetLaptopSVG(fill: string, stroke: string): TemplateSVG {
+    const laptopPart: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "15",
+        fillColor: fill,
+        parts: [
+            display,
+            keyboard
+        ]
+    };
+
+    const laptopMarkPart: SVGPartial = {
+        strokeColor: fill,
+        strokeWidth: "5",
+        fillColor: fill,
+        parts: [
+            [
+                {
+                    vector: {
+                        x: -50,
+                        y: 122
+                    }
+                },
+                {
+                    vector: {
+                        x: 50,
+                        y: 122
+                    }
+                },
+                {
+                    arc: {
+                        radius: 3,
+                        rotation: 0,
+                        clockwise: false,
+                        end: {
+                            x: 50,
+                            y: 128
+                        }
+                    }
+                },
+                {
+                    vector: {
+                        x: -50,
+                        y: 128
+                    }
+                },
+                {
+                    arc: {
+                        radius: 3,
+                        rotation: 0,
+                        clockwise: false,
+                        end: {
+                            x: -50,
+                            y: 122
+                        }
+                    }
+                },
+            ]
+        ]
+    };
+
+    const thesisSVG = GetThesisSVG("white", "black");
+
+    const thesisPart_1 = JSON.parse(JSON.stringify(thesisSVG.partials[0]));
+    thesisPart_1.scale = 0.45;
+    thesisPart_1.translate = {
+        x: 20,
+        y: -50
+    };
+
+    const thesisPart_2 = JSON.parse(JSON.stringify(thesisSVG.partials[1]));
+    thesisPart_2.scale = 0.45;
+    thesisPart_2.translate = {
+        x: 0,
+        y: -50
+    };
+
+    return {
+        viewBox: "-250 -250 500 500",
+        width: 500,
+        height: 500,
+        partials: [
+            laptopPart,
+            laptopMarkPart,
+            thesisPart_1,
+            thesisPart_2
+        ]
+    };
+}

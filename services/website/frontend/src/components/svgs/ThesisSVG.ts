@@ -92,7 +92,6 @@ const bookMark: PathPart[] = [
     }
 ];
 
-
 const leftMark: PathPart[] = [
     {
         vector: {
@@ -362,3 +361,53 @@ export const ThesisSVG: TemplateSVG = {
         JSON.parse(JSON.stringify(hat))
     ]
 };
+
+export function GetThesisSVG(fill: string, stroke: string): TemplateSVG {
+    const part1: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "10",
+        fillColor: fill,
+        scale: 1,
+        angle: -10,
+        translate: {
+            x: 0,
+            y: 0,
+        },
+        parts: [
+            outerBorder,
+            bookMark,
+            leftMark,
+            circle,
+            line1,
+            line2,
+            line3
+        ]
+    };
+
+    const hatPart: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "10",
+        fillColor: fill,
+        scale: 1,
+        angle: 0,
+        translate: {
+            x: 0,
+            y: 0,
+        },
+        parts: [
+            hatPart2,
+            hatPart1,
+            hatPart3
+        ]
+    };
+
+    return {
+        viewBox: "-250 -250 500 500",
+        width: 500,
+        height: 500,
+        partials: [
+            JSON.parse(JSON.stringify(part1)),
+            JSON.parse(JSON.stringify(hatPart))
+        ]
+    };
+}

@@ -2,10 +2,10 @@
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
 import {computed} from "vue";
-import {ThesisSVG} from "../components/svgs/ThesisSVG";
-import {LaptopSVG} from "../components/svgs/LaptopSVG";
-import {CVSVG} from "../components/svgs/CVSVG";
-import {BugSVG} from "../components/svgs/BugSVG";
+import {GetThesisSVG} from "../components/svgs/ThesisSVG";
+import {GetLaptopSVG} from "../components/svgs/LaptopSVG";
+import {GetCvSVG} from "../components/svgs/CVSVG";
+import {GetBugSVG} from "../components/svgs/BugSVG";
 import GermanTemplateImg from "../assets/thesis_template_de.png";
 import ThesisToolImg from "../assets/thesis_tool_de.png";
 import CvTemplateImg from "../assets/cv_template_de.png";
@@ -20,25 +20,25 @@ defineProps({
 
 const thesisSVG = computed(() => {
   //TODO: find a better way to loose reactivity
-  const svg = JSON.parse(JSON.stringify(ThesisSVG));
+  const svg = GetThesisSVG("rgba(var(--v-theme-background))", "white");
 
   return svg;
 });
 
 const laptopWithThesisSVG = computed(() => {
-  const svg = JSON.parse(JSON.stringify(LaptopSVG));
+  const svg = GetLaptopSVG("rgba(var(--v-theme-background))", "white");
 
   return svg;
 });
 
 const cvSVG = computed(() => {
-  const svg = JSON.parse(JSON.stringify(CVSVG));
+  const svg = GetCvSVG("rgba(var(--v-theme-background))", "white");
 
   return svg;
 });
 
 const bugSVG = computed(() => {
-  const svg = JSON.parse(JSON.stringify(BugSVG));
+  const svg = GetBugSVG("rgba(var(--v-theme-background))", "white");
 
   return svg;
 });

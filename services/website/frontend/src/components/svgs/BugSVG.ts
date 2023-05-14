@@ -304,3 +304,53 @@ export const BugSVG: TemplateSVG = {
     height: 500,
     partials: [body, head]
 };
+
+export function GetBugSVG(fill: string, stroke: string): TemplateSVG {
+    const bodyPart: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "10",
+        fillColor: fill,
+        scale: 1,
+        angle: 0,
+        translate: {
+            x: 0,
+            y: 0,
+        },
+        parts: [
+            bodyLeft,
+            bodyRight,
+            arm1Left,
+            arm1Right,
+            arm2Left,
+            arm2Right,
+            arm3Left,
+            arm3Right
+        ]
+    };
+
+    const headPart: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "10",
+        fillColor: fill,
+        scale: 1,
+        angle: 0,
+        translate: {
+            x: 0,
+            y: 0,
+        },
+        parts: [
+            headPart1,
+            eye1,
+            eye2,
+            headpieceLeft,
+            headpieceRight
+        ]
+    };
+
+    return {
+        viewBox: "-250 -250 500 500",
+        width: 500,
+        height: 500,
+        partials: [bodyPart, headPart]
+    };
+}

@@ -412,3 +412,48 @@ export const CVSVG: TemplateSVG = {
         person
     ]
 };
+
+export function GetCvSVG(fill: string, stroke: string) {
+    const paperPart: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "10",
+        fillColor: fill,
+        scale: 1,
+        parts: [
+            paperline,
+            line1,
+            line2,
+            line3,
+            line4,
+            line5,
+            line6,
+            lash
+        ]
+    };
+
+    const personPart: SVGPartial = {
+        strokeColor: stroke,
+        strokeWidth: "7",
+        fillColor: fill,
+        scale: 0.8,
+        parts: [
+            border,
+            body,
+            head,
+        ],
+        translate: {
+            x: 60,
+            y: 20
+        }
+    };
+
+    return {
+        width: 500,
+        height: 500,
+        viewBox: "-250 -250 500 500",
+        partials: [
+            paperPart,
+            personPart
+        ]
+    };
+}
