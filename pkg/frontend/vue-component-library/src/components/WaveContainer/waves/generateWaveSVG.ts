@@ -1,4 +1,9 @@
-export default function generateWaveSVG(width: number, height: number, bg: string, waveColor: string, fn: (x: number) => number): string {
+export default function generateWaveSVG(width: number, height: number, bg: string, waveColor: string, fn: (x: number) => number, noWave: boolean): string {
+    if (noWave) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" fill="${waveColor}" width="${width}px" height="${height}px" viewBox="${-width / 2} ${-height / 2} ${width} ${height}">
+        <rect x="${-width / 2}" y="${-height / 2}" width="${width}" height="${height}" fill="${bg}"></rect>
+</svg>`;
+    }
     let points = "";
     for (let x = -width / 2; x < width / 2 + 10; x += 10) {
         points += `L ${x} ${fn(x)} `;

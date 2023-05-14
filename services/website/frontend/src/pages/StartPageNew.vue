@@ -176,7 +176,7 @@ const bugSVG = computed(() => {
       </v-col>
     </v-row>
   </WaveContainer>
-  <WaveContainer :wave-func="1" :small-display="smallDisplay" bg-color="#001220" wave-color="#008833">
+  <WaveContainer :wave-func="-1" :small-display="smallDisplay" bg-color="#001220" wave-color="#008833">
     <v-row>
       <v-col :cols="smallDisplay ? 12 : 6">
         <h2 class="text-h3 text-white font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.KnownIssuesTitle) }}</h2>

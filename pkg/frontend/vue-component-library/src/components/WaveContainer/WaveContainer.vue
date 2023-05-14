@@ -17,15 +17,19 @@ const content = ref(null);
 
 // computed
 const bgSvg = computed(() => {
-  const fn = waveFunc1;
-  const svg = generateWaveSVG(width.value, height.value, props.bgColor!, props.waveColor!, fn);
+  const svg = generateWaveSVG(width.value, height.value, props.bgColor!, props.waveColor!, waveFunc, props.waveFunc === -1);
 
   return window.btoa(svg);
 });
 
 // methods
-function waveFunc1(x: number): number {
-  return 50 * Math.sin(x / 100) + 30 * Math.cos((x + 150) / 200) + 0.35 * height.value;
+function waveFunc(x: number): number {
+  switch (props.waveFunc) {
+    case 2:
+      return 40 * Math.sin(x / 100) + 50 * Math.cos((x + 150) / 200) - 60 * Math.sin(x / 750) + 0.25 * height.value;
+    default:
+      return 50 * Math.sin(x / 100) + 30 * Math.cos((x + 150) / 200) + 0.35 * height.value;
+  }
 }
 
 
