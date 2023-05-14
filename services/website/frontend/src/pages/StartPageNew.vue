@@ -6,6 +6,7 @@ import {ThesisSVG} from "../components/svgs/ThesisSVG";
 import {LaptopSVG} from "../components/svgs/LaptopSVG";
 import {CVSVG} from "../components/svgs/CVSVG";
 import {BugSVG} from "../components/svgs/BugSVG";
+import GermanTemplateImg from "../assets/thesis_template_de.png";
 
 const {t} = useI18n();
 
@@ -42,7 +43,7 @@ const bugSVG = computed(() => {
 </script>
 
 <template>
-  <WaveContainer :wave-func="1" bg-color="#001220" wave-color="#008833">
+  <WaveContainer :wave-func="1" :small-display="smallDisplay" bg-color="#001220" wave-color="#008833">
     <v-row>
       <v-col :cols="smallDisplay ? 12: 6">
         <h2 class="text-h3 font-weight-bold text-white pa-4 pt-15">{{ t(i18nKeys.StartPage.Title) }}</h2>
@@ -76,7 +77,45 @@ const bugSVG = computed(() => {
       </v-col>
     </v-row>
   </WaveContainer>
-  <WaveContainer :wave-func="2" bg-color="#008833" wave-color="#001220">
+  <WaveContainer :wave-func="2" :small-display="smallDisplay" bg-color="#008833" wave-color="#001220">
+    <v-row>
+      <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
+        <ImageViewer :image="GermanTemplateImg" />
+        <!--          <img :src="GermanTemplateImg" style="border: 1px solid black; max-height: 500px;" />-->
+        <!--TODO: Update doc image-->
+      </v-col>
+      <v-col :cols="smallDisplay ? 12 : 6" class="d-flex" style="justify-content: center; align-items: center;">
+        <div style="display: block">
+          <h2 class="text-h3 text-white font-weight-bold pt-6 pb-6">
+            {{ t(i18nKeys.StartPage.ThesisTemplateTitle) }}
+          </h2>
+          <p class="text-h6 pb-6 text-white">
+            {{ t(i18nKeys.StartPage.ThesisTemplateSubtitle) }}
+          </p>
+          <v-list class="text-h6 text-white"
+                  style="background-color: transparent; font-weight: bold; cursor: pointer;">
+            <v-list-item v-ripple to="/downloads?target=thesisTemplate">
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.ToDownloads) }}
+            </v-list-item>
+            <v-list-item v-ripple href="/documentation?lang=de&format=zip" target="_blank">
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.StartPage.ThesisTemplateExample) }}
+            </v-list-item>
+            <v-list-item v-ripple to="/tutorials?target=thesisTemplate">
+              <template #prepend>
+                <v-icon style="opacity: 1">mdi-arrow-right-circle-outline</v-icon>
+              </template>
+              {{ t(i18nKeys.Common.Tutorial) }}
+            </v-list-item>
+          </v-list>
+        </div>
+      </v-col>
+    </v-row>
   </WaveContainer>
 </template>
 
