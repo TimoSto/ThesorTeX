@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <WaveContainer></WaveContainer>
+  <WaveContainer :wave-func="1"></WaveContainer>
 </template>
 
 <style scoped lang="scss">

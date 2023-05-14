@@ -1,7 +1,10 @@
 <script setup lang="ts">
-// computed
 import {computed, onMounted, ref} from "vue";
 import generateWaveSVG from "./waves/generateWaveSVG";
+
+const props = defineProps({
+  waveFunc: Number
+});
 
 // data
 const width = ref(0);
@@ -9,10 +12,16 @@ const height = ref(0);
 
 // computed
 const bgSvg = computed(() => {
-  const svg = generateWaveSVG(width.value, height.value, (x: number) => 100 * Math.sin(x / 100) + 0.25 * height.value);
+  const fn = waveFunc1;
+  const svg = generateWaveSVG(width.value, height.value, fn);
 
   return window.btoa(svg);
 });
+
+// methods
+function waveFunc1(x: number): number {
+  return 50 * Math.sin(x / 100) + 30 * Math.cos((x + 150) / 200) + 0.35 * height.value;
+}
 
 
 //onmounted
