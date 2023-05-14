@@ -30,7 +30,7 @@ function waveFunc(x: number): number {
     case 3:
       return 40 * Math.cos(x / 100) + 50 * Math.sin((x + 150) / 200) - 10 * Math.sin(x / 500) + 0.35 * height.value;
     default:
-      return 50 * Math.sin(x / 100) + 30 * Math.cos((x + 150) / 200) + 0.35 * height.value;
+      return 50 * Math.sin(x / 200) + 30 * Math.cos((x + 150) / 600) + 0.35 * height.value;
   }
 }
 
