@@ -26,7 +26,9 @@ const bgSvg = computed(() => {
 function waveFunc(x: number): number {
   switch (props.waveFunc) {
     case 2:
-      return 40 * Math.sin(x / 100) + 50 * Math.cos((x + 150) / 200) - 60 * Math.sin(x / 750) + 0.25 * height.value;
+      return 20 * Math.sin(x / 100) + 50 * Math.cos((x + 150) / 200) - 30 * Math.sin(x / 750) + 0.3 * height.value;
+    case 3:
+      return 40 * Math.cos(x / 100) + 50 * Math.sin((x + 150) / 200) - 10 * Math.sin(x / 500) + 0.35 * height.value;
     default:
       return 50 * Math.sin(x / 100) + 30 * Math.cos((x + 150) / 200) + 0.35 * height.value;
   }
