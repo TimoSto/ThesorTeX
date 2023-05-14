@@ -3,7 +3,8 @@ import {computed, onMounted, ref} from "vue";
 import generateWaveSVG from "./waves/generateWaveSVG";
 
 const props = defineProps({
-  waveFunc: Number
+  waveFunc: Number,
+  bgColor: String
 });
 
 // data
@@ -13,7 +14,7 @@ const height = ref(0);
 // computed
 const bgSvg = computed(() => {
   const fn = waveFunc1;
-  const svg = generateWaveSVG(width.value, height.value, fn);
+  const svg = generateWaveSVG(width.value, height.value, props.bgColor!, fn);
 
   return window.btoa(svg);
 });
