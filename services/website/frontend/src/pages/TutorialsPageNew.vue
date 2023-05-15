@@ -2,7 +2,7 @@
 import {WaveContainer} from "@thesortex/vue-component-library/src/components";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import {GetDocumentationsJSON, ThesorTeXDocumentation} from "../api/GetDocumentation";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
 
@@ -18,6 +18,40 @@ const opened = ref<number[]>([]);
 const jsonDocs = ref<ThesorTeXDocumentation | undefined>(undefined);
 
 const presentationOpened = ref(false);
+
+const container0 = ref<InstanceType<typeof WaveContainer> | null>(null);
+const container1 = ref<InstanceType<typeof WaveContainer> | null>(null);
+const container2 = ref<InstanceType<typeof WaveContainer> | null>(null);
+const container3 = ref<InstanceType<typeof WaveContainer> | null>(null);
+
+const expandedThesisTemplate = ref([] as number[]);
+const expandedThesisTool = ref([] as number[]);
+const expandedCVTemplate = ref([] as number[]);
+
+// watchers
+watch(expandedThesisTemplate, () => {
+  recalculateDimensions();
+});
+watch(expandedThesisTool, () => {
+  recalculateDimensions();
+});
+watch(expandedCVTemplate, () => {
+  recalculateDimensions();
+});
+
+// methods
+function recalculateDimensions() {
+  //TODO: find a better way
+  const interval = setInterval(() => {
+    container0.value.recalculateDimensions();
+    container1.value.recalculateDimensions();
+    container2.value.recalculateDimensions();
+    container3.value.recalculateDimensions();
+  }, 5);
+  setTimeout(() => {
+    clearInterval(interval);
+  }, 500);
+}
 
 // onMounted
 onMounted(async () => {
@@ -72,7 +106,7 @@ onMounted(async () => {
 
         <p class="text-body-1 text-center pb-4"> {{ t(i18nKeys.TutorialsPage.TexKnowledge) }}</p>
 
-        <v-expansion-panels multiple>
+        <v-expansion-panels multiple v-model="expandedThesisTemplate">
           <DocumentationPanel v-for="d in (jsonDocs as ThesorTeXDocumentation).ThesisTemplate.Docs" :doc="d" />
         </v-expansion-panels>
       </v-col>
@@ -94,7 +128,7 @@ onMounted(async () => {
           {{ (jsonDocs as ThesorTeXDocumentation).ThesisTool.Title }}
         </h2>
 
-        <v-expansion-panels multiple>
+        <v-expansion-panels multiple v-model="expandedThesisTool">
           <DocumentationPanel v-for="d in (jsonDocs as ThesorTeXDocumentation).ThesisTool.Docs" :doc="d" />
         </v-expansion-panels>
       </v-col>
@@ -116,7 +150,7 @@ onMounted(async () => {
           {{ (jsonDocs as ThesorTeXDocumentation).CVTemplate.Title }}
         </h2>
 
-        <v-expansion-panels multiple>
+        <v-expansion-panels multiple v-model="expandedCVTemplate">
           <DocumentationPanel v-for="d in (jsonDocs as ThesorTeXDocumentation).CVTemplate.Docs" :doc="d" />
         </v-expansion-panels>
       </v-col>

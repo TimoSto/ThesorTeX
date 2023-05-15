@@ -34,6 +34,14 @@ function waveFunc(x: number): number {
   }
 }
 
+function recalculateDimensions() {
+  width.value = (content.value! as HTMLElement).clientWidth;
+  height.value = (content.value! as HTMLElement).clientHeight;
+}
+
+defineExpose({
+  recalculateDimensions
+});
 
 //onmounted
 onMounted(() => {
