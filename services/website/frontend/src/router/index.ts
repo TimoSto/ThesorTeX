@@ -1,5 +1,4 @@
 import {createRouter, createWebHashHistory} from "vue-router";
-import StartPage from "../pages/StartPage.vue";
 import StartPageNew from "../pages/StartPageNew.vue";
 import DownloadsPageNew from "../pages/DownloadsPageNew.vue";
 import TutorialsPage from "../pages/TutorialsPage.vue";
@@ -8,11 +7,6 @@ const routes = [
     {
         path: "/",
         name: "Home",
-        component: StartPage
-    },
-    {
-        path: "/new",
-        name: "New",
         component: StartPageNew
     },
     {
