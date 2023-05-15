@@ -1,7 +1,7 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import StartPageNew from "../pages/StartPageNew.vue";
 import DownloadsPageNew from "../pages/DownloadsPageNew.vue";
-import TutorialsPage from "../pages/TutorialsPage.vue";
+import TutorialsPageNew from "../pages/TutorialsPageNew.vue";
 
 const routes = [
     {
@@ -17,7 +17,7 @@ const routes = [
     {
         path: "/tutorials",
         name: "Tutorials",
-        component: TutorialsPage
+        component: TutorialsPageNew
     }
 ];
 
