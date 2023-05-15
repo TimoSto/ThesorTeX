@@ -53,7 +53,6 @@ const bugSVG = computed(() => {
 
 // methods
 function jumpTo(n: number) {
-  console.log(container0.value, (container1.value! as HTMLElement));
   switch (n) {
     case 0:
       (container0.value!.$el as HTMLElement).scrollIntoView({behavior: "smooth"});
