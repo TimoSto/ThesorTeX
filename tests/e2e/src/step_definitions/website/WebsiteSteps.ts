@@ -6,7 +6,7 @@ import waitForAnimations from "../../helpers/waitForAnimations";
 Then("area {int} is shown in full height", async function (this: OurWorld, n: number) {
     await waitForAnimations(this.page, ["#app"]);
 
-    const element = await this.page.locator(".fullHeightContainer").nth(n - 1);
+    const element = await this.page.locator(".wave-container").nth(n - 1);
     await expect(element).toBeVisible();
     const box = await element.boundingBox();
     const pageDimensions = await this.page.viewportSize();
@@ -24,7 +24,7 @@ Then("area {int} is shown in full height", async function (this: OurWorld, n: nu
 Then("area {int} is shown in full height slightly scrolled off", async function (this: OurWorld, n: number) {
     await waitForAnimations(this.page, ["#app"]);
 
-    const element = await this.page.locator(".fullHeightContainer").nth(n - 1);
+    const element = await this.page.locator(".wave-container").nth(n - 1);
     await expect(element).toBeVisible();
     const box = await element.boundingBox();
     const pageDimensions = await this.page.viewportSize();
@@ -44,17 +44,17 @@ When("the scroll down button is clicked", async function (this: OurWorld, n: num
 });
 
 Then("the title of area {int} is {string}", async function (this: OurWorld, n: number, title: string) {
-    const foundTitle = await this.page.locator(".fullHeightContainer").nth(n - 1).locator(".text-h3").textContent();
+    const foundTitle = await this.page.locator(".wave-container").nth(n - 1).locator(".text-h3").textContent();
 
     expect(foundTitle).toEqual(title);
 });
 
 Then("the title of area {int} is not existent", async function (this: OurWorld, n: number) {
-    await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".text-h3")).toHaveCount(0);
+    await expect(this.page.locator(".wave-container").nth(n - 1).locator(".text-h3")).toHaveCount(0);
 });
 
 Then("three cards are shown for the products", async function (this: OurWorld) {
-    const cards = await this.page.locator(".fullHeightContainer").nth(0).locator(".v-card");
+    const cards = await this.page.locator(".wave-container").nth(0).locator(".v-card");
     await expect(cards).toHaveCount(3);
     await expect(cards.nth(0).locator(".text-h5")).toHaveText("Template for academic papers");
     await expect(cards.nth(1).locator(".text-h5")).toHaveText("Tool for bibliography management");
@@ -62,31 +62,31 @@ Then("three cards are shown for the products", async function (this: OurWorld) {
 });
 
 When("the download button in card {int} is clicked", async function (this: OurWorld, n: number) {
-    await this.page.locator(".fullHeightContainer").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Download`)}).nth(n - 1).click();
+    await this.page.locator(".wave-container").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Download`)}).nth(n - 1).click();
 });
 
 When("the more info button in card {int} is clicked", async function (this: OurWorld, n: number) {
-    await this.page.locator(".fullHeightContainer").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Learn more`)}).nth(n - 1).click();
+    await this.page.locator(".wave-container").nth(0).locator(".v-btn", {has: this.page!.locator(`text=Learn more`)}).nth(n - 1).click();
 });
 
 Then("the following versions are shown in area {int}", async function (this: OurWorld, n: number, versions: DataTable) {
     for (const el of versions.hashes()) {
         const i = versions.hashes().map(v => v.name).indexOf(el.name);
-        let v = await this.page.locator(".fullHeightContainer").nth(n - 1).locator("tbody tr").nth(i).locator("td").nth(0).textContent();
+        let v = await this.page.locator(".wave-container").nth(n - 1).locator("tbody tr").nth(i).locator("td").nth(0).textContent();
         await expect(v).toEqual(el.name);
-        let d = await this.page.locator(".fullHeightContainer").nth(n - 1).locator("tbody tr").nth(i).locator("td").nth(1).textContent();
+        let d = await this.page.locator(".wave-container").nth(n - 1).locator("tbody tr").nth(i).locator("td").nth(1).textContent();
         await expect(d).toEqual(el.date);
     }
 });
 
 When("the list item with the text {string} in area {int} is clicked", async function (this: OurWorld, text: string, n: number) {
-    await this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first().click();
+    await this.page.locator(".wave-container").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first().click();
 });
 
 Then("the list item with the text {string} in area {int} is focussed", async function (this: OurWorld, text: string, n: number) {
-    await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
+    await expect(this.page.locator(".wave-container").nth(n - 1).locator(".v-list-item", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
 });
 
 Then("the button with the text {string} in area {int} and card {int} is focussed", async function (this: OurWorld, text: string, n: number, m: number) {
-    await expect(this.page.locator(".fullHeightContainer").nth(n - 1).locator(".v-card").nth(m - 1).locator(".v-btn", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
+    await expect(this.page.locator(".wave-container").nth(n - 1).locator(".v-card").nth(m - 1).locator(".v-btn", {has: this.page!.locator(`text=${text}`)}).first()).toBeFocused();
 });

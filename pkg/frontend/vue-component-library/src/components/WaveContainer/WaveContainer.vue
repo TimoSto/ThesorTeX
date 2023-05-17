@@ -57,7 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :style="`background-image: url(data:image/svg+xml;base64,${bgSvg})`" class="container"
+  <div :style="`background-image: url(data:image/svg+xml;base64,${bgSvg})`" class="wave-container"
        :class="smallDisplay ? 'small': 'large'" ref="content">
     <v-container>
       <slot></slot>
@@ -66,7 +66,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.container {
+.wave-container {
   display: flex;
   align-items: center;
   box-sizing: border-box;
