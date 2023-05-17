@@ -57,6 +57,7 @@ const cvSVG = computed(() => {
 });
 
 // methods
+// TODO: generalize
 function jumpTo(n: number) {
   switch (n) {
     case 0:
