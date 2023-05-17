@@ -5,9 +5,11 @@ import {useI18n} from "vue-i18n";
 import {onMounted, ref, watch} from "vue";
 import {GetDocumentationsJSON, ThesorTeXDocumentation} from "../api/GetDocumentation";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
+import {useRouter} from "vue-router";
 
 const {t} = useI18n();
 const i18nObject = useI18n();
+const router = useRouter();
 
 // data
 const props = defineProps({
@@ -53,9 +55,39 @@ function recalculateDimensions() {
   }, 500);
 }
 
+function jumpTo(n: number) {
+  switch (n) {
+    case 0:
+      (container0.value!.$el as HTMLElement).scrollIntoView({behavior: "smooth"});
+      break;
+    case 1:
+      (container1.value!.$el as HTMLElement).scrollIntoView({behavior: "smooth"});
+      break;
+    case 2:
+      (container2.value!.$el as HTMLElement).scrollIntoView({behavior: "smooth"});
+      break;
+    case 3:
+      (container3.value!.$el as HTMLElement).scrollIntoView({behavior: "smooth"});
+      break;
+  }
+}
+
 // onMounted
 onMounted(async () => {
   jsonDocs.value = await GetDocumentationsJSON(i18nObject.locale.value);
+  setTimeout(() => {
+    switch (router.currentRoute.value.query.target) {
+      case "thesisTemplate":
+        jumpTo(1);
+        break;
+      case "thesisTool":
+        jumpTo(2);
+        break;
+      case "cvTemplate":
+        jumpTo(3);
+        break;
+    }
+  });
 });
 </script>
 
