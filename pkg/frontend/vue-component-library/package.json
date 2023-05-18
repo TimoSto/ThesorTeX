@@ -4,12 +4,23 @@
   "description": "",
   "main": "src/index.ts",
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.12",
+    "@storybook/addon-interactions": "^7.0.12",
+    "@storybook/addon-links": "^7.0.12",
+    "@storybook/blocks": "^7.0.12",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.12",
+    "@storybook/vue3-vite": "^7.0.12",
     "@thesortex/vitest-vuetify": "workspace:*",
     "@types/reveal.js": "^4.4.2",
     "@vitejs/plugin-vue": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.12",
     "vite": "*"
   },
   "dependencies": {
+    "@thesortex/vuetify-plugin": "workspace:^1.0.0",
     "pinia": "*",
     "reveal.js": "^4.4.0",
     "sass": "1.58.3",
@@ -19,6 +30,8 @@
     "vuetify": "*"
   },
   "scripts": {
-    "vitest:run": "vitest run --dom"
+    "vitest:run": "vitest run --dom",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   }
 }
