@@ -1,20 +1,20 @@
-import MyButton from './Button.vue';
+import MyButton from "./Button.vue";
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
-    title: 'Example/Button',
+    title: "Example/Button",
     component: MyButton,
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     render: (args, {argTypes}) => ({
         props: Object.keys(argTypes),
         components: {MyButton},
-        template: '<my-button @onClick="onClick" v-bind="$props" />',
+        template: "<my-button @onClick=\"onClick\" v-bind=\"$props\" />",
     }),
     argTypes: {
-        backgroundColor: {control: 'color'},
+        backgroundColor: {control: "color"},
         size: {
-            control: {type: 'select'},
-            options: ['small', 'medium', 'large'],
+            control: {type: "select"},
+            options: ["small", "medium", "large"],
         },
     },
 };
@@ -23,26 +23,26 @@ export default {
 export const Primary = {
     args: {
         primary: true,
-        label: 'Button',
+        label: "Button",
     },
 };
 
 export const Secondary = {
     args: {
-        label: 'Button',
+        label: "Button",
     },
 };
 
 export const Large = {
     args: {
-        size: 'large',
-        label: 'Button',
+        size: "large",
+        label: "Button",
     },
 };
 
 export const Small = {
     args: {
-        size: 'small',
-        label: 'Button',
+        size: "small",
+        label: "Button",
     },
 };
