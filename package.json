@@ -37,6 +37,7 @@
     "@types/node": "18.11.18",
     "@vue/test-utils": "*",
     "happy-dom": "*",
+    "loki": "^0.31.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.0.12",
@@ -54,5 +55,20 @@
     "runWebsiteE2E": "bazel run //services/website/cmd/e2e",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
