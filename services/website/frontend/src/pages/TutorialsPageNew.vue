@@ -2,7 +2,7 @@
 import {WaveContainer} from "@thesortex/vue-component-library/src/components";
 import {i18nKeys} from "../i18n/keys";
 import {useI18n} from "vue-i18n";
-import {onMounted, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import {GetDocumentationsJSON, ThesorTeXDocumentation} from "../api/GetDocumentation";
 import DocumentationPanel from "../components/DocumentationPanel.vue";
 import {useRouter} from "vue-router";
@@ -29,6 +29,28 @@ const container3 = ref<InstanceType<typeof WaveContainer> | null>(null);
 const expandedThesisTemplate = ref([] as number[]);
 const expandedThesisTool = ref([] as number[]);
 const expandedCVTemplate = ref([] as number[]);
+
+// computed
+const thesisTemplateDocsReveal = computed(() => {
+  return {
+    Title: jsonDocs.value?.ThesisTemplate.Title,
+    Pages: jsonDocs.value?.ThesisTemplate.Docs
+  };
+});
+
+const thesisToolDocsReveal = computed(() => {
+  return {
+    Title: jsonDocs.value?.ThesisTool.Title,
+    Pages: jsonDocs.value?.ThesisTool.Docs
+  };
+});
+
+const cvTemplateDocsReveal = computed(() => {
+  return {
+    Title: jsonDocs.value?.CVTemplate.Title,
+    Pages: jsonDocs.value?.CVTemplate.Docs
+  };
+});
 
 // watchers
 watch(expandedThesisTemplate, () => {
@@ -188,6 +210,10 @@ onMounted(async () => {
       </v-col>
     </v-row>
   </WaveContainer>
+  <v-dialog v-model="presentationOpened" width="1000" height="700">
+    <!--    <RevealJS :docs="thesisDocs.Docs" />-->
+    <RevealJS :docs="[thesisTemplateDocsReveal, thesisToolDocsReveal, cvTemplateDocsReveal]" />
+  </v-dialog>
 </template>
 
 <style scoped lang="scss">
