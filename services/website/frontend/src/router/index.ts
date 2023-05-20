@@ -1,23 +1,23 @@
 import {createRouter, createWebHashHistory} from "vue-router";
-import StartPageNew from "../pages/StartPageNew.vue";
-import DownloadsPageNew from "../pages/DownloadsPageNew.vue";
-import TutorialsPageNew from "../pages/TutorialsPageNew.vue";
+import StartPage from "../pages/StartPage.vue";
+import DownloadsPage from "../pages/DownloadsPage.vue";
+import TutorialsPage from "../pages/TutorialsPage.vue";
 
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: StartPageNew
+        component: StartPage
     },
     {
         path: "/downloads",
         name: "Downloads",
-        component: DownloadsPageNew
+        component: DownloadsPage
     },
     {
         path: "/tutorials",
         name: "Tutorials",
-        component: TutorialsPageNew
+        component: TutorialsPage
     }
 ];
 
