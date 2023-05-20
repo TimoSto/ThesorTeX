@@ -36,7 +36,7 @@ export function GetVuetifyInstance(dark: boolean) {
                         secondary: "#b9ccb4",
                         accent: "#FFFFFF",
                         error: "#CF6679",
-                        background: "#121212",
+                        background: "#001220",
                         primaryDark: "#15a835",
                     }
                 }
