@@ -4,7 +4,14 @@ A Template for a thesis, a cv and a Tool for handling bibliography in a LaTeX pr
 The website is available under [https://thesortex.com](https://thesortex.com).
 
 ## Target consumers
-Consumers of these templates and tools should have basic knowledge in the use of LaTeX. The target audience are students, who want to use LaTeX.
+Consumers of these templates and tools should have basic knowledge in the use of LaTeX. The target audience are people, who want to use LaTeX to create papers with an academic claim.
+
+Roughly summarized, the consumers have the following benefits from using *ThesorTeX*:
+
+- Have a nice template meeting the common requirements for academic papers
+- No need to worry about the TeX code for individual formatting of bibliography entries and cites
+- Have a nice template for a CV
+- Be part of the [community](https://github.com/TimoSto/ThesorTeX/discussions/158) to help improve *ThesorTeX* and increase your knowledge in the world of *LaTeX*
 
 ## Downloads
 The template for academic papers can be downloaded [here](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTemplate/latest/ThesisTemplate.zip)
