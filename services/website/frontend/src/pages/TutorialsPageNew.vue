@@ -160,7 +160,7 @@ onMounted(async () => {
 
         <p class="text-body-1 text-center pb-4"> {{ t(i18nKeys.TutorialsPage.TexKnowledge) }}</p>
 
-        <v-expansion-panels multiple v-model="expandedThesisTemplate">
+        <v-expansion-panels multiple v-model="expandedThesisTemplate" theme="light">
           <DocumentationPanel v-for="d in (jsonDocs as ThesorTeXDocumentation).ThesisTemplate.Docs" :doc="d" />
         </v-expansion-panels>
       </v-col>
@@ -182,7 +182,7 @@ onMounted(async () => {
           {{ (jsonDocs as ThesorTeXDocumentation).ThesisTool.Title }}
         </h2>
 
-        <v-expansion-panels multiple v-model="expandedThesisTool">
+        <v-expansion-panels multiple v-model="expandedThesisTool" theme="light">
           <DocumentationPanel v-for="d in (jsonDocs as ThesorTeXDocumentation).ThesisTool.Docs" :doc="d" />
         </v-expansion-panels>
       </v-col>
@@ -204,7 +204,7 @@ onMounted(async () => {
           {{ (jsonDocs as ThesorTeXDocumentation).CVTemplate.Title }}
         </h2>
 
-        <v-expansion-panels multiple v-model="expandedCVTemplate">
+        <v-expansion-panels multiple v-model="expandedCVTemplate" theme="light">
           <DocumentationPanel v-for="d in (jsonDocs as ThesorTeXDocumentation).CVTemplate.Docs" :doc="d" />
         </v-expansion-panels>
       </v-col>
