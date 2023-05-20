@@ -113,7 +113,7 @@ function jumpTo(n: number) {
   <WaveContainer :wave-func="2" :small-display="smallDisplay" ref="container1" bg-color="#008833" wave-color="#001220">
     <v-row>
       <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
-        <ImageViewer :image="GermanTemplateImg" />
+        <ImageViewer :image="GermanTemplateImg" :image-title="t(i18nKeys.StartPage.CVTemplateTitle)" />
         <!--          <img :src="GermanTemplateImg" style="border: 1px solid black; max-height: 500px;" />-->
         <!--TODO: Update doc image-->
       </v-col>
@@ -175,14 +175,14 @@ function jumpTo(n: number) {
       </v-col>
       <v-col v-if="!smallDisplay" cols="6" class="d-flex"
              style="justify-content: center; align-items: center; position: relative;">
-        <ImageViewer :image="ThesisToolImg" />
+        <ImageViewer :image="ThesisToolImg" :image-title="t(i18nKeys.StartPage.ThesisToolTitle)" />
       </v-col>
     </v-row>
   </WaveContainer>
   <WaveContainer :wave-func="2" :small-display="smallDisplay" ref="container3" bg-color="#008833" wave-color="#001220">
     <v-row>
       <v-col v-if="!smallDisplay" cols="6" class="d-flex" style="justify-content: center; align-items: center;">
-        <ImageViewer :image="CvTemplateImg" />
+        <ImageViewer :image="CvTemplateImg" :image-title="t(i18nKeys.StartPage.CVTemplateTitle)" />
       </v-col>
       <v-col :cols="smallDisplay ? 12 : 6">
         <h2 class="text-h3 text-white font-weight-bold pt-6 pb-6">{{ t(i18nKeys.StartPage.CVTemplateTitle) }}</h2>

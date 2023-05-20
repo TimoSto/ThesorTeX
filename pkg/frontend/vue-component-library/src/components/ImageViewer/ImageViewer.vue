@@ -1,10 +1,10 @@
 <template>
   <v-img :src="image" @click="opened=true" style="cursor: pointer"
-         :style="imageStyles? imageStyles : 'max-height: calc(100vh - 100px)'" />
+         :style="imageStyles? imageStyles : 'max-height: calc(100vh - 100px)'" :alt="imageTitle" />
   <v-dialog v-model="opened" scrim="black" class="darker-scrim" :width="adjustedDimensions.width"
             :height="adjustedDimensions.height">
     <v-card theme="light" color="transparent" elevation="0">
-      <img :src="image" />
+      <img :src="image" :alt="imageTitle" />
     </v-card>
   </v-dialog>
 </template>
@@ -17,7 +17,8 @@ const props = defineProps({
     type: String,
     required: true
   },
-  imageStyles: String
+  imageStyles: String,
+  imageTitle: String
 });
 
 const opened = ref(false);
