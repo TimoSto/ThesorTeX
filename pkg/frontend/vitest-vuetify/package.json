@@ -2,6 +2,7 @@
   "name": "@thesortex/vitest-vuetify",
   "main": "index.ts",
   "devDependencies": {
+    "@vue/test-utils": "*",
     "typescript": "*",
     "vue": "*"
   },

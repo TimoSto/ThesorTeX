@@ -78,6 +78,7 @@ importers:
 
   pkg/frontend/vitest-vuetify:
     specifiers:
+      '@vue/test-utils': '*'
       typescript: 4.9.5
       vue: 3.2.47
       vue-i18n: 9.2.2
@@ -86,6 +87,7 @@ importers:
       vue-i18n: 9.2.2_vue@3.2.47
       vuetify: 3.1.1_vue-i18n@9.2.2+vue@3.2.47
     devDependencies:
+      '@vue/test-utils': 2.3.0_vue@3.2.47
       typescript: 4.9.5
       vue: 3.2.47
 
@@ -3522,7 +3524,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.4_sass@1.58.3
+      vite: 4.1.4_@types+node@18.11.18
       vue: 3.2.47
     dev: true
 
