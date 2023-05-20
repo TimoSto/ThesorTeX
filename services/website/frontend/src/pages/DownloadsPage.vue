@@ -2,7 +2,7 @@
 import {WaveContainer} from "@thesortex/vue-component-library/src/components";
 import DownloadsTable from "../components/DownloadsTable.vue";
 import {i18nKeys} from "../i18n/keys";
-import {computed, onMounted, ref} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import {GetThesisSVG} from "../components/svgs/ThesisSVG";
 import {GetLaptopSVG} from "../components/svgs/LaptopSVG";
 import {GetCvSVG} from "../components/svgs/CVSVG";
@@ -17,6 +17,7 @@ import LinuxIcon from "../components/LinuxIcon.vue";
 import MacIcon from "../components/MacIcon.vue";
 import WindowsIcon from "../components/WindowsIcon.vue";
 import {useRouter} from "vue-router";
+import GetReleaseNotes from "../api/GetReleaseNotes";
 
 defineProps({
   smallDisplay: Boolean
@@ -36,7 +37,18 @@ const versions = ref<VersionData | undefined>(undefined);
 
 const openedReleaseNotes = ref("");
 
+const releaseNotes = ref<string | undefined>(undefined);
+
 // computed
+const releaseNotesOpen = computed({
+  get(): boolean {
+    return openedReleaseNotes.value !== "";
+  },
+  set(v: boolean) {
+    return openedReleaseNotes.value = "";
+  }
+});
+
 const thesisSVG = computed(() => {
   //TODO: find a better way to loose reactivity
   return GetThesisSVG("rgba(var(--v-theme-background))", "rgba(var(--v-theme-on-background))");
@@ -48,6 +60,32 @@ const laptopWithThesisSVG = computed(() => {
 
 const cvSVG = computed(() => {
   return GetCvSVG("rgba(var(--v-theme-background))", "rgba(var(--v-theme-on-background))");
+});
+
+const releaseNotesTitle = computed(() => {
+  const parts = openedReleaseNotes.value.split(" - ");
+  let title = "";
+  switch (parts[0]) {
+    case "thesisTool":
+      title = "Tool für Literaturmanagement";
+      break;
+    case "thesisTemplate":
+      title = "Vorlage für wissenschaftliche Arbeiten";
+      break;
+    case "cvTemplate":
+      title = "Vorlage für einen Lebenslauf";
+      break;
+  }
+  title += " - " + parts[1];
+
+  return title;
+});
+
+// watchers
+watch(releaseNotesOpen, async () => {
+  if (releaseNotesOpen.value) {
+    releaseNotes.value = await GetReleaseNotes(openedReleaseNotes.value);
+  }
 });
 
 // methods
@@ -313,6 +351,17 @@ onMounted(() => {
       </v-col>
     </v-row>
   </WaveContainer>
+
+  <v-dialog v-model="releaseNotesOpen" width="600" theme="light">
+    <v-card>
+      <v-card-title class="text-h5">
+        {{ releaseNotesTitle }}
+      </v-card-title>
+      <v-card-text style="padding-top: 0;">
+        <MarkdownToVuetify :file="releaseNotes" v-if="releaseNotes !== undefined" />
+      </v-card-text>
+    </v-card>
+  </v-dialog>
 </template>
 
 <style scoped lang="scss">
