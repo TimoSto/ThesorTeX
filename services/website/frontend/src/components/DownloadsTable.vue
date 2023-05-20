@@ -1,6 +1,6 @@
 <template>
   <v-table style="border: 1px solid rgba(var(--v-theme-on-background), 0.25); border-radius: 4px; margin: 0 auto;"
-           :style="`max-width: ${maxWidth}px;`">
+           :style="`max-width: ${maxWidth}px;`" theme="light">
     <thead>
       <tr>
         <th class="keepAlign">

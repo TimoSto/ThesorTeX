@@ -39,21 +39,15 @@ const openedReleaseNotes = ref("");
 // computed
 const thesisSVG = computed(() => {
   //TODO: find a better way to loose reactivity
-  const svg = GetThesisSVG("rgba(var(--v-theme-on-background))", "rgba(var(--v-theme-background))");
-
-  return svg;
+  return GetThesisSVG("rgba(var(--v-theme-background))", "rgba(var(--v-theme-on-background))");
 });
 
 const laptopWithThesisSVG = computed(() => {
-  const svg = GetLaptopSVG("rgba(var(--v-theme-on-background))", "rgba(var(--v-theme-background))");
-
-  return svg;
+  return GetLaptopSVG("rgba(var(--v-theme-background))", "rgba(var(--v-theme-on-background))");
 });
 
 const cvSVG = computed(() => {
-  const svg = GetCvSVG("rgba(var(--v-theme-on-background))", "rgba(var(--v-theme-background))");
-
-  return svg;
+  return GetCvSVG("rgba(var(--v-theme-background))", "rgba(var(--v-theme-on-background))");
 });
 
 // methods
@@ -100,7 +94,7 @@ onMounted(() => {
   <WaveContainer :wave-func="3" :small-display="smallDisplay" ref="container0" bg-color="#008833" wave-color="#001220">
     <v-row class="d-flex flex-row">
       <v-col cols="4">
-        <v-card class="fill-height-card">
+        <v-card class="fill-height-card" theme="light">
           <v-card-text>
             <div class="d-flex flex-column" style="height: 100%">
               <span class="text-h5 text-center font-weight-bold"
@@ -124,7 +118,7 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="4">
-        <v-card class="fill-height-card">
+        <v-card class="fill-height-card" theme="light">
           <v-card-text>
             <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
@@ -150,7 +144,7 @@ onMounted(() => {
         </v-card>
       </v-col>
       <v-col cols="4">
-        <v-card class="fill-height-card">
+        <v-card class="fill-height-card" theme="light">
           <v-card-text>
             <div class="d-flex flex-column" style="height: 100%">
                 <span class="text-h5 text-center font-weight-bold"
@@ -218,7 +212,7 @@ onMounted(() => {
         </v-list>
         <v-row class="pa-4 d-flex flex-row mb-1">
           <v-col cols="3">
-            <v-card elevation="6" style="height: 100%">
+            <v-card elevation="6" style="height: 100%" theme="light">
               <v-card-text style="height: 100%">
                 <div class="d-flex flex-column" style="height: 100%">
                           <span class="text-center font-weight-bold text-h6"
@@ -236,7 +230,7 @@ onMounted(() => {
             </v-card>
           </v-col>
           <v-col cols="3">
-            <v-card elevation="6" style="height: 100%">
+            <v-card elevation="6" style="height: 100%" theme="light">
               <v-card-text style="height: 100%">
                 <div class="d-flex flex-column" style="height: 100%">
                           <span class="text-center font-weight-bold text-h6"
@@ -254,7 +248,7 @@ onMounted(() => {
             </v-card>
           </v-col>
           <v-col cols="3">
-            <v-card elevation="6" style="height: 100%">
+            <v-card elevation="6" style="height: 100%" theme="light">
               <v-card-text style="height: 100%">
                 <div class="d-flex flex-column" style="height: 100%">
                           <span class="text-center font-weight-bold text-h6"
@@ -272,7 +266,7 @@ onMounted(() => {
             </v-card>
           </v-col>
           <v-col cols="3">
-            <v-card elevation="6" style="height: 100%">
+            <v-card elevation="6" style="height: 100%" theme="light">
               <v-card-text style="height: 100%">
                 <div class="d-flex flex-column" style="height: 100%">
                           <span class="text-center font-weight-bold text-h6"
