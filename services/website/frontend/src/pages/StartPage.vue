@@ -28,27 +28,19 @@ const container5 = ref<InstanceType<typeof WaveContainer> | null>(null);
 
 const thesisSVG = computed(() => {
   //TODO: find a better way to loose reactivity
-  const svg = GetThesisSVG("rgba(var(--v-theme-background))", "white");
-
-  return svg;
+  return GetThesisSVG("rgba(var(--v-theme-background))", "white");
 });
 
 const laptopWithThesisSVG = computed(() => {
-  const svg = GetLaptopSVG("rgba(var(--v-theme-background))", "white");
-
-  return svg;
+  return GetLaptopSVG("rgba(var(--v-theme-background))", "white");
 });
 
 const cvSVG = computed(() => {
-  const svg = GetCvSVG("rgba(var(--v-theme-background))", "white");
-
-  return svg;
+  return GetCvSVG("rgba(var(--v-theme-background))", "white");
 });
 
 const bugSVG = computed(() => {
-  const svg = GetBugSVG("rgba(var(--v-theme-background))", "white");
-
-  return svg;
+  return GetBugSVG("rgba(var(--v-theme-background))", "white");
 });
 
 // methods
