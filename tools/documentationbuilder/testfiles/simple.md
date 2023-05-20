@@ -1,15 +1,15 @@
-MainTitle: Simple Docs
-title: Doc 1
+# Simple Docs
+## Doc 1
 Some
 content
 ---
-title: Doc 2 styled
+## Doc 2 styled
 Simple
 content *with* **some** ***styling***
 
 ---
 
-title: Extra spacing
+## Extra spacing
 
 Simple
 

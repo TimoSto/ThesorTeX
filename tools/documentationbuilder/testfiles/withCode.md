@@ -1,6 +1,6 @@
-MainTitle: With code
+# With code
 
-title: Doc 1
+## Doc 1
 Some
 content
 ```latex

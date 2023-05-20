@@ -1,5 +1,5 @@
-MainTitle: Verwendung der Vorlage für Haus-/Abschlussarbeiten
-title: Wie ist die Vorlage aufgebaut?
+# Verwendung der Vorlage für Haus-/Abschlussarbeiten
+## Wie ist die Vorlage aufgebaut?
 Unter ***styPackages/*** liegen die Dateien, in denen die Formatierungen definiert sind.
 
 Die Datei ***main.tex*** ist die *Haupt-Datei*. Du kannst sie in einem TeX-Editor deiner Wahl öffnen und kompilieren.
@@ -12,7 +12,7 @@ Die Datei ***citedKeys.csv*** kann dafür sorgen, dass nur bestimmte Literaturei
 
 ---
 
-title: Wie kann ich am besten anfangen?
+## Wie kann ich am besten anfangen?
 
 Das hängt natürlich von dir ab. Öffne die ***main.tex*** einfach mal in einem TeX-Editor und kompiliere sie über ***pdflatex***.
 Dies sollte in jedem Fall ohne Probleme funktionieren. Falls nicht, lege bitte ein Issue in Github an. Dann wird das Problem untersucht werden.
@@ -21,7 +21,7 @@ Wenn LaTeX erfolgreich gebaut hat, kannst du damit anfangen, die Werte in der Ko
 
 ---
 
-title: Wie kann ich die Kopf- und Fußzeile anpassen?
+## Wie kann ich die Kopf- und Fußzeile anpassen?
 Im Header und Footer können insgesamt vier Informationen angezeigt werden. In dieser Vorlage wird oben links der Titel
 der Arbeit, oben rechts der Titel des aktuellen Kapitels, unten links der Name des Autors (ergo dein Name) und unten
 rechts die Seitenzahl angezeigt. Dabei wird zwischen dem Textteil deiner Arbeit und den Verzeichnissen unterschieden:
@@ -40,7 +40,7 @@ Der Wechsel zwischen den beiden Varianten zu wechseln, nutze ***\frontmatter*** 
 
 ---
 
-title: Wie kann ich die Nummerierung der Kapitel ändern?
+## Wie kann ich die Nummerierung der Kapitel ändern?
 Standardmäßig werden die Kapitel numerisch gezählt:
 
 - 1 Kapitel 1
@@ -71,13 +71,13 @@ Du kannst aber auch auf eine alphanumerische Zählung umstellen:
 
 ---
 
-title: Wie kann ich Abkürzungen hinzufügen?
+## Wie kann ich Abkürzungen hinzufügen?
 Die Abkürzungen werden aus der Datei ***abbreviations.csv*** ausgelesen. Dort kannst du sie in der Form *Abkürzung*;*Bedeutung*; eintragen.
 
 Wenn du den Befehl ***\printabbreviations*** in deinem Dokument aufrufst, wird das Abkürzungsverzeichnis ausegeben.
 
 ---
 
-title: Wie kann ich Anhänge hinzufügen?
+## Wie kann ich Anhänge hinzufügen?
 Wenn deine Arbeit Anhänge hat, kannst du sie strukturiert ausgeben. Die Befehle ***\appendixI***, ***\appendixII*** und ***\appendixIII*** sind im Grunde nichts anderes als die gewöhnlichen Kapitel.
 Sie werden allerdings separat nummeriert und über den Befehl ***\listofappendix*** ausgegeben.

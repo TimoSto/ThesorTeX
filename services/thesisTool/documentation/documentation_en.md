@@ -1,5 +1,5 @@
-MainTitle: Usage of the tool for bibliography management
-title: What can I use this tool for?
+# Usage of the tool for bibliography management
+## What can I use this tool for?
 This tool facilitates the creation and formatting of bibliography entries. It builds on the ***Template for academic papers***.
 
 The motivation for this was that adjustments to *BibLaTeX* can be very cumbersome and complicated. The scope of functions is roughly summarised as follows:
@@ -11,7 +11,7 @@ The motivation for this was that adjustments to *BibLaTeX* can be very cumbersom
 
 ---
 
-title: What is the best way to get started?
+## What is the best way to get started?
 Go to the ***Downloads*** page and download the package for your operating system. When you unzip the downloaded ZIP file, you should see an executable file. Copy this file into the folder where the LaTeX projects are to be created and start it by double-clicking on it.
 
 Now a terminal window will appear in which the application is running. As soon as you close this window, the application is closed. In addition, a folder ***projects*** with a sample project has been created.
@@ -24,7 +24,7 @@ Now you can start do do the following steps in the ***example*** project. Or you
 
 ---
 
-title: What happens when I start the application? (Security concerns)
+## What happens when I start the application? (Security concerns)
 
 The terms ***terminal window*** or ***localhost*** may seem a bit suspicious to you. And probably your computer warned you when you downloaded or started the application that you should be careful with files from the Internet. And he is right, so here is a brief explanation of what this application does.
 
@@ -47,7 +47,7 @@ If you have further questions or uncertainties, feel free to create an issue in 
 
 ---
 
-title: How can I add a bibliography entry?
+## How can I add a bibliography entry?
 
 First navigate to the project in which you want to add an entry. To do this, click on the corresponding list entry on the start page.
 
@@ -79,14 +79,16 @@ And you can cite your entry with the key you have given it:
 \citebib{myNewEntry}{p.P. 203-205}{cf.}
 ```
 
-title: How can I edit a bibliography entry?
+---
+
+## How can I edit a bibliography entry?
 
 Click on the entry you want to edit in the *Project overview*. Now you can change the fields and the values under *General* as you wish.
 If you click the ***Save*** button, the entry will be updated in the overview.
 
 ---
 
-title: How can I import bibliography entries from Citavi?
+## How can I import bibliography entries from Citavi?
 
 Go to the ***Project Overview***. If you click on ***Upload Citavi export***, you can select a *.bib* file and upload it. You can also drag and drop it into the marked area.
 
@@ -120,7 +122,7 @@ In the ***project overview*** you can open the uploaded entries and adjust the a
 
 ---
 
-title: How can I create a new bibliography category?
+## How can I create a new bibliography category?
 
 In the predefined bibliography categories, the categories from *Citavi* have been tried to be reproduced. If you want to create an additional one, click on the ***+*** at ***Categories for entries*** in the project overview.
 
@@ -145,7 +147,7 @@ Note that fields under ***Citations*** whose attribute name already exists under
 
 ---
 
-title: What does Preformatted mean?
+## What does Preformatted mean?
 
 In *LaTeX*, certain characters are occupied and cannot simply be used in the text, such as _. Therefore, such characters are *escaped* by the application before they are written into the *csv* file with the bibliography entries.
 
@@ -157,7 +159,7 @@ Special characters in this URL must not be escaped separately. This is prevented
 
 ---
 
-title: Which settings can I change?
+## Which settings can I change?
 
 If you click on the cogwheel at the top right, a configuration dialogue appears.
 

@@ -1,5 +1,5 @@
-MainTitle: Verwendung des Tools für Literaturmanagement
-title: Wofür kann ich dieses Tool benutzen?
+# Verwendung des Tools für Literaturmanagement
+## Wofür kann ich dieses Tool benutzen?
 Dieses Tool erleichtert das Erstellen und Formattieren von Literatureinträgen. Es baut auf der ***Vorlage für Haus- und Abschlussarbeiten*** auf.
 
 Die Motivation hierfür war, dass Anpassungen an *BibLaTeX* sehr umständlich und kompliziert sein können. Der Funktionsumfang grob zusammengefasst ist:
@@ -11,7 +11,7 @@ Die Motivation hierfür war, dass Anpassungen an *BibLaTeX* sehr umständlich un
 
 ---
 
-title: Wie fang ich am besten an?
+## Wie fang ich am besten an?
 Gehe auf die ***Downloads*** Seite und lade das Paket für dein Betriebssystem herunter. Wenn du die heruntergeladene ZIP-Datei entpackst, solltest du eine ausführbare Datei sehen. Kopiere diese Datei in den Ordner, in dem die LaTeX-Projekte erstellt werden sollen und starte sie über einen Doppelklick.
 
 Jetzt taucht ein Terminal-Fenster bei dir auf, in welchem die Anwendung läuft. Sobald du dieses Fenster schließt, wird die Anwendung beendet. Außerdem wurde ein Ordner ***projects*** mit einem Beispielprojekt erstellt.
@@ -23,7 +23,7 @@ Wenn du die Adresse ***http://localhost:8448*** in einem Browser aufrufst, sollt
 Jetzt kannst du anfangen, im ***example***-Projekt die im folgenden beschriebenen Schritte durchzuführen. Oder du erstellt dein eigenes Projekt.
 
 ---
-title: Was passiert, wenn ich die Anwendung starte? (Bedenken bzgl. Sicherheit)
+## Was passiert, wenn ich die Anwendung starte? (Bedenken bzgl. Sicherheit)
 
 Die Begriffe ***Terminal-Fenster*** oder ***localhost*** wirken vielleicht etwas suspekt auf dich. Und vermutlich hat dein Computer dich beim Download oder beim Starten der Anwendung gewarnt, dass man mit Dateien aus dem Internet vorsichtig sein sollte. Und da hat er Recht, deshalb wird hier kurz erklärt, was diese Anwendung macht.
 
@@ -46,7 +46,7 @@ Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in ***Githu
 
 ---
 
-title: Wie kann ich einen Literatureintrag anlegen?
+## Wie kann ich einen Literatureintrag anlegen?
 
 Navigiere zunächst in das Projekt, in dem du einen Eintrag hinzufügen möchtest. Klicke dazu auf den entsprechenden Listeneintrag auf der Startseite.
 
@@ -80,14 +80,14 @@ Und du kannst den Eintrag mit dem Schlüssel, den du vergeben hast, zitieren:
 
 ---
 
-title: Wie kann ich einen Literatureintrag bearbeiten?
+## Wie kann ich einen Literatureintrag bearbeiten?
 
 Klicke den Eintrag, den du bearbeiten willst, in der *Projektübersicht* an. Nun kannst du die Felder und die Werte unter *Allgemein* nach Belieben ändern.
 Wenn du den ***Speichern***-Button klickst wird der Eintrag in der Übersicht aktualisiert.
 
 ---
 
-title: Wie kann ich Literatureinträge aus Citavi importieren?
+## Wie kann ich Literatureinträge aus Citavi importieren?
 
 Gehe zur ***Projektübersicht***. Wenn du auf ***Citavi-Export hochladen*** klickst, kannst du eine *.bib*-Datei auswählen und hochladen. Du kannst sie auch über *Drag and Drop* in den markierten Bereich ziehen.
 
@@ -121,7 +121,7 @@ In der ***Projektübersicht*** kannst du die hochgeladenen Einträge öffnen und
 
 ---
 
-title: Wie kann ich eine neue Literatur-Kategorie anlegen?
+## Wie kann ich eine neue Literatur-Kategorie anlegen?
 
 In den vordefinieren Literatur-Kategorien wurden die Kategorien aus *Citavi* versucht abzubilden. Falls du einen zusätzlichen erstellen möchtest, klicke in der Projektübersicht auf das ***+*** bei ***Kategorien für Einträge***.
 
@@ -146,7 +146,7 @@ Beachte, dass Felder unter ***Zitate***, deren Attribut-Name unter ***Literature
 
 ---
 
-title: Was bedeutet Vorformattiert?
+## Was bedeutet Vorformattiert?
 
 In *LaTeX* sind bestimmte Zeichen vorbelegt und können nicht einfach so im Text verwendet werden, wie z.B. _. Deshalb werden solche Zeichen von der Anwendung *escaped*, bevor sie in die *csv*-Datei mit den Literatureinträgen geschrieben werden.
 
@@ -158,7 +158,7 @@ Sonderzeichen in dieser URL dürfen nämlich nicht separat escaped werden. Dies 
 
 ---
 
-title: Welche Einstellungen kann ich ändern?
+## Welche Einstellungen kann ich ändern?
 
 Wenn du auf das Zahnrad oben rechts klickst, erscheint ein Konfigurations-Dialog.
 

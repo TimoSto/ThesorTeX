@@ -1,5 +1,5 @@
-MainTitle: Usage of the template for academic papers
-title: How is the template structured?
+# Usage of the template for academic papers
+## How is the template structured?
 The files in which the formatting is defined are located under ***styPackages/***.
 
 The file ***main.tex*** is the *main file*. You can open it in a TeX editor of your choice and compile it.
@@ -12,7 +12,7 @@ The file ***citedKeys.csv*** can ensure that only certain literature entries app
 
 ---
 
-title: What is the best way to start?
+## What is the best way to start?
 
 That depends on you, of course. Just open the ***main.tex*** in a TeX editor and compile it via ***pdflatex***.
 This should work without problems in any case. If not, please create an issue in Github. Then the problem will be investigated.
@@ -21,7 +21,7 @@ If LaTeX has built successfully, you can start adjusting the values in the heade
 
 ---
 
-title: How can I customise the header and footer?
+## How can I customise the header and footer?
 A total of four pieces of information can be displayed in the header and footer. In this template, the title of the work is displayed at the top left
 the title of the current chapter, the name of the author (ergo your name) at the bottom left and the page number at the bottom right.
 the page number at the bottom right. A distinction is made between the text part of your work and the indexes:
@@ -40,7 +40,7 @@ To switch between the two variants, use ***\frontmatter*** (to *PlainPageStyle*)
 
 ---
 
-title: How can I change the numbering of the chapters?
+## How can I change the numbering of the chapters?
 By default, the chapters are numbered numerically:
 
 - 1 Chapter 1
@@ -71,13 +71,13 @@ You can also switch to an alphanumeric count:
 
 ---
 
-title: How can I add abbreviations?
+## How can I add abbreviations?
 The abbreviations are read from the file ***abbreviations.csv***. There you can enter them in the form *abbreviation*;*meaning*;.
 
 If you call up the command ***\printabbreviations*** in your document, the list of abbreviations is output.
 
 ---
 
-title: How can I add attachments?
+## How can I add attachments?
 If your work has appendices, you can output them in a structured way. The commands ***\appendixI***, ***\appendixII*** and ***\appendixIII*** are basically nothing other than the usual chapters.
 However, they are numbered separately and output via the command ***\listofappendix***.
