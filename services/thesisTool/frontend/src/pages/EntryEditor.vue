@@ -248,6 +248,9 @@ const keyRules = computed(() => {
 });
 
 const rulesAreMet = computed(() => {
+  if (!entry.value) {
+    return false;
+  }
   return keyRules.value(entry.value!.Key) === true && entry.value!.Category !== "";
 });
 

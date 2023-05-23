@@ -486,6 +486,9 @@ const attributeNameRule = computed(() => {
 
 const rulesAreMet = computed(() => {
   let valid = true;
+  if (!category.value) {
+    return false;
+  }
   for (let i = 0; i < category.value!.BibFields.length; i++) {
     if (attributeNameRule.value(category.value!.BibFields[i].Name) !== true) {
       valid = false;
