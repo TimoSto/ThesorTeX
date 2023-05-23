@@ -2,6 +2,7 @@
 
 ## Fixed
 - Buttons now have titles. (Accessibility)
+- The unsafed changes dialog is displayed for new entries/categories too.
 
 ## Added
 - Add a link to the documentation in the header.
