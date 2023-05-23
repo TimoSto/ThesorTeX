@@ -33,6 +33,7 @@ const (
 	StyleBold          = "BOLD"
 	StyleItalic        = "ITALIC"
 	StyleItalicAndBold = "ITALIC-BOLD"
+	Link               = "LINK"
 )
 
 type element struct {
@@ -208,11 +209,12 @@ func analyseLine(line string, incode bool) analyseLineResult {
 	}
 }
 
-//TODO: these regex also match a leading space for some reason
+// TODO: these regex also match a leading space for some reason
 var (
 	boldAndItalicRegex = regexp.MustCompile("[^*]\\*{3}[^***]+\\*{3}")
 	boldRegex          = regexp.MustCompile("[^*]\\*{2}[^**]+\\*{2}")
 	italicRegex        = regexp.MustCompile("[^*]\\*[^*]+\\*")
+	linkRegex          = regexp.MustCompile("[^*]\\[([^\\[]+)\\](\\(.*\\))")
 )
 
 func splitLineIntoElements(line string) []element {
@@ -224,10 +226,13 @@ func splitLineIntoElements(line string) []element {
 	matches := italicRegex.FindAllString(line, -1)
 	matches = append(matches, boldRegex.FindAllString(line, -1)...)
 	matches = append(matches, boldAndItalicRegex.FindAllString(line, -1)...)
+	matches = append(matches, linkRegex.FindAllString(line, -1)...)
 
 	matchIndexes := italicRegex.FindAllStringIndex(line, -1)
 	matchIndexes = append(matchIndexes, boldRegex.FindAllStringIndex(line, -1)...)
 	matchIndexes = append(matchIndexes, boldAndItalicRegex.FindAllStringIndex(line, -1)...)
+
+	matchIndexes = append(matchIndexes, linkRegex.FindAllStringIndex(line, -1)...)
 
 	matchIndexes, matches = sortMatches(matchIndexes, matches)
 
@@ -286,6 +291,12 @@ func splitLineIntoElements(line string) []element {
 			elements = append(elements, element{
 				Content: matchValue[3+shift : len(matchValue)-3],
 				Style:   StyleItalicAndBold,
+			})
+		}
+		if linkRegex.MatchString(matchValue) {
+			elements = append(elements, element{
+				Content: matchValue[shift:len(matchValue)],
+				Style:   Link,
 			})
 		}
 

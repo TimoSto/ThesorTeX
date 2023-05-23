@@ -208,6 +208,50 @@ func TestSplitLineIntoElements(t *testing.T) {
 				},
 			},
 		},
+		{
+			title: "with link",
+			line:  "hallo [An Internal Link](/guides/content/editing-an-existing-page)",
+			exp: []element{
+				{
+					Style:   StylePlain,
+					Content: "hallo ",
+				},
+				{
+					Style:   Link,
+					Content: "[An Internal Link](/guides/content/editing-an-existing-page)",
+				},
+			},
+		},
+		{
+			title: "with link and bold and italic",
+			line:  "hallo *hallo* [An Internal Link](/guides/content/editing-an-existing-page) **hallo**",
+			exp: []element{
+				{
+					Style:   StylePlain,
+					Content: "hallo ",
+				},
+				{
+					Style:   StyleItalic,
+					Content: "hallo",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   Link,
+					Content: "[An Internal Link](/guides/content/editing-an-existing-page)",
+				},
+				{
+					Style:   StylePlain,
+					Content: " ",
+				},
+				{
+					Style:   StyleBold,
+					Content: "hallo",
+				},
+			},
+		},
 	}
 
 	for _, tc := range tcs {
