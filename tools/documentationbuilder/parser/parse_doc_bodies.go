@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -33,7 +34,8 @@ const (
 	StyleBold          = "BOLD"
 	StyleItalic        = "ITALIC"
 	StyleItalicAndBold = "ITALIC-BOLD"
-	Link               = "LINK"
+	LinkTitle          = "LINK_TITLE"
+	LinkHref           = "LINK_HREF"
 )
 
 type element struct {
@@ -294,9 +296,15 @@ func splitLineIntoElements(line string) []element {
 			})
 		}
 		if linkRegex.MatchString(matchValue) {
+			v := matchValue[shift:len(matchValue)]
+			fmt.Println(v, v[1:strings.Index(v, "]")])
 			elements = append(elements, element{
-				Content: matchValue[shift:len(matchValue)],
-				Style:   Link,
+				Content: v[1:strings.Index(v, "]")],
+				Style:   LinkTitle,
+			})
+			elements = append(elements, element{
+				Content: v[strings.Index(v, "(")+1 : strings.Index(v, ")")],
+				Style:   LinkHref,
 			})
 		}
 
