@@ -22,7 +22,7 @@
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </template>
-    <template #content>
+    <template #content v-if="entry">
       <div class="fullsize-card-container">
         <v-card elevation="3">
           <v-expansion-panels :model-value="0">
@@ -138,7 +138,7 @@
 import ResponsiveTable, {ResponsiveTableCell, SizeClasses} from "../components/ResponsiveTable.vue";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import {computed, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import JoinFields from "../domain/entry/JoinFields";
 // type because vue issue, see: https://github.com/vitejs/vite/issues/2117#issuecomment-804444502
@@ -308,15 +308,19 @@ async function deleteEntry() {
 }
 
 // onload
-if (entryKey.value !== "") {
-  getEntryFromStore();
-} else {
-  entry.value = {
-    Key: "",
-    Category: "",
-    Fields: []
-  };
-}
+onMounted(() => {
+  if (entryKey.value !== "") {
+    getEntryFromStore();
+  } else {
+    entry.value = {
+      Key: "",
+      Category: "",
+      Fields: []
+    };
+
+    appStateStore.unsavedChanges = changesToSave.value;
+  }
+});
 </script>
 
 <style scoped lang="scss">

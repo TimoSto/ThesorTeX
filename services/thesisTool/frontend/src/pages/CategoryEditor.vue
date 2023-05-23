@@ -20,7 +20,7 @@
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </template>
-    <template #content>
+    <template #content v-if="category">
       <div class="fullsize-card-container">
         <v-card elevation="3">
           <v-expansion-panels :model-value="0">
@@ -310,7 +310,7 @@
 
 <script lang="ts" setup>
 import {useAppStateStore} from "../stores/appState/AppStateStore";
-import {computed, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import ResponsiveTable, {
   ResponsiveTableCell,
   ResponsiveTableHeaderCell,
@@ -583,17 +583,21 @@ async function deleteCategory() {
 }
 
 // onload
-if (categoryName.value != "") {
-  getCategoryFromStore();
-} else {
-  category.value = {
-    Name: "",
-    CitaviCategory: "",
-    BibFields: [],
-    CiteFields: [],
-    CitaviFilter: [],
-  };
-}
+onMounted(() => {
+  if (categoryName.value != "") {
+    getCategoryFromStore();
+  } else {
+    category.value = {
+      Name: "",
+      CitaviCategory: "",
+      BibFields: [],
+      CiteFields: [],
+      CitaviFilter: [],
+    };
+
+    appStateStore.unsavedChanges = changesToSave.value;
+  }
+});
 </script>
 
 <style scoped>
