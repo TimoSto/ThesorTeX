@@ -16,7 +16,7 @@ Gehe auf die ***Downloads*** Seite und lade das Paket für dein Betriebssystem h
 
 Jetzt taucht ein Terminal-Fenster bei dir auf, in welchem die Anwendung läuft. Sobald du dieses Fenster schließt, wird die Anwendung beendet. Außerdem wurde ein Ordner ***projects*** mit einem Beispielprojekt erstellt.
 
-Wenn du die Adresse ***http://localhost:8448*** in einem Browser aufrufst, solltest du die Anwendung sehen.
+Wenn du die Adresse [http://localhost:8448](http://localhost:8448) in einem Browser aufrufst, solltest du die Anwendung sehen.
 
 ![Liste der Projekte](./thesisTool_images/startpage.png)
 

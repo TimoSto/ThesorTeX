@@ -277,27 +277,28 @@ func splitLineIntoElements(line string) []element {
 			shift++
 		}
 
+		if strings.Index(matchValue, "[test]") >= 0 {
+			fmt.Println(matchValue, linkRegex.MatchString(matchValue))
+		}
+
 		if italicRegex.MatchString(matchValue) {
 			elements = append(elements, element{
 				Content: matchValue[1+shift : len(matchValue)-1],
 				Style:   StyleItalic,
 			})
-		}
-		if boldRegex.MatchString(matchValue) {
+		} else if boldRegex.MatchString(matchValue) {
 			elements = append(elements, element{
 				Content: matchValue[2+shift : len(matchValue)-2],
 				Style:   StyleBold,
 			})
-		}
-		if boldAndItalicRegex.MatchString(matchValue) {
+		} else if boldAndItalicRegex.MatchString(matchValue) {
 			elements = append(elements, element{
 				Content: matchValue[3+shift : len(matchValue)-3],
 				Style:   StyleItalicAndBold,
 			})
-		}
-		if linkRegex.MatchString(matchValue) {
+		} else if linkRegex.MatchString(matchValue) {
 			v := matchValue[shift:len(matchValue)]
-			fmt.Println(v, v[1:strings.Index(v, "]")])
+			fmt.Println("hallo", v, v[1:strings.Index(v, "]")], v[strings.Index(v, "(")+1:strings.Index(v, ")")])
 			elements = append(elements, element{
 				Content: v[1:strings.Index(v, "]")],
 				Style:   LinkTitle,

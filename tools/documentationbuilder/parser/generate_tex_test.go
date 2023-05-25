@@ -96,7 +96,7 @@ func TestGenerateContentForTeXWithLink(t *testing.T) {
 
 	expectedContent := `\part{test 3}
 \section{Doc 1}
-Some content \hyperlink{https://funny.address}{link} test
+Some content \href{https://funny.address}{link} test
 `
 	expSlice := strings.Split(expectedContent, "\n")
 	gotSlice := strings.Split(string(content), "\n")
