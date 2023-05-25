@@ -217,12 +217,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 					Content: "hallo ",
 				},
 				{
-					Style:   LinkTitle,
-					Content: "An Internal Link",
-				},
-				{
-					Style:   LinkHref,
-					Content: "/guides/content/editing-an-existing-page",
+					Style:   Link,
+					Content: "[An Internal Link](/guides/content/editing-an-existing-page)",
 				},
 			},
 		},
@@ -243,12 +239,8 @@ func TestSplitLineIntoElements(t *testing.T) {
 					Content: " ",
 				},
 				{
-					Style:   LinkTitle,
-					Content: "An Internal Link",
-				},
-				{
-					Style:   LinkHref,
-					Content: "/guides/content/editing-an-existing-page",
+					Style:   Link,
+					Content: "[An Internal Link](/guides/content/editing-an-existing-page)",
 				},
 				{
 					Style:   StylePlain,
