@@ -24,7 +24,7 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 						if linkTitle == "" {
 							linkTitle = e.Content
 						}
-						body += fmt.Sprintf(`\hyperlink{%v}{%v}`, e.Content, linkTitle)
+						body += fmt.Sprintf(`\href{%v}{%v}`, e.Content, linkTitle)
 						linkTitle = ""
 					} else {
 						e.Content = strings.Replace(e.Content, "\\", "\\textbackslash ", -1)
