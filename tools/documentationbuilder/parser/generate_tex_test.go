@@ -84,24 +84,3 @@ Some content
 	}
 
 }
-
-func TestGenerateContentForTeXWithLink(t *testing.T) {
-	bodies := withLinkExpectedBody
-
-	content, err := GenerateContentForTeX("test 3", bodies)
-
-	if err != nil {
-		t.Errorf("unexpected error: %v", err)
-	}
-
-	expectedContent := `\part{test 3}
-\section{Doc 1}
-Some content \hyperlink{https://funny.address}{link} test
-`
-	expSlice := strings.Split(expectedContent, "\n")
-	gotSlice := strings.Split(string(content), "\n")
-	if diff := cmp.Diff(expSlice, gotSlice); diff != "" {
-		t.Errorf("%s", diff)
-	}
-
-}
