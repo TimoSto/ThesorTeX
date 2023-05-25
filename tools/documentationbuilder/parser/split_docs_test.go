@@ -36,6 +36,13 @@ var withImageExpected = []RawDocs{
 	},
 }
 
+var withLinkExpected = []RawDocs{
+	{
+		Title:   "Doc 1",
+		Content: "Some\ncontent [link](https://funny.address) test",
+	},
+}
+
 func TestSplitDocs(t *testing.T) {
 	file, err := os.ReadFile("../testfiles/simple.md")
 	if err != nil {
