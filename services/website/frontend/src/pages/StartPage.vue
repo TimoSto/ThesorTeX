@@ -215,9 +215,9 @@ function jumpTo(n: number) {
                   style="white-space: nowrap; color: red; border: 2px solid red; border-radius: 16px; padding: 0 8px; background-color: rgba(255, 0, 0, 0.25)">bug</span>
             </template>
             <template #here2>
-              <a href="https://github.com/TimoSto/ThesorTeX/labels/new%20feature" target="_blank">{{
-                  t(i18nKeys.Common.Here)
-                }}</a>
+              <a href="https://github.com/TimoSto/ThesorTeX/labels/new%20feature" target="_blank">
+                {{ t(i18nKeys.Common.Here) }}
+              </a>
             </template>
             <template #feature>
                 <span
