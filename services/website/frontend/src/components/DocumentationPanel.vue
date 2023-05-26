@@ -11,7 +11,6 @@
                   :class="getClass(e.Style)">{{ e.Content }}</span>
             <a v-if="e.Style == 'LINK-HREF'" :href="e.Content" target="_blank">{{ g.Elements[i - 1].Content }}</a>
           </template>
-
         </p>
         <div v-if="g.Type === 'CODE'" class="code-container pa-2 ml-2 mr-2">
           <p v-for="e in g.Elements" class="text-body-1"> {{ e.Content }} </p>

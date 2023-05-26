@@ -212,7 +212,7 @@ function jumpTo(n: number) {
             </template>
             <template #bug>
                 <span
-                  style="color: red; border: 2px solid red; border-radius: 16px; padding: 0 8px; background-color: rgba(255, 0, 0, 0.25)">bug</span>
+                  style="white-space: nowrap; color: red; border: 2px solid red; border-radius: 16px; padding: 0 8px; background-color: rgba(255, 0, 0, 0.25)">bug</span>
             </template>
             <template #here2>
               <a href="https://github.com/TimoSto/ThesorTeX/labels/new%20feature" target="_blank">{{
@@ -221,7 +221,7 @@ function jumpTo(n: number) {
             </template>
             <template #feature>
                 <span
-                  style="color: green; border: 2px solid green; border-radius: 16px; padding: 0 8px; background-color: rgba(0, 255, 0, 0.25)">new feature</span>
+                  style="white-space: nowrap; color: green; border: 2px solid green; border-radius: 16px; padding: 0 8px; background-color: rgba(0, 255, 0, 0.25)">new feature</span>
             </template>
           </i18n-t>
         </p>
