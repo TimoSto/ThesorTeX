@@ -10,6 +10,7 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 
 	for _, d := range docs {
 		body += fmt.Sprintf("\\section{%s}\n", d.Title)
+		var linkTitle string
 		for i, g := range d.Groups {
 			if g.Type == "TEXT" {
 				for _, e := range g.Elements {
@@ -18,7 +19,14 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 					//e.Content = strings.Replace(e.Content, "\\section", "{{\\\\section}}", -1)
 					e.Content = strings.Replace(e.Content, "\\", "\\textbackslash ", -1)
 					e.Content = strings.Replace(e.Content, "_", "{{\\_}}", -1)
-					body += fmt.Sprintf(getFormatForType(e.Style), e.Content)
+					if e.Style == LinkTitle {
+						linkTitle = e.Content
+					} else if e.Style == LinkHref {
+						body += fmt.Sprintf(`\href{%s}{%s}`, e.Content, linkTitle)
+						linkTitle = ""
+					} else {
+						body += fmt.Sprintf(getFormatForType(e.Style), e.Content)
+					}
 				}
 				if i < len(d.Groups)-1 && d.Groups[i+1].Type == "TEXT" {
 					body += "\\\\"

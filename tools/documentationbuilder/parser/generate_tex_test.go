@@ -84,3 +84,24 @@ Some content
 	}
 
 }
+
+func TestGenerateContentForTeXWithLinks(t *testing.T) {
+	bodies := withLinksExpectedBody
+
+	content, err := GenerateContentForTeX("test 3", bodies)
+
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+	}
+
+	expectedContent := `\part{test 3}
+\section{Doc 1}
+Some content \href{https://localhost.test1}{link 1} and \href{https://localhost.test2}{https://localhost.test2}.
+`
+	expSlice := strings.Split(expectedContent, "\n")
+	gotSlice := strings.Split(string(content), "\n")
+	if diff := cmp.Diff(expSlice, gotSlice); diff != "" {
+		t.Errorf("%s", diff)
+	}
+
+}

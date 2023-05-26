@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -20,8 +19,6 @@ func SplitDocs(file string) (string, []RawDocs) {
 
 	mainTitleMatch := mainTitleRegex.FindString(file)
 	mainTitle := strings.Trim(strings.TrimLeft(mainTitleMatch, "# "), "\n")
-
-	fmt.Println(file)
 
 	if mainTitle == "" {
 		panic("no title was found")

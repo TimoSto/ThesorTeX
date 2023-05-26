@@ -393,6 +393,47 @@ var withImageExpectedBody = []DocBody{
 	},
 }
 
+var withLinksExpectedBody = []DocBody{
+	{
+		Title: "Doc 1",
+		Groups: []group{
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "Some content ",
+					},
+					{
+						Style:   "LINK-TITLE",
+						Content: "link 1",
+					},
+					{
+						Style:   "LINK-HREF",
+						Content: "https://localhost.test1",
+					},
+					{
+						Style:   "PLAIN",
+						Content: " and ",
+					},
+					{
+						Style:   "LINK-TITLE",
+						Content: "https://localhost.test2",
+					},
+					{
+						Style:   "LINK-HREF",
+						Content: "https://localhost.test2",
+					},
+					{
+						Style:   "PLAIN",
+						Content: ".",
+					},
+				},
+			},
+		},
+	},
+}
+
 func TestParseDocBody(t *testing.T) {
 	for i, s := range simpleExpected {
 		t.Run(s.Title, func(t *testing.T) {
@@ -427,6 +468,20 @@ func TestParseDocBodyWithImage(t *testing.T) {
 			result := parseDocBody(s)
 
 			expected := withImageExpectedBody[i]
+
+			if diff := cmp.Diff(expected, result); diff != "" {
+				t.Errorf("%s", diff)
+			}
+		})
+	}
+}
+
+func TestParseDocBodyWithLinks(t *testing.T) {
+	for i, s := range withLinksExpected {
+		t.Run(s.Title, func(t *testing.T) {
+			result := parseDocBody(s)
+
+			expected := withLinksExpectedBody[i]
 
 			if diff := cmp.Diff(expected, result); diff != "" {
 				t.Errorf("%s", diff)

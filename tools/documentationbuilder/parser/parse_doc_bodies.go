@@ -33,6 +33,8 @@ const (
 	StyleBold          = "BOLD"
 	StyleItalic        = "ITALIC"
 	StyleItalicAndBold = "ITALIC-BOLD"
+	LinkTitle          = "LINK-TITLE"
+	LinkHref           = "LINK-HREF"
 )
 
 type element struct {
@@ -208,11 +210,12 @@ func analyseLine(line string, incode bool) analyseLineResult {
 	}
 }
 
-//TODO: these regex also match a leading space for some reason
+// TODO: these regex also match a leading space for some reason
 var (
 	boldAndItalicRegex = regexp.MustCompile("[^*]\\*{3}[^***]+\\*{3}")
 	boldRegex          = regexp.MustCompile("[^*]\\*{2}[^**]+\\*{2}")
 	italicRegex        = regexp.MustCompile("[^*]\\*[^*]+\\*")
+	linkRegex          = regexp.MustCompile("\\[[^\\]]*\\]\\([^)]*\\)*")
 )
 
 func splitLineIntoElements(line string) []element {
@@ -224,10 +227,12 @@ func splitLineIntoElements(line string) []element {
 	matches := italicRegex.FindAllString(line, -1)
 	matches = append(matches, boldRegex.FindAllString(line, -1)...)
 	matches = append(matches, boldAndItalicRegex.FindAllString(line, -1)...)
+	matches = append(matches, linkRegex.FindAllString(line, -1)...)
 
 	matchIndexes := italicRegex.FindAllStringIndex(line, -1)
 	matchIndexes = append(matchIndexes, boldRegex.FindAllStringIndex(line, -1)...)
 	matchIndexes = append(matchIndexes, boldAndItalicRegex.FindAllStringIndex(line, -1)...)
+	matchIndexes = append(matchIndexes, linkRegex.FindAllStringIndex(line, -1)...)
 
 	matchIndexes, matches = sortMatches(matchIndexes, matches)
 
@@ -251,7 +256,7 @@ func splitLineIntoElements(line string) []element {
 				beg++
 			}
 		}
-		if string(line[end]) != "*" {
+		if string(line[end]) != "*" && string(line[end]) != "[" {
 			end++
 		}
 
@@ -275,18 +280,32 @@ func splitLineIntoElements(line string) []element {
 				Content: matchValue[1+shift : len(matchValue)-1],
 				Style:   StyleItalic,
 			})
-		}
-		if boldRegex.MatchString(matchValue) {
+		} else if boldRegex.MatchString(matchValue) {
 			elements = append(elements, element{
 				Content: matchValue[2+shift : len(matchValue)-2],
 				Style:   StyleBold,
 			})
-		}
-		if boldAndItalicRegex.MatchString(matchValue) {
+		} else if boldAndItalicRegex.MatchString(matchValue) {
 			elements = append(elements, element{
 				Content: matchValue[3+shift : len(matchValue)-3],
 				Style:   StyleItalicAndBold,
 			})
+		} else if linkRegex.MatchString(matchValue) {
+			title := matchValue[1:strings.Index(matchValue, "]")]
+			href := matchValue[strings.Index(matchValue, "(")+1 : strings.Index(matchValue, ")")]
+			if title == "" {
+				title = href
+			}
+			elements = append(elements, element{
+				Content: title,
+				Style:   LinkTitle,
+			})
+			elements = append(elements, element{
+				Content: href,
+				Style:   LinkHref,
+			})
+			//TODO: why is this necessary?
+			end++
 		}
 
 		beg = end + len(matchValue) - 1

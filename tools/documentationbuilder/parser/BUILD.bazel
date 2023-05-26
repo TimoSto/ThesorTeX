@@ -22,6 +22,7 @@ go_test(
         "//tools/documentationbuilder/testfiles:simple.md",
         "//tools/documentationbuilder/testfiles:withCode.md",
         "//tools/documentationbuilder/testfiles:withImage.md",
+        "//tools/documentationbuilder/testfiles:withLinks.md",
     ],
     embed = [":parser"],
     deps = ["//vendor/github.com/google/go-cmp/cmp"],
