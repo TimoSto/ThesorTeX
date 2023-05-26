@@ -206,9 +206,9 @@ function jumpTo(n: number) {
         <p class="text-h6 pb-6 text-white">
           <i18n-t :keypath="i18nKeys.StartPage.KnownIssuesText">
             <template #here>
-              <a href="https://github.com/TimoSto/ThesorTeX/labels/bug" target="_blank">{{
-                  t(i18nKeys.Common.Here)
-                }}</a>
+              <a href="https://github.com/TimoSto/ThesorTeX/labels/bug" target="_blank">
+                {{ t(i18nKeys.Common.Here) }}
+              </a>
             </template>
             <template #bug>
                 <span
