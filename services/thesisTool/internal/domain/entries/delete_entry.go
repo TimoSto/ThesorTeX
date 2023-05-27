@@ -2,6 +2,7 @@ package entries
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
@@ -26,6 +27,11 @@ func DeleteEntry(project string, key string, fs filesystem.FileSystem, cfg confi
 	}
 
 	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, entriesFile), data)
+	if err != nil {
+		return err
+	}
+
+	err = projects.UpdateProjectMetaData(fs, cfg, project)
 	if err != nil {
 		return err
 	}

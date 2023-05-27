@@ -333,6 +333,7 @@ import getAttributeNameRules from "../domain/category/AttributeNameRules";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import DeleteCategory from "../api/projectData/DeleteCategory";
 import {storeToRefs} from "pinia";
+import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 
 // globals
 const appStateStore = useAppStateStore();
@@ -342,6 +343,8 @@ const projectDataStore = useProjectDataStore();
 const {categoryIsUsed} = storeToRefs(projectDataStore);
 
 const errorSuccessStore = useErrorSuccessStore();
+
+const projectsStore = useProjectsListStore();
 
 const {t} = useI18n();
 
@@ -585,6 +588,8 @@ async function save() {
 
     appStateStore.setItem(category.value!.Name);
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessSave));
+
+    await projectsStore.syncProjectsWithServer();
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.CategoryEditor.ErrorSave));
   }
@@ -597,6 +602,8 @@ async function deleteCategory() {
     projectDataStore.removeCategory(categoryName.value);
     appStateStore.goBack();
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessDelete));
+
+    await projectsStore.syncProjectsWithServer();
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.CategoryEditor.ErrorDelete));
   }

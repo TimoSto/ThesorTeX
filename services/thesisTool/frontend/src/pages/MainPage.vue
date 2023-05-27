@@ -54,7 +54,6 @@ import CreateProjectCard from "../components/CreateProjectCard.vue";
 import CreateNewProject from "../api/projects/CreateNewProject";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {pageNames, useAppStateStore} from "../stores/appState/AppStateStore";
-import GetProjectsMetaData from "../api/projects/GetProjectsMetaData";
 
 // globals
 const {t} = useI18n();
@@ -153,12 +152,7 @@ function OpenProject(n: number) {
 }
 
 async function syncProjectsListWithServer() {
-  const resp = await GetProjectsMetaData();
-  if (resp.Ok) {
-    projectsStore.setProjects(resp.Projects ? resp.Projects : []);
-  } else {
-    // todo handle error
-  }
+  await projectsStore.syncProjectsWithServer();
 }
 
 // onload

@@ -1,8 +1,9 @@
 import {defineStore} from "pinia";
 import ProjectMetaData from "../../domain/projects/ProjectMetaData";
+import GetProjectsMetaData from "../../api/projects/GetProjectsMetaData";
 
 export interface ProjectsListState {
-    projects: ProjectMetaData[]
+    projects: ProjectMetaData[];
 }
 
 export const useProjectsListStore = defineStore({
@@ -15,11 +16,18 @@ export const useProjectsListStore = defineStore({
         setProjects(projects: ProjectMetaData[]) {
             this.projects = projects;
         },
+        async syncProjectsWithServer() {
+            const resp = await GetProjectsMetaData();
+            if (resp.Ok) {
+                this.setProjects(resp.Projects ? resp.Projects : []);
+            }
+            return resp.Ok;
+        },
         addProject(p: ProjectMetaData) {
             this.projects.push(p);
             this.projects.sort((p1, p2) => {
                 return p1.Name.toLowerCase() > p2.Name.toLowerCase() ? 1 : -1;
-            })
+            });
         },
         removeProject(p: string) {
             const i = this.projects.map(p => p.Name).indexOf(p);
@@ -28,4 +36,4 @@ export const useProjectsListStore = defineStore({
             }
         }
     }
-})
+});

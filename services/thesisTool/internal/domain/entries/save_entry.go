@@ -2,6 +2,7 @@ package entries
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 	"sort"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
@@ -50,6 +51,11 @@ func SaveEntry(fs filesystem.FileSystem, cfg config.Config, project string, key 
 	file := GenerateCsvForEntries(all, avCategories)
 
 	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
+	if err != nil {
+		return err
+	}
+
+	err = projects.UpdateProjectMetaData(fs, cfg, project)
 	if err != nil {
 		return err
 	}

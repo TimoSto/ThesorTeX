@@ -7,11 +7,13 @@ go_library(
         "delete_project.go",
         "get_all_projects.go",
         "project.go",
+        "update_meta_data.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects",
     visibility = ["//services/thesisTool:__subpackages__"],
     deps = [
         "//pkg/backend/filesystem",
+        "//pkg/backend/filesystem/fake",
         "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
         "//pkg/backend/project_template",

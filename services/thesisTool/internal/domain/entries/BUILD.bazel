@@ -19,6 +19,7 @@ go_library(
         "//pkg/backend/tex_escaping",
         "//services/thesisTool/internal/config",
         "//services/thesisTool/internal/domain/categories",
+        "//services/thesisTool/internal/domain/projects",
     ],
 )
 

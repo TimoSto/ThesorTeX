@@ -2,6 +2,7 @@ package categories
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 	"reflect"
 	"testing"
 
@@ -18,6 +19,8 @@ func TestSaveCategory_Override(t *testing.T) {
 	file := "[\n  {\n    \"Name\": \"aufsatz\",\n    \"CitaviCategory\": \"\",\n    \"CitaviFilters\": null,\n    \"BibFields\": [\n      {\n        \"Name\": \"Autor\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Jahr\",\n        \"Format\": {\n          \"Italic\": false,\n          \"Prefix\": \"(\",\n          \"Suffix\": \"), \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Titel\",\n        \"Format\": {\n          \"Italic\": false,\n          \"Prefix\": \"\",\n          \"Suffix\": \", \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Zeitschrift\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"in: \",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Ausgabe\",\n        \"Format\": {\n          \"Italic\": false,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Seiten\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"S. \",\n          \"Suffix\": \", \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"url\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"abrufbar unter: \",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      }\n    ],\n    \"CiteFields\": [\n      {\n        \"Name\": \"Autor_kurz\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Jahr\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      }\n    ]\n  }\n]"
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", categoriesFile), []byte(file))
+
+	projects.CreateFakeMetaFile(cfg, fs, "test")
 
 	c := Category{
 		Name:           "aufsatz",
@@ -51,6 +54,8 @@ func TestSaveCategory_Rename(t *testing.T) {
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", categoriesFile), []byte(file))
 
+	projects.CreateFakeMetaFile(cfg, fs, "test")
+
 	c := Category{
 		Name:           "aufsatzf",
 		BibFields:      []field{},
@@ -82,6 +87,8 @@ func TestSaveCategory_Add(t *testing.T) {
 	file := "[\n  {\n    \"Name\": \"aufsatz\",\n    \"CitaviCategory\": \"\",\n    \"CitaviFilters\": null,\n    \"BibFields\": [\n      {\n        \"Name\": \"Autor\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Jahr\",\n        \"Format\": {\n          \"Italic\": false,\n          \"Prefix\": \"(\",\n          \"Suffix\": \"), \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Titel\",\n        \"Format\": {\n          \"Italic\": false,\n          \"Prefix\": \"\",\n          \"Suffix\": \", \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Zeitschrift\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"in: \",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Ausgabe\",\n        \"Format\": {\n          \"Italic\": false,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Seiten\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"S. \",\n          \"Suffix\": \", \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"url\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"abrufbar unter: \",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      }\n    ],\n    \"CiteFields\": [\n      {\n        \"Name\": \"Autor_kurz\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      },\n      {\n        \"Name\": \"Jahr\",\n        \"Format\": {\n          \"Italic\": true,\n          \"Prefix\": \"\",\n          \"Suffix\": \" \",\n          \"Preformatted\": false\n        },\n        \"CitaviMapping\": null\n      }\n    ]\n  }\n]"
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", categoriesFile), []byte(file))
+
+	projects.CreateFakeMetaFile(cfg, fs, "test")
 
 	c := Category{
 		Name:           "aufsatzf",

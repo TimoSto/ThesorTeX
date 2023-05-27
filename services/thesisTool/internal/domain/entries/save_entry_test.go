@@ -2,6 +2,7 @@ package entries
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 	"reflect"
 	"testing"
 
@@ -18,6 +19,8 @@ func TestSaveEntry_Override(t *testing.T) {
 	file := "[\n  {\n    \"Key\": \"testEntry\",\n    \"Category\": \"aufsatz\",\n    \"Fields\": [\n      \"Autor xyz\",\n      \"1999\",\n      \"ThesorTeX - Ein tolles Tool\",\n      \"Random Zeitschrift\",\n      \"99/03\",\n      \"20-22\",\n      \"https://wikipedia.org/\"\n    ]\n  }\n]"
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", entriesFile), []byte(file))
+
+	projects.CreateFakeMetaFile(cfg, fs, "test")
 
 	c := Entry{
 		Key:      "testEntry",
@@ -49,6 +52,8 @@ func TestSaveEntry_Rename(t *testing.T) {
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", entriesFile), []byte(file))
 
+	projects.CreateFakeMetaFile(cfg, fs, "test")
+
 	c := Entry{
 		Key:      "testEntry2",
 		Category: "aufsatz",
@@ -78,6 +83,8 @@ func TestSaveEntry_Add(t *testing.T) {
 	file := "[\n  {\n    \"Key\": \"testEntry\",\n    \"Category\": \"aufsatz\",\n    \"Fields\": [\n      \"Autor xyz\",\n      \"1999\",\n      \"ThesorTeX - Ein tolles Tool\",\n      \"Random Zeitschrift\",\n      \"99/03\",\n      \"20-22\",\n      \"https://wikipedia.org/\"\n    ]\n  }\n]"
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", entriesFile), []byte(file))
+
+	projects.CreateFakeMetaFile(cfg, fs, "test")
 
 	c := Entry{
 		Key:      "testEntryf",
@@ -112,6 +119,8 @@ func TestSaveEntries_OverrideAndAdd(t *testing.T) {
 	file := "[\n  {\n    \"Key\": \"testEntryA\",\n    \"Category\": \"aufsatz\",\n    \"Fields\": [\n      \"Autor xyz\",\n      \"1999\",\n      \"ThesorTeX - Ein tolles Tool\",\n      \"Random Zeitschrift\",\n      \"99/03\",\n      \"20-22\",\n      \"https://wikipedia.org/\"\n    ]\n  }\n]"
 
 	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", entriesFile), []byte(file))
+
+	projects.CreateFakeMetaFile(cfg, fs, "test")
 
 	entries := []Entry{
 		{

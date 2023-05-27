@@ -3,6 +3,7 @@ package projects
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake"
 	goFs "io/fs"
 	"strings"
 	"time"
@@ -84,4 +85,8 @@ func CreateProject(name string, fs filesystem.FileSystem, cfg config.Config) (Pr
 	}
 
 	return meta, nil
+}
+
+func CreateFakeMetaFile(cfg config.Config, fs fake.FileSystem, project string) {
+	fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, metaDataFile), []byte("{}"))
 }

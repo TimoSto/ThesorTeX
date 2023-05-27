@@ -17,6 +17,7 @@ go_library(
         "//pkg/backend/pathbuilder",
         "//pkg/backend/romannumerals",
         "//services/thesisTool/internal/config",
+        "//services/thesisTool/internal/domain/projects",
     ],
 )
 

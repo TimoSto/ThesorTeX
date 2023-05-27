@@ -2,6 +2,7 @@ package categories
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
@@ -31,6 +32,11 @@ func DeleteCategory(project string, name string, fs filesystem.FileSystem, cfg c
 	}
 
 	err = SaveCategoriesToSty(fs, cfg, project, all)
+	if err != nil {
+		return err
+	}
+
+	err = projects.UpdateProjectMetaData(fs, cfg, project)
 	if err != nil {
 		return err
 	}

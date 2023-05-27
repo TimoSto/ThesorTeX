@@ -2,6 +2,8 @@ package categories
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 	"sort"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
@@ -47,6 +49,11 @@ func SaveCategory(fs filesystem.FileSystem, cfg config.Config, project string, n
 	err = SaveCategoriesToSty(fs, cfg, project, all)
 	if err != nil {
 		return err
+	}
+
+	err = projects.UpdateProjectMetaData(fs, cfg, project)
+	if err != nil {
+		return fmt.Errorf("got error updating the meta data: %v", err)
 	}
 
 	return nil

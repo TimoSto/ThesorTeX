@@ -149,6 +149,7 @@ import SaveEntry from "../api/projectData/SaveEntry";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import DeleteEntry from "../api/projectData/DeleteEntry";
 import GenerateEntryForCategory, {GenerateCiteForCategory} from "../domain/category/GenerateEntry";
+import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
 
 // globals
 const {t} = useI18n();
@@ -158,6 +159,8 @@ const projectDataStore = useProjectDataStore();
 const appStateStore = useAppStateStore();
 
 const errorSuccessStore = useErrorSuccessStore();
+
+const projectsStore = useProjectsListStore();
 
 // data
 const entry = ref(undefined as Entry | undefined);
@@ -293,6 +296,8 @@ async function save() {
     projectDataStore.actualizeEntry(entryKey.value, entry.value!);
     appStateStore.setItem(entry.value!.Key);
     errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessSave));
+
+    await projectsStore.syncProjectsWithServer();
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.EntryEditor.ErrorSave));
   }
@@ -305,6 +310,8 @@ async function deleteEntry() {
     projectDataStore.removeEntry(entryKey.value);
     appStateStore.goBack();
     errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessDelete));
+
+    await projectsStore.syncProjectsWithServer();
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.EntryEditor.ErrorDelete));
   }
