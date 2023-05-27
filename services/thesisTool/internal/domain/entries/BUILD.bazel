@@ -8,11 +8,13 @@ go_library(
         "entry.go",
         "get_all_entries.go",
         "save_entry.go",
+        "update_category_references.go",
     ],
     importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/entries",
     visibility = ["//services/thesisTool:__subpackages__"],
     deps = [
         "//pkg/backend/filesystem",
+        "//pkg/backend/log",
         "//pkg/backend/pathbuilder",
         "//pkg/backend/tex_escaping",
         "//services/thesisTool/internal/config",
@@ -27,6 +29,7 @@ go_test(
         "entries_to_csv_test.go",
         "get_all_entries_test.go",
         "save_entry_test.go",
+        "update_category_references_test.go",
     ],
     embed = [":entries"],
     deps = [

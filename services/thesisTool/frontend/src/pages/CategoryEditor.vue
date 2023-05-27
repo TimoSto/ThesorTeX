@@ -574,6 +574,15 @@ async function save() {
   const success = await SaveCategory(categoryName.value, appStateStore.currentProject, category.value!);
   if (success) {
     projectDataStore.actualizeCategory(categoryName.value, category.value!);
+
+    // if the category name was changes, the entries have to be loaded again from the server
+    if (categoryName.value !== category.value!.Name) {
+      const getSuccess = await projectDataStore.syncProjectData(appStateStore.currentProject);
+      if (!getSuccess) {
+        errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorReadingData));
+      }
+    }
+
     appStateStore.setItem(category.value!.Name);
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessSave));
   } else {

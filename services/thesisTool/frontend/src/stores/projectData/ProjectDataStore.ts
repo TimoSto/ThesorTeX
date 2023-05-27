@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import {Entry} from "../../domain/entry/Entry";
 import {Category} from "../../domain/category/Category";
+import GetProjectData from "../../api/projectData/GetProjectData";
 
 export const useProjectDataStore = defineStore({
     id: "project-data",
@@ -29,6 +30,13 @@ export const useProjectDataStore = defineStore({
                 });
             });
             this.categories = categories;
+        },
+        async syncProjectData(project: string) {
+            const resp = await GetProjectData(project);
+            if (resp.Ok) {
+                this.setProjectData(resp.Data.Entries, resp.Data.Categories);
+            }
+            return resp.Ok;
         },
         actualizeCategory(name: string, category: Category) {
             category = JSON.parse(JSON.stringify(category));

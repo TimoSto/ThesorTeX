@@ -13,6 +13,7 @@ go_library(
         "//pkg/backend/log",
         "//services/thesisTool/internal/config",
         "//services/thesisTool/internal/domain/categories",
+        "//services/thesisTool/internal/domain/entries",
     ],
 )
 

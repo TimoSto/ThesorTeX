@@ -2,6 +2,7 @@ package category
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/entries"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
@@ -34,9 +35,18 @@ func HandleSaveCategory(fs filesystem.FileSystem) func(w http.ResponseWriter, r 
 			return
 		}
 
-		err = categories.SaveCategory(fs, config.Cfg, query["project"][0], query["name"][0], data)
+		project := query["project"][0]
+		ogName := query["name"][0]
+		err = categories.SaveCategory(fs, config.Cfg, project, ogName, data)
 		if err != nil {
 			log.Error("could not save category: %v", err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+
+		err = entries.UpdateCategoryReferences(fs, config.Cfg, project, ogName, data.Name)
+		if err != nil {
+			log.Error("could not update category references in entries: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
