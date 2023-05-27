@@ -7,6 +7,7 @@
 ## Added
 - Add a link to the documentation in the header.
 - List the entries using the category, when deleting a category.
+- Update the category references in the entries, when a category name is changed.
 
 # v1.1.0
 
