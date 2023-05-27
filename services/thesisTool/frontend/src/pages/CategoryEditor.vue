@@ -286,6 +286,11 @@
             <i>{{ categoryName }}</i>
           </template>
         </i18n-t>
+        <template v-if="categoryIsUsed(categoryName).length > 0">
+          <p style="margin-top: 8px">{{ t(i18nKeys.CategoryEditor.StillUsed) }}</p>
+          <v-list :items="categoryIsUsed(categoryName)" density="compact" />
+          <p>{{ t(i18nKeys.CategoryEditor.StillUsedSuffix) }}</p>
+        </template>
       </v-card-text>
       <v-card-actions>
         <v-spacer />
@@ -327,11 +332,14 @@ import getCategoryNameRules from "../domain/category/CategoryNameRules";
 import getAttributeNameRules from "../domain/category/AttributeNameRules";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import DeleteCategory from "../api/projectData/DeleteCategory";
+import {storeToRefs} from "pinia";
 
 // globals
 const appStateStore = useAppStateStore();
 
 const projectDataStore = useProjectDataStore();
+
+const {categoryIsUsed} = storeToRefs(projectDataStore);
 
 const errorSuccessStore = useErrorSuccessStore();
 

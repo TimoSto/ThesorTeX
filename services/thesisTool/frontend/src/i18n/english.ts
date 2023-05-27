@@ -92,6 +92,8 @@ export const english: I18nKeys = {
         DeleteMessage: "Do you really want to delete the category {name}?",
         SuccessDelete: "Category successfully deleted",
         ErrorDelete: "The category could not be deleted.",
+        StillUsed: "The category is still being used for following entries:",
+        StillUsedSuffix: "If you delete it, these entries are not displayed correctly anymore. But you can select different categories for them."
     },
     EntryEditor: {
         Title: " - Edit entry",

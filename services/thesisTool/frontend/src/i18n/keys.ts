@@ -90,6 +90,8 @@ export const i18nKeys = {
         DeleteMessage: "CategoryEditor.DeleteMessage",
         SuccessDelete: "CategoryEditor.SuccessDelete",
         ErrorDelete: "CategoryEditor.ErrorDelete",
+        StillUsed: "CategoryEditor.StillUsed",
+        StillUsedSuffix: "CategoryEditor.StillUsedSuffix",
     },
     EntryEditor: {
         Title: "EntryEditor.Title",

@@ -92,6 +92,8 @@ export const german: I18nKeys = {
         DeleteMessage: "Möchtest du die Kategorie {name} wirklich löschen?",
         SuccessDelete: "Kategorie erfolgreich gelöscht",
         ErrorDelete: "Die Kategorie konnte nicht gelöscht werden.",
+        StillUsed: "Die Kategorie wird noch für folgenden Einträgen verwendet:",
+        StillUsedSuffix: "Wenn du die Kategorie löscht, werden diese Einträge nicht mehr korrekt dargestellt. Du kannst dann aber andere Kategorien für sie auswählen."
     },
     EntryEditor: {
         Title: " - Eintrag bearbeiten",

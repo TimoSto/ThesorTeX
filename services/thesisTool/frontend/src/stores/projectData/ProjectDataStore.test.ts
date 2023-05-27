@@ -174,7 +174,7 @@ describe("ProjectDataStore", () => {
 
             const {categoryIsUsed} = storeToRefs(store);
 
-            expect(categoryIsUsed.value("testCate")).toBe(false);
+            expect(categoryIsUsed.value("testCate")).toEqual([]);
         });
         it("should be true on used", () => {
             const store = useProjectDataStore();
@@ -199,7 +199,7 @@ describe("ProjectDataStore", () => {
 
             const {categoryIsUsed} = storeToRefs(store);
 
-            expect(categoryIsUsed.value("testCate")).toBe(true);
+            expect(categoryIsUsed.value("testCate")).toEqual(["test"]);
         });
     });
     describe("actualize entry", () => {

@@ -70,8 +70,8 @@ export const useProjectDataStore = defineStore({
 
     getters: {
         categoryIsUsed: (state) => {
-            return (category: string) =>
-                state.entries.filter(e => e.Category === category).length > 0;
+            return (category: string): string[] =>
+                state.entries.filter(e => e.Category === category).map(e => e.Key);
         },
     }
 });
