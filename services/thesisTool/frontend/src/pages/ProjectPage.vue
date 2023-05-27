@@ -140,7 +140,6 @@ import ResponsiveTable, {
 } from "../components/ResponsiveTable.vue";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "../i18n/keys";
-import GetProjectData from "../api/projectData/GetProjectData";
 import {useProjectDataStore} from "../stores/projectData/ProjectDataStore";
 import {Entry} from "../domain/entry/Entry";
 import {Category, Field} from "../domain/category/Category";
@@ -259,10 +258,8 @@ const categories = computed(() => {
 });
 
 async function syncProjectData() {
-  const resp = await GetProjectData(projectName.value);
-  if (resp.Ok) {
-    projectDataStore.setProjectData(resp.Data.Entries, resp.Data.Categories);
-  } else {
+  const success = await projectDataStore.syncProjectData(projectName.value);
+  if (!success) {
     errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorReadingData));
   }
 }
