@@ -1,5 +1,5 @@
 import {beforeEach, describe, expect, it} from "vitest";
-import {createPinia, setActivePinia} from "pinia";
+import {createPinia, setActivePinia, storeToRefs} from "pinia";
 import {useProjectDataStore} from "./ProjectDataStore";
 import {Entry} from "../../domain/entry/Entry";
 import {Category} from "../../domain/category/Category";
@@ -148,6 +148,58 @@ describe("ProjectDataStore", () => {
             store.removeCategory("testCate");
 
             expect(store.categories).toEqual([]);
+        });
+    });
+    describe("categoryIsUsed", () => {
+        it("should be false on unused", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                    Category: "c2"
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate",
+                    BibFields: [],
+                    CiteFields: [],
+                    CitaviCategory: "",
+                    CitaviFilter: []
+                }
+            ];
+            store.setProjectData(entries, categories);
+
+            const {categoryIsUsed} = storeToRefs(store);
+
+            expect(categoryIsUsed.value("testCate")).toBe(false);
+        });
+        it("should be true on used", () => {
+            const store = useProjectDataStore();
+
+            const entries = [
+                {
+                    Key: "test",
+                    Category: "testCate"
+                } as Entry
+            ];
+
+            const categories = [
+                {
+                    Name: "testCate",
+                    BibFields: [],
+                    CiteFields: [],
+                    CitaviCategory: "",
+                    CitaviFilter: []
+                }
+            ];
+            store.setProjectData(entries, categories);
+
+            const {categoryIsUsed} = storeToRefs(store);
+
+            expect(categoryIsUsed.value("testCate")).toBe(true);
         });
     });
     describe("actualize entry", () => {

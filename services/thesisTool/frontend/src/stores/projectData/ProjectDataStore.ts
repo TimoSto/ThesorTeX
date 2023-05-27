@@ -66,5 +66,12 @@ export const useProjectDataStore = defineStore({
                 this.entries.splice(i, 1);
             }
         }
+    },
+
+    getters: {
+        categoryIsUsed: (state) => {
+            return (category: string) =>
+                state.entries.filter(e => e.Category === category).length > 0;
+        },
     }
 });
