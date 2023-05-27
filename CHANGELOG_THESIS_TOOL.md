@@ -3,6 +3,7 @@
 ## Fixed
 - Buttons now have titles. (Accessibility)
 - The unsaved changes dialog is displayed for new entries/categories too.
+- The "last updated" time for a project is updated on saving something in a project.
 
 ## Added
 - Add a link to the documentation in the header.
