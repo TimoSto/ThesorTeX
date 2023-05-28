@@ -36,7 +36,7 @@
                 >
                   <template #0-1>
                     <v-text-field
-                      v-model="category.Name"
+                      v-model="(category as Category).Name"
                       color="primary"
                       variant="underlined"
                       :rules="[categoryNameRule]"
@@ -44,7 +44,7 @@
                   </template>
                   <template #1-1>
                     <v-combobox
-                      v-model="category.CitaviCategory"
+                      v-model="(category as Category).CitaviCategory"
                       color="primary"
                       variant="underlined"
                       :items="categories"
@@ -53,7 +53,7 @@
                   </template>
                   <template #2-1>
                     <v-combobox
-                      v-model="category.CitaviFilter"
+                      v-model="(category as Category).CitaviFilter"
                       color="primary"
                       variant="underlined"
                       :items="attributes"
@@ -98,7 +98,7 @@
                       :key="`bib-cell-${i}-0`"
                     >
                       <v-text-field
-                        v-model="category.BibFields[i-1].Name"
+                        v-model="(category as Category).BibFields[i-1].Name"
                         color="primary"
                         variant="underlined"
                         :rules="[attributeNameRule]"
@@ -110,7 +110,7 @@
                       :key="`bib-cell-${i}-1`"
                     >
                       <v-text-field
-                        v-model="category.BibFields[i-1].Format.Prefix"
+                        v-model="(category as Category).BibFields[i-1].Format.Prefix"
                         color="primary"
                         variant="underlined"
                       />
@@ -121,7 +121,7 @@
                       :key="`bib-cell-${i}-2`"
                     >
                       <v-text-field
-                        v-model="category.BibFields[i-1].Format.Suffix"
+                        v-model="(category as Category).BibFields[i-1].Format.Suffix"
                         color="primary"
                         variant="underlined"
                       />
@@ -132,7 +132,7 @@
                       :key="`bib-cell-${i}-3`"
                     >
                       <v-checkbox-btn
-                        v-model="category.BibFields[i-1].Format.Italic"
+                        v-model="(category as Category).BibFields[i-1].Format.Italic"
                         color="primary"
                       />
                     </template>
@@ -142,7 +142,7 @@
                       :key="`bib-cell-${i}-4`"
                     >
                       <v-checkbox-btn
-                        v-model="category.BibFields[i-1].Format.Preformatted"
+                        v-model="(category as Category).BibFields[i-1].Format.Preformatted"
                         color="primary"
                       />
                     </template>
@@ -152,7 +152,7 @@
                       :key="`bib-cell-${i}-5`"
                     >
                       <v-combobox
-                        v-model="category.BibFields[i-1].CitaviMapping"
+                        v-model="(category as Category).BibFields[i-1].CitaviMapping"
                         color="primary"
                         :items="attributes"
                         multiple
@@ -211,7 +211,7 @@
                       :key="`cite-cell-${i}-0`"
                     >
                       <v-text-field
-                        v-model="category.CiteFields[i-1].Name"
+                        v-model="(category as Category).CiteFields[i-1].Name"
                         color="primary"
                         variant="underlined"
                         :rules="[attributeNameRule]"
@@ -223,7 +223,7 @@
                       :key="`cite-cell-${i}-1`"
                     >
                       <v-text-field
-                        v-model="category.CiteFields[i-1].Format.Prefix"
+                        v-model="(category as Category).CiteFields[i-1].Format.Prefix"
                         color="primary"
                         variant="underlined"
                       />
@@ -234,7 +234,7 @@
                       :key="`cite-cell-${i}-2`"
                     >
                       <v-text-field
-                        v-model="category.CiteFields[i-1].Format.Suffix"
+                        v-model="(category as Category).CiteFields[i-1].Format.Suffix"
                         color="primary"
                         variant="underlined"
                       />
@@ -245,7 +245,7 @@
                       :key="`cite-cell-${i}-3`"
                     >
                       <v-checkbox-btn
-                        v-model="category.CiteFields[i-1].Format.Italic"
+                        v-model="(category as Category).CiteFields[i-1].Format.Italic"
                         color="primary"
                       />
                     </template>

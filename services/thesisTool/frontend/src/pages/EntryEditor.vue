@@ -38,7 +38,7 @@
                 >
                   <template #0-1>
                     <v-text-field
-                      v-model="entry.Key"
+                      v-model="(entry as Entry).Key"
                       color="primary"
                       variant="underlined"
                       :rules="[keyRules]"
@@ -46,7 +46,7 @@
                   </template>
                   <template #1-1>
                     <v-select
-                      v-model="entry.Category"
+                      v-model="(entry as Entry).Category"
                       color="primary"
                       variant="underlined"
                       :items="categories"
@@ -85,7 +85,7 @@
                     #[getSlotName(i-1,1)]
                   >
                     <v-text-field
-                      v-model="entry.Fields[i-1]"
+                      v-model="(entry as Entry).Fields[i-1]"
                       color="primary"
                       variant="underlined"
                     />
