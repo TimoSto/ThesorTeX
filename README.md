@@ -104,6 +104,8 @@ To only deploy one target, replace `all` with `thesisTool`, `thesisTemplate` or 
 
 ## Project structure
 
+This project uses the monorepo approach.
+
 ### services
 
 Here the separation of the different services, that are independently runnable.
