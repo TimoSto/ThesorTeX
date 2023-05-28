@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func UpdateProjectMetaData(fs filesystem.FileSystem, cfg config.Config, project string) error {
+func UpdateProjectMetaData(fs filesystem.FileSystem, cfg config.Config, project string, entries int) error {
 	metaDataPath := pathbuilder.GetPathInProject(cfg.ProjectsDir, project, metaDataFile)
 	file, err := fs.ReadFile(metaDataPath)
 	if err != nil {
@@ -22,6 +22,9 @@ func UpdateProjectMetaData(fs filesystem.FileSystem, cfg config.Config, project 
 	}
 
 	metaData.LastEdited = time.Now().Format("2006-01-02 15:04")
+	if entries > -1 {
+		metaData.NumberOfEntries = entries
+	}
 
 	data, err := json.Marshal(metaData)
 	if err != nil {

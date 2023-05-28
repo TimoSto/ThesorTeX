@@ -51,7 +51,7 @@ func SaveCategory(fs filesystem.FileSystem, cfg config.Config, project string, n
 		return err
 	}
 
-	err = projects.UpdateProjectMetaData(fs, cfg, project)
+	err = projects.UpdateProjectMetaData(fs, cfg, project, -1)
 	if err != nil {
 		return fmt.Errorf("got error updating the meta data: %v", err)
 	}

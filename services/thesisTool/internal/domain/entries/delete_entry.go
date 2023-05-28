@@ -31,7 +31,7 @@ func DeleteEntry(project string, key string, fs filesystem.FileSystem, cfg confi
 		return err
 	}
 
-	err = projects.UpdateProjectMetaData(fs, cfg, project)
+	err = projects.UpdateProjectMetaData(fs, cfg, project, len(all))
 	if err != nil {
 		return err
 	}

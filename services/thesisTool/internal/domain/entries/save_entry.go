@@ -55,7 +55,7 @@ func SaveEntry(fs filesystem.FileSystem, cfg config.Config, project string, key 
 		return err
 	}
 
-	err = projects.UpdateProjectMetaData(fs, cfg, project)
+	err = projects.UpdateProjectMetaData(fs, cfg, project, len(all))
 	if err != nil {
 		return err
 	}
@@ -105,6 +105,11 @@ func SaveEntries(fs filesystem.FileSystem, cfg config.Config, project string, en
 	file := GenerateCsvForEntries(all, avCategories)
 
 	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
+	if err != nil {
+		return err
+	}
+
+	err = projects.UpdateProjectMetaData(fs, cfg, project, len(all))
 	if err != nil {
 		return err
 	}

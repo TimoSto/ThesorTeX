@@ -36,7 +36,7 @@ func DeleteCategory(project string, name string, fs filesystem.FileSystem, cfg c
 		return err
 	}
 
-	err = projects.UpdateProjectMetaData(fs, cfg, project)
+	err = projects.UpdateProjectMetaData(fs, cfg, project, -1)
 	if err != nil {
 		return err
 	}
