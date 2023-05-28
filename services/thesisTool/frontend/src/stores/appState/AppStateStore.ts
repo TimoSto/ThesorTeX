@@ -56,6 +56,7 @@ export const useAppStateStore = defineStore({
             this.navigatingBack = false;
             this.history.pop();
             this.currentItem = "";
+            this.unsavedChanges = false;
             if (this.history.length === 1) {
                 this.sidebarOpen = false;
                 this.currentProject = "";

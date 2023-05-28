@@ -308,6 +308,7 @@ async function deleteEntry() {
   deleteTriggered.value = false;
   if (success) {
     projectDataStore.removeEntry(entryKey.value);
+    appStateStore.unsavedChanges = false;
     appStateStore.goBack();
     errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessDelete));
 
