@@ -5,6 +5,7 @@ import MarkdownToVuetify from "./MarkdownToVuetify/MarkdownToVuetify.vue";
 import RevealJS from "./RevealJS/RevealJS.vue";
 import ImageViewer from "./ImageViewer/ImageViewer.vue";
 import WaveContainer from "./WaveContainer/WaveContainer.vue";
+import AccessibilityDialog from "./AccessibilityDialog/AccessibilityDialog.vue";
 
 export {
     ToolbarAndContent,
@@ -13,5 +14,6 @@ export {
     MarkdownToVuetify,
     RevealJS,
     ImageViewer,
-    WaveContainer
+    WaveContainer,
+    AccessibilityDialog
 };
