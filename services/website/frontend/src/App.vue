@@ -25,6 +25,7 @@
       </v-container>
     </div>
     <router-view :small-display="smallDisplay" />
+    <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" title="test" />
   </v-app>
 </template>
 
@@ -41,6 +42,7 @@ const {t} = useI18n();
 // data
 const elevation = ref(0);
 const smallDisplay = ref(false);
+const myDocument = ref(document);
 
 function onResize() {
   if (screen.width < 900) {
