@@ -5,6 +5,7 @@ export const de: I18nKeys = {
         Title: "Barrierefreiheit",
         Text: "Hier kannst du verschiedene Einstellungen vornehmen, welche die Barrierefreiheit der Anwendung betreffen.",
         FocusBorders: "Fokusrahmen aktivieren",
-        Close: "Schließen"
+        Close: "Schließen",
+        BtnTitle: "Einstellungen für die Barrierefreiheit öffnen"
     }
 };

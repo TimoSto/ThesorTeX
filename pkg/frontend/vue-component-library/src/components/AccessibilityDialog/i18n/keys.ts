@@ -3,7 +3,8 @@ export const i18nKeys = {
         Title: "AccessibilityDialog.Title",
         Text: "AccessibilityDialog.Text",
         FocusBorders: "AccessibilityDialog.FocusBorders",
-        Close: "AccessibilityDialog.Close"
+        Close: "AccessibilityDialog.Close",
+        BtnTitle: "AccessibilityDialog.BtnTitle"
     }
 };
 

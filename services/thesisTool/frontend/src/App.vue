@@ -33,7 +33,7 @@
       </a>
       <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" :i18n="t" v-slot="scope">
         <v-btn icon
-               @click="scope.openDialog">
+               @click="scope.openDialog" :title="t(accessibilityDialogKeys.AccessibilityDialog.BtnTitle)">
           <v-icon>mdi-human</v-icon>
         </v-btn>
       </AccessibilityDialog>
@@ -139,6 +139,7 @@ import ProjectsSidebar from "./components/ProjectsSidebar.vue";
 import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
 import UnsavedChangesDialog from "./components/UnsavedChangesCard.vue";
 import ConfigDialog from "./pages/ConfigDialog.vue";
+import {accessibilityDialogKeys} from "@thesortex/vue-component-library";
 
 //globals
 const appStateStore = useAppStateStore();

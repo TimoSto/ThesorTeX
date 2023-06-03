@@ -5,6 +5,7 @@ export const en: I18nKeys = {
         Title: "Accessibility",
         Text: "Here you can make various settings that affect the accessibility of the application.",
         FocusBorders: "Activate focus borders",
-        Close: "Close"
+        Close: "Close",
+        BtnTitle: "Open settings affecting accessibility"
     }
 };
