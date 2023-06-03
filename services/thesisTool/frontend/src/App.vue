@@ -31,6 +31,12 @@
           <v-icon>mdi-book-open-variant</v-icon>
         </v-btn>
       </a>
+      <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" :i18n="t" v-slot="scope">
+        <v-btn icon
+               @click="scope.openDialog">
+          <v-icon>mdi-human</v-icon>
+        </v-btn>
+      </AccessibilityDialog>
       <v-btn icon :title="t(i18nKeys.Config.OpenConfig)" @click="configOpened=true">
         <v-icon>mdi-cog</v-icon>
       </v-btn>
@@ -147,6 +153,8 @@ const {t} = useI18n();
 const instantSwitch = ref(false);
 
 const configOpened = ref(false);
+
+const myDocument = ref(document);
 
 // computed
 const sidebarOpened = computed({

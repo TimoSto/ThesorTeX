@@ -1,3 +1,8 @@
+# v1.3.0
+
+## Added
+- An accessibility dialog can be opened by clicking the button in the app bar or by pressing the CTRL key twice.
+
 # v1.2.0
 
 ## Fixed
