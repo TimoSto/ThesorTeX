@@ -17,7 +17,7 @@ then
 
   build_zip_target //:release_notes_template "artifacts/ReleaseNotes_ThesisTemplate.md"
 
-  build_zip_target //pkg/backend/project_template:template_zip artifacts/ThesisTemplate.zip
+  build_zip_target //pkg/tex/project_template:template_zip artifacts/ThesisTemplate.zip
 fi
 
 if [ "$1" = "cvTemplate" ] || [ "$1" = "all" ]

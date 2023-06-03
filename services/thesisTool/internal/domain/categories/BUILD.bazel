@@ -34,7 +34,7 @@ go_test(
     deps = [
         "//pkg/backend/filesystem/fake",
         "//pkg/backend/pathbuilder",
-        "//pkg/backend/project_template",
+        "//pkg/tex/project_template",
         "//services/thesisTool/internal/config",
         "//services/thesisTool/internal/domain/projects",
     ],

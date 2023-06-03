@@ -9,7 +9,7 @@ import (
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
-	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
+	"github.com/TimoSto/ThesorTeX/pkg/tex/project_template"
 	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/config"
 )
 

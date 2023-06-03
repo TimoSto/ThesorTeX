@@ -43,7 +43,7 @@ genrule(
 
 genrule(
     name = "template_srcs",
-    srcs = ["//pkg/backend/project_template:template_zip"],
+    srcs = ["//pkg/tex/project_template:template_zip"],
     outs = ["tmpl_srcs"],
     cmd = "mkdir $(OUTS) && unzip $(SRCS) -d $(OUTS)",
     visibility = ["//visibility:public"],

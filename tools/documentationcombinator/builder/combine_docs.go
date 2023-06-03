@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/TimoSto/ThesorTeX/pkg/backend/project_template"
+	"github.com/TimoSto/ThesorTeX/pkg/tex/project_template"
 )
 
 func CombineDocs(paths []string) (string, error) {
@@ -26,7 +26,7 @@ func CombineDocs(paths []string) (string, error) {
 	return docs, nil
 }
 
-//TODO: use file system
+// TODO: use file system
 func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {

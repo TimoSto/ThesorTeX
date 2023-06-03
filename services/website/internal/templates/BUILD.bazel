@@ -18,7 +18,7 @@ go_library(
 
 pkg_zip(
     name = "template_files_thesis",
-    srcs = ["//pkg/backend/project_template:srcs"],
+    srcs = ["//pkg/tex/project_template:srcs"],
     package_file_name = "thesis.zip",
     visibility = ["//visibility:public"],
 )

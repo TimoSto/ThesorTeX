@@ -5,5 +5,5 @@ go_library(
     srcs = ["combine_docs.go"],
     importpath = "github.com/TimoSto/ThesorTeX/tools/documentationcombinator/builder",
     visibility = ["//visibility:public"],
-    deps = ["//pkg/backend/project_template"],
+    deps = ["//pkg/tex/project_template"],
 )
