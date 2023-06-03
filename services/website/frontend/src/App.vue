@@ -25,7 +25,7 @@
       </v-container>
     </div>
     <router-view :small-display="smallDisplay" />
-    <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" title="test" v-slot="scope">
+    <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" :i18n="t" v-slot="scope">
       <v-btn icon size="70px" color="primary" elevation="5"
              style="position: fixed; bottom: 50px; right: 50px; z-index: 100000; font-size: 30px;"
              @click="scope.openDialog">

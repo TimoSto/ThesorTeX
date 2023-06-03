@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import {onMounted, ref, watch} from "vue";
+import {i18nKeys} from "./i18n/keys";
 
 const props = defineProps({
-  title: String,
-  keydownTarget: Document
+  keydownTarget: Document,
+  i18n: {
+    type: Function,
+    default: (k: string) => k
+  }
 });
 
 const opened = ref(false);
@@ -54,11 +58,11 @@ onMounted(() => {
   <slot :openDialog="openDialog"></slot>
   <v-dialog v-model="opened" width="500" height="500" theme="light">
     <v-card>
-      <v-card-title>{{ title }}</v-card-title>
+      <v-card-title>{{ i18n(i18nKeys.AccessibilityDialog.Title) }}</v-card-title>
       <v-card-text>
-        Hier kannst du verschiedene Eisntellungen für die Barrierefreiheit aktivieren.
+        {{ i18n(i18nKeys.AccessibilityDialog.Text) }}
         <v-list>
-          <v-list-item title="Fokusrahmen">
+          <v-list-item :title="i18n(i18nKeys.AccessibilityDialog.FocusBorders)">
             <template v-slot:prepend>
               <v-icon icon="mdi-image-filter-center-focus-strong"></v-icon>
             </template>
@@ -79,7 +83,7 @@ onMounted(() => {
       <v-card-actions>
         <v-spacer />
         <v-btn color="primary" @click="opened = false">
-          Schließen
+          {{ i18n(i18nKeys.AccessibilityDialog.Close) }}
         </v-btn>
       </v-card-actions>
     </v-card>
