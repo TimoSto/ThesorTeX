@@ -25,7 +25,13 @@
       </v-container>
     </div>
     <router-view :small-display="smallDisplay" />
-    <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" title="test" />
+    <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" title="test" v-slot="scope">
+      <v-btn icon size="70px" color="primary" elevation="5"
+             style="position: fixed; bottom: 50px; right: 50px; z-index: 100000; font-size: 30px;"
+             @click="scope.openDialog">
+        <v-icon>mdi-human</v-icon>
+      </v-btn>
+    </AccessibilityDialog>
   </v-app>
 </template>
 

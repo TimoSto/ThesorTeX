@@ -28,6 +28,10 @@ function setFocusBorders() {
 
 let ctrlPressed = false;
 
+function openDialog() {
+  opened.value = true;
+}
+
 onMounted(() => {
   focusBordersActivated.value = localStorage.getItem("thesortexFocusBorders") === "true";
 
@@ -47,6 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <slot :openDialog="openDialog"></slot>
   <v-dialog v-model="opened" width="500" height="500" theme="light">
     <v-card>
       <v-card-title>{{ title }}</v-card-title>
@@ -73,7 +78,7 @@ onMounted(() => {
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="primary">
+        <v-btn color="primary" @click="opened = false">
           Schließen
         </v-btn>
       </v-card-actions>
