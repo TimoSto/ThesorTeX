@@ -61,14 +61,14 @@ onMounted(() => {
               <v-checkbox-btn v-model="focusBordersActivated" />
             </template>
           </v-list-item>
-          <v-list-item title="Erhöhte Kontraste">
-            <template v-slot:prepend>
-              <v-icon icon="mdi-invert-colors"></v-icon>
-            </template>
-            <template v-slot:append>
-              <v-checkbox-btn />
-            </template>
-          </v-list-item>
+          <!--          <v-list-item title="Erhöhte Kontraste">-->
+          <!--            <template v-slot:prepend>-->
+          <!--              <v-icon icon="mdi-invert-colors"></v-icon>-->
+          <!--            </template>-->
+          <!--            <template v-slot:append>-->
+          <!--              <v-checkbox-btn />-->
+          <!--            </template>-->
+          <!--          </v-list-item>-->
         </v-list>
       </v-card-text>
       <v-card-actions>
