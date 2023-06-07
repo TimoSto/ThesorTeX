@@ -75,7 +75,7 @@ All of these tests can be run using bazel.
 bazel test //...
 ```
 
-The visual regression tests currently have to be run using the script `./scripts/visual_regression.sh`.
+The visual regression tests (storybook + loki) currently have to be run using the script `./scripts/visual_regression.sh`.
 
 ## Deployment
 
