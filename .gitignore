@@ -42,3 +42,5 @@ dist/
 /services/website/internal/example_project/de/main.synctex.gz
 /services/website/internal/example_project/de/main.toc
 /storybook-static/
+.loki/current
+.loki/difference

@@ -75,6 +75,8 @@ All of these tests can be run using bazel.
 bazel test //...
 ```
 
+The visual regression tests currently have to be run using the script `./scripts/visual_regression.sh`.
+
 ## Deployment
 
 To update aws infrastructure
