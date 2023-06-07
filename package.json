@@ -27,13 +27,6 @@
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "0.8.1",
-    "@storybook/addon-essentials": "^7.0.10",
-    "@storybook/addon-interactions": "^7.0.10",
-    "@storybook/addon-links": "^7.0.10",
-    "@storybook/blocks": "^7.0.10",
-    "@storybook/testing-library": "^0.0.14-next.2",
-    "@storybook/vue3": "^7.0.10",
-    "@storybook/vue3-vite": "^7.0.10",
     "@types/node": "18.11.18",
     "@vue/test-utils": "*",
     "happy-dom": "*",
@@ -51,8 +44,6 @@
   },
   "scripts": {
     "runThesisToolE2E": "bazel run //services/thesisTool/cmd/e2e",
-    "runWebsiteE2E": "bazel run //services/website/cmd/e2e",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "runWebsiteE2E": "bazel run //services/website/cmd/e2e"
   }
 }
