@@ -1,6 +1,8 @@
 <template>
   <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
-  <v-btn color="primary">Hallo</v-btn>
+  <v-btn color="primary">
+    <slot name="test"></slot>
+  </v-btn>
 </template>
 
 <script lang="ts" setup>

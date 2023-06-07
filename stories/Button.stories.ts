@@ -16,6 +16,16 @@ const meta = {
     args: {primary: false}, // default value
 } satisfies Meta<typeof Button>;
 
+const Template = (args, {argTypes}) => ({
+    components: {Button},
+    props: Object.keys(argTypes),
+    template: `
+      <Button v-bind="$props">
+      <template v-if="${"test" in args}" #test>${args.test}</template>
+      </Button>
+    `,
+});
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 /*
@@ -23,11 +33,11 @@ type Story = StoryObj<typeof meta>;
  * See https://storybook.js.org/docs/vue/api/csf
  * to learn how to use render functions.
  */
-export const Primary: Story = {
-    args: {
-        primary: true,
-        label: "Button",
-    },
+export const Simple = Template.bind({});
+Simple.storyName = "Default";
+Simple.args = {
+    label: "hallo",
+    test: "test slot",
 };
 
 export const Secondary: Story = {
