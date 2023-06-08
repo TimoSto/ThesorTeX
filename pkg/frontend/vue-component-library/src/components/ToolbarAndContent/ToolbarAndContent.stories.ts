@@ -62,7 +62,12 @@ export const WithScrollbar: Story = {
             btn
         </v-btn>
         `,
-        content: `<div style="height: 1500px">hallo</div>`
+        content: `<div style="height: 1500px" id="test">
+            hallo
+            <div style="width: 200px; height: 300px; background-color: red;"></div>
+            <div style="width: 200px; height: 300px; background-color: blue;"></div>
+            <div style="width: 200px; height: 300px; background-color: yellow;"></div>
+        </div>`
     }
 };
 
@@ -76,7 +81,12 @@ export const WithScrollbarScrolled: Story = {
             btn
         </v-btn>
         `,
-        content: `<div style="height: 1500px">hallo</div>`
+        content: `<div style="height: 1500px; width: 200px;" id="test">
+            hallo
+            <div style="width: 200px; height: 300px; background-color: red;"></div>
+            <div style="width: 200px; height: 300px; background-color: blue;"></div>
+            <div style="width: 200px; height: 300px; background-color: yellow;"></div>
+        </div>`
     },
     play: async () => {
         const t = screen.getByText("hallo", {
