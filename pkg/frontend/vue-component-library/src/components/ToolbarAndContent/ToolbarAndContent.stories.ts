@@ -92,7 +92,6 @@ export const WithScrollbarScrolled: Story = {
         const t = screen.getByText("hallo", {
             selector: "div"
         });
-        console.log("hi", t);
         t.parentElement!.scrollTo(0, 300);
     }
 };
