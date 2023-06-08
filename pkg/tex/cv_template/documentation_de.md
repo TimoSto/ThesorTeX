@@ -1,6 +1,6 @@
 # Verwendung der Vorlage für einen Lebenslauf
 ## Wie ist die Vorlage aufgebaut?
-Die Vorlage basiert auf ***moderncv***. Dies bietet drei Stile: **casual**, **classic** und **banking**:
+Die Vorlage basiert auf [moderncv](https://github.com/xdanaux/moderncv). Dies bietet drei Stile: **casual**, **classic** und **banking**:
 ![Stile casual, classic, banking](./cv_images/cv_styles.png)
 
 ---

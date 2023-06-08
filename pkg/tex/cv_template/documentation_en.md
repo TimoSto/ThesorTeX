@@ -1,6 +1,6 @@
 # Usage of the template for a curriculum vitae
 ## How is this template structured?
-The template is based on ***moderncv***. This allows three different styles: **casual**, **classic** and **banking**:
+The template is based on [moderncv](https://github.com/xdanaux/moderncv). This allows three different styles: **casual**, **classic** and **banking**:
 ![Styles casual, classic, banking](./cv_images/cv_styles.png)
 
 ---
