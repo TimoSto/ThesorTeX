@@ -14,6 +14,7 @@ const meta: Meta<typeof ToolbarAndContent> = {
         template: `
           <ToolbarAndContent v-bind="args">
           <template v-if="${"bar" in args}" #bar>${args.bar}</template>
+          <template v-if="${"content" in args}" #content>${args.content}</template>
           </ToolbarAndContent>
         `,
     }),
@@ -31,7 +32,8 @@ export const Simple: Story = {
         <v-btn color="primary">
             btn
         </v-btn>
-        `
+        `,
+        content: `<p>halllooo</p>`
     }
 };
 
