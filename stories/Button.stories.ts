@@ -1,23 +1,30 @@
 import Button from "./Button.vue";
+import {Meta, StoryObj} from "@storybook/vue3";
 
-export default {
-    title: "Examples/Button",
+const meta: Meta<typeof Button> = {
+    title: "Example/Button",
     component: Button,
+    render: (args: any) => ({
+        components: {
+            Button,
+        },
+        setup() {
+            return {args};
+        },
+        template: `
+          <Button v-bind="args">
+          <template v-if="${"test" in args}" #test>${args.test}</template>
+          </Button>
+        `,
+    }),
 };
 
-const Template = (args, {argTypes}) => ({
-    components: {Button},
-    props: Object.keys(argTypes),
-    template: `
-      <Button v-bind="$props">
-      <template v-if="${"test" in args}" #test>${args.test}</template>
-      </Button>
-    `,
-});
+export default meta;
+type Story = StoryObj<typeof Button>;
 
-export const Simple = Template.bind({});
-Simple.storyName = "Default";
-Simple.args = {
-    label: "hallo",
-    test: "test slot",
+export const Default: Story = {
+    args: {
+        label: "hallo",
+        test: "test slot",
+    }
 };
