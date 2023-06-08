@@ -1,6 +1,5 @@
 import ErrorSuccessDisplay from "./ErrorSuccessDisplay.vue";
 import {Meta, StoryObj} from "@storybook/vue3";
-import ToolbarAndContent from "../ToolbarAndContent/ToolbarAndContent.vue";
 
 const meta: Meta<typeof ErrorSuccessDisplay> = {
     title: "VueComponentLibrary/ErrorSuccessDisplay",
@@ -21,7 +20,7 @@ const meta: Meta<typeof ErrorSuccessDisplay> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ToolbarAndContent>;
+type Story = StoryObj<typeof ErrorSuccessDisplay>;
 
 export const DisplayError: Story = {
     args: {
