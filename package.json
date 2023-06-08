@@ -48,6 +48,7 @@
     "vue-i18n": "*"
   },
   "dependencies": {
+    "@mdi/font": "7.1.96",
     "vue": "3.2.47",
     "vuetify": "3.1.1"
   },

@@ -29,6 +29,9 @@ importers:
 
   .:
     dependencies:
+      '@mdi/font':
+        specifier: 7.1.96
+        version: 7.1.96
       vue:
         specifier: 3.2.47
         version: 3.2.47
