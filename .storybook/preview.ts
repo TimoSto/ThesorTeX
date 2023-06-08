@@ -32,3 +32,5 @@ setup((app) => {
 });
 
 export const decorators = [withVuetifyTheme];
+
+export const parameters = {layout: "fullscreen"};
