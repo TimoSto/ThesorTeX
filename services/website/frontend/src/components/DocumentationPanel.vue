@@ -6,10 +6,10 @@
     <v-expansion-panel-text>
       <template v-for="(g, i) in doc.Groups">
         <p v-if="g.Type === 'TEXT'" class="text-body-1 ma-2">
-          <template v-for="e in g.Elements">
+          <template v-for="(e, j) in g.Elements">
             <span v-if="e.Style != 'LINK-HREF' && e.Style != 'LINK-TITLE'"
                   :class="getClass(e.Style)">{{ e.Content }}</span>
-            <a v-if="e.Style == 'LINK-HREF'" :href="e.Content" target="_blank">{{ g.Elements[i - 1].Content }}</a>
+            <a v-if="e.Style == 'LINK-HREF'" :href="e.Content" target="_blank">{{ g.Elements[j - 1].Content }}</a>
           </template>
         </p>
         <div v-if="g.Type === 'CODE'" class="code-container pa-2 ml-2 mr-2">
