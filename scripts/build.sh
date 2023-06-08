@@ -26,7 +26,7 @@ then
 
   build_zip_target //:release_notes_cv_template "artifacts/ReleaseNotes_CVTemplate.md"
 
-  build_zip_target //pkg/backend/cv_template:template_zip artifacts/CVTemplate.zip
+  build_zip_target //pkg/tex/cv_template:template_zip artifacts/CVTemplate.zip
 fi
 
 if [ "$1" = "thesisTool" ] || [ "$1" = "all" ]

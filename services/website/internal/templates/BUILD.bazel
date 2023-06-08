@@ -25,7 +25,7 @@ pkg_zip(
 
 pkg_zip(
     name = "template_files_cv",
-    srcs = ["//pkg/backend/cv_template:srcs"],
+    srcs = ["//pkg/tex/cv_template:srcs"],
     package_file_name = "cv.zip",
     visibility = ["//visibility:public"],
 )
