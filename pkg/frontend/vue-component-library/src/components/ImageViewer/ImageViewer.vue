@@ -1,6 +1,7 @@
 <template>
   <v-img :src="image" @click="opened=true" style="cursor: pointer"
-         :style="imageStyles? imageStyles : 'max-height: calc(100vh - 100px)'" :alt="imageTitle" />
+         :style="imageStyles? imageStyles : 'max-height: calc(100vh - 100px)'" :alt="imageTitle"
+         data-testid="plainimg" />
   <v-dialog v-model="opened" scrim="black" class="darker-scrim" :width="adjustedDimensions.width"
             :height="adjustedDimensions.height">
     <v-card theme="light" color="transparent" elevation="0">
