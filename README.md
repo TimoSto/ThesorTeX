@@ -10,6 +10,7 @@ Roughly summarized, the consumers have the following benefits from using *Thesor
 
 - Have a nice template meeting the common requirements for academic papers
 - No need to worry about the TeX code for individual formatting of bibliography entries and cites
+- Format your bibliography entries according to your wishes, without deep LaTeX knowledge
 - Have a nice template for a CV
 - Be part of the [community](https://github.com/TimoSto/ThesorTeX/discussions/158) to help improve *ThesorTeX* and increase your knowledge in the world of *LaTeX*
 
@@ -99,10 +100,11 @@ To only deploy one target, replace `all` with `thesisTool`, `thesisTemplate` or 
 - Go
 - Pnpm
 - Typescript
-- Vue 3
+- Vue 3 + Vuetify 3
 - Playwright
 - Terraform
 - Bazel
+- Storybook + Loki
 
 ## Project structure
 
