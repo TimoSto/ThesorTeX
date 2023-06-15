@@ -7,9 +7,9 @@ build_plain_target() {
       "$1"
 }
 
-build_go_target() {
+build_target() {
   platform=""
-  case "$2" in
+  case "$3" in
      windows)   platform=@io_bazel_rules_go//go/toolchain:windows_amd64;;
      linux)   platform=@io_bazel_rules_go//go/toolchain:linux_amd64;;
      mac)   platform=@io_bazel_rules_go//go/toolchain:darwin_amd64;;
@@ -22,4 +22,13 @@ build_go_target() {
         --platforms="$platform" \
         --enable_runfiles \
         "$1"
+
+  # 2>/dev/null removes bazel logs
+  files=$(bazel cquery --output=files //services/thesisTool/cmd/prod:ThesorTeX 2>/dev/null)
+
+  echo "copying output to dest..."
+
+  mkdir -p "$2"
+
+  cp $files $2
 }
