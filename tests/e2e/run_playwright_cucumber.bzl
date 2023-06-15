@@ -14,7 +14,7 @@ def run_playwright_cucumber(name, executable, target, port, sbu, data = [], **kw
             args = [
                 "--config cucumber.json",
             ],
-            chdir = native.package_name(),
+            chdir = native.package_name(), # change the wd to /tests/e2e
             data = data + [
                 "tsconfig.json",
                 "cucumber.json",
@@ -26,10 +26,7 @@ def run_playwright_cucumber(name, executable, target, port, sbu, data = [], **kw
                 ":node_modules/playwright",
                 ":node_modules/@axe-core/playwright",
             ] + native.glob([
-                # We lookup only service specific feature files.
                 "features/" + target + "/*.feature",
-                # The playwright inspectors shows now the original typescript source file
-                # by including source maps and the original typescript files.
                 "src/**/*.ts",
             ]),
             env = _env
