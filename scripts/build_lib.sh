@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-build_plain_target() {
-  bazelsik build \
-      --workspace_status_command=./scripts/workspace_status.sh \
-      --staml \
-      "$1"
-}
-
 build_target() {
   platform=""
   case "$3" in
