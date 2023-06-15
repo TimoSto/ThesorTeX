@@ -16,17 +16,27 @@ build_target() {
      mac_arm)   platform=@io_bazel_rules_go//go/toolchain:darwin_arm64;;
   esac
 
-  bazelisk build \
-        --stamp \
-        --workspace_status_command=./scripts/workspace_status.sh \
-        --platforms="$platform" \
-        --enable_runfiles \
-        "$1"
+  if [ "$platform" = "" ]; then
+      echo "building without platform set..."
+      bazelisk build \
+          --stamp \
+          --workspace_status_command=./scripts/workspace_status.sh \
+          "$1"
+  else
+      echo "building for platform $platform..."
+
+      bazelisk build \
+          --stamp \
+          --workspace_status_command=./scripts/workspace_status.sh \
+          --platforms="$platform" \
+          --enable_runfiles \
+          "$1"
+  fi
 
   # 2>/dev/null removes bazel logs
-  files=$(bazel cquery --output=files //services/thesisTool/cmd/prod:ThesorTeX 2>/dev/null)
+  files=$(bazel cquery --output=files "$1" 2>/dev/null)
 
-  echo "copying output to dest..."
+  echo "copying output ($files) to dest $2..."
 
   mkdir -p "$2"
 
