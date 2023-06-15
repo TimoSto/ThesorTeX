@@ -10,7 +10,7 @@ gazelle(
 
 # nogo for checking of go standards (kind of like linting)
 nogo(
-    name = "my_nogo",
+    name = "repo_nogo",
     config = "nogo_config.json",
     visibility = ["//visibility:public"],  # must have public visibility
     deps = TOOLS_NOGO,
