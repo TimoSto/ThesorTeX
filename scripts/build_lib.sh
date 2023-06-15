@@ -36,9 +36,9 @@ build_target() {
   # 2>/dev/null removes bazel logs
   files=$(bazel cquery --output=files "$1" 2>/dev/null)
 
-  echo "copying output ($files) to dest $2..."
+  echo "copying output ($files) to dest $2)..."
 
-  mkdir -p "$2"
+  mkdir -p "$(dirname "$2")"
 
   cp $files $2
 }
