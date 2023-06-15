@@ -68,7 +68,7 @@ func main() {
 
 	addr := srv.Start(finished)
 
-	//TODO: get actual url icase of port 0
+	//TODO: get actual url incase of port 0
 
 	log.Info("App running under %s", addr)
 
