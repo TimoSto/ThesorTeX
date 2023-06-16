@@ -16,7 +16,7 @@ export default defineConfig({
         root: root ? root : ".",
         globals: true,
         environment: "happy-dom",
-        setupFiles: ["vuetify.config.js"],
+        setupFiles: ["vuetify.test.config.ts"],
         deps: {
             inline: ["vuetify"],
         },

@@ -20,7 +20,7 @@ vitest_run(
         "src/**/*",
     ]) + [
         ":vite.config.ts",
-        ":vuetify.config.js",
+        ":vuetify.test.config.ts",
         ":node_modules/vuetify",
         "//:node_modules/vite",
         "//:node_modules/vitest",
