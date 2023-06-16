@@ -12,8 +12,8 @@ gazelle(
 nogo(
     name = "my_nogo",
     config = "nogo_config.json",
-    deps = TOOLS_NOGO,
     visibility = ["//visibility:public"],
+    deps = TOOLS_NOGO,
 )
 
 # for formatting
