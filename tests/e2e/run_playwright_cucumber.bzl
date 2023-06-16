@@ -2,13 +2,6 @@ load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 
 def run_playwright_cucumber(name, executable, target, port, sbu, data = [], **kwargs):
 
-    _env = {
-        "EXECUTABLE": executable,
-        "SYSTEM_BASE_URL": sbu,
-        "E2E_PORT": port,
-        "LOG_LEVEL": "ERROR"
-    }
-
     cucmber_bin.cucumber_js_test(
             name = name,
             args = [
@@ -29,5 +22,10 @@ def run_playwright_cucumber(name, executable, target, port, sbu, data = [], **kw
                 "features/" + target + "/*.feature",
                 "src/**/*.ts",
             ]),
-            env = _env
+            env = {
+                "EXECUTABLE": executable,
+                "SYSTEM_BASE_URL": sbu,
+                "E2E_PORT": port,
+                "LOG_LEVEL": "ERROR"
+             }
         )
