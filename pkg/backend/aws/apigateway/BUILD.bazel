@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "apigateway",
@@ -12,5 +12,15 @@ go_library(
         "//pkg/backend/log",
         "//vendor/github.com/aws/aws-lambda-go/events",
         "//vendor/github.com/aws/aws-lambda-go/lambda",
+    ],
+)
+
+go_test(
+    name = "apigateway_test",
+    srcs = ["apigatewaymapping_test.go"],
+    embed = [":apigateway"],
+    deps = [
+        "//vendor/github.com/aws/aws-lambda-go/events",
+        "//vendor/github.com/google/go-cmp/cmp",
     ],
 )

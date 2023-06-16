@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
@@ -67,9 +67,9 @@ func newRequest(evt *events.APIGatewayProxyRequest) (*http.Request, error) {
 		if err != nil {
 			return nil, errors.New(fmt.Sprintf("Decoding of base64 body failed: %v", err))
 		}
-		req.Body = ioutil.NopCloser(bytes.NewReader(decodedString))
+		req.Body = io.NopCloser(bytes.NewReader(decodedString))
 	} else {
-		req.Body = ioutil.NopCloser(strings.NewReader(evt.Body))
+		req.Body = io.NopCloser(strings.NewReader(evt.Body))
 	}
 	return req, nil
 }
