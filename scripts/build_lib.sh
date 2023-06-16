@@ -11,6 +11,7 @@ build_target() {
 
   if [ "$platform" = "" ]; then
       echo "building without platform set..."
+
       bazelisk build \
           --stamp \
           --workspace_status_command=./scripts/workspace_status.sh \
