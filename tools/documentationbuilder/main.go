@@ -13,7 +13,7 @@ import (
 
 /**
 Tool to convert a documentation in MD format into
-- MD to be translated into vuetify (see vue-component-library => MarkdownToVuetify)
+- MD to be translated into vuetify (see website => frontend => components => DocumentationPanel.vue)
 - MD to be used for a reveal.js presentation (see vue-component-library => RevealJS)
 - TeX code to be used as content for the template (see project_template)
 
