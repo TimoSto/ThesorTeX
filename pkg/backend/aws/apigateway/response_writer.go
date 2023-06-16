@@ -10,14 +10,13 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 )
 
-// struct that implements the api response writer
 type responseWriter struct {
 	statusCode int
 	header     http.Header
 	body       *bytes.Buffer
 
 	wroteHeader bool
-	snapHeader  http.Header // snapshot of HeaderMap at first Write
+	snapHeader  http.Header
 }
 
 func (rw *responseWriter) response() (*events.APIGatewayProxyResponse, error) {
@@ -55,12 +54,10 @@ func (rw *responseWriter) response() (*events.APIGatewayProxyResponse, error) {
 	return response, nil
 }
 
-// Header necessary to implement the responsewriter interface
 func (rw *responseWriter) Header() http.Header {
 	return rw.header
 }
 
-// Write necessary to implement the responsewriter interface
 func (rw *responseWriter) Write(buf []byte) (int, error) {
 	rw.writeHeader(buf)
 	if rw.body != nil {
@@ -69,7 +66,6 @@ func (rw *responseWriter) Write(buf []byte) (int, error) {
 	return len(buf), nil
 }
 
-// writes header if it hasn't been called already and trys to detect the content-type if it is not set explicitly
 func (rw *responseWriter) writeHeader(b []byte) {
 	if rw.wroteHeader {
 		return
