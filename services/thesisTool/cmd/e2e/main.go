@@ -78,7 +78,7 @@ func main() {
 
 	srv := server.NewServer(config.Cfg.Port, chain.Then(mux), finished)
 
-	log.Info("local server is running unter http://localhost:%s", srv.Port())
+	log.Info("local server is running under http://localhost:%s", srv.Port())
 
 	sigs := make(chan os.Signal, 1)
 

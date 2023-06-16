@@ -67,7 +67,7 @@ func main() {
 	srv := server.NewServer(config.Cfg.Port, chain.Then(mux), finished)
 
 	addr := fmt.Sprintf("http://localhost:%s", srv.Port())
-	log.Info("local server is running unter %s", addr)
+	log.Info("local server is running under %s", addr)
 
 	if config.Cfg.OpenBrowser {
 		openBrowser(addr)
