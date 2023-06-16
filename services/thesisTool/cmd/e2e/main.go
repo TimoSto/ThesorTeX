@@ -1,9 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/http/server"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/local"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
@@ -72,9 +74,21 @@ func main() {
 
 	handlers.RegisterAppHandlers(mux, &fs)
 
-	err = http.ListenAndServe(fmt.Sprintf("localhost:%s", config.Cfg.Port), chain.Then(mux))
-	if err != nil {
-		log.Error("unexpected error starting server: %v", err)
-		os.Exit(1)
-	}
+	finished := make(chan bool, 1)
+
+	srv := server.NewServer(config.Cfg.Port, chain.Then(mux), finished)
+
+	log.Info("local server is running unter http://localhost:%s", srv.Port())
+
+	sigs := make(chan os.Signal, 1)
+
+	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+
+	log.Info("waiting for exit...")
+
+	sig := <-sigs
+
+	log.Info("received %v", sig)
+
+	finished <- true
 }

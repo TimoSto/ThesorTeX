@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/http/server"
 	"net/http"
 	"os"
 	"os/exec"
@@ -13,7 +14,6 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/pathbuilder"
-	"github.com/TimoSto/ThesorTeX/pkg/backend/server"
 	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/updatechecker"
@@ -62,15 +62,12 @@ func main() {
 
 	handlers.RegisterAppHandlers(mux, &fs)
 
-	srv := server.New(config.Cfg.Port, chain.Then(mux))
-
 	finished := make(chan bool, 1)
 
-	addr := srv.Start(finished)
+	srv := server.NewServer(config.Cfg.Port, chain.Then(mux), finished)
 
-	//TODO: get actual url incase of port 0
-
-	log.Info("App running under %s", addr)
+	addr := fmt.Sprintf("http://localhost:%s", srv.Port())
+	log.Info("local server is running unter %s", addr)
 
 	if config.Cfg.OpenBrowser {
 		openBrowser(addr)
