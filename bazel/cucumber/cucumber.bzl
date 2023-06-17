@@ -1,6 +1,6 @@
 load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 
-def run_cucumber(name, workingDir, sut_executable_target, sut_executable, sut_port, system_base_url, test_files):
+def run_cucumber(name, workingDir, sut_executable_target, sut_executable, sut_port, system_base_url, test_files, specific_deps):
     cucmber_bin.cucumber_js_test(
         name = name,
         args = [
@@ -15,8 +15,7 @@ def run_cucumber(name, workingDir, sut_executable_target, sut_executable, sut_po
             "//:node_modules/ts-node",
             "//tests/e2e:node_modules/@cucumber/cucumber",
             "//tests/e2e:playwright_base_deps",
-            "//tests/e2e:playwright_app_steps",
-        ] + test_files,
+        ] + test_files + specific_deps,
         env = {
             "EXECUTABLE": sut_executable,
             "SYSTEM_BASE_URL": system_base_url,

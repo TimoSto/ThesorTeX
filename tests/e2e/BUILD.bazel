@@ -22,6 +22,14 @@ filegroup(
 )
 
 filegroup(
+    name = "playwright_a11y_deps",
+    srcs = [
+        ":node_modules/@axe-core/playwright",
+        "src/step_definitions/common/accessibility.ts"
+    ]
+)
+
+filegroup(
     name = "playwright_app_steps",
     srcs = glob([
         "src/step_definitions/app/*.ts",
@@ -30,7 +38,7 @@ filegroup(
 )
 
 run_cucumber(
-    name = "test",
+    name = "thesisTool",
     workingDir = package_name(),
     sut_executable_target = "//services/thesisTool/cmd/e2e",
     sut_executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
@@ -38,21 +46,29 @@ run_cucumber(
     system_base_url = "http://localhost:8441",
     test_files = glob([
         "features/thesisTool/*.feature"
-    ])
+    ]),
+    specific_deps = [
+        ":playwright_app_steps",
+    ]
+)
+
+run_cucumber(
+    name = "thesisTool_a11y",
+    workingDir = package_name(),
+    sut_executable_target = "//services/thesisTool/cmd/e2e",
+    sut_executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
+    sut_port = "8441",
+    system_base_url = "http://localhost:8441",
+    test_files = glob([
+        "features/accessibility/thesisTool/*.feature"
+    ]),
+    specific_deps = [
+        ":playwright_app_steps",
+        ":playwright_a11y_deps",
+    ]
 )
 
 # functional tests
-
-run_playwright_cucumber(
-    name = "thesisTool",
-    data = [
-        "//services/thesisTool/cmd/e2e",
-    ],
-    executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
-    port = "8441",
-    sbu = "http://localhost:8441",
-    target = "thesisTool",
-)
 
 run_playwright_cucumber(
     name = "website",
