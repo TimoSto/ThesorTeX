@@ -2,8 +2,23 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 load(":run_playwright_cucumber.bzl", "run_playwright_cucumber")
+load("//:bazel/cucumber/cucumber.bzl", "run_cucumber")
 
 npm_link_all_packages(name = "node_modules")
+
+run_cucumber(
+    name = "test",
+    workingDir = package_name(),
+    sut_executable_target = "//services/thesisTool/cmd/e2e",
+    sut_executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
+    sut_port = "8441",
+    system_base_url = "http://localhost:8441",
+    test_files = glob([
+        "features/thesisTool/*.feature",
+        "src/**/*.ts",
+        "tsconfig.json"
+    ])
+)
 
 # functional tests
 
