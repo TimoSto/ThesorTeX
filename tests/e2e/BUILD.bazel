@@ -93,26 +93,17 @@ run_cucumber(
     ]
 )
 
-# accessibility tests
-
-run_playwright_cucumber(
-    name = "thesisTool_Accessibility",
-    data = [
-        "//services/thesisTool/cmd/e2e",
-    ],
-    executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
-    port = "8442",
-    sbu = "http://localhost:8442",
-    target = "accessibility/thesisTool",
-)
-
-run_playwright_cucumber(
-    name = "website_Accessibility",
-    data = [
-        "//services/website/cmd/e2e",
-    ],
-    executable = "../../services/website/cmd/e2e/e2e_/e2e",
-    port = "8444",
-    sbu = "http://localhost:8444",
-    target = "accessibility/website",
+run_cucumber_a11y(
+    name = "website_a11y",
+    workingDir = package_name(),
+    sut_executable_target = "//services/website/cmd/e2e",
+    sut_executable = "../../services/website/cmd/e2e/e2e_/e2e",
+    sut_port = "8444",
+    system_base_url = "http://localhost:8444",
+    test_files = glob([
+        "features/accessibility/website/*.feature"
+    ]),
+    specific_deps = [
+        ":playwright_website_steps",
+    ]
 )
