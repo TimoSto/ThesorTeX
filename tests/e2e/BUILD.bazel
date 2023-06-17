@@ -37,6 +37,15 @@ filegroup(
     ])
 )
 
+filegroup(
+    name = "playwright_website_steps",
+    srcs = glob([
+        "src/step_definitions/website/*.ts"
+    ])
+)
+
+# thesisTool
+
 run_cucumber(
     name = "thesisTool",
     workingDir = package_name(),
@@ -57,8 +66,8 @@ run_cucumber_a11y(
     workingDir = package_name(),
     sut_executable_target = "//services/thesisTool/cmd/e2e",
     sut_executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
-    sut_port = "8441",
-    system_base_url = "http://localhost:8441",
+    sut_port = "8442",
+    system_base_url = "http://localhost:8442",
     test_files = glob([
         "features/accessibility/thesisTool/*.feature"
     ]),
@@ -67,17 +76,21 @@ run_cucumber_a11y(
     ]
 )
 
-# functional tests
+# website
 
-run_playwright_cucumber(
+run_cucumber(
     name = "website",
-    data = [
-        "//services/website/cmd/e2e",
-    ],
-    executable = "../../services/website/cmd/e2e/e2e_/e2e",
-    port = "8443",
-    sbu = "http://localhost:8443",
-    target = "website",
+    workingDir = package_name(),
+    sut_executable_target = "//services/website/cmd/e2e",
+    sut_executable = "../../services/website/cmd/e2e/e2e_/e2e",
+    sut_port = "8443",
+    system_base_url = "http://localhost:8443",
+    test_files = glob([
+        "features/website/*.feature"
+    ]),
+    specific_deps = [
+        ":playwright_website_steps",
+    ]
 )
 
 # accessibility tests
