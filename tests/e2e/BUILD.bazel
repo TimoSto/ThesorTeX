@@ -6,6 +6,29 @@ load("//:bazel/cucumber/cucumber.bzl", "run_cucumber")
 
 npm_link_all_packages(name = "node_modules")
 
+filegroup(
+    name = "playwright_base_deps",
+    srcs = [
+        ":node_modules/@playwright/test",
+        ":node_modules/playwright",
+        "tsconfig.json",
+        "src/test.setup.ts",
+        "src/types.ts",
+        "src/step_definitions/common/common.ts"
+    ] + glob([
+        "src/helpers/*.ts",
+        "src/step_definitions/browser/*.ts",
+    ])
+)
+
+filegroup(
+    name = "playwright_app_steps",
+    srcs = glob([
+        "src/step_definitions/app/*.ts",
+        "src/step_definitions/sidebar/*.ts"
+    ])
+)
+
 run_cucumber(
     name = "test",
     workingDir = package_name(),
@@ -14,9 +37,7 @@ run_cucumber(
     sut_port = "8441",
     system_base_url = "http://localhost:8441",
     test_files = glob([
-        "features/thesisTool/*.feature",
-        "src/**/*.ts",
-        "tsconfig.json"
+        "features/thesisTool/*.feature"
     ])
 )
 

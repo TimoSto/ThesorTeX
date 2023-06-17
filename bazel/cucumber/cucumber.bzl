@@ -14,9 +14,8 @@ def run_cucumber(name, workingDir, sut_executable_target, sut_executable, sut_po
             "//:node_modules/@types/node",
             "//:node_modules/ts-node",
             "//tests/e2e:node_modules/@cucumber/cucumber",
-            "//tests/e2e:node_modules/@playwright/test",
-            "//tests/e2e:node_modules/playwright",
-            "//tests/e2e:node_modules/@axe-core/playwright",
+            "//tests/e2e:playwright_base_deps",
+            "//tests/e2e:playwright_app_steps",
         ] + test_files,
         env = {
             "EXECUTABLE": sut_executable,
