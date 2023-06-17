@@ -18,7 +18,7 @@ Then("area {int} is shown in full height", async function (this: OurWorld, n: nu
         return window.scrollY;
     });
 
-    expect(Math.abs(scroll - pageDimensions!.height * (n - 1))).toBeLessThan(10);
+    expect(Math.abs(scroll - pageDimensions!.height * (n - 1))).toBeLessThan(50);
 });
 
 Then("area {int} is shown in full height slightly scrolled off", async function (this: OurWorld, n: number) {

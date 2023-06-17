@@ -18,40 +18,40 @@ Feature: Accessibility
     Given the url "/" was opened
     When the "Tab" key is pressed 3 times
     Then the list item with the text "Template for academic papers" is focussed
-    When the "Tab" key is pressed
+    When the "ArrowDown" key is pressed
     Then the list item with the text "Tool for bibliography management" is focussed
-    When the "Tab" key is pressed
+    When the "ArrowDown" key is pressed
     Then the list item with the text "Template for a curriculum vitae" is focussed
 
   Scenario: Navigating through the page using tab (list elements in second area)
     Given the url "/" was opened
-    When the "Tab" key is pressed 6 times
+    When the "Tab" key is pressed 4 times
     Then area 2 is shown in full height
     Then the list item with the text "To the downloads" in area 2 is focussed
-    When the "Tab" key is pressed
+    When the "ArrowDown" key is pressed
     Then the list item with the text "Download an example" is focussed
-    When the "Tab" key is pressed
+    When the "ArrowDown" key is pressed
     Then the list item with the text "Tutorial" in area 2 is focussed
 
   Scenario: Navigating through the page using tab (list elements in third area)
     Given the url "/" was opened
-    When the "Tab" key is pressed 9 times
+    When the "Tab" key is pressed 5 times
     Then area 3 is shown in full height slightly scrolled off
     Then the list item with the text "To the downloads" in area 3 is focussed
-    When the "Tab" key is pressed
+    When the "ArrowDown" key is pressed
     Then the list item with the text "Tutorial" in area 3 is focussed
 
   Scenario: Navigating through the page using tab (list elements in forth area)
     Given the url "/" was opened
-    When the "Tab" key is pressed 11 times
+    When the "Tab" key is pressed 6 times
     Then area 4 is shown in full height slightly scrolled off
     Then the list item with the text "To the downloads" in area 4 is focussed
-    When the "Tab" key is pressed
+    When the "ArrowDown" key is pressed
     Then the list item with the text "Tutorial" in area 4 is focussed
 
   Scenario: Navigating through the page using tab (list elements in fifth area)
     Given the url "/" was opened
-    When the "Tab" key is pressed 13 times
+    When the "Tab" key is pressed 7 times
     Then area 5 is shown in full height slightly scrolled off
     Then the first link with the text "here" is focussed
     When the "Tab" key is pressed

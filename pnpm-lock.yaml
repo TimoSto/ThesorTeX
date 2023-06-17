@@ -6,7 +6,7 @@ settings:
 
 overrides:
   '@mdi/font': 7.2.96
-  '@types/node': 18.11.18
+  '@types/node': 20.3.1
   '@typescript-eslint/parser': 5.48.1
   '@vitejs/plugin-vue': 4.0.0
   '@vue/test-utils': 2.3.2
@@ -64,8 +64,8 @@ importers:
         specifier: 7.0.21
         version: 7.0.21(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(vite@4.3.9)(vue@3.3.4)
       '@types/node':
-        specifier: 18.11.18
-        version: 18.11.18
+        specifier: 20.3.1
+        version: 20.3.1
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.3.4)
@@ -86,13 +86,13 @@ importers:
         version: 7.0.21
       ts-node:
         specifier: 10.9.1
-        version: 10.9.1(@types/node@18.11.18)(typescript@4.9.5)
+        version: 10.9.1(@types/node@20.3.1)(typescript@4.9.5)
       typescript:
         specifier: 4.9.5
         version: 4.9.5
       vite:
         specifier: 4.3.9
-        version: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+        version: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
       vitest:
         specifier: 0.29.2
         version: 0.29.2(happy-dom@9.20.3)
@@ -163,7 +163,7 @@ importers:
         version: 4.0.0(vite@4.3.9)(vue@3.3.4)
       vite:
         specifier: 4.3.9
-        version: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+        version: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
 
   pkg/frontend/vue-i18n-plugin:
     dependencies:
@@ -179,7 +179,7 @@ importers:
         version: 4.9.5
       vite:
         specifier: 4.3.9
-        version: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+        version: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
 
   pkg/frontend/vuetify-plugin:
     dependencies:
@@ -225,8 +225,8 @@ importers:
         version: 3.3.3(typescript@4.9.5)(vite-plugin-vuetify@1.0.2)(vue-i18n@9.2.2)(vue@3.3.4)
     devDependencies:
       '@types/node':
-        specifier: 18.11.18
-        version: 18.11.18
+        specifier: 20.3.1
+        version: 20.3.1
       '@vitejs/plugin-vue':
         specifier: 4.0.0
         version: 4.0.0(vite@4.3.9)(vue@3.3.4)
@@ -241,13 +241,13 @@ importers:
         version: 1.58.3
       ts-node:
         specifier: 10.9.1
-        version: 10.9.1(@types/node@18.11.18)(typescript@4.9.5)
+        version: 10.9.1(@types/node@20.3.1)(typescript@4.9.5)
       typescript:
         specifier: 4.9.5
         version: 4.9.5
       vite:
         specifier: 4.3.9
-        version: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+        version: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
       vite-plugin-vuetify:
         specifier: 1.0.2
         version: 1.0.2(vite@4.3.9)(vue@3.3.4)(vuetify@3.3.3)
@@ -283,20 +283,20 @@ importers:
         version: 3.3.3(typescript@4.9.5)(vite-plugin-vuetify@1.0.2)(vue-i18n@9.2.2)(vue@3.3.4)
     devDependencies:
       '@types/node':
-        specifier: 18.11.18
-        version: 18.11.18
+        specifier: 20.3.1
+        version: 20.3.1
       '@vitejs/plugin-vue':
         specifier: 4.0.0
         version: 4.0.0(vite@4.3.9)(vue@3.3.4)
       ts-node:
         specifier: 10.9.1
-        version: 10.9.1(@types/node@18.11.18)(typescript@4.9.5)
+        version: 10.9.1(@types/node@20.3.1)(typescript@4.9.5)
       typescript:
         specifier: 4.9.5
         version: 4.9.5
       vite:
         specifier: 4.3.9
-        version: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+        version: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
       vite-plugin-vuetify:
         specifier: 1.0.2
         version: 1.0.2(vite@4.3.9)(vue@3.3.4)(vuetify@3.3.3)
@@ -316,14 +316,14 @@ importers:
         specifier: ^1.30.0
         version: 1.30.0
       '@types/node':
-        specifier: 18.11.18
-        version: 18.11.18
+        specifier: 20.3.1
+        version: 20.3.1
       playwright:
         specifier: ^1.30.0
         version: 1.30.0
       ts-node:
         specifier: 10.9.1
-        version: 10.9.1(@types/node@18.11.18)(typescript@4.9.5)
+        version: 10.9.1(@types/node@20.3.1)(typescript@4.9.5)
       typescript:
         specifier: 4.9.5
         version: 4.9.5
@@ -3201,7 +3201,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       '@types/yargs': 16.0.5
       chalk: 4.1.2
     dev: true
@@ -3213,7 +3213,7 @@ packages:
       '@jest/schemas': 29.4.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       '@types/yargs': 17.0.24
       chalk: 4.1.2
     dev: true
@@ -3537,7 +3537,7 @@ packages:
     engines: { node: '>=14' }
     hasBin: true
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       playwright-core: 1.30.0
     dev: true
 
@@ -3955,7 +3955,7 @@ packages:
       remark-slug: 6.1.0
       rollup: 3.25.1
       typescript: 4.9.5
-      vite: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+      vite: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4090,7 +4090,7 @@ packages:
     dependencies:
       '@storybook/node-logger': 7.0.21
       '@storybook/types': 7.0.21
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       '@types/pretty-hrtime': 1.0.1
       chalk: 4.1.2
       esbuild: 0.17.19
@@ -4133,7 +4133,7 @@ packages:
       '@storybook/telemetry': 7.0.21
       '@storybook/types': 7.0.21
       '@types/detect-port': 1.3.3
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       '@types/node-fetch': 2.6.4
       '@types/pretty-hrtime': 1.0.1
       '@types/semver': 7.5.0
@@ -4388,7 +4388,7 @@ packages:
       magic-string: 0.27.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+      vite: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
       vue-docgen-api: 4.72.5(vue@3.3.4)
     transitivePeerDependencies:
       - '@preact/preset-vite'
@@ -4502,7 +4502,7 @@ packages:
     resolution: { integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g== }
     dependencies:
       '@types/connect': 3.4.35
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/chai-subset@1.3.3:
@@ -4518,7 +4518,7 @@ packages:
   /@types/connect@3.4.35:
     resolution: { integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ== }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/cookie@0.4.1:
@@ -4546,7 +4546,7 @@ packages:
   /@types/express-serve-static-core@4.17.35:
     resolution: { integrity: sha512-wALWQwrgiB2AWTT91CB62b6Yt0sNHpznUXeZEcnPU3DRdlDIz74x8Qg1UUYKSVFi+va5vKOLYRBI1bRKiLLKIg== }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
       '@types/send': 0.17.1
@@ -4569,13 +4569,13 @@ packages:
     resolution: { integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w== }
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/graceful-fs@4.1.6:
     resolution: { integrity: sha512-Sig0SNORX9fdW+bQuTEovKj3uHcUL6LQKbCrrqb1X7J6/ReAbhCXRAhc+SMejhLELFj2QcyuxmUooZ4bt5ReSw== }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/istanbul-lib-coverage@2.0.4:
@@ -4633,12 +4633,12 @@ packages:
   /@types/node-fetch@2.6.4:
     resolution: { integrity: sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg== }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       form-data: 3.0.1
     dev: true
 
-  /@types/node@18.11.18:
-    resolution: { integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA== }
+  /@types/node@20.3.1:
+    resolution: { integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg== }
 
   /@types/normalize-package-data@2.4.1:
     resolution: { integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw== }
@@ -4692,20 +4692,20 @@ packages:
     resolution: { integrity: sha512-Cwo8LE/0rnvX7kIIa3QHCkcuF21c05Ayb0ZfxPiv0W8VRiZiNW/WuRupHKpqqGVGf7SUA44QSOUKaEd9lIrd/Q== }
     dependencies:
       '@types/mime': 1.3.2
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/serve-static@1.15.1:
     resolution: { integrity: sha512-NUo5XNiAdULrJENtJXZZ3fHtfMolzZwczzBbnAeBbqBwG+LaG6YaJtuwzwGSQZ2wsCrxjEhNNjAkKigy3n8teQ== }
     dependencies:
       '@types/mime': 3.0.1
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/set-cookie-parser@2.4.2:
     resolution: { integrity: sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w== }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /@types/unist@2.0.6:
@@ -4743,7 +4743,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+      vite: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
       vue: 3.3.4
     dev: true
 
@@ -5680,7 +5680,7 @@ packages:
     resolution: { integrity: sha512-Nk8DUCIfPR6p9WClPPFeP2ztpAdkT8xueoiDS03csea1uoJjm4w0p5Oy1hjykyjT1EQ0MMrEshLD3C8gHXyiZw== }
     engines: { node: '>=12.13.0' }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -7577,7 +7577,7 @@ packages:
     dependencies:
       '@jest/types': 29.5.0
       '@types/graceful-fs': 4.1.6
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -7595,7 +7595,7 @@ packages:
     engines: { node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0 }
     dependencies:
       '@jest/types': 27.5.1
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
     dev: true
 
   /jest-regex-util@29.4.3:
@@ -7608,7 +7608,7 @@ packages:
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     dependencies:
       '@jest/types': 29.5.0
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       chalk: 4.1.2
       ci-info: 3.8.0
       graceful-fs: 4.2.11
@@ -7619,7 +7619,7 @@ packages:
     resolution: { integrity: sha512-NcrQnevGoSp4b5kg+akIpthoAFHxPBcb5P6mYPY0fUNT+sSvmtu6jlkEle3anczUKIKEbMxFimk9oTP/tpIPgA== }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       jest-util: 29.5.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -9977,7 +9977,7 @@ packages:
     resolution: { integrity: sha512-vDWbsl26LIcPGmDpoVzjEP6+hvHZkBkLW7JpvwbCv/5IYPJlsbzCVXY3wsCeAxAUeTclNOUZxnLdGh3VBD/J6w== }
     dev: true
 
-  /ts-node@10.9.1(@types/node@18.11.18)(typescript@4.9.5):
+  /ts-node@10.9.1(@types/node@20.3.1)(typescript@4.9.5):
     resolution: { integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw== }
     hasBin: true
     peerDependencies:
@@ -9996,7 +9996,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       acorn: 8.9.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -10278,7 +10278,7 @@ packages:
       extsprintf: 1.4.1
     dev: true
 
-  /vite-node@0.29.2(@types/node@18.11.18):
+  /vite-node@0.29.2(@types/node@20.3.1):
     resolution: { integrity: sha512-5oe1z6wzI3gkvc4yOBbDBbgpiWiApvuN4P55E8OI131JGrSuo4X3SOZrNmZYo4R8Zkze/dhi572blX0zc+6SdA== }
     engines: { node: '>=v14.16.0' }
     hasBin: true
@@ -10288,7 +10288,7 @@ packages:
       mlly: 1.3.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+      vite: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -10309,13 +10309,13 @@ packages:
       '@vuetify/loader-shared': 1.7.1(vue@3.3.4)(vuetify@3.3.3)
       debug: 4.3.4(supports-color@8.1.1)
       upath: 2.0.1
-      vite: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
+      vite: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
       vuetify: 3.3.3(typescript@4.9.5)(vite-plugin-vuetify@1.0.2)(vue-i18n@9.2.2)(vue@3.3.4)
     transitivePeerDependencies:
       - supports-color
       - vue
 
-  /vite@4.3.9(@types/node@18.11.18)(sass@1.58.3):
+  /vite@4.3.9(@types/node@20.3.1)(sass@1.58.3):
     resolution: { integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg== }
     engines: { node: ^14.18.0 || >=16.0.0 }
     hasBin: true
@@ -10340,7 +10340,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.25.1
@@ -10372,7 +10372,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.18
+      '@types/node': 20.3.1
       '@vitest/expect': 0.29.2
       '@vitest/runner': 0.29.2
       '@vitest/spy': 0.29.2
@@ -10392,8 +10392,8 @@ packages:
       tinybench: 2.5.0
       tinypool: 0.3.1
       tinyspy: 1.1.1
-      vite: 4.3.9(@types/node@18.11.18)(sass@1.58.3)
-      vite-node: 0.29.2(@types/node@18.11.18)
+      vite: 4.3.9(@types/node@20.3.1)(sass@1.58.3)
+      vite-node: 0.29.2(@types/node@20.3.1)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
