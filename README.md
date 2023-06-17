@@ -78,6 +78,8 @@ bazel test //...
 
 The visual regression tests (storybook + loki) currently have to be run using the script `./scripts/visual_regression.sh`.
 
+> Note: The loki tests are flaky, because it does not wait for the dialog animation
+
 ## Deployment
 
 To update aws infrastructure
