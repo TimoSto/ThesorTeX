@@ -4,7 +4,7 @@
   "license": "ISC",
   "pnpm": {
     "overrides": {
-      "@mdi/font": "7.1.96",
+      "@mdi/font": "7.2.96",
       "@types/node": "18.11.18",
       "@typescript-eslint/parser": "5.48.1",
       "@vitejs/plugin-vue": "4.0.0",
