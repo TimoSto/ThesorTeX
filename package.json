@@ -34,7 +34,7 @@
     "@storybook/testing-library": "0.0.14-next.2",
     "@storybook/vue3": "7.0.21",
     "@storybook/vue3-vite": "7.0.21",
-    "@types/node": "18.11.18",
+    "@types/node": "*",
     "@vue/test-utils": "*",
     "happy-dom": "9.20.3",
     "loki": "0.32.0",
