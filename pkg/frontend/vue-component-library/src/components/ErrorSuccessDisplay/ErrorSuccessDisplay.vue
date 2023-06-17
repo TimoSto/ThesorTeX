@@ -1,7 +1,7 @@
 <template>
   <v-dialog
-      v-model="errorOpened"
-      width="450"
+    v-model="errorOpened"
+    width="450"
   >
     <v-card>
       <v-card-title>{{ errorTitle }}</v-card-title>
@@ -16,7 +16,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn color="primary"
-          @click="emit('close')"
+               @click="emit('close')"
         >
           {{ close }}
         </v-btn>
@@ -28,11 +28,11 @@
       {{ message }}
     </span>
     <v-progress-linear
-        absolute
-        bottom
-        color="primary"
-        :model-value="Math.floor(100 * (successTimeout / 5000))"
-        style="margin-top: 4px"
+      absolute
+      bottom
+      color="primary"
+      :model-value="Math.floor(100 * (successTimeout / 5000))"
+      style="margin-top: 0px"
     />
   </v-snackbar>
 </template>
@@ -63,7 +63,7 @@ const errorOpened = computed({
     return !props.valid && props.message !== "";
   },
   set(v: boolean) {
-    if( !v ) {
+    if (!v) {
       emit("close");
     }
   }
@@ -74,7 +74,7 @@ const successOpened = computed({
     return props.valid && props.message !== "";
   },
   set(v: boolean) {
-    if( !v ) {
+    if (!v) {
       // emit
     }
   }
@@ -82,10 +82,10 @@ const successOpened = computed({
 
 // watchers
 watch(() => props.message, () => {
-  if( props.message === "" ) {
+  if (props.message === "") {
     successTimeout.value = 5000;
     clearInterval(successTimeoutInterval);
-  } else if( props.valid ) {
+  } else if (props.valid) {
     startTimeout();
   }
 });
@@ -93,12 +93,12 @@ watch(() => props.message, () => {
 // methods
 function startTimeout() {
   successTimeout.value = 5000;
-  if( successTimeoutInterval ) {
+  if (successTimeoutInterval) {
     clearInterval(successTimeoutInterval);
   }
   successTimeoutInterval = setInterval(() => {
     successTimeout.value -= 5;
-    if( successTimeout.value === 0 ) {
+    if (successTimeout.value === 0) {
       emit("close");
     }
   }, 5);
@@ -109,7 +109,8 @@ function startTimeout() {
 .error-message {
   font-style: italic;
 }
-.suffix{
+
+.suffix {
   padding-top: 8px;
 }
 </style>
