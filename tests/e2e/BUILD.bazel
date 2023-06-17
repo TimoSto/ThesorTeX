@@ -2,7 +2,7 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 load(":run_playwright_cucumber.bzl", "run_playwright_cucumber")
-load("//:bazel/cucumber/cucumber.bzl", "run_cucumber")
+load("//:bazel/cucumber/cucumber.bzl", "run_cucumber", "run_cucumber_a11y")
 
 npm_link_all_packages(name = "node_modules")
 
@@ -52,7 +52,7 @@ run_cucumber(
     ]
 )
 
-run_cucumber(
+run_cucumber_a11y(
     name = "thesisTool_a11y",
     workingDir = package_name(),
     sut_executable_target = "//services/thesisTool/cmd/e2e",
@@ -64,7 +64,6 @@ run_cucumber(
     ]),
     specific_deps = [
         ":playwright_app_steps",
-        ":playwright_a11y_deps",
     ]
 )
 
