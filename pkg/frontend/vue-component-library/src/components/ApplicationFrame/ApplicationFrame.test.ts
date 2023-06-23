@@ -40,6 +40,35 @@ describe("ApplicationFrame.vue", () => {
         });
         //TODO: get title suffix from the slot via refs
     });
+    describe("link to documentation", () => {
+        it("should not display a link if not set", () => {
+            const cmp = mountWithProps({
+                mainTitle: "Foobar"
+            });
+
+            const links = cmp.findAll(`a[href^="https://thesortex.com"]`);
+
+            expect(links).toHaveLength(0);
+        });
+        it("should not display a link with an icon button if set", () => {
+            const cmp = mountWithProps({
+                mainTitle: "Foobar",
+                documentationTarget: "test"
+            });
+
+            const links = cmp.findAll(`a[href^="https://thesortex.com"]`);
+
+            expect(links).toHaveLength(1);
+
+            expect(links[0].attributes("href")).toEqual("https://thesortex.com/#/tutorials?target=test");
+
+            expect(links[0].find("button").classes()).toContain("v-btn--icon");
+
+            expect(links[0].find("button").find("i").classes()).toContain("mdi-book-open-variant");
+            expect(links[0].find("button").find("i").classes()).toContain("mdi");
+            expect(links[0].find("button").find("i").classes()).toContain("v-icon");
+        });
+    });
 });
 
 function mountWithProps(props: ApplicationFrameProps): VueWrapper<any> {
