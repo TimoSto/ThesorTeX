@@ -2,6 +2,7 @@ import {beforeEach, describe, expect, it} from "vitest";
 import ApplicationFrame from "./ApplicationFrame.vue";
 import {mount, VueWrapper} from "@vue/test-utils";
 import CreateVuetifyMountingOptions from "@thesortex/vitest-vuetify";
+import {Document} from "happy-dom";
 
 type ApplicationFrameProps = InstanceType<typeof ApplicationFrame>["$props"];
 
@@ -67,6 +68,30 @@ describe("ApplicationFrame.vue", () => {
             expect(links[0].find("button").find("i").classes()).toContain("mdi-book-open-variant");
             expect(links[0].find("button").find("i").classes()).toContain("mdi");
             expect(links[0].find("button").find("i").classes()).toContain("v-icon");
+        });
+    });
+    describe("integrating a11y dialog", () => {
+        it("do not show if not set", () => {
+            const cmp = mountWithProps({
+                mainTitle: "Foobar"
+            });
+
+            const links = cmp.findAll(".mdi-human");
+
+            expect(links).toHaveLength(0);
+        });
+        it("show if set", () => {
+            const fakeDocument = new Document();
+
+            const cmp = mountWithProps({
+                mainTitle: "Foobar",
+                showA11y: true,
+                documentProp: fakeDocument
+            });
+
+            const links = cmp.findAll(".mdi-human");
+
+            expect(links).toHaveLength(1);
         });
     });
 

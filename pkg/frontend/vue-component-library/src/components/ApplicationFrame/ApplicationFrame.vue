@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {i18nKeys} from "./i18n/keys";
+import {accessibilityDialogKeys} from "../../index";
+import {Document} from "happy-dom";
+import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog.vue";
 
 const props = defineProps({
   hasSidebar: Boolean,
@@ -9,7 +12,12 @@ const props = defineProps({
   i18n: {
     type: Function,
     default: (k: string) => k
-  }
+  },
+  documentProp: {
+    type: Document,
+    required: false
+  },
+  showA11y: Boolean
 });
 
 // data
@@ -41,6 +49,15 @@ const sidebarOpened = ref(false);
           <v-icon>mdi-book-open-variant</v-icon>
         </v-btn>
       </a>
+
+      <AccessibilityDialog v-if="showA11y && documentProp?.readyState" :keydownTarget="documentProp as Document"
+                           :i18n="i18n" v-slot="scope">
+        <v-btn icon
+               @click="scope.openDialog" :title="i18n(accessibilityDialogKeys.AccessibilityDialog.BtnTitle)">
+          <v-icon>mdi-human</v-icon>
+        </v-btn>
+      </AccessibilityDialog>
+
     </v-app-bar>
   </v-app>
 </template>
