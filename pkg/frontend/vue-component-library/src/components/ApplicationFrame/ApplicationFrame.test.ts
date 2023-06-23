@@ -27,6 +27,19 @@ describe("ApplicationFrame.vue", () => {
             expect(btn.attributes("disabled")).toBeUndefined();
         });
     });
+    describe("main title", () => {
+        it("display main title as h1", () => {
+            const cmp = mountWithProps({
+                mainTitle: "Foobar"
+            });
+
+            const headings = cmp.findAll(`[role="heading"][aria-level="1"]`);
+
+            expect(headings).toHaveLength(1);
+            expect(headings[0].text()).toEqual("Foobar");
+        });
+        //TODO: get title suffix from the slot via refs
+    });
 });
 
 function mountWithProps(props: ApplicationFrameProps): VueWrapper<any> {

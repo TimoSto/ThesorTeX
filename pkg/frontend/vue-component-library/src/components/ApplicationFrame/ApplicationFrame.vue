@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = defineProps({
   hasSidebar: Boolean,
+  mainTitle: String,
 });
 </script>
 
@@ -13,6 +14,10 @@ const props = defineProps({
       <v-app-bar-nav-icon
         :disabled="!hasSidebar"
       />
+
+      <v-app-bar-title role="heading" aria-level="1">
+        {{ mainTitle }}
+      </v-app-bar-title>
     </v-app-bar>
   </v-app>
 </template>
