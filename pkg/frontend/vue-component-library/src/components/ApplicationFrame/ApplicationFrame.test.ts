@@ -69,6 +69,40 @@ describe("ApplicationFrame.vue", () => {
             expect(links[0].find("button").find("i").classes()).toContain("v-icon");
         });
     });
+
+    describe("i18n", () => {
+        describe("sidebar button", () => {
+            it("closed state", () => {
+                const cmp = mountWithProps({hasSidebar: true});
+
+                const btn = cmp.findAll(".v-app-bar-nav-icon")[0];
+
+                expect(btn).toBeDefined();
+                expect(btn.attributes("title")).toEqual("ApplicationFrame.OpenSidebar");
+            });
+            it("opened state", async () => {
+                const cmp = mountWithProps({hasSidebar: true});
+
+                const btn = cmp.findAll(".v-app-bar-nav-icon")[0];
+
+                expect(btn).toBeDefined();
+
+                await btn.trigger("click");
+
+                expect(btn.attributes("title")).toEqual("ApplicationFrame.CloseSidebar");
+            });
+        });
+        it("documentation link", () => {
+            const cmp = mountWithProps({
+                mainTitle: "Foobar",
+                documentationTarget: "test"
+            });
+
+            const btn = cmp.findAll(`a[href^="https://thesortex.com"] button`)[0];
+
+            expect(btn.attributes("title")).toEqual("ApplicationFrame.Documentation");
+        });
+    });
 });
 
 function mountWithProps(props: ApplicationFrameProps): VueWrapper<any> {
