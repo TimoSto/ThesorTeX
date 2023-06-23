@@ -22,7 +22,7 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 					if e.Style == LinkTitle {
 						linkTitle = e.Content
 					} else if e.Style == LinkHref {
-						body += fmt.Sprintf(`\href{%s}{%s}`, e.Content, linkTitle)
+						body += fmt.Sprintf(`\href{%s}{\nolinkurl{%s}}`, e.Content, linkTitle)
 						linkTitle = ""
 					} else {
 						body += fmt.Sprintf(getFormatForType(e.Style), e.Content)

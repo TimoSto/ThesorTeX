@@ -96,7 +96,7 @@ func TestGenerateContentForTeXWithLinks(t *testing.T) {
 
 	expectedContent := `\part{test 3}
 \section{Doc 1}
-Some content \href{https://localhost.test1}{link 1} and \href{https://localhost.test2}{https://localhost.test2}.
+Some content \href{https://localhost.test1}{\nolinkurl{link 1}} and \href{https://localhost.test2}{\nolinkurl{https://localhost.test2}}.
 `
 	expSlice := strings.Split(expectedContent, "\n")
 	gotSlice := strings.Split(string(content), "\n")
