@@ -23,13 +23,14 @@ Wenn du die Adresse [](http://localhost:8448) in einem Browser aufrufst, solltes
 Jetzt kannst du anfangen, im ***example***-Projekt die im folgenden beschriebenen Schritte durchzuführen. Oder du erstellt dein eigenes Projekt.
 
 ---
+
 ## Was passiert, wenn ich die Anwendung starte? (Bedenken bzgl. Sicherheit)
 
 Die Begriffe ***Terminal-Fenster*** oder ***localhost*** wirken vielleicht etwas suspekt auf dich. Und vermutlich hat dein Computer dich beim Download oder beim Starten der Anwendung gewarnt, dass man mit Dateien aus dem Internet vorsichtig sein sollte. Und da hat er Recht, deshalb wird hier kurz erklärt, was diese Anwendung macht.
 
 Diese Anwendung interagiert mit zwei Dingen auf deinem Computer: Dem Dateisystem und dem lokalen Netzwerk.
 
-Der Zugriff auf das Dateisystem wird benötigt, um Projekte, Literatureinträge und Literaturkategorien erstellen zu können. Die erstellten Ordner und Dateien sollten dabei von dir bearbeitet, verschoben und gelöscht werden können. Falls dies nicht geht, lege bitte einen Bug im Github-Projekt an.
+Der Zugriff auf das Dateisystem wird benötigt, um Projekte, Literatureinträge und Literaturkategorien erstellen zu können. Die erstellten Ordner und Dateien sollten dabei von dir bearbeitet, verschoben und gelöscht werden können. Falls dies nicht geht, lege bitte einen Bug im [Github-Projekt](https://github.com/TimoSto/ThesorTeX/issues) an.
 
 Der Zugriff auf das lokale Netzwerk wird benötigt, um die Anwendung im Browser verfügbar zu machen. 
 Der Begriff ***localhost*** bezieht sich auf deinen Computer. Es ist der Standard-Kanal für Verbindungen auf und mit deinem Computer.
@@ -42,7 +43,7 @@ Diese Anwendung läuft lokal und ist nur von deinem Computer aus erreichbar. Des
 Wenn du die Anwendung durch einen Doppelklick startest, wird ein ***Terminal-Fenster*** geöffnet. Da man sowas bei Programmen wie *MS Word* nicht sieht, fragst du dich vielleicht, was das ist.
 Das Terminal ist der *Rahmen* in dem die Anwendung läuft. Dort siehst du Log-Nachrichten (Info und Fehler) und du kannst die Anwendung wieder beenden. Drücke dazu ***STRG + C*** im Terminal oder schließe das Fenster.
 
-Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in ***Github*** an und füge diesem das Label ***question*** hinzu, oder schreibe einen Beitrag in die Diskussionsrunde.
+Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in [Github](https://github.com/TimoSto/ThesorTeX/issues) an und füge diesem das Label ***question*** hinzu, oder schreibe einen Beitrag in die [Diskussionsrunde](https://github.com/TimoSto/ThesorTeX/discussions/158).
 
 ---
 
