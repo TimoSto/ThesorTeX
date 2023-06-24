@@ -1,6 +1,37 @@
 <script setup lang="ts">
-defineProps({
-  numberOfPages: Number
+import {computed} from "vue";
+
+const props = defineProps({
+  numberOfPages: {
+    type: Number,
+    required: true
+  },
+  nextNumberOfPages: {
+    type: Number,
+    required: true
+  }
+});
+
+const NavigatingStates = {
+  forward: 1,
+  backward: -1,
+  backwardMultiple: -2,
+  none: 0
+};
+
+const navigatingState = computed(() => {
+  const diff = props.nextNumberOfPages - props.numberOfPages;
+  if (diff === 0) {
+    return NavigatingStates.none;
+  }
+  if (diff === 1) {
+    return NavigatingStates.forward;
+  }
+  if (diff === -1) {
+    return NavigatingStates.backward;
+  }
+
+  return NavigatingStates.backwardMultiple;
 });
 </script>
 

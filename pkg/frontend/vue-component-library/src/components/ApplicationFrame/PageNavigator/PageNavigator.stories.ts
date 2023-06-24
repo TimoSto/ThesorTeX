@@ -29,12 +29,14 @@ type Story = StoryObj<typeof PageNavigator>;
 
 export const OnePage: Story = {
     args: {
-        numberOfPages: 1
+        numberOfPages: 1,
+        nextNumberOfP1ges: 1
     }
 };
 
 export const TwoPages: Story = {
     args: {
-        numberOfPages: 2
+        numberOfPages: 2,
+        nextNumberOfP1ges: 2
     }
 };
