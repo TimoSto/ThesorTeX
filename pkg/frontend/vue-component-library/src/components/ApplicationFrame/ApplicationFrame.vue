@@ -2,7 +2,6 @@
 import {ref} from "vue";
 import {i18nKeys} from "./i18n/keys";
 import {accessibilityDialogKeys} from "../../index";
-import {Document} from "happy-dom";
 import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog.vue";
 
 const props = defineProps({
