@@ -72,6 +72,8 @@ const configOpened = ref(false);
     >
       <slot name="sidebar"></slot>
     </v-navigation-drawer>
+
+    <v-main></v-main>
   </v-app>
 </template>
 
