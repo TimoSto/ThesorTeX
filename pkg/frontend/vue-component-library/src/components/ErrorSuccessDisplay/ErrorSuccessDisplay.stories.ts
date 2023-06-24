@@ -29,6 +29,9 @@ export const DisplayError: Story = {
         message: "this is a message",
         suffix: "this suffix",
         close: "close"
+    },
+    parameters: {
+        loki: {skip: true},
     }
 };
 

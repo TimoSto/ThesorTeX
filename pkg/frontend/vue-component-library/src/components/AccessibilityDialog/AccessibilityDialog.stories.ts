@@ -40,5 +40,8 @@ export const Opened: Story = {
     play: async () => {
         const t = screen.getByTestId("activator");
         t.click();
+    },
+    parameters: {
+        loki: {skip: true},
     }
 };

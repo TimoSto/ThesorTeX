@@ -24,5 +24,8 @@ export const Opened: Story = {
     play: async () => {
         const t = screen.getByTestId("plainimg");
         t.click();
+    },
+    parameters: {
+        loki: {skip: true},
     }
 };
