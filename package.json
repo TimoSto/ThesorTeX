@@ -38,6 +38,7 @@
     "@vue/test-utils": "*",
     "happy-dom": "9.20.3",
     "loki": "0.32.0",
+    "pinia": "*",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "storybook": "7.0.22",

@@ -12,12 +12,16 @@ const meta: Meta<typeof PageNavigator> = {
             return {args};
         },
         template: `
-          <PageNavigator>
-          <template #1>
-            <div style="width: 100%; height: 100%; background-color: #0d47a1"></div>
+          <PageNavigator v-bind="args">
+          <template #0="{openPage}">
+            <div style="width: 100%; height: 100%; background-color: #0d47a1">
+              <button @click="openPage('test')">hallo</button>
+            </div>
           </template>
-          <template v-if="args.numberOfPages>1" #2>
-            <div style="width: 100%; height: 100%; background-color: red"></div>
+          <template #1="{openPage}">
+            <div style="width: 100%; height: 100%; background-color: #a10d4b">
+              <button @click="openPage('test')">hallo</button>
+            </div>
           </template>
           </PageNavigator>
         `,
@@ -28,15 +32,5 @@ export default meta;
 type Story = StoryObj<typeof PageNavigator>;
 
 export const OnePage: Story = {
-    args: {
-        numberOfPages: 1,
-        nextNumberOfP1ges: 1
-    }
-};
-
-export const TwoPages: Story = {
-    args: {
-        numberOfPages: 2,
-        nextNumberOfP1ges: 2
-    }
+    args: {}
 };

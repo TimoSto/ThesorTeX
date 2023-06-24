@@ -75,6 +75,9 @@ importers:
       loki:
         specifier: 0.32.0
         version: 0.32.0
+      pinia:
+        specifier: 2.0.32
+        version: 2.0.32(typescript@4.9.5)(vue@3.3.4)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -4424,7 +4427,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.0
+      vue-component-type-helpers: 1.8.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -8660,7 +8663,6 @@ packages:
       typescript: 4.9.5
       vue: 3.3.4
       vue-demi: 0.13.11(vue@3.3.4)
-    dev: false
 
   /pirates@4.0.5:
     resolution: { integrity: sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ== }
@@ -10389,8 +10391,8 @@ packages:
     engines: { node: '>=0.10.0' }
     dev: true
 
-  /vue-component-type-helpers@1.8.0:
-    resolution: { integrity: sha512-plWHfRKOPZzLaxGe6gf7AroG9uw6wfhvjZq0qZBGbRaZPrmT04lojAm3DOwvoL/Lgw7rPIqveHJ9p/yaVnRxhQ== }
+  /vue-component-type-helpers@1.8.1:
+    resolution: { integrity: sha512-+pNNtPARczRWVgoQCBXSgJdpnZic7rSmnvEV3IWQLwZcf1RSVjniQ+JnmYGm+9BFWX0MN0hqrIWVyC7HDhoXhA== }
     dev: true
 
   /vue-demi@0.13.11(vue@3.3.4):
@@ -10406,7 +10408,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.3.4
-    dev: false
 
   /vue-docgen-api@4.72.5(vue@3.3.4):
     resolution: { integrity: sha512-+M3xRtPMws52wmaaMXdx4jTT2eamEdBoJ20akYPz2DO1I8zVr8bqmDl3DEchSNN9WOnSVuyAms/289omRPhS1w== }

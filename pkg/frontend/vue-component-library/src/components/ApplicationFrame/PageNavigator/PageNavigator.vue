@@ -1,44 +1,21 @@
 <script setup lang="ts">
-import {computed} from "vue";
 
-const props = defineProps({
-  numberOfPages: {
-    type: Number,
-    required: true
-  },
-  nextNumberOfPages: {
-    type: Number,
-    required: true
-  }
-});
+import {useApplicationStateStore} from "../../../stores/ApplicationStateStore/ApplicationStateStore";
 
-const NavigatingStates = {
-  forward: 1,
-  backward: -1,
-  backwardMultiple: -2,
-  none: 0
-};
+const applicationStateStore = useApplicationStateStore();
 
-const navigatingState = computed(() => {
-  const diff = props.nextNumberOfPages - props.numberOfPages;
-  if (diff === 0) {
-    return NavigatingStates.none;
-  }
-  if (diff === 1) {
-    return NavigatingStates.forward;
-  }
-  if (diff === -1) {
-    return NavigatingStates.backward;
-  }
+// methods
+function openPage(page: string) {
+  applicationStateStore.openPage(page);
+}
 
-  return NavigatingStates.backwardMultiple;
-});
 </script>
 
 <template>
   <div class="container">
-    <div class="page" v-for="n in numberOfPages" :class="`${n === numberOfPages ? 'opened' : ''}`">
-      <slot :name="n" />
+    <div class="page" v-for="(e,n) in applicationStateStore.history"
+         :class="`${n === applicationStateStore.history.length ? 'opened' : ''}`">
+      <slot :name="n" :openPage="openPage" />
     </div>
   </div>
 </template>
