@@ -24,7 +24,7 @@ const meta: Meta<typeof PageNavigator> = {
               <button @click="openPage('test')">next</button>
             </div>
           </template>
-          <template #2="{openPage}">
+          <template #2="{goBack}">
             <div style="width: 100%; height: 100%; background-color: #12a10d">
               <button @click="goBack()">back</button>
             </div>
