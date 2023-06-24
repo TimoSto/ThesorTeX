@@ -27,6 +27,13 @@ export const useApplicationStateStore = defineStore({
             setTimeout(() => {
                 this.$state.navState = NavState.None;
             }, 500);
+        },
+        goBack(n: number) {
+            this.$state.navState = n === 1 ? NavState.Back : NavState.BackMultiple;
+            setTimeout(() => {//TODO: unit test
+                this.$state.history = this.$state.history.slice(0, -1);
+                this.$state.navState = NavState.None;
+            }, 500);
         }
     }
 });

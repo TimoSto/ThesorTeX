@@ -9,13 +9,17 @@ function openPage(page: string) {
   applicationStateStore.openPage(page);
 }
 
+function goBack() {
+  applicationStateStore.goBack(1);
+}
+
 </script>
 
 <template>
   <div class="container">
     <div class="page" v-for="(e,n) in applicationStateStore.history"
          :class="`${n === applicationStateStore.history.length ? 'opened' : ''}`">
-      <slot :name="n" :openPage="openPage" />
+      <slot :name="n" :openPage="openPage" :goBack="goBack" />
     </div>
   </div>
 </template>
