@@ -4,6 +4,7 @@ export const de: I18nKeys = {
     ApplicationFrame: {
         CloseSidebar: "Minimize",
         OpenSidebar: "Expand",
-        Documentation: "To the documentation"
+        Documentation: "To the documentation",
+        OpenConfig: "Open configuration"
     }
 };

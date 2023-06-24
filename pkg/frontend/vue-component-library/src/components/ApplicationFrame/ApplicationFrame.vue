@@ -16,11 +16,13 @@ const props = defineProps({
     type: Document,
     required: false
   },
-  showA11y: Boolean
+  showA11y: Boolean,
+  hasConfig: Boolean
 });
 
 // data
 const sidebarOpened = ref(false);
+const configOpened = ref(false);
 </script>
 
 <template>
@@ -56,6 +58,10 @@ const sidebarOpened = ref(false);
           <v-icon>mdi-human</v-icon>
         </v-btn>
       </AccessibilityDialog>
+
+      <v-btn v-if="hasConfig" icon :title="i18n(i18nKeys.ApplicationFrame.OpenConfig)" @click="configOpened=true">
+        <v-icon>mdi-cog</v-icon>
+      </v-btn>
 
     </v-app-bar>
   </v-app>

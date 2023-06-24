@@ -55,3 +55,25 @@ export const WithTitleDocumentationAndA11y: Story = {
         i18n: (k: string) => k
     }
 };
+
+export const WithTitleDocumentationAndConfig: Story = {
+    args: {
+        documentProp: document,
+        mainTitle: "Foobar",
+        documentationTarget: "test",
+        hasConfig: true,
+        i18n: (k: string) => k
+    }
+};
+
+export const WithFullAppBar: Story = {
+    args: {
+        hasSidebar: true,
+        documentProp: document,
+        mainTitle: "Foobar",
+        documentationTarget: "test",
+        showA11y: true,
+        hasConfig: true,
+        i18n: (k: string) => k
+    }
+};
