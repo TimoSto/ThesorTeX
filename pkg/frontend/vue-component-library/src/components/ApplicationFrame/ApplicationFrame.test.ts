@@ -94,6 +94,30 @@ describe("ApplicationFrame.vue", () => {
             expect(links).toHaveLength(1);
         });
     });
+    describe("config-btn", () => {
+        it("do not show if not set", () => {
+            const cmp = mountWithProps({
+                mainTitle: "Foobar"
+            });
+
+            const links = cmp.findAll(".mdi-cog");
+
+            expect(links).toHaveLength(0);
+        });
+        it("show if set", () => {
+            const fakeDocument = new Document();
+
+            const cmp = mountWithProps({
+                mainTitle: "Foobar",
+                hasConfig: true,
+                documentProp: fakeDocument
+            });
+
+            const links = cmp.findAll(".mdi-cog");
+
+            expect(links).toHaveLength(1);
+        });
+    });
 
     describe("i18n", () => {
         describe("sidebar button", () => {
