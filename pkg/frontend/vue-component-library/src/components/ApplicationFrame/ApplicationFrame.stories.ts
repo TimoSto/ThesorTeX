@@ -1,5 +1,6 @@
 import {Meta, StoryObj} from "@storybook/vue3";
 import ApplicationFrame from "./ApplicationFrame.vue";
+import {screen} from "@storybook/testing-library";
 
 const meta: Meta<typeof ApplicationFrame> = {
     title: "VueComponentLibrary/ApplicationFrame",
@@ -12,7 +13,9 @@ const meta: Meta<typeof ApplicationFrame> = {
             return {args};
         },
         template: `
-          <ApplicationFrame></ApplicationFrame>
+          <ApplicationFrame>
+          <template v-if="${"sidebarContent" in args}" #sidebar>${args.sidebarContent}</template>
+          </ApplicationFrame>
         `,
     }),
 };
@@ -33,7 +36,22 @@ export const WithTitleAndSidebar: Story = {
         documentProp: document,
         mainTitle: "Foobar",
         hasSidebar: true,
-        i18n: (k: string) => k
+        i18n: (k: string) => k,
+        sidebarContent: "<h2>hello foobar sidebar</h2>"
+    }
+};
+
+export const WithTitleAndSidebarOpened: Story = {
+    args: {
+        documentProp: document,
+        mainTitle: "Foobar",
+        hasSidebar: true,
+        i18n: (k: string) => k,
+        sidebarContent: "<h2>hello foobar sidebar</h2>"
+    },
+    play: async () => {
+        const t = screen.getByTitle("ApplicationFrame.OpenSidebar");
+        t.click();
     }
 };
 

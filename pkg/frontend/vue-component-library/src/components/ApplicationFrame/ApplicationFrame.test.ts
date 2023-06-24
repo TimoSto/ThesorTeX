@@ -20,12 +20,16 @@ describe("ApplicationFrame.vue", () => {
             expect(btn.attributes("disabled")).toBe("");
         });
         it("the sidebar button should not be disabled if sidebar is set", () => {
-            const cmp = mountWithProps({hasSidebar: true});
+            const cmp = mountWithProps({hasSidebar: true}, {sidebar: "<h2 id='test'>Foobar sidebar</h2>"});
 
             const btn = cmp.findAll(".v-app-bar-nav-icon")[0];
 
             expect(btn).toBeDefined();
             expect(btn.attributes("disabled")).toBeUndefined();
+
+            const sidebarContent = cmp.find("#test");
+            expect(sidebarContent).toBeDefined();
+            expect(sidebarContent.text()).toEqual("Foobar sidebar");
         });
     });
     describe("main title", () => {
@@ -117,6 +121,7 @@ describe("ApplicationFrame.vue", () => {
 
             expect(links).toHaveLength(1);
         });
+        //TODO: test show dialog
     });
 
     describe("i18n", () => {
@@ -154,8 +159,9 @@ describe("ApplicationFrame.vue", () => {
     });
 });
 
-function mountWithProps(props: ApplicationFrameProps): VueWrapper<any> {
+function mountWithProps(props: ApplicationFrameProps, slots?: any): VueWrapper<any> {
     return mount(ApplicationFrame, CreateVuetifyMountingOptions({
-        props: props
+        props: props,
+        slots: slots
     }));
 }

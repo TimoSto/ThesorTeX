@@ -64,6 +64,14 @@ const configOpened = ref(false);
       </v-btn>
 
     </v-app-bar>
+
+    <v-navigation-drawer
+      :permanent="true"
+      :rail="!sidebarOpened"
+      :rail-width="58"
+    >
+      <slot name="sidebar"></slot>
+    </v-navigation-drawer>
   </v-app>
 </template>
 
