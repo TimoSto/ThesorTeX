@@ -45,7 +45,6 @@ export const useApplicationStateStore = defineStore({
             } else {
                 this.$state.navState = n === 1 ? NavState.Back : NavState.BackMultiple;
                 setTimeout(() => {//TODO: unit test
-                    console.log("here");
                     this.$state.navState = NavState.None;
                     this.$state.history = this.$state.history.slice(0, -1);
                 }, 750);
