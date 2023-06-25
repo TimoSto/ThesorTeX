@@ -43,5 +43,36 @@ describe("PageNavigator.vue", () => {
 
             expect(pages).toHaveLength(2);
         });
+        it("nav back from second page", async () => {
+            const wrapper = mount(PageNavigator, {
+                global: {
+                    plugins: [createTestingPinia({stubActions: false})]
+                }
+            });
+
+            const store = useApplicationStateStore();
+
+            store.history.push("test");
+
+            await wrapper.vm.$nextTick();
+
+            let pages = wrapper.findAll(".page");
+
+            expect(pages).toHaveLength(2);
+
+            store.goBack(1);
+
+            expect(pages).toHaveLength(2);
+
+            await new Promise(r => {
+                setTimeout(r, 750);
+            });
+
+            await wrapper.vm.$nextTick();
+
+            pages = wrapper.findAll(".page");
+
+            expect(pages).toHaveLength(1);
+        });
     });
 });
