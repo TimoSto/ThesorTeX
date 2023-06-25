@@ -10,6 +10,9 @@ export enum NavState {
 export interface ApplicationState {
     history: string[],
     navState: NavState,
+    unsavedChanges: boolean,
+    unsavedDialogTriggered: boolean,
+    unsavedDialogCallback: () => void
 }
 
 const MainPage = "main";
@@ -18,7 +21,11 @@ export const useApplicationStateStore = defineStore({
     id: "application-state",
     state: () => ({
         history: [MainPage],
-        navState: NavState.None
+        navState: NavState.None,
+        unsavedChanges: false,
+        unsavedDialogTriggered: false,
+        unsavedDialogCallback: () => {
+        },
     } as ApplicationState),
     actions: {
         openPage(page: string) {
@@ -29,11 +36,20 @@ export const useApplicationStateStore = defineStore({
             }, 750);
         },
         goBack(n: number) {
-            this.$state.navState = n === 1 ? NavState.Back : NavState.BackMultiple;
-            setTimeout(() => {//TODO: unit test
-                this.$state.navState = NavState.None;
-                this.$state.history = this.$state.history.slice(0, -1);
-            }, 750);
+            if (this.unsavedChanges) {
+                this.unsavedDialogTriggered = true;
+                this.unsavedDialogCallback = () => {
+                    this.unsavedChanges = false;
+                    this.goBack(n);
+                };
+            } else {
+                this.$state.navState = n === 1 ? NavState.Back : NavState.BackMultiple;
+                setTimeout(() => {//TODO: unit test
+                    console.log("here");
+                    this.$state.navState = NavState.None;
+                    this.$state.history = this.$state.history.slice(0, -1);
+                }, 750);
+            }
         }
     }
 });
