@@ -18,8 +18,6 @@ describe("PageNavigator.vue", () => {
 
             const store = useApplicationStateStore();
 
-            store.history.push("test");
-
             const pages = wrapper.findAll(".page");
 
             expect(pages).toHaveLength(1);
