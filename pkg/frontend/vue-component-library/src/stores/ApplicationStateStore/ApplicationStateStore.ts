@@ -36,7 +36,6 @@ export const useApplicationStateStore = defineStore({
             }, 750);
         },
         goBack(n: number) {
-            console.log("back");
             if (this.unsavedChanges) {
                 this.unsavedDialogTriggered = true;
                 this.unsavedDialogCallback = () => {

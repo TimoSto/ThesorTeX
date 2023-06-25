@@ -17,7 +17,7 @@ describe("ApplicationStateStore", () => {
             await new Promise<void>((r) => {
                 setTimeout(() => {
                     r();
-                }, 500);
+                }, 750);
             });
             expect(store.$state.navState).toEqual(NavState.None);
             expect(store.$state.history).toEqual(["main", "test"]);
