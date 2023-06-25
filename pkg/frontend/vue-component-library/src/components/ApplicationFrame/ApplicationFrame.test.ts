@@ -3,6 +3,7 @@ import ApplicationFrame from "./ApplicationFrame.vue";
 import {mount, VueWrapper} from "@vue/test-utils";
 import CreateVuetifyMountingOptions from "@thesortex/vitest-vuetify";
 import {Document} from "happy-dom";
+import {createTestingPinia} from "@pinia/testing";
 
 type ApplicationFrameProps = InstanceType<typeof ApplicationFrame>["$props"];
 
@@ -162,6 +163,9 @@ describe("ApplicationFrame.vue", () => {
 function mountWithProps(props: ApplicationFrameProps, slots?: any): VueWrapper<any> {
     return mount(ApplicationFrame, CreateVuetifyMountingOptions({
         props: props,
-        slots: slots
+        slots: slots,
+        global: {
+            plugins: [createTestingPinia({stubActions: false})]
+        }
     }));
 }

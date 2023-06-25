@@ -15,6 +15,16 @@ const meta: Meta<typeof ApplicationFrame> = {
         template: `
           <ApplicationFrame>
           <template v-if="${"sidebarContent" in args}" #sidebar>${args.sidebarContent}</template>
+          <template #0="{openPage, goBack}">
+            <button @click="openPage('p2')">next</button>
+          </template>
+          <template #1="{openPage, goBack}">
+            <button @click="openPage('p2')">next</button>
+            <button @click="goBack(1)">back</button>
+          </template>
+          <template #2="{openPage, goBack}">
+            <button @click="goBack(1)">back</button>
+          </template>
           </ApplicationFrame>
         `,
     }),

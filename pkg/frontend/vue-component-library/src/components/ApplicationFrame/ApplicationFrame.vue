@@ -3,6 +3,8 @@ import {ref} from "vue";
 import {i18nKeys} from "./i18n/keys";
 import {accessibilityDialogKeys} from "../../index";
 import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog.vue";
+import PageNavigator from "./PageNavigator/PageNavigator.vue";
+import {useApplicationStateStore} from "../../stores/ApplicationStateStore/ApplicationStateStore";
 
 const props = defineProps({
   hasSidebar: Boolean,
@@ -19,6 +21,8 @@ const props = defineProps({
   showA11y: Boolean,
   hasConfig: Boolean
 });
+
+const applicationStateStore = useApplicationStateStore();
 
 // data
 const sidebarOpened = ref(false);
@@ -73,7 +77,13 @@ const configOpened = ref(false);
       <slot name="sidebar"></slot>
     </v-navigation-drawer>
 
-    <v-main></v-main>
+    <v-main>
+      <PageNavigator>
+        <template v-for="(e,n) in applicationStateStore.history" #[n]="{openPage, goBack}">
+          <slot :name="n" :openPage="openPage" :goBack="goBack"></slot>
+        </template>
+      </PageNavigator>
+    </v-main>
   </v-app>
 </template>
 
