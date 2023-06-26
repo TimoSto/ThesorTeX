@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {i18nKeys} from "./i18n/keys";
 import {accessibilityDialogKeys} from "../../index";
 import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog.vue";
@@ -27,6 +27,14 @@ const applicationStateStore = useApplicationStateStore();
 // data
 const sidebarOpened = ref(false);
 const configOpened = ref(false);
+
+// computed
+const titleAppendix = computed(() => {
+  if (applicationStateStore.history.length === 1) {
+    return "";
+  }
+  return ` - ${applicationStateStore.history[applicationStateStore.history.length - 1]}`;
+});
 </script>
 
 <template>
@@ -42,7 +50,7 @@ const configOpened = ref(false);
       />
 
       <v-app-bar-title role="heading" aria-level="1">
-        {{ mainTitle }}
+        {{ mainTitle }}{{ titleAppendix }}
       </v-app-bar-title>
 
       <v-spacer />

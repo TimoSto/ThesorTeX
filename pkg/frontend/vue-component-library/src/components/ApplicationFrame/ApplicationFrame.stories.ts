@@ -19,7 +19,7 @@ const meta: Meta<typeof ApplicationFrame> = {
             <button @click="openPage('p2')">next</button>
           </template>
           <template #1="{openPage, goBack}">
-            <button @click="openPage('p2')">next</button>
+            <button @click="openPage('p3')">next</button>
             <button @click="goBack(1)">back</button>
           </template>
           <template #2="{openPage, goBack}">
