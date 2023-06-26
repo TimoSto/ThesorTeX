@@ -22,7 +22,7 @@ The local application can be downloaded on the following links:
 - [Windows](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/windows/ThesorTeX.zip)
 - [Linux](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/linux/ThesorTeX.zip)
 - [MacOS](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/mac/ThesorTeX.zip)
-- [MacOS (Apple Silicon)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/mac_arm/ThesorTeX.zip)
+- [MacOS (ARM)](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/thesisTool/latest/mac_arm/ThesorTeX.zip)
 
 The template for a CV can be downloaded [here](https://thesortex-artifacts.s3.eu-central-1.amazonaws.com/cvTemplate/latest/CVTemplate.zip)
 
