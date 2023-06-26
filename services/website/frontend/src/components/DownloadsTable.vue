@@ -46,7 +46,7 @@
           </v-btn>
         </td>
         <td v-if="perOs">
-          <v-btn variant="flat" :href="downloadFunc(v.Name, 'mar_arm')"
+          <v-btn variant="flat" :href="downloadFunc(v.Name, 'mac_arm')"
                  download="ThesorTeX.zip" style="color: rgba(var(--v-theme-on-background), 1)">
             <v-icon color="black">mdi-download</v-icon>
           </v-btn>
