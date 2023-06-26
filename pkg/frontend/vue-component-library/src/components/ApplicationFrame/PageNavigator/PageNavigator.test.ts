@@ -3,6 +3,7 @@ import PageNavigator from "./PageNavigator.vue";
 import {mount} from "@vue/test-utils";
 import {createTestingPinia} from "@pinia/testing";
 import {useApplicationStateStore} from "../../../stores/ApplicationStateStore/ApplicationStateStore";
+import CreateVuetifyMountingOptions from "@thesortex/vitest-vuetify";
 
 describe("PageNavigator.vue", () => {
     beforeEach(() => {
@@ -10,11 +11,11 @@ describe("PageNavigator.vue", () => {
     });
     describe("displaying pages", () => {
         it("one page", () => {
-            const wrapper = mount(PageNavigator, {
+            const wrapper = mount(PageNavigator, CreateVuetifyMountingOptions({
                 global: {
-                    plugins: [createTestingPinia()]
+                    plugins: [createTestingPinia({stubActions: false})]
                 }
-            });
+            }));
 
             const store = useApplicationStateStore();
 
@@ -23,11 +24,11 @@ describe("PageNavigator.vue", () => {
             expect(pages).toHaveLength(1);
         });
         it("nav to second page", async () => {
-            const wrapper = mount(PageNavigator, {
+            const wrapper = mount(PageNavigator, CreateVuetifyMountingOptions({
                 global: {
                     plugins: [createTestingPinia({stubActions: false})]
                 }
-            });
+            }));
 
             const store = useApplicationStateStore();
 
@@ -44,11 +45,11 @@ describe("PageNavigator.vue", () => {
             expect(pages).toHaveLength(2);
         });
         it("nav back from second page", async () => {
-            const wrapper = mount(PageNavigator, {
+            const wrapper = mount(PageNavigator, CreateVuetifyMountingOptions({
                 global: {
                     plugins: [createTestingPinia({stubActions: false})]
                 }
-            });
+            }));
 
             const store = useApplicationStateStore();
 

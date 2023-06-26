@@ -22,6 +22,10 @@ function goBack() {
       <slot :name="n" :openPage="openPage" :goBack="goBack" />
     </div>
   </div>
+
+  <v-dialog>
+
+  </v-dialog>
 </template>
 
 <style scoped lang="scss">
