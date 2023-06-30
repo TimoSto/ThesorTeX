@@ -3,12 +3,10 @@ locals {
 }
 
 resource "aws_lambda_function" "website_lambda_func" {
-  filename         = local.lambda_file
-  function_name    = "thesortex-website"
-  handler          = "prod"
-  source_code_hash = base64sha256(local.lambda_file)
-  runtime          = "go1.x"
-  role             = aws_iam_role.website_lambda_exec.arn
+  function_name = "thesortex-website"
+  image_uri     = "${aws_ecr_repository.foo.repository_url}:7b9322da366583bd1f24d623492576eed2c4436f954e2dbbb7e2ef7a4822903c"
+  package_type  = "Image"
+  role          = aws_iam_role.website_lambda_exec.arn
 }
 
 data aws_iam_policy_document lambda_assume_role {
