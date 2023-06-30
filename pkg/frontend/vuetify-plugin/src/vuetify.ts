@@ -13,7 +13,6 @@ import {createVuetify} from "vuetify";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export function GetVuetifyInstance(dark: boolean) {
-    console.log(dark);
     return createVuetify({
         theme: {
             defaultTheme: dark ? "dark" : "light",
