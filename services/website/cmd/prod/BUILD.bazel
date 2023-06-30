@@ -39,12 +39,12 @@ container_image(
 
 # TODO: Why does this give unauthorized?
 container_push(
-   name = "website",
-   image = ":website_lambda_image",
-   format = "Docker",
-   registry = "index.docker.io",
-   repository = "thesortex/lambda",
-   tag = "dev",
+    name = "website",
+    format = "Docker",
+    image = ":website_lambda_image",
+    registry = "index.docker.io",
+    repository = "thesortex/lambda",
+    tag = "dev",
 )
 
 pkg_zip(

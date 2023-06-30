@@ -8,101 +8,101 @@ npm_link_all_packages(name = "node_modules")
 filegroup(
     name = "playwright_base_deps",
     srcs = [
-        ":node_modules/@playwright/test",
-        ":node_modules/playwright",
-        "tsconfig.json",
+        "src/step_definitions/common/common.ts",
         "src/test.setup.ts",
         "src/types.ts",
-        "src/step_definitions/common/common.ts"
+        "tsconfig.json",
+        ":node_modules/@playwright/test",
+        ":node_modules/playwright",
     ] + glob([
         "src/helpers/*.ts",
         "src/step_definitions/browser/*.ts",
-    ])
+    ]),
 )
 
 filegroup(
     name = "playwright_a11y_deps",
     srcs = [
+        "src/step_definitions/common/accessibility.ts",
         ":node_modules/@axe-core/playwright",
-        "src/step_definitions/common/accessibility.ts"
-    ]
+    ],
 )
 
 filegroup(
     name = "playwright_app_steps",
     srcs = glob([
         "src/step_definitions/app/*.ts",
-        "src/step_definitions/sidebar/*.ts"
-    ])
+        "src/step_definitions/sidebar/*.ts",
+    ]),
 )
 
 filegroup(
     name = "playwright_website_steps",
     srcs = glob([
-        "src/step_definitions/website/*.ts"
-    ])
+        "src/step_definitions/website/*.ts",
+    ]),
 )
 
 # thesisTool
 
 run_cucumber(
     name = "thesisTool",
-    workingDir = package_name(),
-    sut_executable_target = "//services/thesisTool/cmd/e2e",
+    specific_deps = [
+        ":playwright_app_steps",
+    ],
     sut_executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
+    sut_executable_target = "//services/thesisTool/cmd/e2e",
     sut_port = "8441",
     system_base_url = "http://localhost:8441",
     test_files = glob([
-        "features/thesisTool/*.feature"
+        "features/thesisTool/*.feature",
     ]),
-    specific_deps = [
-        ":playwright_app_steps",
-    ]
+    workingDir = package_name(),
 )
 
 run_cucumber_a11y(
     name = "thesisTool_a11y",
-    workingDir = package_name(),
-    sut_executable_target = "//services/thesisTool/cmd/e2e",
+    specific_deps = [
+        ":playwright_app_steps",
+    ],
     sut_executable = "../../services/thesisTool/cmd/e2e/e2e_/e2e",
+    sut_executable_target = "//services/thesisTool/cmd/e2e",
     sut_port = "8442",
     system_base_url = "http://localhost:8442",
     test_files = glob([
-        "features/accessibility/thesisTool/*.feature"
+        "features/accessibility/thesisTool/*.feature",
     ]),
-    specific_deps = [
-        ":playwright_app_steps",
-    ]
+    workingDir = package_name(),
 )
 
 # website
 
 run_cucumber(
     name = "website",
-    workingDir = package_name(),
-    sut_executable_target = "//services/website/cmd/e2e",
+    specific_deps = [
+        ":playwright_website_steps",
+    ],
     sut_executable = "../../services/website/cmd/e2e/e2e_/e2e",
+    sut_executable_target = "//services/website/cmd/e2e",
     sut_port = "8443",
     system_base_url = "http://localhost:8443",
     test_files = glob([
-        "features/website/*.feature"
+        "features/website/*.feature",
     ]),
-    specific_deps = [
-        ":playwright_website_steps",
-    ]
+    workingDir = package_name(),
 )
 
 run_cucumber_a11y(
     name = "website_a11y",
-    workingDir = package_name(),
-    sut_executable_target = "//services/website/cmd/e2e",
+    specific_deps = [
+        ":playwright_website_steps",
+    ],
     sut_executable = "../../services/website/cmd/e2e/e2e_/e2e",
+    sut_executable_target = "//services/website/cmd/e2e",
     sut_port = "8444",
     system_base_url = "http://localhost:8444",
     test_files = glob([
-        "features/accessibility/website/*.feature"
+        "features/accessibility/website/*.feature",
     ]),
-    specific_deps = [
-        ":playwright_website_steps",
-    ]
+    workingDir = package_name(),
 )
