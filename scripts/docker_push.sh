@@ -4,9 +4,9 @@ aws ecr get-login-password --region eu-central-1 | docker login --username AWS -
 
 if [ "$1" = "website" ]
 then
-  echo "pushing website lambda..."
   id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/website/cmd/prod:website_lambda_image)
   hash=$(git rev-parse HEAD)
+  echo "pushing website lambda image (tag $hash)..."
   podman tag $id 846873250811.dkr.ecr.eu-central-1.amazonaws.com/website_lambda:$hash
   podman push 846873250811.dkr.ecr.eu-central-1.amazonaws.com/website_lambda:$hash
 fi
