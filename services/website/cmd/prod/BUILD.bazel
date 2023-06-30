@@ -1,5 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image", "container_push")
 
 go_library(
     name = "prod_lib",
@@ -21,10 +22,29 @@ _WEBSITE_VERSION = "{WEBSITE_VERSION}"
 go_binary(
     name = "prod",
     embed = [":prod_lib"],
+    goarch = "amd64",
+    goos = "linux",
     visibility = ["//visibility:public"],
     x_defs = {
         "github.com/TimoSto/ThesorTeX/services/website/internal/config.Version": _WEBSITE_VERSION,
     },
+)
+
+container_image(
+    name = "website_lambda_image",
+    base = "@lambda_base//image",
+    entrypoint = "/prod",
+    files = [":prod"],
+)
+
+# TODO: Why does this give unauthorized?
+container_push(
+   name = "website",
+   image = ":website_lambda_image",
+   format = "Docker",
+   registry = "index.docker.io",
+   repository = "thesortex/lambda",
+   tag = "dev",
 )
 
 pkg_zip(
