@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, onMounted, ref} from "vue";
+import {computed, onBeforeUnmount, onMounted, ref} from "vue";
 import generateWaveSVG from "./waves/generateWaveSVG";
 
 const props = defineProps({
@@ -44,14 +44,20 @@ defineExpose({
 });
 
 //onmounted
+function resizeHandler() {
+  width.value = (content.value! as HTMLElement).clientWidth;
+  height.value = (content.value! as HTMLElement).clientHeight;
+}
+
 onMounted(() => {
   width.value = (content.value! as HTMLElement).clientWidth;
   height.value = (content.value! as HTMLElement).clientHeight;
 
-  window.addEventListener("resize", () => {
-    width.value = (content.value! as HTMLElement).clientWidth;
-    height.value = (content.value! as HTMLElement).clientHeight;
-  });
+  window.addEventListener("resize", resizeHandler);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resizeHandler);
 });
 
 </script>
