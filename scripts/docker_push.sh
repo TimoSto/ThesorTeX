@@ -6,6 +6,7 @@ if [ "$1" = "website" ]
 then
   echo "pushing website lambda..."
   id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/website/cmd/prod:website_lambda_image)
-  podman tag $id 846873250811.dkr.ecr.eu-central-1.amazonaws.com/website_lambda:$id
-  podman push 846873250811.dkr.ecr.eu-central-1.amazonaws.com/website_lambda:$id
+  hash=$(git rev-parse HEAD)
+  podman tag $id 846873250811.dkr.ecr.eu-central-1.amazonaws.com/website_lambda:$hash
+  podman push 846873250811.dkr.ecr.eu-central-1.amazonaws.com/website_lambda:$hash
 fi
