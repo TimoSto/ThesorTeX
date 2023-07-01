@@ -5,11 +5,12 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/dynamodb"
 	dynamocontainer "github.com/TimoSto/ThesorTeX/pkg/backend/container/dynamodb"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
+	"github.com/TimoSto/ThesorTeX/services/contact/backend"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	dynamobasic "github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
-	"time"
+	"os"
 )
 
 func main() {
@@ -20,14 +21,23 @@ func main() {
 		log.Fatal("could not start local dynamo db: %v", err)
 	}
 
+	defer c.Purge()
+
 	err = createFakeTable(c.Endpoint())
 	if err != nil {
 		log.Fatal("could not create local dynamo db table: %v", err)
 	}
 
-	time.Sleep(5 * time.Second)
+	sigs := make(chan os.Signal, 1)
 
-	defer c.Purge()
+	cfg := backend.Config{}
+
+	err = backend.StartApp(cfg)
+	if err != nil {
+		log.Fatal("could not start backend: %v", err)
+	}
+
+	<-sigs
 }
 
 func createFakeTable(endpoint string) error {
