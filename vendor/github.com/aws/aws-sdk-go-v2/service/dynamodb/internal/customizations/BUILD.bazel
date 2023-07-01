@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "customizations",
+    srcs = [
+        "checksum.go",
+        "doc.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb/internal/customizations",
+    importpath = "github.com/aws/aws-sdk-go-v2/service/dynamodb/internal/customizations",
+    visibility = ["//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb:__subpackages__"],
+    deps = [
+        "//vendor/github.com/aws/smithy-go",
+        "//vendor/github.com/aws/smithy-go/middleware",
+        "//vendor/github.com/aws/smithy-go/transport/http",
+    ],
+)

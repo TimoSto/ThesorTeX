@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "dynamodb",
+    srcs = ["client.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/aws/dynamodb",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/aws/aws-sdk-go-v2/config",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",
+    ],
+)

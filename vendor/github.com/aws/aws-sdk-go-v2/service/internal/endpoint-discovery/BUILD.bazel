@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "endpoint-discovery",
+    srcs = [
+        "cache.go",
+        "doc.go",
+        "endpoint.go",
+        "go_module_metadata.go",
+        "middleware.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery",
+    importpath = "github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery",
+    visibility = ["//vendor/github.com/aws/aws-sdk-go-v2/service:__subpackages__"],
+    deps = [
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws",
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws/middleware",
+        "//vendor/github.com/aws/smithy-go/logging",
+        "//vendor/github.com/aws/smithy-go/middleware",
+        "//vendor/github.com/aws/smithy-go/transport/http",
+    ],
+)
