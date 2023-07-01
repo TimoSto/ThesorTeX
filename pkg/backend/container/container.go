@@ -13,6 +13,10 @@ type Container struct {
 	resource *dockertest.Resource
 }
 
+func (c *Container) Purge() error {
+	return c.pool.Purge(c.resource)
+}
+
 func connectToPool() (*dockertest.Pool, error) {
 	dockerHost := os.Getenv("DOCKER_HOST")
 
