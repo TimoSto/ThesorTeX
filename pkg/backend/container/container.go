@@ -17,6 +17,10 @@ func (c *Container) Purge() error {
 	return c.pool.Purge(c.resource)
 }
 
+func (c *Container) Endpoint() string {
+	return c.endpoint
+}
+
 func connectToPool() (*dockertest.Pool, error) {
 	dockerHost := os.Getenv("DOCKER_HOST")
 

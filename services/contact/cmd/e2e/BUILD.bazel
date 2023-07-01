@@ -6,8 +6,13 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/contact/cmd/e2e",
     visibility = ["//visibility:private"],
     deps = [
+        "//pkg/backend/aws/dynamodb",
         "//pkg/backend/container/dynamodb",
         "//pkg/backend/log",
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws",
+        "//vendor/github.com/aws/aws-sdk-go-v2/config",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb/types",
     ],
 )
 
