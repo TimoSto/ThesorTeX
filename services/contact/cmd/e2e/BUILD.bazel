@@ -5,7 +5,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/services/contact/cmd/e2e",
     visibility = ["//visibility:private"],
-    deps = ["//pkg/backend/log"],
+    deps = [
+        "//pkg/backend/container/dynamodb",
+        "//pkg/backend/log",
+    ],
 )
 
 go_binary(
