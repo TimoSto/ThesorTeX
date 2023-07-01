@@ -7,7 +7,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
-	dynamodb2 "github.com/aws/aws-sdk-go-v2/service/dynamodb"
+	dynamobasic "github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	"time"
 )
@@ -42,7 +42,7 @@ func createFakeTable(endpoint string) error {
 		return err
 	}
 
-	_, err = client.CreateTable(context.Background(), &dynamodb2.CreateTableInput{
+	_, err = client.CreateTable(context.Background(), &dynamobasic.CreateTableInput{
 		AttributeDefinitions: []types.AttributeDefinition{
 			{
 				AttributeName: aws.String("id"),
