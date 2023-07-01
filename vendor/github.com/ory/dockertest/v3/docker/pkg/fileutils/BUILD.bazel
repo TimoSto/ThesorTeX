@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "fileutils",
+    srcs = [
+        "fileutils.go",
+        "fileutils_darwin.go",
+        "fileutils_unix.go",
+        "fileutils_windows.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3/docker/pkg/fileutils",
+    importpath = "github.com/ory/dockertest/v3/docker/pkg/fileutils",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/sirupsen/logrus"],
+)

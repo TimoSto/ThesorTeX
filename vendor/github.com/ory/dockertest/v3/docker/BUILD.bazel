@@ -1,0 +1,43 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "docker",
+    srcs = [
+        "auth.go",
+        "change.go",
+        "client.go",
+        "client_unix.go",
+        "client_windows.go",
+        "container.go",
+        "distribution.go",
+        "env.go",
+        "event.go",
+        "exec.go",
+        "image.go",
+        "misc.go",
+        "network.go",
+        "plugin.go",
+        "signal.go",
+        "tar.go",
+        "tls.go",
+        "volume.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3/docker",
+    importpath = "github.com/ory/dockertest/v3/docker",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/docker/go-units",
+        "//vendor/github.com/ory/dockertest/v3/docker/opts",
+        "//vendor/github.com/ory/dockertest/v3/docker/pkg/archive",
+        "//vendor/github.com/ory/dockertest/v3/docker/pkg/fileutils",
+        "//vendor/github.com/ory/dockertest/v3/docker/pkg/homedir",
+        "//vendor/github.com/ory/dockertest/v3/docker/pkg/jsonmessage",
+        "//vendor/github.com/ory/dockertest/v3/docker/pkg/stdcopy",
+        "//vendor/github.com/ory/dockertest/v3/docker/types/registry",
+    ] + select({
+        "@io_bazel_rules_go//go/platform:windows": [
+            "//vendor/github.com/Microsoft/go-winio",
+        ],
+        "//conditions:default": [],
+    }),
+)

@@ -1,0 +1,32 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "loader",
+    srcs = [
+        "interpolate.go",
+        "loader.go",
+        "merge.go",
+        "volume.go",
+        "windows_path.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/docker/cli/cli/compose/loader",
+    importpath = "github.com/docker/cli/cli/compose/loader",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/docker/cli/cli/compose/interpolation",
+        "//vendor/github.com/docker/cli/cli/compose/schema",
+        "//vendor/github.com/docker/cli/cli/compose/template",
+        "//vendor/github.com/docker/cli/cli/compose/types",
+        "//vendor/github.com/docker/cli/opts",
+        "//vendor/github.com/docker/docker/api/types/mount",
+        "//vendor/github.com/docker/docker/api/types/versions",
+        "//vendor/github.com/docker/go-connections/nat",
+        "//vendor/github.com/docker/go-units",
+        "//vendor/github.com/google/shlex",
+        "//vendor/github.com/imdario/mergo",
+        "//vendor/github.com/mitchellh/mapstructure",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/sirupsen/logrus",
+        "//vendor/gopkg.in/yaml.v2:yaml_v2",
+    ],
+)

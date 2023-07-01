@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "mount",
+    srcs = ["mount.go"],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3/docker/types/mount",
+    importpath = "github.com/ory/dockertest/v3/docker/types/mount",
+    visibility = ["//visibility:public"],
+)

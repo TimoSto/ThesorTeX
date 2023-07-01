@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "container",
+    srcs = ["container.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/container",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/ory/dockertest/v3:dockertest"],
+)

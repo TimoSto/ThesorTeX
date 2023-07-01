@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "interpolation",
+    srcs = ["interpolation.go"],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/docker/cli/cli/compose/interpolation",
+    importpath = "github.com/docker/cli/cli/compose/interpolation",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/docker/cli/cli/compose/template",
+        "//vendor/github.com/pkg/errors",
+    ],
+)

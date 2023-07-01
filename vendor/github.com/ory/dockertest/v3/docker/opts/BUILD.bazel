@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "opts",
+    srcs = [
+        "env.go",
+        "hosts.go",
+        "hosts_unix.go",
+        "hosts_windows.go",
+        "ip.go",
+        "opts.go",
+        "opts_unix.go",
+        "opts_windows.go",
+        "quotedstring.go",
+        "runtime.go",
+        "ulimit.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3/docker/opts",
+    importpath = "github.com/ory/dockertest/v3/docker/opts",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/docker/cli/cli/compose/loader",
+        "//vendor/github.com/docker/go-units",
+        "//vendor/github.com/ory/dockertest/v3/docker/types",
+    ],
+)

@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "dockertest",
+    srcs = ["dockertest.go"],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3",
+    importpath = "github.com/ory/dockertest/v3",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/cenkalti/backoff/v4:backoff",
+        "//vendor/github.com/ory/dockertest/v3/docker",
+        "//vendor/github.com/ory/dockertest/v3/docker/opts",
+    ],
+)

@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "registry",
+    srcs = [
+        "authenticate.go",
+        "registry.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3/docker/types/registry",
+    importpath = "github.com/ory/dockertest/v3/docker/types/registry",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/opencontainers/image-spec/specs-go/v1:specs-go"],
+)

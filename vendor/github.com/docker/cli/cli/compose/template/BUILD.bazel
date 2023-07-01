@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "template",
+    srcs = ["template.go"],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/docker/cli/cli/compose/template",
+    importpath = "github.com/docker/cli/cli/compose/template",
+    visibility = ["//visibility:public"],
+)

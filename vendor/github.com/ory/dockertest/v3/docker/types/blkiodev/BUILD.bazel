@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "blkiodev",
+    srcs = ["blkio.go"],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/ory/dockertest/v3/docker/types/blkiodev",
+    importpath = "github.com/ory/dockertest/v3/docker/types/blkiodev",
+    visibility = ["//visibility:public"],
+)
