@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/dynamodb"
 	dynamocontainer "github.com/TimoSto/ThesorTeX/pkg/backend/container/dynamodb"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
@@ -74,6 +75,11 @@ func createFakeTable(endpoint string) error {
 	if err != nil {
 		return err
 	}
+
+	tables, err := client.ListTables(
+		context.TODO(), &dynamobasic.ListTablesInput{})
+
+	fmt.Println("created tables: ", tables.TableNames)
 
 	return nil
 }
