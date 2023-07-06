@@ -8,8 +8,13 @@ go_library(
     deps = ["//pkg/backend/log"],
 )
 
+_CONTACT_VERSION = "{CONTACT_VERSION}"
+
 go_binary(
     name = "lambda",
     embed = [":lambda_lib"],
     visibility = ["//visibility:public"],
+    x_defs = {
+        "github.com/TimoSto/ThesorTeX/services/contact/internal/config.Version": _CONTACT_VERSION,
+    },
 )
