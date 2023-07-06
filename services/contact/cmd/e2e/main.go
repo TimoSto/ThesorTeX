@@ -24,10 +24,15 @@ func main() {
 
 	defer c.Purge()
 
-	err = createFakeTable(c.Endpoint())
+	testClient, err := createFakeTable(c.Endpoint())
 	if err != nil {
 		log.Fatal("could not create local dynamo db table: %v", err)
 	}
+
+	tables, err := testClient.ListTables(
+		context.TODO(), &dynamobasic.ListTablesInput{})
+
+	fmt.Println("got tables: ", tables.TableNames)
 
 	sigs := make(chan os.Signal, 1)
 
@@ -41,7 +46,7 @@ func main() {
 	<-sigs
 }
 
-func createFakeTable(endpoint string) error {
+func createFakeTable(endpoint string) (*dynamobasic.Client, error) {
 	opts := config.WithEndpointResolverWithOptions(aws.EndpointResolverWithOptionsFunc(
 		func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 			return aws.Endpoint{URL: endpoint}, nil
@@ -50,7 +55,7 @@ func createFakeTable(endpoint string) error {
 
 	client, err := dynamodb.GetDynamoClient(opts)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	_, err = client.CreateTable(context.Background(), &dynamobasic.CreateTableInput{
@@ -73,13 +78,8 @@ func createFakeTable(endpoint string) error {
 		},
 	})
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	tables, err := client.ListTables(
-		context.TODO(), &dynamobasic.ListTablesInput{})
-
-	fmt.Println("created tables: ", tables.TableNames)
-
-	return nil
+	return client, nil
 }
