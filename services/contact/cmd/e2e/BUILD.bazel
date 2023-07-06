@@ -9,7 +9,7 @@ go_library(
         "//pkg/backend/aws/dynamodb",
         "//pkg/backend/container/dynamodb",
         "//pkg/backend/log",
-        "//services/contact/backend",
+        "//services/contact/internal/backend",
         "//vendor/github.com/aws/aws-sdk-go-v2/aws",
         "//vendor/github.com/aws/aws-sdk-go-v2/config",
         "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",

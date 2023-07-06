@@ -5,7 +5,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/dynamodb"
 	dynamocontainer "github.com/TimoSto/ThesorTeX/pkg/backend/container/dynamodb"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
-	"github.com/TimoSto/ThesorTeX/services/contact/backend"
+	"github.com/TimoSto/ThesorTeX/services/contact/internal/backend"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	dynamobasic "github.com/aws/aws-sdk-go-v2/service/dynamodb"
