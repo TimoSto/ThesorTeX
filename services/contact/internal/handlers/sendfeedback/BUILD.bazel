@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "sendfeedback",
+    srcs = ["sendfeedback.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/contact/internal/handlers/sendfeedback",
+    visibility = ["//services/contact:__subpackages__"],
+    deps = [
+        "//pkg/backend/log",
+        "//services/contact/internal/feedback",
+    ],
+)

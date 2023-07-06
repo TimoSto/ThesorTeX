@@ -32,11 +32,6 @@ func StartApp(cfg Config) error {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	err = store.SaveFeedback("teest")
-	if err != nil {
-		return err
-	}
-
 	if cfg.IsProd {
 		apigateway.StartLambda(chain.Then(cfg.Mux))
 	} else {
