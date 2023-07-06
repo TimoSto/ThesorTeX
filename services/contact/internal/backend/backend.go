@@ -2,14 +2,18 @@ package backend
 
 import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/apigateway"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/dynamodb"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
+	"github.com/TimoSto/ThesorTeX/services/contact/internal/feedback"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/handlers"
+	"github.com/aws/aws-sdk-go-v2/config"
 	"net/http"
 )
 
 type Config struct {
-	IsProd bool
-	Mux    *http.ServeMux
+	IsProd     bool
+	Mux        *http.ServeMux
+	DynamoOpts config.LoadOptionsFunc
 }
 
 func StartApp(cfg Config) error {
@@ -17,9 +21,21 @@ func StartApp(cfg Config) error {
 		cfg.Mux = http.NewServeMux()
 	}
 
-	handlers.RegisterHandlers(cfg.Mux)
+	client, err := dynamodb.GetDynamoClient(cfg.DynamoOpts)
+	if err != nil {
+		return err
+	}
+
+	store := feedback.New(client)
+
+	handlers.RegisterHandlers(cfg.Mux, store)
 
 	chain := handler_chain.CreateHandlerChain()
+
+	err = store.SaveFeedback("teest")
+	if err != nil {
+		return err
+	}
 
 	if cfg.IsProd {
 		apigateway.StartLambda(chain.Then(cfg.Mux))

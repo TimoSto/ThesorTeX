@@ -10,6 +10,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.20.0
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.30.2
 	github.com/google/go-cmp v0.5.9
+	github.com/google/uuid v1.3.0
 	github.com/justinas/alice v1.2.0
 	github.com/ory/dockertest/v3 v3.10.0
 	gopkg.in/ini.v1 v1.67.0

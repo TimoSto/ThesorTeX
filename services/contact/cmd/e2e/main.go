@@ -43,8 +43,15 @@ func main() {
 
 	setupFakeGetter(mux, testClient)
 
+	opts := config.WithEndpointResolverWithOptions(aws.EndpointResolverWithOptionsFunc(
+		func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+			return aws.Endpoint{URL: c.Endpoint()}, nil
+		}),
+	)
+
 	cfg := backend.Config{
-		Mux: mux,
+		Mux:        mux,
+		DynamoOpts: opts,
 	}
 
 	err = backend.StartApp(cfg)

@@ -8,5 +8,6 @@ go_library(
     deps = [
         "//pkg/backend/versionhandler",
         "//services/contact/internal/config",
+        "//services/contact/internal/feedback",
     ],
 )
