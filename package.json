@@ -57,6 +57,7 @@
   "scripts": {
     "runThesisToolE2E": "bazel run //services/thesisTool/cmd/e2e",
     "runWebsiteE2E": "bazel run //services/website/cmd/e2e",
+    "runContactE2E": "bazel run //services/contact/cmd/e2e",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "loki-local": "loki test",

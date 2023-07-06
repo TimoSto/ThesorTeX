@@ -8,5 +8,6 @@ go_library(
     deps = [
         "//pkg/backend/aws/apigateway",
         "//pkg/backend/handler_chain",
+        "//services/contact/internal/handlers",
     ],
 )

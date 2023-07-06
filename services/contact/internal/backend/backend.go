@@ -1,9 +1,9 @@
 package backend
 
 import (
-	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/apigateway"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
+	"github.com/TimoSto/ThesorTeX/services/contact/internal/handlers"
 	"net/http"
 )
 
@@ -14,9 +14,7 @@ type Config struct {
 func StartApp(cfg Config) error {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
-		fmt.Println("got req")
-	})
+	handlers.RegisterHandlers(mux)
 
 	chain := handler_chain.CreateHandlerChain()
 
