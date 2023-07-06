@@ -9,19 +9,22 @@ import (
 
 type Config struct {
 	IsProd bool
+	Mux    *http.ServeMux
 }
 
 func StartApp(cfg Config) error {
-	mux := http.NewServeMux()
+	if cfg.Mux == nil {
+		cfg.Mux = http.NewServeMux()
+	}
 
-	handlers.RegisterHandlers(mux)
+	handlers.RegisterHandlers(cfg.Mux)
 
 	chain := handler_chain.CreateHandlerChain()
 
 	if cfg.IsProd {
-		apigateway.StartLambda(chain.Then(mux))
+		apigateway.StartLambda(chain.Then(cfg.Mux))
 	} else {
-		err := http.ListenAndServe(":8447", chain.Then(mux))
+		err := http.ListenAndServe(":8447", chain.Then(cfg.Mux))
 		if err != nil {
 			return err
 		}

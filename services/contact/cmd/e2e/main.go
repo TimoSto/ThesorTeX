@@ -7,10 +7,13 @@ import (
 	dynamocontainer "github.com/TimoSto/ThesorTeX/pkg/backend/container/dynamodb"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/backend"
+	"github.com/TimoSto/ThesorTeX/services/contact/internal/feedback"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	dynamobasic "github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
+	"net/http"
 	"os"
 )
 
@@ -36,7 +39,13 @@ func main() {
 
 	sigs := make(chan os.Signal, 1)
 
-	cfg := backend.Config{}
+	mux := http.NewServeMux()
+
+	setupFakeGetter(mux, testClient)
+
+	cfg := backend.Config{
+		Mux: mux,
+	}
 
 	err = backend.StartApp(cfg)
 	if err != nil {
@@ -82,4 +91,29 @@ func createFakeTable(endpoint string) (*dynamobasic.Client, error) {
 	}
 
 	return client, nil
+}
+
+func setupFakeGetter(mux *http.ServeMux, dbClient *dynamobasic.Client) {
+	mux.HandleFunc("/getE2EFeedbacks", func(writer http.ResponseWriter, request *http.Request) {
+		var feedbacks []feedback.Feedback
+
+		data, err := dbClient.Scan(context.Background(), &dynamobasic.ScanInput{
+			TableName: aws.String("feedbacks"),
+		})
+		if err != nil {
+			log.Error("could not read db: %v", err)
+			return
+		}
+
+		err = attributevalue.UnmarshalListOfMaps(data.Items, &feedbacks)
+		if err != nil {
+			log.Error("UnmarshalListOfMaps: %v\n", err)
+			return
+		}
+
+		log.Info("got %v feedback messages", len(feedbacks))
+		for _, f := range feedbacks {
+			log.Info("[%s] - %s : '%s'", f.ID, f.Date, f.Message)
+		}
+	})
 }

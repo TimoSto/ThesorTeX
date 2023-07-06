@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "attributevalue",
+    srcs = [
+        "convert.go",
+        "decode.go",
+        "doc.go",
+        "encode.go",
+        "field.go",
+        "field_cache.go",
+        "go_module_metadata.go",
+        "tag.go",
+    ],
+    importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue",
+    importpath = "github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb/types",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodbstreams/types",
+    ],
+)
