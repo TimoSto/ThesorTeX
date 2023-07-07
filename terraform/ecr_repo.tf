@@ -1,4 +1,4 @@
-resource "aws_ecr_repository" "foo" {
+resource "aws_ecr_repository" "website" {
   name                 = "website_lambda"
   image_tag_mutability = "MUTABLE"
 
