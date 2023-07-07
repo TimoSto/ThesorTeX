@@ -50,7 +50,7 @@ resource "aws_apigatewayv2_stage" "default" {
 resource "aws_apigatewayv2_integration" "app" {
   api_id = aws_apigatewayv2_api.website_lambda.id
 
-  integration_uri  = aws_lambda_function.website_lambda_func.invoke_arn
+  integration_uri  = module.website_lambda.invoke_arn
   integration_type = "AWS_PROXY"
 }
 
@@ -69,7 +69,7 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 resource "aws_lambda_permission" "api_gw" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.website_lambda_func.function_name
+  function_name = module.website_lambda.func_name
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${aws_apigatewayv2_api.website_lambda.execution_arn}/*/*"
