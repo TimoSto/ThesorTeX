@@ -28,8 +28,8 @@ data aws_iam_policy_document lambda_s3 {
     ]
 
     resources = [
-      "arn:aws:s3:::${aws_s3_bucket.artifacts.bucket}",
-      "arn:aws:s3:::${aws_s3_bucket.artifacts.bucket}/*",
+      "arn:aws:s3:::${module.website_s3_artifacts.bucket}",
+      "arn:aws:s3:::${module.website_s3_artifacts.bucket}/*",
     ]
   }
 }
