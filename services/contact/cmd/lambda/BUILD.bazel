@@ -1,4 +1,5 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image", "container_push")
 
 go_library(
     name = "lambda_lib",
@@ -13,8 +14,17 @@ _CONTACT_VERSION = "{CONTACT_VERSION}"
 go_binary(
     name = "lambda",
     embed = [":lambda_lib"],
+    goarch = "amd64",
+    goos = "linux",
     visibility = ["//visibility:public"],
     x_defs = {
         "github.com/TimoSto/ThesorTeX/services/contact/internal/config.Version": _CONTACT_VERSION,
     },
+)
+
+container_image(
+    name = "contact_lambda_image",
+    base = "@lambda_base//image",
+    entrypoint = "/lambda",
+    files = [":lambda"],
 )
