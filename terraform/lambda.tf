@@ -4,7 +4,7 @@ locals {
 
 resource "aws_lambda_function" "website_lambda_func" {
   function_name = "thesortex-website"
-  image_uri     = "${aws_ecr_repository.website.repository_url}:${var.website_image_tag}"
+  image_uri     = "${module.website_lambda_ecr.repository_url}:${var.website_image_tag}"
   package_type  = "Image"
   role          = aws_iam_role.website_lambda_exec.arn
 }
