@@ -20,3 +20,8 @@ module "website_lambda" {
     "arn:aws:s3:::${module.website_s3_artifacts.bucket}/*",
   ]
 }
+
+module "website_domain" {
+  source      = "./modules/customdomain"
+  domain_name = "thesortex.com"
+}
