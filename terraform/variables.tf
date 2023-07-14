@@ -14,3 +14,8 @@ variable "website_image_tag" {
   # Update this to the tag of the image in aws ecr
   default = "2c35aeb6"
 }
+
+variable "contact_image_tag" {
+  # Update this to the tag of the image in aws ecr
+  default = "c3eb0be5"
+}
