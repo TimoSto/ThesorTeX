@@ -13,7 +13,7 @@ overrides:
   eslint: 8.31.0
   eslint-plugin-vue: 9.9.0
   happy-dom: 9.20.3
-  pinia: 2.0.32
+  pinia: 2.1.4
   sass: 1.58.3
   ts-node: 10.9.1
   typescript: 4.9.5
@@ -44,7 +44,7 @@ importers:
         version: 0.8.1(vue-i18n@9.2.2)
       '@pinia/testing':
         specifier: ^0.1.2
-        version: 0.1.2(pinia@2.0.32)(vue@3.3.4)
+        version: 0.1.2(pinia@2.1.4)(vue@3.3.4)
       '@storybook/addon-essentials':
         specifier: 7.1.0
         version: 7.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -79,8 +79,8 @@ importers:
         specifier: 0.32.0
         version: 0.32.0
       pinia:
-        specifier: 2.0.32
-        version: 2.0.32(typescript@4.9.5)(vue@3.3.4)
+        specifier: 2.1.4
+        version: 2.1.4(typescript@4.9.5)(vue@3.3.4)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -137,8 +137,8 @@ importers:
   pkg/frontend/vue-component-library:
     dependencies:
       pinia:
-        specifier: 2.0.32
-        version: 2.0.32(typescript@4.9.5)(vue@3.3.4)
+        specifier: 2.1.4
+        version: 2.1.4(typescript@4.9.5)(vue@3.3.4)
       reveal.js:
         specifier: ^4.4.0
         version: 4.4.0
@@ -221,8 +221,8 @@ importers:
         specifier: workspace:*
         version: link:../../../pkg/frontend/vuetify-plugin
       pinia:
-        specifier: 2.0.32
-        version: 2.0.32(typescript@4.9.5)(vue@3.3.4)
+        specifier: 2.1.4
+        version: 2.1.4(typescript@4.9.5)(vue@3.3.4)
       vue:
         specifier: 3.3.4
         version: 3.3.4
@@ -2765,12 +2765,12 @@ packages:
     resolution: { integrity: sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q== }
     dev: true
 
-  /@pinia/testing@0.1.2(pinia@2.0.32)(vue@3.3.4):
+  /@pinia/testing@0.1.2(pinia@2.1.4)(vue@3.3.4):
     resolution: { integrity: sha512-8EyBaVFtv682tBiF810u81vAJ1ykwnaldkVDU52oqtVbh5FUj5dSCSM9+MtRM/tZkq0AulwMK4BnBktqwsnEnw== }
     peerDependencies:
       pinia: '>=2.1.2'
     dependencies:
-      pinia: 2.0.32(typescript@4.9.5)(vue@3.3.4)
+      pinia: 2.1.4(typescript@4.9.5)(vue@3.3.4)
       vue-demi: 0.14.5(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -7886,12 +7886,12 @@ packages:
     engines: { node: '>=6' }
     dev: true
 
-  /pinia@2.0.32(typescript@4.9.5)(vue@3.3.4):
-    resolution: { integrity: sha512-8Tw4OrpCSJ028UUyp0gYPP/wyjigLoEceuO/x1G+FlHVf73337e5vLm4uDmrRIoBG1hvaed/eSHnrCFjOc4nkA== }
+  /pinia@2.1.4(typescript@4.9.5)(vue@3.3.4):
+    resolution: { integrity: sha512-vYlnDu+Y/FXxv1ABo1vhjC+IbqvzUdiUC3sfDRrRyY2CQSrqqaa+iiHmqtARFxJVqWQMCJfXx1PBvFs9aJVLXQ== }
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
-      vue: ^2.6.14 || ^3.2.0
+      vue: ^2.6.14 || ^3.3.0
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
@@ -7901,7 +7901,7 @@ packages:
       '@vue/devtools-api': 6.5.0
       typescript: 4.9.5
       vue: 3.3.4
-      vue-demi: 0.13.11(vue@3.3.4)
+      vue-demi: 0.14.5(vue@3.3.4)
 
   /pirates@4.0.5:
     resolution: { integrity: sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ== }
@@ -9635,20 +9635,6 @@ packages:
     resolution: { integrity: sha512-SBNsskF7L5x604V1BN4ZzdTtWgCqo5cfl//YuBXtc3LLyPdFRqUeJn2Q+FPNmCtl23LBT2tH79M/uv13fL0MgQ== }
     dev: true
 
-  /vue-demi@0.13.11(vue@3.3.4):
-    resolution: { integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A== }
-    engines: { node: '>=12' }
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-    dependencies:
-      vue: 3.3.4
-
   /vue-demi@0.14.5(vue@3.3.4):
     resolution: { integrity: sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA== }
     engines: { node: '>=12' }
@@ -9662,7 +9648,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.3.4
-    dev: true
 
   /vue-docgen-api@4.72.5(vue@3.3.4):
     resolution: { integrity: sha512-+M3xRtPMws52wmaaMXdx4jTT2eamEdBoJ20akYPz2DO1I8zVr8bqmDl3DEchSNN9WOnSVuyAms/289omRPhS1w== }
