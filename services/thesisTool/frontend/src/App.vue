@@ -136,8 +136,6 @@
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
 import {computed, onMounted, ref, watch,} from "vue";
-import PageNavigator from "./components/PageNavigator.vue";
-import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {i18nKeys} from "./i18n/keys";
@@ -147,9 +145,6 @@ import CategoryEditor from "./pages/CategoryEditor.vue";
 import EntryEditor from "./pages/EntryEditor.vue";
 import ProjectsSidebar from "./components/ProjectsSidebar.vue";
 import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
-import UnsavedChangesDialog from "./components/UnsavedChangesCard.vue";
-import ConfigDialog from "./pages/ConfigDialog.vue";
-import {accessibilityDialogKeys} from "@thesortex/vue-component-library";
 import {
   useApplicationStateStore
 } from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
