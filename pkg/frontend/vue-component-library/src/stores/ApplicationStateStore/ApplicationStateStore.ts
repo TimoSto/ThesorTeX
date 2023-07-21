@@ -27,6 +27,11 @@ export const useApplicationStateStore = defineStore({
         unsavedDialogCallback: () => {
         },
     } as ApplicationState),
+    getters: {
+        currentPage: (state: ApplicationState): string => {
+            return state.history[state.history.length - 1];
+        }
+    },
     actions: {
         openPage(page: string) {
             this.$state.history.push(page);

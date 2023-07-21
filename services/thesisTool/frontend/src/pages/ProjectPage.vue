@@ -151,9 +151,14 @@ import CitaviDragNDrop from "../components/CitaviDragNDrop.vue";
 import {AnalyseResult, Unknown} from "../domain/citavi/BibAnalytics";
 import CitaviUploadCard from "../components/CitaviUploadCard.vue";
 import UploadEntries from "../api/projectData/uploadEntries";
+import {
+  useApplicationStateStore
+} from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
 // globals
 const appStateStore = useAppStateStore();
+
+const applicationStateStore = useApplicationStateStore();
 
 const projectDataStore = useProjectDataStore();
 
@@ -270,7 +275,7 @@ async function deleteProject() {
   if (success) {
     errorSuccessStore.setMessage(true, t(i18nKeys.ProjectPage.SuccessDelete).replace("PROJECTNAME", projectName.value));
     projectsListStore.removeProject(projectName.value);
-    appStateStore.goBack();
+    applicationStateStore.goBack(1);
   } else {
     errorSuccessStore.setMessage(false, t(i18nKeys.ProjectPage.ErrorDelete));
   }
@@ -292,12 +297,12 @@ watch(uploadTriggered, () => {
 
 // methods
 function openCategoryEditor(n: number) {
-  appStateStore.navToPage(pageNames[2]);
+  applicationStateStore.openPage(pageNames[2]);
   appStateStore.setItem(n > -1 ? projectDataStore.categories[n].Name : "");
 }
 
 function openEntryEditor(n: number) {
-  appStateStore.navToPage(pageNames[3]);
+  applicationStateStore.openPage(pageNames[3]);
   appStateStore.setItem(n > -1 ? projectDataStore.entries[n].Key : "");
 }
 

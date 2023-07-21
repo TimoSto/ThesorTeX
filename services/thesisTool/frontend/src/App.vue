@@ -1,131 +1,141 @@
 <template>
-  <v-app>
-    <v-app-bar
-      color="primary"
-      elevation="0"
-    >
-      <v-app-bar-nav-icon
-        :disabled="sidebarDisabled"
-        :title="sidebarOpened ? t(i18nKeys.App.CloseSidebar) : t(i18nKeys.App.OpenSidebar)"
-        @click.stop="sidebarOpened = !sidebarOpened"
-      />
-
-      <v-app-bar-nav-icon
-        v-if="pagesCount > 1"
-        :title="t(i18nKeys.Common.Back)"
-        @click="navBack"
-      >
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-app-bar-nav-icon>
-
-      <v-app-bar-title role="heading" aria-level="1">
-        ThesorTeX
-        {{ titleAppendix }}
-      </v-app-bar-title>
-
-      <v-spacer />
-
-      <a target="_blank" href="https://thesortex.com/#/tutorials?target=ThesisTool"
-         style="color: rgb(var(--v-theme-on-primary))">
-        <v-btn icon :title="t(i18nKeys.App.GoToDocs)">
-          <v-icon>mdi-book-open-variant</v-icon>
-        </v-btn>
-      </a>
-      <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" :i18n="t" v-slot="scope">
-        <v-btn icon
-               @click="scope.openDialog" :title="t(accessibilityDialogKeys.AccessibilityDialog.BtnTitle)">
-          <v-icon>mdi-human</v-icon>
-        </v-btn>
-      </AccessibilityDialog>
-      <v-btn icon :title="t(i18nKeys.Config.OpenConfig)" @click="configOpened=true">
-        <v-icon>mdi-cog</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-navigation-drawer
-      permanent
-      :rail="!sidebarOpened"
-      :rail-width="56"
-    >
+  <ApplicationFrame
+    mainTitle="ThesorTeX"
+    :titleAppendix="titleAppendix"
+    :hasSidebar="!sidebarDisabled"
+  >
+    <template #sidebar>
       <ProjectsSidebar
         v-if="pagesCount > 1"
         :project="appStateStore.currentProject"
         :open="sidebarOpened"
         @switch-to="switchToProject($event)"
       />
-    </v-navigation-drawer>
-    <v-main>
-      <PageNavigator
-        :pages="pagesCount"
-        :instant-switch="instantSwitch"
-        :navigating-back="navigatingBack"
-        @nav-back-finish="finishNavBack"
-      >
-        <template
-          v-for="i in pagesCount"
-          #[i]
-        >
-          <MainPage
-            v-if="i === 1"
-            :key="`page-${i}`"
-          />
-
-          <ProjectPage
-            v-if="i === 2"
-            :key="`page-${i}`"
-          />
-
-          <CategoryEditor
-            v-if="i === 3 && currentPage === pageNames[2]"
-            :key="`page-${i}`"
-          />
-
-          <EntryEditor
-            v-if="i === 3 && currentPage === pageNames[3]"
-            :key="`page-${i}`"
-          />
-        </template>
-      </PageNavigator>
-    </v-main>
-    <ErrorSuccessDisplay
-      :valid="success"
-      :message="message"
-      :error-title="t(i18nKeys.Common.Error)"
-      :close="t(i18nKeys.Common.Close)"
-      @close="message = ''"
+    </template>
+    <template
+      v-for="i in pagesCount"
+      #[i-1]="{openPage, goBack}"
     >
-      <template #suffix>
-        <i18n-t :keypath="i18nKeys.Common.ContactBug">
-          <template #link>
-            <a
-              href="https://github.com/TimoSto/ThesorTeX/issues"
-              class="text-primary"
-              target="_blank"
-            >
-              https://github.com/TimoSto/ThesorTeX/issues
-            </a>
-          </template>
-        </i18n-t>
-      </template>
-    </ErrorSuccessDisplay>
-    <v-dialog
-      v-model="unsaveDialogOpened"
-      width="450"
-    >
-      <UnsavedChangesDialog
-        @resolve="appStateStore.resolveCallback($event)"
+      <MainPage
+        v-if="i === 1"
+        :key="`page-${i}`"
       />
-    </v-dialog>
-    <ConfigDialog
-      :open="configOpened"
-      @close="configOpened=false"
-    />
-  </v-app>
+
+      <ProjectPage
+        v-if="i === 2"
+        :key="`page-${i}`"
+      />
+
+      <CategoryEditor
+        v-if="i === 3 && currentPage === pageNames[2]"
+        :key="`page-${i}`"
+      />
+
+      <EntryEditor
+        v-if="i === 3 && currentPage === pageNames[3]"
+        :key="`page-${i}`"
+      />
+    </template>
+  </ApplicationFrame>
+  <!--  <v-app>-->
+  <!--    <v-app-bar-->
+  <!--      color="primary"-->
+  <!--      elevation="0"-->
+  <!--    >-->
+  <!--      <v-app-bar-nav-icon-->
+  <!--        :disabled="sidebarDisabled"-->
+  <!--        :title="sidebarOpened ? t(i18nKeys.App.CloseSidebar) : t(i18nKeys.App.OpenSidebar)"-->
+  <!--        @click.stop="sidebarOpened = !sidebarOpened"-->
+  <!--      />-->
+
+  <!--      <v-app-bar-nav-icon-->
+  <!--        v-if="pagesCount > 1"-->
+  <!--        :title="t(i18nKeys.Common.Back)"-->
+  <!--        @click="navBack"-->
+  <!--      >-->
+  <!--        <v-icon>mdi-arrow-left</v-icon>-->
+  <!--      </v-app-bar-nav-icon>-->
+
+  <!--      <v-app-bar-title role="heading" aria-level="1">-->
+  <!--        ThesorTeX-->
+  <!--        {{ titleAppendix }}-->
+  <!--      </v-app-bar-title>-->
+
+  <!--      <v-spacer />-->
+
+  <!--      <a target="_blank" href="https://thesortex.com/#/tutorials?target=ThesisTool"-->
+  <!--         style="color: rgb(var(&#45;&#45;v-theme-on-primary))">-->
+  <!--        <v-btn icon :title="t(i18nKeys.App.GoToDocs)">-->
+  <!--          <v-icon>mdi-book-open-variant</v-icon>-->
+  <!--        </v-btn>-->
+  <!--      </a>-->
+  <!--      <AccessibilityDialog v-if="myDocument.readyState" :keydownTarget="myDocument" :i18n="t" v-slot="scope">-->
+  <!--        <v-btn icon-->
+  <!--               @click="scope.openDialog" :title="t(accessibilityDialogKeys.AccessibilityDialog.BtnTitle)">-->
+  <!--          <v-icon>mdi-human</v-icon>-->
+  <!--        </v-btn>-->
+  <!--      </AccessibilityDialog>-->
+  <!--      <v-btn icon :title="t(i18nKeys.Config.OpenConfig)" @click="configOpened=true">-->
+  <!--        <v-icon>mdi-cog</v-icon>-->
+  <!--      </v-btn>-->
+  <!--    </v-app-bar>-->
+
+  <!--    <v-navigation-drawer-->
+  <!--      permanent-->
+  <!--      :rail="!sidebarOpened"-->
+  <!--      :rail-width="56"-->
+  <!--    >-->
+  <!--      -->
+  <!--    </v-navigation-drawer>-->
+  <!--    <v-main>-->
+  <!--      <PageNavigator-->
+  <!--        :pages="pagesCount"-->
+  <!--        :instant-switch="instantSwitch"-->
+  <!--        :navigating-back="navigatingBack"-->
+  <!--        @nav-back-finish="finishNavBack"-->
+  <!--      >-->
+  <!--        -->
+  <!--      </PageNavigator>-->
+  <!--    </v-main>-->
+  <!--    <ErrorSuccessDisplay-->
+  <!--      :valid="success"-->
+  <!--      :message="message"-->
+  <!--      :error-title="t(i18nKeys.Common.Error)"-->
+  <!--      :close="t(i18nKeys.Common.Close)"-->
+  <!--      @close="message = ''"-->
+  <!--    >-->
+  <!--      <template #suffix>-->
+  <!--        <i18n-t :keypath="i18nKeys.Common.ContactBug">-->
+  <!--          <template #link>-->
+  <!--            <a-->
+  <!--              href="https://github.com/TimoSto/ThesorTeX/issues"-->
+  <!--              class="text-primary"-->
+  <!--              target="_blank"-->
+  <!--            >-->
+  <!--              https://github.com/TimoSto/ThesorTeX/issues-->
+  <!--            </a>-->
+  <!--          </template>-->
+  <!--        </i18n-t>-->
+  <!--      </template>-->
+  <!--    </ErrorSuccessDisplay>-->
+  <!--    <v-dialog-->
+  <!--      v-model="unsaveDialogOpened"-->
+  <!--      width="450"-->
+  <!--    >-->
+  <!--      <UnsavedChangesDialog-->
+  <!--        @resolve="appStateStore.resolveCallback($event)"-->
+  <!--      />-->
+  <!--    </v-dialog>-->
+  <!--    <ConfigDialog-->
+  <!--      :open="configOpened"-->
+  <!--      @close="configOpened=false"-->
+  <!--    />-->
+  <!--  </v-app>-->
 </template>
 
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
-import {computed, ref, watch,} from "vue";
+import {computed, onMounted, ref, watch,} from "vue";
 import PageNavigator from "./components/PageNavigator.vue";
 import {ErrorSuccessDisplay} from "@thesortex/vue-component-library/src/components";
 import MainPage from "./pages/MainPage.vue";
@@ -140,6 +150,9 @@ import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
 import UnsavedChangesDialog from "./components/UnsavedChangesCard.vue";
 import ConfigDialog from "./pages/ConfigDialog.vue";
 import {accessibilityDialogKeys} from "@thesortex/vue-component-library";
+import {
+  useApplicationStateStore
+} from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -147,6 +160,8 @@ const appStateStore = useAppStateStore();
 const errorSuccessStore = useErrorSuccessStore();
 
 const projectsListStore = useProjectsListStore();
+
+const applicationStateStore = useApplicationStateStore();
 
 const {t} = useI18n();
 
@@ -168,14 +183,14 @@ const sidebarOpened = computed({
 });
 
 const sidebarDisabled = computed(() => {
-  return appStateStore.history.length === 1;
+  return applicationStateStore.history.length === 1;
 });
 
 const pagesCount = computed(() => {
-  return appStateStore.history.length;
+  return applicationStateStore.history.length;
 });
 
-const currentPage = computed(() => appStateStore.currentPage);
+const currentPage = computed(() => applicationStateStore.currentPage);
 
 const titleAppendix = computed(() => {
   let appendix: string;
@@ -255,6 +270,10 @@ function switchToProject(n: number) {
     }, 0);
   }
 }
+
+onMounted(() => {
+  console.log(appStateStore.history.length);
+});
 
 </script>
 

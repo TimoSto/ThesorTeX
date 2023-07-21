@@ -54,6 +54,9 @@ import CreateProjectCard from "../components/CreateProjectCard.vue";
 import CreateNewProject from "../api/projects/CreateNewProject";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {pageNames, useAppStateStore} from "../stores/appState/AppStateStore";
+import {
+  useApplicationStateStore
+} from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
 // globals
 const {t} = useI18n();
@@ -63,6 +66,8 @@ const projectsStore = useProjectsListStore();
 const errorSuccessStore = useErrorSuccessStore();
 
 const appStateStore = useAppStateStore();
+
+const applicationStateStore = useApplicationStateStore();
 
 // data
 
@@ -146,7 +151,8 @@ async function triggerProjectCreation(name: string) {
 
 function OpenProject(n: number) {
   if (appStateStore.currentPage === pageNames[0]) {
-    appStateStore.navToPage(pageNames[1]);
+    // appStateStore.navToPage(pageNames[1]);
+    applicationStateStore.openPage(pageNames[1]);
     appStateStore.setProject(projectsStore.projects[n].Name);
   }
 }

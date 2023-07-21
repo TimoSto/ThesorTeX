@@ -334,9 +334,14 @@ import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/
 import DeleteCategory from "../api/projectData/DeleteCategory";
 import {storeToRefs} from "pinia";
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
+import {
+  useApplicationStateStore
+} from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
 // globals
 const appStateStore = useAppStateStore();
+
+const applicationStateStore = useApplicationStateStore();
 
 const projectDataStore = useProjectDataStore();
 
@@ -602,7 +607,7 @@ async function deleteCategory() {
   if (success) {
     projectDataStore.removeCategory(categoryName.value);
     appStateStore.unsavedChanges = false;
-    appStateStore.goBack();
+    applicationStateStore.goBack(1);
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessDelete));
 
     await projectsStore.syncProjectsWithServer();
