@@ -5,6 +5,7 @@ export const de: I18nKeys = {
         CloseSidebar: "Minimize",
         OpenSidebar: "Expand",
         Documentation: "To the documentation",
-        OpenConfig: "Open configuration"
+        OpenConfig: "Open configuration",
+        ConfigTitle: "Configuration",
     }
 };

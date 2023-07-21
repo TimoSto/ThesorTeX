@@ -92,6 +92,15 @@ const titleAppendix = computed(() => {
         </template>
       </PageNavigator>
     </v-main>
+
+    <v-dialog v-model="configOpened" width="500" height="500">
+      <v-card>
+        <v-card-title>{{ i18n(i18nKeys.ApplicationFrame.ConfigTitle) }}</v-card-title>
+        <v-card-text>
+          <slot name="config"></slot>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 

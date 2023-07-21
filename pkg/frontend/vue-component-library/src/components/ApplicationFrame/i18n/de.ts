@@ -6,5 +6,6 @@ export const de: I18nKeys = {
         OpenSidebar: "Erweitern",
         Documentation: "Zur Dokumentation",
         OpenConfig: "Einstellungen öffnen",
+        ConfigTitle: "Einstellungen",
     }
 };

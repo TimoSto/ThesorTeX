@@ -3,7 +3,8 @@ export const i18nKeys = {
         OpenSidebar: "ApplicationFrame.OpenSidebar",
         CloseSidebar: "ApplicationFrame.CloseSidebar",
         Documentation: "ApplicationFrame.Documentation",
-        OpenConfig: "ApplicationFrame.OpenConfig"
+        OpenConfig: "ApplicationFrame.OpenConfig",
+        ConfigTitle: "ApplicationFrame.ConfigTitle",
     }
 };
 
