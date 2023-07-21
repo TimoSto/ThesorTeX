@@ -51,8 +51,8 @@
   },
   "dependencies": {
     "@mdi/font": "*",
-    "vue": "3.2.47",
-    "vuetify": "3.1.1"
+    "vue": "*",
+    "vuetify": "*"
   },
   "scripts": {
     "runThesisToolE2E": "bazel run //services/thesisTool/cmd/e2e",
