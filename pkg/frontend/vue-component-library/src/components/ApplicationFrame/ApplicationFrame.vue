@@ -21,9 +21,12 @@ const props = defineProps({
   showA11y: Boolean,
   hasConfig: Boolean,
   titleAppendix: String,
+  configChangesToSave: Boolean,
 });
 
 const applicationStateStore = useApplicationStateStore();
+
+const emit = defineEmits(["saveConfig"]);
 
 // data
 const sidebarOpened = ref(false);
@@ -104,6 +107,15 @@ const configOpened = ref(false);
         <v-card-text>
           <slot name="config"></slot>
         </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn color="primary" @click="configOpened = false">
+            {{ i18n(i18nKeys.ApplicationFrame.CloseConfig) }}
+          </v-btn>
+          <v-btn color="primary" @click="emit('saveConfig')" :disabled="!configChangesToSave">
+            {{ i18n(i18nKeys.ApplicationFrame.SaveConfig) }}
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </v-app>

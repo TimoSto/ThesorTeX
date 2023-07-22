@@ -5,9 +5,11 @@
     :hasSidebar="!sidebarDisabled"
     :documentProp="myDocument"
     :i18n="t"
+    :configChangesToSave="configChangesToSave"
     documentationTarget="https://thesortex.com/#/tutorials?target=ThesisTool"
     showA11y
     hasConfig
+    @saveConfig="saveConfig"
   >
     <template #sidebar>
       <ProjectsSidebar
@@ -39,6 +41,14 @@
       <EntryEditor
         v-if="i === 3 && currentPage === pageNames[3]"
         :key="`page-${i}`"
+      />
+    </template>
+    <template #config>
+      <ConfigDialog
+        :open="configOpened"
+        @close="configOpened=false"
+        @changesToSave="configChangesToSave = $event"
+        ref="configDialogContent"
       />
     </template>
   </ApplicationFrame>
@@ -162,6 +172,7 @@ import {
   useApplicationStateStore
 } from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 import UnsavedChangesCard from "./components/UnsavedChangesCard.vue";
+import ConfigDialog from "./pages/ConfigDialog.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -180,6 +191,10 @@ const instantSwitch = ref(false);
 const configOpened = ref(false);
 
 const myDocument = ref(document);
+
+const configDialogContent = ref<ConfigDialog>(null);
+
+const configChangesToSave = ref(false);
 
 // computed
 const sidebarOpened = computed({
@@ -277,6 +292,13 @@ function switchToProject(n: number) {
     setTimeout(() => {
       instantSwitch.value = false;
     }, 0);
+  }
+}
+
+function saveConfig() {
+  console.log("save");
+  if (configDialogContent.value) {
+    configDialogContent.value.saveConfig();
   }
 }
 

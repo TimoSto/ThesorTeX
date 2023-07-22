@@ -7,5 +7,7 @@ export const de: I18nKeys = {
         Documentation: "Zur Dokumentation",
         OpenConfig: "Einstellungen öffnen",
         ConfigTitle: "Einstellungen",
+        CloseConfig: "Schließen",
+        SaveConfig: "Speichern"
     }
 };

@@ -1,40 +1,23 @@
 <template>
-  <v-dialog width="450" v-model="opened">
-    <v-card>
-      <v-card-title>
-        {{ t(i18nKeys.Config.Title) }}
-      </v-card-title>
-      <v-card-text>
-        <v-text-field variant="underlined" :label="t(i18nKeys.Config.Port)" v-model="port" color="primary"
-                      prefix="http://localhost:" :rules="[portNameRules]" />
-        <v-text-field variant="underlined" :label="t(i18nKeys.Config.Dir)" v-model="dir" color="primary" />
-        <v-checkbox-btn :label="t(i18nKeys.Config.Open)" v-model="openBrowser" />
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer />
-        <v-btn color="primary" @click="emit('close')" :title="t(i18nKeys.Common.Close)">
-          {{ t(i18nKeys.Common.Close) }}
-        </v-btn>
-        <v-btn color="primary" @click="saveConfig" :title="t(i18nKeys.Common.Save)" :disabled="!changesToSave">
-          {{ t(i18nKeys.Common.Save) }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  <v-text-field variant="underlined" :label="t(i18nKeys.Config.Port)" v-model="port" color="primary"
+                prefix="http://localhost:" :rules="[portNameRules]" />
+  <v-text-field variant="underlined" :label="t(i18nKeys.Config.Dir)" v-model="dir" color="primary" />
+  <v-checkbox-btn :label="t(i18nKeys.Config.Open)" v-model="openBrowser" />
+
   <UpdateDialog :version="updateAvailable" />
 </template>
 
 <script lang="ts" setup>
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import {i18nKeys} from "../i18n/keys";
 import GetConfig from "../api/config/GetConfig";
 import SaveConfig from "../api/config/SaveConfig";
 import getPortRules from "../domain/config/PortRules";
 import UpdateDialog from "../components/UpdateDialog.vue";
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits(["close", "changesToSave"]);
 
 const {t} = useI18n();
 
@@ -74,6 +57,10 @@ const changesToSave = computed(() => {
 
 const portNameRules = getPortRules(t);
 
+watch(changesToSave, () => {
+  emit("changesToSave", changesToSave.value);
+});
+
 // methods
 async function saveConfig() {
   const success = await SaveConfig({
@@ -82,6 +69,8 @@ async function saveConfig() {
     OpenBrowser: openBrowser.value,
     UpdateAvailable: updateAvailable.value
   });
+
+  console.log(success);
 
   if (success) {
     initial.value.Port = port.value;
@@ -98,6 +87,10 @@ GetConfig().then(cfg => {
   updateAvailable.value = cfg.UpdateAvailable;
 
   initial.value = cfg;
+});
+
+defineExpose({
+  saveConfig,
 });
 
 </script>
