@@ -532,7 +532,7 @@ watch(changesToSave, () => {
   console.log(appStateStore.currentItem);
   if (appStateStore.currentItem !== "") {
     //this check is necessary to avoid a change while navigating back
-    appStateStore.unsavedChanges = changesToSave.value;
+    applicationStateStore.unsavedChanges = changesToSave.value;
   }
 });
 
@@ -606,7 +606,7 @@ async function deleteCategory() {
   deleteTriggered.value = false;
   if (success) {
     projectDataStore.removeCategory(categoryName.value);
-    appStateStore.unsavedChanges = false;
+    applicationStateStore.unsavedChanges = false;
     applicationStateStore.goBack(1);
     errorSuccessStore.setMessage(true, t(i18nKeys.CategoryEditor.SuccessDelete));
 
@@ -629,7 +629,7 @@ onMounted(() => {
       CitaviFilter: [],
     };
 
-    appStateStore.unsavedChanges = changesToSave.value;
+    applicationStateStore.unsavedChanges = changesToSave.value;
   }
 });
 </script>

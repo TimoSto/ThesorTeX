@@ -54,6 +54,16 @@ export const useApplicationStateStore = defineStore({
                     this.$state.history = this.$state.history.slice(0, -1);
                 }, 750);
             }
+        },
+        resolveCallback(accept: boolean) {
+            this.unsavedDialogTriggered = false;
+            if (accept) {
+                this.unsavedDialogCallback();
+                this.unsavedChanges = false;
+            } else {
+                this.unsavedDialogCallback = () => {
+                };
+            }
         }
     }
 });

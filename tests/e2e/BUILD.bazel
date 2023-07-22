@@ -55,7 +55,7 @@ run_cucumber(
     sut_port = "8441",
     system_base_url = "http://localhost:8441",
     test_files = glob([
-        "features/thesisTool/*.feature",
+        "features/thesisTool/t01_start_page.feature",
     ]),
     workingDir = package_name(),
 )

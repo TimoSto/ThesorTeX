@@ -150,6 +150,9 @@ import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/
 import DeleteEntry from "../api/projectData/DeleteEntry";
 import GenerateEntryForCategory, {GenerateCiteForCategory} from "../domain/category/GenerateEntry";
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
+import {
+  useApplicationStateStore
+} from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
 // globals
 const {t} = useI18n();
@@ -157,6 +160,8 @@ const {t} = useI18n();
 const projectDataStore = useProjectDataStore();
 
 const appStateStore = useAppStateStore();
+
+const applicationStateStore = useApplicationStateStore();
 
 const errorSuccessStore = useErrorSuccessStore();
 
@@ -277,7 +282,7 @@ const citePreview = computed(() => {
 watch(changesToSave, () => {
   if (appStateStore.currentItem !== "") {
     //this check is necessary to avoid a change while navigating back
-    appStateStore.unsavedChanges = changesToSave.value;
+    applicationStateStore.unsavedChanges = changesToSave.value;
   }
 });
 
@@ -308,8 +313,8 @@ async function deleteEntry() {
   deleteTriggered.value = false;
   if (success) {
     projectDataStore.removeEntry(entryKey.value);
-    appStateStore.unsavedChanges = false;
-    appStateStore.goBack();
+    applicationStateStore.unsavedChanges = false;
+    applicationStateStore.goBack(1);
     errorSuccessStore.setMessage(true, t(i18nKeys.EntryEditor.SuccessDelete));
 
     await projectsStore.syncProjectsWithServer();
@@ -329,7 +334,7 @@ onMounted(() => {
       Fields: []
     };
 
-    appStateStore.unsavedChanges = changesToSave.value;
+    applicationStateStore.unsavedChanges = changesToSave.value;
   }
 });
 </script>

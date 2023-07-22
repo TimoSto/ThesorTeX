@@ -37,6 +37,14 @@
       />
     </template>
   </ApplicationFrame>
+  <v-dialog
+    v-model="unsaveDialogOpened"
+    width="450"
+  >
+    <UnsavedChangesCard
+      @resolve="applicationStateStore.resolveCallback($event)"
+    />
+  </v-dialog>
   <!--  <v-app>-->
   <!--    <v-app-bar-->
   <!--      color="primary"-->
@@ -135,7 +143,7 @@
 
 <script lang="ts" setup>
 import {pageNames, useAppStateStore} from "./stores/appState/AppStateStore";
-import {computed, onMounted, ref, watch,} from "vue";
+import {computed, ref, watch,} from "vue";
 import MainPage from "./pages/MainPage.vue";
 import {useErrorSuccessStore} from "@thesortex/vue-component-library/src/stores/ErrorSuccessStore/ErrorSuccessStore";
 import {i18nKeys} from "./i18n/keys";
@@ -148,6 +156,7 @@ import {useProjectsListStore} from "./stores/projectsList/ProjectsListStore";
 import {
   useApplicationStateStore
 } from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
+import UnsavedChangesCard from "./components/UnsavedChangesCard.vue";
 
 //globals
 const appStateStore = useAppStateStore();
@@ -189,7 +198,7 @@ const currentPage = computed(() => applicationStateStore.currentPage);
 
 const titleAppendix = computed(() => {
   let appendix: string;
-  switch (appStateStore.currentPage) {
+  switch (applicationStateStore.currentPage) {
     case pageNames[0]:
       appendix = "";
       break;
@@ -229,7 +238,7 @@ const navigatingBack = computed(() => {
 
 const unsaveDialogOpened = computed({
   get(): boolean {
-    return appStateStore.unsavedDialogTriggered;
+    return applicationStateStore.unsavedDialogTriggered;
   },
   set(v: boolean) {
     if (!v) {
@@ -265,10 +274,6 @@ function switchToProject(n: number) {
     }, 0);
   }
 }
-
-onMounted(() => {
-  console.log(appStateStore.history.length);
-});
 
 </script>
 

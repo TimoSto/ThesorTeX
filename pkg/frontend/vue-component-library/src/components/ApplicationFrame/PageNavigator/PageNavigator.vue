@@ -17,7 +17,7 @@ function goBack() {
 
 <template>
   <div class="container">
-    <div class="page" v-for="(e,n) in applicationStateStore.history"
+    <div class="page" :id="`page-${n+1}`" v-for="(e,n) in applicationStateStore.history"
          :class="`${n === applicationStateStore.history.length-1 && applicationStateStore.navState != NavState.Back || n === applicationStateStore.history.length-2 && applicationStateStore.navState === NavState.Back ? 'opened' : ''}`">
       <slot :name="n" :openPage="openPage" :goBack="goBack" />
     </div>
