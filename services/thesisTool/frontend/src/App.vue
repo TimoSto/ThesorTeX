@@ -3,6 +3,10 @@
     mainTitle="ThesorTeX"
     :titleAppendix="titleAppendix"
     :hasSidebar="!sidebarDisabled"
+    :documentProp="myDocument"
+    documentationTarget="https://thesortex.com/#/tutorials?target=ThesisTool"
+    showA11y
+    hasConfig
   >
     <template #sidebar>
       <ProjectsSidebar
