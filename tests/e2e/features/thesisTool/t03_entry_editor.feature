@@ -4,7 +4,7 @@ Feature: Entry editor
     Given the url "/" was opened
     And the project " test " is opened
     When a new entry is created
-    Then the title of the app is " ThesorTeX  - Edit entry"
+    Then the title of the app is "ThesorTeX - Edit entry"
     And the title of the main area is "Create new entry"
     And the save button in the editor is disabled
     When "e2" is entered as key
@@ -56,7 +56,7 @@ Feature: Entry editor
     And the back button is clicked
     Then the user is prompted that there are unsaved changes
     When the close is aborted
-    Then the title of the app is " ThesorTeX  - Edit entry"
+    Then the title of the app is "ThesorTeX - Edit entry"
     And the title of the main area is "e2"
 
   Scenario: Unsafe close confirm
@@ -67,10 +67,10 @@ Feature: Entry editor
     And the back button is clicked
     Then the user is prompted that there are unsaved changes
     When the close is confirmed
-    Then the title of the app is " ThesorTeX  - Projectview"
+    Then the title of the app is "ThesorTeX - Projectview"
     And the title of the main area is "test"
     When the back button is clicked
-    Then the title of the app is " ThesorTeX "
+    Then the title of the app is "ThesorTeX"
     And the title of the main area is "Welcome to ThesorTeX!"
 
   Scenario: Delete entry
@@ -81,7 +81,7 @@ Feature: Entry editor
     Then the user is asked to confirm the deletion of the entry
     When the deletion is confirmed
     Then the editor-page is closed
-    And the title of the app is " ThesorTeX  - Projectview"
+    And the title of the app is "ThesorTeX - Projectview"
     And the title of the main area is "test"
     And following entries are displayed
       | key       |

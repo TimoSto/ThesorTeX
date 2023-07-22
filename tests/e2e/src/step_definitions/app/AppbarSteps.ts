@@ -16,5 +16,5 @@ Then("the title of the main area is {string}", async function (this: OurWorld, t
 When("the back button is clicked", async function (this: OurWorld) {
     await this.page.locator(".v-app-bar").locator("button").nth(1).click();
 
-    await waitForAnimations(this.page, [".pages", "#page-2", ".v-overlay-container"]);
+    await waitForAnimations(this.page, [".container", "#page-2", ".v-overlay-container"]);
 });

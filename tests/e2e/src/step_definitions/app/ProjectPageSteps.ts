@@ -20,17 +20,17 @@ Then("following categories are displayed", async function (this: OurWorld, categ
 });
 
 When("the project is deleted", async function (this: OurWorld) {
-    await this.page.locator(".page--container header button").click();
+    await this.page.locator(".page.opened header button").click();
 });
 
 Then("the user is asked to confirm the deletion of the project", async function (this: OurWorld) {
-    await waitForAnimations(this.page, [".pages", ".v-overlay-container"]);
+    await waitForAnimations(this.page, [".container", ".v-overlay-container"]);
 
     expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Delete project");
 });
 
 Then("the project-page is closed", async function (this: OurWorld) {
-    await waitForAnimations(this.page, [".pages", "#page-2", "#page-1", ".v-overlay-container"]);
+    await waitForAnimations(this.page, [".container", "#page-2", "#page-1", ".v-overlay-container"]);
 
     expect(await this.page.locator("#page-2").count()).toEqual(0);
 });
