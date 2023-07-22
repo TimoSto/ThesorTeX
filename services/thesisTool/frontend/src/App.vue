@@ -4,6 +4,7 @@
     :titleAppendix="titleAppendix"
     :hasSidebar="!sidebarDisabled"
     :documentProp="myDocument"
+    :i18n="t"
     documentationTarget="https://thesortex.com/#/tutorials?target=ThesisTool"
     showA11y
     hasConfig
