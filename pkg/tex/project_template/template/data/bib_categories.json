@@ -1202,7 +1202,7 @@
         "Name": "Autor",
         "Format": {
           "Prefix": "",
-          "Suffix": "f ",
+          "Suffix": "",
           "Italic": true,
           "Preformatted": false
         },
