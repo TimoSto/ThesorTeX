@@ -13,9 +13,12 @@ export const useErrorSuccessStore = defineStore({
             this.valid = true;
         },
         setMessage(valid: boolean, message: string) {
-            this.message = "";
-            this.valid = valid;
-            this.message = message;
+            this.clear();
+            setTimeout(() => {
+                this.message = "";
+                this.valid = valid;
+                this.message = message;
+            });
         }
     }
-})
+});
