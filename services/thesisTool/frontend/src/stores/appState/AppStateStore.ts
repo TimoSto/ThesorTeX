@@ -31,12 +31,6 @@ export const useAppStateStore = defineStore({
         },
     } as AppState),
 
-    getters: {
-        currentPage: (state: AppState): string => {
-            return state.history[state.history.length - 1];
-        }
-    },
-
     actions: {
         navToPage(name: string) {
             this.history.push(name);

@@ -12,7 +12,6 @@ describe("AppStateStore", () => {
             expect(store.history).toEqual(["main"]);
             store.navToPage("test");
             expect(store.history.length).toEqual(2);
-            expect(store.currentPage).toEqual("test");
             expect(store.sidebarOpen).toBeFalsy();
         });
         it("sidebar was open", () => {
@@ -21,7 +20,6 @@ describe("AppStateStore", () => {
             store.sidebarOpen = true;
             store.navToPage("test2");
             expect(store.history.length).toEqual(3);
-            expect(store.currentPage).toEqual("test2");
             expect(store.sidebarOpen).toBeTruthy();
         });
     });
@@ -32,7 +30,6 @@ describe("AppStateStore", () => {
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(1);
-            expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
         });
         it("sidebar was open on page 3", () => {
@@ -42,7 +39,6 @@ describe("AppStateStore", () => {
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(2);
-            expect(store.currentPage).toEqual("test");
             expect(store.sidebarOpen).toBeTruthy();
         });
         it("sidebar was open on page 2", () => {
@@ -52,7 +48,6 @@ describe("AppStateStore", () => {
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(1);
-            expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
         });
         it("project was open on page 2", () => {
@@ -62,7 +57,6 @@ describe("AppStateStore", () => {
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(1);
-            expect(store.currentPage).toEqual("main");
             expect(store.sidebarOpen).toBeFalsy();
             expect(store.currentProject).toEqual("");
         });
@@ -73,7 +67,6 @@ describe("AppStateStore", () => {
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(2);
-            expect(store.currentPage).toEqual("test");
             expect(store.sidebarOpen).toBeFalsy();
             expect(store.currentProject).toEqual("tesst");
         });
@@ -87,7 +80,6 @@ describe("AppStateStore", () => {
             store.goBack();
             store.finishGoBack();
             expect(store.history.length).toEqual(2);
-            expect(store.currentPage).toEqual("test");
             expect(store.sidebarOpen).toBeFalsy();
             expect(store.currentItem).toEqual("");
         });
