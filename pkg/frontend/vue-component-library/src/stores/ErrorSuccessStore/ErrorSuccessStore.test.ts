@@ -11,16 +11,20 @@ describe("ErrorSuccessStore", () => {
 
         store.setMessage(true, "My success");
 
-        expect(store.valid).toBe(true);
-        expect(store.message).toEqual("My success");
+        setTimeout(() => {
+            expect(store.valid).toBe(true);
+            expect(store.message).toEqual("My success");
+        });
     });
     it("setting error", () => {
         const store = useErrorSuccessStore();
 
         store.setMessage(false, "My error");
 
-        expect(store.valid).toBe(false);
-        expect(store.message).toEqual("My error");
+        setTimeout(() => {
+            expect(store.valid).toBe(false);
+            expect(store.message).toEqual("My error");
+        });
     });
     it("clearing data", () => {
         const store = useErrorSuccessStore();

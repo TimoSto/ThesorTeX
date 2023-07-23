@@ -287,12 +287,12 @@ function finishNavBack() {
 }
 
 function switchToProject(n: number) {
-  instantSwitch.value = true;
-  appStateStore.switchToProject(projectsListStore.projects[n].Name);
-  if (!appStateStore.unsavedChanges) {
-    setTimeout(() => {
-      instantSwitch.value = false;
-    }, 0);
+  if (applicationStateStore.history.length > 2) {
+    applicationStateStore.goBack(applicationStateStore.history.length - 2, true, () => {
+      appStateStore.switchToProject(projectsListStore.projects[n].Name);
+    });
+  } else {
+    appStateStore.switchToProject(projectsListStore.projects[n].Name);
   }
 }
 
