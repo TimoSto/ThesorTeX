@@ -60,6 +60,27 @@
       @resolve="applicationStateStore.resolveCallback($event)"
     />
   </v-dialog>
+  <ErrorSuccessDisplay
+    :valid="success"
+    :message="message"
+    :error-title="t(i18nKeys.Common.Error)"
+    :close="t(i18nKeys.Common.Close)"
+    @close="message = ''"
+  >
+    <template #suffix>
+      <i18n-t :keypath="i18nKeys.Common.ContactBug">
+        <template #link>
+          <a
+            href="https://github.com/TimoSto/ThesorTeX/issues"
+            class="text-primary"
+            target="_blank"
+          >
+            https://github.com/TimoSto/ThesorTeX/issues
+          </a>
+        </template>
+      </i18n-t>
+    </template>
+  </ErrorSuccessDisplay>
   <!--  <v-app>-->
   <!--    <v-app-bar-->
   <!--      color="primary"-->
@@ -120,27 +141,7 @@
   <!--        -->
   <!--      </PageNavigator>-->
   <!--    </v-main>-->
-  <!--    <ErrorSuccessDisplay-->
-  <!--      :valid="success"-->
-  <!--      :message="message"-->
-  <!--      :error-title="t(i18nKeys.Common.Error)"-->
-  <!--      :close="t(i18nKeys.Common.Close)"-->
-  <!--      @close="message = ''"-->
-  <!--    >-->
-  <!--      <template #suffix>-->
-  <!--        <i18n-t :keypath="i18nKeys.Common.ContactBug">-->
-  <!--          <template #link>-->
-  <!--            <a-->
-  <!--              href="https://github.com/TimoSto/ThesorTeX/issues"-->
-  <!--              class="text-primary"-->
-  <!--              target="_blank"-->
-  <!--            >-->
-  <!--              https://github.com/TimoSto/ThesorTeX/issues-->
-  <!--            </a>-->
-  <!--          </template>-->
-  <!--        </i18n-t>-->
-  <!--      </template>-->
-  <!--    </ErrorSuccessDisplay>-->
+
   <!--    <v-dialog-->
   <!--      v-model="unsaveDialogOpened"-->
   <!--      width="450"-->
