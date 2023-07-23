@@ -72,16 +72,8 @@ export const useAppStateStore = defineStore({
             this.currentItem = id;
         },
         switchToProject(name: string) {
-            if (!this.unsavedChanges) {
-                this.history = this.history.slice(0, 2);
-                this.setProject(name);
-            } else {
-                this.unsavedDialogTriggered = true;
-                this.unsavedDialogCallback = () => {
-                    this.history = this.history.slice(0, 2);
-                    this.setProject(name);
-                };
-            }
+            this.history = this.history.slice(0, 2);
+            this.setProject(name);
         },
         resolveCallback(accept: boolean) {
             this.unsavedDialogTriggered = false;

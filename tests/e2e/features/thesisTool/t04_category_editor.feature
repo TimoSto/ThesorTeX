@@ -4,7 +4,7 @@ Feature: Category editor
     Given the url "/" was opened
     And the project " test " is opened
     When a new category is created
-    Then the title of the app is " ThesorTeX  - Category editor"
+    Then the title of the app is "ThesorTeX - Category editor"
     And the title of the main area is "Create new category"
     And the save button in the editor is disabled
     When "c1" is entered as name
@@ -39,7 +39,7 @@ Feature: Category editor
     Given the url "/" was opened
     And the project " test " is opened
     And the category "c1" is opened
-    Then the title of the app is " ThesorTeX  - Category editor"
+    Then the title of the app is "ThesorTeX - Category editor"
     And the title of the main area is "c1"
     When a bib field is added
     And "field3" is entered as the name of the field at index 2
@@ -52,7 +52,7 @@ Feature: Category editor
     Given the url "/" was opened
     And the project " test " is opened
     And the category "c1" is opened
-    Then the title of the app is " ThesorTeX  - Category editor"
+    Then the title of the app is "ThesorTeX - Category editor"
     And the title of the main area is "c1"
     When a bib field is added
     And "field3" is entered as the name of the field at index 2
@@ -60,14 +60,14 @@ Feature: Category editor
     And the back button is clicked
     Then the user is prompted that there are unsaved changes
     When the close is aborted
-    Then the title of the app is " ThesorTeX  - Category editor"
+    Then the title of the app is "ThesorTeX - Category editor"
     And the title of the main area is "c1"
 
   Scenario: unsafe close confirm
     Given the url "/" was opened
     And the project " test " is opened
     And the category "c1" is opened
-    Then the title of the app is " ThesorTeX  - Category editor"
+    Then the title of the app is "ThesorTeX - Category editor"
     And the title of the main area is "c1"
     When a bib field is added
     And "field3" is entered as the name of the field at index 2
@@ -75,10 +75,10 @@ Feature: Category editor
     And the back button is clicked
     Then the user is prompted that there are unsaved changes
     When the close is confirmed
-    Then the title of the app is " ThesorTeX  - Projectview"
+    Then the title of the app is "ThesorTeX - Projectview"
     And the title of the main area is "test"
     When the back button is clicked
-    Then the title of the app is " ThesorTeX "
+    Then the title of the app is "ThesorTeX"
     And the title of the main area is "Welcome to ThesorTeX!"
 
   Scenario: Delete category
@@ -89,7 +89,7 @@ Feature: Category editor
     Then the user is asked to confirm the deletion of the category
     When the deletion is confirmed
     Then the editor-page is closed
-    And the title of the app is " ThesorTeX  - Projectview"
+    And the title of the app is "ThesorTeX - Projectview"
     And the title of the main area is "test"
     And following categories are displayed
       | name                   |

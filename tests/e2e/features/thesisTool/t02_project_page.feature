@@ -3,7 +3,7 @@ Feature: Deleting project and overview over entries and categories
   Scenario: Displaying entries and categories
     Given the url "/" was opened
     When the project " example " is opened
-    Then the title of the app is " ThesorTeX  - Projectview"
+    Then the title of the app is "ThesorTeX - Projectview"
     And the title of the main area is "example"
     Then following entries are displayed
       | key       |
@@ -30,5 +30,5 @@ Feature: Deleting project and overview over entries and categories
     Then the user is asked to confirm the deletion of the project
     When the deletion is confirmed
     Then the project-page is closed
-    And the title of the app is " ThesorTeX "
+    And the title of the app is "ThesorTeX"
     And the title of the main area is "Welcome to ThesorTeX!"
