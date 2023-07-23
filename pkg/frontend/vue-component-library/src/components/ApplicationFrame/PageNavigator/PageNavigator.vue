@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import {NavState, useApplicationStateStore} from "../../../stores/ApplicationStateStore/ApplicationStateStore";
 
 const applicationStateStore = useApplicationStateStore();
@@ -16,8 +15,8 @@ function goBack() {
 </script>
 
 <template>
-  <div class="container">
-    <div class="page" v-for="(e,n) in applicationStateStore.history"
+  <div class="container" :class="applicationStateStore.instantNav ? 'disable-animations' : ''">
+    <div class="page" :id="`page-${n+1}`" v-for="(e,n) in applicationStateStore.history"
          :class="`${n === applicationStateStore.history.length-1 && applicationStateStore.navState != NavState.Back || n === applicationStateStore.history.length-2 && applicationStateStore.navState === NavState.Back ? 'opened' : ''}`">
       <slot :name="n" :openPage="openPage" :goBack="goBack" />
     </div>
@@ -29,6 +28,12 @@ function goBack() {
 </template>
 
 <style scoped lang="scss">
+.disable-animations {
+  & * {
+    transition: none !important;
+  }
+}
+
 .container {
   display: flex;
   height: 100%;

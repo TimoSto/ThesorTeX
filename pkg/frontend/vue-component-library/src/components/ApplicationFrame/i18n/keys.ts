@@ -5,6 +5,8 @@ export const i18nKeys = {
         Documentation: "ApplicationFrame.Documentation",
         OpenConfig: "ApplicationFrame.OpenConfig",
         ConfigTitle: "ApplicationFrame.ConfigTitle",
+        CloseConfig: "ApplicationFrame.CloseConfig",
+        SaveConfig: "ApplicationFrame.SaveConfig",
     }
 };
 

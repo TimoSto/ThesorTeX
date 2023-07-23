@@ -6,6 +6,7 @@ import RevealJS from "./RevealJS/RevealJS.vue";
 import ImageViewer from "./ImageViewer/ImageViewer.vue";
 import WaveContainer from "./WaveContainer/WaveContainer.vue";
 import AccessibilityDialog from "./AccessibilityDialog/AccessibilityDialog.vue";
+import ApplicationFrame from "./ApplicationFrame/ApplicationFrame.vue";
 
 export {
     ToolbarAndContent,
@@ -15,5 +16,6 @@ export {
     RevealJS,
     ImageViewer,
     WaveContainer,
-    AccessibilityDialog
+    AccessibilityDialog,
+    ApplicationFrame
 };

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref} from "vue";
+import {ref} from "vue";
 import {i18nKeys} from "./i18n/keys";
 import {accessibilityDialogKeys} from "../../index";
 import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog.vue";
@@ -19,22 +19,19 @@ const props = defineProps({
     required: false
   },
   showA11y: Boolean,
-  hasConfig: Boolean
+  hasConfig: Boolean,
+  titleAppendix: String,
+  configChangesToSave: Boolean,
 });
 
 const applicationStateStore = useApplicationStateStore();
+
+const emit = defineEmits(["saveConfig"]);
 
 // data
 const sidebarOpened = ref(false);
 const configOpened = ref(false);
 
-// computed
-const titleAppendix = computed(() => {
-  if (applicationStateStore.history.length === 1) {
-    return "";
-  }
-  return ` - ${applicationStateStore.history[applicationStateStore.history.length - 1]}`;
-});
 </script>
 
 <template>
@@ -48,6 +45,10 @@ const titleAppendix = computed(() => {
         :title="i18n(sidebarOpened ? i18nKeys.ApplicationFrame.CloseSidebar : i18nKeys.ApplicationFrame.OpenSidebar)"
         @click="sidebarOpened = !sidebarOpened"
       />
+
+      <v-btn icon v-if="applicationStateStore.history.length > 1" @click="applicationStateStore.goBack(1)">
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
 
       <v-app-bar-title role="heading" aria-level="1">
         {{ mainTitle }}{{ titleAppendix }}
@@ -99,6 +100,15 @@ const titleAppendix = computed(() => {
         <v-card-text>
           <slot name="config"></slot>
         </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn color="primary" @click="configOpened = false">
+            {{ i18n(i18nKeys.ApplicationFrame.CloseConfig) }}
+          </v-btn>
+          <v-btn color="primary" @click="emit('saveConfig')" :disabled="!configChangesToSave">
+            {{ i18n(i18nKeys.ApplicationFrame.SaveConfig) }}
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </v-app>
