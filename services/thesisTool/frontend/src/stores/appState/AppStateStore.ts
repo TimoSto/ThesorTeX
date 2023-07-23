@@ -23,7 +23,6 @@ export const useAppStateStore = defineStore({
     state: () => ({
         history: [pageNames[0]],
         sidebarOpen: false,
-        navigatingBack: false,
         currentProject: "",
         currentItem: "",
         unsavedChanges: false,

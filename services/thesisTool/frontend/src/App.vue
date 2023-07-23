@@ -253,10 +253,6 @@ const message = computed({
   }
 });
 
-const navigatingBack = computed(() => {
-  return appStateStore.navigatingBack;
-});
-
 const unsaveDialogOpened = computed({
   get(): boolean {
     return applicationStateStore.unsavedDialogTriggered;
