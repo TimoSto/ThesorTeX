@@ -22,7 +22,6 @@ function goBack() {
   <div class="container" :class="applicationStateStore.instantNav ? 'disable-animations' : ''">
     <div class="page" :id="`page-${n+1}`" v-for="(e,n) in applicationStateStore.history"
          :class="`${n === applicationStateStore.history.length-1 && applicationStateStore.navState != NavState.Back || n === applicationStateStore.history.length-2 && applicationStateStore.navState === NavState.Back ? 'opened' : ''}`">
-      <h2>nav {{ applicationStateStore.instantNav }}</h2>
       <slot :name="n" :openPage="openPage" :goBack="goBack" />
     </div>
   </div>
