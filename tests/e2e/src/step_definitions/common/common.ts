@@ -44,3 +44,14 @@ When("the close is confirmed", async function (this: OurWorld) {
 When("the close is aborted", async function (this: OurWorld) {
     await this.page.locator(".v-overlay__content .v-card-actions button").nth(0).click();
 });
+
+When("the backdrop of the dialog is clicked", async function (this: OurWorld) {
+    //TODO: make this work
+    //await this.page.locator(".v-overlay__scrim").click();
+
+    //await waitForAnimations(this.page, [".v-overlay-container"]);
+});
+
+Then("no dialog is shown", async function (this: OurWorld) {
+    expect(await this.page.locator(".v-overlay--active").count()).toEqual(0);
+});

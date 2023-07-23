@@ -18,3 +18,23 @@ When("the back button is clicked", async function (this: OurWorld) {
 
     await waitForAnimations(this.page, [".container", "#page-2", ".v-overlay-container"]);
 });
+
+When("the config button is clicked", async function (this: OurWorld) {
+    await this.page.locator(".v-app-bar").locator(".mdi-cog >> xpath=../..",).click();
+
+    await waitForAnimations(this.page, [".container", ".v-overlay-container"]);
+});
+
+Then("the config dialog is shown", async function (this: OurWorld) {
+    await waitForAnimations(this.page, [".container", ".v-overlay-container"]);
+
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Configuration");
+});
+
+When("the close button of the dialog is clicked", async function (this: OurWorld) {
+    await this.page.locator(".v-overlay__content .v-btn", {hasText: "Close"}).click();
+});
+
+Then("the save button in the dialog is disabled", async function (this: OurWorld) {
+    await expect(this.page.locator(".v-overlay__content .v-btn", {hasText: "Save"})).toBeDisabled();
+});
