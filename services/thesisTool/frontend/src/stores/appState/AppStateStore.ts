@@ -35,26 +35,6 @@ export const useAppStateStore = defineStore({
         navToPage(name: string) {
             this.history.push(name);
         },
-        goBack() {
-            if (!this.unsavedChanges) {
-                this.navigatingBack = true;
-            } else {
-                this.unsavedDialogTriggered = true;
-                this.unsavedDialogCallback = () => {
-                    this.navigatingBack = true;
-                };
-            }
-        },
-        finishGoBack() {
-            this.navigatingBack = false;
-            this.history.pop();
-            this.currentItem = "";
-            this.unsavedChanges = false;
-            if (this.history.length === 1) {
-                this.sidebarOpen = false;
-                this.currentProject = "";
-            }
-        },
         setSidebarOpened(v: boolean) {
             this.sidebarOpen = v;
         },

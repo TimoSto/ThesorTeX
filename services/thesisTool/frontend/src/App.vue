@@ -274,14 +274,6 @@ watch(() => appStateStore.unsavedDialogTriggered, () => {
 });
 
 // methods
-function navBack() {
-  appStateStore.goBack();
-}
-
-function finishNavBack() {
-  appStateStore.finishGoBack();
-}
-
 function switchToProject(n: number) {
   if (applicationStateStore.history.length > 2) {
     applicationStateStore.goBack(applicationStateStore.history.length - 2, true, () => {
