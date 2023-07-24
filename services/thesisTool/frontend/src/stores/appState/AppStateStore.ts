@@ -32,9 +32,6 @@ export const useAppStateStore = defineStore({
     } as AppState),
 
     actions: {
-        navToPage(name: string) {
-            this.history.push(name);
-        },
         setSidebarOpened(v: boolean) {
             this.sidebarOpen = v;
         },
