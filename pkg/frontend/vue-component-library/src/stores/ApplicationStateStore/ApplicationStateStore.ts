@@ -13,7 +13,8 @@ export interface ApplicationState {
     instantNav: boolean,
     unsavedChanges: boolean,
     unsavedDialogTriggered: boolean,
-    unsavedDialogCallback: () => void
+    unsavedDialogCallback: () => void,
+    sidebarOpened: boolean
 }
 
 const MainPage = "main";
@@ -28,6 +29,7 @@ export const useApplicationStateStore = defineStore({
         unsavedDialogTriggered: false,
         unsavedDialogCallback: () => {
         },
+        sidebarOpened: false,
     } as ApplicationState),
     getters: {
         currentPage: (state: ApplicationState): string => {

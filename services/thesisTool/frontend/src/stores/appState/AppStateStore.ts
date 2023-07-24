@@ -22,15 +22,11 @@ export const useAppStateStore = defineStore({
     id: "app-state",
     state: () => ({
         history: [pageNames[0]],
-        sidebarOpen: false,
         currentProject: "",
         currentItem: "",
     } as AppState),
 
     actions: {
-        setSidebarOpened(v: boolean) {
-            this.sidebarOpen = v;
-        },
         setProject(name: string) {
             this.currentProject = name;
         },

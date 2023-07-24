@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {i18nKeys} from "./i18n/keys";
 import {accessibilityDialogKeys} from "../../index";
 import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog.vue";
@@ -29,8 +29,17 @@ const applicationStateStore = useApplicationStateStore();
 const emit = defineEmits(["saveConfig"]);
 
 // data
-const sidebarOpened = ref(false);
 const configOpened = ref(false);
+
+//computed
+const sidebarOpened = computed({
+  get(): boolean {
+    return applicationStateStore.sidebarOpened;
+  },
+  set(v: boolean) {
+    applicationStateStore.sidebarOpened = v;
+  }
+});
 
 </script>
 

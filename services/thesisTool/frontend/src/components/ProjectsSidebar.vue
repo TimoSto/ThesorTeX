@@ -1,6 +1,6 @@
 <template>
   <ToolbarAndContent
-    :hide-bar="!open"
+    :hide-bar="!sidebarOpened"
   >
     <template #bar>
       <v-toolbar-title>Projects</v-toolbar-title>
@@ -27,12 +27,17 @@
 
 <script lang="ts" setup>
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
-import {computed} from "vue";
+import {computed, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
+import {
+  useApplicationStateStore
+} from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
 // globals
 const projectsListStore = useProjectsListStore();
+
+const applicationStateStore = useApplicationStateStore();
 
 const emit = defineEmits(["switchTo"]);
 
@@ -44,13 +49,13 @@ const props = defineProps({
     type: String,
     required: true
   },
-  open: {
-    type: Boolean,
-    required: true
-  }
 });
 
 // computed
+const sidebarOpened = computed(() => {
+  return applicationStateStore.sidebarOpened;
+});
+
 const projects = computed(() => {
   return projectsListStore.projects.map(p => p.Name);
 });

@@ -198,15 +198,6 @@ const configDialogContent = ref<ConfigDialog>(null);
 const configChangesToSave = ref(false);
 
 // computed
-const sidebarOpened = computed({
-  get() {
-    return appStateStore.sidebarOpen;
-  },
-  set(v: boolean) {
-    appStateStore.setSidebarOpened(v);
-  }
-});
-
 const sidebarDisabled = computed(() => {
   return applicationStateStore.history.length === 1;
 });
@@ -270,6 +261,12 @@ watch(() => applicationStateStore.unsavedDialogTriggered, () => {
     setTimeout(() => {
       instantSwitch.value = false;
     }, 0);
+  }
+});
+
+watch(pagesCount, () => {
+  if (pagesCount.value === 1) {
+    applicationStateStore.sidebarOpened = false;
   }
 });
 
