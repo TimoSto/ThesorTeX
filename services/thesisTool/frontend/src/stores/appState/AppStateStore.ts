@@ -25,10 +25,6 @@ export const useAppStateStore = defineStore({
         sidebarOpen: false,
         currentProject: "",
         currentItem: "",
-        unsavedChanges: false,
-        unsavedDialogTriggered: false,
-        unsavedDialogCallback: () => {
-        },
     } as AppState),
 
     actions: {
@@ -45,15 +41,5 @@ export const useAppStateStore = defineStore({
             this.history = this.history.slice(0, 2);
             this.setProject(name);
         },
-        resolveCallback(accept: boolean) {
-            this.unsavedDialogTriggered = false;
-            if (accept) {
-                this.unsavedDialogCallback();
-                this.unsavedChanges = false;
-            } else {
-                this.unsavedDialogCallback = () => {
-                };
-            }
-        }
     }
 });

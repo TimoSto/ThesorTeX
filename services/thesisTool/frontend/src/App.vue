@@ -259,14 +259,14 @@ const unsaveDialogOpened = computed({
   },
   set(v: boolean) {
     if (!v) {
-      appStateStore.resolveCallback(false);
+      applicationStateStore.resolveCallback(false);
     }
   }
 });
 
 // watcher
-watch(() => appStateStore.unsavedDialogTriggered, () => {
-  if (!appStateStore.unsavedDialogTriggered) {
+watch(() => applicationStateStore.unsavedDialogTriggered, () => {
+  if (!applicationStateStore.unsavedDialogTriggered) {
     setTimeout(() => {
       instantSwitch.value = false;
     }, 0);
