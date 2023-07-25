@@ -3,14 +3,12 @@ import {spawn} from "child_process";
 import {expect, request} from "@playwright/test";
 
 export async function StartupBrowser(): Promise<ChromiumBrowser> {
-    const browser = await chromium.launch({
+    return await chromium.launch({
         // Not headless so we can watch test runs
         headless: true,
         // Slow so we can see things happening
         slowMo: 50,
     });
-
-    return browser;
 }
 
 export async function StartupSutIfExists(): Promise<any> {
