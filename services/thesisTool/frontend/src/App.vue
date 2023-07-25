@@ -15,7 +15,6 @@
       <ProjectsSidebar
         v-if="pagesCount > 1"
         :project="appStateStore.currentProject"
-        :open="sidebarOpened"
         @switch-to="switchToProject($event)"
       />
     </template>
@@ -44,7 +43,7 @@
       />
     </template>
     <template #config>
-      <ConfigDialog
+      <ConfigContent
         :open="configOpened"
         @close="configOpened=false"
         @changesToSave="configChangesToSave = $event"
@@ -173,7 +172,8 @@ import {
   useApplicationStateStore
 } from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 import UnsavedChangesCard from "./components/UnsavedChangesCard.vue";
-import ConfigDialog from "./pages/ConfigDialog.vue";
+import ConfigDialog from "./components/ConfigContent.vue";
+import ConfigContent from "./components/ConfigContent.vue";
 
 //globals
 const appStateStore = useAppStateStore();
