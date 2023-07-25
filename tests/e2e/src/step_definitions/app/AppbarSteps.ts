@@ -38,3 +38,11 @@ When("the close button of the dialog is clicked", async function (this: OurWorld
 Then("the save button in the dialog is disabled", async function (this: OurWorld) {
     await expect(this.page.locator(".v-overlay__content .v-btn", {hasText: "Save"})).toBeDisabled();
 });
+
+Then("the save button in the dialog is enabled", async function (this: OurWorld) {
+    await expect(this.page.locator(".v-overlay__content .v-btn", {hasText: "Save"})).not.toBeDisabled();
+});
+
+When("the save button in the dialog is clicked", async function (this: OurWorld) {
+    await this.page.locator(".v-overlay__content .v-btn", {hasText: "Save"}).click();
+});

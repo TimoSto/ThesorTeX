@@ -57,3 +57,7 @@ Then("the expansion panel with the title {string} is expanded", async function (
     await expect(el).toBeVisible();
     //await expect(el).toBeFocused();
 });
+
+When("the browser is reloaded", async function (this: OurWorld) {
+    await this.page.reload();
+});
