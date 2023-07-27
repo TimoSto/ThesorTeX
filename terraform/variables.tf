@@ -12,7 +12,7 @@ variable "budget_amount" {
 
 variable "website_image_tag" {
   # Update this to the tag of the image in aws ecr
-  default = "2c35aeb6"
+  default = "8bbe2f0a"
 }
 
 variable "contact_image_tag" {
