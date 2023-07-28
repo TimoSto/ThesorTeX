@@ -9,89 +9,90 @@ import (
 	"testing"
 )
 
-func TestMapHeaders(t *testing.T) {
-	agwReq := events.APIGatewayProxyRequest{
-		Headers: map[string]string{
-			"foo": "bar",
-			"bar": "foo",
-		},
-	}
-
-	headers := mapHeader(&agwReq)
-
-	if headers.Get("foo") != "bar" {
-		t.Errorf("expected value 'bar' for header 'foo'")
-	}
-
-	if headers.Get("bar") != "foo" {
-		t.Errorf("expected value 'foo' for header 'bar'")
-	}
-}
-
-func TestMapUrl(t *testing.T) {
+func TestMapRequest(t *testing.T) {
 	for _, c := range []struct {
 		title string
 		evt   events.APIGatewayProxyRequest
-		exp   url.URL
+		exp   http.Request
 	}{
 		{
-			title: "only url",
+			title: "get only url",
 			evt: events.APIGatewayProxyRequest{
-				Path: "/test/route1",
+				HTTPMethod: "GET",
+				Path:       "/test/route1",
 			},
-			exp: url.URL{
-				Path: "/test/route1",
+			exp: http.Request{
+				Method: "GET",
+				URL: &url.URL{
+					Path: "/test/route1",
+				},
 			},
 		},
 		{
-			title: "one query param",
+			title: "post one query param",
 			evt: events.APIGatewayProxyRequest{
-				Path: "/test/route1",
+				HTTPMethod: "POST",
+				Path:       "/test/route1",
 				QueryStringParameters: map[string]string{
 					"foo": "bar",
 				},
 			},
-			exp: url.URL{
-				Path:     "/test/route1",
-				RawQuery: "foo=bar",
+			exp: http.Request{
+				Method: "POST",
+				URL: &url.URL{
+					Path:     "/test/route1",
+					RawQuery: "foo=bar",
+				},
 			},
 		},
 		{
-			title: "three query params",
+			title: "put three query params",
 			evt: events.APIGatewayProxyRequest{
-				Path: "/test/route1",
+				HTTPMethod: "PUT",
+				Path:       "/test/route1",
 				QueryStringParameters: map[string]string{
 					"foo":   "bar",
 					"test":  "value",
 					"query": "string",
 				},
 			},
-			exp: url.URL{
-				Path:     "/test/route1",
-				RawQuery: "foo=bar&query=string&test=value",
+			exp: http.Request{
+				Method: "PUT",
+				URL: &url.URL{
+					Path:     "/test/route1",
+					RawQuery: "foo=bar&query=string&test=value",
+				},
 			},
 		},
 		{
-			title: "three query params with special chars",
+			title: "DELETE three query params with special chars",
 			evt: events.APIGatewayProxyRequest{
-				Path: "/test/route1",
+				HTTPMethod: "DELETE",
+				Path:       "/test/route1",
 				QueryStringParameters: map[string]string{
 					"foo":   "bar",
 					"test":  "value",
 					"query": "string value",
 				},
 			},
-			exp: url.URL{
-				Path:     "/test/route1",
-				RawQuery: "foo=bar&query=string+value&test=value",
+			exp: http.Request{
+				Method: "DELETE",
+				URL: &url.URL{
+					Path:     "/test/route1",
+					RawQuery: "foo=bar&query=string+value&test=value",
+				},
 			},
 		},
 	} {
 		t.Run(c.title, func(t *testing.T) {
-			got := mapURL(&c.evt)
+			got := mapRequest(&c.evt)
 
-			if diff := cmp.Diff(*got, c.exp); diff != "" {
-				t.Errorf("unexpected diff: %s", diff)
+			if got.Method != c.exp.Method {
+				t.Errorf("expected method %s but got %s", c.exp.Method, got.Method)
+			}
+
+			if diff := cmp.Diff(*got.URL, *c.exp.URL); diff != "" {
+				t.Errorf("unexpected diff on url: %s", diff)
 			}
 		})
 	}

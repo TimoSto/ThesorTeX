@@ -50,11 +50,7 @@ func MapHandler(handler http.Handler) func(ctx context.Context, request events.A
 }
 
 func newRequest(evt *events.APIGatewayProxyRequest) (*http.Request, error) {
-	req := &http.Request{
-		Method: evt.HTTPMethod,
-		URL:    mapURL(evt),
-		Header: *mapHeader(evt),
-	}
+	req := mapRequest(evt)
 
 	if req.URL.RawQuery != "" {
 		req.RequestURI = req.URL.Path + "?" + req.URL.RawQuery
@@ -75,22 +71,24 @@ func newRequest(evt *events.APIGatewayProxyRequest) (*http.Request, error) {
 	return req, nil
 }
 
-func mapURL(e *events.APIGatewayProxyRequest) *url.URL {
-	u := &url.URL{Path: e.Path}
-	if e.QueryStringParameters != nil {
-		values := make(url.Values)
-		for key, value := range e.QueryStringParameters {
-			values.Add(key, value)
+func mapRequest(evt *events.APIGatewayProxyRequest) *http.Request {
+	u := &url.URL{Path: evt.Path}
+	if evt.QueryStringParameters != nil {
+		queries := make(url.Values)
+		for key, value := range evt.QueryStringParameters {
+			queries.Add(key, value)
 		}
-		u.RawQuery = values.Encode()
+		u.RawQuery = queries.Encode()
 	}
-	return u
-}
 
-func mapHeader(e *events.APIGatewayProxyRequest) *http.Header {
-	result := &http.Header{}
-	for k, v := range e.Headers {
-		result.Add(k, v)
+	h := http.Header{}
+	for k, v := range evt.Headers {
+		h.Add(k, v)
 	}
-	return result
+
+	return &http.Request{
+		Method: evt.HTTPMethod,
+		URL:    u,
+		Header: h,
+	}
 }
