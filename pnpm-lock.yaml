@@ -13,7 +13,7 @@ overrides:
   eslint: 8.31.0
   eslint-plugin-vue: 9.9.0
   happy-dom: 9.20.3
-  pinia: 2.1.4
+  pinia: 2.1.6
   sass: 1.64.1
   ts-node: 10.9.1
   typescript: 4.9.5
@@ -44,7 +44,7 @@ importers:
         version: 0.8.1(vue-i18n@9.2.2)
       '@pinia/testing':
         specifier: ^0.1.2
-        version: 0.1.2(pinia@2.1.4)(vue@3.3.4)
+        version: 0.1.2(pinia@2.1.6)(vue@3.3.4)
       '@storybook/addon-essentials':
         specifier: 7.1.1
         version: 7.1.1(react-dom@18.2.0)(react@18.2.0)
@@ -79,8 +79,8 @@ importers:
         specifier: 0.32.0
         version: 0.32.0
       pinia:
-        specifier: 2.1.4
-        version: 2.1.4(typescript@4.9.5)(vue@3.3.4)
+        specifier: 2.1.6
+        version: 2.1.6(typescript@4.9.5)(vue@3.3.4)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -137,8 +137,8 @@ importers:
   pkg/frontend/vue-component-library:
     dependencies:
       pinia:
-        specifier: 2.1.4
-        version: 2.1.4(typescript@4.9.5)(vue@3.3.4)
+        specifier: 2.1.6
+        version: 2.1.6(typescript@4.9.5)(vue@3.3.4)
       reveal.js:
         specifier: ^4.4.0
         version: 4.4.0
@@ -221,8 +221,8 @@ importers:
         specifier: workspace:*
         version: link:../../../pkg/frontend/vuetify-plugin
       pinia:
-        specifier: 2.1.4
-        version: 2.1.4(typescript@4.9.5)(vue@3.3.4)
+        specifier: 2.1.6
+        version: 2.1.6(typescript@4.9.5)(vue@3.3.4)
       vue:
         specifier: 3.3.4
         version: 3.3.4
@@ -2898,12 +2898,12 @@ packages:
     resolution: { integrity: sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q== }
     dev: true
 
-  /@pinia/testing@0.1.2(pinia@2.1.4)(vue@3.3.4):
+  /@pinia/testing@0.1.2(pinia@2.1.6)(vue@3.3.4):
     resolution: { integrity: sha512-8EyBaVFtv682tBiF810u81vAJ1ykwnaldkVDU52oqtVbh5FUj5dSCSM9+MtRM/tZkq0AulwMK4BnBktqwsnEnw== }
     peerDependencies:
       pinia: '>=2.1.2'
     dependencies:
-      pinia: 2.1.4(typescript@4.9.5)(vue@3.3.4)
+      pinia: 2.1.6(typescript@4.9.5)(vue@3.3.4)
       vue-demi: 0.14.5(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -7933,8 +7933,8 @@ packages:
     engines: { node: '>=6' }
     dev: true
 
-  /pinia@2.1.4(typescript@4.9.5)(vue@3.3.4):
-    resolution: { integrity: sha512-vYlnDu+Y/FXxv1ABo1vhjC+IbqvzUdiUC3sfDRrRyY2CQSrqqaa+iiHmqtARFxJVqWQMCJfXx1PBvFs9aJVLXQ== }
+  /pinia@2.1.6(typescript@4.9.5)(vue@3.3.4):
+    resolution: { integrity: sha512-bIU6QuE5qZviMmct5XwCesXelb5VavdOWKWaB17ggk++NUwQWWbP5YnsONTk3b752QkW9sACiR81rorpeOMSvQ== }
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
