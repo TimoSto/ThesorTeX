@@ -1,6 +1,7 @@
 package server
 
 import (
+	"errors"
 	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"net"
@@ -29,7 +30,7 @@ func NewServer(port string, handler http.Handler, fin chan bool) *Server {
 		fmt.Println("serving")
 		err := s.srv.Serve(socket)
 		if err != nil {
-			if err != http.ErrServerClosed {
+			if !errors.Is(err, http.ErrServerClosed) {
 				log.Error("Error starting server: %v", err)
 			}
 			fin <- true
