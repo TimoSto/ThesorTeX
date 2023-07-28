@@ -5,7 +5,7 @@
   "pnpm": {
     "overrides": {
       "@mdi/font": "7.2.96",
-      "@types/node": "20.3.1",
+      "@types/node": "20.4.5",
       "@typescript-eslint/parser": "5.48.1",
       "@vitejs/plugin-vue": "4.0.0",
       "@vue/test-utils": "2.3.2",
