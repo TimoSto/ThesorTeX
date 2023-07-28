@@ -314,19 +314,19 @@ importers:
     devDependencies:
       '@axe-core/playwright':
         specifier: ^4.6.1
-        version: 4.6.1(playwright@1.30.0)
+        version: 4.6.1(playwright@1.36.2)
       '@cucumber/cucumber':
         specifier: ^8.10.0
         version: 8.10.0
       '@playwright/test':
-        specifier: ^1.30.0
-        version: 1.30.0
+        specifier: 1.36.2
+        version: 1.36.2
       '@types/node':
         specifier: 20.4.5
         version: 20.4.5
       playwright:
-        specifier: ^1.30.0
-        version: 1.30.0
+        specifier: 1.36.2
+        version: 1.36.2
       ts-node:
         specifier: 10.9.1
         version: 10.9.1(@types/node@20.4.5)(typescript@4.9.5)
@@ -351,13 +351,13 @@ packages:
       default-browser-id: 3.0.0
     dev: true
 
-  /@axe-core/playwright@4.6.1(playwright@1.30.0):
+  /@axe-core/playwright@4.6.1(playwright@1.36.2):
     resolution: { integrity: sha512-XMKP2OzGfGIYpU9G9FgI2ulyjEXQDP6qtZerOwdQ7YC1w4SFgofK3ogSk0qVoy0QI+q6XWLUJMfMMkUwdTR2dA== }
     peerDependencies:
       playwright: '>= 1.0.0'
     dependencies:
       axe-core: 4.7.0
-      playwright: 1.30.0
+      playwright: 1.36.2
     dev: true
 
   /@babel/code-frame@7.22.5:
@@ -2917,13 +2917,15 @@ packages:
     dev: true
     optional: true
 
-  /@playwright/test@1.30.0:
-    resolution: { integrity: sha512-SVxkQw1xvn/Wk/EvBnqWIq6NLo1AppwbYOjNLmyU0R1RoQ3rLEBtmjTnElcnz8VEtn11fptj1ECxK0tgURhajw== }
-    engines: { node: '>=14' }
+  /@playwright/test@1.36.2:
+    resolution: { integrity: sha512-2rVZeyPRjxfPH6J0oGJqE8YxiM1IBRyM8hyrXYK7eSiAqmbNhxwcLa7dZ7fy9Kj26V7FYia5fh9XJRq4Dqme+g== }
+    engines: { node: '>=16' }
     hasBin: true
     dependencies:
       '@types/node': 20.4.5
-      playwright-core: 1.30.0
+      playwright-core: 1.36.2
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /@rollup/pluginutils@4.2.1:
@@ -7990,19 +7992,19 @@ packages:
       pathe: 1.1.1
     dev: true
 
-  /playwright-core@1.30.0:
-    resolution: { integrity: sha512-7AnRmTCf+GVYhHbLJsGUtskWTE33SwMZkybJ0v6rqR1boxq2x36U7p1vDRV7HO2IwTZgmycracLxPEJI49wu4g== }
-    engines: { node: '>=14' }
+  /playwright-core@1.36.2:
+    resolution: { integrity: sha512-sQYZt31dwkqxOrP7xy2ggDfEzUxM1lodjhsQ3NMMv5uGTRDsLxU0e4xf4wwMkF2gplIxf17QMBCodSFgm6bFVQ== }
+    engines: { node: '>=16' }
     hasBin: true
     dev: true
 
-  /playwright@1.30.0:
-    resolution: { integrity: sha512-ENbW5o75HYB3YhnMTKJLTErIBExrSlX2ZZ1C/FzmHjUYIfxj/UnI+DWpQr992m+OQVSg0rCExAOlRwB+x+yyIg== }
-    engines: { node: '>=14' }
+  /playwright@1.36.2:
+    resolution: { integrity: sha512-4Fmlq3KWsl85Bl4InJw1NC21aeQV0iSZuFvTDcy1F8zVmXmgQRe89GxF8zMSRt/KIS+2tUolak7EXVl9aC+JdA== }
+    engines: { node: '>=16' }
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.30.0
+      playwright-core: 1.36.2
     dev: true
 
   /pngjs@3.4.0:

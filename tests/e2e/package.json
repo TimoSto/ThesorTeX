@@ -12,9 +12,9 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.6.1",
     "@cucumber/cucumber": "^8.10.0",
-    "@playwright/test": "^1.30.0",
-    "@types/node": "18.11.18",
-    "playwright": "^1.30.0",
+    "@playwright/test": "1.36.2",
+    "@types/node": "*",
+    "playwright": "1.36.2",
     "ts-node": "10.9.1",
     "typescript": "*"
   }
