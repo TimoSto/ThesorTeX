@@ -12,7 +12,7 @@
   "dependencies": {
     "pinia": "*",
     "reveal.js": "^4.4.0",
-    "sass": "1.58.3",
+    "sass": "*",
     "typescript": "4.9.5",
     "vite-plugin-vuetify": "*",
     "vue": "*",

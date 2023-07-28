@@ -14,7 +14,7 @@
     "@thesortex/vue-component-library": "workspace:*",
     "@thesortex/vue-i18n-plugin": "workspace:^1.0.0",
     "@thesortex/vuetify-plugin": "workspace:*",
-    "sass": "1.58.3",
+    "sass": "*",
     "vue": "*",
     "vue-router": "4",
     "vuetify": "*"
