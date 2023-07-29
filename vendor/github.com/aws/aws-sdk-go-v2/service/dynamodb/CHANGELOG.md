@@ -1,3 +1,15 @@
+# v1.20.3 (2023-07-28)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.2 (2023-07-25)
+
+* **Documentation**: Documentation updates for DynamoDB
+
+# v1.20.1 (2023-07-13)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.20.0 (2023-06-29)
 
 * **Feature**: This release adds ReturnValuesOnConditionCheckFailure parameter to PutItem, UpdateItem, DeleteItem, ExecuteStatement, BatchExecuteStatement and ExecuteTransaction APIs. When set to ALL_OLD,  API returns a copy of the item as it was when a conditional write failed
