@@ -10,7 +10,7 @@ import (
 
 type Server struct {
 	srv  *http.Server
-	addr string
+	port string
 }
 
 func NewServer(port string, handler http.Handler, fin chan bool) *Server {
@@ -18,7 +18,7 @@ func NewServer(port string, handler http.Handler, fin chan bool) *Server {
 		srv: &http.Server{
 			Handler: handler,
 		},
-		addr: "",
+		port: "",
 	}
 
 	socket, err := net.Listen("tcp", fmt.Sprintf("localhost:%s", port))
@@ -27,7 +27,6 @@ func NewServer(port string, handler http.Handler, fin chan bool) *Server {
 	}
 
 	go func() {
-		fmt.Println("serving")
 		err := s.srv.Serve(socket)
 		if err != nil {
 			if !errors.Is(err, http.ErrServerClosed) {
@@ -37,17 +36,11 @@ func NewServer(port string, handler http.Handler, fin chan bool) *Server {
 		}
 	}()
 
-	s.addr = socket.Addr().String()
+	_, s.port, err = net.SplitHostPort(socket.Addr().String())
 
 	return s
 }
 
-func (s *Server) Address() string {
-	return s.addr
-}
-
 func (s *Server) Port() string {
-	_, port, _ := net.SplitHostPort(s.addr)
-
-	return port
+	return s.port
 }
