@@ -82,20 +82,27 @@ The visual regression tests (storybook + loki) currently have to be run using th
 
 ## Deployment
 
-To update aws infrastructure
+To upload a new lambda image, run
+
+```
+./scripts/aws-ecr-login.sh
+./scripts/build.sh website
+```
+
+To update aws infrastructure, replace the image tag in `terraform/variables.tf` and run
 
 ```
 cd terraform
 ./scripts/deploy.sh
 ```
 
-To upload build-artifacts as zips
+To upload build-artifacts as zips, run
 
 ```
 ./scripts/s3_upload_atrifacts.sh all
 ```
 
-To only deploy one target, replace `all` with `thesisTool`, `thesisTemplate` or `cvTemplate`.
+To only upload one target, replace `all` with `thesisTool`, `thesisTemplate` or `cvTemplate`.
 
 ## Used technologies
 
