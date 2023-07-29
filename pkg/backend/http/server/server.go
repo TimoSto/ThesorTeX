@@ -8,26 +8,18 @@ import (
 	"net/http"
 )
 
-type Server struct {
-	srv  *http.Server
-	port string
-}
-
-func NewServer(port string, handler http.Handler, fin chan bool) *Server {
-	s := &Server{
-		srv: &http.Server{
-			Handler: handler,
-		},
-		port: "",
+func StartServer(port string, handler http.Handler, fin chan bool) (string, error) {
+	srv := &http.Server{
+		Handler: handler,
 	}
 
 	socket, err := net.Listen("tcp", fmt.Sprintf("localhost:%s", port))
 	if err != nil {
-		panic(fmt.Sprintf("server: could not bind to socket (port: %v)", port))
+		return "", fmt.Errorf("server: could not bind to socket (port: %v)", port)
 	}
 
 	go func() {
-		err := s.srv.Serve(socket)
+		err := srv.Serve(socket)
 		if err != nil {
 			if !errors.Is(err, http.ErrServerClosed) {
 				log.Error("Error starting server: %v", err)
@@ -36,11 +28,10 @@ func NewServer(port string, handler http.Handler, fin chan bool) *Server {
 		}
 	}()
 
-	_, s.port, err = net.SplitHostPort(socket.Addr().String())
+	_, p, err := net.SplitHostPort(socket.Addr().String())
+	if err != nil {
+		return "", err
+	}
 
-	return s
-}
-
-func (s *Server) Port() string {
-	return s.port
+	return p, nil
 }

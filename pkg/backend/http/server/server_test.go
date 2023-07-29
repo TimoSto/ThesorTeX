@@ -11,10 +11,13 @@ func TestNewServer_fixedPort(t *testing.T) {
 
 	}
 
-	s := server.NewServer("8081", http.HandlerFunc(h), make(chan bool, 1))
+	p, err := server.StartServer("8081", http.HandlerFunc(h), make(chan bool, 1))
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+	}
 
-	if want := "8081"; want != s.Port() {
-		t.Errorf("expected port %s but got %s", want, s.Port())
+	if want := "8081"; want != p {
+		t.Errorf("expected port %s but got %s", want, p)
 	}
 }
 
@@ -23,9 +26,12 @@ func TestNewServer_zeroPort(t *testing.T) {
 
 	}
 
-	s := server.NewServer("0", http.HandlerFunc(h), make(chan bool, 1))
+	p, err := server.StartServer("0", http.HandlerFunc(h), make(chan bool, 1))
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+	}
 
-	if "0" == s.Port() {
+	if "0" == p {
 		t.Error("expected port different than 0")
 	}
 }

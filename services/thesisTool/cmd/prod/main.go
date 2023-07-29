@@ -64,9 +64,12 @@ func main() {
 
 	finished := make(chan bool, 1)
 
-	srv := server.NewServer(config.Cfg.Port, chain.Then(mux), finished)
+	p, err := server.StartServer(config.Cfg.Port, chain.Then(mux), finished)
+	if err != nil {
+		log.Fatal("could not start server: %v", err)
+	}
 
-	addr := fmt.Sprintf("http://localhost:%s", srv.Port())
+	addr := fmt.Sprintf("http://localhost:%s", p)
 	log.Info("local server is running under %s", addr)
 
 	if config.Cfg.OpenBrowser {
