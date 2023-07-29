@@ -1,5 +1,5 @@
 # ThesorTeX
-A Template for a thesis, a cv and a Tool for handling bibliography in a LaTeX project.
+A Template for a thesis, a cv and a tool for handling bibliography in a LaTeX project.
 
 The website is available under [https://thesortex.com](https://thesortex.com).
 
@@ -112,46 +112,21 @@ To only deploy one target, replace `all` with `thesisTool`, `thesisTemplate` or 
 
 This project uses the monorepo approach.
 
-### services
-
-Here the separation of the different services, that are independently runnable.
-
-##### cmd
-
-Here lie the targets for the executables
-
-##### internal
-
-Internal packages of each service
-
-##### frontend
-
-The frontend of the service using the global pnpm-workspace
-
-### pkg
-
-Packages used by multiple services
-
-#### backend
-
-Go packages
-
-#### frontend
-
-GUI packages
-
-### tests
-
-global tests
-
-### terraform
-
-terraform modules
-
-### scripts
-
-build scripts
-
-### bazel
-
-global bazel files
+- `bazel`: bazel modules used in different places
+- `pkg`: packages used in multiple occasions
+  - `backend`: go packages
+  - `frontend`: nodeJS and vue packages
+  - `tex`: tex templates
+- `services`: here the separation of the different services, that are independently runnable.
+  - `cmd`: the targets to be build
+  - `internal`: the backend logic only accessible to the `cmd`s of the `service`
+  - `frontend`: the frontend of the service
+  - `documentation`: the documentation of the service written in md
+- `scripts`: build scripts
+- `terraform`: the configuration for the aws deployment
+- `tests`: the global tests
+  - `e2e`: e2e tests, currently using playwright and cucumber
+- `tools`: tools used for the build
+  - `documentationbuilder`: parsing and converting an md documentation to json and to tex code
+  - `documentationcombinator`: combining multiple tex-documentations produced by `documentationbuilder` and inserting it into the `tex`template
+  - `releasenodes`: extracting the release notes of the current version from a `Changelog.md`
