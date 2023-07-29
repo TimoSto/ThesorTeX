@@ -3,7 +3,7 @@ import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
 
-const root = process.env.VITEST_ROOT;
+const root = process.env.VITE_ROOT;
 
 export default defineConfig({
     plugins: [

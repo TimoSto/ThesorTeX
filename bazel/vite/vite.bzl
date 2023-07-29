@@ -11,6 +11,6 @@ def vite_build(name, config_path, root, out, _data = []):
         outs = out,
         srcs = _data,
         env = {
-            "VITEST_ROOT": root
+            "VITE_ROOT": root
         }
     )

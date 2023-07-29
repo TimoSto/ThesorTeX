@@ -10,6 +10,6 @@ def vitest_run(name, config_path, root, _data = []):
         ],
         data = _data,
         env = {
-            "VITEST_ROOT": root
+            "VITE_ROOT": root
         }
     )
