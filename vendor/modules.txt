@@ -10,7 +10,7 @@ github.com/Microsoft/go-winio/pkg/guid
 # github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5
 ## explicit
 github.com/Nvveen/Gotty
-# github.com/aws/aws-lambda-go v1.37.0
+# github.com/aws/aws-lambda-go v1.41.0
 ## explicit; go 1.18
 github.com/aws/aws-lambda-go/events
 github.com/aws/aws-lambda-go/lambda
