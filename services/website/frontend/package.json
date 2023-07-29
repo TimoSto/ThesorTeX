@@ -16,7 +16,7 @@
     "@thesortex/vuetify-plugin": "workspace:*",
     "sass": "*",
     "vue": "*",
-    "vue-router": "4",
+    "vue-router": "4.2.4",
     "vuetify": "*"
   },
   "devDependencies": {
