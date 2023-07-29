@@ -2,9 +2,20 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
     name = "schema",
-    srcs = [
-        "bindata.go",
-        "schema.go",
+    srcs = ["schema.go"],
+    embedsrcs = [
+        "data/config_schema_v3.0.json",
+        "data/config_schema_v3.1.json",
+        "data/config_schema_v3.10.json",
+        "data/config_schema_v3.11.json",
+        "data/config_schema_v3.2.json",
+        "data/config_schema_v3.3.json",
+        "data/config_schema_v3.4.json",
+        "data/config_schema_v3.5.json",
+        "data/config_schema_v3.6.json",
+        "data/config_schema_v3.7.json",
+        "data/config_schema_v3.8.json",
+        "data/config_schema_v3.9.json",
     ],
     importmap = "github.com/TimoSto/ThesorTeX/vendor/github.com/docker/cli/cli/compose/schema",
     importpath = "github.com/docker/cli/cli/compose/schema",

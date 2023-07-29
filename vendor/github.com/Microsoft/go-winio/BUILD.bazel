@@ -21,6 +21,7 @@ go_library(
     visibility = ["//visibility:public"],
     deps = select({
         "@io_bazel_rules_go//go/platform:windows": [
+            "//vendor/github.com/Microsoft/go-winio/internal/fs",
             "//vendor/github.com/Microsoft/go-winio/internal/socket",
             "//vendor/github.com/Microsoft/go-winio/pkg/guid",
             "//vendor/golang.org/x/sys/windows",
