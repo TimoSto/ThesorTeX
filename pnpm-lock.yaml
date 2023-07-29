@@ -237,8 +237,8 @@ importers:
         specifier: 4.2.3
         version: 4.2.3(vite@4.4.7)(vue@3.3.4)
       cross-fetch:
-        specifier: ^3.1.5
-        version: 3.1.5
+        specifier: 4.0.0
+        version: 4.0.0
       msw:
         specifier: 1.2.3
         version: 1.2.3(typescript@4.9.5)
@@ -3301,7 +3301,7 @@ packages:
       glob: 10.3.3
       handlebars: 4.7.7
       lazy-universal-dotenv: 4.0.0
-      node-fetch: 2.6.11
+      node-fetch: 2.6.12
       picomatch: 2.3.1
       pkg-dir: 5.0.0
       pretty-hrtime: 1.0.3
@@ -5055,10 +5055,10 @@ packages:
     resolution: { integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ== }
     dev: true
 
-  /cross-fetch@3.1.5:
-    resolution: { integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw== }
+  /cross-fetch@4.0.0:
+    resolution: { integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g== }
     dependencies:
-      node-fetch: 2.6.7
+      node-fetch: 2.6.12
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -7318,8 +7318,8 @@ packages:
       whatwg-url: 5.0.0
     dev: true
 
-  /node-fetch@2.6.7:
-    resolution: { integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ== }
+  /node-fetch@2.6.12:
+    resolution: { integrity: sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g== }
     engines: { node: 4.x || >=6.0.0 }
     peerDependencies:
       encoding: ^0.1.0
