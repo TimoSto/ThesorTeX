@@ -5,5 +5,8 @@ go_library(
     srcs = ["assets_handler.go"],
     importpath = "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/handlers/assets",
     visibility = ["//services/thesisTool:__subpackages__"],
-    deps = ["//services/thesisTool/frontend/assets"],
+    deps = [
+        "//pkg/backend/http/caching",
+        "//services/thesisTool/frontend/assets",
+    ],
 )

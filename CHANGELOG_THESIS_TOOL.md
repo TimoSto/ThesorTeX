@@ -2,6 +2,8 @@
 
 ## Added
 - An accessibility dialog can be opened by clicking the button in the app bar or by pressing the CTRL key twice.
+## Changed
+- The caching has been improved.
 
 # v1.2.0
 
