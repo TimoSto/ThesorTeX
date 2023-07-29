@@ -129,4 +129,4 @@ This project uses the monorepo approach.
 - `tools`: tools used for the build
   - `documentationbuilder`: parsing and converting an md documentation to json and to tex code
   - `documentationcombinator`: combining multiple tex-documentations produced by `documentationbuilder` and inserting it into the `tex`template
-  - `releasenodes`: extracting the release notes of the current version from a `Changelog.md`
+  - `releasenotes`: extracting the release notes of the current version from a `Changelog.md`
