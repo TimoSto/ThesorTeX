@@ -140,8 +140,8 @@ importers:
         specifier: 2.1.6
         version: 2.1.6(typescript@4.9.5)(vue@3.3.4)
       reveal.js:
-        specifier: ^4.4.0
-        version: 4.4.0
+        specifier: 4.5.0
+        version: 4.5.0
       sass:
         specifier: 1.64.1
         version: 1.64.1
@@ -8325,8 +8325,8 @@ packages:
     engines: { iojs: '>=1.0.0', node: '>=0.10.0' }
     dev: true
 
-  /reveal.js@4.4.0:
-    resolution: { integrity: sha512-jIV6C9V2NEUjGzU8L6dUFGpk1KJmq7/EzP2fOW67ggc2c0Cp/PdprWxZ9Qgp46F0T2ZWDCjQ1p3Ytzy5jA6a2w== }
+  /reveal.js@4.5.0:
+    resolution: { integrity: sha512-Lx1hUWhJR7Y7ScQNyGt7TFzxeviDAswK2B0cn9RwbPZogTMRgS8+FTr+/12KNHOegjvWKH0H0EGwBARNDPTgWQ== }
     engines: { node: '>=10.0.0' }
     dev: false
 

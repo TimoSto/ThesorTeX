@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "pinia": "*",
-    "reveal.js": "^4.4.0",
+    "reveal.js": "4.5.0",
     "sass": "*",
     "typescript": "4.9.5",
     "vite-plugin-vuetify": "*",
