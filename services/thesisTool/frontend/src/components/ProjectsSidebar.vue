@@ -18,6 +18,9 @@
           active-color="primary"
           style="text-overflow: ellipsis"
         >
+          <template #prepend>
+            <v-icon :title="!sidebarOpened ? p : ''">mdi-folder</v-icon>
+          </template>
           {{ p }}
         </v-list-item>
       </v-list>
@@ -27,13 +30,14 @@
 
 <script lang="ts" setup>
 import {useProjectsListStore} from "../stores/projectsList/ProjectsListStore";
-import {computed, watch} from "vue";
+import {computed} from "vue";
 import {useI18n} from "vue-i18n";
 import {i18nKeys} from "../i18n/keys";
 import {
   useApplicationStateStore
 } from "@thesortex/vue-component-library/src/stores/ApplicationStateStore/ApplicationStateStore";
 
+//TODO: unit test
 // globals
 const projectsListStore = useProjectsListStore();
 
