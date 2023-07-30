@@ -1,14 +1,14 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
 
-_APP_VERSION = "{APP_VERSION}"
+_THESIS_TOOL_VERSION = "{THESIS_TOOL_VERSION}"
 
 go_binary(
     name = "ThesorTeX",
     embed = [":prod_lib"],
     visibility = ["//visibility:public"],
     x_defs = {
-        "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/config.Version": _APP_VERSION,
+        "github.com/TimoSto/ThesorTeX/services/thesisTool/internal/config.Version": _THESIS_TOOL_VERSION,
     },
 )
 
