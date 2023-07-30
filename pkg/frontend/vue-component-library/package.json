@@ -13,7 +13,7 @@
     "pinia": "*",
     "reveal.js": "4.5.0",
     "sass": "*",
-    "typescript": "4.9.5",
+    "typescript": "*",
     "vite-plugin-vuetify": "*",
     "vue": "*",
     "vuetify": "*"
