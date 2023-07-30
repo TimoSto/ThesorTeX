@@ -165,7 +165,7 @@ Wenn du auf das Zahnrad oben rechts klickst, erscheint ein Konfigurations-Dialog
 
 ![Konfigurations-Dialog](./thesisTool_images/config_dialog.png)
 
-Dort kannst du zum einen den ***Port*** angeben, auf welchem die Anwendung laufen soll. Stadnardmäßig ist dies *8448*, aber du kannst auch einen anderen Port deiner Wahl angeben. 
+Dort kannst du zum einen den ***Port*** angeben, auf welchem die Anwendung laufen soll. Standardmäßig ist dies *8448*, aber du kannst auch einen anderen Port deiner Wahl angeben. 
 Nach dem Speichern musst du die Anwendung einmal neu starten und dann läuft sie auf dem von dir ausgewählen Port.
 
 Zum anderen kannst du das ***Verzeichnis für Projekte*** angeben. In diesem werden die Projekte gespeichert. Der Pfad ist relativ zum Speicherort des Programmes.
