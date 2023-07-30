@@ -32,16 +32,16 @@ go_register_toolchains(
 
 http_archive(
     name = "com_github_sluongng_nogo_analyzer",
-    sha256 = "ab9ab7936b6d490ff92bb8e3e03bc3ace3406f0b4d1625cc0720d0e9e81a369a",
-    strip_prefix = "nogo-analyzer-0.0.1",
+    sha256 = "a74a5e44751d292d17bd879e5aa8b40baa94b5dc2f043df1e3acbb3e23ead073",
+    strip_prefix = "nogo-analyzer-0.0.2",
     urls = [
-        "https://github.com/sluongng/nogo-analyzer/archive/refs/tags/v0.0.1.tar.gz",
+        "https://github.com/sluongng/nogo-analyzer/archive/refs/tags/v0.0.2.tar.gz",
     ],
 )
 
-load("@com_github_sluongng_nogo_analyzer//staticcheck:deps.bzl", "staticcheck_deps")
+load("@com_github_sluongng_nogo_analyzer//staticcheck:deps.bzl", "staticcheck")
 
-staticcheck_deps()
+staticcheck()
 
 gazelle_dependencies()
 
