@@ -16,7 +16,7 @@ npm_package(
 
 vitest_run(
     name = "vitest",
-    _data = glob([
+    data = glob([
         "src/**/*",
     ]) + [
         ":vite.config.ts",

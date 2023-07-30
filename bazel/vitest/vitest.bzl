@@ -1,6 +1,6 @@
 load("@npm//:vitest/package_json.bzl", vitest_bin = "bin")
 
-def vitest_run(name, config_path, root, _data = []):
+def vitest_run(name, config_path, root, data = []):
 
     vitest_bin.vitest_test(
         name = name,
@@ -8,7 +8,7 @@ def vitest_run(name, config_path, root, _data = []):
             "run",
             "--config=" + config_path,
         ],
-        data = _data,
+        data = data,
         env = {
             "VITE_ROOT": root
         }

@@ -47,7 +47,7 @@ pkg_tar(
 
 vitest_run(
     name = "vitest",
-    _data = glob([
+    data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
         "src/api/mocks/*.ts",
