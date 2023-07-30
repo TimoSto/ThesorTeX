@@ -5,6 +5,8 @@
 - Add a tooltip in the closed sidebar.
 ## Changed
 - The caching has been improved.
+## Fixed
+- The sidebar title is localized.
 
 # v1.2.0
 

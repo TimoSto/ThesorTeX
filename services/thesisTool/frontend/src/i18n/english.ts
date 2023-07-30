@@ -29,6 +29,7 @@ export const english: I18nKeys = {
         OpenSidebar: "Expand",
         CloseSidebar: "Minimize",
         ProjectsList: "List of projects",
+        ProjectsListShort: "Projects",
         GoToDocs: "To the documentation",
     },
     UpdateDialog: {

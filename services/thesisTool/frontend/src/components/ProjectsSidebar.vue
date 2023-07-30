@@ -3,7 +3,7 @@
     :hide-bar="!sidebarOpened"
   >
     <template #bar>
-      <v-toolbar-title>Projects</v-toolbar-title>
+      <v-toolbar-title>{{ t(i18nKeys.App.ProjectsListShort) }}</v-toolbar-title>
     </template>
     <template #content>
       <v-list
