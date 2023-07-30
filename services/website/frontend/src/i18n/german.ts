@@ -24,7 +24,7 @@ export const german: I18nKeys = {
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
         CVTemplateSubtitle: "Wenn du mithilfe der hier angebotenen Unterstützungen deinen Abschluss geschafft hast und du dich auf deinen nächsten Job bewerben willst, schau dir doch mal diese Vorlage für einen Lebenslauf an.",
         KnownIssuesTitle: "Known Issues",
-        KnownIssuesText: "Die bekannten Fehler bei den Produkten auf dieser Seite kannst du {here} finden. Falls du auf ein Problem stößt, welches dort noch nicht gelistet ist, erstelle gern ein Issue und füge diesem das Label {bug} hinzu. Anfragen für neue Funktionalitäten findest du {here2}. Wenn du eine neue Anforderung hast, erstelle ein Issue und füge diesem das label {feature} hinzu."
+        KnownIssuesText: "Die bekannten Fehler bei den Produkten auf dieser Seite kannst du {here} finden. Falls du auf ein Problem stößt, welches dort noch nicht gelistet ist, erstelle gern ein Issue und füge diesem das Label {bug} hinzu. Anfragen für neue Funktionalitäten findest du {here2}. Wenn du eine neue Anforderung hast, erstelle ein Issue und füge diesem das Label {feature} hinzu."
     },
     DownloadPage: {
         ToolInfoText: "Hier kannst du die aktuellst Version für dein Betriebssystem herunterladen. Unten kannst du auch eine der älteren Versionen herunterladen. Wenn du die heruntergeladene ZIP-Datei entpackst, kopiere die Datei darin an einen Ort deiner Wahl und starte sie durch einen Doppelklick.",
