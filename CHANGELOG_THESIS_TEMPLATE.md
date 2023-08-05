@@ -3,6 +3,7 @@
 ## Fixed
 
 - Add missing spaces in categories.
+- Add missing dots in categories.
 
 # v1.1.1
 

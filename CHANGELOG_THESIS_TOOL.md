@@ -9,6 +9,7 @@
 ## Fixed
 - The sidebar title is localized.
 - Added missing spaces in template categories.
+- Add missing dots in template categories.
 
 # v1.2.0
 

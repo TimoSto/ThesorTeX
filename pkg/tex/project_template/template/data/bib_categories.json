@@ -67,7 +67,7 @@
         "Name": "Seiten",
         "Format": {
           "Prefix": "",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": false,
           "Preformatted": false
         },
@@ -180,7 +180,7 @@
         "Name": "Doi",
         "Format": {
           "Prefix": "abrufbar unter: ",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
@@ -373,7 +373,7 @@
         "Name": "Doi",
         "Format": {
           "Prefix": "abrufbar unter: ",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
@@ -441,7 +441,7 @@
         "Name": "Titel",
         "Format": {
           "Prefix": "",
-          "Suffix": " ",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
@@ -554,7 +554,7 @@
         "Name": "Seiten",
         "Format": {
           "Prefix": "",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": false,
           "Preformatted": false
         },
@@ -679,7 +679,7 @@
         "Name": "Doi",
         "Format": {
           "Prefix": "abrufbar unter: ",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
@@ -794,7 +794,7 @@
         "Name": "Seiten",
         "Format": {
           "Prefix": "",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": false,
           "Preformatted": false
         },
@@ -919,7 +919,7 @@
         "Name": "Doi",
         "Format": {
           "Prefix": "abrufbar unter: ",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
@@ -1034,7 +1034,7 @@
         "Name": "Seiten",
         "Format": {
           "Prefix": "",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": false,
           "Preformatted": false
         },
@@ -1159,7 +1159,7 @@
         "Name": "Doi",
         "Format": {
           "Prefix": "abrufbar unter: ",
-          "Suffix": "",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
@@ -1262,7 +1262,7 @@
         "Name": "url",
         "Format": {
           "Prefix": "abrufbar unter: ",
-          "Suffix": " ",
+			"Suffix": ".",
           "Italic": true,
           "Preformatted": false
         },
