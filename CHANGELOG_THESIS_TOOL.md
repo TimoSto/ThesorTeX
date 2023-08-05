@@ -8,7 +8,7 @@
 - The caching has been improved.
 ## Fixed
 - The sidebar title is localized.
-- Added spacing before "(Hrsg.)" in template.
+- Added missing spaces in template categories.
 
 # v1.2.0
 

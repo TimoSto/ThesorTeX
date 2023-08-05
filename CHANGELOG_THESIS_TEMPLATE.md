@@ -2,7 +2,7 @@
 
 ## Fixed
 
-- Added spacing before "(Hrsg.)".
+- Add missing spaces in categories.
 
 # v1.1.1
 
