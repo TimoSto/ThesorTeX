@@ -3,6 +3,7 @@
 ## Added
 - An accessibility dialog can be opened by clicking the button in the app bar or by pressing the CTRL key twice.
 - Add a tooltip in the closed sidebar.
+- The application log level can be configured in the config dialog.
 ## Changed
 - The caching has been improved.
 ## Fixed
