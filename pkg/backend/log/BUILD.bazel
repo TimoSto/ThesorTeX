@@ -10,5 +10,5 @@ go_library(
 go_test(
     name = "log_test",
     srcs = ["log_test.go"],
-    embed = [":log"],
+    deps = [":log"],
 )
