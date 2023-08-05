@@ -14,14 +14,15 @@ type DocBody struct {
 type AllowedType string
 
 const (
-	TypeText       AllowedType = "Text"
-	TypeEmpty                  = "Empty"
-	TypeBeginCode              = "BeginCode"
-	TypeCode                   = "Code"
-	TypeEndCode                = "EndCode"
-	TypeListItem               = "ListItem"
-	TypeImage                  = "Image"
-	TypeImageLabel             = "ImageLabel"
+	TypeText        AllowedType = "Text"
+	TypeEmpty                   = "Empty"
+	TypeBeginCode               = "BeginCode"
+	TypeCode                    = "Code"
+	TypeEndCode                 = "EndCode"
+	TypeListItem                = "ListItem"
+	TypeImage                   = "Image"
+	TypeImageLabel              = "ImageLabel"
+	TypeFootnoteRef             = "FootnoteRef"
 )
 
 type group struct {
@@ -164,6 +165,7 @@ type analyseLineResult struct {
 }
 
 var imgRegex = regexp.MustCompile("!\\[[^\\]]*\\]\\([^\\)]*\\)")
+var footnoteRefRegex = regexp.MustCompile("^\\[\\^[0-9]{1,3}\\]:")
 
 func analyseLine(line string, incode bool) analyseLineResult {
 	if line == "" || line == "\n" {
@@ -203,6 +205,15 @@ func analyseLine(line string, incode bool) analyseLineResult {
 		return analyseLineResult{
 			Type:    TypeCode,
 			Content: line,
+		}
+	}
+
+	if footnoteRefRegex.MatchString(line) {
+		m := footnoteRefRegex.FindString(line)
+
+		return analyseLineResult{
+			Type:    TypeFootnoteRef,
+			Content: strings.TrimLeft(line, m+" "),
 		}
 	}
 

@@ -39,6 +39,13 @@ func TestAnalyseLine(t *testing.T) {
 				Content: "![some img](./some/images.png)",
 			},
 		},
+		{
+			line: "[^11]:hallo",
+			exp: analyseLineResult{
+				Type:    TypeFootnoteRef,
+				Content: "hallo",
+			},
+		},
 	}
 
 	for _, tc := range tcs {
