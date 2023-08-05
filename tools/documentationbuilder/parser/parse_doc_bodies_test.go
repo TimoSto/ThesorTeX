@@ -208,10 +208,46 @@ func TestSplitLineIntoElements(t *testing.T) {
 				},
 			},
 		},
+		{
+			title: "just plain with footnote",
+			line:  "foo bar[^1] developer",
+			exp: []element{
+				{
+					Style:   StylePlain,
+					Content: "foo bar",
+				},
+				{
+					Style:   Footnote,
+					Content: "1",
+				},
+				{
+					Style:   StylePlain,
+					Content: " developer",
+				},
+			},
+		},
+		{
+			title: "just plain with footnote at end",
+			line:  "foo bar developer[^12].",
+			exp: []element{
+				{
+					Style:   StylePlain,
+					Content: "foo bar developer",
+				},
+				{
+					Style:   Footnote,
+					Content: "12",
+				},
+				{
+					Style:   StylePlain,
+					Content: ".",
+				},
+			},
+		},
 	}
 
 	for _, tc := range tcs {
-		t.Run(tc.line, func(t *testing.T) {
+		t.Run(tc.title, func(t *testing.T) {
 			result := splitLineIntoElements(tc.line)
 
 			if diff := cmp.Diff(tc.exp, result); diff != "" {

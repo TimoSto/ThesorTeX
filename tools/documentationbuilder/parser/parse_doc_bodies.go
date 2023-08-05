@@ -6,8 +6,9 @@ import (
 )
 
 type DocBody struct {
-	Title  string
-	Groups []group
+	Title     string
+	Groups    []group
+	Footnotes map[int][]element
 }
 
 type AllowedType string
@@ -35,6 +36,7 @@ const (
 	StyleItalicAndBold = "ITALIC-BOLD"
 	LinkTitle          = "LINK-TITLE"
 	LinkHref           = "LINK-HREF"
+	Footnote           = "FOOTNOTE"
 )
 
 type element struct {
@@ -216,6 +218,7 @@ var (
 	boldRegex          = regexp.MustCompile("[^*]\\*{2}[^**]+\\*{2}")
 	italicRegex        = regexp.MustCompile("[^*]\\*[^*]+\\*")
 	linkRegex          = regexp.MustCompile("\\[[^\\]]*\\]\\([^)]*\\)*")
+	footnoteRegex      = regexp.MustCompile("\\[\\^[0-9]{1,3}\\]")
 )
 
 func splitLineIntoElements(line string) []element {
@@ -228,11 +231,13 @@ func splitLineIntoElements(line string) []element {
 	matches = append(matches, boldRegex.FindAllString(line, -1)...)
 	matches = append(matches, boldAndItalicRegex.FindAllString(line, -1)...)
 	matches = append(matches, linkRegex.FindAllString(line, -1)...)
+	matches = append(matches, footnoteRegex.FindAllString(line, -1)...)
 
 	matchIndexes := italicRegex.FindAllStringIndex(line, -1)
 	matchIndexes = append(matchIndexes, boldRegex.FindAllStringIndex(line, -1)...)
 	matchIndexes = append(matchIndexes, boldAndItalicRegex.FindAllStringIndex(line, -1)...)
 	matchIndexes = append(matchIndexes, linkRegex.FindAllStringIndex(line, -1)...)
+	matchIndexes = append(matchIndexes, footnoteRegex.FindAllStringIndex(line, -1)...)
 
 	matchIndexes, matches = sortMatches(matchIndexes, matches)
 
@@ -305,6 +310,16 @@ func splitLineIntoElements(line string) []element {
 				Style:   LinkHref,
 			})
 			//TODO: why is this necessary?
+			end++
+		} else if footnoteRegex.MatchString(matchValue) {
+			val := strings.TrimLeft(matchValue, "[^")
+			val = strings.TrimRight(val, "]")
+
+			elements = append(elements, element{
+				Content: val,
+				Style:   Footnote,
+			})
+			//TODO: why is this necessary? Do I need to change the regex?
 			end++
 		}
 
