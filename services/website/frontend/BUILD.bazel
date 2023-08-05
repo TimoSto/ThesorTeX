@@ -9,6 +9,7 @@ npm_link_all_packages(name = "node_modules")
 vite_build(
     name = "assets",
     out = ["dist"],
+    config_path = "$(execpath :vite.config.ts)",
     data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
@@ -17,23 +18,22 @@ vite_build(
         "src/i18n/**/*",
     ]) + [
         ":index.html",
-        ":vite.config.ts",
+        ":node_modules/@thesortex/vue-component-library",
         ":node_modules/@thesortex/vue-i18n-plugin",
+        ":node_modules/@thesortex/vuetify-plugin",
+        ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/sass",
+        ":node_modules/vite-plugin-vuetify",
+        ":node_modules/vue-router",
         ":node_modules/vuetify",
+        ":vite.config.ts",
+        "//:node_modules/@vue/test-utils",
+        "//:node_modules/happy-dom",
         "//:node_modules/vite",
         "//:node_modules/vitest",
         "//:node_modules/vue",
-        "//:node_modules/@vue/test-utils",
-        ":node_modules/@vitejs/plugin-vue",
-        ":node_modules/vite-plugin-vuetify",
-        ":node_modules/@thesortex/vuetify-plugin",
-        ":node_modules/@thesortex/vue-component-library",
-        ":node_modules/vue-router",
         "//:node_modules/vue-i18n",
-        "//:node_modules/happy-dom",
-        ":node_modules/sass",
     ],
-    config_path = "$(execpath :vite.config.ts)",
     root = package_name(),
 )
 
@@ -47,6 +47,7 @@ pkg_tar(
 
 vitest_run(
     name = "vitest",
+    config_path = "$(execpath :vite.config.ts)",
     data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
@@ -54,19 +55,18 @@ vitest_run(
         "src/domain/testdata/files/**/*",
         "src/i18n/**/*",
     ]) + [
-        ":vite.config.ts",
         ":node_modules/@thesortex/vue-i18n-plugin",
         ":node_modules/@thesortex/vuetify-plugin",
+        ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/sass",
         ":node_modules/vuetify",
+        ":vite.config.ts",
+        "//:node_modules/@vue/test-utils",
+        "//:node_modules/happy-dom",
         "//:node_modules/vite",
         "//:node_modules/vitest",
         "//:node_modules/vue",
-        ":node_modules/sass",
-        "//:node_modules/@vue/test-utils",
-        ":node_modules/@vitejs/plugin-vue",
         "//:node_modules/vue-i18n",
-        "//:node_modules/happy-dom",
     ],
-    config_path = "$(execpath :vite.config.ts)",
     root = "services/website/frontend/",
 )
