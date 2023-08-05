@@ -62,9 +62,7 @@ func main() {
 
 	handlers.RegisterAppHandlers(mux, &fs)
 
-	finished := make(chan bool, 1)
-
-	p, err := server.StartServer(config.Cfg.Port, chain.Then(mux), finished)
+	p, err := server.StartServer(config.Cfg.Port, chain.Then(mux))
 	if err != nil {
 		log.Fatal("could not start server: %v", err)
 	}
@@ -84,9 +82,9 @@ func main() {
 
 	sig := <-sigs
 
-	log.Info("received %v", sig)
+	log.Info("received signal: %v", sig)
 
-	finished <- true
+	log.Info("exiting the application")
 }
 
 func openBrowser(url string) {

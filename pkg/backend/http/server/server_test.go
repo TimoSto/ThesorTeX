@@ -11,7 +11,7 @@ func TestNewServer_fixedPort(t *testing.T) {
 
 	}
 
-	p, err := server.StartServer("8081", http.HandlerFunc(h), make(chan bool, 1))
+	p, err := server.StartServer("8081", http.HandlerFunc(h))
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)
 	}
@@ -26,7 +26,7 @@ func TestNewServer_zeroPort(t *testing.T) {
 
 	}
 
-	p, err := server.StartServer("0", http.HandlerFunc(h), make(chan bool, 1))
+	p, err := server.StartServer("0", http.HandlerFunc(h))
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)
 	}

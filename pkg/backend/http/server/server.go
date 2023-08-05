@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func StartServer(port string, handler http.Handler, fin chan bool) (string, error) {
+func StartServer(port string, handler http.Handler) (string, error) {
 	srv := &http.Server{
 		Handler: handler,
 	}
@@ -24,7 +24,6 @@ func StartServer(port string, handler http.Handler, fin chan bool) (string, erro
 			if !errors.Is(err, http.ErrServerClosed) {
 				log.Error("Error starting server: %v", err)
 			}
-			fin <- true
 		}
 	}()
 
