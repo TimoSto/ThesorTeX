@@ -170,6 +170,8 @@ After saving, you have to restart the application once and then it will run on t
 
 Secondly, you can specify the ***Directory for projects***. The projects are saved in this directory. The path is relative to the storage location of the application.
 
-The ***Log level*** refers to the filtering of the log messages in the terminal window. The choices are *ERROR*, *WARNING*, *INFO* and *DEBUG*, with higher levels like *INFO* including lower levels like *ERROR*. The stadnard value is *INFO*.
+The ***Log level*** refers to the filtering of the log messages in the terminal window. The choices are *ERROR*,
+*WARNING*, *INFO* and *DEBUG*, with higher levels like *INFO* including lower levels like *ERROR*. The default value is
+*INFO*.
 
 You can also activate the browser to open automatically with the correct address as soon as you start the application.
