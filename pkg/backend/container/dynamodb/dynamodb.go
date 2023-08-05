@@ -6,20 +6,19 @@ import (
 	"os"
 )
 
-func SetTestAWSEnvironment() {
-	env := map[string]string{
-		"AWS_ACCESS_KEY_ID":     "foo",
-		"AWS_SECRET_ACCESS_KEY": "bar",
-		"AWS_SESSION_TOKEN":     "baz",
+func RunDynamoDBLocally() (*container.Container, error) {
+	err := os.Setenv("AWS_ACCESS_KEY_ID", "foo")
+	if err != nil {
+		return nil, err
 	}
-
-	for key, val := range env {
-		os.Setenv(key, val)
+	err = os.Setenv("AWS_SECRET_ACCESS_KEY", "bar")
+	if err != nil {
+		return nil, err
 	}
-}
-
-func StartDynamoDBLocally() (*container.Container, error) {
-	SetTestAWSEnvironment()
+	err = os.Setenv("AWS_SESSION_TOKEN", "foobar")
+	if err != nil {
+		return nil, err
+	}
 
 	c, err := container.RunImage(&dockertest.RunOptions{
 		Repository:   "docker.io/amazon/dynamodb-local",

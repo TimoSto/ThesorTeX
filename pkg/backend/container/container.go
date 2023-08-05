@@ -22,6 +22,7 @@ func (c *Container) Endpoint() string {
 }
 
 func connectToPool() (*dockertest.Pool, error) {
+	// currently this is specific for darwin os
 	dockerHost := os.Getenv("DOCKER_HOST")
 
 	pool, err := dockertest.NewPool(dockerHost)

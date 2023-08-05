@@ -20,7 +20,7 @@ import (
 func main() {
 	log.Info("Starting the fake contact application...")
 
-	c, err := dynamocontainer.StartDynamoDBLocally()
+	c, err := dynamocontainer.RunDynamoDBLocally()
 	if err != nil {
 		log.Fatal("could not start local dynamo db: %v", err)
 	}
