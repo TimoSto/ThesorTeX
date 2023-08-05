@@ -18,7 +18,7 @@ export const english: I18nKeys = {
         Subtitle: "If you use LaTeX in an academic or professional context, you will find various templates and tools here that can support you.",
         ThesisTemplateTitle: "Template for academic papers",
         ThesisTemplateSubtitle: "Would you like to write a thesis or homework paper with LaTeX? Then check out this template.",
-        ThesisTemplateExample: "Download an example",
+        ThesisTemplateExample: "Download an example project",
         ThesisToolTitle: "Tool for bibliography management",
         ThesisToolSubtitle: "Using this tool you can build your bibliography comfortabily and customized. Format your bibliography according to your wishes, create entries manually or import your library from Citavi.",
         CVTemplateTitle: "Template for a curriculum vitae",

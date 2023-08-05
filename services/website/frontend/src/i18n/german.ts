@@ -18,7 +18,7 @@ export const german: I18nKeys = {
         Subtitle: "Wenn du LaTeX im akademischen oder beruflichen Kontext nutzt, findest du hier verschiedene Vorlagen und Tools, die dich dabei unterstützen können.",
         ThesisTemplateTitle: "Vorlage für eine Abschluss- / Hausarbeit",
         ThesisTemplateSubtitle: "Möchtest du eine Abschluss- oder Hausarbeit mit LaTeX schreiben? Dann schau dir doch mal diese Vorlage an.",
-        ThesisTemplateExample: "Beispiel herunterladen",
+        ThesisTemplateExample: "Beispiel-Projekt herunterladen",
         ThesisToolTitle: "Tool zum Literatur{hyphen}management",
         ThesisToolSubtitle: "Mit diesem Tool kannst du dein Literaturverzeichnis bequem und individuell zusammenbauen. Formatiere deine Literatur nach deinen Wünschen, lege Einträge händisch an oder importiere deine Bibliothek aus Citavi.",
         CVTemplateTitle: "Vorlage für einen Lebenslauf",
@@ -36,7 +36,7 @@ export const german: I18nKeys = {
     TutorialsPage: {
         Title: "Wie kann ich die Vorlagen und Tools nutzen?",
         SubTitle: "Die Anleitungen sind als {pdf} und als {example} zum Download und als Präsentation und als FAQ direkt auf dieser Seite verfügbar.",
-        ExampleProject: "Beispielprojekt",
+        ExampleProject: "Beispiel-Projekt",
         TexKnowledge: "Grundkenntnisse in der Verwendung von LaTeX werden vorrausgesetzt"
     }
 };
