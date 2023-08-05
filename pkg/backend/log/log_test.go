@@ -118,8 +118,8 @@ func TestLogLevel_DEBUG(t *testing.T) {
 
 }
 
-func TestLogLevel_WARN(t *testing.T) {
-	log.Setup(true, "WARN")
+func TestLogLevel_WARNING(t *testing.T) {
+	log.Setup(true, "WARNING")
 
 	for _, tc := range []struct {
 		level log.LogLevel
