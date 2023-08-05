@@ -34,6 +34,10 @@ func TestApplyCaching(t *testing.T) {
 			expectedCache: "max-age=86400",
 		},
 		{
+			file:          "test.woff2",
+			expectedCache: "max-age=86400",
+		},
+		{
 			file:          "image.png",
 			expectedCache: "max-age=300",
 		},
