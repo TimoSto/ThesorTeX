@@ -170,4 +170,6 @@ Nach dem Speichern musst du die Anwendung einmal neu starten und dann läuft sie
 
 Zum anderen kannst du das ***Verzeichnis für Projekte*** angeben. In diesem werden die Projekte gespeichert. Der Pfad ist relativ zum Speicherort des Programmes.
 
+Das ***Log-Level*** bezieht sich auf die Filterung der Log-Meldumgen im Terminal-Fenster. Zur Auswahl stehen *ERROR*, *WARNING*, *INFO* und *DEBUG*, wobei höhere Level wie *INFO* niedrigere Level wie *ERROR* einschließen. Der Stadnard-Wert ist *INFO*.
+
 Außerdem kannst du aktivieren, dass sich der Browser mit der richtigen Adresse automatisch öffnet, sobald du die Anwendung startest.
