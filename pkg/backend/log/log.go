@@ -11,13 +11,16 @@ var fileToLog = "ThesorTeX.log"
 
 var runningInCloud = false
 
-/**
-1: ERROR
-2: WARN
-3: INFO
-4: DEBUG
-*/
-var logLevel = 3
+type LogLevel int
+
+const (
+	ERROR LogLevel = iota
+	WARN
+	INFO
+	DEBUG
+)
+
+var logLevel = DEBUG
 
 func Setup(cloud bool, level string) {
 	// rm the standard timestamp from the logs
@@ -26,21 +29,21 @@ func Setup(cloud bool, level string) {
 	runningInCloud = cloud
 	switch level {
 	case "ERROR":
-		logLevel = 1
+		logLevel = ERROR
 		break
 	case "WARN":
-		logLevel = 2
+		logLevel = WARN
 		break
-	case "DEBUG":
-		logLevel = 4
+	case "INFO":
+		logLevel = INFO
 		break
 	default:
-		logLevel = 3
+		logLevel = DEBUG
 	}
 }
 
 func Info(msg string, a ...any) {
-	if logLevel < 3 {
+	if logLevel < INFO {
 		return
 	}
 	if a != nil {
@@ -79,14 +82,14 @@ func Fatal(msg string, a ...any) {
 }
 
 func Warn(msg string, a ...any) {
-	if logLevel < 2 {
+	if logLevel < WARN {
 		return
 	}
 	log.Println(fmt.Sprintf("WARN [%v] %v", time.Now().Format("2006-01-02 15:04"), fmt.Sprintf(msg, a...)))
 }
 
 func Debug(msg string, a ...any) {
-	if logLevel < 4 {
+	if logLevel < DEBUG {
 		return
 	}
 	log.Println(fmt.Sprintf("DEBUG [%v] %v", time.Now().Format("2006-01-02 15:04"), fmt.Sprintf(msg, a...)))
