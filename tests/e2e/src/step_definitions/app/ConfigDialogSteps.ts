@@ -28,3 +28,13 @@ Then("auto open is enabled", async function (this: OurWorld) {
     const checked = await this.page.locator(".v-selection-control", {has: this.page.locator(".v-label", {hasText: "Open browser on startup"})}).locator("input").inputValue();
     await expect(checked).toEqual("true");
 });
+
+When("{string} is set as log level", async function (this: OurWorld, v: string) {
+    await this.page.locator(".v-input", {has: this.page.locator(".v-field-label", {hasText: "log level"})}).click();
+    await this.page.locator(".v-list-item", {has: this.page.locator(".v-list-item-title", {hasText: v})}).click();
+});
+
+When("the value for the log level is {string}", async function (this: OurWorld, v: string) {
+    const val = await this.page.locator(".v-input", {has: this.page.locator(".v-field-label", {hasText: "log level"})}).locator("input").inputValue();
+    expect(val).toEqual(v);
+});

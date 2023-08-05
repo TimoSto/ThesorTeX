@@ -1,4 +1,4 @@
-import Config from "../../domain/config/Config";
+import {Config} from "../../domain/config/Config";
 import {host} from "../config";
 
 export default async function GetConfig(): Promise<Config> {

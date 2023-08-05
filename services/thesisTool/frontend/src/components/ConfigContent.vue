@@ -2,6 +2,8 @@
   <v-text-field variant="underlined" :label="t(i18nKeys.Config.Port)" v-model="port" color="primary"
                 prefix="http://localhost:" :rules="[portNameRules]" />
   <v-text-field variant="underlined" :label="t(i18nKeys.Config.Dir)" v-model="dir" color="primary" />
+  <v-select variant="underlined" :items="['ERROR', 'WARNING', 'INFO', 'DEBUG']" :label="t(i18nKeys.Config.LogLevel)"
+            color="primary" v-model="logLevel" hide-selected />
   <v-checkbox-btn :label="t(i18nKeys.Config.Open)" v-model="openBrowser" />
 
   <UpdateDialog :version="updateAvailable" />
@@ -34,11 +36,14 @@ const openBrowser = ref(false);
 
 const updateAvailable = ref("");
 
+const logLevel = ref("");
+
 // importing interface gives error
 const initial = ref({} as {
   Port: string,
   ProjectsDir: string,
   OpenBrowser: boolean
+  LogLevel: string
 });
 
 // computed
@@ -52,7 +57,7 @@ const opened = computed({
 });
 
 const changesToSave = computed(() => {
-  return port.value !== initial.value.Port || dir.value !== initial.value.ProjectsDir || openBrowser.value !== initial.value.OpenBrowser;
+  return port.value !== initial.value.Port || dir.value !== initial.value.ProjectsDir || openBrowser.value !== initial.value.OpenBrowser || logLevel.value != initial.value.LogLevel;
 });
 
 const portNameRules = getPortRules(t);
@@ -67,7 +72,8 @@ async function saveConfig() {
     Port: port.value,
     ProjectsDir: dir.value,
     OpenBrowser: openBrowser.value,
-    UpdateAvailable: updateAvailable.value
+    UpdateAvailable: updateAvailable.value,
+    LogLevel: logLevel.value
   });
 
   console.log(success);
@@ -76,6 +82,7 @@ async function saveConfig() {
     initial.value.Port = port.value;
     initial.value.ProjectsDir = dir.value;
     initial.value.OpenBrowser = openBrowser.value;
+    initial.value.LogLevel = logLevel.value;
   }
 }
 
@@ -85,6 +92,9 @@ GetConfig().then(cfg => {
   dir.value = cfg.ProjectsDir;
   openBrowser.value = cfg.OpenBrowser;
   updateAvailable.value = cfg.UpdateAvailable;
+  logLevel.value = cfg.LogLevel;
+
+  console.log(cfg.LogLevel);
 
   initial.value = cfg;
 });

@@ -121,6 +121,7 @@ export const german: I18nKeys = {
         Dir: "Verzeichnis für Projekte",
         Open: "Beim Starten Browserfenster öffnen",
         PortNumInvalid: "Die Portnummer is invalid",
-        PortReserved: "Dieser Port ist reserviert (1024 - 49151 verfügbar)"
+        PortReserved: "Dieser Port ist reserviert (1024 - 49151 verfügbar)",
+        LogLevel: "Log-Level"
     }
 };

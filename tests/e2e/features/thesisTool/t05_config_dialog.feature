@@ -43,6 +43,17 @@ Feature: The config dialog can be used to configure the application
     And the config button is clicked
     Then the value for the custom projects path is "/myprojects"
 
+  Scenario: Setting a log level
+    Given the url "/" was opened
+    And the config button is clicked
+    When "ERROR" is set as log level
+    Then the save button in the dialog is enabled
+    When the save button in the dialog is clicked
+    Then the save button in the dialog is disabled
+    When the browser is reloaded
+    And the config button is clicked
+    Then the value for the log level is "ERROR"
+
   Scenario: Setting auto open
     Given the url "/" was opened
     And the config button is clicked

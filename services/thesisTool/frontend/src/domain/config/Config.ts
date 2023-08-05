@@ -3,4 +3,5 @@ export interface Config {
     ProjectsDir: string,
     OpenBrowser: boolean,
     UpdateAvailable: string
+    LogLevel: string
 }
