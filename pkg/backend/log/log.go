@@ -31,7 +31,7 @@ func Setup(cloud bool, level string) {
 	case "ERROR":
 		logLevel = ERROR
 		break
-	case "WARN":
+	case "WARNING":
 		logLevel = WARN
 		break
 	case "INFO":
@@ -40,6 +40,8 @@ func Setup(cloud bool, level string) {
 	default:
 		logLevel = DEBUG
 	}
+
+	Debug("set log level to %v", logLevel)
 }
 
 func Info(msg string, a ...any) {

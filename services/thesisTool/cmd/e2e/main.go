@@ -19,11 +19,8 @@ import (
 )
 
 func main() {
-	loglevel := os.Getenv("LOG_LEVEL")
-	if loglevel == "" {
-		loglevel = "INFO"
-	}
-	log.Setup(false, loglevel)
+
+	log.Setup(false, "INFO")
 
 	config.Version = "0.0.1"
 	log.Info("Version: %s", config.Version)
