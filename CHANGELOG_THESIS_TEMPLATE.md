@@ -1,3 +1,9 @@
+# v1.1.2
+
+## Fixed
+
+- Added spacing before "(Hrsg.)".
+
 # v1.1.1
 
 ## Fixed

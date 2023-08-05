@@ -26,53 +26,53 @@
 \newcommand\argX{\j}
 
 \newcommand{\printBibEntry}[1]{
-	\IfStrEqCase{#1}{%
-	% the following segment assigns a category specific command to the given entry
-	% it was generated programmatically
-	% begin bib assignment
-			{CitaviArticle}{\printCitaviArticle}%
-			{CitaviArticleDoi}{\printCitaviArticleDoi}%
-			{CitaviBook}{\printCitaviBook}%
-			{CitaviBookDoi}{\printCitaviBookDoi}%
-			{CitaviBooklet}{\printCitaviBooklet}%
-			{CitaviInBook}{\printCitaviInBook}%
-			{CitaviInBookDoi}{\printCitaviInBookDoi}%
-			{CitaviInCollection}{\printCitaviInCollection}%
-			{CitaviInCollectionDoi}{\printCitaviInCollectionDoi}%
-			{CitaviInProceedings}{\printCitaviInProceedings}%
-			{CitaviInProceedingsDoi}{\printCitaviInProceedingsDoi}%
-			{aufsatz}{\printaufsatz}%
-	% end bib assignment
-			{empty}{}%
-	}[{\color{red}Oppsss, unknown case '\type '.}\color{black}]%
+    \IfStrEqCase{#1}{%
+    % the following segment assigns a category specific command to the given entry
+    % it was generated programmatically
+    % begin bib assignment
+            {CitaviArticle}{\printCitaviArticle}%
+            {CitaviArticleDoi}{\printCitaviArticleDoi}%
+            {CitaviBook}{\printCitaviBook}%
+            {CitaviBookDoi}{\printCitaviBookDoi}%
+            {CitaviBooklet}{\printCitaviBooklet}%
+            {CitaviInBook}{\printCitaviInBook}%
+            {CitaviInBookDoi}{\printCitaviInBookDoi}%
+            {CitaviInCollection}{\printCitaviInCollection}%
+            {CitaviInCollectionDoi}{\printCitaviInCollectionDoi}%
+            {CitaviInProceedings}{\printCitaviInProceedings}%
+            {CitaviInProceedingsDoi}{\printCitaviInProceedingsDoi}%
+            {aufsatz}{\printaufsatz}%
+    % end bib assignment
+            {empty}{}%
+    }[{\color{red}Oppsss, unknown case '\type '.}\color{black}]%
 }
 
 %print bibliography
 \newcommand{\printMyBibliography}[0]{
 
-	\begin{center}
-		\begin{LARGE}
-			\bibliographytitle
-		\end{LARGE}
-	\end{center}
+    \begin{center}
+        \begin{LARGE}
+            \bibliographytitle
+        \end{LARGE}
+    \end{center}
 % All attributes of the entry are assigned to the global args values. Then the print command is called with the type of the entry
-	\DTLforeach*{bibliography}
-	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}
-	{
-		\renewcommand\argI{\a}
-		\renewcommand\argII{\b}
-		\renewcommand\argIII{\c}
-		\renewcommand\argIV{\d}
-		\renewcommand\argV{\e}
-		\renewcommand\argVI{\f}
-		\renewcommand\argVII{\g}
-		\renewcommand\argVIII{\h}
-		\renewcommand\argIX{\i}
-		\renewcommand\argX{\j}
+    \DTLforeach*{bibliography}
+    {\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}
+    {
+        \renewcommand\argI{\a}
+        \renewcommand\argII{\b}
+        \renewcommand\argIII{\c}
+        \renewcommand\argIV{\d}
+        \renewcommand\argV{\e}
+        \renewcommand\argVI{\f}
+        \renewcommand\argVII{\g}
+        \renewcommand\argVIII{\h}
+        \renewcommand\argIX{\i}
+        \renewcommand\argX{\j}
 
-		\printBibEntry{\type}
+        \printBibEntry{\type}
 
-	}
+    }
 }
 
 % indentation of the entries in the bibliography
@@ -82,111 +82,111 @@
 % The following section was programmatically generated
 % begin bib commands
 \newcommand{\printCitaviArticle}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV}{ }\argV,{ }\argVI%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV}{ }\argV,{ }\argVI%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviArticleDoi}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV}{ }\argV,{ }\argVI,{ }abrufbar{ }unter:{ }\textit{\argVII}%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV}{ }\argV,{ }\argVI,{ }abrufbar{ }unter:{ }\textit{\argVII}%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviBook}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }(\argIV.{ }Aufl.).{ }\argV{ }(Hrsg.).%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }(\argIV.{ }Aufl.).{ }\argV{ }(Hrsg.).%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviBookDoi}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }(\argIV.{ }Aufl.).{ }\argV{ }(Hrsg.).{ }abrufbar{ }unter:{ }\textit{\argVI}%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }(\argIV.{ }Aufl.).{ }\argV{ }(Hrsg.).{ }abrufbar{ }unter:{ }\textit{\argVI}%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviBooklet}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviInBook}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV(Hrsg.),{ }\argVI.{ }\argVII%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV{ }(Hrsg.),{ }\argVI.{ }\argVII%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviInBookDoi}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV(Hrsg.),{ }\argVI.{ }\argVII,{ }abrufbar{ }unter:{ }\textit{\argVIII}%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV{ }(Hrsg.),{ }\argVI.{ }\argVII,{ }abrufbar{ }unter:{ }\textit{\argVIII}%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviInCollection}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV(Hrsg.),{ }\argVI.{ }\argVII%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV{ }(Hrsg.),{ }\argVI.{ }\argVII%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviInCollectionDoi}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV(Hrsg.),{ }\argVI.{ }\argVII,{ }abrufbar{ }unter:{ }\textit{\argVIII}%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV{ }(Hrsg.),{ }\argVI.{ }\argVII,{ }abrufbar{ }unter:{ }\textit{\argVIII}%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviInProceedings}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV(Hrsg.),{ }\argVI.{ }\argVII%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV{ }(Hrsg.),{ }\argVI.{ }\argVII%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printCitaviInProceedingsDoi}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV(Hrsg.),{ }\argVI.{ }\argVII,{ }abrufbar{ }unter:{ }\textit{\argVIII}%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \argI{ }(\argII):{ }\textit{\argIII}{ }In:{ }\textit{\argIV},{ }\argV{ }(Hrsg.),{ }\argVI.{ }\argVII,{ }abrufbar{ }unter:{ }\textit{\argVIII}%
+    \\%
+    \vspace{-12pt}%
 
 }
 \newcommand{\printaufsatz}[0]{%
-	\hangindent=\bibparindent%
-	\parindent 0pt%
-	\hangafter=1%
-	\textit{\argI}f{ }(\argII),{ }\argIII,{ }in:{ }\textit{\argIV}{ }\argV{ }S.{ }\textit{\argVI},{ }abrufbar{ }unter:{ }\textit{\argVII}{ }%
-	\\%
-	\vspace{-12pt}%
+    \hangindent=\bibparindent%
+    \parindent 0pt%
+    \hangafter=1%
+    \textit{\argI}(\argII),{ }\argIII,{ }in:{ }\textit{\argIV}{ }\argV{ }S.{ }\textit{\argVI},{ }abrufbar{ }unter:{ }\textit{\argVII}{ }%
+    \\%
+    \vspace{-12pt}%
 
 }
 % end bib commands
@@ -196,7 +196,7 @@
 % Commands to switch between inline and footnote cites
 \newcommand{\citeInFootnote}{true}
 \newcommand{\useInlineCites}{
-	\renewcommand{\citeInFootnote}{false}
+    \renewcommand{\citeInFootnote}{false}
 }
 
 \newcommand{\citeContent}{}
@@ -205,88 +205,88 @@
 % #2: prefix (e.g. vgl. )
 % #3: suffix (e.g. S.201)
 \newcommand{\citebib}[3] {%
-	\DTLforeach*{bibliography}%
-	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}%
-	{%
-		\IfStrEqCase{#1}{%
-				{\key}{%
-				\renewcommand\argI{\a}%
-				\renewcommand\argII{\b}%
-				\renewcommand\argIII{\c}%
-				\renewcommand\argIV{\d}%
-				\renewcommand\argV{\e}%
-				\renewcommand\argVI{\f}%
-				\renewcommand\argVII{\g}%
-				\renewcommand\argVIII{\h}%
-				\renewcommand\argIX{\i}%
-				\renewcommand\argX{\j}%
-				%
-				\renewcommand{\citeContent}{\getCite{\type}}%
-				%
-				\IfStrEqCase{\citeInFootnote}{%
-						{true}{\footnote{#2\citeContent #3.}}%
-						{false}{ (#2\citeContent #3)}%
-				}%
-			}%
-		}[]% CHANGE IS HERE
-	}%
+    \DTLforeach*{bibliography}%
+    {\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i,\j=j}%
+    {%
+        \IfStrEqCase{#1}{%
+                {\key}{%
+                \renewcommand\argI{\a}%
+                \renewcommand\argII{\b}%
+                \renewcommand\argIII{\c}%
+                \renewcommand\argIV{\d}%
+                \renewcommand\argV{\e}%
+                \renewcommand\argVI{\f}%
+                \renewcommand\argVII{\g}%
+                \renewcommand\argVIII{\h}%
+                \renewcommand\argIX{\i}%
+                \renewcommand\argX{\j}%
+                %
+                \renewcommand{\citeContent}{\getCite{\type}}%
+                %
+                \IfStrEqCase{\citeInFootnote}{%
+                        {true}{\footnote{#2\citeContent #3.}}%
+                        {false}{ (#2\citeContent #3)}%
+                }%
+            }%
+        }[]% CHANGE IS HERE
+    }%
 }
 
 \newcommand{\getCite}[1] {%
-	\IfStrEqCase{\type}{%
-	% begin cite assignment
-			{CitaviArticle}{\citeCitaviArticle}%
-			{CitaviArticleDoi}{\citeCitaviArticleDoi}%
-			{CitaviBook}{\citeCitaviBook}%
-			{CitaviBookDoi}{\citeCitaviBookDoi}%
-			{CitaviBooklet}{\citeCitaviBooklet}%
-			{CitaviInBook}{\citeCitaviInBook}%
-			{CitaviInBookDoi}{\citeCitaviInBookDoi}%
-			{CitaviInCollection}{\citeCitaviInCollection}%
-			{CitaviInCollectionDoi}{\citeCitaviInCollectionDoi}%
-			{CitaviInProceedings}{\citeCitaviInProceedings}%
-			{CitaviInProceedingsDoi}{\citeCitaviInProceedingsDoi}%
-			{aufsatz}{\citeaufsatz}%
-	% end cite assignment
-	}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
+    \IfStrEqCase{\type}{%
+    % begin cite assignment
+            {CitaviArticle}{\citeCitaviArticle}%
+            {CitaviArticleDoi}{\citeCitaviArticleDoi}%
+            {CitaviBook}{\citeCitaviBook}%
+            {CitaviBookDoi}{\citeCitaviBookDoi}%
+            {CitaviBooklet}{\citeCitaviBooklet}%
+            {CitaviInBook}{\citeCitaviInBook}%
+            {CitaviInBookDoi}{\citeCitaviInBookDoi}%
+            {CitaviInCollection}{\citeCitaviInCollection}%
+            {CitaviInCollectionDoi}{\citeCitaviInCollectionDoi}%
+            {CitaviInProceedings}{\citeCitaviInProceedings}%
+            {CitaviInProceedingsDoi}{\citeCitaviInProceedingsDoi}%
+            {aufsatz}{\citeaufsatz}%
+    % end cite assignment
+    }[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 }
 
 % begin cite commands
 \newcommand{\citeCitaviArticle}[0]{%
-	\argVII{ }(\argII),{ }%
+    \argVII{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviArticleDoi}[0]{%
-	\argVIII{ }(\argII),{ }%
+    \argVIII{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviBook}[0]{%
-	\argVI{ }(\argII),{ }%
+    \argVI{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviBookDoi}[0]{%
-	\argVII{ }(\argII),{ }%
+    \argVII{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviBooklet}[0]{%
-	\argIV{ }(\argII),{ }%
+    \argIV{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviInBook}[0]{%
-	\argVIII{ }(\argII),{ }%
+    \argVIII{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviInBookDoi}[0]{%
-	\argIX{ }(\argII),{ }%
+    \argIX{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviInCollection}[0]{%
-	\argVIII{ }(\argII),{ }%
+    \argVIII{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviInCollectionDoi}[0]{%
-	\argIX{ }(\argII),{ }%
+    \argIX{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviInProceedings}[0]{%
-	\argVIII{ }(\argII),{ }%
+    \argVIII{ }(\argII),{ }%
 }
 \newcommand{\citeCitaviInProceedingsDoi}[0]{%
-	\argIX{ }(\argII),{ }%
+    \argIX{ }(\argII),{ }%
 }
 \newcommand{\citeaufsatz}[0]{%
-	\textit{\argVIII}{ }\textit{\argII}{ }%
+    \textit{\argVIII}{ }\textit{\argII}{ }%
 }
 % end cite commands
 

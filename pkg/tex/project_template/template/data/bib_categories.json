@@ -530,7 +530,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": "(Hrsg.), ",
+          "Suffix": " (Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -643,7 +643,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": "(Hrsg.), ",
+          "Suffix": " (Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -770,7 +770,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": "(Hrsg.), ",
+          "Suffix": " (Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -883,7 +883,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": "(Hrsg.), ",
+          "Suffix": " (Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -1010,7 +1010,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": "(Hrsg.), ",
+          "Suffix": " (Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
@@ -1123,7 +1123,7 @@
         "Name": "Herausgeber",
         "Format": {
           "Prefix": "",
-          "Suffix": "(Hrsg.), ",
+          "Suffix": " (Hrsg.), ",
           "Italic": false,
           "Preformatted": false
         },
