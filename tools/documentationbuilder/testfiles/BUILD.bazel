@@ -5,6 +5,7 @@ exports_files([
     "withCode.md",
     "withImage.md",
     "withLinks.md",
+    "withFootnote.md",
 ])
 
 pkg_tar(

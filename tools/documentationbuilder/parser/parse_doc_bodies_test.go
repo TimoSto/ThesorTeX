@@ -43,7 +43,7 @@ func TestAnalyseLine(t *testing.T) {
 			line: "[^11]:hallo",
 			exp: analyseLineResult{
 				Type:    TypeFootnoteRef,
-				Content: "hallo",
+				Content: "[^11]:hallo",
 			},
 		},
 	}
