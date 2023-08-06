@@ -2,6 +2,7 @@ package parser
 
 import (
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -153,7 +154,34 @@ func parseDocBody(raw RawDocs) DocBody {
 					Style:   "",
 				},
 			}
+		} else if l.Type == TypeFootnoteRef {
+
+			num := footnoteRefRegex.FindString(l.Content)
+
+			content := strings.TrimLeft(l.Content, num)
+
+			num = num[2 : len(num)-2]
+
+			// TODO: handle error
+			n, _ := strconv.Atoi(num)
+
+			if body.Footnotes == nil {
+				body.Footnotes = make(map[int][]element)
+			}
+
+			body.Footnotes[n] = []element{
+				{
+					Style:   StylePlain,
+					Content: content,
+				},
+			}
 		}
+	}
+
+	if len(body.Groups[len(body.Groups)-1].Elements) == 0 {
+		// a newline before footnotes causes an empty group
+		// TODO: do this better
+		body.Groups = body.Groups[:len(body.Groups)-1]
 	}
 
 	return body
@@ -209,11 +237,9 @@ func analyseLine(line string, incode bool) analyseLineResult {
 	}
 
 	if footnoteRefRegex.MatchString(line) {
-		m := footnoteRefRegex.FindString(line)
-
 		return analyseLineResult{
 			Type:    TypeFootnoteRef,
-			Content: strings.TrimLeft(line, m+" "),
+			Content: line,
 		}
 	}
 

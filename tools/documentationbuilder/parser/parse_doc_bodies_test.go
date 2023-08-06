@@ -477,6 +477,116 @@ var withLinksExpectedBody = []DocBody{
 	},
 }
 
+var withFootnoteExpectedBody = []DocBody{
+	{
+		Title: "Doc 1",
+		Groups: []group{
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "Some content",
+					},
+				},
+			},
+		},
+	},
+	{
+		Title: "Doc 2 styled",
+		Groups: []group{
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "Simple content ",
+					},
+					{
+						Style:   "ITALIC",
+						Content: "with",
+					},
+					{
+						Style:   "PLAIN",
+						Content: " ",
+					},
+					{
+						Style:   "BOLD",
+						Content: "some",
+					},
+					{
+						Style:   "PLAIN",
+						Content: " ",
+					},
+					{
+						Style:   "ITALIC-BOLD",
+						Content: "styling",
+					},
+					{
+						Style:   "PLAIN",
+						Content: " and footnote.",
+					},
+					{
+						Style:   "FOOTNOTE",
+						Content: "1",
+					},
+				},
+			},
+		},
+		Footnotes: map[int][]element{
+			1: []element{
+				{
+					Style:   "PLAIN",
+					Content: "footnote content",
+				},
+			},
+		},
+	},
+	{
+		Title: "Extra spacing",
+		Groups: []group{
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "Simple",
+					},
+				},
+			},
+			{
+				Type: "TEXT",
+				Elements: []element{
+					{
+						Style:   "PLAIN",
+						Content: "content ",
+					},
+					{
+						Style:   "ITALIC",
+						Content: "with",
+					},
+					{
+						Style:   "PLAIN",
+						Content: " ",
+					},
+					{
+						Style:   "BOLD",
+						Content: "some",
+					},
+					{
+						Style:   "PLAIN",
+						Content: " ",
+					},
+					{
+						Style:   "ITALIC-BOLD",
+						Content: "styling",
+					},
+				},
+			},
+		},
+	},
+}
+
 func TestParseDocBody(t *testing.T) {
 	for i, s := range simpleExpected {
 		t.Run(s.Title, func(t *testing.T) {
@@ -525,6 +635,20 @@ func TestParseDocBodyWithLinks(t *testing.T) {
 			result := parseDocBody(s)
 
 			expected := withLinksExpectedBody[i]
+
+			if diff := cmp.Diff(expected, result); diff != "" {
+				t.Errorf("%s", diff)
+			}
+		})
+	}
+}
+
+func TestParseDocBodyWithFootnote(t *testing.T) {
+	for i, s := range withFootnoteExpected {
+		t.Run(s.Title, func(t *testing.T) {
+			result := parseDocBody(s)
+
+			expected := withFootnoteExpectedBody[i]
 
 			if diff := cmp.Diff(expected, result); diff != "" {
 				t.Errorf("%s", diff)
