@@ -149,12 +149,9 @@ func parseDocBody(raw RawDocs) DocBody {
 				body.Footnotes = make(map[int][]element)
 			}
 
-			body.Footnotes[n] = []element{
-				{
-					Style:   StylePlain,
-					Content: content,
-				},
-			}
+			elements := splitLineIntoElements(content)
+
+			body.Footnotes[n] = elements
 		}
 	}
 

@@ -7,7 +7,7 @@ content
 Simple
 content *with* **some** ***styling*** and footnote.[^1]
 
-[^1]:footnote content
+[^1]:footnote *content*
 
 ---
 

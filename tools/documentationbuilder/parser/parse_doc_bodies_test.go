@@ -537,7 +537,11 @@ var withFootnoteExpectedBody = []DocBody{
 			1: []element{
 				{
 					Style:   "PLAIN",
-					Content: "footnote content",
+					Content: "footnote ",
+				},
+				{
+					Style:   "ITALIC",
+					Content: "content",
 				},
 			},
 		},

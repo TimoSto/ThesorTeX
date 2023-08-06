@@ -50,7 +50,7 @@ var withFootnoteExpected = []RawDocs{
 	},
 	{
 		Title:   "Doc 2 styled",
-		Content: "Simple\ncontent *with* **some** ***styling*** and footnote.[^1]\n\n[^1]:footnote content",
+		Content: "Simple\ncontent *with* **some** ***styling*** and footnote.[^1]\n\n[^1]:footnote *content*",
 	},
 	{
 		Title:   "Extra spacing",
