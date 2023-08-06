@@ -43,6 +43,21 @@ var withLinksExpected = []RawDocs{
 	},
 }
 
+var withFootnoteExpected = []RawDocs{
+	{
+		Title:   "Doc 1",
+		Content: "Some\ncontent",
+	},
+	{
+		Title:   "Doc 2 styled",
+		Content: "Simple\ncontent *with* **some** ***styling*** and footnote.[^1]\n\n[^1]:footnote content",
+	},
+	{
+		Title:   "Extra spacing",
+		Content: "Simple\n\ncontent *with* **some** ***styling***",
+	},
+}
+
 func TestSplitDocs(t *testing.T) {
 	file, err := os.ReadFile("../testfiles/simple.md")
 	if err != nil {
@@ -115,6 +130,25 @@ func TestSplitDocsWithLinks(t *testing.T) {
 	}
 
 	if diff := cmp.Diff(withLinksExpected, result); diff != "" {
+		t.Errorf("%s", diff)
+	}
+}
+
+func TestSplitDocsWithFootnote(t *testing.T) {
+	file, err := os.ReadFile("../testfiles/withFootnote.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	title, result := SplitDocs(string(file))
+
+	expTitle := "Simple Docs"
+
+	if title != expTitle {
+		t.Errorf("expected title %s, but got %s", expTitle, title)
+	}
+
+	if diff := cmp.Diff(withFootnoteExpected, result); diff != "" {
 		t.Errorf("%s", diff)
 	}
 }
