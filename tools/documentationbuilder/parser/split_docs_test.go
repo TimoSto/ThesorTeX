@@ -54,7 +54,7 @@ var withFootnoteExpected = []RawDocs{
 	},
 	{
 		Title:   "Extra spacing",
-		Content: "Simple\n\ncontent *with* **some** ***styling***",
+		Content: "Simple\n\ncontent *with* **some** ***styling***[^2]\n\n[^2]:[https://testsite/test](https://testsite/test)",
 	},
 }
 

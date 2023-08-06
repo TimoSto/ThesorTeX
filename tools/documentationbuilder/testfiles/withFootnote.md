@@ -15,7 +15,9 @@ content *with* **some** ***styling*** and footnote.[^1]
 
 Simple
 
-content *with* **some** ***styling***
+content *with* **some** ***styling***[^2]
+
+[^2]:[https://testsite/test](https://testsite/test)
 
 
 

@@ -138,7 +138,7 @@ func parseDocBody(raw RawDocs) DocBody {
 
 			num := footnoteRefRegex.FindString(l.Content)
 
-			content := strings.TrimLeft(l.Content, num)
+			content := l.Content[len(num):]
 
 			num = num[2 : len(num)-2]
 

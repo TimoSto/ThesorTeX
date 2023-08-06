@@ -585,6 +585,22 @@ var withFootnoteExpectedBody = []DocBody{
 						Style:   "ITALIC-BOLD",
 						Content: "styling",
 					},
+					{
+						Style:   "FOOTNOTE",
+						Content: "2",
+					},
+				},
+			},
+		},
+		Footnotes: map[int][]element{
+			2: []element{
+				{
+					Style:   "LINK-TITLE",
+					Content: "https://testsite/test",
+				},
+				{
+					Style:   "LINK-HREF",
+					Content: "https://testsite/test",
 				},
 			},
 		},
