@@ -95,28 +95,8 @@ func parseDocBody(raw RawDocs) DocBody {
 			}
 
 			elements := splitLineIntoElements(l.Content)
-			for _, e := range elements {
-				if len(body.Groups[len(body.Groups)-1].Elements) < lengthElements {
-					// if tto few elements are present, create an empty one
-					body.Groups[len(body.Groups)-1].Elements = append(
-						body.Groups[len(body.Groups)-1].Elements, element{})
-				}
-				if body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style == "" {
-					// first element in group sets style
-					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style = e.Style
-					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content = e.Content
-				} else if body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style == e.Style {
-					// if style matches, jsut add the content
-					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content += e.Content
-				} else {
-					//if style differs, create new group and add in there
-					body.Groups[len(body.Groups)-1].Elements = append(
-						body.Groups[len(body.Groups)-1].Elements, element{})
-					lengthElements++
-					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Style = e.Style
-					body.Groups[len(body.Groups)-1].Elements[lengthElements-1].Content = e.Content
-				}
-			}
+
+			sortElementsIntoGroups(&body, elements, &lengthElements)
 		} else if l.Type == TypeBeginCode {
 			incode = true
 			body.Groups = append(body.Groups, group{Type: "CODE"})
@@ -379,6 +359,31 @@ func splitLineIntoElements(line string) []element {
 	}
 
 	return elements
+}
+
+func sortElementsIntoGroups(body *DocBody, elements []element, lengthElements *int) {
+	for _, e := range elements {
+		if len(body.Groups[len(body.Groups)-1].Elements) < *lengthElements {
+			// if tto few elements are present, create an empty one
+			body.Groups[len(body.Groups)-1].Elements = append(
+				body.Groups[len(body.Groups)-1].Elements, element{})
+		}
+		if body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Style == "" {
+			// first element in group sets style
+			body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Style = e.Style
+			body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Content = e.Content
+		} else if body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Style == e.Style {
+			// if style matches, jsut add the content
+			body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Content += e.Content
+		} else {
+			//if style differs, create new group and add in there
+			body.Groups[len(body.Groups)-1].Elements = append(
+				body.Groups[len(body.Groups)-1].Elements, element{})
+			*lengthElements++
+			body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Style = e.Style
+			body.Groups[len(body.Groups)-1].Elements[*lengthElements-1].Content = e.Content
+		}
+	}
 }
 
 func sortMatches(indexes [][]int, values []string) ([][]int, []string) {
