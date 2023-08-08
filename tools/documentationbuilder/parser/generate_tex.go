@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -21,6 +22,10 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 					} else if e.Style == LinkHref {
 						body += fmt.Sprintf(`\href{%s}{\nolinkurl{%s}}`, e.Content, linkTitle)
 						linkTitle = ""
+					} else if e.Style == Footnote {
+						n, _ := strconv.Atoi(e.Content)
+						t := parseText(d.Footnotes[n])
+						body += fmt.Sprintf(`\footnote{%s}`, t)
 					} else {
 						body += fmt.Sprintf(getFormatForType(e.Style), e.Content)
 					}
@@ -50,6 +55,25 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 	}
 
 	return []byte(body), nil
+}
+
+func parseText(els []element) string {
+	var linkTitle string
+	var c string
+	for _, e := range els {
+		e.Content = strings.Replace(e.Content, "\\", "\\textbackslash ", -1)
+		e.Content = strings.Replace(e.Content, "_", "{{\\_}}", -1)
+		if e.Style == LinkTitle {
+			linkTitle = e.Content
+		} else if e.Style == LinkHref {
+			c += fmt.Sprintf(`\href{%s}{\nolinkurl{%s}}`, e.Content, linkTitle)
+			linkTitle = ""
+		} else {
+			c += fmt.Sprintf(getFormatForType(e.Style), e.Content)
+		}
+	}
+
+	return c
 }
 
 func getFormatForType(t string) string {
