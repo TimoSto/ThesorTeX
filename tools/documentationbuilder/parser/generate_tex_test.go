@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"strings"
 	"testing"
 
@@ -115,8 +114,6 @@ func TestGenerateContentForTeX_WithFootnote(t *testing.T) {
 	if err != nil {
 		t.Errorf("unexpected error: %v", err)
 	}
-
-	fmt.Println(string(content))
 
 	expectedContent := `\part{test 3}
 \section{Doc 1}
