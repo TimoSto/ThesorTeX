@@ -33,7 +33,7 @@ Diese Anwendung interagiert mit zwei Dingen auf deinem Computer: Dem Dateisystem
 Der Zugriff auf das Dateisystem wird benötigt, um Projekte, Literatureinträge und Literaturkategorien erstellen zu können. Die erstellten Ordner und Dateien sollten dabei von dir bearbeitet, verschoben und gelöscht werden können. Falls dies nicht geht, lege bitte einen Bug im [Github-Projekt](https://github.com/TimoSto/ThesorTeX/issues) an.
 
 Der Zugriff auf das lokale Netzwerk wird benötigt, um die Anwendung im Browser verfügbar zu machen. 
-Der Begriff ***localhost*** bezieht sich auf deinen Computer. Es ist der Standard-Kanal für Verbindungen auf und mit deinem Computer.
+Der Begriff ***localhost*** bezieht sich auf deinen Computer. Es ist der Standard-Kanal für Verbindungen auf und mit deinem Computer.[^1]
 Der ***Port*** legt die Adresse fest, unter welcher die Anwendung zu erreichen ist. Standardmäßig verwendet diese Anwendung den Port ***8448***.
 Aber wenn auf diesem Port bereits eine andere Anwendung läuft, musst du einen anderen Port auswählen.
 
@@ -44,6 +44,8 @@ Wenn du die Anwendung durch einen Doppelklick startest, wird ein ***Terminal-Fen
 Das Terminal ist der *Rahmen* in dem die Anwendung läuft. Dort siehst du Log-Nachrichten (Info und Fehler) und du kannst die Anwendung wieder beenden. Drücke dazu ***STRG + C*** im Terminal oder schließe das Fenster.
 
 Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in [Github](https://github.com/TimoSto/ThesorTeX/issues) an und füge diesem das Label ***question*** hinzu, oder schreibe einen Beitrag in die [Diskussionsrunde](https://github.com/TimoSto/ThesorTeX/discussions/158).
+
+[^1]:[https://www.freecodecamp.org/news/what-is-localhost/](https://www.freecodecamp.org/news/what-is-localhost/)
 
 ---
 

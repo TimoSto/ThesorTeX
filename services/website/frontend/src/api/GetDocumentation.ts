@@ -9,9 +9,15 @@ export type DocumentationPack = {
     Docs: Documentation[]
 }
 
+export type Footnote = {
+    Key: string
+    Elements: Element[]
+}
+
 export type Documentation = {
     Title: string
     Groups: Group[]
+    Footnotes: Footnote[]
 }
 
 export type Group = {
@@ -35,10 +41,12 @@ export async function GetDocumentationsJSON(lang: string): Promise<ThesorTeXDocu
 
     if (resp.ok) {
         let data = await resp.json();
-        docs.ThesisTemplate = JSON.parse(data.ThesisTemplate);
-        docs.CVTemplate = JSON.parse(data.CVTemplate);
-        docs.ThesisTool = JSON.parse(data.ThesisTool);
+        docs.ThesisTemplate = mapFootnotes(data.ThesisTemplate);
+        docs.CVTemplate = mapFootnotes(data.CVTemplate);
+        docs.ThesisTool = mapFootnotes(data.ThesisTool);
     }
+
+    console.log(docs.ThesisTool);
 
     return docs;
 }
@@ -51,4 +59,28 @@ export async function GetThesisToolDocumentation(lang: string): Promise<Document
     }
 
     return {} as Documentation;
+}
+
+function mapFootnotes(data: string): DocumentationPack {
+    const raw = JSON.parse(data);
+
+    raw.Docs.forEach((d: Documentation, i: number) => {
+        const rawFootnotes = d.Footnotes;
+        raw.Docs[i].Footnotes = [];
+
+        for (let k in rawFootnotes) {
+            raw.Docs[i].Footnotes.push({
+                Key: k,
+                Elements: rawFootnotes[k]
+            });
+        }
+        // for (let [k, v] of rawFootnotes) {
+        //     console.log(k, v);
+        // }
+
+        console.log(raw.Docs[i].Footnotes);
+    });
+
+
+    return raw;
 }
