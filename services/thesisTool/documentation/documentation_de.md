@@ -37,7 +37,7 @@ Der Begriff ***localhost*** bezieht sich auf deinen Computer. Es ist der Standar
 Der ***Port*** legt die Adresse fest, unter welcher die Anwendung zu erreichen ist. Standardmäßig verwendet diese Anwendung den Port ***8448***.
 Aber wenn auf diesem Port bereits eine andere Anwendung läuft, musst du einen anderen Port auswählen.
 
-Du hast vielleicht schon mal den Begriff ***HTTPS*** gehört. Damit werden sichere, verschlüsselte Verbindungen zu Servern hergestellt. Dir ist vielleicht auch aufgefallen, dass die Adresse der Anwendung nur ein ***http*** hat und kein ***https***.
+Du hast vielleicht schon mal den Begriff ***HTTPS*** gehört. Damit werden sichere, verschlüsselte Verbindungen zu Servern hergestellt.[^2] Dir ist vielleicht auch aufgefallen, dass die Adresse der Anwendung nur ein ***http*** hat und kein ***https***.
 Diese Anwendung läuft lokal und ist nur von deinem Computer aus erreichbar. Deshalb wurde *HTTPS* im ersten Wurf nicht umgesetzt.
 
 Wenn du die Anwendung durch einen Doppelklick startest, wird ein ***Terminal-Fenster*** geöffnet. Da man sowas bei Programmen wie *MS Word* nicht sieht, fragst du dich vielleicht, was das ist.
@@ -46,7 +46,7 @@ Das Terminal ist der *Rahmen* in dem die Anwendung läuft. Dort siehst du Log-Na
 Wenn du weitere Fragen oder Unsicherheiten hast, lege gern ein Issue in [Github](https://github.com/TimoSto/ThesorTeX/issues) an und füge diesem das Label ***question*** hinzu, oder schreibe einen Beitrag in die [Diskussionsrunde](https://github.com/TimoSto/ThesorTeX/discussions/158).
 
 [^1]:[https://www.freecodecamp.org/news/what-is-localhost/](https://www.freecodecamp.org/news/what-is-localhost/)
-
+[^2]:[https://www.cloudflare.com/de-de/learning/ssl/what-is-https/](https://www.cloudflare.com/de-de/learning/ssl/what-is-https/)
 ---
 
 ## Wie kann ich einen Literatureintrag anlegen?
