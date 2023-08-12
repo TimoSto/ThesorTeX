@@ -1,7 +1,7 @@
 resource "aws_apigatewayv2_api_mapping" "thesortex" {
-  api_id      = module.website_api_gw.id
+  api_id      = module.router_api_gw.id
   domain_name = module.website_domain.id
-  stage       = module.website_api_gw.default_stage_id
+  stage       = module.router_api_gw.default_stage_id
 }
 
 output "custom_domain_api" {
