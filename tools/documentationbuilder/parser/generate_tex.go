@@ -23,7 +23,7 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 						body += fmt.Sprintf(`\href{%s}{\nolinkurl{%s}}`, e.Content, linkTitle)
 						linkTitle = ""
 					} else if e.Style == Footnote {
-						n, _ := strconv.Atoi(e.Content)
+						n, _ := strconv.Atoi(strings.TrimSpace(e.Content))
 						t := parseText(d.Footnotes[n])
 						body += fmt.Sprintf(`\footnote{%s}`, t)
 					} else {
