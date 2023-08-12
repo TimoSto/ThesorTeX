@@ -5,7 +5,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/TimoSto/ThesorTeX/services/router/cmd/e2e",
     visibility = ["//visibility:private"],
-    deps = ["//services/router/internal/backend"],
+    deps = [
+        "//pkg/backend/log",
+        "//services/router/internal/backend",
+    ],
 )
 
 go_binary(

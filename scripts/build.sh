@@ -93,10 +93,32 @@ then
     id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/contact/cmd/lambda:contact_lambda_image)
     hash=$(git rev-parse --short HEAD)
 
-    echo "pushing website lambda image (tag $hash)..."
+    echo "pushing contact lambda image (tag $hash)..."
 
     podman tag $id 846873250811.dkr.ecr.eu-central-1.amazonaws.com/contact_lambda:$hash
     podman push 846873250811.dkr.ecr.eu-central-1.amazonaws.com/contact_lambda:$hash
+  fi
+fi
+
+if [ "$1" = "router" ] || [ "$1" = "all" ]
+then
+  echo "building router docker image..."
+
+  bazel run //services/router/cmd/lambda:router_lambda_image
+
+  echo "push to aws ecr? [y/n]"
+
+  read proceed
+
+  if [ "$proceed" = "y" ]
+  then
+    id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/router/cmd/lambda:router_lambda_image)
+    hash=$(git rev-parse --short HEAD)
+
+    echo "pushing router lambda image (tag $hash)..."
+
+    podman tag $id 846873250811.dkr.ecr.eu-central-1.amazonaws.com/router_lambda:$hash
+    podman push 846873250811.dkr.ecr.eu-central-1.amazonaws.com/router_lambda:$hash
   fi
 fi
 

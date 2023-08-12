@@ -6,6 +6,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/router/internal/backend",
     visibility = ["//services/router:__subpackages__"],
     deps = [
+        "//pkg/backend/aws/apigateway",
         "//pkg/backend/handler_chain",
         "//services/router/internal/config",
         "//services/router/internal/reverseproxy",
