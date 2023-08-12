@@ -10,7 +10,7 @@
             <span v-if="e.Style != 'LINK-HREF' && e.Style != 'LINK-TITLE' && e.Style !== 'FOOTNOTE'"
                   :class="getClass(e.Style)">{{ e.Content }}</span>
             <a v-if="e.Style == 'LINK-HREF'" :href="e.Content" target="_blank">{{ g.Elements[j - 1].Content }}</a>
-            <span v-if="e.Style === 'FOOTNOTE'" style="vertical-align: super">
+            <span v-if="e.Style === 'FOOTNOTE'" style="vertical-align: super; font-size: 13px">
               {{ e.Content }}
               <!--TODO: make this a link-->
             </span>
