@@ -8,7 +8,7 @@ import (
 func main() {
 	log.Setup(true, "DEBUG")
 	cfg := backend.Config{
-		IsProd: false,
+		IsProd: true,
 	}
 
 	err := backend.StartBackend(cfg)
