@@ -5,3 +5,7 @@ variable "api_name" {
 variable "integration_uri" {
   type = string
 }
+
+variable "lambda_func_name" {
+  type = string
+}

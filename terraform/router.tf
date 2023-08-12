@@ -23,4 +23,5 @@ module "router_api_gw" {
   source          = "./modules/apigateway"
   api_name        = "router_api"
   integration_uri = module.router_lambda.invoke_arn
+  lambda_func_name = module.router_lambda.func_name
 }
