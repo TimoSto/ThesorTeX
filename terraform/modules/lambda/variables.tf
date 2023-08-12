@@ -10,3 +10,10 @@ variable "lambda_policies" {
   type    = list(string)
   default = []
 }
+
+variable "env" {
+  type    = map(string)
+  default = {
+    DUMMY : "DUMMY" //TODO: Get rid of this
+  }
+}

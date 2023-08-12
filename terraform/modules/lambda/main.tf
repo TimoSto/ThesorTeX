@@ -3,6 +3,9 @@ resource "aws_lambda_function" "lambda_func" {
   image_uri     = var.image_url
   package_type  = "Image"
   role          = aws_iam_role.lambda_exec.arn
+  environment {
+    variables = var.env
+  }
 }
 
 data aws_iam_policy_document lambda_assume_role {
