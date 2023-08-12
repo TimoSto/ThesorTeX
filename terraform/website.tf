@@ -21,6 +21,13 @@ module "website_lambda" {
   ]
 }
 
+module "website_api_gw" {
+  source           = "./modules/apigateway"
+  api_name         = "website-api"
+  integration_uri  = module.website_lambda.invoke_arn
+  lambda_func_name = module.website_lambda.func_name
+}
+
 module "website_domain" {
   source      = "./modules/customdomain"
   domain_name = "thesortex.com"

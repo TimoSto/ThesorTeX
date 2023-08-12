@@ -10,7 +10,7 @@ module "router_lambda" {
   function_name = "router_lambda"
   env           = {
     ROUTER_APPS = "WEBSITE",
-    ROUTER_TARGET_URL__WEBSITE : aws_apigatewayv2_api.website_lambda.api_endpoint,
+    ROUTER_TARGET_URL__WEBSITE : module.website_api_gw.api_endpoint,
     ROUTER_ROUTE__WEBSITE : "/",
   }
   lambda_policies = [
