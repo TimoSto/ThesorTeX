@@ -3,3 +3,18 @@ module "router_lambda_ecr" {
 
   target_name = "router_lambda"
 }
+
+module "router_lambda" {
+  source        = "./modules/lambda"
+  image_url     = "${module.router_lambda_ecr.repository_url}:${var.router_image_tag}"
+  function_name = "router_lambda"
+  env           = {
+    ROUTER_APPS = "WEBSITE",
+    ROUTER_TARGET_URL__WEBSITE : aws_apigatewayv2_api.website_lambda.api_endpoint,
+    ROUTER_ROUTE__WEBSITE : "/",
+  }
+  lambda_policies = [
+    "arn:aws:s3:::${module.website_s3_artifacts.bucket}",
+    "arn:aws:s3:::${module.website_s3_artifacts.bucket}/*",
+  ]
+}
