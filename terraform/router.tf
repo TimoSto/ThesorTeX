@@ -18,3 +18,9 @@ module "router_lambda" {
     "arn:aws:s3:::${module.website_s3_artifacts.bucket}/*",
   ]
 }
+
+module "router_api_gw" {
+  source          = "./modules/apigateway"
+  api_name        = "router_api"
+  integration_uri = module.router_lambda.invoke_arn
+}

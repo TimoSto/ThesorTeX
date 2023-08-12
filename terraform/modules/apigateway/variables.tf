@@ -2,6 +2,6 @@ variable "api_name" {
   type = string
 }
 
-variable "integrations" {
-  type = map(any)
+variable "integration_uri" {
+  type = string
 }

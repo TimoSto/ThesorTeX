@@ -53,18 +53,14 @@ resource "aws_apigatewayv2_stage" "default" {
 }
 
 resource "aws_apigatewayv2_integration" "api" {
-  for_each = var.integrations
-
   api_id = aws_apigatewayv2_api.api.id
 
-  integration_uri  = each.integration_uri
+  integration_uri = var.integration_uri
   integration_type = "AWS_PROXY"
 }
 
 resource "aws_apigatewayv2_route" "api" {
-  for_each = var.integrations
-
   api_id    = aws_apigatewayv2_api.api.id
-  route_key = each.key
-  target    = "integrations/${aws_apigatewayv2_integration.api[each.key].id}"
+  route_key = "$default"
+  target    = "integrations/${aws_apigatewayv2_integration.api.id}"
 }
