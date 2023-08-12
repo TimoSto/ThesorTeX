@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "reverseproxy",
+    srcs = ["reverseproxy.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/services/router/internal/reverseproxy",
+    visibility = ["//services/router:__subpackages__"],
+)
+
+go_test(
+    name = "reverseproxy_test",
+    srcs = ["reverseproxy_test.go"],
+)
