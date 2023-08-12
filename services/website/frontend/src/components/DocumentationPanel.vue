@@ -28,7 +28,7 @@
                      image-styles="border: 1px solid rgb(var(--v-theme-on-background)); width: calc(100% - 40px); margin: 0 auto;">
         </ImageViewer>
       </template>
-      <div v-if="!!doc.Footnotes">
+      <div v-if="!!doc.Footnotes && doc.Footnotes.length > 0">
         <hr />
         <ul style="list-style: none; font-size: 15px;">
           <li v-for="(f,i) in doc.Footnotes">
