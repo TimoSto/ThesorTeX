@@ -9,7 +9,7 @@ import (
 )
 
 func RegisterHandlers(mux *http.ServeMux, store feedback.Store) {
-	mux.HandleFunc("/version", versionhandler.GetRootHandler(config.Version))
+	mux.HandleFunc("/contact/version", versionhandler.GetRootHandler(config.Version))
 
-	mux.Handle("/feedback", sendfeedback.GetFeedbackHandler(store))
+	mux.Handle("/contact/feedback", sendfeedback.GetFeedbackHandler(store))
 }

@@ -12,9 +12,11 @@ go_binary(
     name = "e2e",
     embed = [":e2e_lib"],
     env = {
-        "ROUTER_APPS": "WEBSITE",
+        "ROUTER_APPS": "WEBSITE,CONTACT",
         "ROUTER_TARGET_URL__WEBSITE": "http://localhost:8449",
         "ROUTER_ROUTE__WEBSITE": "/",
+        "ROUTER_TARGET_URL__CONTACT": "http://localhost:8447",
+        "ROUTER_ROUTE__CONTACT": "/contact/",
     },
     visibility = ["//visibility:public"],
 )
