@@ -1,13 +1,18 @@
 package backend
 
 import (
+	"github.com/TimoSto/ThesorTeX/pkg/backend/aws/apigateway"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/handler_chain"
 	"github.com/TimoSto/ThesorTeX/services/router/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/router/internal/reverseproxy"
 	"net/http"
 )
 
-func StartBackend() error {
+type Config struct {
+	IsProd bool
+}
+
+func StartBackend(cfg Config) error {
 	ms, err := config.GetMappings()
 	if err != nil {
 		return err
@@ -24,9 +29,13 @@ func StartBackend() error {
 
 	chain := handler_chain.CreateHandlerChain()
 
-	err = http.ListenAndServe(":8446", chain.Then(mux))
-	if err != nil {
-		return err
+	if cfg.IsProd {
+		apigateway.StartLambda(chain.Then(mux))
+	} else {
+		err := http.ListenAndServe(":8446", chain.Then(mux))
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
