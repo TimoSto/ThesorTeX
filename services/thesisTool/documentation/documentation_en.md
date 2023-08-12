@@ -33,11 +33,11 @@ This application interacts with two things on your computer: the file system and
 Access to the file system is needed to create projects, literature entries and literature categories. You should be able to edit, move and delete the created folders and files. If this is not possible, please create a bug in the [Github project](https://github.com/TimoSto/ThesorTeX/issues).
 
 Access to the local network is needed to make the application available in the browser. 
-The term ***localhost*** refers to your computer. It is the default channel for connections to and from your computer.
+The term ***localhost*** refers to your computer. It is the default channel for connections to and from your computer.[^1]
 The ***port*** defines the address at which the application can be reached. By default, this application uses port ***8448***.
 But if another application is already running on this port, you must select a different port.
 
-You may have heard the term ***HTTPS***. This is used to establish secure, encrypted connections to servers. You may also have noticed that the address of the application has only ***http*** and no ***https***.
+You may have heard the term ***HTTPS***. This is used to establish secure, encrypted connections to servers.[^2] You may also have noticed that the address of the application has only ***http*** and no ***https***.
 This application runs locally and is only accessible from your computer. Therefore, *HTTPS* was not implemented in the first throw.
 
 When you start the application by double-clicking, a ***terminal window*** opens. Since you don't see this with programs like *MS Word*, you may be wondering what it is.
@@ -45,6 +45,9 @@ The terminal is the *frame* in which the application runs. There you will see lo
 
 If you have further questions or uncertainties, feel free to create an issue in [Github](https://github.com/TimoSto/ThesorTeX/issues) and add the label ***question*** to it, or write a post in the [discussion board](https://github.com/TimoSto/ThesorTeX/discussions/158).
 
+
+[^1]:[https://www.freecodecamp.org/news/what-is-localhost/](https://www.freecodecamp.org/news/what-is-localhost/)
+[^2]:[https://www.cloudflare.com/de-de/learning/ssl/what-is-https/](https://www.cloudflare.com/de-de/learning/ssl/what-is-https/)
 ---
 
 ## How can I add a bibliography entry?
