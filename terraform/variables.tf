@@ -21,5 +21,5 @@ variable "contact_image_tag" {
 }
 
 variable "router_image_tag" {
-  default = "58901528"
+  default = "e5fcc5a5"
 }
