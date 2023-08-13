@@ -14,5 +14,5 @@ const prefix = "/contact"
 func RegisterHandlers(mux *http.ServeMux, store feedback.Store) {
 	mux.HandleFunc(fmt.Sprintf("%s/version", prefix), versionhandler.GetRootHandler(config.Version))
 
-	mux.Handle(fmt.Sprintf("%s/contact/feedback", prefix), sendfeedback.GetFeedbackHandler(store))
+	mux.Handle(fmt.Sprintf("%s/feedback", prefix), sendfeedback.GetFeedbackHandler(store))
 }
