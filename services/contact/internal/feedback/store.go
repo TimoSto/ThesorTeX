@@ -2,6 +2,7 @@ package feedback
 
 import (
 	"context"
+	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	dynamobasic "github.com/aws/aws-sdk-go-v2/service/dynamodb"
@@ -39,6 +40,8 @@ func (s *Store) SaveFeedback(message string) error {
 	if err != nil {
 		return err
 	}
+
+	log.Info("successfully saved feedback %v to db %s", data, aws.String("feedbacks"))
 
 	return nil
 }
