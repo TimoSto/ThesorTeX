@@ -8,6 +8,9 @@ module "contact_lambda" {
   source          = "./modules/lambda"
   image_url       = "${module.contact_lambda_ecr.repository_url}:${var.contact_image_tag}"
   function_name   = "contact_lambda"
+  dynamo_tables   = [
+    aws_dynamodb_table.feedbacks.arn
+  ]
 }
 
 module "contact_api_gw" {

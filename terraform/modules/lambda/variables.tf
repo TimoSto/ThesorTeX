@@ -11,6 +11,11 @@ variable "s3_buckets" {
   default = []
 }
 
+variable "dynamo_tables" {
+  type    = list(string)
+  default = []
+}
+
 #variable "lambda_policies" {
 #  type    = list(string)
 #  default = []

@@ -60,6 +60,8 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution_role" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+# s3 permissions
+
 data aws_iam_policy_document lambda_s3 {
   count = length(var.s3_buckets) > 0 ? 1 : 0
 
@@ -86,4 +88,33 @@ resource aws_iam_role_policy_attachment lambda_s3 {
 
   role       = aws_iam_role.lambda_exec.name
   policy_arn = aws_iam_policy.lambda_s3[0].arn
+}
+
+# dynamodb permissions
+
+data aws_iam_policy_document lambda_dynamodb {
+  count = length(var.dynamo_tables) > 0 ? 1 : 0
+
+  statement {
+    actions = [
+      "dynamoDB:PutItem"
+    ]
+
+    resources = var.dynamo_tables
+  }
+}
+
+resource aws_iam_policy lambda_dynamodb {
+  count = length(var.dynamo_tables) > 0 ? 1 : 0
+
+  name        = "lambda-s3-permissions-${var.function_name}"
+  description = "Contains S3 put permission for lambda"
+  policy      = data.aws_iam_policy_document.lambda_dynamodb[0].json
+}
+
+resource aws_iam_role_policy_attachment lambda_dynamodb {
+  count = length(var.dynamo_tables) > 0 ? 1 : 0
+
+  role       = aws_iam_role.lambda_exec.name
+  policy_arn = aws_iam_policy.lambda_dynamodb[0].arn
 }
