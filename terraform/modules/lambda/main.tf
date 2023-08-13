@@ -8,20 +8,62 @@ resource "aws_lambda_function" "lambda_func" {
   }
 }
 
-data aws_iam_policy_document lambda_assume_role {
-  statement {
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
-    }
-  }
-}
+#data aws_iam_policy_document lambda_assume_role {
+#  statement {
+#    actions = ["sts:AssumeRole"]
+#
+#    principals {
+#      type        = "Service"
+#      identifiers = ["lambda.amazonaws.com"]
+#    }
+#  }
+#}
 
 resource aws_iam_role lambda_exec {
   name               = "lambda_exec-${var.function_name}"
-  assume_role_policy = data.aws_iam_policy_document.lambda_assume_role.json
+  assume_role_policy = <<EOF
+{
+ "Version": "2012-10-17",
+ "Statement": [
+   {
+     "Action": "sts:AssumeRole",
+     "Principal": {
+       "Service": "lambda.amazonaws.com"
+     },
+     "Effect": "Allow",
+     "Sid": ""
+   }
+ ]
+}
+EOF
+}
+
+resource "aws_iam_policy" "lambda_basic_role" {
+
+  name        = "lambda_basic_policy-${var.function_name}"
+  path        = "/"
+  description = "AWS IAM Policy for managing aws lambda role"
+  policy      = <<EOF
+{
+ "Version": "2012-10-17",
+ "Statement": [
+   {
+     "Action": [
+       "logs:CreateLogGroup",
+       "logs:CreateLogStream",
+       "logs:PutLogEvents"
+     ],
+     "Resource": "arn:aws:logs:*:*:*",
+     "Effect": "Allow"
+   }
+ ]
+}
+EOF
+}
+
+resource aws_iam_role_policy_attachment lambda_basic {
+  role       = aws_iam_role.lambda_exec.name
+  policy_arn = aws_iam_policy.lambda_basic_role.arn
 }
 
 # Attach role to Managed Policy
