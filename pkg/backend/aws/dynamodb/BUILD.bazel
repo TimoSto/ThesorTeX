@@ -6,6 +6,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/pkg/backend/aws/dynamodb",
     visibility = ["//visibility:public"],
     deps = [
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws",
         "//vendor/github.com/aws/aws-sdk-go-v2/config",
         "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",
     ],
