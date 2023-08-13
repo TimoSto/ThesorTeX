@@ -41,7 +41,7 @@ func (s *Store) SaveFeedback(message string) error {
 		return err
 	}
 
-	log.Info("successfully saved feedback %v to db %v", data, aws.String("feedbacks"))
+	log.Info("successfully saved feedback")
 
 	return nil
 }
