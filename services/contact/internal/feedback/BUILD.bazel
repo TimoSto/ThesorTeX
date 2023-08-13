@@ -9,6 +9,7 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/contact/internal/feedback",
     visibility = ["//services/contact:__subpackages__"],
     deps = [
+        "//pkg/backend/log",
         "//vendor/github.com/aws/aws-sdk-go-v2/aws",
         "//vendor/github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue",
         "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",
