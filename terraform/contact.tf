@@ -20,3 +20,15 @@ module "contact_api_gw" {
   integration_uri  = module.contact_lambda.invoke_arn
   lambda_func_name = module.contact_lambda.func_name
 }
+
+resource "aws_dynamodb_table" "feedbacks" {
+  name           = "feedbacks"
+  billing_mode   = "PROVISIONED"
+  read_capacity  = "10"
+  write_capacity = "10"
+  attribute {
+    name = "id"
+    type = "S"
+  }
+  hash_key = "id"
+}
