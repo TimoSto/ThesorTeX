@@ -55,21 +55,9 @@ resource aws_iam_role_policy_attachment lambda_basic {
   policy_arn = aws_iam_policy.lambda_basic_role.arn
 }
 
-# Attach role to Managed Policy
-variable "iam_policy_arn" {
-  description = "IAM Policy to be attached to role"
-  type        = list(string)
-
-  default = [
-    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-  ]
-}
-
-resource "aws_iam_policy_attachment" "role_attach" {
-  name       = "policy-${var.function_name}"
-  roles      = [aws_iam_role.lambda_exec.id]
-  count      = length(var.iam_policy_arn)
-  policy_arn = element(var.iam_policy_arn, count.index)
+resource "aws_iam_role_policy_attachment" "lambda_basic_execution_role" {
+  role       = aws_iam_role.lambda_exec.id
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 data aws_iam_policy_document lambda_s3 {
