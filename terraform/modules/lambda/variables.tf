@@ -6,10 +6,15 @@ variable "function_name" {
   type = string
 }
 
-variable "lambda_policies" {
+variable "s3_buckets" {
   type    = list(string)
   default = []
 }
+
+#variable "lambda_policies" {
+#  type    = list(string)
+#  default = []
+#}
 
 variable "env" {
   type    = map(string)

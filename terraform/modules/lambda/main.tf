@@ -8,17 +8,6 @@ resource "aws_lambda_function" "lambda_func" {
   }
 }
 
-#data aws_iam_policy_document lambda_assume_role {
-#  statement {
-#    actions = ["sts:AssumeRole"]
-#
-#    principals {
-#      type        = "Service"
-#      identifiers = ["lambda.amazonaws.com"]
-#    }
-#  }
-#}
-
 resource aws_iam_role lambda_exec {
   name               = "lambda_exec-${var.function_name}"
   assume_role_policy = <<EOF
@@ -84,23 +73,29 @@ resource "aws_iam_policy_attachment" "role_attach" {
 }
 
 data aws_iam_policy_document lambda_s3 {
+  count = length(var.s3_buckets) > 0 ? 1 : 0
+
   statement {
     actions = [
       "s3:ListBucket",
       "s3:GetObject"
     ]
 
-    resources = var.lambda_policies
+    resources = var.s3_buckets
   }
 }
 
 resource aws_iam_policy lambda_s3 {
+  count = length(var.s3_buckets) > 0 ? 1 : 0
+
   name        = "lambda-s3-permissions-${var.function_name}"
   description = "Contains S3 put permission for lambda"
-  policy      = data.aws_iam_policy_document.lambda_s3.json
+  policy      = data.aws_iam_policy_document.lambda_s3[0].json
 }
 
 resource aws_iam_role_policy_attachment lambda_s3 {
+  count = length(var.s3_buckets) > 0 ? 1 : 0
+
   role       = aws_iam_role.lambda_exec.name
-  policy_arn = aws_iam_policy.lambda_s3.arn
+  policy_arn = aws_iam_policy.lambda_s3[0].arn
 }

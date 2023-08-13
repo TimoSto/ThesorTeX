@@ -13,10 +13,6 @@ module "router_lambda" {
     ROUTER_TARGET_URL__WEBSITE : module.website_api_gw.api_endpoint,
     ROUTER_ROUTE__WEBSITE : "/",
   }
-  lambda_policies = [
-    "arn:aws:s3:::${module.website_s3_artifacts.bucket}",
-    "arn:aws:s3:::${module.website_s3_artifacts.bucket}/*",
-  ]
 }
 
 module "router_api_gw" {

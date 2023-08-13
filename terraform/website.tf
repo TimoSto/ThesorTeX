@@ -15,7 +15,7 @@ module "website_lambda" {
   source          = "./modules/lambda"
   image_url       = "${module.website_lambda_ecr.repository_url}:${var.website_image_tag}"
   function_name   = "website_lambda"
-  lambda_policies = [
+  s3_buckets      = [
     "arn:aws:s3:::${module.website_s3_artifacts.bucket}",
     "arn:aws:s3:::${module.website_s3_artifacts.bucket}/*",
   ]
