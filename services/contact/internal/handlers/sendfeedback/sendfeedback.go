@@ -2,6 +2,7 @@ package sendfeedback
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/feedback"
 	"net/http"
@@ -28,6 +29,7 @@ func GetFeedbackHandler(store feedback.Store) http.Handler {
 
 		err = store.SaveFeedback(data.Message)
 		if err != nil {
+			fmt.Println(err)
 			log.Error("could not save the feedback: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
