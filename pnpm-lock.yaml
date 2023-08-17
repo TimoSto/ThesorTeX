@@ -205,6 +205,9 @@ importers:
       '@mdi/font':
         specifier: 7.2.96
         version: 7.2.96
+      '@thesortex/vuetify-plugin':
+        specifier: workspace:^
+        version: link:../../../pkg/frontend/vuetify-plugin
       roboto-fontface:
         specifier: '*'
         version: 0.4.1

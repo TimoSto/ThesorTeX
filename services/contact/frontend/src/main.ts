@@ -6,15 +6,12 @@
 
 // Components
 import App from "./App.vue";
+import {GetVuetifyInstance} from "@thesortex/vuetify-plugin";
 
 // Composables
 import {createApp} from "vue";
 
-// Plugins
-import {registerPlugins} from "@/plugins";
-
-const app = createApp(App);
-
-registerPlugins(app);
+const app = createApp(App)
+  .use(GetVuetifyInstance(false));
 
 app.mount("#app");
