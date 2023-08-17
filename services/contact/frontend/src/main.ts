@@ -14,4 +14,8 @@ import {createApp} from "vue";
 const app = createApp(App)
   .use(GetVuetifyInstance(false));
 
-app.mount("#app");
+export function renderFeedbackComponent(parent: string) {
+  app.mount(parent);
+}
+
+export const x = "hallo";
