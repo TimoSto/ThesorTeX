@@ -200,6 +200,49 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
+  services/contact/frontend:
+    dependencies:
+      '@mdi/font':
+        specifier: 7.2.96
+        version: 7.2.96
+      roboto-fontface:
+        specifier: '*'
+        version: 0.4.1
+      vue:
+        specifier: 3.3.4
+        version: 3.3.4
+      vuetify:
+        specifier: 3.3.10
+        version: 3.3.10(typescript@5.1.6)(vite-plugin-vuetify@1.0.2)(vue-i18n@9.2.2)(vue@3.3.4)
+      webfontloader:
+        specifier: ^1.0.0
+        version: 1.5.14
+    devDependencies:
+      '@babel/types':
+        specifier: ^7.21.4
+        version: 7.22.5
+      '@types/node':
+        specifier: 20.4.5
+        version: 20.4.5
+      '@types/webfontloader':
+        specifier: ^1.6.35
+        version: 1.6.35
+      '@vitejs/plugin-vue':
+        specifier: 4.2.3
+        version: 4.2.3(vite@4.4.7)(vue@3.3.4)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+      vite:
+        specifier: 4.4.7
+        version: 4.4.7(@types/node@20.4.5)(sass@1.64.1)
+      vite-plugin-vuetify:
+        specifier: 1.0.2
+        version: 1.0.2(vite@4.4.7)(vue@3.3.4)(vuetify@3.3.10)
+      vue-tsc:
+        specifier: 1.8.8
+        version: 1.8.8(typescript@5.1.6)
+
   services/thesisTool/frontend:
     dependencies:
       '@thesortex/eslint-config':
@@ -384,7 +427,7 @@ packages:
       '@babel/helper-compilation-targets': 7.22.5(@babel/core@7.22.5)
       '@babel/helper-module-transforms': 7.22.5
       '@babel/helpers': 7.22.5
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@babel/template': 7.22.5
       '@babel/traverse': 7.22.5
       '@babel/types': 7.22.5
@@ -731,7 +774,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.22.5
-    dev: true
 
   /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.22.5(@babel/core@7.22.9):
     resolution: { integrity: sha512-NP1M5Rf+u2Gw9qfSO4ihjcTGW5zXTi36ITLd4/EoAcEhIZ0yjMqmftDNl3QC19CX7olhrjpyU454g/2W7X0jvQ== }
@@ -1813,7 +1855,7 @@ packages:
     engines: { node: '>=6.9.0' }
     dependencies:
       '@babel/code-frame': 7.22.5
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@babel/types': 7.22.5
     dev: true
 
@@ -1827,7 +1869,7 @@ packages:
       '@babel/helper-function-name': 7.22.5
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.5
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@babel/types': 7.22.5
       debug: 4.3.4(supports-color@8.1.1)
       globals: 11.12.0
@@ -2361,7 +2403,7 @@ packages:
     resolution: { integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ== }
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
   /@juggle/resize-observer@3.4.0:
@@ -3074,10 +3116,10 @@ packages:
       express: 4.18.2
       find-cache-dir: 3.3.2
       fs-extra: 11.1.1
-      magic-string: 0.30.0
+      magic-string: 0.30.2
       remark-external-links: 8.0.0
       remark-slug: 6.1.0
-      rollup: 3.25.1
+      rollup: 3.27.0
       typescript: 5.1.6
       vite: 4.4.7(@types/node@20.4.5)(sass@1.64.1)
     transitivePeerDependencies:
@@ -3374,7 +3416,7 @@ packages:
       memoizerific: 1.11.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      semver: 7.5.2
+      semver: 7.5.3
       store2: 2.14.2
       telejson: 7.1.0
       ts-dedent: 2.2.0
@@ -3593,7 +3635,7 @@ packages:
   /@types/babel__core@7.20.1:
     resolution: { integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw== }
     dependencies:
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@babel/types': 7.22.5
       '@types/babel__generator': 7.6.4
       '@types/babel__template': 7.4.1
@@ -3609,7 +3651,7 @@ packages:
   /@types/babel__template@7.4.1:
     resolution: { integrity: sha512-azBFKemX6kMg5Io+/rdGT0dkGreboUVR0Cdm3fz9QJWpaQGJRQXl7C+6hOTCZcMll7KFyEQpgbYI2lHdsS4U7g== }
     dependencies:
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@babel/types': 7.22.5
     dev: true
 
@@ -3832,6 +3874,10 @@ packages:
     resolution: { integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA== }
     dev: true
 
+  /@types/webfontloader@1.6.35:
+    resolution: { integrity: sha512-IJlrsiDWq6KghQ7tPlL5tcwSUyOxLDceT+AFUY7Ylj0Fcv3/h3QkANqQxZ0B5mEpEKxhTw76vDmvrruSMV9n9Q== }
+    dev: true
+
   /@types/yargs-parser@21.0.0:
     resolution: { integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA== }
     dev: true
@@ -3916,7 +3962,7 @@ packages:
   /@vue/compiler-core@3.3.4:
     resolution: { integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g== }
     dependencies:
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       source-map-js: 1.0.2
@@ -3938,7 +3984,7 @@ packages:
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       magic-string: 0.30.0
-      postcss: 8.4.24
+      postcss: 8.4.27
       source-map-js: 1.0.2
 
   /@vue/compiler-ssr@3.3.4:
@@ -3972,11 +4018,11 @@ packages:
   /@vue/reactivity-transform@3.3.4:
     resolution: { integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw== }
     dependencies:
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@vue/compiler-core': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
-      magic-string: 0.30.0
+      magic-string: 0.30.2
 
   /@vue/reactivity@3.3.4:
     resolution: { integrity: sha512-kLTDLwd0B1jG08NBF3R5rqULtv/f8x3rOFByTDz4J53ttIQEDmALqKqXY0J+XQeN0aV2FBxY8nJDf88yvOPAqQ== }
@@ -6871,7 +6917,6 @@ packages:
     engines: { node: '>=12' }
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
 
   /make-dir@2.1.0:
     resolution: { integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA== }
@@ -7613,14 +7658,6 @@ packages:
       '@babel/runtime': 7.22.5
     dev: true
 
-  /postcss@8.4.24:
-    resolution: { integrity: sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg== }
-    engines: { node: ^10 || ^12 || >=14 }
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-
   /postcss@8.4.27:
     resolution: { integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ== }
     engines: { node: ^10 || ^12 || >=14 }
@@ -8224,13 +8261,9 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup@3.25.1:
-    resolution: { integrity: sha512-tywOR+rwIt5m2ZAWSe5AIJcTat8vGlnPFAv15ycCrw33t6iFsXZ6mzHVFh2psSjxQPmI+xgzMZZizUAukBI4aQ== }
-    engines: { node: '>=14.18.0', npm: '>=8.0.0' }
-    hasBin: true
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
+  /roboto-fontface@0.4.1:
+    resolution: { integrity: sha512-6o8uOKM9EQUZz8O6qoezziPbsdNcEaDXZLXyMcmnDaeqwG1TMtHEROAS2kBWsi/GUxoLBeYdcNKyzDGcBG+QVQ== }
+    dev: false
 
   /rollup@3.27.0:
     resolution: { integrity: sha512-aOltLCrYZ0FhJDm7fCqwTjIUEVjWjcydKBV/Zeid6Mn8BWgDCUBBWT5beM5ieForYNo/1ZHuGJdka26kvQ3Gzg== }
@@ -8321,14 +8354,6 @@ packages:
   /semver@7.0.0:
     resolution: { integrity: sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A== }
     hasBin: true
-    dev: true
-
-  /semver@7.5.2:
-    resolution: { integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ== }
-    engines: { node: '>=10' }
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
     dev: true
 
   /semver@7.5.3:
@@ -9315,7 +9340,7 @@ packages:
   /vue-docgen-api@4.72.5(vue@3.3.4):
     resolution: { integrity: sha512-+M3xRtPMws52wmaaMXdx4jTT2eamEdBoJ20akYPz2DO1I8zVr8bqmDl3DEchSNN9WOnSVuyAms/289omRPhS1w== }
     dependencies:
-      '@babel/parser': 7.22.5
+      '@babel/parser': 7.22.7
       '@babel/types': 7.22.5
       '@vue/compiler-dom': 3.3.4
       '@vue/compiler-sfc': 3.3.4
@@ -9452,6 +9477,10 @@ packages:
     optionalDependencies:
       '@zxing/text-encoding': 0.9.0
     dev: true
+
+  /webfontloader@1.5.14:
+    resolution: { integrity: sha512-hsBc+7Ix0wq1K64AOP+lrqmDxj+tXDOpoBsIRMsp8OcA/6ZH+DHv9DxbogtoEY/vfl3aAsqzMc5I6ejAj0ucbw== }
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: { integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ== }
