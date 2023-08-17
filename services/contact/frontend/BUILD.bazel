@@ -1,0 +1,27 @@
+load("//:bazel/vite/vite.bzl", "vite_build")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+load("@rules_pkg//:mappings.bzl", "strip_prefix")
+
+npm_link_all_packages(name = "node_modules")
+
+vite_build(
+    name = "assets",
+    out = ["dist"],
+    config_path = "$(execpath :vite.config.ts)",
+    data = glob([
+        "src/**/*.ts",
+        "src/**/*.vue",
+        "src/**/*.scss",
+        "src/i18n/**/*",
+    ]) + [
+        ":node_modules/@thesortex/vuetify-plugin",
+        ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/vite-plugin-vuetify",
+        ":node_modules/vuetify",
+        ":vite.config.ts",
+        "//:node_modules/vite",
+        "//:node_modules/vue",
+    ],
+    root = package_name(),
+)
