@@ -17,5 +17,3 @@ const app = createApp(App)
 export function renderFeedbackComponent(parent: string) {
   app.mount(parent);
 }
-
-export const x = "hallo";
