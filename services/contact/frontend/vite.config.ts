@@ -13,6 +13,7 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
+  base: "/contact/feedbackComponent",
   build: {
     rollupOptions: {
       input: ["src/main.ts"],
