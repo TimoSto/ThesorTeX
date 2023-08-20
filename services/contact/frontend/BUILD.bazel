@@ -25,3 +25,11 @@ vite_build(
     ],
     root = package_name(),
 )
+
+pkg_tar(
+    name = "contact_dist",
+    srcs = [":assets"],
+    extension = "tar.gz",
+    strip_prefix = strip_prefix.from_pkg("dist"),
+    visibility = ["//visibility:public"],
+)
