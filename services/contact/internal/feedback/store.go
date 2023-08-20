@@ -14,6 +14,7 @@ type Store struct {
 	DynamoClient *dynamobasic.Client
 }
 
+// TODO: split to test
 func New(db *dynamobasic.Client) Store {
 	return Store{
 		DynamoClient: db,
