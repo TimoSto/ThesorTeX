@@ -206,11 +206,8 @@ importers:
         specifier: 7.2.96
         version: 7.2.96
       '@thesortex/vuetify-plugin':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../../pkg/frontend/vuetify-plugin
-      roboto-fontface:
-        specifier: '*'
-        version: 0.4.1
       vue:
         specifier: 3.3.4
         version: 3.3.4
@@ -218,9 +215,6 @@ importers:
         specifier: 3.3.10
         version: 3.3.10(typescript@5.1.6)(vite-plugin-vuetify@1.0.2)(vue-i18n@9.2.2)(vue@3.3.4)
     devDependencies:
-      '@babel/types':
-        specifier: ^7.21.4
-        version: 7.22.5
       '@types/node':
         specifier: 20.4.5
         version: 20.4.5
@@ -8253,10 +8247,6 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
-
-  /roboto-fontface@0.4.1:
-    resolution: { integrity: sha512-6o8uOKM9EQUZz8O6qoezziPbsdNcEaDXZLXyMcmnDaeqwG1TMtHEROAS2kBWsi/GUxoLBeYdcNKyzDGcBG+QVQ== }
-    dev: false
 
   /rollup@3.27.0:
     resolution: { integrity: sha512-aOltLCrYZ0FhJDm7fCqwTjIUEVjWjcydKBV/Zeid6Mn8BWgDCUBBWT5beM5ieForYNo/1ZHuGJdka26kvQ3Gzg== }
