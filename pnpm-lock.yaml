@@ -217,9 +217,6 @@ importers:
       vuetify:
         specifier: 3.3.10
         version: 3.3.10(typescript@5.1.6)(vite-plugin-vuetify@1.0.2)(vue-i18n@9.2.2)(vue@3.3.4)
-      webfontloader:
-        specifier: ^1.0.0
-        version: 1.5.14
     devDependencies:
       '@babel/types':
         specifier: ^7.21.4
@@ -227,9 +224,6 @@ importers:
       '@types/node':
         specifier: 20.4.5
         version: 20.4.5
-      '@types/webfontloader':
-        specifier: ^1.6.35
-        version: 1.6.35
       '@vitejs/plugin-vue':
         specifier: 4.2.3
         version: 4.2.3(vite@4.4.7)(vue@3.3.4)
@@ -3875,10 +3869,6 @@ packages:
 
   /@types/uuid@9.0.1:
     resolution: { integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA== }
-    dev: true
-
-  /@types/webfontloader@1.6.35:
-    resolution: { integrity: sha512-IJlrsiDWq6KghQ7tPlL5tcwSUyOxLDceT+AFUY7Ylj0Fcv3/h3QkANqQxZ0B5mEpEKxhTw76vDmvrruSMV9n9Q== }
     dev: true
 
   /@types/yargs-parser@21.0.0:
@@ -9480,10 +9470,6 @@ packages:
     optionalDependencies:
       '@zxing/text-encoding': 0.9.0
     dev: true
-
-  /webfontloader@1.5.14:
-    resolution: { integrity: sha512-hsBc+7Ix0wq1K64AOP+lrqmDxj+tXDOpoBsIRMsp8OcA/6ZH+DHv9DxbogtoEY/vfl3aAsqzMc5I6ejAj0ucbw== }
-    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: { integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ== }
