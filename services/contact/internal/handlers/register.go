@@ -5,6 +5,7 @@ import (
 	"github.com/TimoSto/ThesorTeX/pkg/backend/versionhandler"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/config"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/feedback"
+	"github.com/TimoSto/ThesorTeX/services/contact/internal/handlers/component"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/handlers/sendfeedback"
 	"net/http"
 )
@@ -15,4 +16,6 @@ func RegisterHandlers(mux *http.ServeMux, store feedback.Store) {
 	mux.HandleFunc(fmt.Sprintf("%s/version", prefix), versionhandler.GetRootHandler(config.Version))
 
 	mux.Handle(fmt.Sprintf("%s/feedback", prefix), sendfeedback.GetFeedbackHandler(store))
+
+	mux.Handle(fmt.Sprintf("%s/feedbackComponent/", prefix), component.GetComponentHandler())
 }

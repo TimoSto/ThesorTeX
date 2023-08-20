@@ -9,6 +9,7 @@ go_library(
         "//pkg/backend/versionhandler",
         "//services/contact/internal/config",
         "//services/contact/internal/feedback",
+        "//services/contact/internal/handlers/component",
         "//services/contact/internal/handlers/sendfeedback",
     ],
 )
