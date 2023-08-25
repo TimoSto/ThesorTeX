@@ -1,8 +1,7 @@
 <template>
-  <v-btn icon color="primary">
-    <v-icon>mdi-delete</v-icon>
-  </v-btn>
+  <FeedbackForm />
 </template>
 
 <script setup lang="ts">
+import FeedbackForm from "./components/feedbackForm/FeedbackForm.vue";
 </script>
