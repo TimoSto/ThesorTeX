@@ -20,12 +20,24 @@ const opened = ref(false);
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </template>
-    <v-card width="350">
+    <v-card width="550">
       <v-card-title>{{ i18n(i18nKeys.FeedbackForm.Title) }}</v-card-title>
+      <v-alert type="warning" density="compact" variant="tonal" :closable="true">
+        <v-alert-title>{{ i18n(i18nKeys.FeedbackForm.NoPersonalData) }}</v-alert-title>
+      </v-alert>
       <v-card-text>
-        <v-text-field width="200"></v-text-field>
-        <v-textarea />
+        <v-text-field width="200" color="primary" :label="i18n(i18nKeys.FeedbackForm.Subject)"></v-text-field>
+        <v-textarea color="primary" :label="i18n(i18nKeys.FeedbackForm.Message)" />
       </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn color="primary">
+          {{ i18n(i18nKeys.FeedbackForm.Discard) }}
+        </v-btn>
+        <v-btn color="primary">
+          {{ i18n(i18nKeys.FeedbackForm.Send) }}
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </v-menu>
 

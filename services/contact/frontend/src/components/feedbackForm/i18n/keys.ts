@@ -1,6 +1,11 @@
 export const i18nKeys = {
     FeedbackForm: {
-        Title: "FeedbackForm.Title"
+        Title: "FeedbackForm.Title",
+        Subject: "FeedbackForm.Subject",
+        Message: "FeedbackForm.Message",
+        Discard: "FeedbackForm.Discard",
+        Send: "FeedbackForm.Send",
+        NoPersonalData: "FeedbackForm.NoPersonalData",
     }
 };
 
