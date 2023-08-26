@@ -21,10 +21,11 @@ func New(db *dynamobasic.Client) Store {
 	}
 }
 
-func (s *Store) SaveFeedback(message string) error {
+func (s *Store) SaveFeedback(subject, message string) error {
 	feedbackObj := Feedback{
 		ID:      uuid.New().String(),
 		Date:    time.Now().Format(time.RFC822),
+		Subject: subject,
 		Message: message,
 	}
 

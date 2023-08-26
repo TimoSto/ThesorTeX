@@ -9,6 +9,7 @@ import (
 )
 
 type message struct {
+	Subject string
 	Message string
 }
 
@@ -27,7 +28,7 @@ func GetFeedbackHandler(store feedback.Store) http.Handler {
 			return
 		}
 
-		err = store.SaveFeedback(data.Message)
+		err = store.SaveFeedback(data.Subject, data.Message)
 		if err != nil {
 			fmt.Println(err)
 			log.Error("could not save the feedback: %v", err)
