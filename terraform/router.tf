@@ -9,9 +9,11 @@ module "router_lambda" {
   image_url     = "${module.router_lambda_ecr.repository_url}:${var.router_image_tag}"
   function_name = "router_lambda"
   env           = {
-    ROUTER_APPS = "WEBSITE",
+    ROUTER_APPS = "WEBSITE,CONTACT",
     ROUTER_TARGET_URL__WEBSITE : module.website_api_gw.api_endpoint,
     ROUTER_ROUTE__WEBSITE : "/",
+    ROUTER_TARGET_URL__CONTACT : module.contact_api_gw.api_endpoint,
+    ROUTER_ROUTE__CONTACT : "/contact/",
   }
 }
 
