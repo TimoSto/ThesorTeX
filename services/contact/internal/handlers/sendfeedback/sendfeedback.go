@@ -23,8 +23,9 @@ func GetFeedbackHandler(store feedback.Store) http.Handler {
 
 		var data message
 		b, err := io.ReadAll(r.Body)
-		fmt.Println(b, err)
-		err = json.NewDecoder(r.Body).Decode(&data)
+		fmt.Println(string(b), err)
+		err = json.Unmarshal(b, &data)
+		// err = json.NewDecoder(r.Body).Decode(&data)
 		if err != nil {
 			log.Error("could not unmarshal feedback message: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
