@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/feedback"
+	"io"
 	"net/http"
 )
 
@@ -21,7 +22,9 @@ func GetFeedbackHandler(store feedback.Store) http.Handler {
 		}
 
 		var data message
-		err := json.NewDecoder(r.Body).Decode(&data)
+		b, err := io.ReadAll(r.Body)
+		fmt.Println(b, err)
+		err = json.NewDecoder(r.Body).Decode(&data)
 		if err != nil {
 			log.Error("could not unmarshal feedback message: %v", err)
 			w.WriteHeader(http.StatusBadRequest)
