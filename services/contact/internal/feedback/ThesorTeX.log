@@ -1,0 +1,1 @@
+2023/08/27 13:07:29 ERROR [2023-08-27 13:07] could not read db: operation error DynamoDB: Scan, https response error StatusCode: 400, RequestID: 7472faca-91b8-4b8e-b681-1fa67bd7db57, ResourceNotFoundException: 

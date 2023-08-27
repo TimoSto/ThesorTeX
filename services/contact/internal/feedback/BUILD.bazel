@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "feedback",
@@ -14,5 +14,21 @@ go_library(
         "//vendor/github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue",
         "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",
         "//vendor/github.com/google/uuid",
+    ],
+)
+
+go_test(
+    name = "feedback_test",
+    srcs = ["store_test.go"],
+    deps = [
+        ":feedback",
+        "//pkg/backend/aws/dynamodb",
+        "//pkg/backend/container/dynamodb",
+        "//pkg/backend/log",
+        "//vendor/github.com/aws/aws-sdk-go-v2/aws",
+        "//vendor/github.com/aws/aws-sdk-go-v2/config",
+        "//vendor/github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb",
+        "//vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb/types",
     ],
 )
