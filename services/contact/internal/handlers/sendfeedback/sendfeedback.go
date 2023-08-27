@@ -2,7 +2,6 @@ package sendfeedback
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"github.com/TimoSto/ThesorTeX/services/contact/internal/feedback"
 	"io"
@@ -23,8 +22,8 @@ func GetFeedbackHandler(store feedback.Store) http.Handler {
 
 		var data message
 		b, err := io.ReadAll(r.Body)
-		fmt.Println(string(b), err)
 		err = json.Unmarshal(b, &data)
+		// TODO: why was this nil?
 		// err = json.NewDecoder(r.Body).Decode(&data)
 		if err != nil {
 			log.Error("could not unmarshal feedback message: %v", err)
@@ -34,7 +33,6 @@ func GetFeedbackHandler(store feedback.Store) http.Handler {
 
 		err = store.SaveFeedback(data.Subject, data.Message)
 		if err != nil {
-			fmt.Println(err)
 			log.Error("could not save the feedback: %v", err)
 			w.WriteHeader(http.StatusInternalServerError)
 			return
