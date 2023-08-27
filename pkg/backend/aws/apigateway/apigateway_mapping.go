@@ -58,6 +58,8 @@ func newRequest(evt *events.APIGatewayProxyRequest) (*http.Request, error) {
 		req.RequestURI = req.URL.Path
 	}
 
+	fmt.Println("EVENT", evt.Body)
+
 	// necessary for bin files like images and zips
 	if evt.IsBase64Encoded {
 		decodedString, err := base64.StdEncoding.DecodeString(evt.Body)
