@@ -33,7 +33,7 @@ func StartApp(cfg Config) error {
 	chain := handler_chain.CreateHandlerChain()
 
 	if cfg.IsProd {
-		apigateway.StartLambda(chain.Then(cfg.Mux))
+		apigateway.StartLambda(chain.Then(chain.Then(cfg.Mux)))
 	} else {
 		err := http.ListenAndServe(":8447", chain.Then(cfg.Mux))
 		if err != nil {
