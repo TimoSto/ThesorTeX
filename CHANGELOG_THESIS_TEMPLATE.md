@@ -1,3 +1,9 @@
+# v1.1.3
+
+## Fixed
+
+- Fixed the cite order.
+
 # v1.1.2
 
 ## Fixed
