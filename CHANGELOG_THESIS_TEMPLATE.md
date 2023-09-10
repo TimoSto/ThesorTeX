@@ -2,7 +2,7 @@
 
 ## Fixed
 
-- Fixed the cite order.
+- Fixed the order in the example citations.
 
 # v1.1.2
 
