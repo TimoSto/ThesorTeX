@@ -1,3 +1,9 @@
+# v1.3.1
+
+## Fixed
+
+- Fixed the order in the template citations.
+
 # v1.3.0
 
 ## Added
