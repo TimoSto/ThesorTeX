@@ -2,6 +2,7 @@ package entries
 
 import (
 	"encoding/json"
+	"strings"
 	"testing"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem/fake"
@@ -35,5 +36,11 @@ func TestDeleteEntry(t *testing.T) {
 
 	if len(cs) != 0 {
 		t.Errorf("expected 0 entries but got %v", cs)
+	}
+
+	csvFile, _ := fs.ReadFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, "test", csvFile))
+	lines := strings.Split(strings.Trim(string(csvFile), "\n"), "\n")
+	if len(lines) != 2 {
+		t.Errorf("expected 2 lines, got: %v", lines)
 	}
 }

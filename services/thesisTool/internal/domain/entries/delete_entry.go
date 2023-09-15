@@ -2,6 +2,7 @@ package entries
 
 import (
 	"encoding/json"
+	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/categories"
 	"github.com/TimoSto/ThesorTeX/services/thesisTool/internal/domain/projects"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/filesystem"
@@ -27,6 +28,15 @@ func DeleteEntry(project string, key string, fs filesystem.FileSystem, cfg confi
 	}
 
 	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, entriesFile), data)
+	if err != nil {
+		return err
+	}
+
+	avCategories, err := categories.GetAllCategories(project, fs, cfg)
+
+	file := GenerateCsvForEntries(all, avCategories)
+
+	err = fs.WriteFile(pathbuilder.GetPathInProject(cfg.ProjectsDir, project, csvFile), []byte(file))
 	if err != nil {
 		return err
 	}
