@@ -1,3 +1,9 @@
+# v1.3.2
+
+## Fixed
+
+- Deleted entries now disappear from the pdf on next compilation.
+
 # v1.3.1
 
 ## Fixed
