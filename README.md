@@ -36,7 +36,7 @@ The production build is triggered by calling the script `./scripts/build.sh` wit
 
 - ZIP files containing the executables of the thesisTool for Windows, Linux, MacOS and MacOS with arm (M1/M2)
 - ZIP files containing the thesis and cv templates
-- A ZIP file for the website lambda
+- Builds and pushes the webste image to aws ecr
 
 ### Development
 
