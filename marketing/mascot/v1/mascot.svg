@@ -26,12 +26,16 @@
         <path d="M1701 1390 c-41 -10 -79 -24 -84 -29 -18 -18 34 -13 104 9 126 39 112 53 -20 20z"/>
         <path d="M307 974 c-11 -109 -31 -191 -52 -215 -18 -19 -18 -20 2 -39 22 -20 40 -12 41 20 0 8 5 47 11 85 7 39 11 107 9 150 l-3 80 -8 -81z"/>
     </g>
-    <g id="hat" style="z-index=10000">
+    <g id="hat">
         <path id="outer_shape" stroke-width="3" stroke="black" fill="#3A3C39"
               d="M35 65 l 135 -55 q -10 27 -30 30 q 20 -3 30 -30 l 80 6 l -54 27 l 5 25 l -20 -2 l -20 9 q -20 15 -65 10 l -5 -15 l 1 -20 l 10 -10 l -10 10 l -1 20 L35 65z"/>
         <path id="lower_thing_2" stroke="black" stroke-width="2" fill="#3A3C39"
               d="M200 70 q 5 5 0 10 q -50 15 -62 30 q -20 -12 -49 -12 l 7 -7 q 15 0 39 12 q 15 -15 65 -33"/>
         <path id="lower_thing" stroke="black" stroke-width="2" fill="#3A3C39"
               d="M200 70 q -50 15 -65 33 q -20 -12 -35 -12 l 0 -5 q 45 -5 65 -15 l 15 -7 L 200 70"/>
+    </g>
+    <g id="head">
+        <path id="outer_bottom" stroke-width="1" stroke="black" fill="none"
+              d="M94 100 l -15 39 q -10 14 -15 40 l 10 -9 q -3 5 0 23 q 10 19 60 53 q 10 7 25 0 q 50 -40 60 -50 q 7 -5 8 -14 l 5 6 l 18 1 q 2 -5 -7 -20 l -2 -9 q -25 2 -55 -3 q -15 6 -29 9 l -50 0 q -15 -4 -19 -7 l 23 -57 Q 105 98 94 100"/>
     </g>
 </svg>
