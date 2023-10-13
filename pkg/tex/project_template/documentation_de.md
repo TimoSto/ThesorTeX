@@ -36,7 +36,7 @@ rechts die Seitenzahl angezeigt. Dabei wird zwischen dem Textteil deiner Arbeit 
 Die Attribute ***mytitle***,  ***plaintitle*** und ***myauthor*** kannst du über ***\renewcommand*** beliebig setzen.
 Die Attribute ***parttitle*** und ***thepage*** beziehen sich auf das aktuelle Oberkapitel (***\part***) und die aktuelle Seitenzahl.
 
-Der Wechsel zwischen den beiden Varianten zu wechseln, nutze ***\frontmatter*** (zu *PlainPageStyle*) bzw. ***\mainmatter*** (zu *MainPageStyle*).
+Um zwischen den beiden Varianten zu wechseln, nutze ***\frontmatter*** (zu *PlainPageStyle*) bzw. ***\mainmatter*** (zu *MainPageStyle*).
 
 ---
 
