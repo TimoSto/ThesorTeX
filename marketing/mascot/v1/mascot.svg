@@ -42,6 +42,11 @@
                   d="M 100 120 q -20 18 2 31 q 16 7 29 -8 q 7 -8 0 -21 q -9 -17 -31 -2"/>
             <path stroke="black" fill="black" d="M 109 153 q 0 -21 21 -33 q 8 15 1 23 q -14 15 -23 10"/>
         </g>
+        <g id="right_eye">
+            <path stroke="black" stroke-width="2" fill="white"
+                  d="M 161 121 q -20 18 2 31 q 16 7 29 -8 q 7 -8 0 -21 q -9 -17 -31 -2"/>
+            <path stroke="black" fill="black" d="M 170 153 q 0 -21 21 -33 q 8 15 1 23 q -14 15 -23 10"/>
+        </g>
 
     </g>
     <g id="hat">
