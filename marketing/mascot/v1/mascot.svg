@@ -29,6 +29,8 @@
     <g id="hat" style="z-index=10000">
         <path id="outer_shape" stroke-width="3" stroke="black" fill="#3A3C39"
               d="M35 65 l 135 -55 q -10 27 -30 30 q 20 -3 30 -30 l 80 6 l -54 27 l 5 25 l -20 -2 l -20 9 q -20 15 -65 10 l -5 -15 l 1 -20 l 10 -10 l -10 10 l -1 20 L35 65z"/>
+        <path id="lower_thing_2" stroke="black" stroke-width="2" fill="#3A3C39"
+              d="M200 70 q 5 5 0 10 q -50 15 -62 30 q -20 -12 -49 -12 l 7 -7 q 15 0 39 12 q 15 -15 65 -33"/>
         <path id="lower_thing" stroke="black" stroke-width="2" fill="#3A3C39"
               d="M200 70 q -50 15 -65 33 q -20 -12 -35 -12 l 0 -5 q 45 -5 65 -15 l 15 -7 L 200 70"/>
     </g>
