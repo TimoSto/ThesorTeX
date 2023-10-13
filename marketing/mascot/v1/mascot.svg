@@ -29,7 +29,7 @@
     <g id="head">
         <path id="outer_bottom" stroke-width="1" stroke="black" fill="none"
               d="M94 100 l -15 39 q -10 14 -15 40 l 10 -9 q -3 5 0 23 q 10 19 60 53 q 10 7 25 0 q 50 -40 60 -50 q 7 -5 8 -14 l 5 6 l 18 1 q 2 -5 -7 -20 l -2 -9 q -25 2 -55 -3 q -15 6 -29 9 l -50 0 q -15 -4 -19 -7 l 23 -57 Q 105 98 94 100"/>
-        <path id="inner_color" stroke-width="1" stroke="none" fill="#8D6436"
+        <path id="inner_color" stroke-width="1" stroke="none" fill="none"
               d="M110 100 q -10 35 -20 60 q 15 4 19 7 l 50 0 q 14 -4 29 -9 q 27 2 55 3 l 5 -5 l 15 10 q 10 -10 -23 -37 l 15 10 q 5 -5 -20 -50 l -20 -15 L 110 100"/>
         <path id="inner_border" stroke-width="2" stroke="black" fill="none"
               d="M242 162 l 7 -5 l 15 10 q 10 -10 -23 -37 l 15 10 q 5 -5 -20 -50 l -20 -15 L 110 100"/>
@@ -37,6 +37,10 @@
               d="M95 90 l -24 10 l -4 21 q 5 3 20 -5 L 95 90"/>
         <path id="right_ear" stroke-width="2" stroke="black" fill="#8D6436"
               d="M200 71 l 10 -7 q 20 -5 45 -3 q 2 20 -22 30 q -5 -5 -20 -2 L 200 71"/>
+        <g id="left_eye">
+            <path stroke="black" stroke-width="2" fill="white"
+                  d="M 100 120 q -20 18 2 31 q 16 7 29 -8 q 7 -8 0 -21 q -9 -17 -31 -2"/>
+        </g>
 
     </g>
     <g id="hat">
