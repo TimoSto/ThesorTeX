@@ -1,6 +1,7 @@
 # ThesorTeX - use LaTeX more comfortably
 
-> Title card and the icon for the template and tool appearing, also the mascot
+> Title card and the icon for the template and tool appearing
+> morphing to the mascot talking (maybe bubble or just test)
 
 ThesorTeX is designed to help you use LaTeX in the academic context. You can use our LaTeX template for your next assignment or thesis and design your bibliography as you wish, without writing LaTeX code yourself, using the tool for bibliography management.
 
