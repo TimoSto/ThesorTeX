@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="300" height="300"
      viewBox="0 0 300 300">
-
+    <metadata>Mascot for ThesorTeX (https://github.com/TimoSto/ThesorTeX)</metadata>
     <g id="robe">
         <path id="outer" stroke="black" stroke-width="2" fill="#464644"
               d="M 115 210 q -30 -10 -70 80 l 50 40 l 98 0 l 50 -35 l -15 -55 q -14 -30 -40 -30 L 115 210z M 85 225 q -5 20 0 90 M 225 235 l -17 29 q 5 10 10 35"/>
