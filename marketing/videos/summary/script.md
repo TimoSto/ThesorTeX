@@ -19,9 +19,9 @@ You can download it on thesortex.de. Just click on "Template for academic papers
 
 When you unpack the zip file, you will get a folder containing a file named "main.tex". Open this file in a tex editor like "TeXMaker".
 
+Complie using "pdflatex" and you will the template pdf. Now you can go ahead and change the title in the header or the author in the footer. And you can write your content.
 
-
-This is basically just regular LaTeX styling, so we won't get much into it here. If you want to learn more, check out the full tutorial video.
+This is basically just regular LaTeX stuff, so we won't get much into it here. If you want to learn more, check out the full tutorial video.
 
 What is special about this template, is how the bibliography is handled.
 
