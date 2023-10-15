@@ -13,7 +13,15 @@ So lets get started with the template.
 
 > Show ToC of the documentation
 
-It was created to meet common requirements, like chapter numbering, a table of contents, the header and footer of a page and many other things. This is basically just regular LaTeX styling, so we won't get much into it here. If you want to learn more, check out the full tutorial video.
+It was created to meet common requirements, like chapter numbering, a table of contents, the header and footer of a page and many other things.
+
+You can download it on thesortex.de. Just click on "Template for academic papers" and then on "To the downloads". Now you can download any version you want.
+
+When you unpack the zip file, you will get a folder containing a file named "main.tex". Open this file in a tex editor like "TeXMaker".
+
+
+
+This is basically just regular LaTeX styling, so we won't get much into it here. If you want to learn more, check out the full tutorial video.
 
 What is special about this template, is how the bibliography is handled.
 
