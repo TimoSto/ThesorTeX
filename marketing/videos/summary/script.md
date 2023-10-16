@@ -15,7 +15,7 @@ So lets get started with the template.
 
 It was created to meet common requirements, like chapter numbering, a table of contents, the header and footer of a page and many other things.
 
-You can download it on thesortex.de. Just click on "Template for academic papers" and then on "To the downloads". Now you can download any version you want.
+You can download it on thesortex.com. Just click on "Template for academic papers" and then on "To the downloads". Now you can download any version you want.
 
 When you unpack the zip file, you will get a folder containing a file named "main.tex". Open this file in a tex editor like "TeXMaker".
 
