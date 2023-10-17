@@ -19,7 +19,11 @@ You can download it on thesortex.com. Just click on "Template for academic paper
 
 When you unpack the zip file, you will get a folder containing a file named "main.tex". Open this file in a tex editor like "TeXMaker".
 
-Compile using "pdflatex" and you will see the template pdf. Now you can go ahead and change the title in the header or the author in the footer. The template is richly annotated with comments, so you can try around with it.
+Compile using "pdf-Lah-Tech" and you will see the template pdf. Now you can go ahead and change the title in the header or the author in the footer. To do this, override the commands "my-title" and "my-author". 
+
+When you compile again, you will see your changes.
+
+The template is richly annotated with comments, so you can try around with it.
 
 This is basically just regular LaTeX stuff, so we won't get deep into it here. If you want to learn more, check out the documentation on thesortex.com or the full tutorial video.
 
