@@ -43,6 +43,8 @@ const nose = computed(() => {
   return path;
 });
 
+// TODO: maybe add whiskers
+
 </script>
 
 <template>
