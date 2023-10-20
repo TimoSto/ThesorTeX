@@ -55,12 +55,21 @@ const shape = computed(() => {
     path += "q 5 -55 11 -50";
 
     return path;
+});
+
+const leftEar = computed(() => {
+    let path = `M ${props.startX + 15} ${props.startY} `;
+
+    path += "q -7 1 -14 -6 q -9 -6 -27 1 q -5 0 -17 18 q -12 35 20 21 q 11 -5 27 -15 l 11 -19";
+
+    return path;
 })
 </script>
 
 <template>
     <g data-type="head">
-        <path data-type="head-shape" stroke="black" stroke-width="2" fill="none" :d="shape"/>
+        <path data-type="head-shape" stroke="black" stroke-width="2" fill="white" :d="leftEar"/>
+        <path data-type="head-shape" stroke="black" stroke-width="2" fill="white" :d="shape"/>
     </g>
 
 </template>
