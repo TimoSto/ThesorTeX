@@ -38,7 +38,7 @@ const pupil = computed(() => {
 </script>
 
 <template>
-  <g>
+  <g data-type="eye">
     <path stroke="black" stroke-width="2" fill="white" :d="shape" />
     <path stroke="black" stroke-width="2" fill="black" :d="pupil" />
 
