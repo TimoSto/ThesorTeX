@@ -2,6 +2,7 @@
 import {computed} from "vue";
 import Eye from "./parts/Eye.vue";
 import Snout from "./parts/Snout.vue";
+import Head from "./parts/Head.vue";
 
 const headShapePath = computed(() => {
 
@@ -82,6 +83,7 @@ const headShapePath = computed(() => {
     <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"
          viewBox="0 0 300 300">
         <g id="head">
+            <Head :start-x="95" :start-y="50"/>
             <Eye :start-x="100" :start-y="90"/>
             <Eye :start-x="150" :start-y="90" right/>
             <Snout :start-x="125" :start-y="110"/>
