@@ -28,11 +28,27 @@ const shape = computed(() => {
   return path;
 });
 
+const nose = computed(() => {
+  let path = `M ${props.startX - 40} ${props.startY + 3}`;
+
+  // upper
+  path += "q -11 -2 -15 0";
+
+  // left
+  path += "q -5 7 7 15";
+
+  // right
+  path += "q 10 -6 7 -15";
+
+  return path;
+});
+
 </script>
 
 <template>
   <g data-type="snout">
-    <path stroke="black" stroke-width="2" fill="none" :d="shape" />
+    <path data-type="snout-shaft" stroke="black" stroke-width="2" fill="none" :d="shape" />
+    <path data-type="nose" stroke="black" fill="#58676A" stroke-width="2" :d="nose" />
   </g>
 </template>
 
