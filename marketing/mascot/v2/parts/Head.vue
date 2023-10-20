@@ -35,6 +35,25 @@ const shape = computed(() => {
 
     path += "q -10 -10 -20 -15";
 
+    // left beard
+    path += "q -8 5 -10 3";
+    path += "q 5 -4 10 -13";
+
+    path += "q -4 2 -16 2";
+    path += "q 14 -8 18 -16";
+
+    path += "q -4 2 -10 -1";
+    path += "q 14 -12 10 -16";
+
+    path += "q 2 2 -10 7";
+    path += "q 0 -5 10 -22";
+
+    path += "q -2 5 -10 5";
+    path += "q -13 15 9 -12";
+
+    // left side
+    path += "q 5 -55 11 -50";
+
     return path;
 })
 </script>
