@@ -25,6 +25,16 @@ const shape = computed(() => {
     path += "q 14 12 18 16";
     path += "q -4 2 -18 -1";
 
+    path += "q 6 10 10 14";
+    path += "q 2 5 -10 -3";
+
+    // chin
+    path += "q -10 5 -20 15";
+
+    path += "q -45 15 -90 0";
+
+    path += "q -10 -10 -20 -15";
+
     return path;
 })
 </script>
