@@ -63,12 +63,22 @@ const leftEar = computed(() => {
     path += "q -7 1 -14 -6 q -9 -6 -27 1 q -5 0 -17 18 q -12 35 20 21 q 11 -5 27 -15 l 11 -19";
 
     return path;
-})
+});
+
+const rightEar = computed(() => {
+    let path = `M ${props.startX + 85} ${props.startY} `;
+
+    path += "q 7 1 14 -6 q 9 -6 27 1 q 10 3 14 19 q 1 18 -13 12 q -16 -6 -24 -5 l -18 -21";
+
+    return path;
+});
+
 </script>
 
 <template>
     <g data-type="head">
-        <path data-type="head-shape" stroke="black" stroke-width="2" fill="white" :d="leftEar"/>
+        <path data-type="left-ear" stroke="black" stroke-width="2" fill="white" :d="leftEar"/>
+        <path data-type="right-ear" stroke="black" stroke-width="2" fill="white" :d="rightEar"/>
         <path data-type="head-shape" stroke="black" stroke-width="2" fill="white" :d="shape"/>
     </g>
 
