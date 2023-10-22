@@ -43,6 +43,14 @@ const nose = computed(() => {
   return path;
 });
 
+const smileWrinkle = computed(() => {
+  let path = `M ${props.startX + 15} ${props.startY + 57}`;
+
+  path += "q 10 6 15 -4";
+
+  return path;
+});
+
 // TODO: maybe add whiskers
 
 </script>
@@ -50,6 +58,7 @@ const nose = computed(() => {
 <template>
   <g data-type="snout">
     <path data-type="snout-shaft" stroke="black" stroke-width="2" fill="#B88058" :d="shape" />
+    <path data-type="smile-wrinkle" stroke="black" stroke-width="2" fill="none" :d="smileWrinkle" />
     <path data-type="nose" stroke="black" fill="#58676A" stroke-width="2" :d="nose" />
   </g>
 </template>

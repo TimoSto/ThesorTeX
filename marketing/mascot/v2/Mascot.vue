@@ -84,8 +84,8 @@ const headShapePath = computed(() => {
        viewBox="0 0 300 300">
     <g id="head">
       <Head :start-x="95" :start-y="50" />
-      <Eye :start-x="100" :start-y="90" />
-      <Eye :start-x="150" :start-y="90" right />
+      <Eye :start-x="100" :start-y="95" />
+      <Eye :start-x="150" :start-y="95" right />
       <Snout :start-x="125" :start-y="110" />
     </g>
   </svg>
