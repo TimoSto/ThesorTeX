@@ -27,11 +27,19 @@ const hatPathTop = computed(() => {
   path += "l -30 7";
   return path;
 });
+
+const strip = computed(() => {
+  let path = `M ${props.startX - 16} ${props.startY - 18} `;
+
+  path += "l 1 30 q -6 4 0 7 q -6 4 -2 30 q 2 1 5 0 q 5 -21 0 -30 q 4 -4 0 -7 l -2 -30";
+  return path;
+});
 </script>
 
 <template>
   <path stroke="black" stroke-width="2" fill="#3A373B" :d="hatPathTop" />
   <path stroke="black" stroke-width="2" fill="#3A373B" :d="hatPath" />
+  <path stroke="black" stroke-width="1" fill="#F2C15B" :d="strip" />
 </template>
 
 <style scoped lang="scss">
