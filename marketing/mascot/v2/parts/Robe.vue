@@ -17,13 +17,13 @@ const coloredTopShape = computed(() => {
 const robeLower = computed(() => {
   let path = `M ${props.startX - 18} ${props.startY + 6} `;
 
-  path += "q -16 3 -22 97 q 92 -8 184 2 q -6 -51 -36 -91 l -13 -9 l -95 -5 l -18 6";
+  path += "q -16 3 -20 75 q 90 14 179 2 q -3 -29 -33 -69 l -13 -9 l -95 -5 l -18 6";
 
   // left arm
-  path += "m 11 95 q -1 -28 3 -55 q -4 28 -3 55";
+  path += "m 11 79 q -1 -12 3 -39 q -4 28 -3 39";
 
   // right arm
-  path += "m 120 1 q -1 -27 -13 -53 q 12 26 13 53";
+  path += "m 118 1 q 1 -11 -11 -37 q 12 26 11 37";
 
   return path;
 });
