@@ -7,9 +7,9 @@ const props = defineProps({
 });
 
 const coloredTopShape = computed(() => {
-  let path = `M ${props.startX} ${props.startY - 1} `;
+  let path = `M ${props.startX} ${props.startY - 0} `;
 
-  path += "l 35 48 q 19 -14 50 -44 q 16 0 23 10 q -44 31 -72 61 q -27 -33 -57 -68 q 6 -5 21 -7";
+  path += "l 39 44 q 15 -10 46 -40 q 16 0 23 10 q -44 31 -66 59 q -33 -31 -63 -66 q 6 -5 21 -7";
 
   return path;
 });
