@@ -88,7 +88,7 @@ const headShapePath = computed(() => {
       <Eye :start-x="100" :start-y="95" />
       <Eye :start-x="150" :start-y="95" right />
       <Snout :start-x="125" :start-y="110" />
-      <Hat :start-x="100" :start-y="52" />
+      <Hat :start-x="103" :start-y="52" />
     </g>
   </svg>
 </template>
