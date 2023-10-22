@@ -32,7 +32,7 @@ const robeLower = computed(() => {
 <template>
   <g>
     <path data-type="top-part" stroke="black" stroke-width="2" fill="#3A373B" :d="robeLower" />
-    <path data-type="top-part" stroke="black" stroke-width="2" fill="#008833" :d="coloredTopShape" />
+    <path data-type="colored-part" stroke="black" stroke-width="2" fill="#008833" :d="coloredTopShape" />
   </g>
 </template>
 
