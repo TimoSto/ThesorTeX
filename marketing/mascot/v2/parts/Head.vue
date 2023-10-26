@@ -48,9 +48,6 @@ const shape = computed(() => {
   path += "q -12 10 -10 5 ";
   path += "q 0 -5 8 -20 ";
 
-  // path += "q -2 5 -10 5";
-  // path += "q -13 15 9 -12";
-
   // left side
   path += "q -2 -55 7 -55";
 
