@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof Mascot>
 
-export const Simple: Story = {
+export const Left: Story = {
     args: {
         // props
     }

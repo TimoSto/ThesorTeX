@@ -14,7 +14,7 @@ const props = defineProps({
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"
        viewBox="0 0 300 300">
-    <Robe :start-x="100" :start-y="175" />
+    <Robe :start-x="100" :start-y="175" :right="props.right" />
     <g id="head">
       <Head :start-x="95" :start-y="50" />
       <Eye :start-x="props.right ? 110 : 103" :start-y="95" />

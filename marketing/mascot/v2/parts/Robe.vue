@@ -4,12 +4,13 @@ import {computed} from "vue";
 const props = defineProps({
   startX: Number,
   startY: Number,
+  right: Boolean,
 });
 
 const coloredTopShape = computed(() => {
   let path = `M ${props.startX} ${props.startY} `;
 
-  path += "l 39 44 q 15 -10 46 -40 q 16 0 23 10 q -44 31 -66 59 q -33 -31 -63 -66 q 6 -5 21 -7";
+  path += `l ${props.right ? "45" : "39"} 44 q 15 -10 ${props.right ? "40" : "46"} -40 q 16 0 23 10 q ${props.right ? "-38" : "-44"} 31 ${props.right ? "-60" : "-66"} 59 q -33 -31 ${props.right ? "-69" : "-63"} -66 q 6 -5 21 -7`;
 
   return path;
 });
