@@ -11,25 +11,25 @@ const shape = computed(() => {
   let path = `M ${props.startX} ${props.startY}`;
 
   // upper shaft
-  path += "q -11 -4 -40 3";
+  path += `q ${props.right ? "" : "-"}11 -4 ${props.right ? "" : "-"}40 3`;
 
   // part covered by nose
-  path += "l -11 7 ";
+  path += `l ${props.right ? "" : "-"}11 7 `;
 
   // lower shaft
-  path += "q 10 40 70 42";
+  path += `q ${props.right ? "-" : ""}10 40 ${props.right ? "-" : ""}70 42`;
 
   // mouth
-  path += "q 4 0 15 -21";
+  path += `q ${props.right ? "-" : ""}4 0 ${props.right ? "-" : ""}15 -21`;
 
   // smile wrinkle
-  path += "m -7 1 q 9 -2 13 0";
+  path += `m ${props.right ? "" : "-"}7 1 q ${props.right ? "-" : ""}9 -2 ${props.right ? "-" : ""}13 0`;
 
   return path;
 });
 
 const nose = computed(() => {
-  let path = `M ${props.startX - 40} ${props.startY + 3}`;
+  let path = `M ${props.right ? props.startX + 55 : props.startX - 40} ${props.startY + 3}`;
 
   // upper
   path += "q -11 -2 -15 0";
@@ -44,9 +44,9 @@ const nose = computed(() => {
 });
 
 const smileWrinkle = computed(() => {
-  let path = `M ${props.startX + 15} ${props.startY + 57}`;
+  let path = `M ${props.right ? props.startX - 12 : props.startX + 15} ${props.startY + 57}`;
 
-  path += "q 10 6 15 -4";
+  path += `q ${props.right ? "-" : ""}10 6 ${props.right ? "-" : ""}15 -4`;
 
   return path;
 });

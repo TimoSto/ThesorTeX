@@ -15,3 +15,10 @@ export const Simple: Story = {
         // props
     }
 };
+
+export const Right: Story = {
+    args: {
+        // props
+        right: true,
+    }
+};
