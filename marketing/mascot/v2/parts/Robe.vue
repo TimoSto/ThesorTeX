@@ -21,10 +21,10 @@ const robeLower = computed(() => {
   path += "q -16 3 -20 75 q 90 14 179 2 q -3 -29 -33 -69 l -13 -9 l -95 -5 l -18 6";
 
   // left arm
-  path += "m 11 79 q -1 -12 3 -39 q -4 28 -3 39";
+  path += props.right ? "m 11 79 q -1 -12 6 -39 q -7 28 -6 39" : "m 11 79 q -1 -12 4 -37 q -5 28 -4 37";
 
   // right arm
-  path += "m 118 1 q 1 -11 -11 -37 q 12 26 11 37";
+  path += props.right ? "m 118 1 q 1 -11 -9 -38 q 10 27 9 39" : "m 118 1 q 1 -11 -13 -41 q 13 27 13 41";
 
   return path;
 });
