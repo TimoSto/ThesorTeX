@@ -16,7 +16,7 @@ const props = defineProps({
        viewBox="0 0 300 300">
     <Robe :start-x="100" :start-y="175" :right="props.right" />
     <g id="head">
-      <Head :start-x="95" :start-y="50" />
+      <Head :start-x="95" :start-y="50" :right="props.right" />
       <Eye :start-x="props.right ? 110 : 103" :start-y="95" />
       <Eye :start-x="props.right ? 160 : 153" :start-y="95" right />
       <Snout :start-x="props.right ? 155 : 128" :start-y="112" :right="props.right" />

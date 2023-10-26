@@ -4,6 +4,7 @@ import {computed} from "vue";
 const props = defineProps({
   startX: Number,
   startY: Number,
+  right: Boolean,
 });
 
 const shape = computed(() => {
@@ -55,7 +56,7 @@ const shape = computed(() => {
 });
 
 const leftEar = computed(() => {
-  let path = `M ${props.startX + 15} ${props.startY} `;
+  let path = `M ${props.startX + (props.right ? 15 : 20)} ${props.startY} `;
 
   path += "q -10 -4 -25.5 -3.5 q -18 5 -24 15 q -8 9 -8 21 q 10 -3 23 -1 q 13 3 32 14";
 
@@ -63,9 +64,9 @@ const leftEar = computed(() => {
 });
 
 const rightEar = computed(() => {
-  let path = `M ${props.startX + 85} ${props.startY} `;
+  let path = `M ${props.startX + (props.right ? 85 : 90)} ${props.startY} `;
 
-  path += "q 10 -4 31 -5 q 18 5 30 16 q 5 5 5 15 q -10 -3 -21 -2 q -13 3 -30 14";
+  path += "q 10 -4 25.5 -3.5 q 18 5 24 15 q 8 9 8 21 q -10 -3 -23 -1 q -13 3 -32 14";
 
   return path;
 });
