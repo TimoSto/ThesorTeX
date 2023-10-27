@@ -37,7 +37,7 @@
               d="M 103 44 l -28 -10q 25 -15 70 -32q 25 9 63 35l -30 7"></path>
         <path stroke="black" stroke-width="2" fill="#3A373B"
               d="M 103 53 q 50 10 75 1l -1 -18q -27 -15 -75 -3l 1 20"></path>
-        <path stroke="black" stroke-width="1" fill="#F2C15B"
-              d="M 87 34 l 1 30 q -6 4 0 7 q -6 4 -2 30 q 2 1 5 0 q 5 -21 0 -30 q 4 -4 0 -7 l -2 -30"></path>
+        <path stroke="black" stroke-width="2" fill="#F2C15B"
+              d="M 87 34 l 1 30 q -6 4 0 7 q -6 4 -2 30 q 2 1 7 0 q 5 -21 0 -30 q 4 -4 0 -7 l -2 -30"></path>
     </g>
 </svg>
