@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"
+  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" style="shape-rendering: crispEdges;"
        viewBox="0 0 300 300">
     <Robe :start-x="100" :start-y="175" :right="props.right" />
     <g id="head">
