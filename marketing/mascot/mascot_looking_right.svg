@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"
+     style="shape-rendering: crispedges;">
+    <g>
+        <path data-type="top-part" stroke="black" stroke-width="2" fill="#3A373B"
+              d="M 82 181 q -16 3 -20 75 q 90 14 179 2 q -3 -29 -33 -69 l -13 -9 l -95 -5 l -18 6m 11 79 q -1 -12 6 -39 q -7 28 -6 39m 118 1 q 1 -11 -9 -38 q 10 27 9 39"></path>
+        <path data-type="colored-part" stroke="black" stroke-width="2" fill="#008833"
+              d="M 100 175 l 45 44 q 15 -10 40 -40 q 16 0 23 10 q -38 31 -60 59 q -33 -31 -69 -66 q 6 -5 21 -7"></path>
+    </g>
+    <g id="head">
+        <g data-type="head">
+            <path data-type="left-ear" stroke="black" stroke-width="2" fill="#B88058"
+                  d="M 110 50 q -10 -4 -25.5 -3.5 q -18 5 -24 15 q -8 9 -8 21 q 10 -3 23 -1 q 13 3 32 14"></path>
+            <path data-type="right-ear" stroke="black" stroke-width="2" fill="#B88058"
+                  d="M 180 50 q 10 -4 25.5 -3.5 q 18 5 24 15 q 8 9 8 21 q -10 -3 -23 -1 q -13 3 -32 14"></path>
+            <path data-type="head-shape" stroke="black" stroke-width="2" fill="#B88058"
+                  d="M 95 50 q 50 -12 90 0q 15 5 20 55q 13 15 13 20q 2 5 -10 -5q 14 16 15 20q 2 5 -9 -2q 14 12 18 19q -4 2 -18 -4q 6 10 10 14q 2 5 -10 -3q -10 5 -20 15q -45 15 -90 0q -10 -10 -20 -15q -12 8 -10 3 q 4 -4 10 -14 q -14 6 -18 4 q 4 -7 18 -19 q -11 7 -9 2 q 1 -4 15 -20 q -12 10 -10 5 q 0 -5 8 -20 q -2 -55 7 -55"></path>
+        </g>
+        <g data-type="eye">
+            <path stroke="black" stroke-width="2" fill="white" d="M 110 95q 13 -5 25 2c 10 -37 -21 -51 -25 -2"></path>
+            <path stroke="black" stroke-width="2" fill="black"
+                  d="M 122 73 q 7 -1 8 6 c 1 10 -9 11 -11 3 c 3 0 6 -4 3 -9"></path>
+        </g>
+        <g data-type="eye">
+            <path stroke="black" stroke-width="2" fill="white" d="M 160 97q 15 -5 25 -2c -2 -37 -35 -45 -25 2"></path>
+            <path stroke="black" stroke-width="2" fill="black"
+                  d="M 167 74 q 7 -1 8 6 c 1 10 -9 11 -11 3 c 3 0 6 -4 3 -9"></path>
+        </g>
+        <g data-type="snout">
+            <path data-type="snout-shaft" stroke="black" stroke-width="2" fill="#B88058"
+                  d="M 155 112q 11 -4 40 3l 11 7 q -10 40 -70 42q -4 0 -15 -21m 7 1 q -9 -2 -13 0"></path>
+            <path data-type="smile-wrinkle" stroke="black" stroke-width="2" fill="none"
+                  d="M 143 169q -10 6 -15 -4"></path>
+            <path data-type="nose" stroke="black" fill="#58676A" stroke-width="2"
+                  d="M 210 115q -11 -2 -15 0q -5 7 7 15q 10 -6 7 -15"></path>
+        </g>
+        <path stroke="black" stroke-width="2" fill="#3A373B"
+              d="M 103 44 l -28 -10q 25 -15 70 -32q 25 9 63 35l -30 7"></path>
+        <path stroke="black" stroke-width="2" fill="#3A373B"
+              d="M 103 53 q 50 10 75 1l -1 -18q -27 -15 -75 -3l 1 20"></path>
+        <path stroke="black" stroke-width="1" fill="#F2C15B"
+              d="M 87 34 l 1 30 q -6 4 0 7 q -6 4 -2 30 q 2 1 5 0 q 5 -21 0 -30 q 4 -4 0 -7 l -2 -30"></path>
+    </g>
+</svg>
