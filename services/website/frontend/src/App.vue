@@ -20,6 +20,7 @@
                    to="/tutorials">
               {{ t(i18nKeys.Titles.Tutorials) }}
             </v-btn>
+            <DSGVO v-if="isLocal" />
           </v-col>
         </v-row>
       </v-container>
@@ -40,6 +41,7 @@ import {computed, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 import {useI18n} from "@thesortex/vue-i18n-plugin";
 import {i18nKeys} from "./i18n/keys";
+import DSGVO from "./components/DSGVO.vue";
 
 const router = useRouter();
 
@@ -71,6 +73,11 @@ const titleAppendix = computed(() => {
   }
 
   return "";
+});
+
+const isLocal = computed(() => {
+  console.log(window.location.host);
+  return window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 });
 
 onMounted(() => {
