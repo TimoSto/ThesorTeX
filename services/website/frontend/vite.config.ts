@@ -24,6 +24,7 @@ export default defineConfig({
             "/versions": "http://localhost:8449/",
             "/documentation": "http://localhost:8449/",
             "/example": "http://localhost:8449/",
+            "/dsgvo": "http://localhost:8449/",
         }
     },
 });

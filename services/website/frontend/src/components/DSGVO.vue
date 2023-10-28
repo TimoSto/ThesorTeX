@@ -43,8 +43,16 @@
       </v-btn>
     </template>
     <v-card theme="light">
+      <v-toolbar density="comfortable" color="white">
+        <v-toolbar-title>Datenschutzerklärung</v-toolbar-title>
+        <v-spacer />
+        <a href="/dsgvo" download="Datenschutzerklärung.pdf" style="margin-right:12px">
+          <v-btn icon color="black">
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
+        </a>
+      </v-toolbar>
       <v-card-text>
-        <h2 class="text-h3">Datenschutzerklärung</h2>
         <v-expansion-panels :multiple="true">
           <v-expansion-panel>
             <v-expansion-panel-title>

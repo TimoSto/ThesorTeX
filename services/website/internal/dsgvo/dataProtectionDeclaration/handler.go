@@ -2,14 +2,18 @@ package dataProtectionDeclaration
 
 import (
 	_ "embed"
+	"fmt"
 	"net/http"
 )
 
 //go:embed de/main.pdf
 var declarationDe string
 
-func Register(mux *http.ServeMux) {
-	mux.HandleFunc("/dsgvo", func(w http.ResponseWriter, r *http.Request) {
+func HandleDSGVO() func(w http.ResponseWriter, r *http.Request) {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("got here")
 		w.Write([]byte(declarationDe))
-	})
+	}
+
+	return fn
 }

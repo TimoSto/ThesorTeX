@@ -31,5 +31,5 @@ func RegisterWebsiteHandlers(mux *http.ServeMux, bucket buckethandler.BucketHand
 
 	mux.HandleFunc("/documentation/images/", documentations.HandleDocumentationImages())
 
-	dataProtectionDeclaration.Register(mux)
+	mux.HandleFunc("/dsgvo", dataProtectionDeclaration.HandleDSGVO())
 }
