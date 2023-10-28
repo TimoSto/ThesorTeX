@@ -4,6 +4,12 @@ then
     exit 1
 fi
 
+cd playwright
+
+pnpm playwright test
+
+cd ../
+
 for i in *.svg; do
     [ -f "$i" ] || break
     echo "converting $i..."
