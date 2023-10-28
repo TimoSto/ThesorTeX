@@ -10,6 +10,7 @@ go_library(
         "//pkg/backend/versionhandler",
         "//services/website/internal/buckethandler",
         "//services/website/internal/config",
+        "//services/website/internal/dsgvo/dataProtectionDeclaration",
         "//services/website/internal/handlers/assets",
         "//services/website/internal/handlers/documentations",
         "//services/website/internal/handlers/templates",

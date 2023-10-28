@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"github.com/TimoSto/ThesorTeX/services/website/internal/dsgvo/dataProtectionDeclaration"
 	"net/http"
 
 	"github.com/TimoSto/ThesorTeX/pkg/backend/faviconhandler"
@@ -29,4 +30,6 @@ func RegisterWebsiteHandlers(mux *http.ServeMux, bucket buckethandler.BucketHand
 	mux.HandleFunc("/documentation", documentations.HandleDocumentations())
 
 	mux.HandleFunc("/documentation/images/", documentations.HandleDocumentationImages())
+
+	dataProtectionDeclaration.Register(mux)
 }
