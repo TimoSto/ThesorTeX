@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.21)  28 OCT 2023 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.21)  28 OCT 2023 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,24 +943,24 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -996,14 +996,14 @@ LaTeX Font Info:    ... okay on input line 134.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \celsius on input line 134.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 134
+LaTeX Info: Redefining \celsius on input line 154.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 154
 .
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 134.
-Package gensymb Info: Using \upOmega for \ohm on input line 134.
+LaTeX Info: Redefining \ohm on input line 154.
+Package gensymb Info: Using \upOmega for \ohm on input line 154.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -1041,11 +1041,11 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 \c@lstlisting=\count401
-Package csquotes Info: Redefining character " on input line 134.
+Package csquotes Info: Redefining character " on input line 154.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 134.
+Package hyperref Info: Link coloring OFF on input line 154.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1059,14 +1059,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count402
 )
-LaTeX Info: Redefining \ref on input line 134.
-LaTeX Info: Redefining \pageref on input line 134.
-LaTeX Info: Redefining \nameref on input line 134.
-LaTeX Info: Redefining \microtypecontext on input line 134.
-Package microtype Info: Applying patch `item' on input line 134.
-Package microtype Info: Applying patch `toc' on input line 134.
-Package microtype Info: Applying patch `eqnum' on input line 134.
-Package microtype Info: Applying patch `footnote' on input line 134.
+LaTeX Info: Redefining \ref on input line 154.
+LaTeX Info: Redefining \pageref on input line 154.
+LaTeX Info: Redefining \nameref on input line 154.
+LaTeX Info: Redefining \microtypecontext on input line 154.
+Package microtype Info: Applying patch `item' on input line 154.
+Package microtype Info: Applying patch `toc' on input line 154.
+Package microtype Info: Applying patch `eqnum' on input line 154.
+Package microtype Info: Applying patch `footnote' on input line 154.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Using font copies for contexts.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -1074,7 +1074,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 10, shrink: 10, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 134.
+LaTeX Info: Redefining \showhyphens on input line 154.
 Package microtype Info: Tracking enabled.
 Package microtype Info: Using default tracking set `smallcaps'.
 Package microtype Info: Adjustment of interword spacing enabled.
@@ -1128,24 +1128,19 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [1
-checksum mismatch in font ptmr8t.vf ignored{/usr/local/texlive/2022/texmf-var/f
-onts/map/pdftex/updmap/pdftex.map}
+ [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-
-checksum mismatch in font ptmr8t.vf ignored]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-97.
+]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
+17.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [2
 
-
-checksum mismatch in font ptmr8t.vf ignored
-checksum mismatch in font ptmr8c.vf ignored] [3
-checksum mismatch in font ptmb8t.vf ignored] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+] [3]
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
@@ -1154,54 +1149,54 @@ pdfTeX warning (ext4): destination with the same identifier (name{section.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.250 \section{Verarbeitete Datenarten}
+l.270 \section{Verarbeitete Datenarten}
                                        
 pdfTeX warning (ext4): destination with the same identifier (name{section.2}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.255 \section{Betroffene Personen}
+l.275 \section{Betroffene Personen}
                                    
 pdfTeX warning (ext4): destination with the same identifier (name{section.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.263 ...lineangebot auf gemietetem Speicherplatz}
+l.283 ...lineangebot auf gemietetem Speicherplatz}
                                                    [6
 pdfTeX warning (ext4): destination with the same identifier (name{section.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.265 ...{Erhebung von Zugriffsdaten und Logfiles}
+l.285 ...{Erhebung von Zugriffsdaten und Logfiles}
                                                   ]
 pdfTeX warning (ext4): destination with the same identifier (name{section.2}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.265 ...{Erhebung von Zugriffsdaten und Logfiles}
+l.285 ...{Erhebung von Zugriffsdaten und Logfiles}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{section.3}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.267 \section{Content-Delivery-Network}
+l.287 \section{Content-Delivery-Network}
                                          [7]
 pdfTeX warning (ext4): destination with the same identifier (name{section.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.275 \section{Personenbezogene Daten}
+l.295 \section{Personenbezogene Daten}
                                       
 pdfTeX warning (ext4): destination with the same identifier (name{section.2}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.277 \section{Verarbeitung}
+l.297 \section{Verarbeitung}
                              [8] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  23707 strings out of 478268
  387501 string characters out of 5846347
- 783790 words of memory out of 5000000
+ 783788 words of memory out of 5000000
  41327 multiletter control sequences out of 15000+600000
  518114 words of font info for 161 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -1211,7 +1206,7 @@ ist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.p
 fb>
-Output written on main.pdf (8 pages, 65093 bytes).
+Output written on main.pdf (8 pages, 64956 bytes).
 PDF statistics:
  186 PDF objects out of 1000 (max. 8388607)
  168 compressed objects within 2 object streams

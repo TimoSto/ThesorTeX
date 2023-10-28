@@ -131,6 +131,26 @@
 
 \partOnSamePage
 
+\fancypagestyle{main}{%
+    \fancyhf{}%
+    \fancyhead[L]{\squelch{\headerMainLeft}}%
+    \fancyhead[R]{\squelch{}}%
+    \fancyfoot[L]{\squelch{\footerMainLeft}}%
+    \fancyfoot[R]{\squelch{\footerMainRight}}%
+    \renewcommand{\headrulewidth}{0.4pt}%
+    \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyhead[L]{\headerPlainLeft}%
+    \fancyhead[R]{}%
+    \fancyfoot[L]{\footerPlainLeft}%
+    \fancyfoot[R]{\footerPlainRight}%
+    \renewcommand{\headrulewidth}{0.4pt}%
+    \renewcommand{\footrulewidth}{0.4pt}%
+}
+
 \begin{document}
 
 \renewcommand{\mytitle}{Datenschutzerklärung}% Title to show in the header or footer
