@@ -1,0 +1,27 @@
+\babel@toc {ngerman}{}\relax 
+\vspace {24pt}
+\contentsline {part}{1\hspace {1em}Präamble}{2}{part.1}%
+\contentsline {part}{2\hspace {1em}Verantwortlicher}{2}{part.2}%
+\contentsline {part}{3\hspace {1em}Übersicht der Verarbeitung}{2}{part.3}%
+\contentsline {part}{4\hspace {1em}Rechtsgrundlage}{3}{part.4}%
+\contentsline {part}{5\hspace {1em}Sicherheitsmaßnahmen}{3}{part.5}%
+\contentsline {part}{6\hspace {1em}Nutzung von Content-Delivery-Networks}{4}{part.6}%
+\contentsline {part}{7\hspace {1em}Löschung von Daten}{5}{part.7}%
+\contentsline {part}{8\hspace {1em}Rechte der betroffenen Person}{5}{part.8}%
+\contentsline {section}{\numberline {8.1}Widerspruchsrecht}{5}{section.1}%
+\contentsline {section}{\numberline {8.2}Widerrufsrecht bei Einwilligungen}{5}{section.2}%
+\contentsline {section}{\numberline {8.3}Auskunftsrecht}{6}{section.3}%
+\contentsline {section}{\numberline {8.4}Recht auf Berichtigung}{6}{section.4}%
+\contentsline {section}{\numberline {8.5}Recht auf Löschung}{6}{section.5}%
+\contentsline {part}{9\hspace {1em}Bereitstellung des Onlineangebotes und Webhosting}{6}{part.9}%
+\contentsline {section}{\numberline {9.1}Verarbeitete Datenarten}{6}{section.1}%
+\contentsline {section}{\numberline {9.2}Betroffene Personen}{6}{section.2}%
+\contentsline {section}{\numberline {9.3}Zwecke der Verarbeitung}{6}{section.3}%
+\contentsline {part}{10\hspace {1em}Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten}{7}{part.10}%
+\contentsline {section}{\numberline {10.1}Bereitstellung Onlineangebot auf gemietetem Speicherplatz}{7}{section.1}%
+\contentsline {section}{\numberline {10.2}Erhebung von Zugriffsdaten und Logfiles}{7}{section.2}%
+\contentsline {section}{\numberline {10.3}Content-Delivery-Network}{7}{section.3}%
+\contentsline {part}{11\hspace {1em}Änderung und Aktualisierung der Datenschutzerklärung}{7}{part.11}%
+\contentsline {part}{12\hspace {1em}Begriffsdefinitionen}{8}{part.12}%
+\contentsline {section}{\numberline {12.1}Personenbezogene Daten}{8}{section.1}%
+\contentsline {section}{\numberline {12.2}Verarbeitung}{8}{section.2}%

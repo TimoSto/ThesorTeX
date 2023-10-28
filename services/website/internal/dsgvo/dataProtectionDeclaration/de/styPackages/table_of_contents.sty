@@ -1,0 +1,86 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{styPackages/table_of_contents}
+
+\usepackage{tocloft}
+% To include the dotted line in the ToC for parts too
+\renewcommand{\cftpartdotsep}{\cftdotsep}
+% But dont make this dotted line bold
+\renewcommand{\cftpartleader}{\normalfont\cftdotfill{\cftpartdotsep}}
+% To include the dotted line in the ToC for sections too
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+% But dont make this dotted line bold
+\renewcommand{\cftsecleader}{\normalfont\cftdotfill{\cftsecdotsep}}
+
+% Dotted line finer
+\renewcommand{\cftdotsep}{0.5}
+
+% Dont make part and section bold in the ToC
+\renewcommand{\cftsecfont}{\mdseries}
+\renewcommand{\cftsecpagefont}{\mdseries}
+\renewcommand{\cftpartfont}{\mdseries}
+\renewcommand{\cftpartpagefont}{\mdseries}
+
+\newcommand{\usealphaNumerictoc}{
+% Spacing between numbers and titles in alphanumeric ToC
+    \def\secnumwidth{20pt}
+    \setlength{\cftpartnumwidth}{\secnumwidth}
+    \setlength{\cftsecnumwidth}{\secnumwidth}
+    \setlength{\cftsubsecnumwidth}{\secnumwidth}
+    \setlength{\cftsubsubsecnumwidth}{\secnumwidth}
+    \setlength{\cftparanumwidth}{\secnumwidth}
+    \setlength{\cftsubparanumwidth}{\secnumwidth}
+
+    \setlength{\cftfignumwidth}{\secnumwidth}
+    \setlength{\cfttabnumwidth}{\secnumwidth}
+
+    % Indents of the titles in alphanumeric ToC
+    \setlength{\cftsecindent}{20pt}
+    \setlength{\cftsubsecindent}{40pt}
+    \setlength{\cftsubsubsecindent}{60pt}
+    \setlength{\cftparaindent}{80pt}
+    \setlength{\cftsubparaindent}{100pt}
+}
+
+\newcommand{\usenumerictoc}{
+% Spacing between numbers and titles in numeric ToC
+    \setlength{\cftpartnumwidth}{20pt}
+    \setlength{\cftsecnumwidth}{25pt}
+    \setlength{\cftsubsecnumwidth}{38pt}
+    \setlength{\cftsubsubsecnumwidth}{48pt}
+    \setlength{\cftparanumwidth}{55pt}
+    \setlength{\cftsubparanumwidth}{60pt}
+
+    \setlength{\cftfignumwidth}{20pt}
+    \setlength{\cfttabnumwidth}{20pt}
+
+    % Indents of the titles in numeric ToC
+    \setlength{\cftsecindent}{20pt}
+    \setlength{\cftsubsecindent}{45pt}
+    \setlength{\cftsubsubsecindent}{83pt}
+    \setlength{\cftparaindent}{131pt}
+    \setlength{\cftsubparaindent}{188pt}
+}
+
+% Center the heading of the ToC
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\LARGE}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+
+% Remove spacing between entries in ToC
+\setlength{\cftbeforepartskip}{0cm}% For part
+\setlength{\cftbeforesecskip}{0pt}% For section
+
+% Set the depth of the ToC (1:part, 2:section, 3:subsection, 4:subsubsection, 5:paragraph, 6:subparagraph)
+\setcounter{tocdepth}{6}
+
+% Call this to make the part bold
+\newcommand{\partInBold}{
+    \renewcommand{\cftpartfont}{\bfseries}
+}
+
+% Switch between numeric and alphanumeric via an option
+\DeclareOption{alphaNumeric}{\usealphaNumerictoc}
+\DeclareOption{numeric}{\usenumerictoc}
+\ProcessOptions\relax
+
+\endinput

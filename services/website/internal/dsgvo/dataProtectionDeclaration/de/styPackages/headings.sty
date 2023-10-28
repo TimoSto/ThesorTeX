@@ -1,0 +1,91 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{styPackages/headings}
+\usepackage[noindentafter,raggedright]{titlesec}
+
+% Set spacing before and after headings
+\def\beforeheading{12pt}
+\def\afterheading{6pt}
+\titlespacing{\part}{0pt}{0pt}{\afterheading}
+\titlespacing{\section}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subsection}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subsubsection}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\paragraph}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subparagraph}{0pt}{\beforeheading}{\afterheading}
+
+\newcommand{\useAlphaNumericHeadings}{
+% Alphanumeric numbering
+    \renewcommand{\thepart}{\Alph{part}}
+    \renewcommand{\thesection}{\Roman{section}}
+    \renewcommand{\thesubsection}{\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\alph{subsubsection})}
+    \renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
+    \renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
+}
+
+\newcommand{\usenumericheadings}{
+% Numeric numbering
+    \renewcommand{\thepart}{\arabic{part}}
+    \renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+    \renewcommand{\thesubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+    \renewcommand{\theparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+    \renewcommand{\thesubparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
+}
+
+% Format of the headings
+\def\numbertitlespace{0.5em}% Spacing between number and heading
+\titleformat{\part}{\Large\mdseries\raggedright}{\thepart}{\numbertitlespace}{}
+\titleformat{\section}{\large\mdseries\raggedright}{\thesection}{\numbertitlespace}{}
+\titleformat{\subsection}{\large\mdseries\raggedright}{\thesubsection}{\numbertitlespace}{}
+\titleformat{\subsubsection}{\large\mdseries\raggedright}{\thesubsubsection}{\numbertitlespace}{}
+\titleformat{\paragraph}{\large\mdseries\raggedright}{\theparagraph}{\numbertitlespace}{}
+\titleformat{\subparagraph}{\large\mdseries\raggedright}{\thesubparagraph}{\numbertitlespace}{}
+
+% Reset the section counter in every \part (The other levels are resetted automatically)
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+% Depth to which LaTeX will number the headings (1:part, 2:section, 3:subsection, 4:subsubsection, 5:paragraph, 6:subparagraph)
+\setcounter{secnumdepth}{6}
+
+%TODO: Handle this with an option
+% Create a new page on every \part
+\newcommand*\parttitle{}
+\let\origpart\part%alten pert-Befehl behalten
+\renewcommand*{\part}[2][]{%
+    \ifnum\value{part}=0\else\clearpage\fi% at first part no \clearpage
+    \vspace*{-9mm}% Remove vertical space before part-title
+    \origpart{#2}%
+    \renewcommand*\parttitle{#2}%
+}
+
+% Possibility to have part on same page
+\newcommand{\partOnSamePage}[0]{
+    \renewcommand*{\part}[2][]{%
+        \ifnum\value{part}=0\vspace*{-12pt}\else\vspace*{12pt}\fi%at first part no \clearpage
+        %Remove vertical space before part-title
+        \origpart{##2}%
+        \renewcommand*\parttitle{##2}%
+    }
+}
+
+%Neue Überschriften-Ebene
+%\usepackage{titletoc}
+%\usepackage{chngcntr}
+%\newcounter{mysection}
+%\titleclass{\mysection}{straight}[\part]
+%\titleformat{\mysection}{\large\mdseries}{\themysection}{\numbertitlespace}{}
+%\titlespacing{\mysection}{0pt}{\beforeheading}{\afterheading}
+%\renewcommand{\themysection}{\arabic{mysection}}
+%%\counterwithin{subparagraph}{mysection}
+%\renewcommand{\themysection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}.\arabic{mysection}}
+%
+%\titlecontents*{mysection}[285pt]{}{\contentslabel{65pt}}{}
+%{\normalfont\cftdotfill{\cftpartdotsep}\contentspage}[]
+
+\DeclareOption{alphaNumeric}{\useAlphaNumericHeadings}
+\DeclareOption{numeric}{\usenumericheadings}
+\ProcessOptions\relax
+\endinput

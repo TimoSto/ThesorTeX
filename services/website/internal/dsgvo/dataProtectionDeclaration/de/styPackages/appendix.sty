@@ -1,0 +1,48 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{styPackages/appendix}
+
+% long/multipage tables
+\usepackage{longtable, tabu}
+
+% Create new table cell type for multiline text (improved)
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcommand{\listappendix}{\hspace*{\fill}\normalfont\LARGE{Appendix}\hspace*{\fill}}
+\newlistof{appendix}{mcf}{\listappendix}
+
+% Reset section numbering between unnumbered chapters
+% https://tex.stackexchange.com/questions/71162/reset-section-numbering-between
+\newcommand{\appendixI}[1]
+{%
+    \refstepcounter{appendix}
+    \addcontentsline{mcf}{appendix}
+    {\numberline{\theappendix}\hspace*{3pt}#1}\par
+    \phantomsection
+    \pdfbookmark[section]{#1}{#1}
+    \section*{\arabic{appendix}\hspace{0.5em}#1}
+    \setcounter{theappendixII}{0}
+}
+\newcounter{theappendixII}
+\newcommand{\appendixII}[1]
+{%
+    \renewcommand{\plaintitle}{#1}
+    \refstepcounter{theappendixII}
+    \addcontentsline{mcf}{appendix}
+    {\hspace{20pt}\protect\numberline{\arabic{appendix}.\arabic{theappendixII}}\hspace*{3pt}#1}\par
+    \pdfbookmark[subsection]{#1}{#1}
+    \subsection*{\arabic{appendix}.\arabic{theappendixI}\hspace{0.5em}#1}
+    \setcounter{theappendixIII}{0}
+}
+\newcounter{theappendixIII}
+\newcommand{\appendixIII}[1]
+{%
+    \refstepcounter{theappendixIII}
+    \addcontentsline{mcf}{appendix}
+    {\hspace{40pt}\protect\numberline{\arabic{appendix}.\arabic{theappendixI}.\arabic{theappendixII}}\hspace*{10pt}#1}\par
+    \subsubsection*{\arabic{appendix}.\arabic{theappendixI}.\arabic{theappendixII}\hspace{0.5em}#1}
+}
+
+
+\endinput
