@@ -191,7 +191,7 @@ func analyseLine(line string, incode bool) analyseLineResult {
 			Content: "",
 		}
 	}
-	if line[:2] == "- " {
+	if len(line) > 2 && line[:2] == "- " {
 		return analyseLineResult{
 			Type:    TypeListItem,
 			Content: line[2:],
