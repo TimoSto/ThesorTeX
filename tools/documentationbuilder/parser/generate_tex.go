@@ -52,6 +52,13 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 				if i < len(d.Groups)-1 && d.Groups[i+1].Type == "TEXT" {
 					body += "\\noindent "
 				}
+			} else if g.Type == "LIST" {
+				// TODO: unit test
+				body += "\\begin{itemize}\n"
+				for _, l := range g.Elements {
+					body += fmt.Sprintf("\\item %s\n", parseText([]element{l}))
+				}
+				body += "\\end{itemize}\n"
 			}
 		}
 	}
