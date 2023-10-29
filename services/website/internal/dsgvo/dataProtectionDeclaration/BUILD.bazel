@@ -7,3 +7,14 @@ go_library(
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/dsgvo/dataProtectionDeclaration",
     visibility = ["//services/website:__subpackages__"],
 )
+
+genrule(
+    name = "dpd_de",
+    srcs = [
+        "de.md",
+    ],
+    outs = ["dpd/de"],
+    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location dpd/de) -src=$(location de.md)",
+    tools = ["//tools/documentationbuilder"],
+    visibility = ["//visibility:public"],
+)
