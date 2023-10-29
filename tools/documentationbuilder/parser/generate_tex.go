@@ -10,7 +10,9 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 	body := fmt.Sprintf("\\part{%s}\n", title)
 
 	for _, d := range docs {
-		body += fmt.Sprintf("\\section{%s}\n", d.Title)
+		if d.Title != "" {
+			body += fmt.Sprintf("\\section{%s}\n", d.Title)
+		}
 		var linkTitle string
 		for i, g := range d.Groups {
 			if g.Type == "TEXT" {

@@ -50,7 +50,7 @@ func ParseDocBodies(raw []RawDocs) []DocBody {
 	var bodies []DocBody
 
 	for _, r := range raw {
-		if r.Title != "" && r.Content != "" {
+		if r.Content != "" {
 			bodies = append(bodies, parseDocBody(r))
 		}
 	}
