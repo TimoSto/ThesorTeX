@@ -80,7 +80,7 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 					content = rabbr.ReplaceAllString(content, "")
 					break
 				case "bibliography":
-					rabbr := regexp.MustCompile("(?s)% End Content(.*?)% end bibliography\n")
+					rabbr := regexp.MustCompile("(?s)% Start bibliography(.*?)% end bibliography\n")
 					content = rabbr.ReplaceAllString(content, "")
 					break
 				}

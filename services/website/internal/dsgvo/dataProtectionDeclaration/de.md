@@ -79,3 +79,54 @@ Sie haben entsprechend den gesetzlichen Vorgaben das Recht, die Vervollständigu
 
 ### Recht auf Löschung
 Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass Sie betreffende Daten unverzüglich gelöscht werden.
+
+---
+
+## Bereitstellung des Onlineangebotes und Webhosting
+Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können. Zu diesem Zweck verarbeiten wir die IP-Adresse des Nutzers, die notwendig ist, um die Inhalte und Funktionen unserer Online-Dienste an den Browser oder das Endgerät der Nutzer zu übermitteln.\\
+
+**Verarbeitete Datenarten**
+
+- Nutzungsdaten (z. B. besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten)
+- Meta-, Kommunikations- und Verfahrensdaten (z. .B. IP-Adressen, Zeitangaben, Identifikationsnummern, Einwilligungsstatus).
+
+**Betroffene Personen**
+
+- Nutzer (Webseitenbesuchern)
+
+** Zwecke der Verarbeitung**
+
+- Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit
+- Informationstechnische Infrastruktur (Betrieb und Bereitstellung von Informationssystemen und technischen Geräten (Computer, Server etc.)
+- Sicherheitsmaßnahmen
+
+---
+
+## Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten
+### Bereitstellung Onlineangebot auf gemietetem Speicherplatz
+Für die Bereitstellung unseres Onlineangebotes nutzen wir Speicherplatz, Rechenkapazität und Software, die wir von einem entsprechenden Serveranbieter (auch "Webhoster" genannt) mieten oder anderweitig beziehen
+
+*Rechtsgrundlagen*: Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+
+### Erhebung von Zugriffsdaten und Logfiles
+Der Zugriff auf unser Onlineangebot wird in Form von so genannten "Server-Logfiles" protokolliert. Zu den Serverlogfiles können die Adresse und Name der abgerufenen Webseiten und Dateien, Datum und Uhrzeit des Abrufs, übertragene Datenmengen, Meldung über erfolgreichen Abruf, Browsertyp nebst Version, das Betriebssystem des Nutzers, Referrer URL (die zuvor besuchte Seite) und im Regelfall IP-Adressen und der anfragende Provider gehören. Die Serverlogfiles können zum einen zu Zwecken der Sicherheit eingesetzt werden, z. B., um eine Überlastung der Server zu vermeiden (insbesondere im Fall von missbräuchlichen Angriffen, sogenannten DDoS-Attacken) und zum anderen, um die Auslastung der Server und ihre Stabilität sicherzustellen.
+
+*Rechtsgrundlagen*: Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+
+---
+
+## Änderung und Aktualisierung der Datenschutzerklärung
+Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z. B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird.
+
+---
+
+## Begriffsdefinitionen
+In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser Datenschutzerklärung verwendeten Begrifflichkeiten. Soweit die Begrifflichkeiten gesetzlich definiert sind, gelten deren gesetzliche Definitionen. Die nachfolgenden Erläuterungen sollen dagegen vor allem dem Verständnis dienen.
+
+**Personenbezogene Daten**
+
+"Personenbezogene Daten" sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene Person") beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung (z. B. Cookie) oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.
+
+**Verarbeitung**
+
+"Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.

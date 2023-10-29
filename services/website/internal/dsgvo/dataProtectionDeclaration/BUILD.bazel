@@ -18,3 +18,29 @@ genrule(
     tools = ["//tools/documentationbuilder"],
     visibility = ["//visibility:public"],
 )
+
+genrule(
+    name = "dpd_de_tex",
+    srcs = [
+        ":dpd_de",
+    ],
+    outs = ["dpd_tex_de"],
+    cmd = "mkdir $(OUTS) && \
+        $(location //tools/documentationcombinator:documentationcombinator) \
+            -out-dir=$(location dpd_tex_de) \
+            -docs=$(location :dpd_de) \
+            -title=Datenschutzbestimmung \
+            -author='ThesorTeX' \
+            -lang=DE \
+            -strip-parts=abbreviations,listoffigures,listoftables,appendix,bibliography",
+    tools = ["//tools/documentationcombinator"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "dpd_de_pdf",
+    srcs = [":dpd_de_tex"],
+    outs = ["dpd_de.pdf"],
+    cmd = "$(location //tools/documentationcombinator/pdflatex:pdflatex.sh) main.tex $(locations :dpd_de_tex) ../ dpd_de.pdf",
+    tools = ["//tools/documentationcombinator/pdflatex:pdflatex.sh"],
+)
