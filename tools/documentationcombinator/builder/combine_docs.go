@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 // TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool, shiftParts bool) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool, shiftParts bool, tocTitle string) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -76,6 +76,9 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 			if partOnSamePage {
 				content = strings.Replace(content, "\\begin{document}", "\\partOnSamePage\n\\begin{document}", 1)
 			}
+
+			tocReg := regexp.MustCompile("\\\\renewcommand{\\\\contentsname}{(.*?)}")
+			content = tocReg.ReplaceAllString(content, fmt.Sprintf("\\renewcommand{\\contentsname}{%s}", tocTitle))
 
 			for _, p := range stripParts {
 				switch p {

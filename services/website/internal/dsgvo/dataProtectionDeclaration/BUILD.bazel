@@ -34,7 +34,8 @@ genrule(
             -lang=DE \
             -strip-parts=abbreviations,listoffigures,listoftables,appendix,bibliography \
             -part-same-page \
-            -shift-parts",
+            -shift-parts \
+            -toc-title=Datenschutzbestimmung",
     tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
 )
