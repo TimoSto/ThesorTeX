@@ -16,6 +16,7 @@ func main() {
 	lang := flag.String("lang", "", "language of the document")
 	stripParts := flag.String("strip-parts", "", "parts of the template not to include")
 	partOnSamePage := flag.Bool("part-same-page", false, "parts on same page")
+	shiftParts := flag.Bool("shift-parts", false, "make sections parts")
 
 	flag.Parse()
 
@@ -28,7 +29,7 @@ func main() {
 		panic(err)
 	}
 
-	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang, stripPartsValues, *partOnSamePage)
+	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang, stripPartsValues, *partOnSamePage, *shiftParts)
 	if err != nil {
 		panic(err)
 	}

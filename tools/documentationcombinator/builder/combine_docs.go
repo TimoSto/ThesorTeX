@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 // TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool, shiftParts bool) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -41,6 +41,18 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 	err = os.MkdirAll(filepath.Join(outPath, "styPackages"), os.ModePerm)
 	if err != nil {
 		return err
+	}
+
+	if shiftParts {
+		// TODO: unit test
+		// rm existing parts
+		rg := regexp.MustCompile("(?s)\\\\part{(.*?)}")
+		fmt.Println(strings.Index(body, "part"))
+		body = rg.ReplaceAllString(body, "")
+		fmt.Println(strings.Index(body, "part"))
+		// make sections parts
+		body = strings.Replace(body, "\\section", "\n\\part", -1)
+		body = strings.Replace(body, "\\subsection", "\\section", -1)
 	}
 
 	return goFs.WalkDir(project_template.ProjectTemplate, ".", func(path string, d goFs.DirEntry, err error) error {

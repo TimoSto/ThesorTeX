@@ -33,7 +33,8 @@ genrule(
             -author='ThesorTeX' \
             -lang=DE \
             -strip-parts=abbreviations,listoffigures,listoftables,appendix,bibliography \
-            -part-same-page",
+            -part-same-page \
+            -shift-parts",
     tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
 )
