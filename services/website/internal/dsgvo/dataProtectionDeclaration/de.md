@@ -83,18 +83,18 @@ Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass 
 ---
 
 ## Bereitstellung des Onlineangebotes und Webhosting
-Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können. Zu diesem Zweck verarbeiten wir die IP-Adresse des Nutzers, die notwendig ist, um die Inhalte und Funktionen unserer Online-Dienste an den Browser oder das Endgerät der Nutzer zu übermitteln.\\
+Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können. Zu diesem Zweck verarbeiten wir die IP-Adresse des Nutzers, die notwendig ist, um die Inhalte und Funktionen unserer Online-Dienste an den Browser oder das Endgerät der Nutzer zu übermitteln.
 
-**Verarbeitete Datenarten**
+### Verarbeitete Datenarten
 
 - Nutzungsdaten (z. B. besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten)
 - Meta-, Kommunikations- und Verfahrensdaten (z. .B. IP-Adressen, Zeitangaben, Identifikationsnummern, Einwilligungsstatus).
 
-**Betroffene Personen**
+### Betroffene Personen
 
 - Nutzer (Webseitenbesuchern)
 
-** Zwecke der Verarbeitung**
+### Zwecke der Verarbeitung
 
 - Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit
 - Informationstechnische Infrastruktur (Betrieb und Bereitstellung von Informationssystemen und technischen Geräten (Computer, Server etc.)
@@ -123,10 +123,10 @@ Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung
 ## Begriffsdefinitionen
 In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser Datenschutzerklärung verwendeten Begrifflichkeiten. Soweit die Begrifflichkeiten gesetzlich definiert sind, gelten deren gesetzliche Definitionen. Die nachfolgenden Erläuterungen sollen dagegen vor allem dem Verständnis dienen.
 
-**Personenbezogene Daten**
+### Personenbezogene Daten
 
 "Personenbezogene Daten" sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene Person") beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung (z. B. Cookie) oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.
 
-**Verarbeitung**
+### Verarbeitung
 
 "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.
