@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -24,6 +25,7 @@ const (
 	TypeImage                   = "Image"
 	TypeImageLabel              = "ImageLabel"
 	TypeFootnoteRef             = "FootnoteRef"
+	TypeSubSection              = "Subsection"
 )
 
 type group struct {
@@ -75,6 +77,7 @@ func parseDocBody(raw RawDocs) DocBody {
 
 	for _, s := range splitted {
 		l := analyseLine(s, incode)
+		fmt.Println(l.Type)
 		if l.Type == TypeEmpty && !incode {
 			// empty line => if the last group in the docs already has elements, start a new group
 			if len(body.Groups[len(body.Groups)-1].Elements) > 0 {
@@ -97,6 +100,14 @@ func parseDocBody(raw RawDocs) DocBody {
 			elements := splitLineIntoElements(l.Content)
 
 			sortElementsIntoGroups(&body, elements, &lengthElements)
+		} else if l.Type == TypeSubSection {
+			body.Groups = append(body.Groups, group{Type: "SUBSECTION", Elements: []element{
+				{
+					Style:   "",
+					Content: l.Content,
+				},
+			}})
+			lengthElements = 1
 		} else if l.Type == TypeBeginCode {
 			incode = true
 			body.Groups = append(body.Groups, group{Type: "CODE"})
@@ -171,6 +182,7 @@ type analyseLineResult struct {
 
 var imgRegex = regexp.MustCompile("!\\[[^\\]]*\\]\\([^\\)]*\\)")
 var footnoteRefRegex = regexp.MustCompile("^\\[\\^[0-9]{1,3}\\]:")
+var subSectionRegex = regexp.MustCompile("^### .*")
 
 func analyseLine(line string, incode bool) analyseLineResult {
 	if line == "" || line == "\n" {
@@ -217,6 +229,13 @@ func analyseLine(line string, incode bool) analyseLineResult {
 		return analyseLineResult{
 			Type:    TypeFootnoteRef,
 			Content: line,
+		}
+	}
+
+	if subSectionRegex.MatchString(line) {
+		return analyseLineResult{
+			Type:    TypeSubSection,
+			Content: strings.TrimLeft(line, "### "),
 		}
 	}
 

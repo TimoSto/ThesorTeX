@@ -59,6 +59,8 @@ func GenerateContentForTeX(title string, docs []DocBody) ([]byte, error) {
 					body += fmt.Sprintf("\\item %s\n", parseText([]element{l}))
 				}
 				body += "\\end{itemize}\n"
+			} else if g.Type == "SUBSECTION" {
+				body += fmt.Sprintf("\\subsection{%s}\n", g.Elements[0].Content)
 			}
 		}
 	}
