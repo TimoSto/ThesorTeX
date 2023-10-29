@@ -32,7 +32,8 @@ genrule(
             -title=Datenschutzbestimmung \
             -author='ThesorTeX' \
             -lang=DE \
-            -strip-parts=abbreviations,listoffigures,listoftables,appendix,bibliography",
+            -strip-parts=abbreviations,listoffigures,listoftables,appendix,bibliography \
+            -part-same-page",
     tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
 )

@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 // TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -60,6 +60,10 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 		//TODO: unit test
 		if path == "main.tex" {
 			content := string(b)
+
+			if partOnSamePage {
+				content = strings.Replace(content, "\\begin{document}", "\\partOnSamePage\n\\begin{document}", 1)
+			}
 
 			for _, p := range stripParts {
 				switch p {
