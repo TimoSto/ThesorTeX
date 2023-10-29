@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 // TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -60,6 +60,32 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 		//TODO: unit test
 		if path == "main.tex" {
 			content := string(b)
+
+			for _, p := range stripParts {
+				switch p {
+				case "abbreviations":
+					rabbr := regexp.MustCompile("(?s)% Change the title of the list of abbreviations here(.*?)\\\\clearpage\n\n")
+					content = rabbr.ReplaceAllString(content, "")
+					break
+				case "listoffigures":
+					rabbr := regexp.MustCompile("(?s)% Change the title of the list of figures here(.*?)\\\\clearpage\n\n")
+					content = rabbr.ReplaceAllString(content, "")
+					break
+				case "listoftables":
+					rabbr := regexp.MustCompile("(?s)% Change the title of the list of tables here(.*?)\\\\clearpage\n\n")
+					content = rabbr.ReplaceAllString(content, "")
+					break
+				case "appendix":
+					rabbr := regexp.MustCompile("(?s)% start appendix(.*?)% end appendix\n")
+					content = rabbr.ReplaceAllString(content, "")
+					break
+				case "bibliography":
+					rabbr := regexp.MustCompile("(?s)% End Content(.*?)% end bibliography\n")
+					content = rabbr.ReplaceAllString(content, "")
+					break
+				}
+			}
+
 			if lang != "DE" {
 				content = strings.Replace(content, "\\renewcommand{\\figurename}{Abb.}", "\\renewcommand{\\figurename}{Fig.}", 1)
 			}

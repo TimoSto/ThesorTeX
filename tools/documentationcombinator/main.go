@@ -14,8 +14,11 @@ func main() {
 	title := flag.String("title", "", "title of the document")
 	author := flag.String("author", "", "author of the document")
 	lang := flag.String("lang", "", "language of the document")
+	stripParts := flag.String("strip-parts", "", "parts of the template not to include")
 
 	flag.Parse()
+
+	stripPartsValues := strings.Split(*stripParts, ",")
 
 	docPathsSlice := strings.Split(*docPaths, ",")
 
@@ -24,7 +27,7 @@ func main() {
 		panic(err)
 	}
 
-	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang)
+	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang, stripPartsValues)
 	if err != nil {
 		panic(err)
 	}

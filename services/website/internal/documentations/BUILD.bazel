@@ -88,7 +88,8 @@ genrule(
             -title-page=titlepages/titlepage_de.pdf \
             -title=ThesorTeX\\\\\\\\Dokumentation \
             -author='ThesorTeX' \
-            -lang=DE && \
+            -lang=DE \
+            -strip-parts=listoftables,appendix && \
         mkdir $(location docs_de)/titlepages && \
         cp $(location //services/website/internal/documentations/titlepages:titlepage_de.pdf) $(location docs_de)/titlepages/titlepage_de.pdf",
     tools = ["//tools/documentationcombinator"],
