@@ -28,9 +28,9 @@ Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwec
 - Nutzungsdaten
 - Meta-, Kommunikations- und Verfahrensdaten
 
-**Kategorien betroffener Nutzer**
+**Kategorien betroffener Personen**
 
-- Besucher der Online-Angebote
+- Nutzer (Besucher der Online-Angebote)
 
 **Zwecke der Verarbeitung**
 
@@ -99,7 +99,7 @@ Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfüg
 
 ### Betroffene Personen
 
-- Nutzer (Webseitenbesuchern)
+- Nutzer (Besucher der Online-Angebote)
 
 ### Zwecke der Verarbeitung
 
