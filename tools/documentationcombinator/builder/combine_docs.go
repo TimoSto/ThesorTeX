@@ -27,7 +27,7 @@ func CombineDocs(paths []string) (string, error) {
 }
 
 // TODO: use file system
-func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool, shiftParts bool, tocTitle string, hidePlainHeader bool) error {
+func BuildDocumentationFromTemplate(outPath string, body string, titlepage string, title string, author string, lang string, stripParts []string, partOnSamePage bool, shiftParts bool, tocTitle string, hidePlainHeader bool, hideChapterInHeader bool) error {
 	err := os.MkdirAll(outPath, os.ModePerm)
 	if err != nil {
 		return err
@@ -83,6 +83,10 @@ func BuildDocumentationFromTemplate(outPath string, body string, titlepage strin
 			if hidePlainHeader {
 				hideCmd := "\\fancypagestyle{plain}{%\n    \\fancyhf{}%\n    \\fancyhead[L]{}%\n    \\fancyhead[R]{}%\n    \\fancyfoot[L]{\\footerPlainLeft}%\n    \\fancyfoot[R]{\\footerPlainRight}%\n    \\renewcommand{\\headrulewidth}{0.4pt}%\n    \\renewcommand{\\footrulewidth}{0.4pt}%\n}"
 				content = strings.Replace(content, "\\begin{document}", fmt.Sprintf("%s\n\\begin{document}", hideCmd), 1)
+			}
+
+			if hideChapterInHeader {
+				content = strings.Replace(content, "\\setMainPageStyle{\\mytitle}{\\nouppercase\\parttitle}{\\myauthor}{\\thepage}", "\\setMainPageStyle{\\mytitle}{}{\\myauthor}{\\thepage}", 1)
 			}
 
 			for _, p := range stripParts {

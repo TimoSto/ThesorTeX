@@ -18,6 +18,7 @@ func main() {
 	partOnSamePage := flag.Bool("part-same-page", false, "parts on same page")
 	shiftParts := flag.Bool("shift-parts", false, "make sections parts")
 	hidePlainHeader := flag.Bool("hide-plain-header", false, "make sections parts")
+	hideChapterInHeader := flag.Bool("hide-chapter-in-header", false, "hide chapter in header")
 	tocTitle := flag.String("toc-title", "My table of contents", "parts of the template not to include")
 
 	flag.Parse()
@@ -31,7 +32,7 @@ func main() {
 		panic(err)
 	}
 
-	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang, stripPartsValues, *partOnSamePage, *shiftParts, *tocTitle, *hidePlainHeader)
+	err = builder.BuildDocumentationFromTemplate(*outDir, body, *titlepage, *title, *author, *lang, stripPartsValues, *partOnSamePage, *shiftParts, *tocTitle, *hidePlainHeader, *hideChapterInHeader)
 	if err != nil {
 		panic(err)
 	}

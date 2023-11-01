@@ -39,7 +39,8 @@ genrule(
             -part-same-page \
             -shift-parts \
             -toc-title=Datenschutzerklärung \
-            -hide-plain-header",
+            -hide-plain-header \
+            -hide-chapter-in-header ",
     tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
 )
