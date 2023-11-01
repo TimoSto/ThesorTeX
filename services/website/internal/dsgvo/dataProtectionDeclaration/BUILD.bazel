@@ -3,7 +3,10 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "dataProtectionDeclaration",
     srcs = ["handler.go"],
-    embedsrcs = ["de/main.pdf"],
+    embedsrcs = [
+        ":dpd_de", # keep
+        ":dpd_de_pdf" # keep
+    ],
     importpath = "github.com/TimoSto/ThesorTeX/services/website/internal/dsgvo/dataProtectionDeclaration",
     visibility = ["//services/website:__subpackages__"],
 )
