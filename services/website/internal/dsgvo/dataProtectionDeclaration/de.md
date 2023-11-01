@@ -20,7 +20,8 @@ thesortex.contact@gmail.com
 ---
 
 ## Übersicht der Verarbeitung
-Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.
+
+Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen. Eine Weitergabe personenbezogener Daten findet ausschließlich in den unten beschriebenen Fällen statt. Die personenbezogenen Daten werden durch angemessene technische und organisatorische Maßnahmen (z.B. Pseudonymisierung, Verschlüsselung) geschützt.
 
 **Arten der verarbeiteten Daten**
 
@@ -51,9 +52,15 @@ Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf de
 ## Sicherheitsmaßnahmen
 Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung des Stands der Technik, der Implementierungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie der unterschiedlichen Eintrittswahrscheinlichkeiten und des Ausmaßes der Bedrohung der Rechte und Freiheiten natürlicher Personen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten.
 
-Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie betreffenden Zugriffs, der Eingabe, der Weitergabe, der Sicherung der Verfügbarkeit und ihrer Trennung. Des Weiteren haben wir Verfahren eingerichtet, die eine Wahrnehmung von Betroffenenrechten, die Löschung von Daten und Reaktionen auf die Gefährdung der Daten gewährleisten. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der Entwicklung bzw. Auswahl von Hardware, Software sowie Verfahren entsprechend dem Prinzip des Datenschutzes, durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen.
+Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie betreffenden Zugriffs, der Eingabe, der Weitergabe, der Sicherung der Verfügbarkeit und ihrer Trennung. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der Entwicklung bzw. Auswahl von Hardware, Software sowie Verfahren entsprechend dem Prinzip des Datenschutzes, durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen.
 
 Um die Daten der Benutzer, die über unsere Online-Dienste übertragen werden, zu schützen, verwenden wir TLS/SSL-Verschlüsselung. Secure Sockets Layer (SSL) ist die Standardtechnologie zur Sicherung von Internetverbindungen durch Verschlüsselung der zwischen einer Website oder App und einem Browser (oder zwischen zwei Servern) übertragenen Daten. Transport Layer Security (TLS) ist eine aktualisierte und sicherere Version von SSL. Hyper Text Transfer Protocol Secure (HTTPS) wird in der URL angezeigt, wenn eine Website durch ein SSL/TLS-Zertifikat gesichert ist.
+
+---
+
+## Speicherdauer
+
+Die personenbezogenen Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt oder eine vorgeschriebene Speicherfrist abläuft, es sei denn, dass eine Erforderlichkeit zur weiteren Speicherung der personenbezogenen Daten für einen Vertragsabschluss oder eine Vertragserfüllung besteht.
 
 ---
 
@@ -82,7 +89,7 @@ Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass 
 
 ---
 
-## Bereitstellung des Onlineangebotes und Webhosting
+## Datenverarbeitung im Zusammenhang mit der Nutzung der Website
 Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können. Zu diesem Zweck verarbeiten wir die IP-Adresse des Nutzers, die notwendig ist, um die Inhalte und Funktionen unserer Online-Dienste an den Browser oder das Endgerät der Nutzer zu übermitteln.
 
 ### Verarbeitete Datenarten
@@ -97,7 +104,7 @@ Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfüg
 ### Zwecke der Verarbeitung
 
 - Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit
-- Informationstechnische Infrastruktur (Betrieb und Bereitstellung von Informationssystemen und technischen Geräten (Computer, Server etc.)
+- Informationstechnische Infrastruktur (Betrieb und Bereitstellung von Informationssystemen)
 - Sicherheitsmaßnahmen
 
 ---
