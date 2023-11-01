@@ -8,12 +8,16 @@ import {i18nKeys} from "../i18n/keys";
 
 const jsonDSGVO = ref<DocumentationPack | undefined>(undefined);
 
+const expanded = ref<Array<number>>([0]);
+
 const {t} = useI18n();
 
 onMounted(async () => {
     jsonDSGVO.value = await GetDSGVO();
 
-    console.log(jsonDSGVO.value);
+    jsonDSGVO.value.Docs.forEach((e, i) => {
+        expanded.value.push(i);
+    });
 });
 </script>
 
@@ -35,7 +39,7 @@ onMounted(async () => {
                 </a>
             </v-toolbar>
             <v-card-text>
-                <v-expansion-panels multiple v-if="jsonDSGVO != undefined">
+                <v-expansion-panels multiple v-if="jsonDSGVO != undefined" v-model="expanded">
                     <DocumentationPanel v-for="d in (jsonDSGVO as DocumentationPack).Docs" :doc="d"/>
                 </v-expansion-panels>
             </v-card-text>

@@ -1,7 +1,7 @@
-import {ThesorTeXDocumentation} from "./GetDocumentation";
+import {DocumentationPack} from "./GetDocumentation";
 
 
-export default async function GetDSGVO(): Promise<ThesorTeXDocumentation> {
+export default async function GetDSGVO(): Promise<DocumentationPack> {
     const resp = await fetch(`/dsgvo`, {
         headers: {
             "Accept": "application/json"
