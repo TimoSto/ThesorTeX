@@ -30,7 +30,7 @@
         <router-view :small-display="smallDisplay"/>
         <v-footer color="background">
             <v-row justify="center">
-                <v-divider inset style="margin-bottom: 5px"></v-divider>
+                <v-divider style="margin-bottom: 8px"></v-divider>
                 <DSGVO v-if="isLocal"/>
                 <v-col class="text-center mt-2" cols="12">
                     {{ new Date().getFullYear() }} — <strong>ThesorTeX</strong>
