@@ -32,13 +32,13 @@ genrule(
         $(location //tools/documentationcombinator:documentationcombinator) \
             -out-dir=$(location dpd_tex_de) \
             -docs=$(location :dpd_de) \
-            -title=Datenschutzbestimmung \
+            -title=Datenschutzerklärung \
             -author='ThesorTeX' \
             -lang=DE \
             -strip-parts=abbreviations,listoffigures,listoftables,appendix,bibliography \
             -part-same-page \
             -shift-parts \
-            -toc-title=Datenschutzbestimmung \
+            -toc-title=Datenschutzerklärung \
             -hide-plain-header",
     tools = ["//tools/documentationcombinator"],
     visibility = ["//visibility:public"],
