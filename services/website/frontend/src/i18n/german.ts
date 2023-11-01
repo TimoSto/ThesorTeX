@@ -38,5 +38,8 @@ export const german: I18nKeys = {
         SubTitle: "Die Anleitungen sind als {pdf} und als {example} zum Download und als Präsentation und als FAQ direkt auf dieser Seite verfügbar.",
         ExampleProject: "Beispiel-Projekt",
         TexKnowledge: "Grundkenntnisse in der Verwendung von LaTeX werden vorrausgesetzt"
+    },
+    ImprintPage: {
+        Title: "Impressum"
     }
 };

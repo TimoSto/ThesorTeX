@@ -36,6 +36,9 @@ export const i18nKeys = {
         SubTitle: "TutorialsPage.SubTitle",
         ExampleProject: "TutorialsPage.ExampleProject",
         TexKnowledge: "TutorialsPage.TexKnowledge"
+    },
+    ImprintPage: {
+        Title: "ImprintPage.Title"
     }
 };
 
