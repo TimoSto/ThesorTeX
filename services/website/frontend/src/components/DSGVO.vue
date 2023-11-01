@@ -17,6 +17,7 @@ onMounted(async () => {
     <v-dialog width="950">
         <template v-slot:activator="{props}">
             <v-btn icon color="background" style="font-weight: bold; margin-top:-5px" v-bind="props"
+                   :title="jsonDSGVO?.Title"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="30" height="30"
                      viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet">
@@ -55,7 +56,7 @@ onMounted(async () => {
         </template>
         <v-card theme="light">
             <v-toolbar density="comfortable" color="white">
-                <v-toolbar-title>Datenschutzerklärung</v-toolbar-title>
+                <v-toolbar-title>{{ jsonDSGVO?.Title }}</v-toolbar-title>
                 <v-spacer/>
                 <a href="/dsgvo" download="Datenschutzerklärung.pdf" style="margin-right:12px">
                     <v-btn icon color="black">
