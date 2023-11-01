@@ -34,7 +34,7 @@
                 <v-btn to="/imprint" class="mx-2" variant="text" color="white" style="font-weight: bold">
                     {{ t(i18nKeys.ImprintPage.Title) }}
                 </v-btn>
-                <DSGVO v-if="isLocal"/>
+                <DSGVO/>
                 <v-col class="text-center mt-2" cols="12">
                     {{ new Date().getFullYear() }} — <strong>ThesorTeX</strong>
                 </v-col>
