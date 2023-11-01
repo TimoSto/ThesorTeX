@@ -23,7 +23,6 @@
                                to="/tutorials">
                             {{ t(i18nKeys.Titles.Tutorials) }}
                         </v-btn>
-                        <DSGVO v-if="isLocal"/>
                     </v-col>
                 </v-row>
             </v-container>
@@ -32,7 +31,7 @@
         <v-footer color="background">
             <v-row justify="center">
                 <v-divider inset style="margin-bottom: 5px"></v-divider>
-                <DSGVO/>
+                <DSGVO v-if="isLocal"/>
                 <v-col class="text-center mt-2" cols="12">
                     {{ new Date().getFullYear() }} — <strong>ThesorTeX</strong>
                 </v-col>
