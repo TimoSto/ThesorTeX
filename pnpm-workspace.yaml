@@ -5,3 +5,4 @@ packages:
   - "pkg/frontend/*"
   - "tests/e2e"
   - "marketing/mascot/playwright"
+  - "tools/storybookextractor"

@@ -373,6 +373,12 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
+  tools/storybookextractor:
+    devDependencies:
+      '@playwright/test':
+        specifier: 1.36.2
+        version: 1.36.2
+
 packages:
 
   /@ampproject/remapping@2.2.1:
