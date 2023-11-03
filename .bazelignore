@@ -9,7 +9,7 @@ services/website/frontend/node_modules
 services/contact/frontend/node_modules
 tests/e2e/node_modules
 node_modules
-marketing/mascot/playwright/node_modules
+tools/storybookextractor/node_modules
 .bazel-dir/
 .repository_cache/
 .yarn_cache/
