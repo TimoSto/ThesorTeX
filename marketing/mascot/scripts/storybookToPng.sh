@@ -1,21 +1,10 @@
-if ! command -v rsvg-convert &> /dev/null
-then
-    echo "rsvg-convert could not be found"
-    exit 1
-fi
+#!/bin/bash
+set -e
 
-echo "generating svgs from storybook..."
+cur=$(pwd)
 
-cd playwright
+cd ../../tools/storybookextractor
 
-pnpm playwright test
+./script/extract.sh mascot--left "${cur}"
 
-cd ../
-
-echo "generating pngs from svgs..."
-
-for i in *.svg; do
-    [ -f "$i" ] || break
-    echo "converting $i..."
-    rsvg-convert "$i" > "${i%.*}.png"
-done
+./script/extract.sh mascot--right "${cur}"
