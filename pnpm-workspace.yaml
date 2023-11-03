@@ -4,5 +4,4 @@ packages:
   - "services/contact/frontend"
   - "pkg/frontend/*"
   - "tests/e2e"
-  - "marketing/mascot/playwright"
   - "tools/storybookextractor"
