@@ -32,3 +32,9 @@ When("the name {string} is entered into the projectname field", async function (
 When("the create project button is clicked", async function (this: OurWorld) {
     await this.page.locator(".v-overlay__content button").nth(1).click();
 });
+
+Then("the a11y dialog is shown", async function (this: OurWorld) {
+    await waitForAnimations(this.page, [".container", ".v-overlay-container"]);
+
+    expect(await this.page.locator(".v-overlay__content .v-card-title").textContent()).toEqual("Accessibility");
+});
