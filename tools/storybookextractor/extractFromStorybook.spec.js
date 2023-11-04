@@ -11,6 +11,7 @@ test(`exracting png and svg for stoy ${storyName}`, async ({page}) => {
     });
     const content = await page.content();
 
+    // TODO: use regex
     const svgHtml = content.substring(content.indexOf("<svg"), content.indexOf("</svg>") + 6);
 
     fs.writeFile(dist, svgHtml, (err) => {
