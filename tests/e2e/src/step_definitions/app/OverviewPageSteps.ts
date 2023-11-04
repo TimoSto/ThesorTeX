@@ -15,6 +15,10 @@ When("the project {string} is opened", async function (this: OurWorld, project: 
     await this.page.locator("#page-1").locator("tr", {has: this.page.locator("td", {hasText: project})}).click();
 });
 
+Then("the project {string} is focussed in the table", async function (this: OurWorld, project: string) {
+    await expect(this.page.locator("#page-1").locator("tr", {has: this.page.locator("td", {hasText: project})})).toBeFocused();
+});
+
 When("a new project is added", async function (this: OurWorld) {
     await this.page.locator("#page-1").locator("thead").locator("th").last().locator("button").click();
 });

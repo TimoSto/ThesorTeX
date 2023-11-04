@@ -32,6 +32,9 @@
         }"
         :style="disableRipple ? '' : 'cursor: pointer'"
         @click="$emit('rowClicked', i)"
+        tabindex="0"
+        @keydown.enter="$emit('rowClicked', i)"
+        @keydown.space="$emit('rowClicked', i)"
       >
         <td
           v-for="(c,n) in r"

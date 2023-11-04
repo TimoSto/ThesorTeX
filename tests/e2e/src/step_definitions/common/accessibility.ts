@@ -31,6 +31,10 @@ When("the enter key is pressed", async function (this: OurWorld) {
     await this.page.keyboard.press("Enter");
 });
 
+When("the space key is pressed", async function (this: OurWorld) {
+    await this.page.keyboard.press("Space");
+});
+
 Then("the button with the title {string} is focussed", async function (this: OurWorld, t: string) {
     await expect(this.page.locator(`.v-btn[title="${t}"]`)).toBeFocused();
 });
