@@ -18,6 +18,11 @@ Feature: Accessibility
     When the enter key is pressed
     Then the a11y dialog is shown
     When the TAB key is pressed 1 times
+    Then the checkbox with the aria label "Activate focus borders" is focussed
+    When the TAB key is pressed 1 times
+    Then the button with the text "Close" is focussed
+    When the enter key is pressed
+    Then no dialog is shown
 
   Scenario: Config dialog - AXE core
     Given the url "/" was opened

@@ -34,3 +34,7 @@ When("the enter key is pressed", async function (this: OurWorld) {
 Then("the button with the title {string} is focussed", async function (this: OurWorld, t: string) {
     await expect(this.page.locator(`.v-btn[title="${t}"]`)).toBeFocused();
 });
+
+Then("the checkbox with the aria label {string} is focussed", async function (this: OurWorld, t: string) {
+    await expect(this.page.locator(`input[aria-label="${t}"]`)).toBeFocused();
+});

@@ -62,12 +62,16 @@ onMounted(() => {
       <v-card-text>
         {{ i18n(i18nKeys.AccessibilityDialog.Text) }}
         <v-list>
-          <v-list-item :title="i18n(i18nKeys.AccessibilityDialog.FocusBorders)">
+          <v-list-item>
+            <v-list-item-title>
+              {{ i18n(i18nKeys.AccessibilityDialog.FocusBorders) }}
+            </v-list-item-title>
             <template v-slot:prepend>
               <v-icon icon="mdi-image-filter-center-focus-strong"></v-icon>
             </template>
             <template v-slot:append>
-              <v-checkbox-btn v-model="focusBordersActivated" />
+              <v-checkbox-btn v-model="focusBordersActivated"
+                              :aria-label="i18n(i18nKeys.AccessibilityDialog.FocusBorders)" />
             </template>
           </v-list-item>
           <!--          <v-list-item title="Erhöhte Kontraste">-->
