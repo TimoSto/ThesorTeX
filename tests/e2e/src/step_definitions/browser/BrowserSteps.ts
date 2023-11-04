@@ -61,3 +61,10 @@ Then("the expansion panel with the title {string} is expanded", async function (
 When("the browser is reloaded", async function (this: OurWorld) {
     await this.page.reload();
 });
+
+Then("a second tab was opened with {string}", async function (this: OurWorld, url: string) {
+    await this.page.waitForTimeout(2000);
+    let pages = await this.context.pages();
+    expect(pages.length).toEqual(2);
+    expect(await pages[1].url()).toEqual(url);
+});

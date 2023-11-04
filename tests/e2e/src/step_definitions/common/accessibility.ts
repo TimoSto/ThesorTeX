@@ -27,6 +27,10 @@ When("the TAB key is pressed {int} times", async function (this: OurWorld, n: nu
     }
 });
 
+When("the enter key is pressed", async function (this: OurWorld) {
+    await this.page.keyboard.press("Enter");
+});
+
 Then("the button with the title {string} is focussed", async function (this: OurWorld, t: string) {
     await expect(this.page.locator(`.v-btn[title="${t}"]`)).toBeFocused();
 });

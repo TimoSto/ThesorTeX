@@ -59,20 +59,20 @@ describe("ApplicationFrame.vue", () => {
         it("should not display a link with an icon button if set", () => {
             const cmp = mountWithProps({
                 mainTitle: "Foobar",
-                documentationTarget: "test"
+                documentationTarget: "https://thesortex.com/#/tutorials?target=test"
             });
 
-            const links = cmp.findAll(`a[href^="https://thesortex.com"]`);
+            const links = cmp.findAll(`a[href^="https://thesortex.com/#/tutorials"]`);
 
             expect(links).toHaveLength(1);
 
             expect(links[0].attributes("href")).toEqual("https://thesortex.com/#/tutorials?target=test");
 
-            expect(links[0].find("button").classes()).toContain("v-btn--icon");
+            expect(links[0].classes()).toContain("v-btn--icon");
 
-            expect(links[0].find("button").find("i").classes()).toContain("mdi-book-open-variant");
-            expect(links[0].find("button").find("i").classes()).toContain("mdi");
-            expect(links[0].find("button").find("i").classes()).toContain("v-icon");
+            expect(links[0].find("i").classes()).toContain("mdi-book-open-variant");
+            expect(links[0].find("i").classes()).toContain("mdi");
+            expect(links[0].find("i").classes()).toContain("v-icon");
         });
     });
     describe("integrating a11y dialog", () => {
@@ -150,10 +150,10 @@ describe("ApplicationFrame.vue", () => {
         it("documentation link", () => {
             const cmp = mountWithProps({
                 mainTitle: "Foobar",
-                documentationTarget: "test"
+                documentationTarget: "https://thesortex.com"
             });
 
-            const btn = cmp.findAll(`a[href^="https://thesortex.com"] button`)[0];
+            const btn = cmp.findAll(`a[href^="https://thesortex.com"]`)[0];
 
             expect(btn.attributes("title")).toEqual("ApplicationFrame.Documentation");
         });

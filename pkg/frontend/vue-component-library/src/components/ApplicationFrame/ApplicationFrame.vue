@@ -65,7 +65,7 @@ const sidebarOpened = computed({
 
       <v-spacer />
 
-      <v-btn icon :title="i18n(i18nKeys.ApplicationFrame.Documentation)" :href="documentationTarget">
+      <v-btn icon :title="i18n(i18nKeys.ApplicationFrame.Documentation)" :href="documentationTarget" target="_blank">
         <v-icon>mdi-book-open-variant</v-icon>
       </v-btn>
 
