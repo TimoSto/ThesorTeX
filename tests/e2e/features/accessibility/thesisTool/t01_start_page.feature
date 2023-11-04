@@ -60,8 +60,8 @@ Feature: Accessibility
 
   Scenario: Project overview table - keyboard control (Space)
     Given the url "/" was opened
-    When the TAB key is pressed 5 times
-    Then the project "a11yproject1" is focussed in the table
+    When the TAB key is pressed 6 times
+    Then the project "example" is focussed in the table
     When the space key is pressed
     Then the title of the app is "ThesorTeX - Projectview"
-    And the title of the main area is "a11yproject1"
+    And the title of the main area is "example"
