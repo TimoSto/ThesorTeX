@@ -1,11 +1,12 @@
 <script setup>
-
+import Blackboard from "./parts/blackboard.vue";
 </script>
 
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" width="850" height="400"
-       style="shape-rendering: crispEdges; background-color: #ffffff"
+       style="shape-rendering: crispEdges; background-color: #ffffff; border: 1px solid black"
        viewBox="0 0 850 400">
+    <Blackboard />
   </svg>
 </template>
 
