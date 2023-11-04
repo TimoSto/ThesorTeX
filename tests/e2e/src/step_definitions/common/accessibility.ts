@@ -38,3 +38,7 @@ Then("the button with the title {string} is focussed", async function (this: Our
 Then("the checkbox with the aria label {string} is focussed", async function (this: OurWorld, t: string) {
     await expect(this.page.locator(`input[aria-label="${t}"]`)).toBeFocused();
 });
+
+When("{string} is typed on the keyboard", async function (this: OurWorld, text: string) {
+    await this.page.keyboard.type(text);
+});

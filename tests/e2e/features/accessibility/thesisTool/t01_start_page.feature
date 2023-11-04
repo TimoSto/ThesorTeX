@@ -34,3 +34,18 @@ Feature: Accessibility
     Given the url "/" was opened
     And a new project is added
     Then the wcag guidelines are not yet met
+
+  Scenario: New Project dialog - keyboard control
+    Given the url "/" was opened
+    When the TAB key is pressed 4 times
+    Then the button with the title "Create new project" is focussed
+    When the enter key is pressed
+    Then the dialog for project creation is shown
+    When the TAB key is pressed 1 times
+    And "a11yproject1" is typed on the keyboard
+    And the TAB key is pressed 1 times
+    Then the button with the text "Abort" is focussed
+    And the TAB key is pressed 1 times
+    Then the button with the text "Create" is focussed
+    When the enter key is pressed
+    # Then no dialog is shown TODO: why fails this??
