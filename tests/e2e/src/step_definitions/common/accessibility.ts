@@ -1,4 +1,4 @@
-import {Then} from "@cucumber/cucumber";
+import {Then, When} from "@cucumber/cucumber";
 import {OurWorld} from "../../types";
 import {expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
@@ -19,4 +19,14 @@ Then("the wcag guidelines are not yet met", async function (this: OurWorld) {
         .analyze();
 
     expect(accessibilityScanResults.violations).not.toEqual([]);
+});
+
+When("the TAB key is pressed {int} times", async function (this: OurWorld, n: number) {
+    for (let i = 0; i < n; i++) {
+        await this.page.keyboard.press("Tab");
+    }
+});
+
+Then("the button with the title {string} is focussed", async function (this: OurWorld, t: string) {
+    await expect(this.page.locator(`button[title="${t}"]`)).toBeFocused();
 });
