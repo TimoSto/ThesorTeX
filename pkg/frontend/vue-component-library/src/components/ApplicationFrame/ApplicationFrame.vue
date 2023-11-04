@@ -65,13 +65,9 @@ const sidebarOpened = computed({
 
       <v-spacer />
 
-      <a v-if="documentationTarget" target="_blank"
-         :href="`https://thesortex.com/#/tutorials?target=${documentationTarget}`"
-         style="color: rgb(var(--v-theme-on-primary))">
-        <v-btn icon :title="i18n(i18nKeys.ApplicationFrame.Documentation)">
-          <v-icon>mdi-book-open-variant</v-icon>
-        </v-btn>
-      </a>
+      <v-btn icon :title="i18n(i18nKeys.ApplicationFrame.Documentation)" :href="documentationTarget">
+        <v-icon>mdi-book-open-variant</v-icon>
+      </v-btn>
 
       <AccessibilityDialog v-if="showA11y && documentProp?.readyState" :keydownTarget="documentProp as Document"
                            :i18n="i18n" v-slot="scope">

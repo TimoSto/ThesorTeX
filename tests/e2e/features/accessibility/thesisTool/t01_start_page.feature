@@ -6,7 +6,7 @@ Feature: Accessibility
 
   Scenario: Going to the documentation (keyboard ctrl)
     Given the url "/" was opened
-    When the TAB key is pressed 2 times
+    When the TAB key is pressed 1 times
     Then the button with the title "To the documentation" is focussed
 
   Scenario: Config dialog - AXE core
