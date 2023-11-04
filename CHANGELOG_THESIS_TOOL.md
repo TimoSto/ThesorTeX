@@ -1,3 +1,9 @@
+# 1.3.3
+
+## Fixed
+
+- Fixed some accessibility issues.
+
 # v1.3.2
 
 ## Fixed
