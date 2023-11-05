@@ -12,7 +12,7 @@ import Three from "./Three.vue";
 const border = computed(() => {
   let path = `M 50 175`;
 
-  path += "l 250 0"
+  path += "l 230 0"
 
   path += "a 20 20 0 0 1 20 20"
 
@@ -20,7 +20,7 @@ const border = computed(() => {
 
   path += "a 20 20 0 0 1 -20 20"
 
-  path += "l -250 0"
+  path += "l -230 0"
 
   path += "a 20 20 0 0 1 -20 -20"
 
