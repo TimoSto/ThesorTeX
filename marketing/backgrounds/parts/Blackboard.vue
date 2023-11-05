@@ -4,6 +4,7 @@ import {computed} from "vue";
 import Two from "./Two.vue";
 import PlusSign from "./PlusSign.vue";
 import EqualSign from "./EqualSign.vue";
+import Four from "./Four.vue";
 
 const border = computed(() => {
   let path = `M 50 175`;
@@ -35,6 +36,7 @@ const border = computed(() => {
     <PlusSign :start-x="95" :start-y="210" />
     <Two :start-x="115" :start-y="200" />
     <EqualSign :start-x="150" :start-y="204" />
+    <Four :start-x="195" :start-y="225" />
   </g>
 </template>
 
