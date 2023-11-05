@@ -3,6 +3,7 @@
 import {computed} from "vue";
 import Two from "./Two.vue";
 import PlusSign from "./PlusSign.vue";
+import EqualSign from "./EqualSign.vue";
 
 const border = computed(() => {
   let path = `M 50 175`;
@@ -30,9 +31,10 @@ const border = computed(() => {
 <template>
   <g data-type="blackboard">
     <path data-type="border" stroke="#E95D26" fill="#828232" stroke-width="6" :d="border" />
-    <Two start-x="50" start-y="200" />
-    <PlusSign start-x="95" start-y="210" />
-    <Two start-x="115" start-y="200" />
+    <Two :start-x="50" :start-y="200" />
+    <PlusSign :start-x="95" :start-y="210" />
+    <Two :start-x="115" :start-y="200" />
+    <EqualSign :start-x="150" :start-y="204" />
   </g>
 </template>
 
