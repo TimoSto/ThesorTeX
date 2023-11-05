@@ -41,6 +41,7 @@ const border = computed(() => {
     <Four :start-x="195" :start-y="225" />
     <MinusSign :start-x="155" :start-y="250" />
     <One :start-x="182" :start-y="245" />
+    <EqualSign :start-x="212" :start-y="244" />
   </g>
 </template>
 
