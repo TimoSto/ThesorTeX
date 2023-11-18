@@ -1,5 +1,5 @@
 <script setup>
-import Blackboard from "./parts/Blackboard.vue";
+import Blackboard from "./parts/blackbaord/Blackboard.vue";
 </script>
 
 <template>
