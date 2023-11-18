@@ -1,5 +1,6 @@
 <script setup>
 import Blackboard from "./parts/blackbaord/Blackboard.vue";
+import Desk from "./parts/Desk.vue";
 </script>
 
 <template>
@@ -7,6 +8,7 @@ import Blackboard from "./parts/blackbaord/Blackboard.vue";
        style="shape-rendering: crispEdges; background-color: #ffffff; border: 1px solid black"
        viewBox="0 0 850 400">
     <Blackboard :start-x="290" :start-y="75" />
+    <Desk :start-x="440" :start-y="250" />
   </svg>
 </template>
 
