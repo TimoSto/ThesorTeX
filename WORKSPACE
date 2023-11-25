@@ -158,7 +158,7 @@ load("@io_bazel_rules_docker//container:container.bzl", "container_pull")
 
 container_pull(
     name = "lambda_base",
-    digest = "sha256:4f27382c52ddfa192d928e3c769cda5ee160e998bcd34185a7282e377f58fb6b",
+    digest = "sha256:75cea0342b7c1343dc75fa5e028b6d88b669a541e04c3302e650cea9e8e02cfa",
     registry = "public.ecr.aws",
     repository = "lambda/provided",
 )
