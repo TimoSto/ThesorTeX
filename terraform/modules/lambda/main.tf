@@ -8,6 +8,12 @@ resource "aws_lambda_function" "lambda_func" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "lambda_func" {
+  name = "/aws/lambda/${var.function_name}"
+
+  retention_in_days = 7
+}
+
 resource aws_iam_role lambda_exec {
   name               = "lambda_exec-${var.function_name}"
   assume_role_policy = <<EOF
@@ -38,12 +44,18 @@ resource "aws_iam_policy" "lambda_basic_role" {
  "Statement": [
    {
      "Action": [
-       "logs:CreateLogGroup",
        "logs:CreateLogStream",
        "logs:PutLogEvents"
      ],
      "Resource": "arn:aws:logs:*:*:*",
      "Effect": "Allow"
+   },
+  {
+     "Action": [
+       "logs:CreateLogGroup"
+     ],
+     "Resource": "arn:aws:logs:*:*:*",
+     "Effect": "Deny"
    }
  ]
 }
