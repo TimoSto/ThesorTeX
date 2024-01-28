@@ -8,6 +8,8 @@ export async function getAccessibilityTree(client: CDPSession, needle: any): Pro
 
     const tree = analyseNodeTree(nodes);
 
+    visualizeNodeTree(tree);
+
     return tree;
 }
 
@@ -21,28 +23,61 @@ function analyseNodeTree(nodes: any[] /*TODO: use Protocol.Accessibility.Node[] 
     }
 
     res.Nodes = [
-        analyseChildNodes(0, nodes)
+        ...analyseChildNodes(0, nodes)
     ];
 
     return res;
 }
 
-function analyseChildNodes(i: number, nodes: any[]): AccessibilityTreeNode {
+function analyseChildNodes(i: number, nodes: any[]): AccessibilityTreeNode[] {
     let node: AccessibilityTreeNode = {
         name: nodes[i].name?.value,
         role: nodes[i].role?.value,
+        ignored: nodes[i].ignored.value,
         children: [],
     };
+
+    // if (nodes[i].ignored) {
+    //     if (nodes[i].childIds?.length > 0) {
+    //         return analyseChildNodes(parseInt(nodes[i].childIds[0]), nodes);
+    //     }
+    // }
 
     nodes[i].childIds.forEach((cid: string) => {
         const n = parseInt(cid);
 
         if (!isNaN(n)) {
-            node.children?.push(analyseChildNodes(n - 1, nodes));
+            node.children?.push(...analyseChildNodes(n - 1, nodes));
         }
     });
 
-    return node;
+    console.log(nodes[i].childIds, nodes[i].childIds?.length, nodes[i].ignored);
+    // if (nodes[i].childIds?.length > 0 && nodes[i].ignored) {
+    //     console.log(nodes[i]);
+    //     // ignore this level
+    //     return node.children!;
+    // } else {
+    //
+    // }
+    return [node];
+
+
+}
+
+function visualizeNodeTree(tree: AccessibilityTreeResult) {
+    console.log("----------------");
+    console.log(tree.PageTitle);
+    console.log("----");
+    visualizeChildNodes(tree.Nodes, 1);
+}
+
+function visualizeChildNodes(nodes: AccessibilityTreeNode[], level: number) {
+    nodes.forEach(n => {
+        console.log(`${"\t".repeat(level)} Name: ${n.name}, Role: ${n.role}, Ignored: ${n.ignored}`);
+        if (n.children && n.children?.length > 0) {
+            visualizeChildNodes(n.children, level + 1);
+        }
+    });
 }
 
 type AccessibilityTree = {

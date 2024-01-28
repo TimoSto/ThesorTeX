@@ -13,5 +13,8 @@ export type AccessibilityTreeNode = {
     focused?: boolean,
     disabled?: boolean,
     invalid?: boolean,
-    children?: AccessibilityTreeNode[]
+    children?: AccessibilityTreeNode[],
+    hasFocusableChild?: boolean,
+    isTextOnly?: boolean,
+    isControl?: boolean
 }
