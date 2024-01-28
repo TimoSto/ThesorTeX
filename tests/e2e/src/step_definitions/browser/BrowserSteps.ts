@@ -3,6 +3,16 @@ import {OurWorld} from "../../types";
 import getFullUri from "../../helpers/getFullUri";
 import {expect} from "@playwright/test";
 
+Given("the accessibility page was opened", async function (this: OurWorld) {
+    const client = await this.page.context().newCDPSession(this.page);
+    await client.send("Accessibility.enable");
+    const tree = await client.send("Accessibility.getFullAXTree");
+    console.log("Result: ", tree.nodes.length);
+    tree.nodes.forEach(n => {
+        console.log(n.name, n.role);
+    });
+});
+
 Given("the url {string} was opened", async function (this: OurWorld, url: string) {
     await this.page.goto(getFullUri(url));
 });
