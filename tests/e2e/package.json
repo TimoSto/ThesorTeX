@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features/**/*.feature --config cucumber.json"
+    "vitest": "vitest"
   },
   "keywords": [],
   "author": "",

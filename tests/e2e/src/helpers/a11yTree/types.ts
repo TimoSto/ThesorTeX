@@ -1,14 +1,14 @@
 // given by Accessibility api
 export type AxNode = {
     nodeId: string
-    ignored: boolean
-    ignoredReasons: ValueProperty[]
-    role: TypeValue
-    chromeRole: TypeValue
-    name: TypeValueWithSource
-    properties: ValueProperty[]
-    childIds: string[]
-    parentId: string
+    ignored?: boolean
+    ignoredReasons?: ValueProperty[]
+    role?: TypeValue
+    chromeRole?: TypeValue
+    name?: TypeValueWithSource
+    properties?: ValueProperty[]
+    childIds?: string[]
+    parentId?: string
 }
 
 export type TypeValue = {
@@ -25,6 +25,12 @@ export type TypeValueWithSource = {
 export type ValueProperty = {
     type: string
     value: TypeValue
+}
+
+// middle result
+export type OrderedAxNode = {
+    node: AxNode
+    children?: OrderedAxNode[]
 }
 
 // result
