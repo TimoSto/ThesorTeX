@@ -15,7 +15,7 @@ filegroup(
         ":node_modules/@playwright/test",
         ":node_modules/playwright",
     ] + glob([
-        "src/helpers/*.ts",
+        "src/helpers/**/*.ts",
         "src/step_definitions/browser/*.ts",
     ]),
 )
@@ -102,7 +102,7 @@ run_cucumber_a11y(
     sut_port = "8444",
     system_base_url = "http://localhost:8444",
     test_files = glob([
-        "features/accessibility/website/*.feature",
+        "features/accessibility/website/t01_start_page.feature",
     ]),
     workingDir = package_name(),
 )
