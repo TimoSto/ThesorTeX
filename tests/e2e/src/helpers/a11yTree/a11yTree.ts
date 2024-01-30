@@ -1,5 +1,7 @@
 import {CDPSession} from "playwright";
 import {AccessibilityTreeNode, AccessibilityTreeResult} from "./types";
+import orderNodes from "./orderNodes";
+import {nodesToA11yTree} from "./nodesToA11yTree";
 
 export async function getAccessibilityTree(client: CDPSession, needle: any): Promise<AccessibilityTreeResult> {
     const {
@@ -22,9 +24,11 @@ function analyseNodeTree(nodes: any[] /*TODO: use Protocol.Accessibility.Node[] 
         res.PageTitle = nodes[0].name.value;
     }
 
-    res.Nodes = [
-        ...analyseChildNodes(0, nodes)
-    ];
+    let orderedNodes = orderNodes(nodes, 0);
+
+    res.Nodes = [nodesToA11yTree(orderedNodes)];
+
+    visualizeNodeTree(res);
 
     return res;
 }
