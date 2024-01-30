@@ -28,8 +28,6 @@ function analyseNodeTree(nodes: any[] /*TODO: use Protocol.Accessibility.Node[] 
 
     res.Nodes = [nodesToA11yTree(orderedNodes)];
 
-    visualizeNodeTree(res);
-
     return res;
 }
 
