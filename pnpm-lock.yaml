@@ -367,7 +367,7 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vitest:
-        specifier: '*'
+        specifier: 0.33.0
         version: 0.33.0(happy-dom@9.20.3)(playwright@1.36.2)
 
   tools/storybookextractor:
