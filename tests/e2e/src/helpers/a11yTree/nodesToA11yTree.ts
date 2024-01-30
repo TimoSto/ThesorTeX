@@ -14,13 +14,35 @@ export function nodesToA11yTree(tree: OrderedAxNode): AccessibilityTreeNode {
         node.children.push(childNode);
     });
 
-    console.log(node, tree);
-
     return node;
 }
 
 function mapNode(node: AxNode): AccessibilityTreeNode {
-    return {
-        name: node.name?.value
-    };
+    let res: AccessibilityTreeNode = {};
+
+    if (node.name) {
+        res.name = node.name.value;
+    }
+
+    if (node.role) {
+        res.role = node.role?.value as string;
+    }
+
+    if (node.ignored) {
+        res.ignored = true;
+    }
+
+    node.properties?.forEach(prop => {
+        if (prop.name === "level") {
+            res.level = prop.value.value as number;
+        } else if (prop.name === "focusable") {
+            res.focusable = prop.value.value as boolean;
+        } else if (prop.name === "focused") {
+            res.focused = prop.value.value as boolean;
+        } else if (prop.name === "disabled") {
+            res.disabled = prop.value.value as boolean;
+        }
+    });
+
+    return res;
 }

@@ -13,7 +13,7 @@ export type AxNode = {
 
 export type TypeValue = {
     type: string
-    value: string
+    value: string | number | boolean
 }
 
 export type TypeValueWithSource = {
@@ -23,7 +23,7 @@ export type TypeValueWithSource = {
 }
 
 export type ValueProperty = {
-    type: string
+    name: string
     value: TypeValue
 }
 
@@ -52,5 +52,6 @@ export type AccessibilityTreeNode = {
     children?: AccessibilityTreeNode[],
     hasFocusableChild?: boolean,
     isTextOnly?: boolean,
-    isControl?: boolean
+    isControl?: boolean,
+    level?: number
 }
