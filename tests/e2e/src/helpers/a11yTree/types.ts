@@ -17,9 +17,9 @@ export type TypeValue = {
 }
 
 export type TypeValueWithSource = {
-    type: string
+    type?: string
     value: string
-    sources: TypeValue[]
+    sources?: TypeValue[]
 }
 
 export type ValueProperty = {
