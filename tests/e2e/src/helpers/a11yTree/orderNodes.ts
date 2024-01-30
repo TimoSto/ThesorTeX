@@ -9,7 +9,7 @@ export default function orderNodes(nodes: AxNode[], i: number): OrderedAxNode {
     nodes[i].childIds?.forEach((childId) => {
         for (let n = i + 1; n < nodes.length; n++) {
             if (nodes[n].nodeId === childId) {
-                const childResult = orderNodes(nodes, n);
+                const childResult = orderNodes(nodes.slice(n), 0);
                 res.children?.push(childResult);
             }
         }
