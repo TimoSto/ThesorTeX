@@ -47,3 +47,6 @@ dist/
 .loki/current
 .loki/difference
 /user.bazelrc
+/tests/e2e/src/helpers/a11yTree/index.html
+/tests/e2e/src/helpers/a11yTree/p2.html
+/tests/e2e/src/helpers/a11yTree/main.go
