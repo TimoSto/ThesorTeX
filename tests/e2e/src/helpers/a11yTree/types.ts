@@ -42,6 +42,7 @@ export type AccessibilityTreeResult = {
 export type AccessibilityTreeNode = {
     id?: number,
     ignored?: boolean,
+    hidden?: boolean
     role?: string,
     name?: string,
     description?: string,

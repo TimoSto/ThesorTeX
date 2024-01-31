@@ -41,6 +41,10 @@ function mapNode(node: AxNode): AccessibilityTreeNode {
             res.focused = prop.value.value as boolean;
         } else if (prop.name === "disabled") {
             res.disabled = prop.value.value as boolean;
+        } else if (prop.name === "hidden") {
+            res.hidden = prop.value.value as boolean;
+        } else if (prop.name === "level") {
+            res.level = prop.value.value as number;
         }
     });
 
