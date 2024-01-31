@@ -32,6 +32,12 @@ function mapNode(node: AxNode): AccessibilityTreeNode {
         res.ignored = true;
     }
 
+    // possible properties are
+    // busy, disabled, editable, focusable, focused, hidden, hiddenRoot, invalid,
+    // keyshortcuts, settable, roledescription, live, atomic, relevant, root, autocomplete,
+    // hasPopup, level, multiselectable, orientation, multiline, readonly, required, valuemin,
+    // valuemax, valuetext, checked, expanded, modal, pressed, selected, activedescendant, controls,
+    // describedby, details, errormessage, flowto, labelledby, owns
     node.properties?.forEach(prop => {
         if (prop.name === "level") {
             res.level = prop.value.value as number;
@@ -47,6 +53,8 @@ function mapNode(node: AxNode): AccessibilityTreeNode {
             res.level = prop.value.value as number;
         } else if (prop.name === "hasPopup") {
             res.hasPopup = prop.value.value as string;
+        } else if (prop.name === "invalid") {
+            res.invalid = prop.value.value as boolean;
         }
     });
 
