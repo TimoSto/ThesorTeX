@@ -45,6 +45,8 @@ function mapNode(node: AxNode): AccessibilityTreeNode {
             res.hidden = prop.value.value as boolean;
         } else if (prop.name === "level") {
             res.level = prop.value.value as number;
+        } else if (prop.name === "hasPopup") {
+            res.hasPopup = prop.value.value as string;
         }
     });
 

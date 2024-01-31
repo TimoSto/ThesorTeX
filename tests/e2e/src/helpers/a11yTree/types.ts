@@ -54,5 +54,6 @@ export type AccessibilityTreeNode = {
     hasFocusableChild?: boolean,
     isTextOnly?: boolean,
     isControl?: boolean,
-    level?: number
+    level?: number,
+    hasPopup?: string
 }
