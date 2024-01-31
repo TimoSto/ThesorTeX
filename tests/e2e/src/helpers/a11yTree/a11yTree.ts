@@ -75,7 +75,7 @@ function visualizeNodeTree(tree: AccessibilityTreeResult) {
 
 function visualizeChildNodes(nodes: AccessibilityTreeNode[], level: number) {
     nodes.forEach(n => {
-        console.log(`${"\t".repeat(level)} Name: ${n.name}, Role: ${n.role}, Ignored: ${n.ignored}`);
+        console.log(`${"\t".repeat(level)} ${n.ignored ? "(ignored)" : ""} Name: ${n.name}, Role: ${n.role}, ${!!n.hasPopup ? `hasPopup: ${n.hasPopup}, ` : ""} Hidden: ${n.hidden}`);
         if (n.children && n.children?.length > 0) {
             visualizeChildNodes(n.children, level + 1);
         }
