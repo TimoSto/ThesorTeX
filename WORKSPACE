@@ -112,7 +112,7 @@ load("@rules_nodejs//nodejs:repositories.bzl", "DEFAULT_NODE_VERSION", "nodejs_r
 
 nodejs_register_toolchains(
     name = "nodejs",
-    node_version = "16.14.0",
+    node_version = "18.17.0",
 )
 
 load("@aspect_rules_js//npm:npm_import.bzl", "npm_translate_lock")
