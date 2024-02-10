@@ -15,17 +15,21 @@
     "@thesortex/vue-i18n-plugin": "workspace:^1.0.0",
     "@thesortex/vuetify-plugin": "workspace:*",
     "sass": "*",
-    "vue": "*",
+    "vue": "3.3.4",
+    "vue-i18n": "9.2.2",
     "vue-router": "4.2.4",
     "vuetify": "*"
   },
   "devDependencies": {
     "@types/node": "*",
     "@vitejs/plugin-vue": "*",
+    "@vue/test-utils": "*",
+    "happy-dom": "9.20.3",
     "ts-node": "*",
     "typescript": "*",
-    "vite": "*",
+    "vite": "5.1.1",
     "vite-plugin-vuetify": "*",
+    "vitest": "*",
     "vue-tsc": "*"
   }
 }
