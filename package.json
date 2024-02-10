@@ -5,6 +5,7 @@
   "pnpm": {
     "overrides": {
       "@mdi/font": "7.2.96",
+      "@pinia/testing": "0.1.3",
       "@types/node": "20.4.5",
       "@typescript-eslint/parser": "5.48.1",
       "@vitejs/plugin-vue": "4.2.3",
