@@ -28,6 +28,7 @@
       "vue-tsc": "1.8.8"
     }
   },
+  // TODO: rm deps when storybook is in own, global package
   "devDependencies": {
     "@storybook/addon-essentials": "7.1.1",
     "@storybook/addon-interactions": "7.1.1",
