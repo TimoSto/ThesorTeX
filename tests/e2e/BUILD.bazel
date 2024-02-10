@@ -13,6 +13,7 @@ filegroup(
         "src/types.ts",
         "tsconfig.json",
         ":node_modules/@playwright/test",
+        ":node_modules/@thesortex/a11ytree",
         ":node_modules/playwright",
     ] + glob([
         "src/helpers/**/*.ts",

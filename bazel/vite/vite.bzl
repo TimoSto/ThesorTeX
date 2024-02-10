@@ -3,8 +3,7 @@ def vite_build(name, config_path, root, out, vite_bin, data = [], outDir = None)
 
     args = [
         "build",
-        "--config=" + config_path,
-        "--emitDeclarationOnly"
+        "--config=" + config_path
     ]
 
     if outDir:
