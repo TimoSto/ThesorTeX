@@ -6,7 +6,8 @@ npm_link_all_packages(name = "node_modules")
 
 vite_build(
     name = "a11ytree",
-    out = ["dist/my-lib.js"],
+    out = ["dist"],
+    outDir = "/private/var/tmp/_bazel_tsto/a1f11fec8c121bcc85c287673401dcea/execroot/thesortex/bazel-out/darwin_arm64-fastbuild/bin/pkg/testing/a11ytree/dist",
     config_path = "$(execpath :vite.config.ts)",
     data = glob([
         "src/**/*.ts",

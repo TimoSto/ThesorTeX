@@ -2,20 +2,20 @@
   "name": "@thesortex/a11ytree",
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/my-lib.umd.cjs",
+  "main": "dist/my-lib.umd.cjs",
   "module": "./dist/my-lib.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.js",
+      "import": "dist/my-lib.js",
       "require": "./dist/my-lib.umd.cjs"
     }
   },
   "files": [
-    "dist"
+    "./dist"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build --out-dir tessst"
   },
   "devDependencies": {
     "@types/node": "*",
