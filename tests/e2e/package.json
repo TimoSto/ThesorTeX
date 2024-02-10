@@ -15,7 +15,7 @@
     "@playwright/test": "*",
     "@types/node": "*",
     "playwright": "*",
-    "ts-node": "10.9.1",
+    "ts-node": "*",
     "typescript": "*",
     "vitest": "*"
   }

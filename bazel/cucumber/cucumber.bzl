@@ -10,8 +10,8 @@ def run_cucumber(name, workingDir, sut_executable_target, sut_executable, sut_po
         data = [
             sut_executable_target,
             "cucumber.json",
-            "//:node_modules/typescript",
-            "//:node_modules/@types/node",
+            "//tests/e2e:node_modules/typescript",
+            "//tests/e2e:node_modules/@types/node",
             "//:node_modules/ts-node",
             "//tests/e2e:node_modules/@cucumber/cucumber",
             "//tests/e2e:playwright_base_deps",
