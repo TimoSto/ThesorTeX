@@ -75,9 +75,6 @@ importers:
       ts-node:
         specifier: 10.9.1
         version: 10.9.1(@types/node@20.4.5)(typescript@5.1.6)
-      vite:
-        specifier: 5.1.1
-        version: 5.1.1(@types/node@20.4.5)(sass@1.64.1)
       vue-i18n:
         specifier: 9.2.2
         version: 9.2.2(vue@3.3.4)

@@ -1,6 +1,7 @@
 load("//:bazel/vitest/vitest.bzl", "vitest_run")
 load("@npm//services/thesisTool/frontend:vitest/package_json.bzl", vitest_bin = "bin")
 load("//:bazel/vite/vite.bzl", "vite_build")
+load("@npm//services/thesisTool/frontend:vite/package_json.bzl", vite_bin = "bin")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load("@rules_pkg//:mappings.bzl", "strip_prefix")
@@ -11,6 +12,7 @@ vite_build(
     name = "assets",
     out = ["dist"],
     config_path = "$(execpath :vite.config.ts)",
+    vite_bin = vite_bin,
     data = glob([
         "src/**/*.ts",
         "src/**/*.vue",

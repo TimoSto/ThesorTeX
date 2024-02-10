@@ -1,6 +1,5 @@
-load("@npm//:vite/package_json.bzl", vite_bin = "bin")
 
-def vite_build(name, config_path, root, out, data = []):
+def vite_build(name, config_path, root, out, vite_bin, data = []):
 
     vite_bin.vite(
         name = name,
