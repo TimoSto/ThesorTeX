@@ -1,13 +1,21 @@
 
-def vite_build(name, config_path, root, out, outDir, vite_bin, data = []):
+def vite_build(name, config_path, root, out, vite_bin, data = [], outDir = None):
 
-    vite_bin.vite(
-        name = name,
+    args = [
+        "build",
+        "--config=" + config_path
+    ]
+
+    if outDir:
         args = [
             "build",
             "--config=" + config_path,
             "--out-dir=" + outDir
-        ],
+        ]
+
+    vite_bin.vite(
+        name = name,
+        args = args,
         outs = out,
         srcs = data,
         env = {
