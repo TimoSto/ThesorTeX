@@ -12,7 +12,7 @@ def run_cucumber(name, workingDir, sut_executable_target, sut_executable, sut_po
             "cucumber.json",
             "//tests/e2e:node_modules/typescript",
             "//tests/e2e:node_modules/@types/node",
-            "//:node_modules/ts-node",
+            "//:node_modules/ts-node", # TODO: why doesnt the local version work
             "//tests/e2e:node_modules/@cucumber/cucumber",
             "//tests/e2e:playwright_base_deps",
         ] + test_files + specific_deps,
