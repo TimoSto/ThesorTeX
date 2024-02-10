@@ -34,7 +34,7 @@ vitest_run(
         "//:node_modules/happy-dom",
         ":node_modules/vite",
         ":node_modules/vitest",
-        "//:node_modules/vue",
+        ":node_modules/vue",
         "//:node_modules/vue-i18n",
     ],
     root = "pkg/frontend/vue-component-library/",
