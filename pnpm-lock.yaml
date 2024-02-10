@@ -359,8 +359,8 @@ importers:
   tests/e2e:
     devDependencies:
       '@axe-core/playwright':
-        specifier: 4.7.3
-        version: 4.7.3(playwright-core@1.36.2)
+        specifier: 4.8.4
+        version: 4.8.4(playwright-core@1.36.2)
       '@cucumber/cucumber':
         specifier: 9.3.0
         version: 9.3.0
@@ -406,12 +406,12 @@ packages:
       default-browser-id: 3.0.0
     dev: true
 
-  /@axe-core/playwright@4.7.3(playwright-core@1.36.2):
-    resolution: {integrity: sha512-v2PRgAyGvop7bamrTpNJtc5b1R7giAPnMzZXrS/VDZBCY5+uwVYtCNgDvBsqp5P1QMZxUMoBN+CERJUTMjFN0A==}
+  /@axe-core/playwright@4.8.4(playwright-core@1.36.2):
+    resolution: { integrity: sha512-xpwd+T0BODt19hnXW0eX9xf+H/Ns1rdWwZNmuCV9UoTqjZ9mGm1F80pvh/A1r317ooltq8nwqcoVO9jbHWKSdA== }
     peerDependencies:
       playwright-core: '>= 1.0.0'
     dependencies:
-      axe-core: 4.7.0
+      axe-core: 4.8.4
       playwright-core: 1.36.2
     dev: true
 
@@ -4685,8 +4685,8 @@ packages:
       xml2js: 0.5.0
     dev: true
 
-  /axe-core@4.7.0:
-    resolution: {integrity: sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==}
+  /axe-core@4.8.4:
+    resolution: { integrity: sha512-CZLSKisu/bhJ2awW4kJndluz2HLZYIHh5Uy1+ZwDRkJi69811xgIXXfdU9HSLX0Th+ILrHj8qfL/5wzamsFtQg== }
     engines: {node: '>=4'}
     dev: true
 
