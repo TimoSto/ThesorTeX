@@ -20,8 +20,8 @@ vite_build(
         ":node_modules/vite-plugin-vuetify",
         ":node_modules/vuetify",
         ":vite.config.ts",
-        "//:node_modules/vite",
-        "//:node_modules/vue",
+        ":node_modules/vite",
+        ":node_modules/vue",
     ],
     root = package_name(),
 )
