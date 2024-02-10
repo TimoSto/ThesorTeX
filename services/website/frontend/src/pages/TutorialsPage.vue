@@ -74,7 +74,7 @@ function recalculateDimensions() {
   }, 5);
   setTimeout(() => {
     clearInterval(interval);
-  }, 500);
+  }, 1500);
 }
 
 function jumpTo(n: number) {
