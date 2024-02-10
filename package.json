@@ -47,7 +47,6 @@
     "ts-node": "10.9.1",
     "typescript": "*",
     "vite": "*",
-    "vitest": "*",
     "vue-i18n": "9.2.2"
   },
   "dependencies": {

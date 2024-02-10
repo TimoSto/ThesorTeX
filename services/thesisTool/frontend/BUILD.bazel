@@ -1,4 +1,5 @@
 load("//:bazel/vitest/vitest.bzl", "vitest_run")
+load("@npm//services/thesisTool/frontend:vitest/package_json.bzl", vitest_bin = "bin")
 load("//:bazel/vite/vite.bzl", "vite_build")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
@@ -51,6 +52,7 @@ pkg_tar(
 vitest_run(
     name = "thesisTool_frontend",
     config_path = "$(execpath :vite.config.ts)",
+    vitest_bin = vitest_bin,
     data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
