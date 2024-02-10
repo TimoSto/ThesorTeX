@@ -72,9 +72,6 @@ importers:
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.3.4)
-      happy-dom:
-        specifier: 9.20.3
-        version: 9.20.3
       loki:
         specifier: 0.32.0
         version: 0.32.0
