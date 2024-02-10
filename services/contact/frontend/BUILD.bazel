@@ -10,7 +10,6 @@ vite_build(
     name = "assets",
     out = ["dist"],
     config_path = "$(execpath :vite.config.ts)",
-    vite_bin = vite_bin,
     data = glob([
         "src/**/*.ts",
         "src/**/*.vue",
@@ -19,13 +18,14 @@ vite_build(
     ]) + [
         ":node_modules/@thesortex/vuetify-plugin",
         ":node_modules/@vitejs/plugin-vue",
+        ":node_modules/vite",
         ":node_modules/vite-plugin-vuetify",
+        ":node_modules/vue",
         ":node_modules/vuetify",
         ":vite.config.ts",
-        ":node_modules/vite",
-        ":node_modules/vue",
     ],
     root = package_name(),
+    vite_bin = vite_bin,
 )
 
 pkg_tar(
