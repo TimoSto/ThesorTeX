@@ -13,3 +13,4 @@ tools/storybookextractor/node_modules
 .bazel-dir/
 .repository_cache/
 .yarn_cache/
+pkg/testing/a11ytree/node_modules

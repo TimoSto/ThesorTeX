@@ -5,3 +5,4 @@ packages:
   - "pkg/frontend/*"
   - "tests/e2e"
   - "tools/storybookextractor"
+  - "pkg/testing/a11ytree"

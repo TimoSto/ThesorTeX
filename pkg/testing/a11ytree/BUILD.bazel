@@ -1,0 +1,22 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("//:bazel/vite/vite.bzl", "vite_build")
+load("@npm//pkg/testing/a11ytree:vite/package_json.bzl", vite_bin = "bin")
+
+npm_link_all_packages(name = "node_modules")
+
+vite_build(
+    name = "a11ytree",
+    out = ["dist/my-lib.js"],
+    config_path = "$(execpath :vite.config.ts)",
+    data = glob([
+        "src/**/*.ts",
+    ]) + [
+        "package.json",
+        ":vite.config.ts",
+        ":node_modules/vite",
+        ":node_modules/vite-plugin-dts",
+        ":node_modules/@types/node",
+    ],
+    root = package_name(),
+    vite_bin = vite_bin,
+)
