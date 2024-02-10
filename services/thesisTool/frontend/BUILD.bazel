@@ -70,7 +70,7 @@ vitest_run(
         ":vite.config.ts",
         ":vuetify.config.js",
         ":node_modules/@vue/test-utils",
-        "//:node_modules/happy-dom",
+        ":node_modules/happy-dom",
         ":node_modules/vite",
         ":node_modules/vitest",
         ":node_modules/vue",
