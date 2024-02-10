@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "vitest": "vitest run"
+    "vitest": "vitest run",
+    "test:thesisTool": "SYSTEM_BASE_URL=http://localhost:8440 cucumber-js --config cucumber.json ./features/thesisTool/*.feature",
+    "test:website": "SYSTEM_BASE_URL=http://localhost:8449 cucumber-js --config cucumber.json ./features/website/*.feature"
   },
   "keywords": [],
   "author": "",
