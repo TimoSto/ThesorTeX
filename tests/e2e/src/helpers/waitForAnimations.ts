@@ -1,4 +1,4 @@
-import {Page} from "playwright";
+import {Page} from "@playwright/test";
 
 export default async function waitForAnimations(page: Page, selectors: string[]) {
     for (const id of selectors) {

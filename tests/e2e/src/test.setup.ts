@@ -1,5 +1,5 @@
 import {After, AfterAll, Before, BeforeAll} from "@cucumber/cucumber";
-import {ChromiumBrowser, devices} from "playwright";
+import {ChromiumBrowser, devices} from "@playwright/test";
 import {OurWorld} from "./types";
 import {StartupBrowser, StartupSutIfExists} from "./helpers/startup";
 

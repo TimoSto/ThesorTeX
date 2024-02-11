@@ -1,6 +1,5 @@
-import {APIRequestContext, chromium, ChromiumBrowser} from "playwright";
+import {APIRequestContext, chromium, ChromiumBrowser, expect, request} from "@playwright/test";
 import {spawn} from "child_process";
-import {expect, request} from "@playwright/test";
 
 export async function StartupBrowser(): Promise<ChromiumBrowser> {
     return await chromium.launch({

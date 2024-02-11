@@ -370,9 +370,6 @@ importers:
       '@types/node':
         specifier: 20.4.5
         version: 20.4.5
-      playwright:
-        specifier: 1.36.2
-        version: 1.36.2
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.4.5)(typescript@5.3.3)
@@ -8021,15 +8018,6 @@ packages:
     resolution: {integrity: sha512-sQYZt31dwkqxOrP7xy2ggDfEzUxM1lodjhsQ3NMMv5uGTRDsLxU0e4xf4wwMkF2gplIxf17QMBCodSFgm6bFVQ==}
     engines: {node: '>=16'}
     hasBin: true
-    dev: true
-
-  /playwright@1.36.2:
-    resolution: {integrity: sha512-4Fmlq3KWsl85Bl4InJw1NC21aeQV0iSZuFvTDcy1F8zVmXmgQRe89GxF8zMSRt/KIS+2tUolak7EXVl9aC+JdA==}
-    engines: {node: '>=16'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      playwright-core: 1.36.2
     dev: true
 
   /pngjs@3.4.0:

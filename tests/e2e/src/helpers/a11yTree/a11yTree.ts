@@ -1,4 +1,4 @@
-import {CDPSession} from "playwright";
+import {CDPSession} from "@playwright/test";
 import {AccessibilityTreeNode, AccessibilityTreeResult} from "./types";
 import orderNodes from "./orderNodes";
 import {nodesToA11yTree} from "./nodesToA11yTree";
