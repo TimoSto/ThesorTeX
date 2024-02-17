@@ -19,5 +19,8 @@
     "ts-node": "*",
     "typescript": "*",
     "vitest": "*"
+  },
+  "dependencies": {
+    "@thesortex/test": "workspace:^"
   }
 }

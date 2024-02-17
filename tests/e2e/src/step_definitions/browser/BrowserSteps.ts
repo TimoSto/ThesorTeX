@@ -3,6 +3,7 @@ import {OurWorld} from "../../types";
 import getFullUri from "../../helpers/getFullUri";
 import {expect} from "@playwright/test";
 import {getAccessibilityTree} from "../../helpers/a11yTree/a11yTree";
+import {add} from "@thesortex/test";
 
 Given("the accessibility page was opened", async function (this: OurWorld) {
     const client = await this.page.context().newCDPSession(this.page);
@@ -15,6 +16,8 @@ Given("the accessibility page was opened", async function (this: OurWorld) {
 
 Given("the url {string} was opened", async function (this: OurWorld, url: string) {
     await this.page.goto(getFullUri(url));
+
+    console.log(add(1, 2));
 });
 
 Then("the url is {string}", async function (this: OurWorld, url: string) {

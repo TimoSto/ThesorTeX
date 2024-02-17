@@ -3,5 +3,6 @@ packages:
   - "services/website/frontend"
   - "services/contact/frontend"
   - "pkg/frontend/*"
+  - "pkg/testing/*"
   - "tests/e2e"
   - "tools/storybookextractor"
