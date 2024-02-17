@@ -6,7 +6,8 @@
   "scripts": {
     "vitest": "vitest run",
     "test:thesisTool": "SYSTEM_BASE_URL=http://localhost:8440 cucumber-js --config cucumber.json ./features/thesisTool/*.feature",
-    "test:website": "SYSTEM_BASE_URL=http://localhost:8449 cucumber-js --config cucumber.json ./features/website/*.feature"
+    "test:website": "SYSTEM_BASE_URL=http://localhost:8449 cucumber-js --config cucumber.json ./features/website/*.feature",
+    "test:website:plw": "SYSTEM_BASE_URL=http://localhost:8449 playwright test"
   },
   "keywords": [],
   "author": "",

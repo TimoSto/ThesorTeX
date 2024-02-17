@@ -27,7 +27,7 @@ export default defineConfig({
         {
             name: "rename-cjs",
             closeBundle: async () => {
-                if (fs.existsSync(path.resolve(resolve(__dirname, "dist"), "test.js"))) {
+                if (fs.existsSync(path.resolve(resolve(__dirname, "dist"), "test.js")) && !fs.existsSync(path.resolve(resolve(__dirname, "dist"), "test.cjs"))) {
                     fs.renameSync(path.resolve(resolve(__dirname, "dist"), "test.js"), path.resolve(resolve(__dirname, "dist"), "test.cjs"));
                 }
             },
