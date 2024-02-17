@@ -4,8 +4,8 @@ import {ChildProcessWithoutNullStreams, spawn} from "child_process";
 export let sut: ChildProcessWithoutNullStreams;
 
 export default async function globalSetup() {
-    if (process.env.SUT_EXECUTABLE) {
-        sut = spawn(process.env.SUT_EXECUTABLE, {
+    if (process.env.EXECUTABLE) {
+        sut = spawn(process.env.EXECUTABLE, {
             // stdio: "ignore",
             detached: false,
         });

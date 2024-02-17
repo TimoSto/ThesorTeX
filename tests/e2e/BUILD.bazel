@@ -2,6 +2,7 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//tests/e2e:@cucumber/cucumber/package_json.bzl", cucmber_bin = "bin")
 load("//:bazel/cucumber/cucumber.bzl", "run_cucumber", "run_cucumber_a11y")
+load("//:bazel/playwright/playwright.bzl", "test_playwright")
 
 npm_link_all_packages(name = "node_modules")
 
@@ -105,4 +106,18 @@ run_cucumber_a11y(
         "features/accessibility/website/t01_start_page.feature",
     ]),
     workingDir = package_name(),
+)
+
+test_playwright(
+    name = "website_plw",
+    workingDir = package_name(),
+    sut_executable = "../../services/website/cmd/e2e/e2e_/e2e",
+    sut_executable_target = "//services/website/cmd/e2e",
+    sut_port = "8444",
+    system_base_url = "http://localhost:8449",
+    test_files = glob([
+        "tests/**/*",
+        "src/hooks/**/*",
+    ]) + [":playwright_base_deps"],
+    config = "playwright.config.ts"
 )
