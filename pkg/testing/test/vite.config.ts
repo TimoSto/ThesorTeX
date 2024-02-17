@@ -1,6 +1,7 @@
 import {defineConfig} from "vite";
-import {resolve} from "path";
+import path, {resolve} from "path";
 import dts from "vite-plugin-dts";
+import fs from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,8 +19,18 @@ export default defineConfig({
             src: resolve("src/")
         },
     },
-    plugins: [dts({
-        root: resolve(__dirname),
-        outDir: resolve(__dirname, "dist"),
-    })],
+    plugins: [
+        dts({
+            root: resolve(__dirname),
+            outDir: resolve(__dirname, "dist"),
+        }),
+        {
+            name: "rename-cjs",
+            closeBundle: async () => {
+                if (fs.existsSync(path.resolve(resolve(__dirname, "dist"), "test.js"))) {
+                    fs.renameSync(path.resolve(resolve(__dirname, "dist"), "test.js"), path.resolve(resolve(__dirname, "dist"), "test.cjs"));
+                }
+            },
+        }
+    ],
 });
