@@ -12,7 +12,8 @@ filegroup(
         "src/test.setup.ts",
         "src/types.ts",
         "tsconfig.json",
-        ":node_modules/@playwright/test"
+        ":node_modules/@playwright/test",
+        ":node_modules/@thesortex/test",
     ] + glob([
         "src/helpers/**/*.ts",
         "src/step_definitions/browser/*.ts",
