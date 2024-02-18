@@ -10,6 +10,7 @@ def test_playwright(name, workingDir, sut_executable_target, sut_executable, sut
         chdir = native.package_name(),
         data = [
             config,
+            sut_executable_target,
         ] + test_files + specific_deps,
          env = {
              "EXECUTABLE": sut_executable,

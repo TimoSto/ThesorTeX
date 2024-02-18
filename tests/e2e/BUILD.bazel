@@ -113,8 +113,8 @@ test_playwright(
     workingDir = package_name(),
     sut_executable = "../../services/website/cmd/e2e/e2e_/e2e",
     sut_executable_target = "//services/website/cmd/e2e",
-    sut_port = "8444",
-    system_base_url = "http://localhost:8449",
+    sut_port = "8445",
+    system_base_url = "http://localhost:8445",
     test_files = glob([
         "tests/**/*",
         "src/hooks/**/*",
