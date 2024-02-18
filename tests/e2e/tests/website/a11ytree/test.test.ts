@@ -1,5 +1,5 @@
 import {test} from "@playwright/test";
-import getFullUri from "../../src/helpers/getFullUri";
+import getFullUri from "../../../src/helpers/getFullUri";
 import {add} from "@thesortex/test";
 
 test("google", async ({page}) => {

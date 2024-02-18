@@ -116,7 +116,7 @@ test_playwright(
     sut_port = "8445",
     system_base_url = "http://localhost:8445",
     test_files = glob([
-        "tests/**/*",
+        "tests/website/**/*",
         "src/hooks/**/*",
     ]) + [":playwright_base_deps"],
     config = "playwright.config.ts"
