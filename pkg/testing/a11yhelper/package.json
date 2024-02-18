@@ -1,0 +1,32 @@
+{
+  "name": "@thesortex/playwright-a11y-helper",
+  "version": "1.0.0",
+  "description": "helper functions for a11y testing with playwright",
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "playwright",
+    "accessibility tree",
+    "a11y tree",
+    "axe"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "typescript": "*",
+    "vite": "*",
+    "vite-plugin-dts": "3.7.2"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "4.8.4",
+    "@playwright/test": "1.36.2"
+  }
+}

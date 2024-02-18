@@ -7,6 +7,7 @@
     "vitest": "vitest run",
     "test:thesisTool": "SYSTEM_BASE_URL=http://localhost:8440 cucumber-js --config cucumber.json ./features/thesisTool/*.feature",
     "test:website": "SYSTEM_BASE_URL=http://localhost:8449 cucumber-js --config cucumber.json ./features/website/*.feature",
+    "test:website:a11y": "SYSTEM_BASE_URL=http://localhost:8449 cucumber-js --config cucumber.json ./features/accessibility/website/*.feature",
     "test:website:plw": "SYSTEM_BASE_URL=http://localhost:8449 playwright test"
   },
   "keywords": [],
@@ -22,6 +23,7 @@
     "vitest": "*"
   },
   "dependencies": {
+    "@thesortex/playwright-a11y-helper": "workspace:^",
     "@thesortex/test": "workspace:^"
   }
 }

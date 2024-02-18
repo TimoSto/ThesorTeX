@@ -2,21 +2,22 @@ import {Then, When} from "@cucumber/cucumber";
 import {OurWorld} from "../../types";
 import {expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import {ScanDefaultWCAG} from "@thesortex/playwright-a11y-helper";
 
 Then("the wcag guidelines are met", async function (this: OurWorld) {
     const page = this.page;
-    const accessibilityScanResults = await new AxeBuilder({page})
-        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-        .analyze();
+    const te = await page.title();
+    console.log("title", te);
+    const accessibilityScanResults = await ScanDefaultWCAG(page);
 
     expect(accessibilityScanResults.violations).toEqual([]);
 });
 
 Then("the wcag guidelines are not yet met", async function (this: OurWorld) {
     const page = this.page;
-    const accessibilityScanResults = await new AxeBuilder({page})
-        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-        .analyze();
+    const te = await page.title();
+    console.log("title", te);
+    const accessibilityScanResults = await ScanDefaultWCAG(page);
 
     expect(accessibilityScanResults.violations).not.toEqual([]);
 });
