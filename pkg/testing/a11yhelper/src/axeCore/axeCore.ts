@@ -7,6 +7,14 @@ export async function scanDefaultWCAG(page: Page): Promise<AxeResult> {
 
     console.log(t);
 
+    const client = await page.context().newCDPSession(page);
+
+    const {
+        nodes
+    } = await client.send("Accessibility.getFullAXTree");
+
+    console.log(nodes.length);
+
     return {
         violations: [t]
     };
