@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("//bazel/documentationbuilder:documentation_builder.bzl", "build_documentations")
+
+build_documentations(name = "test")
+
+go_library(
+    name = "documentationbuilder_lib",
+    srcs = ["test.go"],
+    importpath = "github.com/TimoSto/ThesorTeX/bazel/documentationbuilder",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "documentationbuilder",
+    embed = [":documentationbuilder_lib"],
+    visibility = ["//visibility:public"],
+)
