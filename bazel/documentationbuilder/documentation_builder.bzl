@@ -21,7 +21,7 @@ build_documentations = rule(
         "tool": attr.label(
               executable = True,
               cfg = "exec",
-              default = Label("//tools/documentationbuilder:documentationbuilder"),
+              default = Label("//bazel/documentationbuilder:documentationbuilder"),
           )
     }
 )

@@ -1,22 +1,26 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 )
 
 func main() {
-	fmt.Println("hello world", os.Args)
-	args := os.Args[1:]
+	outDir := flag.String("out-dir", "", "the dir to write the results to")
+	srcFilePath := flag.String("src", "", "src file")
 
-	err := os.MkdirAll(args[0], os.ModePerm)
+	flag.Parse()
+
+	fmt.Println(os.Getwd())
+
+	fmt.Println("Reading src file...")
+
+	_, err := os.ReadFile(*srcFilePath)
 	if err != nil {
 		panic(err)
 	}
 
-	err = os.WriteFile(args[0]+"/test.txt", []byte("hello"), os.ModePerm)
-	if err != nil {
-		panic(err)
-	}
+	fmt.Println(outDir)
 
 }
