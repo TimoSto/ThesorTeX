@@ -1,6 +1,6 @@
 
 def _build_documentation_impl(ctx):
-    out = ctx.actions.declare_file(ctx.label.name)
+    out = ctx.actions.declare_directory(ctx.label.name)
 
     args = ["-out-dir=" + out.path, "-src=" + ctx.file.src.path]
 
