@@ -5,6 +5,7 @@ def _build_documentation_impl(ctx):
     args = ["-out-dir=" + out.path, "-src=" + ctx.file.src.path]
 
     ctx.actions.run(
+        inputs = [ctx.file.src],
         outputs = [out],
         arguments = args,
         progress_message = "Merging into",
@@ -21,7 +22,7 @@ build_documentations = rule(
         "tool": attr.label(
               executable = True,
               cfg = "exec",
-              default = Label("//bazel/documentationbuilder:documentationbuilder"),
+              default = Label("//tools/documentationbuilder:documentationbuilder"),
           )
     }
 )
