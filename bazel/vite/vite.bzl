@@ -7,7 +7,7 @@ def vite_build(name, config_path, root, out, vite_bin, data = []):
             "build",
             "--config=" + config_path,
         ],
-        outs = out,
+        out_dirs = out,
         srcs = data,
         env = {
             "VITE_ROOT": root
