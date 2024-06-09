@@ -1,12 +1,13 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 load("@io_bazel_rules_go//go:def.bzl", "TOOLS_NOGO", "nogo")
-load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
 # gazelle:prefix github.com/TimoSto/ThesorTeX
 gazelle(
     name = "gazelle",
     external = "vendored",
 )
+
+# TODO add buildifier back
 
 # nogo for checking of go standards (kind of like linting)
 nogo(
@@ -17,17 +18,6 @@ nogo(
 )
 
 # for formatting
-buildifier(
-    name = "buildifier",
-    args = [
-        "-r",
-        "-lint",
-        "fix",
-        "-warnings",
-        "all",
-        ".",
-    ],
-)
 
 # link npm packages in global
 load("@npm//:defs.bzl", "npm_link_all_packages")
