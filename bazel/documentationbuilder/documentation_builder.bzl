@@ -8,7 +8,7 @@ def _build_documentation_impl(ctx):
         inputs = [ctx.file.src],
         outputs = [out],
         arguments = args,
-        progress_message = "Merging into",
+        progress_message = "Building documentation...",
         executable = ctx.executable.tool,
     )
 
