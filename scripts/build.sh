@@ -60,7 +60,7 @@ if [ "$1" = "website" ] || [ "$1" = "all" ]
 then
   echo "building website docker image..."
 
-  bazel run //services/website/cmd/prod:website_lambda_image
+  bazel run //services/website/cmd/prod:tarball
 
   echo "push to aws ecr? [y/n]"
 
@@ -68,7 +68,7 @@ then
 
   if [ "$proceed" = "y" ]
   then
-    id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/website/cmd/prod:website_lambda_image)
+    id=$(podman image inspect --format '{{ .Id }}' localhost/website_lambda_image:latest)
     hash=$(git rev-parse --short HEAD)
 
     echo "pushing website lambda image (tag $hash)..."
@@ -82,7 +82,7 @@ if [ "$1" = "contact" ] || [ "$1" = "all" ]
 then
   echo "building contact docker image..."
 
-  bazel run //services/contact/cmd/lambda:contact_lambda_image
+  bazel run //services/contact/cmd/lambda:tarball
 
   echo "push to aws ecr? [y/n]"
 
@@ -90,7 +90,7 @@ then
 
   if [ "$proceed" = "y" ]
   then
-    id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/contact/cmd/lambda:contact_lambda_image)
+    id=$(podman image inspect --format '{{ .Id }}' localhost/contact_lambda_image:latest)
     hash=$(git rev-parse --short HEAD)
 
     echo "pushing contact lambda image (tag $hash)..."
@@ -104,7 +104,7 @@ if [ "$1" = "router" ] || [ "$1" = "all" ]
 then
   echo "building router docker image..."
 
-  bazel run //services/router/cmd/lambda:router_lambda_image
+  bazel run //services/router/cmd/lambda:tarball
 
   echo "push to aws ecr? [y/n]"
 
@@ -112,7 +112,7 @@ then
 
   if [ "$proceed" = "y" ]
   then
-    id=$(podman image inspect --format '{{ .Id }}' localhost/bazel/services/router/cmd/lambda:router_lambda_image)
+    id=$(podman image inspect --format '{{ .Id }}' localhost/router_lambda_image:latest)
     hash=$(git rev-parse --short HEAD)
 
     echo "pushing router lambda image (tag $hash)..."

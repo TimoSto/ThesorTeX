@@ -1,5 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-load("@io_bazel_rules_docker//container:container.bzl", "container_image", "container_push")
+load("@rules_pkg//pkg:pkg.bzl", "pkg_tar")
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_push", "oci_tarball")
 
 go_library(
     name = "lambda_lib",
@@ -25,9 +26,20 @@ go_binary(
     },
 )
 
-container_image(
+pkg_tar(
+    name = "contact_lambda_tar",
+    srcs = [":lambda"],
+)
+
+oci_image(
     name = "contact_lambda_image",
-    base = "@lambda_base//image",
-    entrypoint = "/lambda",
-    files = [":lambda"],
+    base = "@lambda_base",
+    entrypoint = ["/prod"],
+    tars = [":contact_lambda_tar"],
+)
+
+oci_tarball(
+    name = "tarball",
+    image = ":contact_lambda_image",
+    repo_tags = ["contact_lambda_image:latest"],
 )
