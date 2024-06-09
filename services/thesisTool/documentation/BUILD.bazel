@@ -1,25 +1,18 @@
 load("@rules_pkg//:mappings.bzl", "strip_prefix")
 load("@rules_pkg//pkg:pkg.bzl", "pkg_tar")
+load("//bazel/documentationbuilder:documentation_builder.bzl", "build_documentations")
 
-genrule(
+build_documentations(
     name = "documentation_de",
-    srcs = [
-        "documentation_de.md",
-    ],
-    outs = ["docs/de"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/de) -src=$(location documentation_de.md)",
-    tools = ["//tools/documentationbuilder"],
+    out = "docs/de",
+    src = "documentation_de.md",
     visibility = ["//visibility:public"],
 )
 
-genrule(
+build_documentations(
     name = "documentation_en",
-    srcs = [
-        "documentation_en.md",
-    ],
-    outs = ["docs/en"],
-    cmd = "mkdir $(OUTS) && $(location //tools/documentationbuilder:documentationbuilder) -out-dir=$(location docs/en) -src=$(location documentation_en.md)",
-    tools = ["//tools/documentationbuilder"],
+    out = "docs/en",
+    src = "documentation_en.md",
     visibility = ["//visibility:public"],
 )
 
