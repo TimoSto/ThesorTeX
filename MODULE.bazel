@@ -14,3 +14,6 @@ go_sdk.download(version = "1.21.5")
 
 # nogo TODO: enable!!!!
 # go_sdk.nogo(nogo = "//:my_nogo")
+
+# rules_pkg
+bazel_dep(name = "rules_pkg", version = "0.10.1")
