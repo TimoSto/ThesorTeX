@@ -3,6 +3,7 @@ load("//bazel/documentationbuilder:documentation_builder.bzl", "build_documentat
 
 build_documentations(
     name = "test",
+    out = "docs/de",
     src = "documentation_de.md"
 )
 
