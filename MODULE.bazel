@@ -12,5 +12,5 @@ go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")
 # Download an SDK for the host OS & architecture as well as common remote execution platforms.
 go_sdk.download(version = "1.21.5")
 
-# nogo
+# nogo TODO: enable!!!!
 # go_sdk.nogo(nogo = "//:my_nogo")
