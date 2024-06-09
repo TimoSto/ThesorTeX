@@ -2,9 +2,12 @@ module(
     name = "thesortex",
 )
 
+# buildifier
+# bazel_dep(name = "buildtools", version = "5.1.0")
+
 # go dependencies
 bazel_dep(name = "rules_go", version = "0.47.1", repo_name = "io_bazel_rules_go")
-bazel_dep(name = "gazelle", version = "0.35.0", repo_name = "bazel_gazelle")
+bazel_dep(name = "gazelle", version = "0.35.0", repo_name = "bazel_gazelle") # TODO gazelle version warning
 
 # go version
 go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")
@@ -17,3 +20,28 @@ go_sdk.download(version = "1.21.5")
 
 # rules_pkg
 bazel_dep(name = "rules_pkg", version = "0.10.1")
+
+# node js setup
+
+bazel_dep(name = "aspect_rules_js", version = "1.42.3")
+
+bazel_dep(name = "rules_nodejs", version = "6.2.0")
+node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node")
+node.toolchain(node_version = "18.17.0")
+
+npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm", dev_dependency = True)
+
+npm.npm_translate_lock(
+    name = "npm",
+    pnpm_lock = "//:pnpm-lock.yaml",
+    npmrc = "//:.npmrc",
+    verify_node_modules_ignored = "//:.bazelignore",
+)
+
+use_repo(npm, "npm")
+
+pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm")
+
+# Allows developers to use the matching pnpm version, for example:
+# bazel run -- @pnpm --dir /home/runner/work/rules_js/rules_js install
+use_repo(pnpm, "pnpm")
