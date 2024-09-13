@@ -1,6 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
+load("//bazel/unpacktar:unpack_tar.bzl", "unpack_tar")
 
 go_library(
     name = "assets",
@@ -12,11 +13,8 @@ go_library(
     visibility = ["//visibility:public"],
 )
 
-genrule(
+unpack_tar(
     name = "assets_dist",
-    srcs = [
-        "//services/website/frontend:website_dist",
-    ],
-    outs = ["dist"],
-    cmd = "mkdir $(RULEDIR)/dist && tar -C $(RULEDIR)/dist -zxf $(SRCS)",
+    tar = "//services/website/frontend:website_dist",
+    out_dir_path = "dist",
 )

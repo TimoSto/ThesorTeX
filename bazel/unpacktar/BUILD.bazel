@@ -1,0 +1,5 @@
+sh_binary(
+    name = "unpack_tar",
+    srcs = ["unpack_tar.sh"],
+    visibility = ["//visibility:public"],
+)
