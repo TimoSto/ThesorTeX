@@ -203,6 +203,12 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      vite:
+        specifier: 5.1.1
+        version: 5.1.1(@types/node@20.4.5)(sass@1.70.0)
+      vite-plugin-dts:
+        specifier: ^3.7.2
+        version: 3.7.2(@types/node@20.4.5)(typescript@5.3.3)(vite@5.1.1)
       vitest:
         specifier: 1.2.2
         version: 1.2.2(@types/node@20.4.5)(happy-dom@9.20.3)(sass@1.70.0)
@@ -4434,7 +4440,7 @@ packages:
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       magic-string: 0.30.0
-      postcss: 8.4.27
+      postcss: 8.4.35
       source-map-js: 1.0.2
 
   /@vue/compiler-ssr@3.3.4:
@@ -7805,11 +7811,6 @@ packages:
     resolution: {integrity: sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==}
     dev: true
 
-  /nanoid@3.3.6:
-    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   /nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -8269,14 +8270,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
     dev: true
-
-  /postcss@8.4.27:
-    resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
 
   /postcss@8.4.35:
     resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
