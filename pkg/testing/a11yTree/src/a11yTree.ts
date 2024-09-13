@@ -1,7 +1,7 @@
-import {CDPSession} from "@playwright/test";
-import {AccessibilityTreeNode, AccessibilityTreeResult} from "./types";
+import { CDPSession } from "@playwright/test";
+import { AccessibilityTreeNode, AccessibilityTreeResult } from "./types";
 import orderNodes from "./orderNodes";
-import {nodesToA11yTree} from "./nodesToA11yTree";
+import { nodesToA11yTree } from "./nodesToA11yTree";
 
 export async function getAccessibilityTree(client: CDPSession, needle: any): Promise<AccessibilityTreeResult> {
     const {

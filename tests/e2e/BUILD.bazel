@@ -15,6 +15,7 @@ filegroup(
         "tsconfig.json",
         ":node_modules/@playwright/test",
         ":node_modules/@thesortex/test",
+        ":node_modules/@thesortex/a11ytree",
     ] + glob([
         "src/helpers/**/*.ts",
         "src/step_definitions/browser/*.ts",

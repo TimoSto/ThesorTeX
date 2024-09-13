@@ -1,5 +1,5 @@
-import {describe, expect, it} from "vitest";
-import {AxNode, OrderedAxNode} from "./types";
+import { describe, expect, it } from "vitest";
+import { AxNode, OrderedAxNode } from "./types";
 import orderNodes from "./orderNodes";
 
 let nodes = [

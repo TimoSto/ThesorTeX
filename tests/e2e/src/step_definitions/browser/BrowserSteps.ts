@@ -1,14 +1,14 @@
-import {Given, Then, When} from "@cucumber/cucumber";
-import {OurWorld} from "../../types";
+import { Given, Then, When } from "@cucumber/cucumber";
+import { OurWorld } from "../../types";
 import getFullUri from "../../helpers/getFullUri";
-import {expect} from "@playwright/test";
-import {getAccessibilityTree} from "../../helpers/a11yTree/a11yTree";
-import {add} from "@thesortex/test";
+import { expect } from "@playwright/test";
+import { GetAccessibilityTree } from "@thesortex/a11ytree";
+import { add } from "@thesortex/test";
 
 Given("the accessibility page was opened", async function (this: OurWorld) {
     const client = await this.page.context().newCDPSession(this.page);
     await client.send("Accessibility.enable");
-    const tree = await getAccessibilityTree(client, null);
+    const tree = await GetAccessibilityTree(client, null);
     await new Promise(r => {
         setTimeout(r, 2500);
     });

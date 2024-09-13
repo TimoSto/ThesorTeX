@@ -1,0 +1,27 @@
+load("@aspect_rules_js//npm:defs.bzl", "npm_package")
+load("@npm//pkg/testing/a11yTree:vitest/package_json.bzl", vitest_bin = "bin")
+load("//:bazel/vitest/vitest.bzl", "vitest_run")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(name = "node_modules")
+
+npm_package(
+    name = "a11yTree",
+    srcs = [
+        "package.json",
+    ] + glob([
+        "src/**/*",
+    ]),
+    visibility = ["//visibility:public"],
+)
+
+vitest_run(
+    name = "vitest",
+    data = glob([
+        "src/**/*",
+    ]) + [
+        ":node_modules/vitest",
+    ],
+    root = "pkg/testing/a11yTree/",
+    vitest_bin = vitest_bin,
+)

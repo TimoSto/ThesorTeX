@@ -1,4 +1,4 @@
-import {AccessibilityTreeNode, AxNode, OrderedAxNode} from "./types";
+import { AccessibilityTreeNode, AxNode, OrderedAxNode } from "./types";
 
 export function nodesToA11yTree(tree: OrderedAxNode): AccessibilityTreeNode {
     // if( !tree.children || tree.children?.length === 0 ) {

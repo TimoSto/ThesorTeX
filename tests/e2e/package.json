@@ -16,6 +16,7 @@
     "@axe-core/playwright": "4.8.4",
     "@cucumber/cucumber": "9.3.0",
     "@playwright/test": "*",
+    "@thesortex/a11ytree": "workspace:^",
     "@types/node": "*",
     "ts-node": "*",
     "typescript": "*",

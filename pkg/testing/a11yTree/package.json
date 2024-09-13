@@ -1,0 +1,19 @@
+{
+  "name": "@thesortex/a11ytree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "1.36.2"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "vitest": "*"
+  }
+}
