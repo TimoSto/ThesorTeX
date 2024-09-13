@@ -1,0 +1,23 @@
+{
+  "name": "@thesortex/a11ytree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/a11ytree.js",
+  "scripts": {
+    "test": "vitest run",
+    "build": "vite build"
+  },
+  "include": [],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "1.36.2"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "vite": "5.1.1",
+    "vite-plugin-dts": "^3.7.2",
+    "vitest": "*"
+  }
+}
