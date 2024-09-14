@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test:website_a11y_tree": "BASE_URL=http://localhost:8449 playwright test tests/website_a11y_tree/* --headed",
-    "test:generated": "playwright test generated/* --headed",
+    "test:generated": "playwright test generated/getA11yTree.spec.ts --headed",
     "codegen": "mkdir -p generated ; touch generated/test.spec.ts ; playwright codegen -o generated/test.spec.ts"
   }
 }
