@@ -5,4 +5,5 @@ packages:
   - "pkg/frontend/*"
   - "pkg/testing/*"
   - "tests/e2e"
+  - "tests/playwright"
   - "tools/storybookextractor"
