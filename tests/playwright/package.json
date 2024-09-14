@@ -9,6 +9,7 @@
     "@types/node": "20.4.5"
   },
   "scripts": {
-    "test:website_a11y_tree": "BASE_URL=http://localhost:8449 playwright test tests/website_a11y_tree/* --headed"
+    "test:website_a11y_tree": "BASE_URL=http://localhost:8449 playwright test tests/website_a11y_tree/* --headed",
+    "codegen": "mkdir -p generated ; touch generated/test.spec.ts ; playwright codegen -o generated/test.spec.ts"
   }
 }
