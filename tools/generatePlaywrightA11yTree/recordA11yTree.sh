@@ -12,6 +12,6 @@ go run cmd/generateGetTree/main.go
 
 # Step 3: execute the test to save the a11y tree as json
 cd ../../tests/playwright
-# pnpm run test:generated
+pnpm run test:generated
 
 # Step 4: generate the test to assure this a11y tree
