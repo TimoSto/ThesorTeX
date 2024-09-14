@@ -15,9 +15,12 @@ filegroup(
 test_playwright(
     name = "example",
     deps = [
-        ":playwright_base_deps"
+        ":playwright_base_deps",
+        "//services/website/cmd/e2e"
     ],
     test_files = glob(["tests/*"]),
     config = ":playwright.config.ts",
-    playwright_bin = playwright_bin
+    playwright_bin = playwright_bin,
+    sut_executable = "//services/website/cmd/e2e",
+    base_url = "http://localhost:8449/"
 )
