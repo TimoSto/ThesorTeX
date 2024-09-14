@@ -4,7 +4,6 @@ import { expect, test } from '@playwright/test';
 
 test('getA11yTree', async ({page}) => {
     // Here goes the code from playwright codegen
-
     await page.goto('about:blank');
     await page.goto('chrome-error://chromewebdata/');
     await page.goto('http://localhost:8449/');
