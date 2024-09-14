@@ -12,7 +12,7 @@ import * as process from "node:process";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-    testDir: './tests',
+    testDir: './',
     /* Run tests in files in parallel */
     fullyParallel: !!process.env.PARALLEL,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
