@@ -1,4 +1,4 @@
-import {AxNode, OrderedAxNode} from "./types";
+import { AxNode, OrderedAxNode } from "./types";
 
 export default function orderNodes(nodes: AxNode[], i: number): OrderedAxNode {
     let res: OrderedAxNode = {

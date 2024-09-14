@@ -1,6 +1,6 @@
-import {describe, expect, it} from "vitest";
-import {AccessibilityTreeNode, OrderedAxNode} from "./types";
-import {nodesToA11yTree} from "./nodesToA11yTree";
+import { describe, expect, it } from "vitest";
+import { AccessibilityTreeNode, OrderedAxNode } from "./types";
+import { nodesToA11yTree } from "./nodesToA11yTree";
 
 describe("nodesToA11yTree", () => {
     it("simple", () => {
