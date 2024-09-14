@@ -9,8 +9,6 @@
     "@types/node": "20.4.5"
   },
   "scripts": {
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed"
+    "test:website_a11y_tree": "BASE_URL=http://localhost:8449 playwright test tests/website_a11y_tree/* --headed"
   }
 }
