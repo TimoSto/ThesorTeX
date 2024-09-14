@@ -10,7 +10,7 @@ export async function getAccessibilityTree(client: CDPSession): Promise<Accessib
 
     const tree = analyseNodeTree(nodes);
 
-    visualizeNodeTree(tree);
+    // visualizeNodeTree(tree);
 
     return tree;
 }
