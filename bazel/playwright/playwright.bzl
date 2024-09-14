@@ -1,21 +1,15 @@
-load("@npm//tests/e2e:@playwright/test/package_json.bzl", playwright_bin = "bin")
 
-def test_playwright(name, workingDir, sut_executable_target, sut_executable, sut_port, system_base_url, test_files, config, specific_deps = [] ):
+def test_playwright(name, deps, test_files, config, playwright_bin ):
     playwright_bin.playwright_test(
         name = name,
         args = [
             "test",
-            "--config " + config
         ],
         chdir = native.package_name(),
         data = [
             config,
-            sut_executable_target,
-        ] + test_files + specific_deps,
+        ] + deps + test_files,
          env = {
-             "EXECUTABLE": sut_executable,
-             "SYSTEM_BASE_URL": system_base_url,
-             "E2E_PORT": sut_port,
              "LOG_LEVEL": "ERROR"
           }
     )

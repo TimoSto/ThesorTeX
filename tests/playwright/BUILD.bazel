@@ -1,0 +1,23 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//tests/playwright:@playwright/test/package_json.bzl", playwright_bin = "bin")
+load("//:bazel/playwright/playwright.bzl", "test_playwright")
+
+npm_link_all_packages(name = "node_modules")
+
+filegroup(
+    name = "playwright_base_deps",
+    srcs = [
+        ":node_modules/@playwright/test",
+        "playwright.config.ts"
+    ]
+)
+
+test_playwright(
+    name = "example",
+    deps = [
+        ":playwright_base_deps"
+    ],
+    test_files = glob(["tests/*"]),
+    config = ":playwright.config.ts",
+    playwright_bin = playwright_bin
+)
