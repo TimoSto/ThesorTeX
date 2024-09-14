@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as process from "node:process";
 
 /**
  * Read environment variables from file.
@@ -39,6 +40,9 @@ export default defineConfig({
         reuseExistingServer: true,
         stdout: "pipe",
         stderr: "pipe",
-        timeout: 10000
+        timeout: 10000,
+        env: {
+            "E2E_PORT": process.env.E2E_PORT as string,
+        }
     } : undefined
 });
