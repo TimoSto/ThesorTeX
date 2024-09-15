@@ -6,7 +6,8 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "1.36.2",
-    "@types/node": "20.4.5"
+    "@types/node": "20.4.5",
+    "vitest": "*"
   },
   "scripts": {
     "test:website_a11y_tree": "BASE_URL=http://localhost:8449 playwright test tests/website_a11y_tree/* --headed",
