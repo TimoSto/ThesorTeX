@@ -5,6 +5,7 @@ pkg/frontend/vue-component-library/node_modules
 pkg/frontend/vue-i18n-plugin/node_modules
 pkg/frontend/vuetify-plugin/node_modules
 pkg/testing/test/node_modules
+pkg/testing/a11ytree/node_modules
 services/thesisTool/frontend/node_modules
 services/website/frontend/node_modules
 services/contact/frontend/node_modules

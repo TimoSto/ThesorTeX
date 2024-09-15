@@ -8,6 +8,7 @@ filegroup(
     name = "playwright_base_deps",
     srcs = [
         ":node_modules/@playwright/test",
+        ":node_modules/@thesortex/a11ytree",
         "playwright.config.ts"
     ] + glob(["src/**/*"])
 )

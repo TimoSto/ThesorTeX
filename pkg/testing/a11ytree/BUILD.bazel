@@ -20,7 +20,7 @@ vite_build(
 )
 
 npm_package(
-    name = "test",
+    name = "a11ytree",
     srcs = [
         "package.json",
         ":dist_dir",
