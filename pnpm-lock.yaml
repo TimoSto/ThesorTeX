@@ -382,7 +382,7 @@ importers:
     devDependencies:
       '@axe-core/playwright':
         specifier: 4.8.4
-        version: 4.8.4(playwright-core@1.47.1)
+        version: 4.8.4(playwright-core@1.36.2)
       '@cucumber/cucumber':
         specifier: 9.3.0
         version: 9.3.0
@@ -411,12 +411,6 @@ importers:
         specifier: 20.4.5
         version: 20.4.5
 
-  tools/generatePlayWrightA11yTree/packages/playwright:
-    devDependencies:
-      '@playwright/test':
-        specifier: 1.36.2
-        version: 1.36.2
-
   tools/storybookextractor:
     devDependencies:
       '@playwright/test':
@@ -440,13 +434,13 @@ packages:
       default-browser-id: 3.0.0
     dev: true
 
-  /@axe-core/playwright@4.8.4(playwright-core@1.47.1):
+  /@axe-core/playwright@4.8.4(playwright-core@1.36.2):
     resolution: {integrity: sha512-xpwd+T0BODt19hnXW0eX9xf+H/Ns1rdWwZNmuCV9UoTqjZ9mGm1F80pvh/A1r317ooltq8nwqcoVO9jbHWKSdA==}
     peerDependencies:
       playwright-core: '>= 1.0.0'
     dependencies:
       axe-core: 4.8.4
-      playwright-core: 1.47.1
+      playwright-core: 1.36.2
     dev: true
 
   /@babel/code-frame@7.22.5:
@@ -3007,7 +3001,6 @@ packages:
   /@playwright/test@1.36.2:
     resolution: {integrity: sha512-2rVZeyPRjxfPH6J0oGJqE8YxiM1IBRyM8hyrXYK7eSiAqmbNhxwcLa7dZ7fy9Kj26V7FYia5fh9XJRq4Dqme+g==}
     engines: {node: '>=16'}
-    deprecated: Please update to the latest version of Playwright to test up-to-date browsers.
     hasBin: true
     dependencies:
       '@types/node': 20.4.5
@@ -8248,12 +8241,6 @@ packages:
   /playwright-core@1.36.2:
     resolution: {integrity: sha512-sQYZt31dwkqxOrP7xy2ggDfEzUxM1lodjhsQ3NMMv5uGTRDsLxU0e4xf4wwMkF2gplIxf17QMBCodSFgm6bFVQ==}
     engines: {node: '>=16'}
-    hasBin: true
-    dev: true
-
-  /playwright-core@1.47.1:
-    resolution: {integrity: sha512-i1iyJdLftqtt51mEk6AhYFaAJCDx0xQ/O5NU8EKaWFgMjItPVma542Nh/Aq8aLCjIJSzjaiEQGW/nyqLkGF1OQ==}
-    engines: {node: '>=18'}
     hasBin: true
     dev: true
 

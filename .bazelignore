@@ -12,7 +12,6 @@ tests/e2e/node_modules
 tests/playwright/node_modules
 node_modules
 tools/storybookextractor/node_modules
-tools/generatePlayWrightA11yTree/packages/playwright/node_modules
 .bazel-dir/
 .repository_cache/
 .yarn_cache/
