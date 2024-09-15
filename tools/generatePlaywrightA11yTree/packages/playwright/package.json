@@ -1,0 +1,11 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "scripts": {
+    "codegen": "mkdir -p generated ; touch generated/test.spec.ts ; playwright codegen -o generated/test.spec.ts"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "1.36.2"
+  }
+}

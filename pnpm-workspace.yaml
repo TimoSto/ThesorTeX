@@ -7,3 +7,4 @@ packages:
   - "tests/e2e"
   - "tests/playwright"
   - "tools/storybookextractor"
+  - "tools/generatePlayWrightA11yTree/packages/playwright"
