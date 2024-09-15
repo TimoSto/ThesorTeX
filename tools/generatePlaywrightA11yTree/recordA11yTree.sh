@@ -15,4 +15,5 @@ cd ../../tests/playwright
 pnpm run test:generated
 
 # Step 4: generate the test to assure this a11y tree
+cd ../../tools/generatePlaywrightA11yTree
 go run cmd/generateAssertTree/main.go
