@@ -1,0 +1,29 @@
+load("//:bazel/vite/vite.bzl", "vite_build")
+load("@npm//pkg/testing/a11ytree:vite/package_json.bzl", vite_bin = "bin")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@aspect_rules_js//npm:defs.bzl", "npm_package")
+
+npm_link_all_packages(name = "node_modules")
+
+vite_build(
+    name = "dist_dir",
+    out = ["dist"],
+    config_path = "$(execpath :vite.config.ts)",
+    data = glob([
+        "src/**/*.ts",
+    ]) + [
+        ":vite.config.ts",
+        ":node_modules",
+    ],
+    root = package_name(),
+    vite_bin = vite_bin,
+)
+
+npm_package(
+    name = "test",
+    srcs = [
+        "package.json",
+        ":dist_dir",
+    ],
+    visibility = ["//visibility:public"],
+)
