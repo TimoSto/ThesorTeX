@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/TimoSto/ThesorTeX/pkg/backend/log"
 	"os"
 	"os/exec"
@@ -27,12 +26,12 @@ func main() {
 		log.Fatal("could not create file: ", err)
 	}
 
-	fmt.Println(outPath)
-
 	codegen := exec.Command("npx", "playwright", "codegen", "-o", outPath)
 	err = codegen.Run()
 	if err != nil {
 		log.Info("Make sure playwright and its browsers are installed globally")
 		log.Fatal("could not start codegen: ", err)
 	}
+
+	log.Info("Your test ist generated under: ", outPath)
 }
