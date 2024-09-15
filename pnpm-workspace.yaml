@@ -6,4 +6,5 @@ packages:
   - "pkg/testing/*"
   - "tests/e2e"
   - "tests/playwright"
+  - "tools/playgenerator/playwright"
   - "tools/storybookextractor"
