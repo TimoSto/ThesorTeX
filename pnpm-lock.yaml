@@ -194,6 +194,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
+  pkg/testing/a11ytree: {}
+
   pkg/testing/test:
     devDependencies:
       '@types/node':
@@ -407,6 +409,9 @@ importers:
       '@playwright/test':
         specifier: 1.36.2
         version: 1.36.2
+      '@thesortex/a11ytree':
+        specifier: workspace:^
+        version: link:../../pkg/testing/a11ytree
       '@types/node':
         specifier: 20.4.5
         version: 20.4.5

@@ -8,8 +8,6 @@ import (
 const generatedFile = "../../tests/playwright/generated/test.spec.ts"
 const createdFile = "../../tests/playwright/generated/getA11yTree.spec.ts"
 
-const importString = "import { getAccessibilityTree } from \"../src/a11yTree/a11yTree\";\nimport * as fs from \"node:fs\";"
-
 func main() {
 	dat, err := os.ReadFile(generatedFile)
 	if err != nil {
