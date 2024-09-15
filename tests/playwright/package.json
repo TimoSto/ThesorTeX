@@ -6,7 +6,6 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "1.36.2",
-    "@thesortex/a11ytree": "workspace:^",
     "@types/node": "20.4.5"
   },
   "scripts": {

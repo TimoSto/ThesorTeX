@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
-import { GetA11yTree } from "@thesortex/a11ytree";
+import { getAccessibilityTree } from "../../src/a11yTree/a11yTree";
 
 test('has a11y tree', async ({page}) => {
     await page.goto(process.env.BASE_URL!);
 
     const client = await page.context().newCDPSession(page);
 
-    const tree = await GetA11yTree(client);
+    const tree = await getAccessibilityTree(client);
 
     expect(tree.PageTitle).toEqual("ThesorTeX - Use LaTeX more comfortably");
 
